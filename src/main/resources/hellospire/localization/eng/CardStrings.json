@@ -1,0 +1,111 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description. NL Second line.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+  },
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! block.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
+  },
+  "${modID}:Defend2": {
+    "NAME": "Defend 2",
+    "DESCRIPTION": "Gain !B! block.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
+  },
+  "${modID}:Defend3": {
+    "NAME": "Defend 3",
+    "DESCRIPTION": "Gain !B! block.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
+  },
+  "${modID}:Strike2": {
+    "NAME": "Strike 2",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:Strike3": {
+    "NAME": "Strike 3",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:Strike4": {
+    "NAME": "Strike 4",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike1": {
+    "NAME": "DashStrike1",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike2": {
+    "NAME": "Dash Strike 2",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike3": {
+    "NAME": "Dash Strike 3",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike4": {
+    "NAME": "Dash Strike 4",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:OmegaStrike1": {
+    "NAME": "Omega Strike",
+    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  }
+}
