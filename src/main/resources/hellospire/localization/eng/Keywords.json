@@ -19,5 +19,12 @@
       "multiword_keywords"
     ],
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+  },
+  {
+  "PROPER_NAME": "Height",
+  "NAMES": [
+    "asdf"
+  ],
+  "DESCRIPTION": "At the end of your turn, play a finisher move. !cardsToPreview:Strike!"
   }
 ]

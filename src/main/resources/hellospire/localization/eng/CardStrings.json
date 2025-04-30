@@ -12,7 +12,7 @@
   "${modID}:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
   },
   "${modID}:Defend": {
     "NAME": "Defend",
@@ -69,35 +69,27 @@
       "Apply !M! poison."
     ]
   },
-  "${modID}:DashStrike2": {
-    "NAME": "Dash Strike 2",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+  "${modID}:GainedHeight": {
+    "NAME": "Gained Height",
+    "DESCRIPTION": "Reduces to zero at end of turn. Play a finisher at end of turn."
+  },
+  "${modID}:Height": {
+    "NAME": "Height",
+    "DESCRIPTION": "Ethereal. Autoplays all Heights and Unplayable cards in your hand. Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
+      "Ethereal.",
+      "When played, auto plays all Heights and Unplayable cards in your hand.",
+      "At the end of your turn, play a finisher card for all of your height.",
+      "Exhaust."
     ]
   },
-  "${modID}:DashStrike3": {
-    "NAME": "Dash Strike 3",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
+  "${modID}:HomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Deal !D! damage. Add a Height and a Trick to your hand."
   },
-  "${modID}:DashStrike4": {
-    "NAME": "Dash Strike 4",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
+  "${modID}:Trick": {
+    "NAME": "Trick",
+    "DESCRIPTION": "Unplayable. At the end of your turn, play a finisher card for Tricks played."
   },
   "${modID}:OmegaStrike1": {
     "NAME": "Omega Strike",
