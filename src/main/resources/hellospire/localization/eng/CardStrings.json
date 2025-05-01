@@ -117,7 +117,7 @@
   },
   "${modID}:Trick": {
     "NAME": "Trick",
-    "DESCRIPTION": "Unplayable.\r\n.Trick.\r\nExhaust.",
+    "DESCRIPTION": "Unplayable. \nTrick. \nExhaust.",
     "UPGRADE_DESCRIPTION": "Trick. Exhaust."
   },
   "${modID}:TrickFinisher1": {
