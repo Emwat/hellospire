@@ -1,6 +1,8 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.ShoutAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +16,7 @@ import hellospire.powers.GainedTrickPower;
 import hellospire.util.CardStats;
 
 public class Trick extends BaseCard {
-    public static final String ID = makeID("Strike");
+    public static final String ID = makeID("Trick");
     private static final CardStats info = new CardStats(
             CardColor.COLORLESS, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -23,19 +25,27 @@ public class Trick extends BaseCard {
             -2 //unplayable cards like curses, or Reflex.
     );
 
+    private static final int MAGIC = 1;
+
     public Trick() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
+        setMagic(MAGIC);
+        this.exhaust = true;
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (!this.upgraded) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(
-                        p,
-                        p,
-                        new GainedTrickPower(p, 1)
-                )
-        );
+//        addToBot(new TalkAction(p, "Yeah!", 1, 1));
+        addToBot(new ShoutAction(p, "Yeah!", 1, 1));
+        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }
 
     @Override

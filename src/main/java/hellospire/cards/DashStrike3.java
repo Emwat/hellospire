@@ -11,7 +11,7 @@ import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
 public class DashStrike3 extends BaseCard {
-    public static final String ID = makeID("Dash Strike 3");
+    public static final String ID = makeID("DashStrike3");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS

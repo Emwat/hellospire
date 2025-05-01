@@ -22,6 +22,9 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import hellospire.cards.Defend;
+import hellospire.cards.HomingAttack;
+import hellospire.cards.Strike;
 
 import java.util.ArrayList;
 
@@ -34,7 +37,7 @@ public class MyCharacter extends CustomPlayer {
     public static final int MAX_HP = 70;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
-    public static final int ORB_SLOTS = 0;
+    public static final int ORB_SLOTS = 1;
 
     //Strings
     private static final String ID = makeID("CharacterID"); //This should match whatever you have in the CharacterStrings.json file
@@ -143,7 +146,20 @@ public class MyCharacter extends CustomPlayer {
         retVal.add(Strike_Red.ID);
         retVal.add(Defend_Blue.ID);
         retVal.add(Defend_Blue.ID);
-        retVal.add(Neutralize.ID);
+//        retVal.add(Neutralize.ID);
+//        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
+//
+//        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
+
+        retVal.add(HomingAttack.ID);
 
         return retVal;
     }

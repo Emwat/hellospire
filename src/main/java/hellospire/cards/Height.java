@@ -1,21 +1,13 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.Frost;
-import hellospire.character.MyCharacter;
 import hellospire.powers.GainedHeightPower;
 import hellospire.util.CardStats;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 
 import java.util.Objects;
 
@@ -55,25 +47,20 @@ public class Height extends BaseCard {
             if (Objects.equals(c.cardID, this.cardID))
             {
                 heightsPlayedForFrostOrbs++;
-                AbstractDungeon.actionManager.addToBottom(new AutoplayCardAction(c, p.hand));
+                addToBot(new AutoplayCardAction(c, p.hand));
                 if(heightsPlayedForFrostOrbs == 2) {
                     heightsPlayedForFrostOrbs = 0;
-                    AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost()));
+//                    addToBot(new ChannelAction(new Frost()));
                 }
-            } else if (c.costForTurn == -2){
-                AbstractDungeon.actionManager.addToBottom(new AutoplayCardAction(c, p.hand));
+            } else if (Objects.equals(c.cardID, Trick.ID)){
+                addToBot(new UpgradeSpecificCardAction(c));
+                addToBot(new AutoplayCardAction(c, p.hand));
             }
 
         }
 
         //AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost()));
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(
-                        p,
-                        p,
-                        new GainedHeightPower(p, stack),
-                        stack
-                )
+        addToBot(new ApplyPowerAction(p, p, new GainedHeightPower(p, stack), stack)
         );
     }
 

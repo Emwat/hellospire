@@ -11,27 +11,25 @@
   },
   "${modID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${modID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! block.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
+    "DESCRIPTION": "Gain !B! block."
   },
   "${modID}:Defend2": {
     "NAME": "Defend 2",
-    "DESCRIPTION": "Gain !B! block.",
+    "DESCRIPTION": "Placeholder2. Gain !B! block.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
   },
   "${modID}:Defend3": {
     "NAME": "Defend 3",
-    "DESCRIPTION": "Gain !B! block.",
+    "DESCRIPTION": "Placeholder3. Gain !B! block.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
   },
   "${modID}:Strike2": {
     "NAME": "Strike 2",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "DESCRIPTION": "Placeholder4. Deal !D! damage. \nApply !M! poison.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "Not a starter card.",
@@ -41,7 +39,7 @@
   },
   "${modID}:Strike3": {
     "NAME": "Strike 3",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "DESCRIPTION": "Placeholder5. Deal !D! damage. \nApply !M! poison.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "Not a starter card.",
@@ -51,7 +49,7 @@
   },
   "${modID}:Strike4": {
     "NAME": "Strike 4",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "DESCRIPTION": "Placeholder6. Deal !D! damage. \nApply !M! poison.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "Not a starter card.",
@@ -61,7 +59,37 @@
   },
   "${modID}:DashStrike1": {
     "NAME": "DashStrike1",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "DESCRIPTION": "Placeholder1. Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike2": {
+    "NAME": "DashStrike2",
+    "DESCRIPTION": "Placeholder2. Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike3": {
+    "NAME": "DashStrike3",
+    "DESCRIPTION": "Placeholder3. Deal !D! damage. \nApply !M! poison.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Not a starter card.",
+      "Deal !D! damage.",
+      "Apply !M! poison."
+    ]
+  },
+  "${modID}:DashStrike4": {
+    "NAME": "DashStrike4",
+    "DESCRIPTION": "Placeholder4. Deal !D! damage. \nApply !M! poison.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "Not a starter card.",
@@ -71,7 +99,7 @@
   },
   "${modID}:GainedHeight": {
     "NAME": "Gained Height",
-    "DESCRIPTION": "Reduces to zero at end of turn. Play a finisher at end of turn."
+    "DESCRIPTION": "Reduces to zero at end of turn. Play a Height Finisher at end of turn."
   },
   "${modID}:Height": {
     "NAME": "Height",
@@ -89,11 +117,24 @@
   },
   "${modID}:Trick": {
     "NAME": "Trick",
-    "DESCRIPTION": "Unplayable. At the end of your turn, play a finisher card for Tricks played."
+    "DESCRIPTION": "Unplayable.\r\n.Trick.\r\nExhaust.",
+    "UPGRADE_DESCRIPTION": "Trick. Exhaust."
+  },
+  "${modID}:TrickFinisher1": {
+    "NAME": "Smell the Flowers",
+    "DESCRIPTION": "Draw !M! next turn."
+  },
+  "${modID}:TrickFinisher2": {
+    "NAME": "Blast Off",
+    "DESCRIPTION": "Gain !M! [E] next turn."
+  },
+  "${modID}:TrickFinisher3": {
+    "NAME": "Lock on",
+    "DESCRIPTION": "Gain !M! orb."
   },
   "${modID}:OmegaStrike1": {
     "NAME": "Omega Strike",
-    "DESCRIPTION": "Deal !D! damage. \nApply !M! poison.",
+    "DESCRIPTION": "OmegaPlaceholder. Deal !D! damage. \nApply !M! poison.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",

@@ -27,5 +27,6 @@ public class GainedHeightPower extends BasePower {
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, amount));
+//        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
     }
 }
