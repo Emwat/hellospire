@@ -15,7 +15,7 @@
   },
   "${modID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! block."
+    "DESCRIPTION": "Gain !B! Block."
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
@@ -27,10 +27,10 @@
   },
   "${modID}:Height": {
     "NAME": "Height",
-    "DESCRIPTION": "Ethereal. Autoplays all Heights and Unplayable cards in your hand. Exhaust.",
+    "DESCRIPTION": "Ethereal. Autoplays all Heights and Tricks in your hand. Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Ethereal.",
-      "When played, auto plays all Heights and Unplayable cards in your hand.",
+      "When played, auto plays all Heights and Trick in your hand.",
       "At the end of your turn, play a finisher card for all of your height.",
       "Exhaust."
     ]
@@ -54,19 +54,19 @@
   },
   "${modID}:Acceleration": {
     "NAME": "Acceleration",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "You draw one less card next turn. Gain !M! Focus."
   },
   "${modID}:AMAZING": {
     "NAME": "AMAZING",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "If you play three attacks in a single turn, deal !D! damage to ALL enemies."
   },
   "${modID}:AncientLight": {
     "NAME": "Ancient Light",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage to a random enemy for each Trick played."
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Exhaust up to two cards. NL Your debuffs decrease by one."
   },
   "${modID}:BackSpinKick": {
     "NAME": "Back Spin Kick",
@@ -76,22 +76,21 @@
     "NAME": "Blast Off",
     "DESCRIPTION": ""
   },
-  "${modID}:BlueTornado": {
-    "NAME": "Blue Tornado",
-    "DESCRIPTION": ""
-  },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. Block is not removed at the start of your next turn."
+  },
+  "${modID}:BlueTornado": {
+    "NAME": "Blue Tornado",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Add a Height to your hand."
   },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain 6 Block. NL Add !M! Heights to your hand."
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
-    "DESCRIPTION": "",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust all cards in your hand.",
     "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:DashPanel": {
@@ -100,7 +99,7 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "When you gain Block this turn, add a Height to your hand."
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
@@ -112,7 +111,7 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Activate the passive effects of your orbs X times."
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
@@ -122,24 +121,20 @@
     "NAME": "Endless Boost",
     "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E]."
   },
-  "${modID}:FlagPole": {
-    "NAME": "Flag Pole",
-    "DESCRIPTION": ""
-  },
   "${modID}:FireSomersault": {
-    "NAME": "FireSomersault",
+    "NAME": "Fire Somersault",
     "DESCRIPTION": ""
   },
   "${modID}:FireTackle": {
-    "NAME": "FireTackle",
-    "DESCRIPTION": ""
+    "NAME": "Fire Tackle",
+    "DESCRIPTION": "Deal 10 damage. NL When you are attacked this turn, deal 3 damage to the attacker."
+  },
+  "${modID}:FlagPole": {
+    "NAME": "Flag Pole",
+    "DESCRIPTION": "Draw a card for each Height in your hand."
   },
   "${modID}:FootSweep": {
     "NAME": "Ancient Light",
-    "DESCRIPTION": ""
-  },
-  "${modID}:VolcanoSlider": {
-    "NAME": "Volcano Slider",
     "DESCRIPTION": ""
   },
   "${modID}:GrindRail": {
@@ -148,13 +143,13 @@
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
-    "DESCRIPTION": "",
+    "DESCRIPTION": "Evoke all of your frost orbs. NL Deal 2x damage for each frost orb evoked.",
     "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:HomingDash": {
     "NAME": "Homing Dash",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Your next attack is played twice.",
+    "UPGRADE_DESCRIPTION": "Your next attack is played twice."
   },
   "${modID}:HummingTop": {
     "NAME": "Humming Top",
@@ -167,7 +162,7 @@
   },
   "${modID}:Leap": {
     "NAME": "Leap",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block."
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
@@ -183,17 +178,17 @@
   },
   "${modID}:MyRainbow": {
     "NAME": "My Rainbow",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Play the top 3 cards of your draw pile."
   },
   "${modID}:Pose": {
     "NAME": "Pose",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When this card is in your hand, the last AUTOPLAY trick gets played twice."
   },
   "${modID}:PowerRing": {
     "NAME": "Power Ring",
     "DESCRIPTION": "Deal !D! damage 4 times.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !M! damage."
+    "UPGRADE_DESCRIPTION": "When you create a card, create one more."
   },
   "${modID}:PunchRush": {
     "NAME": "Punch Rush",
@@ -216,17 +211,17 @@
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Add 2 Tricks to your hand."
   },
   "${modID}:ScissorKick": {
     "NAME": "Scissor Kick",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "Deal 3 damage for each card in your hand."
   },
   "${modID}:SecretRoute": {
     "NAME": "Secret Route",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "This turn, whenever you create or draw a card, upgrade it. NL Draw 3 cards."
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
@@ -236,7 +231,7 @@
   "${modID}:Slide": {
     "NAME": "Slide",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "Gain 6 block. NL If you created a card this turn, gain 1 [E] and draw 1 Card."
   },
   "${modID}:SonicFlare": {
     "NAME": "Sonic Flare",
@@ -246,11 +241,11 @@
   "${modID}:SonicIsMyName": {
     "NAME": "Sonic Is My Name",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "UPGRADE_DESCRIPTION": "Every time you play an attack card, activate the passive of effect of ALL your orbs."
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Channel 1 Lightning."
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",
@@ -258,7 +253,7 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "",
+    "DESCRIPTION": "Your next attack deals 8 additional damage. NL Gain 1 [E].",
     "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:SpinDash": {
@@ -288,15 +283,19 @@
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! weak. NL Add a Height to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a Height to your hand."
   },
   "${modID}:UpperSpin": {
     "NAME": "Upper Spin",
     "DESCRIPTION": ""
   },
+  "${modID}:VolcanoSlider": {
+    "NAME": "Volcano Slider",
+    "DESCRIPTION": ""
+  },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block and add Height to your hand X times."
   },
   "${modID}:WindUpPunch": {
     "NAME": "Wind Up Punch",
