@@ -2,7 +2,6 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,8 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
-public class Defend2 extends BaseCard {
-    public static final String ID = makeID("Defend2");
+public class Pose extends BaseCard {
+    public static final String ID = makeID("Pose");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -22,23 +21,25 @@ public class Defend2 extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 7;
-    private static final int UPG_BLOCK = 2;
+    private static final int DAMAGE = 6;
+    private static final int UPG_DAMAGE = 2;
 
-    public Defend2() {
+    public Pose() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
-        setBlock(BLOCK, UPG_BLOCK);
+        setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
+
+        tags.add(CardTags.STARTER_STRIKE);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new GainBlockAction(p, block));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new Defend2();
+        return new Pose();
     }
 }

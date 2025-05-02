@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import hellospire.cards.Defend;
+import hellospire.cards.DevCreateCard;
 import hellospire.cards.HomingAttack;
 import hellospire.cards.Strike;
 
@@ -145,7 +146,7 @@ public class MyCharacter extends CustomPlayer {
         retVal.add(Strike_Red.ID);
         retVal.add(Strike_Red.ID);
         retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
+//        retVal.add(Defend_Blue.ID);
 //        retVal.add(Neutralize.ID);
 //        retVal.add(Strike.ID);
 //        retVal.add(Strike.ID);
@@ -160,7 +161,7 @@ public class MyCharacter extends CustomPlayer {
 //        retVal.add(Defend.ID);
 
         retVal.add(HomingAttack.ID);
-
+        retVal.add(DevCreateCard.ID);
         return retVal;
     }
 
@@ -274,4 +275,5 @@ public class MyCharacter extends CustomPlayer {
         //Makes a new instance of your character class.
         return new MyCharacter();
     }
+
 }

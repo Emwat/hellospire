@@ -32,6 +32,7 @@ import java.util.*;
 public class BasicMod implements
         EditCharactersSubscriber,
         EditCardsSubscriber,
+        AddAudioSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber {
@@ -236,4 +237,14 @@ public class BasicMod implements
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
     }
+
+    @Override
+    public void receiveAddAudio()
+    {
+        BaseMod.addAudio(makeID("FEELINGGOOD"), "audio/sound/FEELINGGOOD.ogg");
+        BaseMod.addAudio(makeID("YEAH"), "audio/sound/YEAH.ogg");
+        BaseMod.addAudio(makeID("OK"), "audio/sound/OK.ogg");
+        BaseMod.addAudio(makeID("COOL"), "audio/sound/COOL.ogg");
+    }
+
 }

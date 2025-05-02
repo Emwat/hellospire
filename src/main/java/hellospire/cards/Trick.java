@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.animations.ShoutAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -44,7 +45,12 @@ public class Trick extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(new TalkAction(p, "Yeah!", 1, 1));
-        addToBot(new ShoutAction(p, "Yeah!", 1, 1));
+//        addToBot(new ShoutAction(p, "Yeah!", 1, 1));
+
+        addToBot(new SFXAction("Yeah"));
+        addToBot(new SFXAction("Hool"));
+        addToBot(new SFXAction("OK"));
+        addToBot(new SFXAction("Yes"));
         addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }
 

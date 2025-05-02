@@ -17,85 +17,9 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! block."
   },
-  "${modID}:Defend2": {
-    "NAME": "Defend 2",
-    "DESCRIPTION": "Placeholder2. Gain !B! block.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
-  },
-  "${modID}:Defend3": {
-    "NAME": "Defend 3",
-    "DESCRIPTION": "Placeholder3. Gain !B! block.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded."
-  },
-  "${modID}:Strike2": {
-    "NAME": "Strike 2",
-    "DESCRIPTION": "Placeholder4. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  },
-  "${modID}:Strike3": {
-    "NAME": "Strike 3",
-    "DESCRIPTION": "Placeholder5. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  },
-  "${modID}:Strike4": {
-    "NAME": "Strike 4",
-    "DESCRIPTION": "Placeholder6. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  },
-  "${modID}:DashStrike1": {
-    "NAME": "DashStrike1",
-    "DESCRIPTION": "Placeholder1. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  },
-  "${modID}:DashStrike2": {
-    "NAME": "DashStrike2",
-    "DESCRIPTION": "Placeholder2. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  },
-  "${modID}:DashStrike3": {
-    "NAME": "DashStrike3",
-    "DESCRIPTION": "Placeholder3. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  },
-  "${modID}:DashStrike4": {
-    "NAME": "DashStrike4",
-    "DESCRIPTION": "Placeholder4. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Not a starter card.",
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
+  "${modID}:HomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Deal !D! damage. Add a Height and a Trick to your hand."
   },
   "${modID}:GainedHeight": {
     "NAME": "Gained Height",
@@ -111,13 +35,9 @@
       "Exhaust."
     ]
   },
-  "${modID}:HomingAttack": {
-    "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. Add a Height and a Trick to your hand."
-  },
   "${modID}:Trick": {
     "NAME": "Trick",
-    "DESCRIPTION": "Unplayable. \nTrick. \nExhaust.",
+    "DESCRIPTION": "Unplayable. NL Trick. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Trick. Exhaust."
   },
   "${modID}:TrickFinisher1": {
@@ -132,13 +52,265 @@
     "NAME": "Lock on",
     "DESCRIPTION": "Gain !M! orb."
   },
-  "${modID}:OmegaStrike1": {
-    "NAME": "Omega Strike",
-    "DESCRIPTION": "OmegaPlaceholder. Deal !D! damage. \nApply !M! poison.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage.",
-      "Apply !M! poison."
-    ]
-  }
+  "${modID}:Acceleration": {
+    "NAME": "Acceleration",
+    "DESCRIPTION": ""
+  },
+  "${modID}:AMAZING": {
+    "NAME": "AMAZING",
+    "DESCRIPTION": ""
+  },
+  "${modID}:AncientLight": {
+    "NAME": "Ancient Light",
+    "DESCRIPTION": ""
+  },
+  "${modID}:Athleticism": {
+    "NAME": "Athleticism",
+    "DESCRIPTION": ""
+  },
+  "${modID}:BackSpinKick": {
+    "NAME": "Back Spin Kick",
+    "DESCRIPTION": "Deal !D! damage. This deals !M! additional damage for each orb you have."
+  },
+  "${modID}:BlastOff": {
+    "NAME": "Blast Off",
+    "DESCRIPTION": ""
+  },
+  "${modID}:BlueTornado": {
+    "NAME": "Blue Tornado",
+    "DESCRIPTION": ""
+  },
+  "${modID}:BlueBlur": {
+    "NAME": "Blue Blur",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:BouncePad": {
+    "NAME": "Bounce Pad",
+    "DESCRIPTION": ""
+  },
+  "${modID}:Crouch": {
+    "NAME": "Crouch",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:DashPanel": {
+    "NAME": "Dash Panel",
+    "DESCRIPTION": "Play the two cards to the right of this card."
+  },
+  "${modID}:DirectJump": {
+    "NAME": "Direct Jump",
+    "DESCRIPTION": ""
+  },
+  "${modID}:DizzySpin": {
+    "NAME": "Dizzy Spin",
+    "DESCRIPTION": ""
+  },
+  "${modID}:DoubleAirKick": {
+    "NAME": "Double Air Kick",
+    "DESCRIPTION": "Deal !D! damage 2 times."
+  },
+  "${modID}:Drift": {
+    "NAME": "Drift",
+    "DESCRIPTION": ""
+  },
+  "${modID}:DropDash": {
+    "NAME": "Drop Dash",
+    "DESCRIPTION": ""
+  },
+  "${modID}:EndlessBoost": {
+    "NAME": "Endless Boost",
+    "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E]."
+  },
+  "${modID}:FlagPole": {
+    "NAME": "Flag Pole",
+    "DESCRIPTION": ""
+  },
+  "${modID}:FireSomersault": {
+    "NAME": "FireSomersault",
+    "DESCRIPTION": ""
+  },
+  "${modID}:FireTackle": {
+    "NAME": "FireTackle",
+    "DESCRIPTION": ""
+  },
+  "${modID}:FootSweep": {
+    "NAME": "Ancient Light",
+    "DESCRIPTION": ""
+  },
+  "${modID}:VolcanoSlider": {
+    "NAME": "Volcano Slider",
+    "DESCRIPTION": ""
+  },
+  "${modID}:GrindRail": {
+    "NAME": "Grind Rail",
+    "DESCRIPTION": ""
+  },
+  "${modID}:HeavyBounceSlam": {
+    "NAME": "Heavy Bounce Slam",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:HomingDash": {
+    "NAME": "Homing Dash",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:HummingTop": {
+    "NAME": "Humming Top",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:InstaShield": {
+    "NAME": "Insta Shield",
+    "DESCRIPTION": ""
+  },
+  "${modID}:Leap": {
+    "NAME": "Leap",
+    "DESCRIPTION": ""
+  },
+  "${modID}:LightSpeedAttack": {
+    "NAME": "Light Speed Attack",
+    "DESCRIPTION": ""
+  },
+  "${modID}:MagicHands": {
+    "NAME": "Magic Hands",
+    "DESCRIPTION": ""
+  },
+  "${modID}:Momentum": {
+    "NAME": "Momentum",
+    "DESCRIPTION": ""
+  },
+  "${modID}:MyRainbow": {
+    "NAME": "My Rainbow",
+    "DESCRIPTION": ""
+  },
+  "${modID}:Pose": {
+    "NAME": "Pose",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:PowerRing": {
+    "NAME": "Power Ring",
+    "DESCRIPTION": "Deal !D! damage 4 times.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !M! damage."
+  },
+  "${modID}:PunchRush": {
+    "NAME": "Punch Rush",
+    "DESCRIPTION": "Deal !D! damage 4 times.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !M! damage."
+  },
+  "${modID}:QuickAir": {
+    "NAME": "Quick Air",
+    "DESCRIPTION": ""
+  },
+  "${modID}:QuickKick": {
+    "NAME": "Quick Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !M! damage."
+  },
+  "${modID}:QuickStep": {
+    "NAME": "Quick Step",
+    "DESCRIPTION": ""
+  },
+  "${modID}:RampJump": {
+    "NAME": "Ramp Jump",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:ScissorKick": {
+    "NAME": "Scissor Kick",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:SecretRoute": {
+    "NAME": "Secret Route",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:SkyRing": {
+    "NAME": "Sky Ring",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:Slide": {
+    "NAME": "Slide",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:SonicFlare": {
+    "NAME": "Sonic Flare",
+    "DESCRIPTION": "Deal !D! to ALL enemies. NL Add a trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile. NL It is upgraded for the rest of combat."
+  },
+  "${modID}:SonicIsMyName": {
+    "NAME": "Sonic Is My Name",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:SonicWave": {
+    "NAME": "Sonic Wave",
+    "DESCRIPTION": ""
+  },
+  "${modID}:SonicWind": {
+    "NAME": "Sonic Wind",
+    "DESCRIPTION": ""
+  },
+  "${modID}:SpeedUp": {
+    "NAME": "Speed Up",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:SpinDash": {
+    "NAME": "Spin Dash",
+    "DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile. NL It is upgraded for the rest of combat."
+  },
+  "${modID}:SuperSonicStyle": {
+    "NAME": "Super Sonic Style",
+    "DESCRIPTION": ""
+  },
+  "${modID}:SureFooted": {
+    "NAME": "Sure-Footed",
+    "DESCRIPTION": ""
+  },
+  "${modID}:Taunt": {
+    "NAME": "Taunt",
+    "DESCRIPTION": ""
+  },
+  "${modID}:TopKick": {
+    "NAME": "Top Kick",
+    "DESCRIPTION": ""
+  },
+  "${modID}:TripleKick": {
+    "NAME": "Triple Kick",
+    "DESCRIPTION": "Deal !D! damage 3 times."
+  },
+  "${modID}:UpDraft": {
+    "NAME": "Up Draft",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! weak. NL Add a Height to your hand."
+  },
+  "${modID}:UpperSpin": {
+    "NAME": "Upper Spin",
+    "DESCRIPTION": ""
+  },
+  "${modID}:WallJump": {
+    "NAME": "Wall Jump",
+    "DESCRIPTION": ""
+  },
+  "${modID}:WindUpPunch": {
+    "NAME": "Wind Up Punch",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable."
+  },
+  "${modID}:Windmill": {
+    "NAME": "Windmill",
+    "DESCRIPTION": ""
+  },
+  "${modID}:DevCreateCard": {
+  "NAME": "Dev Create Card",
+  "DESCRIPTION": "Heal target for 999 HP. NL Lose 99 [E]. NL Gain 3 [E]. NL Add any card to your hand.",
+  "EXTENDED_DESCRIPTION": [
+    "This is not a card intended for players."
+  ]
+}
 }

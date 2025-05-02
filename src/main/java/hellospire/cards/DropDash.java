@@ -2,7 +2,6 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,8 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
-public class DashStrike3 extends BaseCard {
-    public static final String ID = makeID("DashStrike3");
+public class DropDash extends BaseCard {
+    public static final String ID = makeID("DropDash");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -22,26 +21,25 @@ public class DashStrike3 extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 2;
-    private static final int POISON_DAMAGE = 1;
-    private static final int UPG_POISON_DAMAGE = 2;
 
-    public DashStrike3() {
+    public DropDash() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
-        setMagic(POISON_DAMAGE, UPG_POISON_DAMAGE);
+
+        tags.add(CardTags.STARTER_STRIKE);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new PoisonLoseHpAction(m, m, magicNumber, AbstractGameAction.AttackEffect.POISON));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new DashStrike3();
+        return new DropDash();
     }
 }
