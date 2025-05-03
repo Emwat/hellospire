@@ -58,7 +58,7 @@
   },
   "${modID}:AMAZING": {
     "NAME": "AMAZING",
-    "DESCRIPTION": "If you play three attacks in a single turn, deal !D! damage to ALL enemies."
+    "DESCRIPTION": "When playing 3 attacks in a single turn, deal !M! damage to ALL enemies."
   },
   "${modID}:AncientLight": {
     "NAME": "Ancient Light",
@@ -78,7 +78,7 @@
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
-    "DESCRIPTION": "Gain !B! Block. Block is not removed at the start of your next turn."
+    "DESCRIPTION": "Gain !B! Block. Next turn, your first move will play twice."
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
@@ -86,7 +86,7 @@
   },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": "Gain 6 Block. NL Add !M! Heights to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Add !M! Heights to your hand."
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
@@ -127,7 +127,7 @@
   },
   "${modID}:FireTackle": {
     "NAME": "Fire Tackle",
-    "DESCRIPTION": "Deal 10 damage. NL When you are attacked this turn, deal 3 damage to the attacker."
+    "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."
   },
   "${modID}:FlagPole": {
     "NAME": "Flag Pole",
@@ -150,6 +150,11 @@
     "NAME": "Homing Dash",
     "DESCRIPTION": "Your next attack is played twice.",
     "UPGRADE_DESCRIPTION": "Your next attack is played twice."
+  },
+  "${modID}:HopJump": {
+    "NAME": "Hop Jump",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:HummingTop": {
     "NAME": "Humming Top",
@@ -178,7 +183,7 @@
   },
   "${modID}:MyRainbow": {
     "NAME": "My Rainbow",
-    "DESCRIPTION": "Play the top 3 cards of your draw pile."
+    "DESCRIPTION": "Play the top !M! cards of your draw pile. NL Exhaust."
   },
   "${modID}:Pose": {
     "NAME": "Pose",
@@ -245,7 +250,8 @@
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": "Channel 1 Lightning."
+    "DESCRIPTION": "Deal !D! damage. NL Evoke all of your orbs.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke all of your orbs."
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",

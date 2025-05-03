@@ -175,6 +175,12 @@ public class BasicMod implements
     public static String relicPath(String file) {
         return resourcesFolder + "/images/relics/" + file;
     }
+    public static String audioPath(String file) {
+        return resourcesFolder + "/audio/" + file;
+    }
+    public static String soundPath(String file) {
+        return resourcesFolder + "/audio/sound/" + file;
+    }
 
     /**
      * Checks the expected resources path based on the package name.
@@ -241,10 +247,17 @@ public class BasicMod implements
     @Override
     public void receiveAddAudio()
     {
-        BaseMod.addAudio(makeID("FEELINGGOOD"), "audio/sound/FEELINGGOOD.ogg");
-        BaseMod.addAudio(makeID("YEAH"), "audio/sound/YEAH.ogg");
-        BaseMod.addAudio(makeID("OK"), "audio/sound/OK.ogg");
-        BaseMod.addAudio(makeID("COOL"), "audio/sound/COOL.ogg");
+        logger.info("********************  " + soundPath("FEELINGGOOD.ogg"));
+        logger.info("********************  " + audioPath("01_AMAZING.ogg"));
+
+        BaseMod.addAudio(makeID("AFEELINGGOOD"), soundPath("FEELINGGOOD.ogg"));
+//        BaseMod.addAudio(makeID("YEAH"), soundPath("YEAH.ogg"));
+//        BaseMod.addAudio(makeID("YES"), soundPath("YES.ogg"));
+//        BaseMod.addAudio(makeID("OK"), soundPath("OK.ogg"));
+//        BaseMod.addAudio(makeID("COOL"), soundPath("COOL.ogg"));
+        BaseMod.addAudio(makeID("AAMAZING"), audioPath("01_AMAZING.ogg"));
+        BaseMod.addAudio(makeID("AOUTSTANDING"), audioPath("se_nep00.ogg"));
     }
+
 
 }

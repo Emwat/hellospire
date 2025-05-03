@@ -4,5 +4,28 @@
     "DESCRIPTIONS": [
       "You are Very Cool and Strong."
     ]
+  },
+  "${modID}:AMAZING": {
+    "NAME": "AMAZING",
+    "DESCRIPTIONS": [
+      "Every time you play ",
+      " Attack card in a single turn, deal ",
+      " damage to ALL enemies. ",
+      " Attack cards in a single turn, deal "
+    ]
+  },
+  "${modID}:GainedHeight": {
+    "NAME": "Height",
+    "DESCRIPTIONS": [
+      "At the end of your turn, play a Finisher Move that scales with ",
+      " Height"
+    ]
+  },
+  "${modID}:GainedTrick": {
+    "NAME": "Trick",
+    "DESCRIPTIONS": [
+      "At the end of your turn, play a Finisher Move that scales with ",
+      " Trick"
+    ]
   }
 }

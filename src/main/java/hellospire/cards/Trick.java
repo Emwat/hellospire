@@ -19,17 +19,17 @@ import hellospire.util.CardStats;
 public class Trick extends BaseCard {
     public static final String ID = makeID("Trick");
     private static final CardStats info = new CardStats(
-            CardColor.COLORLESS, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
-            CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
-            CardRarity.BASIC, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
-            CardTarget.SELF, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            -2 //unplayable cards like curses, or Reflex.
+            CardColor.COLORLESS,
+            CardType.SKILL,
+            CardRarity.BASIC,
+            CardTarget.SELF,
+            -2
     );
 
     private static final int MAGIC = 1;
 
     public Trick() {
-        super(ID, info); //Pass the required information to the BaseCard constructor.
+        super(ID, info);
         setMagic(MAGIC);
         this.exhaust = true;
     }
@@ -47,10 +47,10 @@ public class Trick extends BaseCard {
 //        addToBot(new TalkAction(p, "Yeah!", 1, 1));
 //        addToBot(new ShoutAction(p, "Yeah!", 1, 1));
 
-        addToBot(new SFXAction("Yeah"));
-        addToBot(new SFXAction("Hool"));
+        addToBot(new SFXAction("YEAH"));
+        addToBot(new SFXAction("COOL"));
         addToBot(new SFXAction("OK"));
-        addToBot(new SFXAction("Yes"));
+        addToBot(new SFXAction("YES"));
         addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }
 
