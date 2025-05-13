@@ -2,6 +2,8 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,21 +18,23 @@ public class DropDash extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
+    private static final int BLOCK = 15;
+    private static final int UPG_BLOCK = 3;
 
+    ///"DESCRIPTION": "Gain !B! Block. Exhaust 2 cards."
     public DropDash() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setBlock(BLOCK, UPG_BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new GainBlockAction(p, block));
+        addToBot(new ExhaustAction(2, false, true, false));
     }
 
     @Override

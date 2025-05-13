@@ -2,50 +2,46 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.Claw;
+import com.megacrit.cardcrawl.cards.blue.Coolheaded;
+import com.megacrit.cardcrawl.cards.purple.Evaluate;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Dark;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
-public class BouncePad extends BaseCard {
-    public static final String ID = makeID("BouncePad");
+public class Teaser extends BaseCard {
+    public static final String ID = makeID("FlagPole");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
     );
 
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 2;
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
 
-    public BouncePad() {
+    public Teaser() {
         super(ID, info);
-        this.cardsToPreview = new Height();
-
-
-        setBlock(BLOCK, UPG_BLOCK);
-        setMagic(MAGIC, UPG_MAGIC);
+        this.cardsToPreview = new ClawsUnleashed();
 
     }
 
-    ///  Gain !B! Block. NL Add !M! Heights to your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber, true));
-
+        AbstractCard createdCard = this.cardsToPreview.makeStatEquivalentCopy();
+        addToBot(new ChannelAction(new Dark()));
+        addToBot(new MakeTempCardInDrawPileAction(createdCard, 1, true, true, false));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new BouncePad();
+        return new Teaser();
     }
 }

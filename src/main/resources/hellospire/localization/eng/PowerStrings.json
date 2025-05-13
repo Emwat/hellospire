@@ -17,15 +17,35 @@
   "${modID}:GainedHeight": {
     "NAME": "Height",
     "DESCRIPTIONS": [
-      "At the end of your turn, play a Finisher Move that scales with ",
-      " Height"
+      "For each Height in your hand, increase Block gained from cards by 1. You have ",
+      " Height cards. NL NL When you play a card, a Height in your hand will exhaust."
     ]
   },
   "${modID}:GainedTrick": {
     "NAME": "Trick",
     "DESCRIPTIONS": [
       "At the end of your turn, play a Finisher Move that scales with ",
-      " Trick"
+      " Trick."
+    ]
+  },
+  "${modID}:NextTurnEcho": {
+    "NAME": "Blue Blur",
+    "DESCRIPTIONS": [
+      "Next turn, your first move will be played twice."
+    ]
+  },
+  "${modID}:LoseEcho": {
+    "NAME": "Blue Blur (fading)",
+    "DESCRIPTIONS": [
+      "At the end of your turn, lose the Echo buff."
+    ]
+  },
+  "${modID}:DrawReduction2": {
+    "NAME": "Draw Reduction",
+    "DESCRIPTIONS": [
+      "Draw 1 less card for the next turn.",
+      "Draw 1 less card for the next ",
+      " turns."
     ]
   }
 }

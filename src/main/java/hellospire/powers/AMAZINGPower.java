@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.PanachePower;
 import hellospire.BasicMod;
+import hellospire.SoundLibrary;
 import hellospire.character.MyCharacter;
 
 import static hellospire.BasicMod.makeID;
@@ -30,7 +31,10 @@ public class AMAZINGPower extends BasePower {
     public AMAZINGPower(AbstractCreature owner, int damage) {
         super(POWER_ID, TYPE, TURN_BASED, owner, damage);
 //        BaseMod.logger.info("1 AMAZINGPower : this.damage : " + this.damage + " : damage " + damage + " : amount " + amount);
-        this.amount = CARD_AMT;
+        // must use this conditional, b/c I don't want to overwrite the stackAmount in stackPower()
+        if(!owner.hasPower(this.ID)) {
+            this.amount = CARD_AMT;
+        }
         this.damage = damage;
 //        BaseMod.logger.info("2 AMAZINGPower : this.damage : " + this.damage + " : damage " + damage + " : amount " + amount);
         this.updateDescription();
@@ -46,9 +50,8 @@ public class AMAZINGPower extends BasePower {
 
     }
 
-    /// TODO: stackAmount is giving 3 increase when it should reflect the power card's magic number.
     public void stackPower(int stackAmount) {
-//        BaseMod.logger.info("AMAZINGPower : stackAmount : " + stackAmount);
+        BaseMod.logger.info("AMAZINGPower : stackAmount : " + stackAmount);
         this.fontScale = 8.0F;
         this.damage += stackAmount;
         this.updateDescription();
@@ -59,11 +62,24 @@ public class AMAZINGPower extends BasePower {
             return;
         }
         --this.amount;
+
+        if (this.amount == 2){
+            addToBot(new SFXAction(SoundLibrary.nice_03));
+        }
+
+        if (this.amount == 1){
+            addToBot(new SFXAction(SoundLibrary.nice_02));
+        }
+
         if (this.amount == 0) {
             this.flash();
-            addToBot(new SFXAction("AAMAZING"));
+            addToBot(new SFXAction(SoundLibrary.nice_01));
             this.amount = CARD_AMT;
-            this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.damage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            this.addToBot(new DamageAllEnemiesAction(
+                    AbstractDungeon.player,
+                    DamageInfo.createDamageMatrix(this.damage, true),
+                    DamageInfo.DamageType.THORNS,
+                    AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
 
         this.updateDescription();

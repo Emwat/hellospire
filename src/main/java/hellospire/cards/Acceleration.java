@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawReductionPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import hellospire.character.MyCharacter;
+import hellospire.powers.ModDrawReductionPower;
 import hellospire.util.CardStats;
 
 public class Acceleration extends BaseCard {
     public static final String ID = makeID("Acceleration");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
-            CardType.SKILL,
+            CardType.POWER,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
@@ -31,10 +32,12 @@ public class Acceleration extends BaseCard {
     }
 
     /// "You draw one less card next turn. Gain !M! Focus."
+    /// TODO: DrawReduction works as if TimeEater applied it. We need to make a new DrawReduction.
+    /// Like it's lasting TWO turns! We only want one turn.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DrawReductionPower(p, 1)));
-        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
+        addToTop(new ApplyPowerAction(p, p, new ModDrawReductionPower(p, 1)));
+        addToTop(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
     }
 
     @Override

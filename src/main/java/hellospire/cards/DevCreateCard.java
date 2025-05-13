@@ -1,15 +1,11 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.green.Backstab;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
@@ -37,7 +33,6 @@ public class DevCreateCard extends BaseCard {
 
         tmp.add(new Acceleration());
         tmp.add(new AMAZING());
-        tmp.add(new AncientLight());
         tmp.add(new Athleticism());
         tmp.add(new BackSpinKick());
         tmp.add(new BlastOff());
@@ -62,18 +57,17 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new Height());
         tmp.add(new HomingAttack());
         tmp.add(new HomingDash());
-        tmp.add(new HummingTop());
-        tmp.add(new InstaShield());
+//        tmp.add(new HummingTop());
+//        tmp.add(new InstaShield());
         tmp.add(new Leap());
-        tmp.add(new LightSpeedAttack());
-        tmp.add(new MagicHands());
-        tmp.add(new Momentum());
+//        tmp.add(new LightSpeedAttack());
+//        tmp.add(new MagicHands());
+//        tmp.add(new Momentum());
         tmp.add(new MyRainbow());
-        tmp.add(new Pose());
-        tmp.add(new PowerRing());
+//        tmp.add(new Pose());
+//        tmp.add(new PowerRing());
         tmp.add(new PunchRush());
         tmp.add(new QuickAir());
-        tmp.add(new QuickKick());
         tmp.add(new QuickStep());
         tmp.add(new RampJump());
         tmp.add(new ScissorKick());
@@ -81,11 +75,12 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new SkyRing());
         tmp.add(new Slide());
         tmp.add(new SonicFlare());
+        tmp.add(new SonicWind());
         tmp.add(new SonicWave());
         tmp.add(new SpeedUp());
         tmp.add(new SpinDash());
         tmp.add(new Strike());
-        tmp.add(new SuperSonicStyle());
+        tmp.add(new SuperSonicForm());
         tmp.add(new Taunt());
         tmp.add(new Trick());
         tmp.add(new TripleKick());

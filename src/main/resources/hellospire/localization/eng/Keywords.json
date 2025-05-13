@@ -21,6 +21,7 @@
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
   },
   {
+    "ID": "Height",
     "PROPER_NAME": "Height",
     "NAMES": [
       "Height",

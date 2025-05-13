@@ -3,6 +3,7 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,6 +27,7 @@ public class FireSomersault extends BaseCard {
     private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 2;
 
+    /// "DESCRIPTION": "Deal !D! damage. NL If exhausted, add another Fire Somersault to your hand."
     public FireSomersault() {
         super(ID, info);
 
@@ -33,11 +35,15 @@ public class FireSomersault extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    /// "Deal 10 damage. NL When you are attacked this turn, deal 3 damage to the attacker."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+//        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+    }
+
+    @Override
+    public void triggerOnExhaust() {
+        addToBot(new MakeTempCardInHandAction(this.makeStatEquivalentCopy(), 1,true));
     }
 
     @Override

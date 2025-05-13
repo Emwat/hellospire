@@ -3,6 +3,7 @@ package hellospire;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.badlogic.gdx.audio.Sound;
 import hellospire.cards.BaseCard;
 import hellospire.character.MyCharacter;
 import hellospire.util.GeneralUtils;
@@ -24,6 +25,8 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+
+import hellospire.SoundLibrary;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -176,10 +179,7 @@ public class BasicMod implements
         return resourcesFolder + "/images/relics/" + file;
     }
     public static String audioPath(String file) {
-        return resourcesFolder + "/audio/" + file;
-    }
-    public static String soundPath(String file) {
-        return resourcesFolder + "/audio/sound/" + file;
+        return resourcesFolder + "/audio/eng/" + file;
     }
 
     /**
@@ -244,20 +244,23 @@ public class BasicMod implements
                 .cards(); //Adds the cards
     }
 
+
     @Override
     public void receiveAddAudio()
     {
-        logger.info("********************  " + soundPath("FEELINGGOOD.ogg"));
-        logger.info("********************  " + audioPath("01_AMAZING.ogg"));
+        BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioPath("allRight.ogg"));
+        BaseMod.addAudio(SoundLibrary.COOL, audioPath("cool.ogg"));
+        BaseMod.addAudio(SoundLibrary.OK, audioPath("OK.ogg"));
+        BaseMod.addAudio(SoundLibrary.OW, audioPath("OW.ogg"));
+        BaseMod.addAudio(SoundLibrary.YES, audioPath("yes.ogg"));
 
-        BaseMod.addAudio(makeID("AFEELINGGOOD"), soundPath("FEELINGGOOD.ogg"));
-//        BaseMod.addAudio(makeID("YEAH"), soundPath("YEAH.ogg"));
-//        BaseMod.addAudio(makeID("YES"), soundPath("YES.ogg"));
-//        BaseMod.addAudio(makeID("OK"), soundPath("OK.ogg"));
-//        BaseMod.addAudio(makeID("COOL"), soundPath("COOL.ogg"));
-        BaseMod.addAudio(makeID("AAMAZING"), audioPath("01_AMAZING.ogg"));
-        BaseMod.addAudio(makeID("AOUTSTANDING"), audioPath("se_nep00.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_01, audioPath("01_AMAZING.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_02, audioPath("02_OUTSTANDING.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_03, audioPath("03_GREAT.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_04, audioPath("04_GOOD.ogg"));
+
     }
+
 
 
 }

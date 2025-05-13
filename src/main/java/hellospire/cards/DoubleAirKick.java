@@ -36,7 +36,6 @@ public class DoubleAirKick extends BaseCard {
         for (int i = 0; i < HITS; i++) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-
     }
 
     @Override

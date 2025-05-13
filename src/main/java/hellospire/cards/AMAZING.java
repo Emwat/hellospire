@@ -5,8 +5,11 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.colorless.Panache;
+import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.PanachePower;
 import hellospire.character.MyCharacter;
 import hellospire.powers.AMAZINGPower;
 import hellospire.util.CardStats;
@@ -21,12 +24,12 @@ public class AMAZING extends BaseCard {
             1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
-    private static final int MAGIC = 6;
-    private static final int UPG_MAGIC = 10;
+    private static final int DAMAGE = 6;
+    private static final int UPG_DAMAGE = 4;
 
     public AMAZING() {
         super(ID, info);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(DAMAGE, UPG_DAMAGE);
 
     }
 

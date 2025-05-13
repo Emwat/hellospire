@@ -18,7 +18,7 @@ public class Athleticism extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 
@@ -37,7 +37,7 @@ public class Athleticism extends BaseCard {
     ///     "DESCRIPTION": "Exhaust up to two cards. NL Your debuffs decrease by one."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ExhaustAction(magicNumber, false, false, false));
+        addToBot(new ExhaustAction(magicNumber, false, true, true));
         addToBot(new RemoveDebuffsAction(p));
 //        addToBot(new SelectCardsAction(p.hand.group, 2, "Athleticism: Select cards to exhaust", cards -> {
 //            for (AbstractCard c : cards) {

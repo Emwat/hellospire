@@ -27,17 +27,11 @@
   },
   "${modID}:Height": {
     "NAME": "Height",
-    "DESCRIPTION": "Ethereal. Autoplays all Heights and Tricks in your hand. Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "Ethereal.",
-      "When played, auto plays all Heights and Trick in your hand.",
-      "At the end of your turn, play a finisher card for all of your height.",
-      "Exhaust."
-    ]
+    "DESCRIPTION": "Retain. NL Height. NL While you have this in your hand, you have two temporary dexterity. Exhaust."
   },
   "${modID}:Trick": {
     "NAME": "Trick",
-    "DESCRIPTION": "Unplayable. NL Trick. NL Exhaust.",
+    "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Trick. Exhaust."
   },
   "${modID}:TrickFinisher1": {
@@ -60,10 +54,6 @@
     "NAME": "AMAZING",
     "DESCRIPTION": "When playing 3 attacks in a single turn, deal !M! damage to ALL enemies."
   },
-  "${modID}:AncientLight": {
-    "NAME": "Ancient Light",
-    "DESCRIPTION": "Deal !D! damage to a random enemy for each Trick played."
-  },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
     "DESCRIPTION": "Exhaust up to two cards. NL Your debuffs decrease by one."
@@ -74,11 +64,11 @@
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !M! [E]. NL Increase this card's [E] by 1 this combat."
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
-    "DESCRIPTION": "Gain !B! Block. Next turn, your first move will play twice."
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, your first move will play twice."
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
@@ -90,12 +80,12 @@
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust all cards in your hand.",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust up to !M! cards in your hand.",
     "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:DashPanel": {
     "NAME": "Dash Panel",
-    "DESCRIPTION": "Play the two cards to the right of this card."
+    "DESCRIPTION": "Play !M! cards to the right of this card."
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
@@ -103,7 +93,7 @@
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. Randomize the cost of ALL cards in your hand for this turn."
   },
   "${modID}:DoubleAirKick": {
     "NAME": "Double Air Kick",
@@ -115,7 +105,7 @@
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. Exhaust 2 cards."
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
@@ -123,7 +113,7 @@
   },
   "${modID}:FireSomersault": {
     "NAME": "Fire Somersault",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL If exhausted, add another Fire Somersault to your hand."
   },
   "${modID}:FireTackle": {
     "NAME": "Fire Tackle",
@@ -139,7 +129,8 @@
   },
   "${modID}:GrindRail": {
     "NAME": "Grind Rail",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Swaps the cost of adjacent cards for this turn.",
+    "UPGRADE_DESCRIPTION": "Swap the cost of any two cards for this turn."
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
@@ -188,12 +179,11 @@
   "${modID}:Pose": {
     "NAME": "Pose",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL When this card is in your hand, the last AUTOPLAY trick gets played twice."
+    "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:PowerRing": {
     "NAME": "Power Ring",
-    "DESCRIPTION": "Deal !D! damage 4 times.",
-    "UPGRADE_DESCRIPTION": "When you create a card, create one more."
+    "DESCRIPTION": "When you create a card, create one more."
   },
   "${modID}:PunchRush": {
     "NAME": "Punch Rush",
@@ -202,21 +192,16 @@
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": ""
-  },
-  "${modID}:QuickKick": {
-    "NAME": "Quick Kick",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !M! damage."
+    "DESCRIPTION": "Gain !B! Block. NL If this card is to the very left of your hand, discard up to !M! cards. NL Add a Quick Step to your hand."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. NL If this card is to the very right of your hand, draw !M! cards."
   },
+
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Add 2 Tricks to your hand."
+    "DESCRIPTION": "Add !M! Tricks to your hand."
   },
   "${modID}:ScissorKick": {
     "NAME": "Scissor Kick",
@@ -238,6 +223,12 @@
     "DESCRIPTION": "",
     "UPGRADE_DESCRIPTION": "Gain 6 block. NL If you created a card this turn, gain 1 [E] and draw 1 Card."
   },
+
+  "${modID}:SonicBoom": {
+    "NAME": "Sonic Boom",
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your block."
+  },
+
   "${modID}:SonicFlare": {
     "NAME": "Sonic Flare",
     "DESCRIPTION": "Deal !D! to ALL enemies. NL Add a trick to your hand.",
@@ -255,21 +246,25 @@
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Channel !M! Lightning."
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
     "DESCRIPTION": "Your next attack deals 8 additional damage. NL Gain 1 [E].",
     "UPGRADE_DESCRIPTION": ""
   },
+  "${modID}:SpeedBreak": {
+    "NAME": "Speed Break",
+    "DESCRIPTION": "Take 3 damage for every 4 cards played. All cards in your hand cost zero for this turn."
+  },
   "${modID}:SpinDash": {
     "NAME": "Spin Dash",
     "DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile. NL It is upgraded for the rest of combat."
   },
-  "${modID}:SuperSonicStyle": {
-    "NAME": "Super Sonic Style",
-    "DESCRIPTION": ""
+  "${modID}:SuperSonicForm": {
+    "NAME": "Super Sonic Form",
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Gain !M! Focus."
   },
   "${modID}:SureFooted": {
     "NAME": "Sure-Footed",
@@ -277,7 +272,7 @@
   },
   "${modID}:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain 2 Vulnerable. NL Gain 2 Temporary Dexterity."
   },
   "${modID}:TopKick": {
     "NAME": "Top Kick",
@@ -285,7 +280,7 @@
   },
   "${modID}:TripleKick": {
     "NAME": "Triple Kick",
-    "DESCRIPTION": "Deal !D! damage 3 times."
+    "DESCRIPTION": "Deal !D! damage. Add the second and third kick to your hand."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
@@ -297,7 +292,7 @@
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Exhaust all of the cards to the left of this card. Deal !D! damage."
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
@@ -309,7 +304,7 @@
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL Snecko a card."
   },
   "${modID}:DevCreateCard": {
   "NAME": "Dev Create Card",

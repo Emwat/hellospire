@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.powers.EchoPower;
 import static hellospire.BasicMod.makeID;
 
 public class LoseEchoPower extends BasePower {
-    public static final String POWER_ID = makeID("GainedHeight");
+    public static final String POWER_ID = makeID("LoseEcho");
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
@@ -23,13 +23,13 @@ public class LoseEchoPower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
         addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, amount));
-        addToBot(new ReducePowerAction(this.owner, this.owner, EchoPower.POWER_ID, -amount));
+        addToBot(new ReducePowerAction(this.owner, this.owner, EchoPower.POWER_ID, amount));
 //        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
     }
 

@@ -15,7 +15,7 @@ public class TrickFinisher1 extends BaseCard {
     private static final CardStats info = new CardStats(
             CardColor.COLORLESS,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
             -3
     );

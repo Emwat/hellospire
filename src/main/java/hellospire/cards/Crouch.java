@@ -1,7 +1,10 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,25 +18,32 @@ public class Crouch extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
+    private static final int BLOCK = 6;
+    private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC = 2;
 
     public Crouch() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setBlock(BLOCK, UPG_BLOCK);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     /// Gain !B! Block. NL Exhaust all cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new GainBlockAction(p, block));
+        addToBot(new ExhaustAction(magicNumber, false, true, true));
+//        addToBot(new SelectCardsInHandAction(2, "Select 2 cards to exhaust", false, true, null, cards -> {
+//            for (AbstractCard card : cards) {
+//                addToBot(new ExhaustAction());
+//            }
+//        }));
     }
 
     @Override

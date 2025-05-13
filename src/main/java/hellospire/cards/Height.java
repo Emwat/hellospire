@@ -1,11 +1,21 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
+import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.SandsOfTime;
+import com.megacrit.cardcrawl.cards.red.Flex;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.LoseDexterityPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import hellospire.powers.GainedHeightPower;
 import hellospire.util.CardStats;
 
@@ -16,51 +26,45 @@ public class Height extends BaseCard {
     private static final CardStats info = new CardStats(
             CardColor.COLORLESS,
             CardType.SKILL,
-            CardRarity.BASIC,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
             1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 2;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 1;
+    private static final int EXHAUSTIVE = 2;
 
     public Height() {
         super(ID, info);
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
 
-        this.isEthereal = true;
+        this.selfRetain = true;
+
+        // I would like for this card to be used twice before completely exhausting.
+//        ExhaustiveVariable.setBaseValue(this, EXHAUSTIVE);
+//        this.isEthereal = true;
         this.exhaust = true;
     }
 
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int stack = this.magicNumber;
-        int heightsPlayedForFrostOrbs = 0;
-
-        for (AbstractCard c : p.hand.group)
-        {
-            if (c == this){
-                continue;
-            }
-            if (Objects.equals(c.cardID, this.cardID))
-            {
-                heightsPlayedForFrostOrbs++;
-                addToBot(new AutoplayCardAction(c, p.hand));
-                if(heightsPlayedForFrostOrbs == 2) {
-                    heightsPlayedForFrostOrbs = 0;
-//                    addToBot(new ChannelAction(new Frost()));
-                }
-            } else if (Objects.equals(c.cardID, Trick.ID)){
-                addToBot(new UpgradeSpecificCardAction(c));
-                addToBot(new AutoplayCardAction(c, p.hand));
-            }
-
-        }
-
-        //AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost()));
-        addToBot(new ApplyPowerAction(p, p, new GainedHeightPower(p, stack), stack)
-        );
     }
+
+    /// "DESCRIPTION": "Retain. NL Height. NL While you have this in your hand, you have two temporary dexterity. Exhaust."
+    @Override
+    public void triggerWhenCopied() {
+        super.triggerWhenCopied();
+        AbstractPlayer p = AbstractDungeon.player;
+        addToTop(new ApplyPowerAction(p, p, new GainedHeightPower(p, 1)));
+//        this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
+    }
+
+//    @Override
+//    public void triggerOnExhaust() {
+//        super.triggerOnExhaust();
+//        AbstractPlayer p = AbstractDungeon.player;
+//        this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, this.magicNumber), this.magicNumber));
+//    }
 
     @Override
     public AbstractCard makeCopy() { //Optional

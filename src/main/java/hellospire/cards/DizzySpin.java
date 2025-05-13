@@ -2,10 +2,13 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.unique.MadnessAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
@@ -29,10 +32,23 @@ public class DizzySpin extends BaseCard {
 
     }
 
-
+    // "DESCRIPTION": "Deal !D! damage. Randomize the cost of ALL cards in your hand for this turn."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        if (!this.upgraded) {
+            for (AbstractCard card : AbstractDungeon.player.hand.group){
+                int newCost = AbstractDungeon.cardRandomRng.random(3);
+                if (card.cost != newCost) {
+                    card.cost = newCost;
+                    card.costForTurn = card.cost;
+                    card.isCostModified = true;
+                }
+                card.freeToPlayOnce = false;
+            }
+        } else {
+
+        }
     }
 
     @Override

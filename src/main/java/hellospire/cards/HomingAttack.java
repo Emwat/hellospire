@@ -27,6 +27,9 @@ public class HomingAttack extends BaseCard {
 
     public HomingAttack() {
         super(ID, info);
+        this.cardsToPreview = new Height();
+        this.cardsToPreview = new Trick();
+
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }
