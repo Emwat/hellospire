@@ -26,14 +26,12 @@ public class Acceleration extends BaseCard {
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 
+    /// "You draw one less card next turn. Gain !M! Focus."
     public Acceleration() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    /// "You draw one less card next turn. Gain !M! Focus."
-    /// TODO: DrawReduction works as if TimeEater applied it. We need to make a new DrawReduction.
-    /// Like it's lasting TWO turns! We only want one turn.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new ApplyPowerAction(p, p, new ModDrawReductionPower(p, 1)));

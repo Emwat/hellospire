@@ -16,7 +16,7 @@ public class Leap extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 

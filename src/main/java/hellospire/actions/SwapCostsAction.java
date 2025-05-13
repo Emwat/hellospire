@@ -25,7 +25,7 @@ public class SwapCostsAction extends AbstractGameAction{
 
     public void update(){
         SwapCosts(card1, card2);
-
+        this.isDone = true;
     }
 
     private void SwapCosts(AbstractCard card1, AbstractCard card2){

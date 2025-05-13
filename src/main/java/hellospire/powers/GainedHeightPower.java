@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,14 +42,14 @@ public class GainedHeightPower extends BasePower {
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        super.onPlayCard(card, m);
+    public void onPlayCard(AbstractCard playedCard, AbstractMonster m) {
+        super.onPlayCard(playedCard, m);
 
         AbstractCard heightCard = new Height();
         int numberOfHeights = 0;
         boolean hasExhaustedHeightCard = false;
 
-        if (Objects.equals(card.cardID, heightCard.cardID)) {
+        if (Objects.equals(playedCard.cardID, heightCard.cardID)) {
             hasExhaustedHeightCard = true;
         }
 
@@ -56,10 +57,12 @@ public class GainedHeightPower extends BasePower {
             if(Objects.equals(cardInHand.cardID, heightCard.cardID)){
                 if (!hasExhaustedHeightCard) {
                     addToBot(new ExhaustSpecificCardAction(cardInHand, AbstractDungeon.player.hand));
+//                    addToBot(new NewQueueCardAction(cardInHand, AbstractDungeon.player));
                     hasExhaustedHeightCard = true;
                 } else {
                     numberOfHeights++;
                 }
+
             }
         }
         amount = numberOfHeights;
@@ -72,7 +75,9 @@ public class GainedHeightPower extends BasePower {
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, amount));
+        if (amount == 0){
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        }
 //        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
     }
 }

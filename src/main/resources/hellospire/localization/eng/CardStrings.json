@@ -19,7 +19,8 @@
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. Add a Height and a Trick to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Add a Height and a Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Heights and a Trick to your hand."
   },
   "${modID}:GainedHeight": {
     "NAME": "Gained Height",
@@ -27,7 +28,11 @@
   },
   "${modID}:Height": {
     "NAME": "Height",
-    "DESCRIPTION": "Retain. NL Height. NL While you have this in your hand, you have two temporary dexterity. Exhaust."
+    "DESCRIPTION": "Retain. NL Height. Exhaust."
+  },
+  "${modID}:Height2": {
+    "NAME": "Height",
+    "DESCRIPTION": "Retain. NL Height. NL stslib:Exhaustive !stslib:ex!."
   },
   "${modID}:Trick": {
     "NAME": "Trick",
@@ -64,7 +69,7 @@
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
-    "DESCRIPTION": "Gain !M! [E]. NL Increase this card's [E] by 1 this combat."
+    "DESCRIPTION": "Gain !M! [E]. NL Increase this card's COST by 1 this combat."
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
@@ -77,6 +82,11 @@
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
     "DESCRIPTION": "Gain !B! Block. NL Add !M! Heights to your hand."
+  },
+  "${modID}:ClawsUnleashed": {
+    "NAME": "Claws Unleashed",
+    "DESCRIPTION": "Can only be played if you have a channeled Dark orb. NL Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage."
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
@@ -101,11 +111,11 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "Activate the passive effects of your orbs X times."
+    "DESCRIPTION": "Activate the passive effects of NL your orbs X * 2 times. NL (!D! times)"
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
-    "DESCRIPTION": "Gain !B! Block. Exhaust 2 cards."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust 2 cards. NL Gain 1 [E]."
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
@@ -121,7 +131,7 @@
   },
   "${modID}:FlagPole": {
     "NAME": "Flag Pole",
-    "DESCRIPTION": "Draw a card for each Height in your hand."
+    "DESCRIPTION": "Add a Height to your hand. Channel a Frost for each Height in your hand."
   },
   "${modID}:FootSweep": {
     "NAME": "Ancient Light",
@@ -192,36 +202,31 @@
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. NL If this card is to the very left of your hand, discard up to !M! cards. NL Add a Quick Step to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Add a Quick Step to your hand."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
     "DESCRIPTION": "Gain !B! Block. NL If this card is to the very right of your hand, draw !M! cards."
   },
-
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
     "DESCRIPTION": "Add !M! Tricks to your hand."
   },
   "${modID}:ScissorKick": {
     "NAME": "Scissor Kick",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Deal 3 damage for each card in your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Deal an additional !M! damage for each card in your hand."
   },
   "${modID}:SecretRoute": {
     "NAME": "Secret Route",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "This turn, whenever you create or draw a card, upgrade it. NL Draw 3 cards."
+    "DESCRIPTION": "This turn, whenever you create or draw a card, upgrade it. NL Draw !M! cards."
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": ""
   },
   "${modID}:Slide": {
     "NAME": "Slide",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Gain 6 block. NL If you created a card this turn, gain 1 [E] and draw 1 Card."
+    "DESCRIPTION": "Gain !B! Block. NL If you created a card this turn, gain 1 [E] and draw 1 Card."
   },
 
   "${modID}:SonicBoom": {
@@ -274,7 +279,10 @@
     "NAME": "Taunt",
     "DESCRIPTION": "Gain 2 Vulnerable. NL Gain 2 Temporary Dexterity."
   },
-  "${modID}:TopKick": {
+  "${modID}:Teaser": {
+    "NAME": "Teaser",
+    "DESCRIPTION": "Channel 1 Dark. NL Shuffle a Claws Unleashed into your Draw Pile."
+  },"${modID}:TopKick": {
     "NAME": "Top Kick",
     "DESCRIPTION": ""
   },

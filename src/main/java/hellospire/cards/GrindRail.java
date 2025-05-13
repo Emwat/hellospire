@@ -21,7 +21,7 @@ public class GrindRail extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 
@@ -30,8 +30,6 @@ public class GrindRail extends BaseCard {
 
     public GrindRail() {
         super(ID, info);
-
-        setDamage(DAMAGE, UPG_DAMAGE);
     }
 
     @Override
@@ -68,9 +66,6 @@ public class GrindRail extends BaseCard {
                         addToBot(new SwapCostsAction(pickedCard1, pickedCard2));
             }));
         }
-
-
-
     }
 
 

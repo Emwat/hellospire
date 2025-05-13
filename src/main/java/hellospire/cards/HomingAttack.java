@@ -41,6 +41,9 @@ public class HomingAttack extends BaseCard {
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
+        if(this.upgraded){
+            addToBot(new MakeTempCardInHandAction(height, 1,true));
+        }
         addToBot(new MakeTempCardInHandAction(height, 1,true));
         addToBot(new MakeTempCardInHandAction(trick, 1,true));
     }

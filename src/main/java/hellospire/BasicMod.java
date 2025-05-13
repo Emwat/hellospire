@@ -259,6 +259,15 @@ public class BasicMod implements
         BaseMod.addAudio(SoundLibrary.nice_03, audioPath("03_GREAT.ogg"));
         BaseMod.addAudio(SoundLibrary.nice_04, audioPath("04_GOOD.ogg"));
 
+        BaseMod.addAudio(SoundLibrary.QuickAir1, audioPath("01_V_SNC_000_b.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir2, audioPath("01_V_SNC_001_a.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir3, audioPath("01_V_SNC_002_b.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.BlueTornado, audioPath("bluetornado.ogg"));
+        BaseMod.addAudio(SoundLibrary.Booster, "/audio/SE_Booster.ogg");
+        BaseMod.addAudio(SoundLibrary.Spring, "/audio/SE_Spring.ogg");
+
+
     }
 
 

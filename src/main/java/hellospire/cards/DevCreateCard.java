@@ -39,6 +39,7 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new BlueBlur());
         tmp.add(new BlueTornado());
         tmp.add(new BouncePad());
+        tmp.add(new ClawsUnleashed());
         tmp.add(new Crouch());
         tmp.add(new DashPanel());
         tmp.add(new Defend());
@@ -82,6 +83,7 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new Strike());
         tmp.add(new SuperSonicForm());
         tmp.add(new Taunt());
+        tmp.add(new Teaser());
         tmp.add(new Trick());
         tmp.add(new TripleKick());
         tmp.add(new UpDraft());

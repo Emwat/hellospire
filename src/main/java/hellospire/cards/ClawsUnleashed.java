@@ -22,7 +22,7 @@ import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
 public class ClawsUnleashed extends BaseCard {
-    public static final String ID = makeID("FlagPole");
+    public static final String ID = makeID("ClawsUnleashed");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
@@ -52,12 +52,17 @@ public class ClawsUnleashed extends BaseCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (this.upgraded) {
+            return true;
+        }
+
         for (AbstractOrb orb :  AbstractDungeon.player.orbs){
-            if(orb == new Dark()){
+            if(orb.name == new Dark().name){
                 return true;
             }
         }
-        this.cantUseMessage = CardCrawlGame.languagePack.getUIString("ClawsUnleashedMessage").TEXT[0];
+        // TODO: Fix the NullPointerException
+//        this.cantUseMessage = CardCrawlGame.languagePack.getUIString("ClawsUnleashedMessage").TEXT[0];
         return false;
     }
 

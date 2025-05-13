@@ -17,7 +17,7 @@ import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
 public class Teaser extends BaseCard {
-    public static final String ID = makeID("FlagPole");
+    public static final String ID = makeID("Teaser");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,

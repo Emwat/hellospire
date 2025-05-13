@@ -1,6 +1,7 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -28,7 +29,7 @@ public class Height extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            0 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
     private static final int MAGIC = 2;
@@ -40,11 +41,14 @@ public class Height extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
 
         this.selfRetain = true;
+//        this.returnToHand = true;
 
         // I would like for this card to be used twice before completely exhausting.
 //        ExhaustiveVariable.setBaseValue(this, EXHAUSTIVE);
 //        this.isEthereal = true;
         this.exhaust = true;
+//        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, magicNumber);
+//        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, magicNumber);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

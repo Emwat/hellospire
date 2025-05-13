@@ -20,7 +20,7 @@ public class SonicFlare extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.COMMON,
-            CardTarget.ENEMY,
+            CardTarget.ALL_ENEMY,
             2
     );
 

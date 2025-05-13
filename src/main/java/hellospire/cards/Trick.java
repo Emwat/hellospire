@@ -12,11 +12,15 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SoundLibrary;
 import hellospire.character.MyCharacter;
 import hellospire.powers.GainedHeightPower;
 import hellospire.powers.GainedTrickPower;
 import hellospire.util.CardStats;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Trick extends BaseCard {
     public static final String ID = makeID("Trick");
@@ -49,27 +53,21 @@ public class Trick extends BaseCard {
 //        addToBot(new TalkAction(p, "Yeah!", 1, 1));
 //        addToBot(new ShoutAction(p, "Yeah!", 1, 1));
 
-        addToBot(new SFXAction(SoundLibrary.ALLRIGHT));
+//        addToBot(new SFXAction(SoundLibrary.ALLRIGHT));
 
-//        switch (AbstractDungeon.cardRandomRng.random(1,5)){
-//            case 1: {
-//                addToBot(new SFXAction(SoundLibrary.ALLRIGHT));
-//                break;
-//            }
-//            case 2: {
-//                addToBot(new SFXAction(SoundLibrary.COOL));
-//                break;
-//            }
-//            case 3: {
-//                addToBot(new SFXAction(SoundLibrary.OK));
-//                break;
-//            }
-//            case 4: {
-//                addToBot(new SFXAction(SoundLibrary.YES));
-//                break;
-//            }
-//        }
-        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
+        addToBot(SoundLibrary.PlayRandomSound(new ArrayList<>(Arrays.asList(
+            SoundLibrary.ALLRIGHT,
+            SoundLibrary.COOL,
+            SoundLibrary.OK,
+            SoundLibrary.YES
+        ))));
+        if(p.hasPower("Vigor")){
+            int amountOfVigor = p.getPower("Vigor").amount;
+            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, amountOfVigor)));
+        } else {
+            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, 1)));
+        }
+//        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }
 
     @Override

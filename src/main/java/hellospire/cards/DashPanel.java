@@ -6,11 +6,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SoundLibrary;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
@@ -41,6 +43,7 @@ public class DashPanel extends BaseCard {
     /// Play the two cards to the right of this card.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(SoundLibrary.Booster));
         for (AbstractCard card : getCardsToTheRight()){
             this.addToBot(new NewQueueCardAction(card, m, false, true));
         }
@@ -51,27 +54,28 @@ public class DashPanel extends BaseCard {
         return new DashPanel();
     }
 
+    /// TODO: If you continue a run, then check the card library, game crashes b/c null error.
     @Override
     public void hover() {
         super.hover();
-//        if (Wiz.isInCombat()) {
+        if (AbstractDungeon.isPlayerInDungeon()) {
             for (AbstractCard q : getCardsToTheRight()) {
                 q.glowColor = Color.GOLD.cpy();
                 q.beginGlowing();
             }
-//        }
+        }
     }
 
     @Override
     public void unhover() {
         super.unhover();
-//        if (Wiz.isInCombat()) {
+        if (AbstractDungeon.isPlayerInDungeon()) {
             for (AbstractCard q : getCardsToTheRight()) {
                 q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
                 q.triggerOnGlowCheck();
             }
             AbstractDungeon.player.hand.applyPowers();
-//        }
+        }
     }
 
     private ArrayList<AbstractCard> getCardsToTheRight() {

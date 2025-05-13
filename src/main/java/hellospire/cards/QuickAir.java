@@ -2,12 +2,19 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SoundLibrary;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QuickAir extends BaseCard {
     public static final String ID = makeID("QuickAir");
@@ -15,26 +22,43 @@ public class QuickAir extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 
-        private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
+    private static final int BLOCK = 6;
+    private static final int UPG_BLOCK = 3;
 
+    /// Gain !B! Block. NL Add a Quick Step to your hand.
     public QuickAir() {
         super(ID, info);
+        this.cardsToPreview = new QuickStep();
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setBlock(BLOCK, UPG_BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(SoundLibrary.PlayRandomSound(new ArrayList<>(Arrays.asList(
+                SoundLibrary.QuickAir1,
+                SoundLibrary.QuickAir2,
+                SoundLibrary.QuickAir3
+        ))));
+        addToBot(new GainBlockAction(p, block));
+
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
         return new QuickAir();
+    }
+
+    public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
+        if(hand.size() <= 0){
+            return false;
+        }
+
+        return hand.group.get(0) == card;
     }
 }
