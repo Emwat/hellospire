@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
@@ -16,7 +17,7 @@ public class MyRainbow extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.RARE,
-            CardTarget.ENEMY,
+            CardTarget.ALL_ENEMY,
             1
     );
 
@@ -28,9 +29,9 @@ public class MyRainbow extends BaseCard {
     public MyRainbow() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+//        setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
-        exhaust = true;
+        setExhaust(true);
     }
 
     /// Play the top 3 cards of your draw pile.
@@ -38,7 +39,17 @@ public class MyRainbow extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
-            addToBot(new PlayTopCardAction(m, false));
+            this.addToBot(new AbstractGameAction() {
+                public void update() {
+                    this.addToBot(new PlayTopCardAction(
+                            AbstractDungeon.getCurrRoom().monsters.getRandomMonster(
+                                    null,
+                                    true,
+                                    AbstractDungeon.cardRandomRng), false)
+                    );
+                    this.isDone = true;
+                }
+            });
         }
     }
 

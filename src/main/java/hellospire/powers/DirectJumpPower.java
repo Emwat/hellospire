@@ -37,7 +37,7 @@ public class DirectJumpPower extends BasePower {
 
         if(card.type == AbstractCard.CardType.SKILL) {
             AbstractCard heightCard = new Height();
-            addToBot(new MakeTempCardInHandAction(heightCard, 1));
+            addToTop(new MakeTempCardInHandAction(heightCard, 1));
         }
     }
 

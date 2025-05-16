@@ -22,11 +22,11 @@ public class DropDash extends BaseCard {
             2
     );
 
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 10;
     private static final int UPG_BLOCK = 3;
     private static final int MAGIC = 1;
 
-    ///"DESCRIPTION": "Gain !B! Block. Exhaust 2 cards."
+    ///"DESCRIPTION": "Gain !B! Block. NL Exhaust 2 cards. NL Gain 1 ."
     public DropDash() {
         super(ID, info);
 

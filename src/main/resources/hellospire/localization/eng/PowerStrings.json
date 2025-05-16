@@ -14,11 +14,26 @@
       " Attack cards in a single turn, deal "
     ]
   },
+  "${modID}:Dizzy": {
+    "NAME": "Too Slow",
+    "DESCRIPTIONS": [
+      "Target deals damage reduced by the cost of the highest card in your hand."
+    ]
+  },
+  "${modID}:DrawReduction2": {
+    "NAME": "Draw Reduction",
+    "DESCRIPTIONS": [
+      "Draw 1 less card for the next turn.",
+      "Draw 1 less card for the next ",
+      " turns."
+    ]
+  },
   "${modID}:GainedHeight": {
     "NAME": "Height",
     "DESCRIPTIONS": [
       "For each Height in your hand, increase Block gained from cards by 1. You have ",
-      " Height cards. NL NL When you play a card, a Height in your hand will exhaust."
+      " Height.",
+      " Heights."
     ]
   },
   "${modID}:GainedTrick": {
@@ -38,14 +53,6 @@
     "NAME": "Blue Blur (fading)",
     "DESCRIPTIONS": [
       "At the end of your turn, lose the Echo buff."
-    ]
-  },
-  "${modID}:DrawReduction2": {
-    "NAME": "Draw Reduction",
-    "DESCRIPTIONS": [
-      "Draw 1 less card for the next turn.",
-      "Draw 1 less card for the next ",
-      " turns."
     ]
   }
 }

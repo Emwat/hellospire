@@ -22,12 +22,12 @@ public class DriftAction extends AbstractGameAction{
     private int damage;
 
     /// TODO: This keeps triggering 6 times no matter how much energy you have
-    public DriftAction(AbstractPlayer p){
+    public DriftAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse){
         this.p = p;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
-        this.energyOnUse = p.energy.energy;
-        this.freeToPlayOnce = false;
+        this.energyOnUse = energyOnUse;
+        this.freeToPlayOnce = freeToPlayOnce;
     }
 
     public int CalculateEffect(){
@@ -56,7 +56,7 @@ public class DriftAction extends AbstractGameAction{
             this.p.getRelic("Chemical X").flash();
         }
 
-        effect = effect * 2;
+//        effect = effect * 2;
         if (effect > 0) {
             for(int i = 0; i < effect; ++i) {
                 for (AbstractOrb orb : AbstractDungeon.player.orbs) {

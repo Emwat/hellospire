@@ -22,14 +22,16 @@ public class PunchRush extends BaseCard {
 
     private static final int DAMAGE = 1;
     private static final int UPGRADED_DAMAGE = 1;
+    private static final int MAGIC = 2;
+
     private static final int HITS = 4;
 
     public PunchRush() {
         super(ID, info);
 
         setDamage(DAMAGE);
-        isMultiDamage = true;
-        if(this.upgraded){
+        setMagic(MAGIC);
+        if (this.upgraded) {
             setMagic(UPGRADED_DAMAGE);
         }
     }
@@ -39,8 +41,8 @@ public class PunchRush extends BaseCard {
         for (int i = 0; i < HITS; i++) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-        if(this.upgraded){
-            addToBot(new DamageAction(m, new DamageInfo(p, magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        if (this.upgraded) {
+            addToBot(new DamageAction(m, new DamageInfo(p, damage + magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 

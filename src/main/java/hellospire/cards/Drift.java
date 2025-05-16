@@ -40,20 +40,9 @@ public class Drift extends BaseCard {
     }
 
     ///"DESCRIPTION": "Activate the passive effects of your orbs X times."
-    /// TODO: I'm too tired.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DriftAction(p));
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster m) {
-        DriftAction a = new DriftAction(AbstractDungeon.player);
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage = a.CalculateEffect();
-        super.calculateCardDamage(m);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+        addToBot(new DriftAction(p, this.freeToPlayOnce, this.energyOnUse));
     }
 
     @Override

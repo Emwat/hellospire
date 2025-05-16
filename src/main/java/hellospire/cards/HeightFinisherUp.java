@@ -7,12 +7,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
+import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
 public class HeightFinisherUp extends BaseCard {
-    public static final String ID = makeID("HopJump");
+    public static final String ID = makeID("HeightFinisherUp");
     private static final CardStats info = new CardStats(
-            CardColor.COLORLESS,
+            MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,

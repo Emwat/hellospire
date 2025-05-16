@@ -37,12 +37,18 @@ public class FlagPole extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
-
-        for (AbstractCard card : p.hand.group) {
-            if(card.name == cardsToPreview.name) {
-                addToBot(new ChannelAction(new Frost()));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                p.updatePowers();
+                for (AbstractCard card : p.hand.group) {
+                    if(card.name == cardsToPreview.name) {
+                        addToBot(new ChannelAction(new Frost()));
+                    }
+                }
+                this.isDone = true;
             }
-        }
+        });
     }
 
     @Override

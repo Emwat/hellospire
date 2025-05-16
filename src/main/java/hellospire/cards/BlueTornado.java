@@ -22,21 +22,21 @@ public class BlueTornado extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.SELF,
+            CardTarget.ENEMY,
             1
     );
 
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 2;
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int MAGIC = 99;
 
     public BlueTornado() {
         super(ID, info);
         this.cardsToPreview = new Height();
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
+
     }
 
     /// "Apply !M! Vulnerable. NL Add a Height to your hand."
@@ -44,7 +44,7 @@ public class BlueTornado extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(SoundLibrary.BlueTornado));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), !upgraded ? 1 : 2 ));
     }
 
     @Override

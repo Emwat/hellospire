@@ -1,10 +1,12 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
@@ -19,7 +21,7 @@ public class Windmill extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 2;
 
     public Windmill() {
@@ -31,6 +33,14 @@ public class Windmill extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new SelectCardsInHandAction(
+                1,
+                "Windmill: Select a card and randomize its cost for the rest of combat.",
+                false, false, null, cards -> {
+            for (AbstractCard c : cards){
+                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
+            }
+        }));
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
@@ -24,12 +25,15 @@ public class VolcanoSlider extends BaseCard {
     );
 
     private static final int DAMAGE = 9;
-    private static final int UPG_DAMAGE = 4;
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 3;
+
 
     public VolcanoSlider() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(DAMAGE);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
@@ -39,7 +43,17 @@ public class VolcanoSlider extends BaseCard {
         }
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+    }
 
+    public void calculateCardDamage(AbstractMonster mo) {
+
+        int exhaustedCards = getCardsToTheLeft().size();
+
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += exhaustedCards * magicNumber;
+        super.calculateCardDamage(mo);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     @Override

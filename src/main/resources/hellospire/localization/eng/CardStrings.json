@@ -17,39 +17,9 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "${modID}:HomingAttack": {
-    "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Add a Height and a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Heights and a Trick to your hand."
-  },
   "${modID}:GainedHeight": {
     "NAME": "Gained Height",
     "DESCRIPTION": "Reduces to zero at end of turn. Play a Height Finisher at end of turn."
-  },
-  "${modID}:Height": {
-    "NAME": "Height",
-    "DESCRIPTION": "Retain. NL Height. Exhaust."
-  },
-  "${modID}:Height2": {
-    "NAME": "Height",
-    "DESCRIPTION": "Retain. NL Height. NL stslib:Exhaustive !stslib:ex!."
-  },
-  "${modID}:Trick": {
-    "NAME": "Trick",
-    "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Trick. Exhaust."
-  },
-  "${modID}:TrickFinisher1": {
-    "NAME": "Smell the Flowers",
-    "DESCRIPTION": "Draw !M! next turn."
-  },
-  "${modID}:TrickFinisher2": {
-    "NAME": "Blast Off",
-    "DESCRIPTION": "Gain !M! [E] next turn."
-  },
-  "${modID}:TrickFinisher3": {
-    "NAME": "Lock on",
-    "DESCRIPTION": "Gain !M! orb."
   },
   "${modID}:Acceleration": {
     "NAME": "Acceleration",
@@ -61,7 +31,7 @@
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
-    "DESCRIPTION": "Exhaust up to two cards. NL Your debuffs decrease by one."
+    "DESCRIPTION": "Exhaust up to 2 cards. NL Your debuffs decrease by !M!."
   },
   "${modID}:BackSpinKick": {
     "NAME": "Back Spin Kick",
@@ -83,6 +53,22 @@
     "NAME": "Bounce Pad",
     "DESCRIPTION": "Gain !B! Block. NL Add !M! Heights to your hand."
   },
+  "${modID}:ChangeFormation": {
+    "NAME": "Change Formation",
+    "DESCRIPTION": "Retain. NL Convert your Levels to Speed, Flight, or Power."
+  },
+  "${modID}:ChangeFormationSpeed": {
+    "NAME": "Speed Formation",
+    "DESCRIPTION": "Convert all your Levels to Speed."
+  },
+  "${modID}:ChangeFormationFlight": {
+    "NAME": "Flight Formation",
+    "DESCRIPTION": "Convert all your Levels to Flight."
+  },
+  "${modID}:ChangeFormationPower": {
+    "NAME": "Power Formation",
+    "DESCRIPTION": "Convert all your Levels to Power."
+  },
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
     "DESCRIPTION": "Can only be played if you have a channeled Dark orb. NL Deal !D! damage.",
@@ -103,7 +89,8 @@
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
-    "DESCRIPTION": "Deal !D! damage. Randomize the cost of ALL cards in your hand for this turn."
+    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies."
   },
   "${modID}:DoubleAirKick": {
     "NAME": "Double Air Kick",
@@ -140,17 +127,38 @@
   "${modID}:GrindRail": {
     "NAME": "Grind Rail",
     "DESCRIPTION": "Swaps the cost of adjacent cards for this turn.",
-    "UPGRADE_DESCRIPTION": "Swap the cost of any two cards for this turn."
+    "UPGRADE_DESCRIPTION": "Swap the cost of two cards for this turn."
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
     "DESCRIPTION": "Evoke all of your frost orbs. NL Deal 2x damage for each frost orb evoked.",
     "UPGRADE_DESCRIPTION": ""
   },
+  "${modID}:Height": {
+    "NAME": "Height",
+    "DESCRIPTION": "Retain. NL Height. NL Heal !M! HP. NL Exhaust."
+  },
+  "${modID}:Height2": {
+    "NAME": "Height",
+    "DESCRIPTION": "Retain. NL Height. NL stslib:Exhaustive !stslib:ex!."
+  },
+  "${modID}:HeightFinisherDown": {
+    "NAME": "Height Finisher Down",
+    "DESCRIPTION": ""
+  },
+  "${modID}:HeightFinisherUp": {
+    "NAME": "Height Finisher Up",
+    "DESCRIPTION": ""
+  },
   "${modID}:HomingDash": {
     "NAME": "Homing Dash",
     "DESCRIPTION": "Your next attack is played twice.",
     "UPGRADE_DESCRIPTION": "Your next attack is played twice."
+  },
+  "${modID}:HomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Add a Height and a Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Heights and a Trick to your hand."
   },
   "${modID}:HopJump": {
     "NAME": "Hop Jump",
@@ -164,11 +172,27 @@
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! Damage."
   },
   "${modID}:Leap": {
     "NAME": "Leap",
     "DESCRIPTION": "Gain !B! Block."
+  },
+  "${modID}:LevelUp": {
+    "NAME": "LevelUp",
+    "DESCRIPTION": "If the last card played was an... NL Attack : Gain Strength NL Skill : Gain Dexterity NL Power : Gain Focus"
+  },
+  "${modID}:LevelUpSpeed": {
+    "NAME": "LevelUpSpeed",
+    "EXTENDED_DESCRIPTION": ["Your Rings give you ", " extra Dexterity."]
+  },
+  "${modID}:LevelUpFlight": {
+    "NAME": "LevelUpFlight",
+    "EXTENDED_DESCRIPTION": ["Your Rings give you ", " Temporary Focus."]
+  },
+  "${modID}:LevelUpPower": {
+    "NAME": "LevelUpPower",
+    "EXTENDED_DESCRIPTION": ["Your Rings give you ", " extra Strength."]
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
@@ -180,7 +204,7 @@
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile."
   },
   "${modID}:MyRainbow": {
     "NAME": "My Rainbow",
@@ -198,11 +222,12 @@
   "${modID}:PunchRush": {
     "NAME": "Punch Rush",
     "DESCRIPTION": "Deal !D! damage 4 times.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !M! damage."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !D! + !M! damage."
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. NL Add a Quick Step to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Add a Quick Step to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add an upgraded Quick Step to your hand."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
@@ -226,7 +251,7 @@
   },
   "${modID}:Slide": {
     "NAME": "Slide",
-    "DESCRIPTION": "Gain !B! Block. NL If you created a card this turn, gain 1 [E] and draw 1 Card."
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your Discard Pile to the top of your Draw Pile."
   },
 
   "${modID}:SonicBoom": {
@@ -236,8 +261,8 @@
 
   "${modID}:SonicFlare": {
     "NAME": "Sonic Flare",
-    "DESCRIPTION": "Deal !D! to ALL enemies. NL Add a trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile. NL It is upgraded for the rest of combat."
+    "DESCRIPTION": "Deal !D! damage. NL Regain half the Vigor used.",
+    "UPGRADE_DESCRIPTION": "Deal !D! to ALL enemies. NL Regain half the Vigor used."
   },
   "${modID}:SonicIsMyName": {
     "NAME": "Sonic Is My Name",
@@ -277,18 +302,43 @@
   },
   "${modID}:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Gain 2 Vulnerable. NL Gain 2 Temporary Dexterity."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Temporary Dexterity."
   },
   "${modID}:Teaser": {
     "NAME": "Teaser",
-    "DESCRIPTION": "Channel 1 Dark. NL Shuffle a Claws Unleashed into your Draw Pile."
+    "DESCRIPTION": "Channel !M! Dark. NL Shuffle a Claws Unleashed into your Draw Pile.",
+    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle an upgraded Claws Unleashed into your Draw Pile."
   },"${modID}:TopKick": {
     "NAME": "Top Kick",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. Your next attack deals !M! additional damage."
+  },
+  "${modID}:Trick": {
+    "NAME": "Trick",
+    "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain !M! Vigor. NL stslib:Refund 1. NL Exhaust."
+  },
+  "${modID}:TrickFinisher1": {
+    "NAME": "Smell the Flowers",
+    "DESCRIPTION": "Draw !M! next turn."
+  },
+  "${modID}:TrickFinisher2": {
+    "NAME": "Blast Off",
+    "DESCRIPTION": "Gain !M! [E] next turn."
+  },
+  "${modID}:TrickFinisher3": {
+    "NAME": "Lock on",
+    "DESCRIPTION": "Gain !M! orb."
   },
   "${modID}:TripleKick": {
     "NAME": "Triple Kick",
-    "DESCRIPTION": "Deal !D! damage. Add the second and third kick to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Temporary Strength. NL Add the second kick to your hand."
+  },
+  "${modID}:TripleKick2": {
+    "NAME": "Triple Kick (part 2)",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Temporary Strength. NL Add the third kick to your hand."
+  },
+  "${modID}:TripleKick3": {
+    "NAME": "Triple Kick (part 3)",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
@@ -300,11 +350,11 @@
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",
-    "DESCRIPTION": "Exhaust all of the cards to the left of this card. Deal !D! damage."
+    "DESCRIPTION": "Exhaust all to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
-    "DESCRIPTION": "Gain !B! Block and add Height to your hand X times."
+    "DESCRIPTION": "Add Height to your hand. NL Gain !B! Block. NL Repeat this X times."
   },
   "${modID}:WindUpPunch": {
     "NAME": "Wind Up Punch",
@@ -312,7 +362,7 @@
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",
-    "DESCRIPTION": "Deal !D! damage. NL Snecko a card."
+    "DESCRIPTION": "Deal !D! damage. NL Randomize a card's cost in your hand for the rest of combat."
   },
   "${modID}:DevCreateCard": {
   "NAME": "Dev Create Card",

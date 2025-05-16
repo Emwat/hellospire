@@ -39,12 +39,11 @@ public class DashPanel extends BaseCard {
     }
 
     /// TODO: Additional testing. Like what happens if there's two dash panels next to each other?
-    /// TODO: Also add sound.
     /// Play the two cards to the right of this card.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(SoundLibrary.Booster));
-        for (AbstractCard card : getCardsToTheRight()){
+        for (AbstractCard card : getCardsToTheRight(AbstractDungeon.player.hand.group)){
             this.addToBot(new NewQueueCardAction(card, m, false, true));
         }
     }
@@ -54,12 +53,14 @@ public class DashPanel extends BaseCard {
         return new DashPanel();
     }
 
-    /// TODO: If you continue a run, then check the card library, game crashes b/c null error.
     @Override
     public void hover() {
         super.hover();
+        if (checkPlayerHandIsNull()) {
+            return;
+        }
         if (AbstractDungeon.isPlayerInDungeon()) {
-            for (AbstractCard q : getCardsToTheRight()) {
+            for (AbstractCard q : getCardsToTheRight(AbstractDungeon.player.hand.group)) {
                 q.glowColor = Color.GOLD.cpy();
                 q.beginGlowing();
             }
@@ -69,22 +70,34 @@ public class DashPanel extends BaseCard {
     @Override
     public void unhover() {
         super.unhover();
+        if (checkPlayerHandIsNull()) {
+            return;
+        }
         if (AbstractDungeon.isPlayerInDungeon()) {
-            for (AbstractCard q : getCardsToTheRight()) {
+            for (AbstractCard q : getCardsToTheRight(AbstractDungeon.player.hand.group)) {
                 q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
                 q.triggerOnGlowCheck();
             }
-            AbstractDungeon.player.hand.applyPowers();
+//            AbstractDungeon.player.hand.applyPowers();
         }
     }
 
-    private ArrayList<AbstractCard> getCardsToTheRight() {
+    /// If you leave a run, then check the card library, game crashes b/c null error.
+    /// This function fixes that.
+    private boolean checkPlayerHandIsNull(){
         AbstractPlayer p = AbstractDungeon.player;
+        if (p == null || p.hand == null || p.hand.group == null){
+            return true;
+        }
+        return false;
+    }
+
+    private ArrayList<AbstractCard> getCardsToTheRight(ArrayList<AbstractCard> hand) {
         ArrayList<AbstractCard> cardsToTheRight = new ArrayList<>();
         boolean startCounting = false;
         int numberOfCards = magicNumber;
 
-        for (AbstractCard q : p.hand.group) {
+        for (AbstractCard q : hand) {
             if(cardsToTheRight.size() >= numberOfCards){
                 break;
             }

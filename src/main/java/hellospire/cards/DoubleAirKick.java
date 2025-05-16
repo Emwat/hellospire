@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.green.DaggerSpray;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
@@ -27,7 +28,6 @@ public class DoubleAirKick extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPGRADED_DAMAGE);
-        isMultiDamage = true;
     }
 
     /// Deal !D! damage 2 times.

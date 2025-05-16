@@ -3,6 +3,7 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,7 +21,7 @@ public class SpinDash extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 16;
 
     public SpinDash() {
         super(ID, info);
@@ -31,6 +32,9 @@ public class SpinDash extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        if(this.upgraded) {
+            addToBot(new UpgradeSpecificCardAction(p.drawPile.getTopCard()));
+        }
         addToBot(new PlayTopCardAction(m, false));
     }
 

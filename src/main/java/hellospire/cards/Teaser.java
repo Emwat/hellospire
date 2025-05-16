@@ -26,16 +26,21 @@ public class Teaser extends BaseCard {
             1
     );
 
+    private static final int MAGIC = 1;
 
+    /// "Channel !M! Dark. NL Shuffle a Claws Unleashed into your Draw Pile."
     public Teaser() {
         super(ID, info);
         this.cardsToPreview = new ClawsUnleashed();
-
+        setMagic(MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard createdCard = this.cardsToPreview.makeStatEquivalentCopy();
+        if (this.upgraded) {
+            createdCard.upgrade();
+        }
         addToBot(new ChannelAction(new Dark()));
         addToBot(new MakeTempCardInDrawPileAction(createdCard, 1, true, true, false));
     }

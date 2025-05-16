@@ -33,6 +33,9 @@ public class QuickAir extends BaseCard {
     public QuickAir() {
         super(ID, info);
         this.cardsToPreview = new QuickStep();
+        if (this.upgraded){
+            this.cardsToPreview.upgrade();
+        }
 
         setBlock(BLOCK, UPG_BLOCK);
     }

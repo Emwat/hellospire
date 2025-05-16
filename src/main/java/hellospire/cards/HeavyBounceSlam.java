@@ -18,7 +18,7 @@ public class HeavyBounceSlam extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.UNCOMMON,
+            CardRarity.SPECIAL,
             CardTarget.ENEMY,
             1
     );
@@ -35,7 +35,6 @@ public class HeavyBounceSlam extends BaseCard {
     ///  Evoke all of your frost orbs. NL Deal 2x damage for each frost orb evoked.",
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         int evokedFrostOrbs = 0;
         int totalDamage = 0;
         for (AbstractOrb orb : p.orbs){

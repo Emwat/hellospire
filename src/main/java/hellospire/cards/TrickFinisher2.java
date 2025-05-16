@@ -6,12 +6,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
+import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 
 public class TrickFinisher2 extends BaseCard {
     public static final String ID = makeID("TrickFinisher2");
     private static final CardStats info = new CardStats(
-            CardColor.COLORLESS,
+            MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,

@@ -3,7 +3,9 @@ package hellospire.cards;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
@@ -17,6 +19,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import hellospire.character.MyCharacter;
 import hellospire.powers.GainedHeightPower;
 import hellospire.util.CardStats;
 
@@ -25,14 +28,14 @@ import java.util.Objects;
 public class Height extends BaseCard {
     public static final String ID = makeID("Height");
     private static final CardStats info = new CardStats(
-            CardColor.COLORLESS,
+            MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
     private static final int EXHAUSTIVE = 2;
 
@@ -52,6 +55,7 @@ public class Height extends BaseCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new HealAction(p, p, MAGIC));
     }
 
     /// "DESCRIPTION": "Retain. NL Height. NL While you have this in your hand, you have two temporary dexterity. Exhaust."

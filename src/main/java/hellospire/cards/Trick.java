@@ -41,8 +41,8 @@ public class Trick extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
         setCostUpgrade(0);
 
-        this.isEthereal = true;
-        this.exhaust = true;
+        setEthereal(true);
+        setExhaust(true);
         RefundVariable.setBaseValue(this, REFUND);
     }
 
@@ -65,7 +65,7 @@ public class Trick extends BaseCard {
             int amountOfVigor = p.getPower("Vigor").amount;
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, amountOfVigor)));
         } else {
-            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, 1)));
+            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
         }
 //        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }

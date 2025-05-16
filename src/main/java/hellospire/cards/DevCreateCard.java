@@ -63,7 +63,7 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new Leap());
 //        tmp.add(new LightSpeedAttack());
 //        tmp.add(new MagicHands());
-//        tmp.add(new Momentum());
+        tmp.add(new Momentum());
         tmp.add(new MyRainbow());
 //        tmp.add(new Pose());
 //        tmp.add(new PowerRing());
@@ -78,7 +78,7 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new SonicFlare());
         tmp.add(new SonicWind());
         tmp.add(new SonicWave());
-        tmp.add(new SpeedUp());
+//        tmp.add(new SpeedUp());
         tmp.add(new SpinDash());
         tmp.add(new Strike());
         tmp.add(new SuperSonicForm());
@@ -87,7 +87,7 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new Trick());
         tmp.add(new TripleKick());
         tmp.add(new UpDraft());
-        tmp.add(new UpperSpin());
+//        tmp.add(new UpperSpin());
         tmp.add(new VolcanoSlider());
         tmp.add(new WallJump());
         tmp.add(new Windmill());
