@@ -29,8 +29,8 @@ public class QuickStep extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 8;
+    private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 1;
 
     /// Gain !B! Block. NL If this card is to the very right of your hand, draw !M! cards.
@@ -41,6 +41,8 @@ public class QuickStep extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC);
+        setEthereal(true);
+        setExhaust(true);
     }
 
 
@@ -55,7 +57,13 @@ public class QuickStep extends BaseCard {
         if (CheckIfRightCard(this, p.hand)){
             addToBot(new DrawCardAction(p, 1));
         }
-        addToBot(new MakeTempCardInHandAction(new QuickAir(), 1));
+        AbstractCard leftCard = new QuickAir();
+//        leftCard.exhaust = true;
+        if(this.upgraded) {
+            leftCard.upgrade();
+        }
+
+        addToBot(new MakeTempCardInHandAction(leftCard, 1));
 
 
     }

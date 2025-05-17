@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.character.MyCharacter;
@@ -27,7 +26,7 @@ public class HomingAttack extends BaseCard {
 
     public HomingAttack() {
         super(ID, info);
-        this.cardsToPreview = new Height();
+        this.cardsToPreview = new Ring();
         this.cardsToPreview = new Trick();
 
         setDamage(DAMAGE, UPG_DAMAGE);
@@ -35,7 +34,7 @@ public class HomingAttack extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard height = new Height();
+        AbstractCard height = new Ring();
         AbstractCard trick = new Trick();
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
@@ -49,7 +48,7 @@ public class HomingAttack extends BaseCard {
 
     // unused X
     private void Xuse(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard height = new Height();
+        AbstractCard height = new Ring();
         AbstractCard trick = new Trick();
         int cnt = EnergyPanel.totalCount;
         if (p.hasRelic("Chemical X")) {

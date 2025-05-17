@@ -35,7 +35,11 @@ public class SpinDash extends BaseCard {
         if(this.upgraded) {
             addToBot(new UpgradeSpecificCardAction(p.drawPile.getTopCard()));
         }
-        addToBot(new PlayTopCardAction(m, false));
+        if (p.drawPile.isEmpty()) {
+
+        } else {
+            addToBot(new PlayTopCardAction(m, false));
+        }
     }
 
     @Override

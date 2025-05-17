@@ -26,18 +26,16 @@ public class QuickAir extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 8;
+    private static final int UPG_BLOCK = 2;
 
     /// Gain !B! Block. NL Add a Quick Step to your hand.
     public QuickAir() {
         super(ID, info);
         this.cardsToPreview = new QuickStep();
-        if (this.upgraded){
-            this.cardsToPreview.upgrade();
-        }
-
         setBlock(BLOCK, UPG_BLOCK);
+        setEthereal(true);
+        setExhaust(true);
     }
 
     @Override
@@ -50,6 +48,15 @@ public class QuickAir extends BaseCard {
         addToBot(new GainBlockAction(p, block));
 
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
     }
 
     @Override

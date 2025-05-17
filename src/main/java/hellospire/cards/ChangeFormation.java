@@ -32,9 +32,9 @@ public class ChangeFormation extends BaseCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
     }
 
+    //    "DESCRIPTION": "Retain. NL Convert your Levels to Speed, Flight, or Power."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         ArrayList<AbstractCard> choices = new ArrayList<>();
         choices.add(new ChangeFormationSpeed());
         choices.add(new ChangeFormationFlight());

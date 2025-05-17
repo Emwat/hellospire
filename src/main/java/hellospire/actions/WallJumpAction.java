@@ -5,14 +5,13 @@ package hellospire.actions;//
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import hellospire.cards.Height;
+import hellospire.cards.Ring;
 
 public class WallJumpAction extends AbstractGameAction {
     private boolean freeToPlayOnce = false;
@@ -27,7 +26,7 @@ public class WallJumpAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.heightCard = new Height();
+        this.heightCard = new Ring();
 
     }
 

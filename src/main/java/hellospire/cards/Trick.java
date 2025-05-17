@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.ShoutAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -38,7 +39,7 @@ public class Trick extends BaseCard {
 
     public Trick() {
         super(ID, info);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
         setCostUpgrade(0);
 
         setEthereal(true);
@@ -66,6 +67,9 @@ public class Trick extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, amountOfVigor)));
         } else {
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
+        }
+        if(this.upgraded){
+            addToBot(new MakeTempCardInHandAction(new TrickFinisher1()));
         }
 //        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }

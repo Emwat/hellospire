@@ -1,11 +1,9 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
@@ -27,13 +25,13 @@ public class FlagPole extends BaseCard {
 
     public FlagPole() {
         super(ID, info);
-        this.cardsToPreview = new Height();
+        this.cardsToPreview = new Ring();
 
 
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    /// "Add a Height to your hand. Channel a Frost for each Height in your hand."
+    /// "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
@@ -42,7 +40,7 @@ public class FlagPole extends BaseCard {
             public void update() {
                 p.updatePowers();
                 for (AbstractCard card : p.hand.group) {
-                    if(card.name == cardsToPreview.name) {
+                    if(card.cardID == cardsToPreview.cardID) {
                         addToBot(new ChannelAction(new Frost()));
                     }
                 }

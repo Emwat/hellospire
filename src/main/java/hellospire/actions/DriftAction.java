@@ -21,7 +21,6 @@ public class DriftAction extends AbstractGameAction{
     private boolean freeToPlayOnce;
     private int damage;
 
-    /// TODO: This keeps triggering 6 times no matter how much energy you have
     public DriftAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse){
         this.p = p;
         this.actionType = ActionType.CARD_MANIPULATION;

@@ -1,16 +1,12 @@
 package hellospire.powers;
 
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.cards.Height;
-
-import java.util.Objects;
+import hellospire.cards.Ring;
 
 import static hellospire.BasicMod.makeID;
 
@@ -36,7 +32,7 @@ public class DirectJumpPower extends BasePower {
 //        super.onPlayCard(card, m);
 
         if(card.type == AbstractCard.CardType.SKILL) {
-            AbstractCard heightCard = new Height();
+            AbstractCard heightCard = new Ring();
             addToTop(new MakeTempCardInHandAction(heightCard, 1));
         }
     }

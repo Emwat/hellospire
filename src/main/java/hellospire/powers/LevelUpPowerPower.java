@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import static hellospire.BasicMod.makeID;
 
 public class LevelUpPowerPower extends BasePower {
-    public static final String POWER_ID = makeID("LevelUpSpeed");
+    public static final String POWER_ID = makeID("LevelUpPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 

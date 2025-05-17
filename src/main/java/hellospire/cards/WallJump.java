@@ -1,13 +1,5 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.defect.ReinforcedBodyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.ReinforcedBody;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.actions.WallJumpAction;
@@ -28,10 +20,10 @@ public class WallJump extends BaseCard {
     private static final int UPG_BLOCK = 2;
     private boolean freetoPlayOnce;
 
-    ///"DESCRIPTION": "Add Height to your hand. NL Gain !B! Block. NL Repeat this X times."
+    ///"DESCRIPTION": "Add Ring to your hand. NL Gain !B! Block. NL Repeat this X times."
     public WallJump() {
         super(ID, info);
-        this.cardsToPreview = new Height();
+        this.cardsToPreview = new Ring();
 
 
         setBlock(BLOCK, UPG_BLOCK);

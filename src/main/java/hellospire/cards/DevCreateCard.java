@@ -55,7 +55,7 @@ public class DevCreateCard extends BaseCard {
         tmp.add(new FootSweep());
         tmp.add(new GrindRail());
         tmp.add(new HeavyBounceSlam());
-        tmp.add(new Height());
+        tmp.add(new Ring());
         tmp.add(new HomingAttack());
         tmp.add(new HomingDash());
 //        tmp.add(new HummingTop());

@@ -21,7 +21,7 @@ public class SecretRoute extends BaseCard {
     );
 
     private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 4;
+    private static final int UPG_MAGIC = 1;
 
     public SecretRoute() {
         super(ID, info);

@@ -1,13 +1,6 @@
 package hellospire.powers;
 
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.cards.Height;
-
-import java.util.Objects;
 
 import static hellospire.BasicMod.makeID;
 

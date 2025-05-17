@@ -49,6 +49,27 @@
       "Next turn, your first move will be played twice."
     ]
   },
+  "${modID}:LevelUpFlight": {
+    "NAME": "Flight Level Up",
+    "DESCRIPTIONS": [
+      "Your Rings grant you ",
+      " more Temporary Focus."
+    ]
+  },
+  "${modID}:LevelUpSpeed": {
+    "NAME": "Speed Level Up",
+    "DESCRIPTIONS": [
+      "Your Rings grant you ",
+      " more Dexterity."
+    ]
+  },
+  "${modID}:LevelUpPower": {
+    "NAME": "Power Level Up",
+    "DESCRIPTIONS": [
+      "Your Rings grant you ",
+      " more Strength."
+    ]
+  },
   "${modID}:LoseEcho": {
     "NAME": "Blue Blur (fading)",
     "DESCRIPTIONS": [

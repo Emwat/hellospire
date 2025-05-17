@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.blue.Claw;
 import com.megacrit.cardcrawl.cards.blue.Coolheaded;
+import com.megacrit.cardcrawl.cards.green.StormOfSteel;
+import com.megacrit.cardcrawl.cards.purple.CarveReality;
 import com.megacrit.cardcrawl.cards.purple.Evaluate;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -35,12 +37,19 @@ public class Teaser extends BaseCard {
         setMagic(MAGIC);
     }
 
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard createdCard = this.cardsToPreview.makeStatEquivalentCopy();
-        if (this.upgraded) {
-            createdCard.upgrade();
-        }
+
         addToBot(new ChannelAction(new Dark()));
         addToBot(new MakeTempCardInDrawPileAction(createdCard, 1, true, true, false));
     }

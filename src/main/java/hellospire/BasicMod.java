@@ -3,7 +3,6 @@ package hellospire;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import com.badlogic.gdx.audio.Sound;
 import hellospire.cards.BaseCard;
 import hellospire.character.MyCharacter;
 import hellospire.util.GeneralUtils;
@@ -25,8 +24,6 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
-
-import hellospire.SoundLibrary;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -178,7 +175,7 @@ public class BasicMod implements
     public static String relicPath(String file) {
         return resourcesFolder + "/images/relics/" + file;
     }
-    public static String audioPath(String file) {
+    public static String audioEngPath(String file) {
         return resourcesFolder + "/audio/eng/" + file;
     }
 
@@ -248,24 +245,25 @@ public class BasicMod implements
     @Override
     public void receiveAddAudio()
     {
-        BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioPath("allRight.ogg"));
-        BaseMod.addAudio(SoundLibrary.COOL, audioPath("cool.ogg"));
-        BaseMod.addAudio(SoundLibrary.OK, audioPath("OK.ogg"));
-        BaseMod.addAudio(SoundLibrary.OW, audioPath("OW.ogg"));
-        BaseMod.addAudio(SoundLibrary.YES, audioPath("yes.ogg"));
+        BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioEngPath("allRight.ogg"));
+        BaseMod.addAudio(SoundLibrary.COOL, audioEngPath("cool.ogg"));
+        BaseMod.addAudio(SoundLibrary.OK, audioEngPath("OK.ogg"));
+        BaseMod.addAudio(SoundLibrary.OW, audioEngPath("OW.ogg"));
+        BaseMod.addAudio(SoundLibrary.YES, audioEngPath("yes.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.nice_01, audioPath("01_AMAZING.ogg"));
-        BaseMod.addAudio(SoundLibrary.nice_02, audioPath("02_OUTSTANDING.ogg"));
-        BaseMod.addAudio(SoundLibrary.nice_03, audioPath("03_GREAT.ogg"));
-        BaseMod.addAudio(SoundLibrary.nice_04, audioPath("04_GOOD.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_01, audioEngPath("01_AMAZING.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_02, audioEngPath("02_OUTSTANDING.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_03, audioEngPath("03_GREAT.ogg"));
+        BaseMod.addAudio(SoundLibrary.nice_04, audioEngPath("04_GOOD.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.QuickAir1, audioPath("01_V_SNC_000_b.ogg"));
-        BaseMod.addAudio(SoundLibrary.QuickAir2, audioPath("01_V_SNC_001_a.ogg"));
-        BaseMod.addAudio(SoundLibrary.QuickAir3, audioPath("01_V_SNC_002_b.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir1, audioEngPath("01_V_SNC_000_b.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("01_V_SNC_001_a.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir3, audioEngPath("01_V_SNC_002_b.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.BlueTornado, audioPath("bluetornado.ogg"));
+        BaseMod.addAudio(SoundLibrary.BlueTornado, audioEngPath("bluetornado.ogg"));
         BaseMod.addAudio(SoundLibrary.Booster, "/audio/SE_Booster.ogg");
         BaseMod.addAudio(SoundLibrary.Spring, "/audio/SE_Spring.ogg");
+        BaseMod.addAudio(SoundLibrary.LevelUp, audioEngPath("level_up.ogg"));
 
 
     }

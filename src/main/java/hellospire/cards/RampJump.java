@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.InfernalBlade;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
@@ -21,13 +22,12 @@ public class RampJump extends BaseCard {
     );
 
     private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 1;
 
     public RampJump() {
         super(ID, info);
         this.cardsToPreview = new Trick();
 
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
     }
 
     @Override
@@ -35,6 +35,13 @@ public class RampJump extends BaseCard {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
     }
 
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeBaseCost(0);
+        }
+
+    }
     @Override
     public AbstractCard makeCopy() { //Optional
         return new RampJump();

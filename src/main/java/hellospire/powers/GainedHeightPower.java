@@ -1,22 +1,16 @@
 package hellospire.powers;
 
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.purple.MasterReality;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
-import hellospire.cards.Height;
+import hellospire.BasicMod;
+import hellospire.cards.Ring;
 
 import java.util.Objects;
 
@@ -48,6 +42,7 @@ public class GainedHeightPower extends BasePower {
         float outputBlock;
         float tempAmount = (float) this.amount;
         int amountSpeed = GetPowerAmount("LevelUpSpeed") * this.amount;
+        BasicMod.logger.info("amountSpeed: " + amountSpeed);
 
         outputBlock = blockAmount + tempAmount + amountSpeed;
 
@@ -63,7 +58,7 @@ public class GainedHeightPower extends BasePower {
     public void onPlayCard(AbstractCard playedCard, AbstractMonster m) {
         super.onPlayCard(playedCard, m);
 
-        AbstractCard heightCard = new Height();
+        AbstractCard heightCard = new Ring();
         int numberOfHeights = 0;
         boolean hasExhaustedHeightCard = false;
 
@@ -104,8 +99,8 @@ public class GainedHeightPower extends BasePower {
     }
 
     private int GetPowerAmount(String targetID){
-        if (owner.getPower(targetID) != null) {
-            return owner.getPower(targetID).amount;
+        if (owner.getPower(makeID(targetID)) != null) {
+            return owner.getPower(makeID(targetID)).amount;
         }
         return 0;
     }

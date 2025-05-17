@@ -22,10 +22,14 @@ public class InstaShield extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 4;
     private static final int UPG_DAMAGE = 2;
     private static final int BLOCK = 4;
     private static final int UPG_BLOCK = 2;
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 2;
+
+
 
     /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."
     public InstaShield() {
@@ -33,12 +37,14 @@ public class InstaShield extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK);
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
     }
 
     @Override

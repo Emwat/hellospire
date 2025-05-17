@@ -1,14 +1,9 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.purple.CarveReality;
-import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -32,14 +27,14 @@ public class BlueTornado extends BaseCard {
 
     public BlueTornado() {
         super(ID, info);
-        this.cardsToPreview = new Height();
+        this.cardsToPreview = new Ring();
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC);
 
     }
 
-    /// "Apply !M! Vulnerable. NL Add a Height to your hand."
+    /// "Apply !M! Vulnerable. NL Add a Ring to your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(SoundLibrary.BlueTornado));

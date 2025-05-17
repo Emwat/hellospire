@@ -30,7 +30,7 @@ public class DirectJump extends BaseCard {
 //        setBlock(BLOCK, UPG_BLOCK);
     }
 
-    /// When you gain Block this turn, add a Height to your hand.
+    /// When you gain Block this turn, add a Ring to your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new DirectJumpPower(p, 1)));

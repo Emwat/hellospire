@@ -28,6 +28,7 @@ public class SoundLibrary {
     static public String BlueTornado = makeID("BlueTornado");
     static public String Booster = makeID("Booster");
     static public String Spring = makeID("Spring");
+    static public String LevelUp = makeID("voiceLevelUp");
 
     static public String feeling_good = makeID("audio_FeelingGood");
 

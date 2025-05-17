@@ -49,6 +49,10 @@
     "NAME": "Blue Tornado",
     "DESCRIPTION": "Apply !M! Vulnerable. NL Add a Height to your hand."
   },
+  "${modID}:Boost": {
+    "NAME": "Boost",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies."
+  },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
     "DESCRIPTION": "Gain !B! Block. NL Add !M! Heights to your hand."
@@ -85,7 +89,7 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": "When you gain Block this turn, add a Height to your hand."
+    "DESCRIPTION": "When you gain Block this turn, add a Ring to your hand."
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
@@ -118,7 +122,7 @@
   },
   "${modID}:FlagPole": {
     "NAME": "Flag Pole",
-    "DESCRIPTION": "Add a Height to your hand. Channel a Frost for each Height in your hand."
+    "DESCRIPTION": "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
   },
   "${modID}:FootSweep": {
     "NAME": "Ancient Light",
@@ -134,9 +138,9 @@
     "DESCRIPTION": "Evoke all of your frost orbs. NL Deal 2x damage for each frost orb evoked.",
     "UPGRADE_DESCRIPTION": ""
   },
-  "${modID}:Height": {
-    "NAME": "Height",
-    "DESCRIPTION": "Retain. NL Height. NL Heal !M! HP. NL Exhaust."
+  "${modID}:Ring": {
+    "NAME": "Ring",
+    "DESCRIPTION": "Retain. NL Ring. NL Heal !M! HP. NL Exhaust."
   },
   "${modID}:Height2": {
     "NAME": "Height",
@@ -157,8 +161,8 @@
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Add a Height and a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Heights and a Trick to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Add a Ring and a Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Rings and a Trick to your hand."
   },
   "${modID}:HopJump": {
     "NAME": "Hop Jump",
@@ -172,7 +176,7 @@
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! Damage."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! Damage. NL Gain !M! Temporary Thorns."
   },
   "${modID}:Leap": {
     "NAME": "Leap",
@@ -342,7 +346,7 @@
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a Height to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a Ring to your hand."
   },
   "${modID}:UpperSpin": {
     "NAME": "Upper Spin",
@@ -354,7 +358,7 @@
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
-    "DESCRIPTION": "Add Height to your hand. NL Gain !B! Block. NL Repeat this X times."
+    "DESCRIPTION": "Add X Rings to your hand. NL Gain !B! Block X times."
   },
   "${modID}:WindUpPunch": {
     "NAME": "Wind Up Punch",

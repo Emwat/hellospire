@@ -25,7 +25,7 @@ public class DizzySpin extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.ALL_ENEMY,
-            1
+            2
     );
 
     private static final int DAMAGE = 6;
@@ -55,7 +55,7 @@ public class DizzySpin extends BaseCard {
             card.freeToPlayOnce = false;
         }
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
+            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 2)));
         }
 
     }

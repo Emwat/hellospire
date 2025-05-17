@@ -1,32 +1,20 @@
 package hellospire.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.purple.SandsOfTime;
-import com.megacrit.cardcrawl.cards.red.Flex;
+import com.megacrit.cardcrawl.cards.purple.Weave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.LoseDexterityPower;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import hellospire.character.MyCharacter;
 import hellospire.powers.GainedHeightPower;
 import hellospire.util.CardStats;
 
-import java.util.Objects;
-
-public class Height extends BaseCard {
-    public static final String ID = makeID("Height");
+public class Ring extends BaseCard {
+    public static final String ID = makeID("Ring");
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -39,7 +27,7 @@ public class Height extends BaseCard {
     private static final int UPG_MAGIC = 1;
     private static final int EXHAUSTIVE = 2;
 
-    public Height() {
+    public Ring() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
 
@@ -56,9 +44,24 @@ public class Height extends BaseCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new HealAction(p, p, MAGIC));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                AbstractCard flurryOfBlows = new Boost();
+                if(!p.discardPile.isEmpty()){
+                    for (AbstractCard card : p.discardPile.group){
+                        if (card.cardID == flurryOfBlows.cardID){
+                            addToBot(new DiscardToHandAction(card));
+                        }
+                    }
+                }
+                this.isDone = true;
+            }
+        });
+
     }
 
-    /// "DESCRIPTION": "Retain. NL Height. NL While you have this in your hand, you have two temporary dexterity. Exhaust."
+    /// "DESCRIPTION": "Retain. NL Ring. NL While you have this in your hand, you have two temporary dexterity. Exhaust."
     @Override
     public void triggerWhenCopied() {
         super.triggerWhenCopied();
@@ -76,6 +79,6 @@ public class Height extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new Height();
+        return new Ring();
     }
 }
