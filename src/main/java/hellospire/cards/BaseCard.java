@@ -3,6 +3,8 @@ package hellospire.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.BasicMod;
 import hellospire.util.CardStats;
 import hellospire.util.TriFunction;
@@ -674,5 +676,13 @@ public abstract class BaseCard extends CustomCard {
         public boolean isModified() {
             return forceModified || base != value;
         }
+    }
+
+    public int getPower(AbstractPlayer p, String targetID){
+        AbstractPower power = p.getPower(makeID(targetID));
+        if (power != null){
+            return power.amount;
+        }
+        return 0;
     }
 }

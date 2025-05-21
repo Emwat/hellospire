@@ -42,14 +42,13 @@ public class GainedHeightPower extends BasePower {
         float outputBlock;
         float tempAmount = (float) this.amount;
         int amountSpeed = GetPowerAmount("LevelUpSpeed") * this.amount;
-        BasicMod.logger.info("amountSpeed: " + amountSpeed);
+//        BasicMod.logger.info("amountSpeed: " + amountSpeed);
 
         outputBlock = blockAmount + tempAmount + amountSpeed;
 
         if (outputBlock < 0.0F) {
             outputBlock = 0.0F;
         }
-
 //        BaseMod.logger.info(String.format("blockAmount %s | amount %s | var2 %s", blockAmount, amount, outputBlock));
         return outputBlock;
     }
@@ -60,21 +59,9 @@ public class GainedHeightPower extends BasePower {
 
         AbstractCard heightCard = new Ring();
         int numberOfHeights = 0;
-        boolean hasExhaustedHeightCard = false;
-
-        if (Objects.equals(playedCard.cardID, heightCard.cardID)) {
-            hasExhaustedHeightCard = true;
-        }
 
         for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
             if (Objects.equals(cardInHand.cardID, heightCard.cardID)) {
-//                if (!hasExhaustedHeightCard) {
-//                    addToBot(new ExhaustSpecificCardAction(cardInHand, AbstractDungeon.player.hand));
-////                    addToBot(new NewQueueCardAction(cardInHand, AbstractDungeon.player));
-//                    hasExhaustedHeightCard = true;
-//                } else {
-//                    numberOfHeights++;
-//                }
                 numberOfHeights++;
             }
         }
@@ -86,12 +73,15 @@ public class GainedHeightPower extends BasePower {
         super.atStartOfTurn();
         int amountFlight = GetPowerAmount("LevelUpFlight") * this.amount;
 
-        addToBot(new ApplyPowerAction(owner, owner, new FocusPower(owner, amountFlight)));
-        addToBot(new ApplyPowerAction(owner, owner, new LoseFocusPower(owner, amountFlight)));
+        if (amountFlight > 0) {
+            addToBot(new ApplyPowerAction(owner, owner, new FocusPower(owner, amountFlight)));
+            addToBot(new ApplyPowerAction(owner, owner, new LoseFocusPower(owner, amountFlight)));
+        }
+
     }
 
     public void atEndOfTurn(boolean isPlayer) {
-        this.flash();
+//        this.flash();
         if (amount == 0) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }

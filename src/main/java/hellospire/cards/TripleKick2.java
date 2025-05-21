@@ -33,6 +33,7 @@ public class TripleKick2 extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setEthereal(true);
+        setExhaust(true);
     }
 
     @Override
@@ -42,6 +43,15 @@ public class TripleKick2 extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 1)));
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
 
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
     }
 
     @Override

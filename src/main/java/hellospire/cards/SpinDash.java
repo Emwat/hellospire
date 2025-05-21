@@ -21,12 +21,13 @@ public class SpinDash extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 16;
+    private static final int DAMAGE = 12;
+    private static final int UPG_DAMAGE = 4;
 
     public SpinDash() {
         super(ID, info);
 
-        setDamage(DAMAGE);
+        setDamage(DAMAGE, UPG_DAMAGE);
     }
 
     @Override

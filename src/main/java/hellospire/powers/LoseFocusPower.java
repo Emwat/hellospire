@@ -10,7 +10,7 @@ import static hellospire.BasicMod.makeID;
 public class LoseFocusPower extends BasePower {
     public static final String POWER_ID = makeID("LoseFocus");
     private static final PowerType TYPE = PowerType.DEBUFF;
-    private static final boolean TURN_BASED = true;
+    private static final boolean TURN_BASED = false;
 
     public LoseFocusPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);

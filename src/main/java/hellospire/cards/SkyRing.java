@@ -15,7 +15,7 @@ public class SkyRing extends BaseCard {
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 

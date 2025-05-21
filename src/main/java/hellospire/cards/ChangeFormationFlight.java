@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.character.MyCharacter;
 import hellospire.powers.LevelUpFlightPower;
 import hellospire.powers.LevelUpSpeedPower;
@@ -30,17 +31,17 @@ public class ChangeFormationFlight extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int SpeedPower = p.getPower("LevelUpSpeed").amount;
-        int FlightPower = p.getPower("LevelUpFlight").amount;
-        int PowerPower = p.getPower("LevelUpPower").amount;
+        int SpeedPower = getPower(p, "LevelUpSpeed");
+        int FlightPower = getPower(p, "LevelUpFlight");
+        int PowerPower = getPower(p, "LevelUpPower");
         int totalPower = SpeedPower + PowerPower;
 
         addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, totalPower)));
         if (SpeedPower > 0) {
-            addToBot(new ReducePowerAction(p, p, "SpeedPower", SpeedPower));
+            addToBot(new ReducePowerAction(p, p, makeID("LevelUpSpeed"), SpeedPower));
         }
         if (PowerPower > 0) {
-            addToBot(new ReducePowerAction(p, p, "PowerPower", PowerPower));
+            addToBot(new ReducePowerAction(p, p, makeID("LevelUpPower"), PowerPower));
         }
     }
 

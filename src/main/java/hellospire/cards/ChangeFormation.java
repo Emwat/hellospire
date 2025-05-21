@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
@@ -18,7 +19,7 @@ public class ChangeFormation extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
             1
     );
@@ -27,28 +28,35 @@ public class ChangeFormation extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 2;
+    private ArrayList<AbstractCard> choices = new ArrayList<>();
 
     public ChangeFormation() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
+        choices.add(new ChangeFormationSpeed());
+        choices.add(new ChangeFormationFlight());
+        choices.add(new ChangeFormationPower());
     }
 
     //    "DESCRIPTION": "Retain. NL Convert your Levels to Speed, Flight, or Power."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> choices = new ArrayList<>();
-        choices.add(new ChangeFormationSpeed());
-        choices.add(new ChangeFormationFlight());
-        choices.add(new ChangeFormationPower());
 
-        addToBot(new SelectCardsAction(choices, "Change Formation", false, null, cards -> {
-            for(AbstractCard choice : cards){
-                addToBot(new NewQueueCardAction(choice, p, true, true));
-            }
-        }));
+
+        addToBot(new SelectCardsAction(
+                choices,
+                "Change Formation",
+                false,
+                card -> true,
+                cards -> {
+                    for (AbstractCard choice : cards) {
+                        addToBot(new NewQueueCardAction(choice, AbstractDungeon.getRandomMonster(), true, true));
+                    }
+                }));
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
         return new ChangeFormation();
     }
+
 }

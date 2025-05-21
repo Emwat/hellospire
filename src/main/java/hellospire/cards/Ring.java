@@ -4,11 +4,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.purple.Weave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SoundLibrary;
 import hellospire.character.MyCharacter;
 import hellospire.powers.GainedHeightPower;
 import hellospire.util.CardStats;
@@ -40,17 +42,19 @@ public class Ring extends BaseCard {
         this.exhaust = true;
 //        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, magicNumber);
 //        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, magicNumber);
+        tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction(SoundLibrary.Ring));
         addToBot(new HealAction(p, p, MAGIC));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
                 AbstractCard flurryOfBlows = new Boost();
-                if(!p.discardPile.isEmpty()){
-                    for (AbstractCard card : p.discardPile.group){
-                        if (card.cardID == flurryOfBlows.cardID){
+                if (!p.discardPile.isEmpty()) {
+                    for (AbstractCard card : p.discardPile.group) {
+                        if (card.cardID == flurryOfBlows.cardID) {
                             addToBot(new DiscardToHandAction(card));
                         }
                     }
@@ -79,6 +83,7 @@ public class Ring extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { //Optional
+        addToBot(new SFXAction(SoundLibrary.Ring));
         return new Ring();
     }
 }

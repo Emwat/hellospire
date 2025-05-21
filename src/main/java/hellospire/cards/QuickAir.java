@@ -26,7 +26,7 @@ public class QuickAir extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 6;
     private static final int UPG_BLOCK = 2;
 
     /// Gain !B! Block. NL Add a Quick Step to your hand.
@@ -34,7 +34,6 @@ public class QuickAir extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new QuickStep();
         setBlock(BLOCK, UPG_BLOCK);
-        setEthereal(true);
         setExhaust(true);
     }
 

@@ -40,8 +40,8 @@ public class RampJump extends BaseCard {
             this.upgradeName();
             this.upgradeBaseCost(0);
         }
-
     }
+
     @Override
     public AbstractCard makeCopy() { //Optional
         return new RampJump();

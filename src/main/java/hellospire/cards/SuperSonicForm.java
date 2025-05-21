@@ -1,8 +1,10 @@
 package hellospire.cards;
 
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,9 +20,9 @@ public class SuperSonicForm extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.POWER,
-            CardRarity.RARE,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
-            1
+            3
     );
 
     private static final int MAGIC = 7;
@@ -29,10 +31,12 @@ public class SuperSonicForm extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC);
+        tags.add(BaseModCardTags.FORM);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainEnergyAction(magicNumber));
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
 
@@ -40,6 +44,8 @@ public class SuperSonicForm extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
         }
     }
+
+
 
     @Override
     public AbstractCard makeCopy() { //Optional

@@ -16,22 +16,19 @@ public class BlueBlur extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
     );
 
 
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 2;
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int BLOCK = 1;
 
     public BlueBlur() {
         super(ID, info);
 
-        setBlock(BLOCK, UPG_BLOCK);
-        setMagic(MAGIC);
+        setBlock(BLOCK);
+        setExhaust(true);
     }
 
     ///            "DESCRIPTION": "Gain !B! Block. Next turn, your first move will play twice."
@@ -39,8 +36,10 @@ public class BlueBlur extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ApplyPowerAction(p, p, new NextTurnEchoPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new NextTurnEchoPower(p, 1)));
     }
+
+
 
     @Override
     public AbstractCard makeCopy() { //Optional

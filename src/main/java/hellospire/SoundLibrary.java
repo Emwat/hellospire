@@ -20,20 +20,35 @@ public class SoundLibrary {
     static public String OW = makeID("OW");
     static public String YEAH = makeID("YEAH");
     static public String YES = makeID("YES");
+    static public String FeelingGood = makeID("FeelingGood");
 
-    static public String QuickAir1 = makeID("QuickAir1");
-    static public String QuickAir2 = makeID("QuickAir2");
-    static public String QuickAir3 = makeID("QuickAir3");
+    static public String QuickAir1 = makeID("oggQuickAir1");
+    static public String QuickAir2 = makeID("oggQuickAir2");
+    static public String QuickAir3 = makeID("oggQuickAir3");
 
-    static public String BlueTornado = makeID("BlueTornado");
-    static public String Booster = makeID("Booster");
-    static public String Spring = makeID("Spring");
+    static public String BlueTornado = makeID("oggBlueTornado");
+    static public String Booster = makeID("oggBooster");
+    static public String Spring = makeID("oggSpring");
     static public String LevelUp = makeID("voiceLevelUp");
+    static public String Ring = makeID("oggRing");
 
     static public String feeling_good = makeID("audio_FeelingGood");
+    static public int randomNumber = -1;
 
-    static public SFXAction PlayRandomSound(ArrayList<String> sounds){
-        return new SFXAction(sounds.get(AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1)));
+    static public SFXAction PlayRandomSound(ArrayList<String> sounds) {
+        int generatedRandomNumber = AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1);
+
+        if (sounds.size() < 2) {
+            randomNumber = generatedRandomNumber;
+        } else {
+            while (generatedRandomNumber == randomNumber) {
+                generatedRandomNumber = AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1);
+            }
+            randomNumber = generatedRandomNumber;
+        }
+
+
+        return new SFXAction(sounds.get(randomNumber));
     }
 
 }

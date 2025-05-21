@@ -20,9 +20,9 @@ public class GrindRail extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
-            1
+            0
     );
 
     private static final int DAMAGE = 6;
@@ -54,7 +54,7 @@ public class GrindRail extends BaseCard {
                     "Select 2 cards to swap costs.",
                     true,
                     true,
-                    null,
+                    filter -> { return true; },
                     cards -> {
 
                         if(cards.size() < 2){

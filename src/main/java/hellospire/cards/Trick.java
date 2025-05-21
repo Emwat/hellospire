@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.ShoutAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -26,7 +27,7 @@ import java.util.Arrays;
 public class Trick extends BaseCard {
     public static final String ID = makeID("Trick");
     private static final CardStats info = new CardStats(
-            CardColor.COLORLESS,
+            MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
@@ -44,7 +45,7 @@ public class Trick extends BaseCard {
 
         setEthereal(true);
         setExhaust(true);
-        RefundVariable.setBaseValue(this, REFUND);
+//        RefundVariable.setBaseValue(this, REFUND);
     }
 
         /// "DESCRIPTION": "Ethereal. NL Gain 2 Vigor. NL stslib:Refund 1. NL Exhaust.",
@@ -71,6 +72,7 @@ public class Trick extends BaseCard {
         if(this.upgraded){
             addToBot(new MakeTempCardInHandAction(new TrickFinisher1()));
         }
+        addToBot(new GainEnergyAction(REFUND));
 //        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
     }
 

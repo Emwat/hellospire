@@ -30,7 +30,7 @@ public class SonicFlare extends BaseCard {
     );
 
     private static final int DAMAGE = 16;
-    private static final int UPG_DAMAGE = 3;
+    private static final int UPG_DAMAGE = 4;
 //    private static final int MAGIC = 1;
 //    private static final int UPG_MAGIC = 1;
 

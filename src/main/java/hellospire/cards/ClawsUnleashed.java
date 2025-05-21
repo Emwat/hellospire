@@ -32,15 +32,14 @@ public class ClawsUnleashed extends BaseCard {
     );
 
     private static final int DAMAGE = 20;
-    private static final int UPG_DAMAGE = 5;
 
     public ClawsUnleashed() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(DAMAGE);
     }
 
-    /// "Can only be played if you have a Darkness orb."
+    /// "Can only be played if you have a Dark orb."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (m != null) {

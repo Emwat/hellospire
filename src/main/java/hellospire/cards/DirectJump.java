@@ -27,13 +27,22 @@ public class DirectJump extends BaseCard {
     public DirectJump() {
         super(ID, info);
 
-//        setBlock(BLOCK, UPG_BLOCK);
     }
 
+    /// TODO: Come up with a better upgrade
     /// When you gain Block this turn, add a Ring to your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new DirectJumpPower(p, 1)));
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.setCostUpgrade(0);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
     }
 
     @Override

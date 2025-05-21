@@ -24,7 +24,7 @@ public class SonicWave extends BaseCard {
 
     private static final int DAMAGE = 6;
     private static final int MAGIC = 0;
-    private static final int UPG_MAGIC = 3;
+    private static final int UPG_MAGIC = 1;
 
     public SonicWave() {
         super(ID, info);
@@ -33,12 +33,12 @@ public class SonicWave extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-/// "DESCRIPTION": "Deal !D! damage. NL Evoke all of your orbs.",
-/// "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke all of your orbs."
+    /// "DESCRIPTION": "Deal !D! damage. NL Evoke all of your orbs.",
+    /// "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke all of your orbs."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        if(this.upgraded) {
+        if (this.upgraded) {
             for (int i = 0; i < magicNumber; i++) {
                 addToBot(new ChannelAction(new Lightning()));
             }

@@ -30,7 +30,7 @@ public class DizzySpin extends BaseCard {
 
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 2;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 0;
     private static final int UPG_MAGIC = 2;
 
     public DizzySpin() {
@@ -44,17 +44,14 @@ public class DizzySpin extends BaseCard {
     // "DESCRIPTION": "Deal !D! damage. Randomize the cost of ALL cards in your hand for this turn."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(magicNumber));
-        for (AbstractCard card : AbstractDungeon.player.hand.group){
-            int newCost = AbstractDungeon.cardRandomRng.random(3);
-            if (card.cost != newCost) {
-                card.cost = newCost;
-                card.costForTurn = card.cost;
-                card.isCostModified = true;
-            }
-            card.freeToPlayOnce = false;
+        if (magicNumber > 0) {
+            addToBot(new DrawCardAction(magicNumber));
         }
-        for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+        for (AbstractCard card : AbstractDungeon.player.hand.group) {
+            int newCost = AbstractDungeon.cardRandomRng.random(3);
+            card.setCostForTurn(newCost);
+        }
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 2)));
         }
 

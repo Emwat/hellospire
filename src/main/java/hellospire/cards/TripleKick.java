@@ -41,6 +41,15 @@ public class TripleKick extends BaseCard {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
     }
 
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.cardsToPreview.upgrade();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+    }
+
     @Override
     public AbstractCard makeCopy() { //Optional
         return new TripleKick();

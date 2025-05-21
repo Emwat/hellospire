@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.cards.blue.SteamBarrier;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.actions.IncreaseCostAction;
-import hellospire.actions.ModifyEnergyAction;
 import hellospire.character.MyCharacter;
 import hellospire.util.CardStats;
 

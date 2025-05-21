@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Bash;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -21,8 +22,8 @@ public class HomingAttack extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 2;
+    private static final int DAMAGE = 9;
+    private static final int UPG_DAMAGE = 3;
 
     public HomingAttack() {
         super(ID, info);
@@ -39,11 +40,11 @@ public class HomingAttack extends BaseCard {
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
-        if(this.upgraded){
-            addToBot(new MakeTempCardInHandAction(height, 1,true));
+        if (this.upgraded) {
+            addToBot(new MakeTempCardInHandAction(height, 1, true));
         }
-        addToBot(new MakeTempCardInHandAction(height, 1,true));
-        addToBot(new MakeTempCardInHandAction(trick, 1,true));
+        addToBot(new MakeTempCardInHandAction(height, 1, true));
+        addToBot(new MakeTempCardInHandAction(trick, 1, true));
     }
 
     // unused X
@@ -60,8 +61,8 @@ public class HomingAttack extends BaseCard {
                 addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
 
-                addToBot(new MakeTempCardInHandAction(height, 1,true));
-                addToBot(new MakeTempCardInHandAction(trick, 1,true));
+                addToBot(new MakeTempCardInHandAction(height, 1, true));
+                addToBot(new MakeTempCardInHandAction(trick, 1, true));
             }
         }
     }

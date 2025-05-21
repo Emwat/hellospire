@@ -20,7 +20,7 @@ public class SonicBoom extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.SELF,
-            1
+            2
     );
 
     private static final int BLOCK = 5;

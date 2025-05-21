@@ -29,11 +29,11 @@
     ]
   },
   "${modID}:GainedHeight": {
-    "NAME": "Height",
+    "NAME": "Ring",
     "DESCRIPTIONS": [
-      "For each Height in your hand, increase Block gained from cards by 1. You have ",
-      " Height.",
-      " Heights."
+      "For each Ring in your hand, increase Block gained from cards by 1. You have ",
+      " Ring.",
+      " Rings."
     ]
   },
   "${modID}:GainedTrick": {
@@ -73,7 +73,20 @@
   "${modID}:LoseEcho": {
     "NAME": "Blue Blur (fading)",
     "DESCRIPTIONS": [
-      "At the end of your turn, lose the Echo buff."
+      "At the end of your turn, lose Echo Form."
+    ]
+  },
+  "${modID}:LoseFocus": {
+    "NAME": "Lose Focus",
+    "DESCRIPTIONS": [
+      "At the end of your turn, lose ",
+      " Focus."
+    ]
+  },
+  "${modID}:GainedRicochet": {
+    "NAME": "Ricochet",
+    "DESCRIPTIONS": [
+      "When you use Vigor, return ALL Ricochets from the Discard Pile to your hand."
     ]
   }
 }

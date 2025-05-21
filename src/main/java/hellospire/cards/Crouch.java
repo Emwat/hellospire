@@ -34,7 +34,7 @@ public class Crouch extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    /// Gain !B! Block. NL Exhaust all cards in your hand.
+    /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));

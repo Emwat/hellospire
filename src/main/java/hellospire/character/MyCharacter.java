@@ -10,8 +10,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
-import com.megacrit.cardcrawl.cards.green.Neutralize;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -21,9 +19,9 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
+import com.megacrit.cardcrawl.relics.SnakeRing;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import hellospire.cards.Defend;
-import hellospire.cards.DevCreateCard;
 import hellospire.cards.HomingAttack;
 import hellospire.cards.Strike;
 
@@ -169,7 +167,8 @@ public class MyCharacter extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
+//        retVal.add(BurningBlood.ID);
+        retVal.add(SnakeRing.ID);
 
         return retVal;
     }

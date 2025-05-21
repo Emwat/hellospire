@@ -27,11 +27,11 @@ public class DizzyPower extends BasePower {
         this.description = DESCRIPTIONS[0];
     }
 
-    public void atEndOfTurn(boolean isPlayer) {
-        this.flash();
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
-//        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
-    }
+//    public void atEndOfTurn(boolean isPlayer) {
+//        this.flash();
+//        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+////        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
+//    }
 
     public void atEndOfRound() {
         if (this.justApplied) {

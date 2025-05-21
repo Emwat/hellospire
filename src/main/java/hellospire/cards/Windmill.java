@@ -34,25 +34,25 @@ public class Windmill extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new SelectCardsAction(
-                p.hand.group,
-                1,
-                "Windmill: Select a card and randomize its cost for this turn.",
-                cards -> {
-                    for (AbstractCard c : cards) {
-//                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
-                        c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
-                    }
-                }));
-//        addToBot(new SelectCardsInHandAction(
+//        addToBot(new SelectCardsAction(
+//                p.hand.group,
 //                1,
-//                "Windmill: Select a card and randomize its cost for the rest of combat.",
-//                false, false, null, cards -> {
-//            for (AbstractCard c : cards) {
+//                "Windmill: Select a card and randomize its cost for this turn.",
+//                cards -> {
+//                    for (AbstractCard c : cards) {
 ////                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
-//                c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
-//            }
-//        }));
+//                        c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
+//                    }
+//                }));
+        addToBot(new SelectCardsInHandAction(
+                1,
+                "Windmill: Select a card and randomize its cost for the rest of combat.",
+                false, false, cardFilter -> {return true;}, cards -> {
+            for (AbstractCard c : cards) {
+//                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
+                c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
+            }
+        }));
     }
 
     @Override

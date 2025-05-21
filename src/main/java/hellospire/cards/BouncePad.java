@@ -32,7 +32,6 @@ public class BouncePad extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
-
     }
 
     ///  Gain !B! Block. NL Add !M! Heights to your hand.

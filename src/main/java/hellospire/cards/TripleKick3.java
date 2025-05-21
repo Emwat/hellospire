@@ -30,6 +30,8 @@ public class TripleKick3 extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setEthereal(true);
+        setExhaust(true);
+
     }
 
     @Override

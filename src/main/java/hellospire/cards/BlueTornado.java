@@ -29,7 +29,7 @@ public class BlueTornado extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new Ring();
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+//        setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC);
 
     }

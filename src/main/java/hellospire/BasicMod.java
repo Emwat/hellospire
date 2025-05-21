@@ -250,6 +250,7 @@ public class BasicMod implements
         BaseMod.addAudio(SoundLibrary.OK, audioEngPath("OK.ogg"));
         BaseMod.addAudio(SoundLibrary.OW, audioEngPath("OW.ogg"));
         BaseMod.addAudio(SoundLibrary.YES, audioEngPath("yes.ogg"));
+        BaseMod.addAudio(SoundLibrary.FeelingGood, audioEngPath("feelinggood.ogg"));
 
         BaseMod.addAudio(SoundLibrary.nice_01, audioEngPath("01_AMAZING.ogg"));
         BaseMod.addAudio(SoundLibrary.nice_02, audioEngPath("02_OUTSTANDING.ogg"));
@@ -263,6 +264,7 @@ public class BasicMod implements
         BaseMod.addAudio(SoundLibrary.BlueTornado, audioEngPath("bluetornado.ogg"));
         BaseMod.addAudio(SoundLibrary.Booster, "/audio/SE_Booster.ogg");
         BaseMod.addAudio(SoundLibrary.Spring, "/audio/SE_Spring.ogg");
+        BaseMod.addAudio(SoundLibrary.Ring, "/audio/SE_Ring_Mix.ogg");
         BaseMod.addAudio(SoundLibrary.LevelUp, audioEngPath("level_up.ogg"));
 
 

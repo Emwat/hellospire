@@ -19,13 +19,13 @@ public class VolcanoSlider extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.UNCOMMON,
+            CardRarity.RARE,
             CardTarget.ENEMY,
             1
     );
 
-    private static final int DAMAGE = 9;
-    private static final int MAGIC = 4;
+    private static final int DAMAGE = 7;
+    private static final int MAGIC = 7;
     private static final int UPG_MAGIC = 3;
 
 
@@ -46,10 +46,9 @@ public class VolcanoSlider extends BaseCard {
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
-
         int exhaustedCards = getCardsToTheLeft().size();
-
         int realBaseDamage = this.baseDamage;
+
         this.baseDamage += exhaustedCards * magicNumber;
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;

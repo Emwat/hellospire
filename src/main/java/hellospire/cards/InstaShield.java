@@ -30,7 +30,6 @@ public class InstaShield extends BaseCard {
     private static final int UPG_MAGIC = 2;
 
 
-
     /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."
     public InstaShield() {
         super(ID, info);

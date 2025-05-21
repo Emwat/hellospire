@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.BaseMod;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -34,17 +35,18 @@ public class ChangeFormationSpeed extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int SpeedPower = p.getPower("LevelUpSpeed").amount;
-        int FlightPower = p.getPower("LevelUpFlight").amount;
-        int PowerPower = p.getPower("LevelUpPower").amount;
+        int SpeedPower = getPower(p,"LevelUpSpeed");
+        int FlightPower = getPower(p, "LevelUpFlight");
+        int PowerPower = getPower(p, "LevelUpPower");
         int totalPower = FlightPower + PowerPower;
 
+//        BaseMod.logger.info(String.format("SpeedPower %s - FlightPower %s - PowerPower %s", SpeedPower, FlightPower, PowerPower));
         addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, totalPower)));
         if (FlightPower > 0) {
-            addToBot(new ReducePowerAction(p, p, "FlightPower", FlightPower));
+            addToBot(new ReducePowerAction(p, p, makeID("LevelUpFlight"), FlightPower));
         }
         if (PowerPower > 0) {
-            addToBot(new ReducePowerAction(p, p, "PowerPower", PowerPower));
+            addToBot(new ReducePowerAction(p, p, makeID("LevelUpPower"), PowerPower));
         }
     }
 

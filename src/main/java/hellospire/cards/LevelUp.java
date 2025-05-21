@@ -23,7 +23,7 @@ public class LevelUp extends BaseCard {
     private static final CardStats info = new CardStats(
             MyCharacter.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.BASIC,
+            CardRarity.COMMON,
             CardTarget.SELF,
             0
     );
