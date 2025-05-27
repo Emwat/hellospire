@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.FocusPower;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class LoseFocusPower extends BasePower {
-    public static final String POWER_ID = makeID("LoseFocus");
+    public static final String POWER_ID = makeID("LoseFocusPower");
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
 

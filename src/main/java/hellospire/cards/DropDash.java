@@ -1,31 +1,29 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.green.DodgeAndRoll;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
-import hellospire.character.MyCharacter;
+import hellospire.SonicMod;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class DropDash extends BaseCard {
     public static final String ID = makeID("DropDash");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
             2
     );
 
-    private static final int BLOCK = 10;
+    private static final int BLOCK = 13;
     private static final int UPG_BLOCK = 4;
 //    private static final int MAGIC = 4;
 
-    ///"DESCRIPTION": Gain !B! Block. Gain HALF of !B! next turn.
+    /// "DESCRIPTION": Gain !B! Block. Gain HALF of !B! next turn.
+    /// "Gain !B! Block. If you exhausted a card this turn, gain 2."
     public DropDash() {
         super(ID, info);
 
@@ -36,9 +34,21 @@ public class DropDash extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        int halfBlock = (int)(block * 0.5F);
-        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, halfBlock), halfBlock));
+//        int halfBlock = (int)(block * 0.5F);
+//        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, halfBlock), halfBlock));
+        if (SonicMod.cardsExhaustedThisTurn > 0) {
+            addToBot(new GainEnergyAction(2));
+        }
     }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (SonicMod.cardsExhaustedThisTurn > 0) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
 
     @Override
     public AbstractCard makeCopy() { //Optional

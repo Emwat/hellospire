@@ -8,15 +8,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class BlueTornado extends BaseCard {
     public static final String ID = makeID("BlueTornado");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
             1
     );
@@ -37,7 +37,7 @@ public class BlueTornado extends BaseCard {
     /// "Apply !M! Vulnerable. NL Add a Ring to your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction(SoundLibrary.BlueTornado));
+        addToBot(SoundLibrary.PlaySound(SoundLibrary.BlueTornado));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), !upgraded ? 1 : 2 ));
     }

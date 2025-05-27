@@ -9,13 +9,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class SonicWave extends BaseCard {
     public static final String ID = makeID("SonicWave");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,

@@ -5,7 +5,7 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import hellospire.BasicMod;
+import hellospire.SonicMod;
 import hellospire.util.CardStats;
 import hellospire.util.TriFunction;
 import com.badlogic.gdx.graphics.Color;
@@ -27,7 +27,7 @@ import static hellospire.util.TextureLoader.getCardTextureString;
 public abstract class BaseCard extends CustomCard {
     final private static Map<String, DynamicVariable> customVars = new HashMap<>();
 
-    protected static String makeID(String name) { return BasicMod.makeID(name); }
+    protected static String makeID(String name) { return SonicMod.makeID(name); }
     protected CardStrings cardStrings;
 
     protected boolean upgradesDescription;
@@ -459,7 +459,7 @@ public abstract class BaseCard extends CustomCard {
             {
                 if (cardStrings.UPGRADE_DESCRIPTION == null)
                 {
-                    BasicMod.logger.error("Card " + cardID + " upgrades description and has null upgrade description.");
+                    SonicMod.logger.error("Card " + cardID + " upgrades description and has null upgrade description.");
                 }
                 else
                 {
@@ -684,5 +684,15 @@ public abstract class BaseCard extends CustomCard {
             return power.amount;
         }
         return 0;
+    }
+
+    /// If you leave a run, then check the card library, game crashes b/c null error.
+    /// This function fixes that.
+    public boolean isPlayerHandNull(){
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null || p.hand == null || p.hand.group == null){
+            return true;
+        }
+        return false;
     }
 }

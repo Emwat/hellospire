@@ -1,26 +1,21 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.defect.ForTheEyesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.GoForTheEyes;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import hellospire.actions.UnblockedVigorAction;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class SonicEagle extends BaseCard {
     public static final String ID = makeID("SonicEagle");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.RARE,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
             1
     );

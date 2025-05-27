@@ -1,19 +1,15 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.sun.tools.javac.comp.Check;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -22,7 +18,7 @@ import java.util.Arrays;
 public class QuickStep extends BaseCard {
     public static final String ID = makeID("QuickStep");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
@@ -72,7 +68,18 @@ public class QuickStep extends BaseCard {
         return new QuickStep();
     }
 
-    public boolean CheckIfRightCard(AbstractCard card, CardGroup hand) {
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+        if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+    private boolean CheckIfRightCard(AbstractCard card, CardGroup hand) {
         if(hand.size() <= 0){
             return false;
         }

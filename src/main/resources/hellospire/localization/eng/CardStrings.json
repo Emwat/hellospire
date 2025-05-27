@@ -28,15 +28,19 @@
   "${modID}:Assist": {
     "NAME": "Assist",
     "DESCRIPTION": "Get a random card to add to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose a card to add to your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Get a random card to add to your hand. It costs zero this turn. NL Exhaust."
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
-    "DESCRIPTION": "Exhaust up to 2 cards. NL Your debuffs decrease by !M!."
+    "DESCRIPTION": "Exhaust up to 2 cards. NL Your debuffs decrease by !M!. NL Exhaust."
   },
   "${modID}:BackSpinKick": {
     "NAME": "Back Spin Kick",
     "DESCRIPTION": "Deal !D! damage. This costs 1 less for each attack played."
+  },
+  "${modID}:Barry": {
+    "NAME": "Barry the Quokka",
+    "DESCRIPTION": "Put a card from your discard pile into your hand."
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
@@ -44,11 +48,14 @@
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn, your first move will play twice. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, your first move will play twice. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, your first move will play twice."
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Add a Ring to your hand."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Add a Ring to your hand.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable. NL Add 2 Rings to your hand."
+
   },
   "${modID}:Boost": {
     "NAME": "Boost",
@@ -99,7 +106,7 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": "When you gain Block this turn, add a Ring to your hand."
+    "DESCRIPTION": "When you play a skill this turn, add a Ring to your hand."
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
@@ -117,11 +124,12 @@
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
-    "DESCRIPTION": "Gain !B! Block. Gain HALF of !B! Block next turn."
+    "DESCRIPTION": "Gain !B! Block. If you exhausted a card this turn, gain 2 [E]."
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E]."
+    "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity. NL Every turn, gain 1 [E]."
   },
   "${modID}:FightingBuddies": {
     "NAME": "Fighting Buddies",
@@ -144,10 +152,64 @@
     "NAME": "Foot Sweep",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
   },
+  "${modID}:Gizoid": {
+    "NAME": "Gizoid",
+    "DESCRIPTION": "Show me your power. Or I shall not obey. I represent all things, and shall become Gizoid, the conquerer of all.",
+    "EXTENDED_DESCRIPTION": [
+      "Thank you Sonic.",
+      "Has Tails gotten stronger?",
+      "Don't tease him too much, okay?",
+      "Mom.",
+      "I'll miss all of you.",
+      "Should I be glad that...I was born...?",
+      "Initiating data acquisition...",
+      "..."
+    ]
+  },
+  "${modID}:GizoidAmy": {
+    "NAME": "Data - Amy Rose",
+    "DESCRIPTION": "Gain a random potion. NL Exhaust."
+  },
+  "${modID}:GizoidChaos": {
+    "NAME": "Data - Chaos",
+    "DESCRIPTION": "Gain !M! Intangible. NL At the end of your turn, lose 1 Dexterity. NL Exhaust."
+  },
+  "${modID}:GizoidCream": {
+    "NAME": "Data - Cream",
+    "DESCRIPTION": "Heal !M! HP. NL Exhaust."
+  },
+  "${modID}:GizoidE102r": {
+    "NAME": "Data - E102r",
+    "DESCRIPTION": "Take !M! damage. NL Deal !D! damage to ALL enemies. NL Exhaust."
+  },
+  "${modID}:GizoidEggman": {
+    "NAME": "Data - Eggman",
+    "DESCRIPTION": "Choose a card. Next turn, add 3 copies of that card into your hand. Exhaust."
+  },
+  "${modID}:GizoidKnuckles": {
+    "NAME": "Data - Knuckles",
+    "DESCRIPTION": "Deal !D! damage. NL Channel !M! Plasma. NL Exhaust."
+  },
+  "${modID}:GizoidRouge": {
+    "NAME": "Data - Rouge",
+    "DESCRIPTION": "Deal !M! damage. If Fatal, gain !M! Gold. NL Exhaust."
+  },
+  "${modID}:GizoidShadow": {
+    "NAME": "Data - Shadow",
+    "DESCRIPTION": "Take an extra turn after this one. End your turn. NL Exhaust."
+  },
+  "${modID}:GizoidSonic": {
+    "NAME": "Data - Sonic",
+    "DESCRIPTION": "Play Sonic Flare on ALL enemies. NL Exhaust."
+  },
+  "${modID}:GizoidTails": {
+    "NAME": "Data - Tails",
+    "DESCRIPTION": "Put a card from your exhaust pile into your hand. NL Exhaust."
+  },
   "${modID}:GrindRail": {
     "NAME": "Grind Rail",
-    "DESCRIPTION": "Swaps the cost of adjacent cards for this turn.",
-    "UPGRADE_DESCRIPTION": "Swap the cost of two cards for this turn."
+    "DESCRIPTION": "Draw a card. Swaps the cost of adjacent cards for this turn.",
+    "UPGRADE_DESCRIPTION": "Draw a card. Swap the cost of two cards for this turn."
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
@@ -165,15 +227,14 @@
     "NAME": "Height Finisher Up",
     "DESCRIPTION": ""
   },
-  "${modID}:HomingDash": {
-    "NAME": "Homing Dash",
-    "DESCRIPTION": "Your next attack is played twice.",
-    "UPGRADE_DESCRIPTION": "Your next attack is played twice."
-  },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
     "DESCRIPTION": "Deal !D! damage. NL Add a Ring and a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Rings and a Trick to your hand."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
+      "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand."
+    ]
   },
   "${modID}:HopJump": {
     "NAME": "Hop Jump",
@@ -187,7 +248,7 @@
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
-    "DESCRIPTION": "Gain !B! Block. Deal !D! Damage. When you are attacked this turn, deal !M! damage to the attacker."
+    "DESCRIPTION": "Gain !B! Block. Deal !D! damage. When you are attacked this turn, deal !M! damage to the attacker."
   },
   "${modID}:Leap": {
     "NAME": "Leap",
@@ -195,7 +256,7 @@
   },
   "${modID}:LevelUp": {
     "NAME": "LevelUp",
-    "DESCRIPTION": "If the last card played was an... NL Attack : Gain Strength NL Skill : Gain Dexterity NL Power : Gain Focus"
+    "DESCRIPTION": "If the last card played was an... NL Nothing: Gain !M! Rings NL Atk: Gain !M! Strength NL Skill: Gain !M! Dexterity NL Power: Gain !M! Focus"
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",
@@ -216,7 +277,7 @@
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
-    "DESCRIPTION": "Add a Ring to your hand until your hand is full. Play all of the Rings."
+    "DESCRIPTION": "Add a Ring to your hand until your hand is full. Play ALL of the Rings in your hand. Exhaust."
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
@@ -224,11 +285,16 @@
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile."
+    "DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile. NL Exhaust."
   },
   "${modID}:MyRainbow": {
     "NAME": "My Rainbow",
     "DESCRIPTION": "Play the top !M! cards of your draw pile. NL Exhaust."
+  },
+  "${modID}:PoliteGirl": {
+    "NAME": "Polite Girl",
+    "DESCRIPTION": "Heal !M! HP. NL Gain 2 orbs. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Gain 2 orbs."
   },
   "${modID}:Pose": {
     "NAME": "Pose",
@@ -242,7 +308,10 @@
   "${modID}:PunchRush": {
     "NAME": "Punch Rush",
     "DESCRIPTION": "Deal !D! damage 4 times.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 4 times. Deal !D! + !M! damage."
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage 4 times. NL Deal !D! + !M! damage.",
+      "Deal !D! damage 4 times. NL Play the top card of your draw pile."
+    ]
   },
   "${modID}:Ricochet": {
     "NAME": "Ricochet",
@@ -258,12 +327,13 @@
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. NL Add a Quick Step to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add an upgraded Quick Step to your hand. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. If this card is most left, draw 1 card. Add Quick Step to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. If this card is most left, draw 1 card. Add Quick Step+ to your hand. Exhaust."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
-    "DESCRIPTION": "Gain !B! Block. NL If this card is to the very right of your hand, draw !M! cards. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. If this card is most right, draw 1 card. Add Quick Air to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. If this card is most right, draw 1 card. Add Quick Air+ to your hand. Exhaust."
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
@@ -275,7 +345,7 @@
   },
   "${modID}:SecretRoute": {
     "NAME": "Secret Route",
-    "DESCRIPTION": "Heal !M! HP. NL Gain 1 [E]. NL Draw !M! cards."
+    "DESCRIPTION": "Heal !M! HP. NL Gain 1 [E]. NL Draw !M! cards. NL Exhaust."
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
@@ -305,12 +375,13 @@
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": "Deal !D! damage. NL Evoke all of your orbs.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke all of your orbs."
+    "DESCRIPTION": "Deal !D! damage. NL Evoke ALL of your orbs.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke ALL of your orbs."
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",
-    "DESCRIPTION": "Channel !M! Lightning."
+    "DESCRIPTION": "Channel !M! Lightning. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel !M! Lightning."
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
@@ -342,7 +413,7 @@
   "${modID}:Teaser": {
     "NAME": "Teaser",
     "DESCRIPTION": "Channel !M! Dark. NL Shuffle a Claws Unleashed into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle an upgraded Claws Unleashed into your draw pile."
+    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle Claws Unleashed+ into your draw pile."
   },"${modID}:TopKick": {
     "NAME": "Top Kick",
     "DESCRIPTION": "Deal !D! damage. Your next attack deals !M! additional damage."
@@ -353,19 +424,23 @@
   },
   "${modID}:Trick": {
     "NAME": "Trick",
-    "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
+    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
+  },
+  "${modID}:TrickFinisher": {
+    "NAME": "TrickFinisher",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
   },
   "${modID}:TrickFinisher1": {
-    "NAME": "Smell the Flowers",
-    "DESCRIPTION": "Draw !M! next turn."
+    "NAME": "TrickFinisher",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
   },
   "${modID}:TrickFinisher2": {
-    "NAME": "Blast Off",
-    "DESCRIPTION": "Gain !M! [E] next turn."
+    "NAME": "TrickFinisher",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
   },
   "${modID}:TrickFinisher3": {
-    "NAME": "Lock on",
-    "DESCRIPTION": "Gain !M! orb."
+    "NAME": "TrickFinisher",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
   },
   "${modID}:TripleKick": {
     "NAME": "Triple Kick",
@@ -381,6 +456,10 @@
     "NAME": "Triple Kick Part 3",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain 1 Temporary Strength. Exhaust.",
     "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain 1 Temporary Strength. Exhaust."
+  },
+  "${modID}:Turbulence": {
+    "NAME": "Turbulence",
+    "DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost."
   },
   "${modID}:UnbreakableBond": {
     "NAME": "Unbreakable Bond",

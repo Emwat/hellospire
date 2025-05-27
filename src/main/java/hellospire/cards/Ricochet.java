@@ -8,14 +8,14 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.character.MyCharacter;
-import hellospire.powers.GainedRicochetPower;
+import hellospire.character.Sonic;
+import hellospire.powers.RicochetPower;
 import hellospire.util.CardStats;
 
 public class Ricochet extends BaseCard {
     public static final String ID = makeID("Ricochet");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
@@ -36,7 +36,7 @@ public class Ricochet extends BaseCard {
         super.onMoveToDiscard();
         AbstractPlayer p = AbstractDungeon.player;
         if(!p.hasPower(makeID("GainedRichochet"))){
-            addToBot(new ApplyPowerAction(p,p, new GainedRicochetPower(p)));
+            addToBot(new ApplyPowerAction(p,p, new RicochetPower(p)));
         }
     }
 

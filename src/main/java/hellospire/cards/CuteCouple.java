@@ -1,25 +1,21 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
-import com.megacrit.cardcrawl.actions.unique.MadnessAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.RagePower;
 import hellospire.actions.IncreaseCostAction;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class CuteCouple extends BaseCard {
     public static final String ID = makeID("CuteCouple");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0
+            1
     );
 
     private static final int MAGIC = 5;
@@ -46,6 +42,9 @@ public class CuteCouple extends BaseCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+//            this.upgradeMagicNumber(UPG_MAGIC);
             this.setExhaust(false);
         }
     }

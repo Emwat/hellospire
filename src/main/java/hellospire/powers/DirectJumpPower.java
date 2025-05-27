@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.cards.Ring;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class DirectJumpPower extends BasePower {
-    public static final String POWER_ID = makeID("DirectJump");
+    public static final String POWER_ID = makeID("DirectJumpPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = true;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
@@ -24,14 +24,14 @@ public class DirectJumpPower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
 //        super.onPlayCard(card, m);
 
-        if(card.type == AbstractCard.CardType.SKILL) {
+        if (card.type == AbstractCard.CardType.SKILL) {
             AbstractCard heightCard = new Ring();
             addToTop(new MakeTempCardInHandAction(heightCard, 1));
         }

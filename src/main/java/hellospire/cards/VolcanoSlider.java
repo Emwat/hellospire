@@ -8,8 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 public class VolcanoSlider extends BaseCard {
     public static final String ID = makeID("VolcanoSlider");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.RARE,
             CardTarget.ENEMY,

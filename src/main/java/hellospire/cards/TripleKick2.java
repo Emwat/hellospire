@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class TripleKick2 extends BaseCard {
     public static final String ID = makeID("TripleKick2");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.SPECIAL,
             CardTarget.ENEMY,
@@ -49,6 +49,8 @@ public class TripleKick2 extends BaseCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.cardsToPreview.upgrade();
+            this.upgradeDamage(UPG_DAMAGE);
+
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

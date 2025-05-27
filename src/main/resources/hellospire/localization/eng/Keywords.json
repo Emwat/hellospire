@@ -21,20 +21,21 @@
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
   },
   {
-    "ID": "Height",
-    "PROPER_NAME": "Height",
+    "ID": "wordRing",
+    "PROPER_NAME": "Ring",
     "NAMES": [
-      "Height",
-      "Heights"
+      "Ring",
+      "Rings"
     ],
-    "DESCRIPTION": "At the end of your turn, play a finisher move. !cardsToPreview:HeightFinisherUp! !cardsToPreview:HeightFinisherDown!"
+    "DESCRIPTION": "If you receive damage, this card will exhaust."
   },
   {
+    "ID": "wordTrick",
     "PROPER_NAME": "Trick",
     "NAMES": [
-      "Trick",
-      "Tricks"
+      "trick",
+      "tricks"
     ],
-    "DESCRIPTION": "At the end of your turn, play a finisher move. !cardsToPreview:Strike! !cardsToPreview:TrickFinisher1!"
+    "DESCRIPTION": "If you have no Vigor, gain 2 Vigor. Otherwise, double your Vigor. Vigor gained by Tricks are capped to 50."
   }
 ]

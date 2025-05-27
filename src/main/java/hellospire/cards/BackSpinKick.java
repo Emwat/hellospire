@@ -1,33 +1,18 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.defect.BarrageAction;
-import com.megacrit.cardcrawl.actions.watcher.BrillianceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.curses.Pain;
-import com.megacrit.cardcrawl.cards.green.Eviscerate;
-import com.megacrit.cardcrawl.cards.green.Flechettes;
-import com.megacrit.cardcrawl.cards.purple.Brilliance;
-import com.megacrit.cardcrawl.cards.purple.SandsOfTime;
-import com.megacrit.cardcrawl.cards.purple.WindmillStrike;
-import com.megacrit.cardcrawl.cards.red.HeavyBlade;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class BackSpinKick extends BaseCard {
     public static final String ID = makeID("BackSpinKick");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,

@@ -1,24 +1,14 @@
 package hellospire.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.variables.RefundVariable;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.ShoutAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
-import hellospire.powers.GainedHeightPower;
-import hellospire.powers.GainedTrickPower;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -27,29 +17,28 @@ import java.util.Arrays;
 public class Trick extends BaseCard {
     public static final String ID = makeID("Trick");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
             1
     );
 
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int UPG_MAGIC = 1;
     private static final int REFUND = 1;
 
     public Trick() {
         super(ID, info);
-        setMagic(MAGIC);
-        setCostUpgrade(0);
+        setMagic(MAGIC, UPG_MAGIC);
 
         setEthereal(true);
         setExhaust(true);
 //        RefundVariable.setBaseValue(this, REFUND);
     }
 
-        /// "DESCRIPTION": "Ethereal. NL Gain 2 Vigor. NL stslib:Refund 1. NL Exhaust.",
-        /// "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
+    /// "DESCRIPTION": "Ethereal. NL Gain 2 Vigor. NL stslib:Refund 1. NL Exhaust.",
+    /// "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(new TalkAction(p, "Yeah!", 1, 1));
@@ -57,23 +46,30 @@ public class Trick extends BaseCard {
 
 //        addToBot(new SFXAction(SoundLibrary.ALLRIGHT));
 
-        addToBot(SoundLibrary.PlayRandomSound(new ArrayList<>(Arrays.asList(
-            SoundLibrary.ALLRIGHT,
-            SoundLibrary.COOL,
-            SoundLibrary.OK,
-            SoundLibrary.YES
+        addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+                SoundLibrary.ALLRIGHT,
+                SoundLibrary.COOL,
+                SoundLibrary.OK,
+                SoundLibrary.YES
         ))));
-        if(p.hasPower("Vigor")){
-            int amountOfVigor = p.getPower("Vigor").amount;
-            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, amountOfVigor)));
-        } else {
-            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
-        }
-        if(this.upgraded){
+        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
+
+        if (this.upgraded) {
             addToBot(new MakeTempCardInHandAction(new TrickFinisher1()));
         }
         addToBot(new GainEnergyAction(REFUND));
-//        addToBot(new ApplyPowerAction(p, p, new GainedTrickPower(p, magicNumber)));
+//        addToBot(new ApplyPowerAction(p, p, new TrickPower(p, magicNumber)));
+    }
+
+    private int CalculateVigorToGain(AbstractPlayer p) {
+        int amount = p.getPower("Vigor").amount;
+        int CAP = 50;
+        if (amount >= CAP) {
+            amount = 0;
+        } else if (amount + amount > CAP) {
+            amount = CAP - amount;
+        }
+        return amount;
     }
 
     @Override

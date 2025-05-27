@@ -1,20 +1,17 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.animations.ShoutAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import hellospire.character.MyCharacter;
-import hellospire.powers.GainedTrickPower;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class TrickFinisher1 extends BaseCard {
     public static final String ID = makeID("TrickFinisher1");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,

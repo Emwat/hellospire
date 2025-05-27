@@ -43,9 +43,9 @@ public class WallJumpAction extends AbstractGameAction {
 
         if (effect > 0) {
             for(int i = 0; i < effect; ++i) {
-                addToBot(new MakeTempCardInHandAction(heightCard.makeStatEquivalentCopy(), 1));
+                addToTop(new MakeTempCardInHandAction(heightCard.makeStatEquivalentCopy(), 1));
                 p.updatePowers();
-                addToBot(new GainBlockAction(this.p, this.p, this.amount));
+                addToTop(new GainBlockAction(this.p, this.p, this.amount));
             }
 
             if (!this.freeToPlayOnce) {

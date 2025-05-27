@@ -2,10 +2,10 @@ package hellospire.powers;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class LevelUpFlightPower extends BasePower {
-    public static final String POWER_ID = makeID("LevelUpFlight");
+    public static final String POWER_ID = makeID("LevelUpFlightPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 

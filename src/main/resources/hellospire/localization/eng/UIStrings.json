@@ -14,8 +14,15 @@
     }
   },
   "${modID}:ClawsUnleashedMessage": {
-  "TEXT": [
-    "I can only play this if I have a channeled Dark orb."
-  ]
-}
+    "TEXT": [
+      "I can only play this if I have a channeled Dark orb."
+    ]
+  },
+  "${modID}:MyModConfig": {
+    "TEXT_DICT": {
+      "enableSomething": "A Toggle",
+      "nameSomething": "A Name:",
+      "setSomething": "A Number"
+    }
+  }
 }

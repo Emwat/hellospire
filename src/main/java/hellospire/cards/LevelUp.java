@@ -1,7 +1,5 @@
 package hellospire.cards;
 
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -10,28 +8,29 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.powers.LevelUpFlightPower;
 import hellospire.powers.LevelUpPowerPower;
 import hellospire.powers.LevelUpSpeedPower;
 import hellospire.util.CardStats;
 
-import static hellospire.BasicMod.imagePath;
+import static hellospire.SonicMod.imagePath;
 
 public class LevelUp extends BaseCard {
     public static final String ID = makeID("LevelUp");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.SELF,
-            0
+            1
     );
 
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
     private CardType LastTypeCardPlayed;
 
+    /// I seriously want to nerf this to 1, but honestly, it's just more fun w/ 2
     public LevelUp() {
         super(ID, info);
 
@@ -40,15 +39,7 @@ public class LevelUp extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction(SoundLibrary.LevelUp));
-//        addToBot(new AbstractGameAction() {
-//            @Override
-//            public void update() {
-//                UpdateLastCardPlayed();
-//                BaseMod.logger.info(String.format("LastTypeCardPlayed"), LastTypeCardPlayed);
-//                this.isDone = true;
-//            }
-//        });
+        addToBot(SoundLibrary.PlayVoice(SoundLibrary.LevelUp));
         if (LastTypeCardPlayed == CardType.ATTACK) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpPowerPower(p, magicNumber)));
         } else if (LastTypeCardPlayed == CardType.SKILL) {
@@ -56,13 +47,25 @@ public class LevelUp extends BaseCard {
         } else if (LastTypeCardPlayed == CardType.POWER) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, magicNumber)));
         } else {
-            addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), 2 ));
+            addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber ));
 //            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, magicNumber)));
         }
     }
 
+    @Override
+    public void triggerWhenDrawn() {
+        super.triggerWhenDrawn();
+        UpdateLastCardPlayed();
+        UpdateCardImage();
+
+    }
+
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         UpdateLastCardPlayed();
+        UpdateCardImage();
+
+    }
+    private void UpdateCardImage(){
         if (LastTypeCardPlayed == CardType.ATTACK) {
             loadCardImage(LevelUpPath("LevelUpPower.png"));
         } else if (LastTypeCardPlayed == CardType.SKILL) {
@@ -70,7 +73,7 @@ public class LevelUp extends BaseCard {
         } else if (LastTypeCardPlayed == CardType.POWER) {
             loadCardImage(LevelUpPath("LevelUpFlight.png"));
         } else {
-            loadCardImage(LevelUpPath("LevelUpSpeed.png"));
+            loadCardImage(LevelUpPath("LevelUp.png"));
         }
     }
 
@@ -85,10 +88,11 @@ public class LevelUp extends BaseCard {
 
     private void UpdateLastCardPlayed() {
         if (AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
-            LastTypeCardPlayed = CardType.SKILL;
+            LastTypeCardPlayed = null;
             return;
         }
         LastTypeCardPlayed = ((AbstractCard) AbstractDungeon.actionManager.cardsPlayedThisCombat.get(
                 AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1)).type;
     }
+
 }

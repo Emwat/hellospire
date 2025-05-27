@@ -5,22 +5,17 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.Streamline;
-import com.megacrit.cardcrawl.cards.red.Rampage;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Frost;
+import hellospire.SonicMod;
 import hellospire.actions.IncreaseCostAction;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
-
-import java.util.Objects;
 
 public class HeavyBounceSlam extends BaseCard {
     public static final String ID = makeID("HeavyBounceSlam");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
@@ -29,6 +24,7 @@ public class HeavyBounceSlam extends BaseCard {
 
     private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 2;
+    private static int timesPlayed = 2;
 
     public HeavyBounceSlam() {
         super(ID, info);
@@ -38,9 +34,16 @@ public class HeavyBounceSlam extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        this.addToBot(new ModifyDamageAction(this.uuid, this.damage));
-        this.addToBot(new IncreaseCostAction(this.uuid, 1));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
+                damage < 11 ? AbstractGameAction.AttackEffect.BLUNT_LIGHT : AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new ModifyDamageAction(this.uuid, this.damage));
+        addToBot(new IncreaseCostAction(this.uuid, 1));
+        timesPlayed++;
+        if (timesPlayed == 1){
+            loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
+        } else if (timesPlayed > 1){
+            loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam2.png"));
+        }
 
     }
 

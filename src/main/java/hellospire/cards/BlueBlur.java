@@ -5,16 +5,14 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EchoPower;
-import hellospire.character.MyCharacter;
-import hellospire.powers.LoseEchoPower;
+import hellospire.character.Sonic;
 import hellospire.powers.NextTurnEchoPower;
 import hellospire.util.CardStats;
 
 public class BlueBlur extends BaseCard {
     public static final String ID = makeID("BlueBlur");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
@@ -22,7 +20,7 @@ public class BlueBlur extends BaseCard {
     );
 
 
-    private static final int BLOCK = 1;
+    private static final int BLOCK = 3;
 
     public BlueBlur() {
         super(ID, info);
@@ -39,6 +37,14 @@ public class BlueBlur extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new NextTurnEchoPower(p, 1)));
     }
 
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.setExhaust(false);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+    }
 
 
     @Override

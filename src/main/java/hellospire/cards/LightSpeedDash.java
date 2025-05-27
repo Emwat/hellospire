@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
@@ -7,13 +8,13 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class LightSpeedDash extends BaseCard {
     public static final String ID = makeID("LightSpeedDash");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.RARE,
             CardTarget.SELF,
@@ -23,6 +24,7 @@ public class LightSpeedDash extends BaseCard {
     public LightSpeedDash() {
         super(ID, info);
         this.cardsToPreview = new Ring();
+        this.setExhaust(true);
 
     }
 
@@ -30,7 +32,7 @@ public class LightSpeedDash extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int MaxHandSize = 11;
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), MaxHandSize - p.hand.size() ));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), BaseMod.MAX_HAND_SIZE - p.hand.size() ));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {

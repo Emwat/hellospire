@@ -5,16 +5,14 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.powers.LevelUpFlightPower;
-import hellospire.powers.LevelUpSpeedPower;
 import hellospire.util.CardStats;
 
 public class ChangeFormationFlight extends BaseCard {
     public static final String ID = makeID("ChangeFormationFlight");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,

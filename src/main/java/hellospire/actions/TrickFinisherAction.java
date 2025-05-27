@@ -38,7 +38,7 @@ public class TrickFinisherAction extends AbstractGameAction{
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0){
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards){
                 c.unhover();
-                addToBot(new AutoplayCardAction(c, tmp));
+                addToTop(new AutoplayCardAction(c, tmp));
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.p.hand.refreshHandLayout();

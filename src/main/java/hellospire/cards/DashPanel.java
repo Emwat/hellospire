@@ -1,19 +1,14 @@
 package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -21,7 +16,7 @@ import java.util.ArrayList;
 public class DashPanel extends BaseCard {
     public static final String ID = makeID("DashPanel");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
@@ -56,7 +51,7 @@ public class DashPanel extends BaseCard {
     @Override
     public void hover() {
         super.hover();
-        if (checkPlayerHandIsNull()) {
+        if (isPlayerHandNull()) {
             return;
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
@@ -70,7 +65,7 @@ public class DashPanel extends BaseCard {
     @Override
     public void unhover() {
         super.unhover();
-        if (checkPlayerHandIsNull()) {
+        if (isPlayerHandNull()) {
             return;
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
@@ -82,15 +77,7 @@ public class DashPanel extends BaseCard {
         }
     }
 
-    /// If you leave a run, then check the card library, game crashes b/c null error.
-    /// This function fixes that.
-    private boolean checkPlayerHandIsNull(){
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p == null || p.hand == null || p.hand.group == null){
-            return true;
-        }
-        return false;
-    }
+
 
     private ArrayList<AbstractCard> getCardsToTheRight(ArrayList<AbstractCard> hand) {
         ArrayList<AbstractCard> cardsToTheRight = new ArrayList<>();

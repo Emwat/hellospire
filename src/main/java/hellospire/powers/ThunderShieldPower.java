@@ -1,7 +1,6 @@
 package hellospire.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,10 +10,10 @@ import hellospire.cards.Ring;
 
 import java.util.Objects;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class ThunderShieldPower extends BasePower {
-    public static final String POWER_ID = makeID("ThunderShield");
+    public static final String POWER_ID = makeID("ThunderShieldPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.
@@ -27,6 +26,7 @@ public class ThunderShieldPower extends BasePower {
     }
 
     public void updateDescription() {
+
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 

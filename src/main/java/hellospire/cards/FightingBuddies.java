@@ -1,18 +1,17 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.RagePower;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class FightingBuddies extends BaseCard {
     public static final String ID = makeID("FightingBuddies");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
@@ -37,6 +36,9 @@ public class FightingBuddies extends BaseCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.upgradeMagicNumber(UPG_MAGIC);
             this.setExhaust(false);
         }
     }

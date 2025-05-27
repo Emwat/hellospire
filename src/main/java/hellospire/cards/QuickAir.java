@@ -1,16 +1,15 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import java.util.Arrays;
 public class QuickAir extends BaseCard {
     public static final String ID = makeID("QuickAir");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.SELF,
@@ -45,7 +44,9 @@ public class QuickAir extends BaseCard {
                 SoundLibrary.QuickAir3
         ))));
         addToBot(new GainBlockAction(p, block));
-
+        if (CheckIfLeftCard(this, p.hand)) {
+            addToBot(new DrawCardAction(p, 1));
+        }
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
     }
 
@@ -53,6 +54,7 @@ public class QuickAir extends BaseCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.cardsToPreview.upgrade();
+            this.upgradeBlock(UPG_BLOCK);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -63,8 +65,19 @@ public class QuickAir extends BaseCard {
         return new QuickAir();
     }
 
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+        if (CheckIfLeftCard(this, AbstractDungeon.player.hand)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
     public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
-        if(hand.size() <= 0){
+        if (hand.size() <= 0) {
             return false;
         }
 

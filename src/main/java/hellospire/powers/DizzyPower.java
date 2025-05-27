@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class DizzyPower extends BasePower {
-    public static final String POWER_ID = makeID("Dizzy");
+    public static final String POWER_ID = makeID("DizzyPower");
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = true;
     private boolean justApplied;

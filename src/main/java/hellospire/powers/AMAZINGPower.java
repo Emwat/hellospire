@@ -3,24 +3,18 @@ package hellospire.powers;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.PanachePower;
-import hellospire.BasicMod;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class AMAZINGPower extends BasePower {
-    public static final String POWER_ID = makeID("AMAZING");
+    public static final String POWER_ID = makeID("AMAZINGPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     public static final int CARD_AMT = 3;
@@ -64,16 +58,16 @@ public class AMAZINGPower extends BasePower {
         --this.amount;
 
         if (this.amount == 2){
-            addToBot(new SFXAction(SoundLibrary.nice_03));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.nice_03));
         }
 
         if (this.amount == 1){
-            addToBot(new SFXAction(SoundLibrary.nice_02));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.nice_02));
         }
 
         if (this.amount == 0) {
             this.flash();
-            addToBot(new SFXAction(SoundLibrary.nice_01));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.nice_01));
             this.amount = CARD_AMT;
             this.addToBot(new DamageAllEnemiesAction(
                     AbstractDungeon.player,

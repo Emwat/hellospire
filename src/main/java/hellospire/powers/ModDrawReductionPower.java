@@ -6,14 +6,11 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.BlurPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class ModDrawReductionPower extends BasePower {
-    public  static String idk = "DrawReduction2";
+    public  static String idk = "ModDrawReductionPower";
     public static final String POWER_ID = makeID(idk);
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = true;

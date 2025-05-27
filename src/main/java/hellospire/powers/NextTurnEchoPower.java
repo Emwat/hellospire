@@ -3,13 +3,12 @@ package hellospire.powers;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.EchoPower;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class NextTurnEchoPower extends BasePower {
-    public static final String POWER_ID = makeID("NextTurnEcho");
+    public static final String POWER_ID = makeID("NextTurnEchoPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     //The only thing TURN_BASED controls is the color of the number on the power icon.

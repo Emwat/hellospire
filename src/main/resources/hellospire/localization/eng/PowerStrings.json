@@ -5,7 +5,7 @@
       "You are Very Cool and Strong."
     ]
   },
-  "${modID}:AMAZING": {
+  "${modID}:AMAZINGPower": {
     "NAME": "AMAZING",
     "DESCRIPTIONS": [
       "Every time you play ",
@@ -14,13 +14,54 @@
       " Attack cards in a single turn, deal "
     ]
   },
-  "${modID}:Dizzy": {
+  "${modID}:DirectJumpPower": {
+    "NAME": "Direct Jump",
+    "DESCRIPTIONS": [
+      "When you play a skill this turn, add a Ring to your hand."
+    ]
+  },
+  "${modID}:DizzyPower": {
     "NAME": "Too Slow",
     "DESCRIPTIONS": [
       "Target deals damage reduced by the cost of the highest card in your hand."
     ]
   },
-  "${modID}:DrawReduction2": {
+
+  "${modID}:LevelUpFlightPower": {
+    "NAME": "Flight Level Up",
+    "DESCRIPTIONS": [
+      "Your Rings grant you ",
+      " more Temporary Focus."
+    ]
+  },
+  "${modID}:LevelUpSpeedPower": {
+    "NAME": "Speed Level Up",
+    "DESCRIPTIONS": [
+      "Your Rings grant you ",
+      " more Dexterity."
+    ]
+  },
+  "${modID}:LevelUpPowerPower": {
+    "NAME": "Power Level Up",
+    "DESCRIPTIONS": [
+      "Your Rings grant you ",
+      " more Strength."
+    ]
+  },
+  "${modID}:LoseEchoPower": {
+    "NAME": "Blue Blur (fading)",
+    "DESCRIPTIONS": [
+      "At the end of your turn, lose Echo Form."
+    ]
+  },
+  "${modID}:LoseFocusPower": {
+    "NAME": "Lose Focus",
+    "DESCRIPTIONS": [
+      "At the end of your turn, lose ",
+      " Focus."
+    ]
+  },
+  "${modID}:ModDrawReductionPower": {
     "NAME": "Draw Reduction",
     "DESCRIPTIONS": [
       "Draw 1 less card for the next turn.",
@@ -28,7 +69,18 @@
       " turns."
     ]
   },
-  "${modID}:GainedHeight": {
+  "${modID}:NextTurnEchoPower": {
+    "NAME": "Blue Blur",
+    "DESCRIPTIONS": [
+      "Next turn, your first move will be played twice."
+    ]
+  },
+  "${modID}:RicochetPower": {
+    "NAME": "Ricochet",
+    "DESCRIPTIONS": [
+      "When you use Vigor, return ALL Ricochets from the Discard Pile to your hand."
+    ]
+  },"${modID}:RingPower": {
     "NAME": "Ring",
     "DESCRIPTIONS": [
       "For each Ring in your hand, increase Block gained from cards by 1. You have ",
@@ -36,57 +88,20 @@
       " Rings."
     ]
   },
-  "${modID}:GainedTrick": {
+
+  "${modID}:TrickPower": {
     "NAME": "Trick",
     "DESCRIPTIONS": [
       "At the end of your turn, play a Finisher Move that scales with ",
       " Trick."
     ]
   },
-  "${modID}:NextTurnEcho": {
-    "NAME": "Blue Blur",
+  "${modID}:TurbulencePower": {
+    "NAME": "Turbulence",
     "DESCRIPTIONS": [
-      "Next turn, your first move will be played twice."
-    ]
-  },
-  "${modID}:LevelUpFlight": {
-    "NAME": "Flight Level Up",
-    "DESCRIPTIONS": [
-      "Your Rings grant you ",
-      " more Temporary Focus."
-    ]
-  },
-  "${modID}:LevelUpSpeed": {
-    "NAME": "Speed Level Up",
-    "DESCRIPTIONS": [
-      "Your Rings grant you ",
-      " more Dexterity."
-    ]
-  },
-  "${modID}:LevelUpPower": {
-    "NAME": "Power Level Up",
-    "DESCRIPTIONS": [
-      "Your Rings grant you ",
-      " more Strength."
-    ]
-  },
-  "${modID}:LoseEcho": {
-    "NAME": "Blue Blur (fading)",
-    "DESCRIPTIONS": [
-      "At the end of your turn, lose Echo Form."
-    ]
-  },
-  "${modID}:LoseFocus": {
-    "NAME": "Lose Focus",
-    "DESCRIPTIONS": [
-      "At the end of your turn, lose ",
-      " Focus."
-    ]
-  },
-  "${modID}:GainedRicochet": {
-    "NAME": "Ricochet",
-    "DESCRIPTIONS": [
-      "When you use Vigor, return ALL Ricochets from the Discard Pile to your hand."
+      "When you exhaust a card, channel ",
+      " Frost.",
+      " Frosts."
     ]
   }
 }

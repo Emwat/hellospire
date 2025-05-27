@@ -2,16 +2,14 @@ package hellospire.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.EchoPower;
 
-import static hellospire.BasicMod.makeID;
+import static hellospire.SonicMod.makeID;
 
 public class SonicBoomPower extends BasePower {
-    public static final String POWER_ID = makeID("SonicBoom");
+    public static final String POWER_ID = makeID("SonicBoomPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = true;
     //The only thing TURN_BASED controls is the color of the number on the power icon.

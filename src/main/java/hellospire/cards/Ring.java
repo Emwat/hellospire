@@ -6,19 +6,18 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.purple.Weave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
-import hellospire.powers.GainedHeightPower;
+import hellospire.character.Sonic;
+import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
 
 public class Ring extends BaseCard {
     public static final String ID = makeID("Ring");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
@@ -70,7 +69,7 @@ public class Ring extends BaseCard {
     public void triggerWhenCopied() {
         super.triggerWhenCopied();
         AbstractPlayer p = AbstractDungeon.player;
-        addToTop(new ApplyPowerAction(p, p, new GainedHeightPower(p, 1)));
+        addToTop(new ApplyPowerAction(p, p, new RingPower(p, 1)));
 //        this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
     }
 
@@ -83,7 +82,6 @@ public class Ring extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        addToBot(new SFXAction(SoundLibrary.Ring));
         return new Ring();
     }
 }

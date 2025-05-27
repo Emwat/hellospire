@@ -1,22 +1,18 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.purple.Evaluate;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import hellospire.SoundLibrary;
-import hellospire.character.MyCharacter;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class Checkpoint extends BaseCard {
     public static final String ID = makeID("Checkpoint");
     private static final CardStats info = new CardStats(
-            MyCharacter.Meta.CARD_COLOR,
+            Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.RARE,
             CardTarget.SELF,
@@ -26,6 +22,7 @@ public class Checkpoint extends BaseCard {
     public Checkpoint() {
         super(ID, info);
         this.cardsToPreview = new SuperSonicForm();
+        this.cardsToPreview.rarity = CardRarity.RARE;
         setExhaust(true);
     }
 
@@ -46,7 +43,7 @@ public class Checkpoint extends BaseCard {
     /// "Apply !M! Vulnerable. NL Add a Ring to your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction(SoundLibrary.BlueTornado));
+        addToBot(SoundLibrary.PlaySound(SoundLibrary.StarPost));
         this.addToBot(new MakeTempCardInDrawPileAction(
                 this.cardsToPreview.makeStatEquivalentCopy(),
                 1, true, true, false));
