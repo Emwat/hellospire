@@ -22,7 +22,7 @@ public class GizoidKnuckles extends BaseCard {
             CardType.ATTACK,
             CardRarity.SPECIAL,
             CardTarget.ENEMY,
-            0
+            5
     );
 
     private static final int DAMAGE = 24;

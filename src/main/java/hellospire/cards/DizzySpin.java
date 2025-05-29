@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -39,12 +40,20 @@ public class DizzySpin extends BaseCard {
         if (magicNumber > 0) {
             addToBot(new DrawCardAction(magicNumber));
         }
-        for (AbstractCard card : AbstractDungeon.player.hand.group) {
-            int newCost = AbstractDungeon.cardRandomRng.random(3);
-            card.setCostForTurn(newCost);
-        }
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                    int newCost = AbstractDungeon.cardRandomRng.random(3);
+                    card.setCostForTurn(newCost);
+                }
+                this.isDone = true;
+            }
+        });
+
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 2)));
+            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
+            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
         }
 
     }

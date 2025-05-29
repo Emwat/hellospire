@@ -19,7 +19,7 @@ public class GizoidShadow extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0
+            2
     );
 
     public GizoidShadow() {

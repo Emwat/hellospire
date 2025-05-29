@@ -14,7 +14,7 @@ public class GizoidCream extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0
+            1
     );
 
     private static final int MAGIC = 10;

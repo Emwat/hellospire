@@ -21,13 +21,29 @@
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
   },
   {
+    "PROPER_NAME": "More tips",
+    "NAMES": [
+      "blah blah"
+    ],
+    "DESCRIPTION": "names strings should be all lowercase. Use case goes like this: ${modID}:Trick "
+  },
+  {
+    "ID": "wordCrestOfFire",
+    "PROPER_NAME": "Crest of Fire",
+    "NAMES": [
+      "crest of fire",
+      "crest_of_fire"
+    ],
+    "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards permanently. Crest of Fire cards can be upgraded any number of times."
+  },
+  {
     "ID": "wordRing",
     "PROPER_NAME": "Ring",
     "NAMES": [
       "Ring",
       "Rings"
     ],
-    "DESCRIPTION": "If you receive damage, this card will exhaust."
+    "DESCRIPTION": "You should not see this message."
   },
   {
     "ID": "wordTrick",
@@ -36,6 +52,6 @@
       "trick",
       "tricks"
     ],
-    "DESCRIPTION": "If you have no Vigor, gain 2 Vigor. Otherwise, double your Vigor. Vigor gained by Tricks are capped to 50."
+    "DESCRIPTION": "You should not see this message."
   }
 ]

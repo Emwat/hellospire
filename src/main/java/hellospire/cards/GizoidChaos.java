@@ -17,7 +17,7 @@ public class GizoidChaos extends BaseCard {
             CardType.POWER,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0
+            3
     );
 
     private static final int MAGIC = 2;

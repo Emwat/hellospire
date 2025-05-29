@@ -32,15 +32,8 @@ public class Ring extends BaseCard {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
 
-        this.selfRetain = true;
-//        this.returnToHand = true;
-
-        // I would like for this card to be used twice before completely exhausting.
-//        ExhaustiveVariable.setBaseValue(this, EXHAUSTIVE);
-//        this.isEthereal = true;
-        this.exhaust = true;
-//        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, magicNumber);
-//        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, magicNumber);
+        setSelfRetain(true);
+        setExhaust(true);
         tags.add(CardTags.HEALING);
     }
 

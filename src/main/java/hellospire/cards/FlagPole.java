@@ -15,9 +15,9 @@ public class FlagPole extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            1
     );
 
     private static final int MAGIC = 6;
@@ -33,7 +33,9 @@ public class FlagPole extends BaseCard {
     /// "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+        if (this.upgraded) {
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+        }
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -48,12 +50,12 @@ public class FlagPole extends BaseCard {
         });
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(1);
-        }
-    }
+//    public void upgrade() {
+//        if (!this.upgraded) {
+//            this.upgradeName();
+//            this.upgradeBaseCost(1);
+//        }
+//    }
 
     @Override
     public AbstractCard makeCopy() { //Optional

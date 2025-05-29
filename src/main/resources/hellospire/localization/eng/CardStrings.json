@@ -55,7 +55,6 @@
     "NAME": "Blue Tornado",
     "DESCRIPTION": "Apply !M! Vulnerable. NL Add a Ring to your hand.",
     "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable. NL Add 2 Rings to your hand."
-
   },
   "${modID}:Boost": {
     "NAME": "Boost",
@@ -88,7 +87,7 @@
   },
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
-    "DESCRIPTION": "Can only be played if you have a channeled Dark orb. NL Deal !D! damage.",
+    "DESCRIPTION": "Can only be played if you have a channeled Dark Orb. NL Deal !D! damage.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage."
   },
   "${modID}:Crouch": {
@@ -110,8 +109,8 @@
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
-    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies."
+    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies twice.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies twice."
   },
   "${modID}:DoubleAirKick": {
     "NAME": "Double Air Kick",
@@ -119,8 +118,8 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "Activate the passive effects of NL your orbs 3X times.",
-    "UPGRADE_DESCRIPTION": "Activate the passive effects of NL your orbs 3(X + 1) times."
+    "DESCRIPTION": "Activate the passive effects of NL your Orbs 3X times.",
+    "UPGRADE_DESCRIPTION": "Activate the passive effects of NL your Orbs 3(X + 1) times."
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
@@ -131,6 +130,23 @@
     "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E].",
     "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity. NL Every turn, gain 1 [E]."
   },
+  "${modID}:Extender": {
+    "NAME": "Mid-Air Action Trick",
+    "DESCRIPTION": "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E].",
+    "UPGRADE_DESCRIPTION": "Innate. If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E]."
+  },
+  "${modID}:Extender1": {
+    "NAME": "Hop Jump",
+    "DESCRIPTION": "Draw 2 cards."
+  },
+  "${modID}:Extender2": {
+    "NAME": "Humming Top",
+    "DESCRIPTION": "Gain 2 Orb slots."
+  },
+  "${modID}:Extender3": {
+    "NAME": "Bounce",
+    "DESCRIPTION": "Gain 2 [E]."
+  },
   "${modID}:FightingBuddies": {
     "NAME": "Fighting Buddies",
     "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! Block. NL Exhaust.",
@@ -138,15 +154,16 @@
   },
   "${modID}:FireSomersault": {
     "NAME": "Fire Somersault",
-    "DESCRIPTION": "Deal !D! damage. NL If exhausted, add another Fire Somersault to your hand."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. If exhausted, add another Fire Somersault to your hand. It does !M! additional damage."
   },
   "${modID}:FireTackle": {
     "NAME": "Fire Tackle",
-    "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. When you are attacked this turn, deal !M! damage to the attacker."
   },
   "${modID}:FlagPole": {
     "NAME": "Flag Pole",
-    "DESCRIPTION": "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
+    "DESCRIPTION": "Channel a Frost for each Ring in your hand.",
+    "UPGRADE_DESCRIPTION": "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
   },
   "${modID}:FootSweep": {
     "NAME": "Foot Sweep",
@@ -285,7 +302,8 @@
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile. NL Exhaust."
+    "DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile. NL Exhaust."
   },
   "${modID}:MyRainbow": {
     "NAME": "My Rainbow",
@@ -293,8 +311,8 @@
   },
   "${modID}:PoliteGirl": {
     "NAME": "Polite Girl",
-    "DESCRIPTION": "Heal !M! HP. NL Gain 2 orbs. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Gain 2 orbs."
+    "DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots."
   },
   "${modID}:Pose": {
     "NAME": "Pose",
@@ -315,7 +333,7 @@
   },
   "${modID}:Ricochet": {
     "NAME": "Ricochet",
-    "DESCRIPTION": "Deal !D! damage. NL When you use Vigor, return this from the discard pile to your hand."
+    "DESCRIPTION": "Deal !D! damage. When you use Vigor, return this from the discard pile to your hand."
   },
   "${modID}:Ring": {
     "NAME": "Ring",
@@ -371,12 +389,12 @@
   "${modID}:SonicIsMyName": {
     "NAME": "Sonic Is My Name",
     "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Every time you play an attack card, activate the passive of effect of ALL your orbs."
+    "UPGRADE_DESCRIPTION": "Every time you play an attack card, activate the passive of effect of ALL your Orbs."
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": "Deal !D! damage. NL Evoke ALL of your orbs.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke ALL of your orbs."
+    "DESCRIPTION": "Deal !D! damage. NL Evoke ALL of your Orbs.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke ALL of your Orbs."
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",
@@ -427,8 +445,9 @@
     "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
   },
   "${modID}:TrickFinisher": {
-    "NAME": "TrickFinisher",
-    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
+    "NAME": "Trick Finisher",
+    "DESCRIPTION": "Retain. NL Double your Vigor. NL Gain 1 [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Double your Vigor. NL Gain 1 [E]."
   },
   "${modID}:TrickFinisher1": {
     "NAME": "TrickFinisher",
@@ -441,6 +460,11 @@
   "${modID}:TrickFinisher3": {
     "NAME": "TrickFinisher",
     "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
+  },
+  "${modID}:Trickster": {
+    "NAME": "Trickster",
+    "DESCRIPTION": "At the start of your turn, add a Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a Trick to your hand."
   },
   "${modID}:TripleKick": {
     "NAME": "Triple Kick",
@@ -463,8 +487,8 @@
   },
   "${modID}:UnbreakableBond": {
     "NAME": "Unbreakable Bond",
-    "DESCRIPTION": "Gain an orb. NL Channel 1 Plasma. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain an orb. NL Channel 1 Lightning. NL Channel 1 Plasma."
+    "DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Plasma. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
@@ -476,19 +500,20 @@
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",
-    "DESCRIPTION": "Exhaust all to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. Exhaust all to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
     "DESCRIPTION": "Add X Rings to your hand. NL Gain !B! Block X times."
   },
-  "${modID}:WindUpPunch": {
-    "NAME": "Wind Up Punch",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable."
-  },
   "${modID}:Whirlwind": {
     "NAME": "Whirlwind",
     "DESCRIPTION": "Deal !D! damage !M! times to ALL enemies."
+  },
+  "${modID}:WindUpPunch": {
+    "NAME": "Wind Up Punch",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add 2 Tricks to your hand."
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",

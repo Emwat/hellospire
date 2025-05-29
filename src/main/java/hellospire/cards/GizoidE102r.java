@@ -17,7 +17,7 @@ public class GizoidE102r extends BaseCard {
             CardType.ATTACK,
             CardRarity.SPECIAL,
             CardTarget.ALL_ENEMY,
-            0
+            2
     );
 
     private static final int DAMAGE = 20;

@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
+import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -23,16 +25,24 @@ public class VolcanoSlider extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 7;
-    private static final int MAGIC = 7;
-    private static final int UPG_MAGIC = 3;
+    private static final int DAMAGE = 6;
+    private static final int UPG_DAMAGE = 1;
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 1;
 
 
     public VolcanoSlider() {
+        this(0);
+    }
+
+    public VolcanoSlider(int upgrades) {
         super(ID, info);
 
         setDamage(DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        this.timesUpgraded = upgrades;
+
+        tags.add(SonicTags.CREST_OF_FIRE);
     }
 
     @Override
@@ -41,7 +51,8 @@ public class VolcanoSlider extends BaseCard {
             addToBot(new ExhaustSpecificCardAction(c, p.hand, true));
         }
 
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+//        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
@@ -54,9 +65,22 @@ public class VolcanoSlider extends BaseCard {
         this.isDamageModified = this.damage != this.baseDamage;
     }
 
+    public void upgrade() {
+//        this.upgradeDamage(UPG_DAMAGE);
+        this.upgradeMagicNumber(UPG_MAGIC);
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    public boolean canUpgrade() {
+        return true;
+    }
+
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new VolcanoSlider();
+        return new VolcanoSlider(this.timesUpgraded);
     }
 
     private ArrayList<AbstractCard> getCardsToTheLeft() {

@@ -7,9 +7,6 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import hellospire.cards.TrickFinisher1;
-import hellospire.cards.TrickFinisher2;
-import hellospire.cards.TrickFinisher3;
 
 public class TrickFinisherAction extends AbstractGameAction{
     private AbstractPlayer p;
@@ -25,12 +22,12 @@ public class TrickFinisherAction extends AbstractGameAction{
         CardGroup tmp = null;
         if (this.duration == Settings.ACTION_DUR_MED){
             tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            AbstractCard c1 = new TrickFinisher1();
-            AbstractCard c2 = new TrickFinisher2();
-            AbstractCard c3 = new TrickFinisher3();
-            tmp.addToTop(c1);
-            tmp.addToTop(c2);
-            tmp.addToTop(c3);
+//            AbstractCard c1 = new TrickFinisher1();
+//            AbstractCard c2 = new TrickFinisher2();
+//            AbstractCard c3 = new TrickFinisher3();
+//            tmp.addToTop(c1);
+//            tmp.addToTop(c2);
+//            tmp.addToTop(c3);
             AbstractDungeon.gridSelectScreen.open(tmp, 1, "Choose", false);
             tickDuration();
             return;

@@ -26,6 +26,12 @@
       "Target deals damage reduced by the cost of the highest card in your hand."
     ]
   },
+  "${modID}:ExtenderPower": {
+    "NAME": "Mid Air Actions",
+    "DESCRIPTIONS": [
+      "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E]. Repeat for each stack of this power."
+    ]
+  },
 
   "${modID}:LevelUpFlightPower": {
     "NAME": "Flight Level Up",
@@ -94,6 +100,14 @@
     "DESCRIPTIONS": [
       "At the end of your turn, play a Finisher Move that scales with ",
       " Trick."
+    ]
+  },
+  "${modID}:TricksterPower": {
+    "NAME": "Trickster",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add ",
+      " Trick to your hand.",
+      " Tricks to your hand."
     ]
   },
   "${modID}:TurbulencePower": {

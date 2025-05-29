@@ -8,9 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
-import hellospire.cards.TrickFinisher1;
-import hellospire.cards.TrickFinisher2;
-import hellospire.cards.TrickFinisher3;
 
 import java.util.ArrayList;
 
@@ -38,12 +35,12 @@ public class TrickPower extends BasePower {
         addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, amount));
 
         ArrayList<AbstractCard> tmp = new ArrayList<>();
-        AbstractCard c1 = new TrickFinisher1();
-        AbstractCard c2 = new TrickFinisher2();
-        AbstractCard c3 = new TrickFinisher3();
-        tmp.add(c1);
-        tmp.add(c2);
-        tmp.add(c3);
+//        AbstractCard c1 = new TrickFinisher1();
+//        AbstractCard c2 = new TrickFinisher2();
+//        AbstractCard c3 = new TrickFinisher3();
+//        tmp.add(c1);
+//        tmp.add(c2);
+//        tmp.add(c3);
         addToBot(new SelectCardsAction(tmp, 1, "Choose a Trick Finisher", cards -> {
             for (AbstractCard c : cards) {
 //                addToBot(new NewQueueCardAction(c, null, true, true));
@@ -54,17 +51,17 @@ public class TrickPower extends BasePower {
     }
 
     private void TrickHelper(AbstractCard card) {
-        AbstractCard c1 = new TrickFinisher1();
-        AbstractCard c2 = new TrickFinisher2();
-        AbstractCard c3 = new TrickFinisher3();
-        AbstractCreature p = this.owner;
-        if (card.cardID.equals(c1.cardID)) {
-            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, amount)));
-        } else if (card.cardID.equals(c2.cardID)) {
-            addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, amount)));
-        } else if (card.cardID.equals(c3.cardID)) {
-            addToBot(new IncreaseMaxOrbAction(amount));
-        }
+//        AbstractCard c1 = new TrickFinisher1();
+//        AbstractCard c2 = new TrickFinisher2();
+//        AbstractCard c3 = new TrickFinisher3();
+//        AbstractCreature p = this.owner;
+//        if (card.cardID.equals(c1.cardID)) {
+//            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, amount)));
+//        } else if (card.cardID.equals(c2.cardID)) {
+//            addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, amount)));
+//        } else if (card.cardID.equals(c3.cardID)) {
+//            addToBot(new IncreaseMaxOrbAction(amount));
+//        }
 
     }
 

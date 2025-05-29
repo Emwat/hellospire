@@ -1,13 +1,20 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.watcher.LessonLearnedAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.purple.LessonLearned;
+import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
+import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
+import hellospire.powers.CrestOfFirePower;
 import hellospire.util.CardStats;
 
 public class FireSomersault extends BaseCard {
@@ -20,32 +27,54 @@ public class FireSomersault extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 3;
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 2;
+    private static final int DAMAGE = 8;
+    private static final int UPG_DAMAGE = 1;
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
+
+    public FireSomersault() {
+        this(0);
+    }
 
     /// "DESCRIPTION": "Deal !D! damage. NL If exhausted, add another Fire Somersault to your hand."
-    public FireSomersault() {
+    public FireSomersault(int upgrades) {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        this.timesUpgraded = upgrades;
+        tags.add(SonicTags.CREST_OF_FIRE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+//        addToBot(new ApplyPowerAction(p, p, new CrestOfFirePower(p, m, 1, this)));
+        addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
 //        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+    }
+
+    public void upgrade() {
+        this.upgradeDamage(UPG_DAMAGE);
+        this.upgradeMagicNumber(UPG_MAGIC);
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    public boolean canUpgrade() {
+        return true;
     }
 
     @Override
     public void triggerOnExhaust() {
-        addToBot(new MakeTempCardInHandAction(this.makeStatEquivalentCopy(), 1,true));
+        AbstractCard tempCard = this.makeStatEquivalentCopy();
+        tempCard.baseDamage += tempCard.magicNumber;
+        addToBot(new MakeTempCardInHandAction(tempCard, 1, true));
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
-        return new FireSomersault();
+    public AbstractCard makeCopy() {
+        return new FireSomersault(this.timesUpgraded);
     }
 }

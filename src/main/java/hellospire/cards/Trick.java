@@ -53,10 +53,6 @@ public class Trick extends BaseCard {
                 SoundLibrary.YES
         ))));
         addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
-
-        if (this.upgraded) {
-            addToBot(new MakeTempCardInHandAction(new TrickFinisher1()));
-        }
         addToBot(new GainEnergyAction(REFUND));
 //        addToBot(new ApplyPowerAction(p, p, new TrickPower(p, magicNumber)));
     }

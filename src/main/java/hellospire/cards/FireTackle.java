@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
+import hellospire.SonicTags;
+import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -21,27 +23,48 @@ public class FireTackle extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 7;
-    private static final int UPG_DAMAGE = 2;
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 2;
+    private static final int DAMAGE = 8;
+    private static final int UPG_DAMAGE = 1;
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
+
+    public FireTackle(){
+        this(0);
+    }
 
     /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."
-    public FireTackle() {
+    public FireTackle(int upgrades) {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(MAGIC, UPG_MAGIC);
+        setDamage(DAMAGE);
+        setMagic(MAGIC);
+        this.timesUpgraded = upgrades;
+        tags.add(SonicTags.CREST_OF_FIRE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+//        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
         addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+
+    }
+
+    public void upgrade() {
+//        this.upgradeDamage(UPG_DAMAGE);
+        this.upgradeMagicNumber(UPG_MAGIC);
+        ++this.timesUpgraded;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
+    }
+
+    public boolean canUpgrade() {
+        return true;
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new FireTackle();
+        return new FireTackle(this.timesUpgraded);
     }
 }
