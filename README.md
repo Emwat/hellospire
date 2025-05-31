@@ -1,36 +1,25 @@
 # Basic Mod
 
-This is an empty Slay the Spire mod + a modding tutorial.
+Brings Sonic the Hedgehog as a character to Slay the Spire. He plays like a Prismatic Shard.
+Requires [BaseMod](https://github.com/daviscook477/BaseMod/releases) and [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases) to work.
 
-This tutorial will help with setup and the basics of Slay the Spire modding, but it will not teach you Java. If you know nothing of Java or programming in general, you are strongly recommended to look up a free online course and do at least some of it. It is possible to do modding with almost no proper knowledge, but it will make things much more difficult.
+# Gameplay Features
+- Retained cards
+- Exhaust Synergy
+- Orbs
 
----
+# Good wiki links
+[BasicMod] (https://github.com/Alchyr/BasicMod) - this is the base for this mod.
+[Base Mod wiki] (https://github.com/daviscook477/BaseMod/wiki)
+[StSLib wiki] (https://github.com/kiooeht/StSLib/wiki)
 
-## Check the wiki to get started:
+# To upload into Steam --for my purposes only--
+TO UPLOAD MODS
+Open up your favorite command line in the same directory as mod-uploader.jar (defaults to the Slay The Spire directory) and then:
+`.\jre\bin\java.exe -jar .\mod-uploader.jar new -w=YourModName`
+Put your jar into the content folder. Place your Steam Workshop image as image.jpg. Edit config.json to match your mod's details. Then upload with
+`.\jre\bin\java.exe -jar .\mod-uploader.jar upload -w=YourModName`
 
-https://github.com/Alchyr/BasicMod/wiki
 
----
-
-## Know what you're doing?
-
-You can still use this mod as a base, or you could use another template like https://github.com/DarkVexon/ProTemplate
-
-You can find more options in the pins of the #modding-technical channel in the Slay the Spire discord server.
-
----
-
-### Some HD Slay the Spire art assets (courtesy of Gremious, creator of DefaultMod):
-
-Includes:
-- Empty Relic Template feat. empty bottle
-- Empty Card Template
-- Color-Changable cardback
-- A couple of HD Monster vectors (Louse, Nob, Sentry, Sneaky Gremlin)
-- A coupe of HD items (J.A.X., A Coin)
-- 2 people silhouettes
-- A curse Background
-
-https://github.com/Gremious/StS-DefaultModBase#some-hd-slay-the-spire-art-assets
-
----
+# Steam Workshop Link
+https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473

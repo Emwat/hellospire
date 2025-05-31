@@ -92,7 +92,7 @@
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust up to !M! cards in your hand."
+    "DESCRIPTION": "{@@}Exhaust !M! card{!M!|>1=s}. NL Draw !M! card{!M!|>1=s}."
   },
   "${modID}:CuteCouple": {
     "NAME": "Cute Couple",
@@ -130,8 +130,12 @@
     "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E].",
     "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity. NL Every turn, gain 1 [E]."
   },
+  "${modID}:Enerbeam": {
+    "NAME": "Enerbeam",
+    "DESCRIPTION": "Enemy loses !M! Strength this turn."
+  },
   "${modID}:Extender": {
-    "NAME": "Mid-Air Action Trick",
+    "NAME": "Mid-Air Trick Action",
     "DESCRIPTION": "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E].",
     "UPGRADE_DESCRIPTION": "Innate. If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E]."
   },
@@ -146,6 +150,10 @@
   "${modID}:Extender3": {
     "NAME": "Bounce",
     "DESCRIPTION": "Gain 2 [E]."
+  },
+  "${modID}:FalconPunch": {
+    "NAME": "Falcon Punch",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust 1 card."
   },
   "${modID}:FightingBuddies": {
     "NAME": "Fighting Buddies",
@@ -225,8 +233,8 @@
   },
   "${modID}:GrindRail": {
     "NAME": "Grind Rail",
-    "DESCRIPTION": "Draw a card. Swaps the cost of adjacent cards for this turn.",
-    "UPGRADE_DESCRIPTION": "Draw a card. Swap the cost of two cards for this turn."
+    "DESCRIPTION": "Lowers the cost of adjacent cards by 1 for this turn.",
+    "UPGRADE_DESCRIPTION": "Lowers the cost of 2 cards for this turn."
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
@@ -235,14 +243,6 @@
   "${modID}:Height2": {
     "NAME": "Height",
     "DESCRIPTION": "Retain. NL Height. NL stslib:Exhaustive !stslib:ex!."
-  },
-  "${modID}:HeightFinisherDown": {
-    "NAME": "Height Finisher Down",
-    "DESCRIPTION": ""
-  },
-  "${modID}:HeightFinisherUp": {
-    "NAME": "Height Finisher Up",
-    "DESCRIPTION": ""
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
@@ -253,15 +253,15 @@
       "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand."
     ]
   },
-  "${modID}:HopJump": {
-    "NAME": "Hop Jump",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
-  },
-  "${modID}:HummingTop": {
-    "NAME": "Humming Top",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
+  "${modID}:HotRod": {
+    "NAME": "Hot Rod",
+    "DESCRIPTION": "Warming up. NL Gain !B! Block.",
+    "EXTENDED_DESCRIPTION": [
+      "Standard. NL Gain !B! block.",
+      "HOT! NL Gain !B! block.",
+      "Critical! NL Gain !B! block. NL Deal !D! damage.",
+      "Overloaded. NL Gain !B! block."
+    ]
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
@@ -272,8 +272,8 @@
     "DESCRIPTION": "Gain !B! Block."
   },
   "${modID}:LevelUp": {
-    "NAME": "LevelUp",
-    "DESCRIPTION": "If the last card played was an... NL Nothing: Gain !M! Rings NL Atk: Gain !M! Strength NL Skill: Gain !M! Dexterity NL Power: Gain !M! Focus"
+    "NAME": "Level Up",
+    "DESCRIPTION": "If the last card played was... NL Nothing: Gain !M! Rings NL Atk: Gain !M! Strength NL Skill: Gain !M! Dexterity NL Power: Gain !M! Focus"
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",
@@ -309,6 +309,10 @@
     "NAME": "My Rainbow",
     "DESCRIPTION": "Play the top !M! cards of your draw pile. NL Exhaust."
   },
+  "${modID}:PeelOut": {
+    "NAME": "Peel Out",
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card."
+  },
   "${modID}:PoliteGirl": {
     "NAME": "Polite Girl",
     "DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots. Exhaust.",
@@ -330,6 +334,10 @@
       "Deal !D! damage 4 times. NL Deal !D! + !M! damage.",
       "Deal !D! damage 4 times. NL Play the top card of your draw pile."
     ]
+  },
+  "${modID}:QuintupleFrontflip": {
+    "NAME": "Quintuple Frontflip",
+    "DESCRIPTION": "Gain !B! damage 2 times. NL Draw !M! cards."
   },
   "${modID}:Ricochet": {
     "NAME": "Ricochet",
@@ -367,16 +375,19 @@
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! Trick{!M!|>1=s} to your hand."
   },
   "${modID}:Slide": {
     "NAME": "Slide",
     "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile to the top of your draw pile."
   },
-
+  "${modID}:SmoothLanding": {
+    "NAME": "Smooth Landing",
+    "DESCRIPTION": "{@@}Channel 1 Frost. NL Draw !M! card{!M!|>1=s}. NL If you have Vigor, draw 1 additional card next turn."
+  },
   "${modID}:SonicBoom": {
     "NAME": "Sonic Boom",
-    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your block."
+    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your Block."
   },
   "${modID}:SonicEagle": {
     "NAME": "Sonic Eagle",
@@ -417,8 +428,8 @@
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",
-    "DESCRIPTION": "Gain !M! [E]. NL Gain !M! Strength. NL Gain !M! Dexterity.",
-    "UPGRADE_DESCRIPTION": "Gain !M! [E]. NL Gain !M! Strength. NL Gain !M! Dexterity. NL Gain !M! Focus."
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Gain !M! Focus."
   },
   "${modID}:SureFooted": {
     "NAME": "Sure-Footed",
@@ -449,18 +460,6 @@
     "DESCRIPTION": "Retain. NL Double your Vigor. NL Gain 1 [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Double your Vigor. NL Gain 1 [E]."
   },
-  "${modID}:TrickFinisher1": {
-    "NAME": "TrickFinisher",
-    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
-  },
-  "${modID}:TrickFinisher2": {
-    "NAME": "TrickFinisher",
-    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
-  },
-  "${modID}:TrickFinisher3": {
-    "NAME": "TrickFinisher",
-    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
-  },
   "${modID}:Trickster": {
     "NAME": "Trickster",
     "DESCRIPTION": "At the start of your turn, add a Trick to your hand.",
@@ -483,7 +482,8 @@
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost."
+    "DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost. You may exhaust one card in your hand."
   },
   "${modID}:UnbreakableBond": {
     "NAME": "Unbreakable Bond",
@@ -517,6 +517,6 @@
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",
-    "DESCRIPTION": "Deal !D! damage. NL Randomize a card's cost in your hand this turn."
+    "DESCRIPTION": "Deal !D! damage. NL Randomize a card's cost in your hand for this turn."
   }
 }

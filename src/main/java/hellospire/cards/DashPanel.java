@@ -34,12 +34,13 @@ public class DashPanel extends BaseCard {
     }
 
     /// TODO: Additional testing. Like what happens if there's two dash panels next to each other?
+    /// TODO: If Crouch (selects a card) is queued, the cards after Crouch will not play.
     /// Play the two cards to the right of this card.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(SoundLibrary.Booster));
         for (AbstractCard card : getCardsToTheRight(AbstractDungeon.player.hand.group)){
-            this.addToBot(new NewQueueCardAction(card, m, false, true));
+            this.addToBot(new NewQueueCardAction(card, m, true, true));
         }
     }
 

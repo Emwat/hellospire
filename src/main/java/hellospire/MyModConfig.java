@@ -5,6 +5,7 @@ import basemod.EasyConfigPanel;
 public class MyModConfig extends EasyConfigPanel {
     public static boolean enableSound = true;
     public static boolean enableVoice = true;
+    public static boolean enableKicksForStrikeDummy = true;
 //    public enum Voice {
 //        English,
 //        Japanese,

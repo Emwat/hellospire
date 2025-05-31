@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -33,6 +34,7 @@ public class DropDash extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.PlaySound(SoundLibrary.DropDash));
         addToBot(new GainBlockAction(p, block));
 //        int halfBlock = (int)(block * 0.5F);
 //        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, halfBlock), halfBlock));

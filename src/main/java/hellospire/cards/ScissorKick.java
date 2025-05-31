@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.MyModConfig;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -29,6 +30,9 @@ public class ScissorKick extends BaseCard {
 
         setDamage(DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        if (MyModConfig.enableKicksForStrikeDummy) {
+            tags.add(CardTags.STRIKE);
+        }
     }
 
     @Override

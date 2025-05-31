@@ -695,4 +695,9 @@ public abstract class BaseCard extends CustomCard {
         }
         return false;
     }
+
+    /// Short code.
+    public AbstractMonster modGetRandomMonster(){
+        return AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+    }
 }

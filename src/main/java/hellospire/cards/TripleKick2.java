@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import hellospire.MyModConfig;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -34,6 +35,9 @@ public class TripleKick2 extends BaseCard {
         setDamage(DAMAGE, UPG_DAMAGE);
         setEthereal(true);
         setExhaust(true);
+        if (MyModConfig.enableKicksForStrikeDummy) {
+            tags.add(CardTags.STRIKE);
+        }
     }
 
     @Override

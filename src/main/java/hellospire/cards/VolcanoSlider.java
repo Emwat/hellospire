@@ -25,7 +25,7 @@ public class VolcanoSlider extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 7;
     private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 4;
     private static final int UPG_MAGIC = 1;
@@ -47,6 +47,11 @@ public class VolcanoSlider extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.timesUpgraded > 7){
+            int self_damage = timesUpgraded - 7;
+            addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+        }
+
         for (AbstractCard c : getCardsToTheLeft()) {
             addToBot(new ExhaustSpecificCardAction(c, p.hand, true));
         }
@@ -66,16 +71,23 @@ public class VolcanoSlider extends BaseCard {
     }
 
     public void upgrade() {
-//        this.upgradeDamage(UPG_DAMAGE);
-        this.upgradeMagicNumber(UPG_MAGIC);
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        if (canUpgrade()) {
+            //        this.upgradeDamage(UPG_DAMAGE);
+            this.upgradeMagicNumber(UPG_MAGIC);
+            ++this.timesUpgraded;
+            this.upgraded = true;
+            this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
+        }
+
     }
 
     public boolean canUpgrade() {
         return true;
+//        if (this.timesUpgraded < 7) {
+//            return true;
+//        }
+//        return false;
     }
 
     @Override

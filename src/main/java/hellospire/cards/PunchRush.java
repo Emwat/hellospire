@@ -20,7 +20,7 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
-            0
+            1
     );
 
     private static final int DAMAGE = 1;

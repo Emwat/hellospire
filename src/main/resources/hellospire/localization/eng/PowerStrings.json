@@ -86,12 +86,19 @@
     "DESCRIPTIONS": [
       "When you use Vigor, return ALL Ricochets from the Discard Pile to your hand."
     ]
-  },"${modID}:RingPower": {
+  },
+  "${modID}:RingPower": {
     "NAME": "Ring",
     "DESCRIPTIONS": [
       "For each Ring in your hand, increase Block gained from cards by 1. You have ",
       " Ring.",
       " Rings."
+    ]
+  },
+  "${modID}:SonicBoomPower": {
+    "NAME": "Sonic Boom",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal damage equal to your block."
     ]
   },
 

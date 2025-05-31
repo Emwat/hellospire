@@ -45,7 +45,7 @@ public class CrestOfFireAction extends AbstractGameAction {
                     !this.target.halfDead &&
                     !this.target.hasPower("Minion")) {
                 for (AbstractCard theCard : thePlayer.masterDeck.group) {
-                    if (theCard.tags.contains(SonicTags.CREST_OF_FIRE)) {
+                    if (theCard.tags.contains(SonicTags.CREST_OF_FIRE) && theCard.canUpgrade()) {
                         didUpgrade = true;
                         theCard.upgrade();
                         thePlayer.bottledCardUpgradeCheck(theCard);

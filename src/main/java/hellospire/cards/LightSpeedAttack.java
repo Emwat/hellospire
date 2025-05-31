@@ -38,7 +38,7 @@ public class LightSpeedAttack extends BaseCard {
 
         for (int i = 0; i < hits; i++) {
             addToBot(new DamageAction(
-                    AbstractDungeon.getRandomMonster(),
+                    modGetRandomMonster(),
                     new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
                     AbstractGameAction.AttackEffect.LIGHTNING));
         }

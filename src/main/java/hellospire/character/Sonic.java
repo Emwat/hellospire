@@ -33,7 +33,7 @@ import static hellospire.SonicMod.*;
 public class Sonic extends CustomPlayer {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
-    public static final int MAX_HP = 70;
+    public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 1;
@@ -70,7 +70,7 @@ public class Sonic extends CustomPlayer {
         private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
 
         //This is used to color *some* images, but NOT the actual cards. For that, edit the images in the cardback folder!
-        private static final Color cardColor = new Color(128f/255f, 128f/255f, 128f/255f, 1f);
+        private static final Color cardColor = new Color(35f/255f, 119f/255f, 183f/255f, 1f);
 
         //Methods that will be used in the main mod file
         public static void registerColor() {
@@ -280,9 +280,9 @@ public class Sonic extends CustomPlayer {
     public List<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
 
-        panels.add(new CutscenePanel(endingPath("EndingSlice_1.png")));
-        panels.add(new CutscenePanel(endingPath("EndingSlice_2.png")));
-        panels.add(new CutscenePanel(endingPath("EndingSlice_3.png")));
+        panels.add(new CutscenePanel(endingPath("EndingSlice_4.png")));
+        panels.add(new CutscenePanel(endingPath("EndingSlice_5.png")));
+        panels.add(new CutscenePanel(endingPath("EndingSlice_6.png")));
         return panels;
     }
 

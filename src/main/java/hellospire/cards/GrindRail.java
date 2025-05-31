@@ -1,11 +1,16 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.red.Havoc;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.actions.LowerCostAction;
 import hellospire.actions.SwapCostsAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -22,51 +27,41 @@ public class GrindRail extends BaseCard {
             0
     );
 
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
 
     public GrindRail() {
         super(ID, info);
+//        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(1));
-        if(!this.upgraded) {
-            ArrayList<AbstractCard> adjacentCards = getNeighbors(p.hand);
-
-            AbstractCard card1;
-            AbstractCard card2;
-
-            if (adjacentCards.size() < 2){
-                return;
+//        addToBot(new DrawCardAction(magicNumber));
+        if (!this.upgraded) {
+            ArrayList<AbstractCard> neighbors = getNeighbors(p.hand);
+            for (AbstractCard neighbor : neighbors) {
+                addToBot(new LowerCostAction(neighbor));
             }
-
-            card1 = adjacentCards.get(0);
-            card2 = adjacentCards.get(1);
-
-            addToBot(new SwapCostsAction(card1, card2));
         } else {
             addToBot(new SelectCardsInHandAction(
                     2,
-                    "Select 2 cards to swap costs.",
+                    "Select 2 cards to lower costs.",
                     true,
                     true,
-                    filter -> { return true; },
+                    filter -> {
+                        return filter.canUse(p, modGetRandomMonster());
+                    },
                     cards -> {
-
-                        if(cards.size() < 2){
+                        if (cards.isEmpty()) {
                             return;
                         }
-
-                        AbstractCard pickedCard1 = cards.get(0);
-                        AbstractCard pickedCard2 = cards.get(1);
-                        addToBot(new SwapCostsAction(pickedCard1, pickedCard2));
-            }));
+                        for (AbstractCard card : cards) {
+                            addToBot(new LowerCostAction(card));
+                        }
+                    }));
         }
     }
-
-
 
     public ArrayList<AbstractCard> getNeighbors(CardGroup hand) {
         ArrayList<AbstractCard> neighbors = new ArrayList<>();
@@ -74,15 +69,60 @@ public class GrindRail extends BaseCard {
         if (hand.contains(this)) {
             int index = hand.group.indexOf(this);
             if (index > 0) {
-                neighbors.add(hand.group.get(index -1));
+                AbstractCard leftCard = hand.group.get(index - 1);
+                if (leftCard.canUse(AbstractDungeon.player, modGetRandomMonster())) {
+                    neighbors.add(leftCard);
+                }
             }
             if (index < hand.size() - 1) {
-                neighbors.add(hand.group.get(index + 1));
+                AbstractCard rightCard = hand.group.get(index + 1);
+                if (rightCard.canUse(AbstractDungeon.player, modGetRandomMonster())) {
+                    neighbors.add(rightCard);
+                }
             }
         }
         return neighbors;
     }
 
+    @Override
+    public void hover() {
+        super.hover();
+        if (isPlayerHandNull()) {
+            return;
+        }
+        if (this.upgraded) {
+            return;
+        }
+        if (AbstractDungeon.isPlayerInDungeon()) {
+            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand);
+            if (!neighbors.isEmpty()) {
+                for (AbstractCard q : neighbors) {
+                    q.glowColor = Color.GOLD.cpy();
+                    q.beginGlowing();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void unhover() {
+        super.unhover();
+        if (isPlayerHandNull()) {
+            return;
+        }
+        if (this.upgraded) {
+            return;
+        }
+        if (AbstractDungeon.isPlayerInDungeon()) {
+            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand);
+            if (!neighbors.isEmpty()) {
+                for (AbstractCard q : neighbors) {
+                    q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+                    q.triggerOnGlowCheck();
+                }
+            }
+        }
+    }
 
     @Override
     public AbstractCard makeCopy() { //Optional

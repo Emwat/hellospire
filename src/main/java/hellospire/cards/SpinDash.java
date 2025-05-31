@@ -42,8 +42,7 @@ public class SpinDash extends BaseCard {
             addToBot(new UpgradeSpecificCardAction(p.drawPile.getTopCard()));
         }
         if (m == null) {
-            m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(
-                    (AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
+            m = modGetRandomMonster();
         }
 
         addToBot(new PlayTopCardAction(m, false));

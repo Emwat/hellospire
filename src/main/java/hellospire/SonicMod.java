@@ -200,6 +200,9 @@ public class SonicMod implements
 
     public static String endingPath(String file) { return resourcesFolder + "/images/character/ending/" + file; }
 
+    public static String audioPath(String file) {
+        return resourcesFolder + "/audio/" + file;
+    }
     public static String audioEngPath(String file) {
         return resourcesFolder + "/audio/eng/" + file;
     }
@@ -284,10 +287,11 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("01_V_SNC_001_a.ogg"));
         BaseMod.addAudio(SoundLibrary.QuickAir3, audioEngPath("01_V_SNC_002_b.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.BlueTornado, audioEngPath("bluetornado.ogg"));
-        BaseMod.addAudio(SoundLibrary.Booster, "/audio/SE_Booster.ogg");
-        BaseMod.addAudio(SoundLibrary.Spring, "/audio/SE_Spring.ogg");
-        BaseMod.addAudio(SoundLibrary.Ring, "/audio/SE_Ring_Mix.ogg");
+        BaseMod.addAudio(SoundLibrary.BlueTornado, audioPath("bluetornado.ogg"));
+        BaseMod.addAudio(SoundLibrary.Booster, audioPath("/SE_Booster.ogg"));
+        BaseMod.addAudio(SoundLibrary.Spring, audioPath("/SE_Spring.ogg"));
+        BaseMod.addAudio(SoundLibrary.Ring, audioPath("/Ring.ogg"));
+
         BaseMod.addAudio(SoundLibrary.LevelUp, audioEngPath("level_up.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Attack1, audioEngPath("vc_sonic_attack01.ogg"));
@@ -296,6 +300,8 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Attack4, audioEngPath("vc_sonic_attack04.ogg"));
         BaseMod.addAudio(SoundLibrary.Attack5, audioEngPath("vc_sonic_attack05.ogg"));
         BaseMod.addAudio(SoundLibrary.Attack6, audioEngPath("vc_sonic_attack06.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("vc_sonic_super_sonic_style.ogg"));
 
         BaseMod.addAudio(SoundLibrary.DropDash, "/audio/DropDash.ogg");
         BaseMod.addAudio(SoundLibrary.LightningShield, "/audio/LightningShield.ogg");

@@ -19,7 +19,7 @@ public class Extender extends BaseCard {
             CardType.POWER,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            0
+            1
     );
 
 
@@ -31,6 +31,13 @@ public class Extender extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new ExtenderPower(p, 1)));
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeBaseCost(0);
+        }
     }
 
     @Override

@@ -10,11 +10,11 @@ import hellospire.powers.SonicBoomPower;
 import hellospire.util.CardStats;
 
 public class SonicBoom extends BaseCard {
-    public static final String ID = makeID("SonicFlare");
+    public static final String ID = makeID("SonicBoom");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
             2
     );

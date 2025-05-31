@@ -1,13 +1,16 @@
 package hellospire.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Bash;
+import com.megacrit.cardcrawl.cards.red.PommelStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -36,6 +39,17 @@ public class Taunt extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeMagicNumber(UPG_MAGIC);
+//            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            loadCardImage(SonicMod.imagePath("cards/skill/Taunt2.png"));
+//            this.initializeDescription();
+        }
+
     }
 
     @Override

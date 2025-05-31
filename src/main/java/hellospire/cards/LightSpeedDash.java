@@ -31,14 +31,13 @@ public class LightSpeedDash extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int MaxHandSize = 11;
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), BaseMod.MAX_HAND_SIZE - p.hand.size() ));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
                 for (AbstractCard card : p.hand.group){
                     if(card.cardID == cardsToPreview.cardID){
-                        addToBot(new NewQueueCardAction(card, AbstractDungeon.getRandomMonster(), true, true));
+                        addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
                     }
                 }
                 this.isDone = true;

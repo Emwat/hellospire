@@ -34,7 +34,7 @@
       "crest of fire",
       "crest_of_fire"
     ],
-    "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards permanently. Crest of Fire cards can be upgraded any number of times."
+    "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards permanently. Crest of Fire cards can be upgraded any number of times. NL NL After upgrading more than 7 times, take 1 damage per upgrade. For example, Fire Tackle+10 will hurt you for 3 damage."
   },
   {
     "ID": "wordRing",

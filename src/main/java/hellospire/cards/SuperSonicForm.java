@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -19,7 +20,7 @@ public class SuperSonicForm extends BaseCard {
             CardType.POWER,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            4
+            3
     );
 
     private static final int MAGIC = 7;
@@ -33,7 +34,8 @@ public class SuperSonicForm extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainEnergyAction(magicNumber));
+        addToBot(SoundLibrary.PlayVoice(SoundLibrary.SonicStyle));
+//        addToBot(new GainEnergyAction(magicNumber));
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
 

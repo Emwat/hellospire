@@ -34,16 +34,17 @@
         \r\nThe Hedgehog is a remix of the four vanilla characters and a little bit of Snecko.
         - Collect and Retain Rings to build your Dexterity
         - Perform Tricks to gain Vigor
-        - Channel and Evoke Orbs just like the Defect
+        - Channel and Evoke Orbs
 
         \r\nFeatures
         - 60+ cards
-        - Voice Clips
+        - Voice Clips (can be disabled in config)
 
         \r\nCredits
         - Card Art Screenshots from the Sonic Wiki.
         - Audio from the Sound Resource.
         - Help from the nice people in the modding-technical
+        - Other Open Source mods (Astrologer, Marisa, Packmaster)
     </description>
 
     <!--You shouldn't need to change anything below this point, but feel free to look at it.-->

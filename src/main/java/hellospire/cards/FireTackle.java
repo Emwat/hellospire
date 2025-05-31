@@ -23,12 +23,12 @@ public class FireTackle extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 7;
     private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 
-    public FireTackle(){
+    public FireTackle() {
         this(0);
     }
 
@@ -44,6 +44,11 @@ public class FireTackle extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.timesUpgraded > 7){
+            int self_damage = timesUpgraded - 7;
+            addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+        }
+
 //        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
         addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
@@ -51,16 +56,22 @@ public class FireTackle extends BaseCard {
     }
 
     public void upgrade() {
-//        this.upgradeDamage(UPG_DAMAGE);
-        this.upgradeMagicNumber(UPG_MAGIC);
-        ++this.timesUpgraded;
-        this.upgraded = true;
-        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
-        this.initializeTitle();
+        if (canUpgrade()) {
+            //        this.upgradeDamage(UPG_DAMAGE);
+            this.upgradeMagicNumber(UPG_MAGIC);
+            ++this.timesUpgraded;
+            this.upgraded = true;
+            this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+            this.initializeTitle();
+        }
     }
 
     public boolean canUpgrade() {
         return true;
+//        if (this.timesUpgraded < 7) {
+//            return true;
+//        }
+//        return false;
     }
 
     @Override
