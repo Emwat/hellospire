@@ -32,7 +32,7 @@ public class RingPower extends BasePower {
     }
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        int amountPower =  GetPowerAmount("LevelUpPowerPower") * this.amount;
+        int amountPower = GetPowerAmount("LevelUpPowerPower") * this.amount;
         return type == DamageInfo.DamageType.NORMAL ? damage + (float) amountPower : damage;
     }
 
@@ -63,6 +63,11 @@ public class RingPower extends BasePower {
                 numberOfHeights++;
             }
         }
+
+        if (playedCard.cardID == heightCard.cardID) {
+            numberOfHeights--;
+        }
+
         amount = numberOfHeights;
     }
 
@@ -86,7 +91,7 @@ public class RingPower extends BasePower {
 //        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
     }
 
-    private int GetPowerAmount(String targetID){
+    private int GetPowerAmount(String targetID) {
         if (owner.getPower(makeID(targetID)) != null) {
             return owner.getPower(makeID(targetID)).amount;
         }

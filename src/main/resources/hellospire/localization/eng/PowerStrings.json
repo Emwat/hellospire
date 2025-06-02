@@ -81,6 +81,13 @@
       "Next turn, your first move will be played twice."
     ]
   },
+  "${modID}:NiceSmilePower": {
+    "NAME": "Nice Smile",
+    "DESCRIPTIONS": [
+      "Whenever you gain Vigor, gain ",
+      " more."
+    ]
+  },
   "${modID}:RicochetPower": {
     "NAME": "Ricochet",
     "DESCRIPTIONS": [
@@ -101,7 +108,20 @@
       "At the end of your turn, deal damage equal to your block."
     ]
   },
+  "${modID}:SpeedHurtPower": {
+    "NAME": "Arrow of Judgement",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal damage equal to your block."
+    ]
+  },
 
+  "${modID}:ThunderShieldPower": {
+    "NAME": "Thunder Shield",
+    "DESCRIPTIONS": [
+      "At the end of your turn, Channel ",
+      " for every Ring you have."
+    ]
+  },
   "${modID}:TrickPower": {
     "NAME": "Trick",
     "DESCRIPTIONS": [

@@ -22,14 +22,14 @@ public class WindUpPunch extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 12;
     private static final int UPG_DAMAGE = 2;
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
 
     public WindUpPunch() {
         super(ID, info);
-        this.cardsToPreview = new Ring();
+        this.cardsToPreview = new Trick();
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
@@ -39,7 +39,7 @@ public class WindUpPunch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), !upgraded ? 1 : 2 ));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1 ));
     }
 
     @Override

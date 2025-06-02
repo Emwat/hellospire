@@ -36,8 +36,10 @@ public class TrickFinisher extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractPower vigor = p.getPower("Vigor");
         if (vigor != null && vigor.amount > 0) {
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.FeelingGood));
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vigor.amount)));
         }
+        addToBot(new GainEnergyAction(1));
     }
 
     public void upgrade() {

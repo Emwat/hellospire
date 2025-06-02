@@ -17,7 +17,7 @@ import hellospire.character.Sonic;
 import hellospire.powers.CrestOfFirePower;
 import hellospire.util.CardStats;
 
-public class FireSomersault extends BaseCard {
+public class FireSomersault extends BaseCard implements CrestOfFireCard {
     public static final String ID = makeID("FireSomersault");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -48,8 +48,8 @@ public class FireSomersault extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.timesUpgraded > 7){
-            int self_damage = timesUpgraded - 7;
+        if (this.timesUpgraded > CREST_OF_FIRE_MARK){
+            int self_damage = timesUpgraded - CREST_OF_FIRE_MARK;
             addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         }
 
@@ -82,6 +82,14 @@ public class FireSomersault extends BaseCard {
         AbstractCard tempCard = this.makeStatEquivalentCopy();
         tempCard.baseDamage += tempCard.magicNumber;
         addToBot(new MakeTempCardInHandAction(tempCard, 1, true));
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (this.willBurnPlayer(this)) {
+            this.glowColor = CrestOfFireCard.CREST_OF_FIRE_BURN_GLOW_COLOR.cpy();
+        }
     }
 
     @Override

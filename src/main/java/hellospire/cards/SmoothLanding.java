@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import hellospire.SonicMod;
+import hellospire.SoundLibrary;
 import hellospire.actions.SwapCostsAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -44,6 +45,9 @@ public class SmoothLanding extends BaseCard {
         if (hasVigor()) {
             addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, 1), 1));
 //            addToBot(new GainEnergyAction(1));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoPerfectLanding));
+        } else {
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoIncorrectLanding));
         }
     }
 

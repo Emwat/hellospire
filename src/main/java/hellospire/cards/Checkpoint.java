@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -37,6 +38,8 @@ public class Checkpoint extends BaseCard {
                 return true;
             }
         }
+
+        this.cantUseMessage = CardCrawlGame.languagePack.getUIString(makeID("CheckpointMessage")).TEXT[0];
         return false;
     }
 

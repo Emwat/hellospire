@@ -30,6 +30,15 @@ public class Barry extends BaseCard {
         addToBot(new BetterDiscardPileToHandAction(1));
     }
 
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+//            this.upgradeMagicNumber(UPG_MAGIC);
+            this.setExhaust(false);
+        }
+    }
 
     @Override
     public AbstractCard makeCopy() { //Optional

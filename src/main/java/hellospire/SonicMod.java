@@ -3,11 +3,19 @@ package hellospire;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModPanel;
+import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
+import com.badlogic.gdx.audio.AudioDevice;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.utils.Array;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hellospire.cards.BaseCard;
+import hellospire.cards.CrestOfFireCard;
 import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
 import hellospire.util.GeneralUtils;
@@ -30,6 +38,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -41,7 +51,10 @@ public class SonicMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         OnPlayerTurnStartSubscriber,
+//        OnStartBattleSubscriber,
         PostExhaustSubscriber,
+//        PostBattleSubscriber,
+//        PostDeathSubscriber,
         PostInitializeSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
@@ -94,6 +107,28 @@ public class SonicMod implements
 //                }));
 
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, new MyModConfig());
+
+        CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo() {
+            @Override
+            public boolean test(AbstractCard card) {
+                return card instanceof CrestOfFireCard && ((CrestOfFireCard) card).willBurnPlayer(card);
+                //return true if "card" follows this rule, else return false
+            }
+
+            @Override
+            public Color getColor(AbstractCard card) {
+                return CrestOfFireCard.CREST_OF_FIRE_BURN_GLOW_COLOR.cpy();
+                //return an instance of Color to be used as the color. e.g. Color.WHITE.cpy().
+            }
+
+            @Override
+            public String glowID() {
+                return makeID("CrestOfFireBurnGlow");
+                //return a string to be used as a unique ID for this glow.
+                //It's recommended to follow the usual modding convention of "modname:name"
+            }
+        });
+
     }
 
     /*----------Localization----------*/
@@ -198,11 +233,14 @@ public class SonicMod implements
         return resourcesFolder + "/images/relics/" + file;
     }
 
-    public static String endingPath(String file) { return resourcesFolder + "/images/character/ending/" + file; }
+    public static String endingPath(String file) {
+        return resourcesFolder + "/images/character/ending/" + file;
+    }
 
     public static String audioPath(String file) {
         return resourcesFolder + "/audio/" + file;
     }
+
     public static String audioEngPath(String file) {
         return resourcesFolder + "/audio/eng/" + file;
     }
@@ -308,6 +346,26 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Jump, "/audio/Jump.ogg");
         BaseMod.addAudio(SoundLibrary.StarPost, "/audio/StarPost.ogg");
 
+        BaseMod.addAudio(SoundLibrary.OmochaoPerfectLanding, audioEngPath("SND_00610_he_makes_a_perfect_landing_and.ogg"));
+        BaseMod.addAudio(SoundLibrary.OmochaoIncorrectLanding, audioEngPath("SND_00616_ohh_he_failed_to_land_correctly.ogg"));
+        BaseMod.addAudio(SoundLibrary.OmochaoTurbulence, audioEngPath("SND_00765_look_at_sonic_ride_that_turbulence.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.TooSlow, audioEngPath("snd_vc_Sonic_Appeal02_Too_Slow.ogg"));
+        BaseMod.addAudio(SoundLibrary.StepItUp, audioEngPath("snd_vc_Sonic_Appeal03_Step_It_Up.ogg"));
+        BaseMod.addAudio(SoundLibrary.TskTsk, audioEngPath("snd_vc_Sonic_Appeal01_Tsk.ogg"));
+        BaseMod.addAudio(SoundLibrary.SonicsTheName, audioEngPath("snd_vc_Sonic_Win01_Sonics_The_Name.ogg"));
+        BaseMod.addAudio(SoundLibrary.TooEasy, audioEngPath("snd_vc_Sonic_Win02_Too_Easy.ogg"));
+        BaseMod.addAudio(SoundLibrary.HeyWeShould, audioEngPath("snd_vc_Sonic_Win03_Hey_We_Should.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.WindUpPunchGo, audioEngPath("snd_vc_Sonic_Attack05_Go.ogg"));
+        BaseMod.addAudio(SoundLibrary.Nooo, audioEngPath("snd_vc_Sonic_Nooo.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.BossMusic, resourcesFolder + "/audio/music/" + "MetalScratchin2.mp3");
+
+        BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("VOICE_E_2_Speed_Break.ogg"));
+        BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("VOICE_E_24_Time_Break.ogg"));
+
+
     }
 
 
@@ -322,6 +380,61 @@ public class SonicMod implements
     public void receiveOnPlayerTurnStart() {
         cardsExhaustedThisTurn = 0;
     }
+
+
+//
+//    @Override
+//    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+//        if (!(AbstractDungeon.player instanceof Sonic)){
+//            return;
+//        }
+//        if (abstractRoom.monsters.getMonsterNames().isEmpty()){
+//            return;
+//        }
+//
+//        String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
+//        ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
+//                "TheGuardian",
+//                "CorruptHeart"
+//        ));
+//
+//        if (bosses.contains(monsterName)) {
+//            logger.info("PING");
+//            abstractRoom.playBGM("MetalScratchin2.mp3");
+//
+//        }
+//    }
+//
+//    @Override
+//    public void receivePostBattle(AbstractRoom abstractRoom) {
+//        if (!(AbstractDungeon.player instanceof Sonic)){
+//            return;
+//        }
+//        String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
+//        ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
+//                "TheGuardian",
+//                "CorruptHeart"
+//        ));
+//        logger.info("loggginggg" + monsterName);
+//        if (bosses.contains(monsterName)) {
+//            logger.info("PING");
+//            abstractRoom.playBGM("MetalScratchin2.mp3");
+//
+////            SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+////                    SoundLibrary.SonicsTheName,
+////                    SoundLibrary.TooEasy,
+////                    SoundLibrary.HeyWeShould
+////            )));
+//        }
+//    }
+//
+//    @Override
+//    public void receivePostDeath() {
+//        if (AbstractDungeon.player instanceof Sonic)
+//        {
+//            SoundLibrary.PlayVoice(SoundLibrary.Nooo);
+//        }
+//    }
 
 //    /// Used for FlagDropDown
 //    public static int getIndex()

@@ -37,13 +37,37 @@
     "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards permanently. Crest of Fire cards can be upgraded any number of times. NL NL After upgrading more than 7 times, take 1 damage per upgrade. For example, Fire Tackle+10 will hurt you for 3 damage."
   },
   {
+    "ID": "wordDizzy",
+    "PROPER_NAME": "Dizzy",
+    "NAMES": [
+      "dizzy"
+    ],
+    "DESCRIPTION": "Target deals damage reduced by the cost of the highest card in your hand."
+  },
+  {
+    "ID": "wordMostLeft",
+    "PROPER_NAME": "Most Left",
+    "NAMES": [
+      "most left"
+    ],
+    "DESCRIPTION": "If this card is at the very left of your hand, activate the extra effect."
+  },
+  {
+    "ID": "wordMostRight",
+    "PROPER_NAME": "Most Right",
+    "NAMES": [
+      "most right"
+    ],
+    "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect."
+  },
+  {
     "ID": "wordRing",
     "PROPER_NAME": "Ring",
     "NAMES": [
-      "Ring",
-      "Rings"
+      "ring",
+      "rings"
     ],
-    "DESCRIPTION": "You should not see this message."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by 1."
   },
   {
     "ID": "wordTrick",

@@ -34,7 +34,7 @@ public class LevelUp extends BaseCard {
     public LevelUp() {
         super(ID, info);
 
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
     }
 
     @Override
@@ -49,6 +49,13 @@ public class LevelUp extends BaseCard {
         } else {
             addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber ));
 //            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, magicNumber)));
+        }
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeBaseCost(0);
         }
     }
 

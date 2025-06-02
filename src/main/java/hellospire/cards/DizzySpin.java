@@ -18,7 +18,7 @@ public class DizzySpin extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.ALL_ENEMY,
-            2
+            1
     );
 
     private static final int DAMAGE = 6;

@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -23,13 +24,13 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
 
     private static final int DAMAGE = 9;
     private static final int UPG_DAMAGE = 3;
-    private static String upgradeStatus = "base";
-
+    private String upgradeStatus = "base";
 
     public HomingAttack() {
         super(ID, info);
-        this.cardsToPreview = new Ring();
-        this.cardsToPreview = new Trick();
+//        this.cardsToPreview = new Ring();
+//        this.cardsToPreview = new Trick();
+        MultiCardPreview.add(new Ring(), new Trick());
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }

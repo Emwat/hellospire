@@ -29,16 +29,19 @@ public class HotRod extends BaseCard {
     private static final int BLOCK = 10;
     private static final int BAD_BLOCK = 3;
 
-    private static final int UPG_BLOCK = 4;
+    private static final int UPG_BLOCK = 2;
 
     private static final int END_TICKER = 2;
-    private static int ticker;
+    // ticker should NOT be static. If static, it will apply across all copies of HotRod in your deck.
+    // For instance, you have 1 HotRod in your hand. If you draw another HotRod, the second HotRod will have the same ticker
+    // as the one in your hand.
+    private int ticker;
 
     public HotRod() {
         super(ID, info);
 
         setDamage(0, 0);
-        setBlock(EARLY_BLOCK, EARLY_BLOCK + 1);
+        setBlock(EARLY_BLOCK, 1);
         ticker = END_TICKER;
     }
 
@@ -67,7 +70,7 @@ public class HotRod extends BaseCard {
     private void TransformCardEffects(){
         if (ticker == 2) {
             this.setDamage(0, 0);
-            this.setBlock(EARLY_BLOCK, EARLY_BLOCK + 1);
+            this.setBlock(EARLY_BLOCK, 1);
             this.type = CardType.SKILL;
             this.target = CardTarget.SELF;
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
@@ -75,7 +78,7 @@ public class HotRod extends BaseCard {
             loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
         } else if (ticker == 1) {
             this.setDamage(0, 0);
-            this.setBlock(MID_BLOCK, MID_BLOCK + 1);
+            this.setBlock(MID_BLOCK, 1);
             this.type = CardType.SKILL;
             this.target = CardTarget.SELF;
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];

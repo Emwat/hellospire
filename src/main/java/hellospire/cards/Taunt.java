@@ -11,15 +11,19 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import hellospire.SonicMod;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Taunt extends BaseCard {
     public static final String ID = makeID("Taunt");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
             1
     );
@@ -36,6 +40,15 @@ public class Taunt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (!this.upgraded) {
+            addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+                    SoundLibrary.TooSlow,
+                    SoundLibrary.StepItUp
+            ))));
+        } else {
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.TskTsk));
+        }
+
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));

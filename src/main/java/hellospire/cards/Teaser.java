@@ -26,6 +26,7 @@ public class Teaser extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new ClawsUnleashed();
         setMagic(MAGIC);
+
     }
 
     public void upgrade() {

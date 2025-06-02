@@ -28,10 +28,9 @@ public class LightSpeedDash extends BaseCard {
 
     }
 
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), BaseMod.MAX_HAND_SIZE - p.hand.size() ));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), CalculateRings()));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -43,7 +42,18 @@ public class LightSpeedDash extends BaseCard {
                 this.isDone = true;
             }
         });
+    }
 
+//    @Override
+//    public void triggerOnOtherCardPlayed(AbstractCard c) {
+//        super.triggerOnOtherCardPlayed(c);
+//
+//        this.rawDescription = cardStrings.DESCRIPTION + String.format(" (%s Rings)", CalculateRings());
+//        initializeDescription();
+//    }
+
+    private int CalculateRings(){
+        return BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size();
     }
 
     public void upgrade() {

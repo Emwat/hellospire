@@ -121,7 +121,7 @@ public class Sonic extends CustomPlayer {
     public Sonic() {
         super(getNames()[0], Meta.THE_HEDGEHOG,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
-                new SpriterAnimation(characterPath("animation/SonicBattleIdle.scml"))); //Animation
+                new SpriterAnimation(characterPath("animation/SonicBattlePose.scml"))); //Animation
 
 
         initializeClass(null,

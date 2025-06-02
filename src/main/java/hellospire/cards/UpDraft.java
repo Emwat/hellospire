@@ -31,7 +31,6 @@ public class UpDraft extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new Ring();
 
-
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
     }

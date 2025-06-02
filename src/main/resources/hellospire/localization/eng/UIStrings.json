@@ -13,16 +13,21 @@
       "This is a key": "This is a value."
     }
   },
+  "${modID}:CheckpointMessage": {
+    "TEXT": [
+      "I can only play this if I have a Ring in my hand."
+    ]
+  },
   "${modID}:ClawsUnleashedMessage": {
     "TEXT": [
-      "I can only play this if I have a channeled Dark orb."
+      "I can only play this if I have a Channeled Dark Orb."
     ]
   },
   "${modID}:MyModConfig": {
     "TEXT_DICT": {
-      "enableSomething": "A Toggle",
-      "nameSomething": "A Name:",
-      "setSomething": "A Number"
+      "enableSound": "Enable Sounds",
+      "enableVoice": "Enable Voice",
+      "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy"
     }
   }
 }

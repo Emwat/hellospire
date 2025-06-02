@@ -14,13 +14,13 @@ public class SonicBoom extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.SPECIAL,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             2
     );
 
-    private static final int BLOCK = 5;
-    private static final int UPG_BLOCK = 5;
+    private static final int BLOCK = 3;
+    private static final int UPG_BLOCK = 2;
 
     public SonicBoom() {
         super(ID, info);

@@ -18,7 +18,7 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.COMMON,
+            CardRarity.SPECIAL, // Punch Rush is WAY TOO good for how easy you can get Vigor
             CardTarget.ENEMY,
             1
     );

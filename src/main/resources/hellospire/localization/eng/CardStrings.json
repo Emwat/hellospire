@@ -40,7 +40,8 @@
   },
   "${modID}:Barry": {
     "NAME": "Barry the Quokka",
-    "DESCRIPTION": "Put a card from your discard pile into your hand."
+    "DESCRIPTION": "Put a card from your discard pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put a card from your discard pile into your hand."
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
@@ -62,7 +63,7 @@
   },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": "Gain !B! Block. NL Add !M! Rings to your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! Ring{!M!|>1=s} to your hand."
   },
   "${modID}:ChangeFormation": {
     "NAME": "Change Formation",
@@ -99,6 +100,10 @@
     "DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat."
   },
+  "${modID}:CyanLaser": {
+    "NAME": "Cyan Laser",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. Draw a card for each enemy hit."
+  },
   "${modID}:DashPanel": {
     "NAME": "Dash Panel",
     "DESCRIPTION": "Play !M! cards to the right of this card."
@@ -109,8 +114,8 @@
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
-    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies twice.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply Dizzy to ALL enemies twice."
+    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply ${modID}:Dizzy to ALL enemies twice.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply ${modID}:Dizzy to ALL enemies twice."
   },
   "${modID}:DoubleAirKick": {
     "NAME": "Double Air Kick",
@@ -309,6 +314,10 @@
     "NAME": "My Rainbow",
     "DESCRIPTION": "Play the top !M! cards of your draw pile. NL Exhaust."
   },
+  "${modID}:NiceSmile": {
+    "NAME": "Nice Smile",
+    "DESCRIPTION": "Whenever you gain Vigor, gain !M! more."
+  },
   "${modID}:PeelOut": {
     "NAME": "Peel Out",
     "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card."
@@ -345,7 +354,7 @@
   },
   "${modID}:Ring": {
     "NAME": "Ring",
-    "DESCRIPTION": "Retain. NL Ring. NL Heal !M! HP. NL Exhaust."
+    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL Heal !M! HP. NL Exhaust."
   },
   "${modID}:RocketAccel": {
     "NAME": "Rocket Accel",
@@ -387,7 +396,7 @@
   },
   "${modID}:SonicBoom": {
     "NAME": "Sonic Boom",
-    "DESCRIPTION": "At the end of your turn, deal damage to ALL enemies equal to your Block."
+    "DESCRIPTION": "Gain !B! Block. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
   },
   "${modID}:SonicEagle": {
     "NAME": "Sonic Eagle",
@@ -414,12 +423,11 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "Your next attack deals 8 additional damage. NL Gain 1 [E].",
-    "UPGRADE_DESCRIPTION": ""
+    "DESCRIPTION": "Transform ALL of your Rings into Tricks."
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
-    "DESCRIPTION": "Take 3 damage for every 4 cards played. All cards in your hand cost zero for this turn."
+    "DESCRIPTION": "This turn, whenever you play a non-Attack card, shuffle 1 Burn into your draw pile. ALL cards in your hand cost zero for this turn."
   },
   "${modID}:SpinDash": {
     "NAME": "Spin Dash",
@@ -512,8 +520,7 @@
   },
   "${modID}:WindUpPunch": {
     "NAME": "Wind Up Punch",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add 2 Tricks to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a Trick to your hand."
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",

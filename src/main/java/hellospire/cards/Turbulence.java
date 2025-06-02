@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.TurbulencePower;
 import hellospire.util.CardStats;
@@ -29,8 +30,9 @@ public class Turbulence extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoTurbulence));
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, magicNumber)));
-        if (this.upgradeBlock) {
+        if (this.upgraded) {
             addToBot(new ExhaustAction(1, false, true, true));
         }
     }
@@ -41,6 +43,7 @@ public class Turbulence extends BaseCard {
 //            this.upgradeBaseCost(2);
 //            this.setInnate(true);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 

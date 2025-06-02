@@ -21,7 +21,6 @@ public class CuteCouple extends BaseCard {
     private static final int MAGIC = 5;
     private static final int UPG_MAGIC = 3;
 
-
     public CuteCouple() {
         super(ID, info);
         setExhaust(true);
