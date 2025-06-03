@@ -22,6 +22,7 @@ public class BackSpinKick extends BaseCard {
 
     private static final int DAMAGE = 18;
     private static final int UPG_DAMAGE = 4;
+    private static int attacksPlayed;
 
     public BackSpinKick() {
         super(ID, info);
@@ -39,14 +40,20 @@ public class BackSpinKick extends BaseCard {
 
     public void atTurnStart() {
         this.resetAttributes();
+        attacksPlayed = 0;
         this.applyPowers();
     }
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         super.triggerOnOtherCardPlayed(c);
-        if(c.type == CardType.ATTACK && this.costForTurn > 0){
-            this.setCostForTurn(this.costForTurn - 1);
+        int currentCost = this.costForTurn;
+        if (c.type == CardType.ATTACK) {
+            attacksPlayed++;
+            currentCost -= 1;
+        }
+        if (this.costForTurn > 0) {
+            this.setCostForTurn(Math.min(this.baseCost - attacksPlayed, currentCost));
             this.isCostModifiedForTurn = true;
         }
     }
@@ -55,16 +62,4 @@ public class BackSpinKick extends BaseCard {
         this.rawDescription = cardStrings.DESCRIPTION;
         this.initializeDescription();
     }
-
-//    @Override
-//    public AbstractCard makeCopy() {
-//        AbstractCard tmp = new BackSpinKick();
-//        if (CardCrawlGame.dungeon != null &&
-//                AbstractDungeon.currMapNode != null &&
-//                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-//            this.setCostForTurn(this.cost - GameActionManager.totalDiscardedThisTurn);
-//        }
-//
-//        return tmp;
-//    }
 }

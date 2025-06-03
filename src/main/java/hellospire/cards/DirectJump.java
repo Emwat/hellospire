@@ -20,15 +20,11 @@ public class DirectJump extends BaseCard {
             1
     );
 
-//    private static final int BLOCK = 6;
-//    private static final int UPG_BLOCK = 2;
-
     public DirectJump() {
         super(ID, info);
 
     }
 
-    /// TODO: Come up with a better upgrade
     /// When you gain Block this turn, add a Ring to your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,7 +35,6 @@ public class DirectJump extends BaseCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBaseCost(0);
-//            this.initializeDescription();
         }
     }
 

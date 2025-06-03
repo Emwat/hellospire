@@ -45,6 +45,15 @@
     "DESCRIPTION": "Target deals damage reduced by the cost of the highest card in your hand."
   },
   {
+    "ID": "wordHotRod",
+    "PROPER_NAME": "HotRod",
+    "NAMES": [
+      "hot rod",
+      "hot_rod"
+    ],
+    "DESCRIPTION": "If you haven't played any cards, gain 5(6) Block. NL If you have played 1 card, gain 7(8) Block. NL If you have played 2 cards, gain 10(12) Block AND deal 6(8) damage. NL If you have played 2+ cards, gain 3(4) Block."
+  },
+  {
     "ID": "wordMostLeft",
     "PROPER_NAME": "Most Left",
     "NAMES": [
@@ -59,6 +68,15 @@
       "most right"
     ],
     "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect."
+  },
+  {
+    "ID": "wordLevelUp",
+    "PROPER_NAME": "Level Up",
+    "NAMES": [
+      "level up",
+      "level_up"
+    ],
+    "DESCRIPTION": "If you haven't played any cards this combat, add 2 Rings to your hand. NL If your last card played was an attack, your Rings will give you 2 Strength. NL If your last card played was a skill, your Rings will give you 2 Dexterity. NL If your last card played was a Power, your Rings will give you 2 Temporary Focus."
   },
   {
     "ID": "wordRing",

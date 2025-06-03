@@ -34,11 +34,6 @@ public class Athleticism extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ExhaustAction(EXHAUSTED, false, true, true));
         addToBot(new ReduceDebuffsAction(p, magicNumber));
-//        addToBot(new SelectCardsAction(p.hand.group, 2, "Athleticism: Select cards to exhaust", cards -> {
-//            for (AbstractCard c : cards) {
-//                addToBot(new ExhaustAction());
-//            }
-//        }));
     }
 
     @Override

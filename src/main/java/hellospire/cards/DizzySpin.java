@@ -46,6 +46,7 @@ public class DizzySpin extends BaseCard {
                 for (AbstractCard card : AbstractDungeon.player.hand.group) {
                     int newCost = AbstractDungeon.cardRandomRng.random(3);
                     card.setCostForTurn(newCost);
+                    card.isCostModifiedForTurn = true;
                 }
                 this.isDone = true;
             }

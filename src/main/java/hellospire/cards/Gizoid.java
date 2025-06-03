@@ -60,10 +60,10 @@ public class Gizoid extends BaseCard {
         Packages.add(new EmerlPackage(new GizoidEggman(), cardStrings.EXTENDED_DESCRIPTION[6]));
         Packages.add(new EmerlPackage(new GizoidE102r(), cardStrings.EXTENDED_DESCRIPTION[7]));
 
-        EmerlPackage randomCard = Packages.get(AbstractDungeon.cardRandomRng.random(0, Packages.size() - 1));
+        EmerlPackage randomPackage = Packages.get(AbstractDungeon.cardRandomRng.random(0, Packages.size() - 1));
         loadCardImage(SonicMod.imagePath("cards/skill/EmeraldShard.png"));
-        addToBot(new MakeTempCardInHandAction(randomCard.card.makeStatEquivalentCopy(), 1));
-        this.rawDescription = randomCard.message;
+        addToBot(new MakeTempCardInHandAction(randomPackage.card.makeStatEquivalentCopy(), 1));
+        this.rawDescription = randomPackage.message;
         initializeDescription();
     }
 //     "EXTENDED_DESCRIPTION": [

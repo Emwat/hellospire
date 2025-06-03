@@ -19,7 +19,7 @@ public class DropDash extends BaseCard {
             2
     );
 
-    private static final int BLOCK = 13;
+    private static final int BLOCK = 12;
     private static final int UPG_BLOCK = 4;
 //    private static final int MAGIC = 4;
 
@@ -36,8 +36,6 @@ public class DropDash extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlaySound(SoundLibrary.DropDash));
         addToBot(new GainBlockAction(p, block));
-//        int halfBlock = (int)(block * 0.5F);
-//        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, halfBlock), halfBlock));
         if (SonicMod.cardsExhaustedThisTurn > 0) {
             addToBot(new GainEnergyAction(2));
         }

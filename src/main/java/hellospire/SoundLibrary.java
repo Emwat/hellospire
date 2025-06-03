@@ -75,9 +75,13 @@ public class SoundLibrary {
     }
 
     static public SFXAction PlayVoice(String key){
+        int maxVoiceFrequency = 10;
         if (MyModConfig.enableVoice) {
-            return new SFXAction(key);
+            if (AbstractDungeon.cardRandomRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0){
+                return new SFXAction(key);
+            }
         }
+
         return new SFXAction(BlankSound);
     }
 

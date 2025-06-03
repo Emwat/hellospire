@@ -27,6 +27,7 @@ public class SuperSonicForm extends BaseCard {
 
     public SuperSonicForm() {
         super(ID, info);
+        this.rarity = CardRarity.RARE;
 
         setMagic(MAGIC);
         tags.add(BaseModCardTags.FORM);
@@ -43,8 +44,6 @@ public class SuperSonicForm extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
         }
     }
-
-
 
     @Override
     public AbstractCard makeCopy() { //Optional

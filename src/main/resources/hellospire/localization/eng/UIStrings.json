@@ -27,7 +27,8 @@
     "TEXT_DICT": {
       "enableSound": "Enable Sounds",
       "enableVoice": "Enable Voice",
-      "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy"
+      "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
+      "voiceFrequency": "Voice Frequency (10 = Always play voices)"
     }
   }
 }

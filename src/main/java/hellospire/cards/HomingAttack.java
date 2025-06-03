@@ -30,7 +30,9 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         super(ID, info);
 //        this.cardsToPreview = new Ring();
 //        this.cardsToPreview = new Trick();
-        MultiCardPreview.add(new Ring(), new Trick());
+        Ring ring = new Ring();
+        Trick trick = new Trick();
+        MultiCardPreview.add(this, ring, trick);
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }

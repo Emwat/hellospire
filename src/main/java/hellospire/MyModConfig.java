@@ -6,6 +6,7 @@ public class MyModConfig extends EasyConfigPanel {
     public static boolean enableSound = true;
     public static boolean enableVoice = true;
     public static boolean enableKicksForStrikeDummy = true;
+    public static int voiceFrequency = 5;
 //    public enum Voice {
 //        English,
 //        Japanese,
@@ -17,6 +18,6 @@ public class MyModConfig extends EasyConfigPanel {
 
     public MyModConfig() {
         super(SonicMod.modID, SonicMod.makeID("MyModConfig"));
-//        setNumberRange("setSomething", 1, 10);
+        setNumberRange("voiceFrequency", 0, 10);
     }
 }

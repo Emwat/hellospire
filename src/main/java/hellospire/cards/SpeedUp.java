@@ -35,7 +35,6 @@ public class SpeedUp extends BaseCard {
     /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard ring = new Ring();
         int thisCardsIndex = 0;
         for (int i = 0; i < p.hand.size(); i++) {
             if (p.hand.group.get(i) == this) {
@@ -50,7 +49,7 @@ public class SpeedUp extends BaseCard {
             if (i > thisCardsIndex) {
                 j = 1;
             }
-            if (card.cardID == ring.cardID) {
+            if (card.cardID == Ring.ID) {
                 addToBot(new TransformCardInHandAction(i - j, cardsToPreview.makeStatEquivalentCopy()));
             }
         }

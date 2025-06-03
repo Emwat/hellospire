@@ -36,10 +36,6 @@ public class ExtenderPower extends BasePower {
         this.description = DESCRIPTIONS[0];
     }
 
-//    public void updateDescription() {
-//        this.description = DESCRIPTIONS[0] + amount + (amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]);
-//    }
-
     @Override
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
@@ -54,7 +50,6 @@ public class ExtenderPower extends BasePower {
             this.flash();
             addToBot(new SelectCardsAction(tmp, 1, "Choose a Trick Finisher", cards -> {
                 for (AbstractCard c : cards) {
-//                addToBot(new NewQueueCardAction(c, null, true, true));
                     TrickHelper(c);
                 }
             }));
@@ -65,11 +60,9 @@ public class ExtenderPower extends BasePower {
     private void TrickHelper(AbstractCard card) {
         AbstractCreature p = this.owner;
         if (card.cardID.equals(c1.cardID)) {
-//            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, amount)));
-            addToBot(new DrawCardAction(2));
-        } else if (card.cardID.equals(c2.cardID)) {
-//            addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, amount)));
             addToBot(new IncreaseMaxOrbAction(2));
+        } else if (card.cardID.equals(c2.cardID)) {
+            addToBot(new DrawCardAction(2));
         } else if (card.cardID.equals(c3.cardID)) {
             addToBot(new GainEnergyAction(2));
         }

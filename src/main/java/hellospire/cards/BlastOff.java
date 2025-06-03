@@ -34,8 +34,6 @@ public class BlastOff extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(magicNumber));
-//        addToBot(new ModifyEnergyAction(this.uuid, 1));
-//        this.addToBot(new ReduceCostAction(this.uuid, 1));
         addToBot(new IncreaseCostAction(this.uuid, 1));
     }
 

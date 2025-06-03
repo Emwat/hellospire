@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.interfaces.OnPlayerTurnStartSubscriber;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -20,7 +21,7 @@ import hellospire.util.CardStats;
 
 import java.util.ArrayList;
 
-public class SmoothLanding extends BaseCard {
+public class SmoothLanding extends BaseCard implements OnPlayerTurnStartSubscriber {
     public static final String ID = makeID("SmoothLanding");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -90,5 +91,10 @@ public class SmoothLanding extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new SmoothLanding();
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        transitionToSmoothLanding();
     }
 }

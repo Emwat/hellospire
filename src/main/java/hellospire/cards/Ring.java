@@ -14,6 +14,8 @@ import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
 
+import java.util.Objects;
+
 public class Ring extends BaseCard {
     public static final String ID = makeID("Ring");
     private static final CardStats info = new CardStats(
@@ -38,15 +40,14 @@ public class Ring extends BaseCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction(SoundLibrary.Ring));
-        addToBot(new HealAction(p, p, MAGIC));
+        addToBot(SoundLibrary.PlaySound(SoundLibrary.Ring));
+        addToBot(new HealAction(p, p, magicNumber));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                AbstractCard flurryOfBlows = new Boost();
                 if (!p.discardPile.isEmpty()) {
                     for (AbstractCard card : p.discardPile.group) {
-                        if (card.cardID == flurryOfBlows.cardID) {
+                        if (Objects.equals(card.cardID, Boost.ID)) {
                             addToBot(new DiscardToHandAction(card));
                         }
                     }

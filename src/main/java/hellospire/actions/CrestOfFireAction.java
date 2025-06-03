@@ -67,6 +67,7 @@ public class CrestOfFireAction extends AbstractGameAction {
             AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(theCard.makeStatEquivalentCopy()));
             this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         }
+        // TODO: Make Upgrade animation
 //        This commented code is not working.
 //        if (this.isDone && !upgradedCards.isEmpty()) {
 //            for (AbstractCard theCard : upgradedCards) {

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Clash;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,8 +14,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.vfx.combat.ClawEffect;
+import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import java.util.Objects;
 
 public class ClawsUnleashed extends BaseCard {
     public static final String ID = makeID("ClawsUnleashed");
@@ -28,6 +32,7 @@ public class ClawsUnleashed extends BaseCard {
 
     private static final int DAMAGE = 19;
     private static final int UPG_DAMAGE = -3;
+    private final String playerErrorMessage =  CardCrawlGame.languagePack.getUIString(makeID("ClawsUnleashedMessage")).TEXT[0];
 
     public ClawsUnleashed() {
         super(ID, info);
@@ -47,17 +52,19 @@ public class ClawsUnleashed extends BaseCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        boolean canUse = super.canUse(p, m);
+
         if (this.upgraded) {
-            return true;
+            return canUse;
         }
 
-        for (AbstractOrb orb :  AbstractDungeon.player.orbs){
-            if(orb.name == new Dark().name){
-                return true;
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+            if (Objects.equals(orb.name, "Dark")) {
+                return canUse;
             }
         }
 
-        this.cantUseMessage = CardCrawlGame.languagePack.getUIString(makeID("ClawsUnleashedMessage")).TEXT[0];
+        this.cantUseMessage = playerErrorMessage;
         return false;
     }
 

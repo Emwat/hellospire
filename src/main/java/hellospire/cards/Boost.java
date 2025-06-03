@@ -24,6 +24,7 @@ public class Boost extends BaseCard {
 
     public Boost() {
         super(ID, info);
+        this.isMultiDamage = true;
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }
@@ -32,7 +33,7 @@ public class Boost extends BaseCard {
     ///  Deal !D! damage. NL Whenever you play a Ring, return this from the discard pile to your Hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
 
     }

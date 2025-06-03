@@ -36,7 +36,7 @@
   },
   "${modID}:BackSpinKick": {
     "NAME": "Back Spin Kick",
-    "DESCRIPTION": "Deal !D! damage. This costs 1 less for each attack played."
+    "DESCRIPTION": "Deal !D! damage. This costs 1 less for each attack played this turn."
   },
   "${modID}:Barry": {
     "NAME": "Barry the Quokka",
@@ -84,7 +84,7 @@
   "${modID}:Checkpoint": {
     "NAME": "Checkpoint",
     "DESCRIPTION": "Can only be played if you have a Ring in your hand. Shuffle Super Sonic Form into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Can only be played if you have a Ring in your hand. Shuffle an upgraded Super Sonic Form into your draw pile."
+    "UPGRADE_DESCRIPTION": "Can only be played if you have a Ring in your hand. Shuffle an Super Sonic Form+ into your draw pile."
   },
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
@@ -93,7 +93,7 @@
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
-    "DESCRIPTION": "{@@}Exhaust !M! card{!M!|>1=s}. NL Draw !M! card{!M!|>1=s}."
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. NL Exhaust !M! card{!M!|>1=s}."
   },
   "${modID}:CuteCouple": {
     "NAME": "Cute Couple",
@@ -132,8 +132,8 @@
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "Lose 2 Dexterity. NL Every turn, gain 1 [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity. NL Every turn, gain 1 [E]."
+    "DESCRIPTION": "Lose 2 Dexterity this turn. NL Every turn, gain 1 [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity this turn. NL Every turn, gain 1 [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -146,11 +146,11 @@
   },
   "${modID}:Extender1": {
     "NAME": "Hop Jump",
-    "DESCRIPTION": "Draw 2 cards."
+    "DESCRIPTION": "Gain 2 Orb slots."
   },
   "${modID}:Extender2": {
     "NAME": "Humming Top",
-    "DESCRIPTION": "Gain 2 Orb slots."
+    "DESCRIPTION": "Draw 2 cards."
   },
   "${modID}:Extender3": {
     "NAME": "Bounce",
@@ -260,13 +260,34 @@
   },
   "${modID}:HotRod": {
     "NAME": "Hot Rod",
-    "DESCRIPTION": "Warming up. NL Gain !B! Block.",
+    "DESCRIPTION": "This card's effects change based on how many cards you've played this turn.",
     "EXTENDED_DESCRIPTION": [
+      "Warming up. NL Gain !B! Block.",
       "Standard. NL Gain !B! block.",
-      "HOT! NL Gain !B! block.",
+      "Hot. NL Gain !B! block.",
       "Critical! NL Gain !B! block. NL Deal !D! damage.",
       "Overloaded. NL Gain !B! block."
     ]
+  },
+  "${modID}:HotRod0": {
+    "NAME": "Hot Rod Part 1",
+    "DESCRIPTION": "Warming up. NL Gain !B! Block."
+  },
+  "${modID}:HotRod1": {
+    "NAME": "Hot Rod Part 2",
+    "DESCRIPTION": "Standard. NL Gain !B! block."
+  },
+  "${modID}:HotRod2": {
+    "NAME": "Hot Rod Part 3",
+    "DESCRIPTION": "Hot! NL Gain !B! block."
+  },
+  "${modID}:HotRod3": {
+    "NAME": "Hot Rod Part 4",
+    "DESCRIPTION": "Critical! NL Gain !B! block. NL Deal !D! damage."
+  },
+  "${modID}:HotRod4": {
+    "NAME": "Hot Rod Last Part",
+    "DESCRIPTION": "Overloaded. NL Gain !B! block."
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
@@ -278,7 +299,13 @@
   },
   "${modID}:LevelUp": {
     "NAME": "Level Up",
-    "DESCRIPTION": "If the last card played was... NL Nothing: Gain !M! Rings NL Atk: Gain !M! Strength NL Skill: Gain !M! Dexterity NL Power: Gain !M! Focus"
+    "DESCRIPTION": "This card's effects change based on the last card you played. NL See ${modID}:Level_Up.",
+    "EXTENDED_DESCRIPTION": [
+      "Add !M! Rings to your hand.",
+      "Rings give you !M! Strength.",
+      "Rings give you !M! Dexterity.",
+      "Rings give you !M! Temporary Focus at the start of your turn."
+    ]
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",

@@ -22,8 +22,6 @@ public class Assist extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 10;
-    private static final int UPG_MAGIC = 2;
     ArrayList<AbstractCard> characterCards = new ArrayList<>();
 
     public Assist() {
@@ -39,8 +37,6 @@ public class Assist extends BaseCard {
         }
 
         setExhaust(true);
-//        tags.add(CardTags.HEALING);
-//        setMagic(MAGIC, UPG_MAGIC);
     }
 
 

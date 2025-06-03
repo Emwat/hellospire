@@ -24,7 +24,7 @@ public class Enerbeam extends BaseCard {
     );
 
     private static final int MAGIC = 7;
-    private static final int UPG_MAGIC = 3;
+    private static final int UPG_MAGIC = 2;
 
     public Enerbeam() {
         super(ID, info);

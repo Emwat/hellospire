@@ -50,6 +50,7 @@ public class Windmill extends BaseCard {
             for (AbstractCard c : cards) {
 //                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
                 c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
+                c.isCostModifiedForTurn = true;
             }
         }));
     }

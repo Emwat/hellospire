@@ -49,9 +49,7 @@ public class GrindRail extends BaseCard {
                     "Select 2 cards to lower costs.",
                     true,
                     true,
-                    filter -> {
-                        return filter.canUse(p, modGetRandomMonster());
-                    },
+                    pickableCards,
                     cards -> {
                         if (cards.isEmpty()) {
                             return;

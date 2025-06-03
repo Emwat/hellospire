@@ -20,7 +20,7 @@ public class SonicEagle extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 12;
+    private static final int DAMAGE = 10;
     private static final int UPG_DAMAGE = 4;
     private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 2;

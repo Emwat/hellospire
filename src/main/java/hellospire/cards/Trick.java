@@ -41,11 +41,6 @@ public class Trick extends BaseCard {
     /// "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        addToBot(new TalkAction(p, "Yeah!", 1, 1));
-//        addToBot(new ShoutAction(p, "Yeah!", 1, 1));
-
-//        addToBot(new SFXAction(SoundLibrary.ALLRIGHT));
-
         addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
                 SoundLibrary.ALLRIGHT,
                 SoundLibrary.COOL,

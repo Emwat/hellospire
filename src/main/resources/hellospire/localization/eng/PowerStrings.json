@@ -27,12 +27,11 @@
     ]
   },
   "${modID}:ExtenderPower": {
-    "NAME": "Mid Air Actions",
+    "NAME": "Mid Air Trick Actions",
     "DESCRIPTIONS": [
       "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E]. Repeat for each stack of this power."
     ]
   },
-
   "${modID}:LevelUpFlightPower": {
     "NAME": "Flight Level Up",
     "DESCRIPTIONS": [

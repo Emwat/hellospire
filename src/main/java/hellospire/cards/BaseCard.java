@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import static hellospire.util.GeneralUtils.removePrefix;
 import static hellospire.util.TextureLoader.getCardTextureString;
@@ -700,4 +701,7 @@ public abstract class BaseCard extends CustomCard {
     public AbstractMonster modGetRandomMonster(){
         return AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
     }
+
+    public Predicate<AbstractCard> pickableCards = card -> card.costForTurn > -1;
+
 }

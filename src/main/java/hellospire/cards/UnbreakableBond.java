@@ -20,20 +20,14 @@ public class UnbreakableBond extends BaseCard {
             2
     );
 
-    private static final int MAGIC = 10;
-    private static final int UPG_MAGIC = 2;
 
     public UnbreakableBond() {
         super(ID, info);
-
-//        tags.add(CardTags.HEALING);
-//        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        addToBot(new HealAction(p, p, magicNumber));
         addToBot(new IncreaseMaxOrbAction(1));
         if (this.upgraded) {
             addToBot(new ChannelAction(new Lightning()));
