@@ -27,8 +27,8 @@
   },
   "${modID}:Assist": {
     "NAME": "Assist",
-    "DESCRIPTION": "Get a random card to add to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Get a random card to add to your hand. It costs zero this turn. NL Exhaust."
+    "DESCRIPTION": "Get a random friend skill card to add to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Get a random friend skill to add to your hand. It costs zero this turn. NL Exhaust."
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
@@ -54,8 +54,11 @@
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Add a Ring to your hand.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable. NL Add 2 Rings to your hand."
+    "DESCRIPTION": "Apply !M! Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      "Apply !M! Vulnerable. NL Add a Ring to your hand.",
+      "Apply !M! Vulnerable. NL Add a Trick to your hand."
+    ]
   },
   "${modID}:Boost": {
     "NAME": "Boost",
@@ -64,22 +67,6 @@
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
     "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! Ring{!M!|>1=s} to your hand."
-  },
-  "${modID}:ChangeFormation": {
-    "NAME": "Change Formation",
-    "DESCRIPTION": "Retain. NL Convert your Levels to Speed, Flight, or Power."
-  },
-  "${modID}:ChangeFormationSpeed": {
-    "NAME": "Speed Formation",
-    "DESCRIPTION": "Convert all your Levels to Speed."
-  },
-  "${modID}:ChangeFormationFlight": {
-    "NAME": "Flight Formation",
-    "DESCRIPTION": "Convert all your Levels to Flight."
-  },
-  "${modID}:ChangeFormationPower": {
-    "NAME": "Power Formation",
-    "DESCRIPTION": "Convert all your Levels to Power."
   },
   "${modID}:Checkpoint": {
     "NAME": "Checkpoint",
@@ -141,8 +128,8 @@
   },
   "${modID}:Extender": {
     "NAME": "Mid-Air Trick Action",
-    "DESCRIPTION": "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E].",
-    "UPGRADE_DESCRIPTION": "Innate. If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E]."
+    "DESCRIPTION": "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or 2 [E].",
+    "UPGRADE_DESCRIPTION": "Innate. If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or 2 [E]."
   },
   "${modID}:Extender1": {
     "NAME": "Hop Jump",
@@ -264,44 +251,35 @@
     "EXTENDED_DESCRIPTION": [
       "Warming up. NL Gain !B! Block.",
       "Standard. NL Gain !B! block.",
-      "Hot. NL Gain !B! block.",
       "Critical! NL Gain !B! block. NL Deal !D! damage.",
       "Overloaded. NL Gain !B! block."
     ]
   },
   "${modID}:HotRod0": {
-    "NAME": "Hot Rod Part 1",
+    "NAME": "Hot Rod Part 1 of 3",
     "DESCRIPTION": "Warming up. NL Gain !B! Block."
   },
   "${modID}:HotRod1": {
-    "NAME": "Hot Rod Part 2",
+    "NAME": "Hot Rod Part 2 of 3",
     "DESCRIPTION": "Standard. NL Gain !B! block."
   },
   "${modID}:HotRod2": {
-    "NAME": "Hot Rod Part 3",
-    "DESCRIPTION": "Hot! NL Gain !B! block."
-  },
-  "${modID}:HotRod3": {
-    "NAME": "Hot Rod Part 4",
+    "NAME": "Hot Rod Part 3 of 3",
     "DESCRIPTION": "Critical! NL Gain !B! block. NL Deal !D! damage."
   },
-  "${modID}:HotRod4": {
-    "NAME": "Hot Rod Last Part",
+  "${modID}:HotRod3": {
+    "NAME": "Hot Rod Overloaded",
     "DESCRIPTION": "Overloaded. NL Gain !B! block."
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
     "DESCRIPTION": "Gain !B! Block. Deal !D! damage. When you are attacked this turn, deal !M! damage to the attacker."
   },
-  "${modID}:Leap": {
-    "NAME": "Leap",
-    "DESCRIPTION": "Gain !B! Block."
-  },
   "${modID}:LevelUp": {
     "NAME": "Level Up",
     "DESCRIPTION": "This card's effects change based on the last card you played. NL See ${modID}:Level_Up.",
     "EXTENDED_DESCRIPTION": [
-      "Add !M! Rings to your hand.",
+      "{@@}Add !M! Ring{!M!|>1=s} to your hand.",
       "Rings give you !M! Strength.",
       "Rings give you !M! Dexterity.",
       "Rings give you !M! Temporary Focus at the start of your turn."
@@ -321,25 +299,17 @@
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
-    "DESCRIPTION": "Deal !D! damage to a random enemy. This hits an additional time for ALL Rings in combat.",
-    "EXTENDED_DESCRIPTION": [" NL (", " + 1 Hits)"]
+    "DESCRIPTION": "Deal !D! damage to a random enemy for ALL Rings in combat.",
+    "EXTENDED_DESCRIPTION": [" NL (", " Hits)"]
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
     "DESCRIPTION": "Add a Ring to your hand until your hand is full. Play ALL of the Rings in your hand. Exhaust."
   },
-  "${modID}:MagicHands": {
-    "NAME": "Magic Hands",
-    "DESCRIPTION": ""
-  },
   "${modID}:Momentum": {
     "NAME": "Momentum",
     "DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain Vigor for every card in your Exhaust Pile. NL Exhaust."
-  },
-  "${modID}:MyRainbow": {
-    "NAME": "My Rainbow",
-    "DESCRIPTION": "Play the top !M! cards of your draw pile. NL Exhaust."
   },
   "${modID}:NiceSmile": {
     "NAME": "Nice Smile",
@@ -354,11 +324,6 @@
     "DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots. Exhaust.",
     "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots."
   },
-  "${modID}:Pose": {
-    "NAME": "Pose",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": ""
-  },
   "${modID}:PowerRing": {
     "NAME": "Power Ring",
     "DESCRIPTION": "When you create a card, create one more."
@@ -370,10 +335,6 @@
       "Deal !D! damage 4 times. NL Deal !D! + !M! damage.",
       "Deal !D! damage 4 times. NL Play the top card of your draw pile."
     ]
-  },
-  "${modID}:QuintupleFrontflip": {
-    "NAME": "Quintuple Frontflip",
-    "DESCRIPTION": "Gain !B! damage 2 times. NL Draw !M! cards."
   },
   "${modID}:Ricochet": {
     "NAME": "Ricochet",
@@ -415,7 +376,19 @@
   },
   "${modID}:Slide": {
     "NAME": "Slide",
-    "DESCRIPTION": "Gain !B! Block. NL Put a card from your discard pile to the top of your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from the discard pile to the top of the draw pile."
+  },
+  "${modID}:SlotMachineEggman": {
+    "NAME": "Slot Machine Eggman",
+    "DESCRIPTION": "If you have two of these cards in your hand, immediately END YOUR TURN."
+  },
+  "${modID}:SlotMachineGame": {
+    "NAME": "Slot Machine Game",
+    "DESCRIPTION": "Add Slot Machine Pull to your hand. Shuffle !M! Slot Machine Eggman cards into the draw pile. Exhaust."
+  },
+  "${modID}:SlotMachinePull": {
+    "NAME": "Slot Machine Pull",
+    "DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, discard this."
   },
   "${modID}:SmoothLanding": {
     "NAME": "Smooth Landing",
@@ -435,12 +408,11 @@
   },
   "${modID}:SonicIsMyName": {
     "NAME": "Sonic Is My Name",
-    "DESCRIPTION": "",
-    "UPGRADE_DESCRIPTION": "Every time you play an attack card, activate the passive of effect of ALL your Orbs."
+    "DESCRIPTION": ""
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": "Deal !D! damage. NL Evoke ALL of your Orbs.",
+    "DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke ALL of your Orbs."
   },
   "${modID}:SonicWind": {
@@ -450,16 +422,15 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "Transform ALL of your Rings into Tricks."
+    "DESCRIPTION": "Transform ALL of your Rings into Tricks. NL Exhaust."
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
-    "DESCRIPTION": "This turn, whenever you play a non-Attack card, shuffle 1 Burn into your draw pile. ALL cards in your hand cost zero for this turn."
+    "DESCRIPTION": "You cannot draw additional cards this turn. Reduce the cost of ALL cards in your hand to 0 this turn."
   },
   "${modID}:SpinDash": {
     "NAME": "Spin Dash",
-    "DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile. NL It is upgraded for the rest of combat."
+    "DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile."
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",
@@ -484,7 +455,8 @@
   },
   "${modID}:ThunderShield": {
     "NAME": "Thunder Shield",
-    "DESCRIPTION": "At the end of your turn, Channel !M! Lightning for every Ring in your hand."
+    "DESCRIPTION": "At end of turn, gain 1 Ring and Channel 1 Lightning. Lightning Orbs trigger an additional time for each Ring in your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. Every turn, gain 1 Ring and Channel 1 Lightning. Lightning Orbs trigger an additional time for each Ring in your hand."
   },
   "${modID}:Trick": {
     "NAME": "Trick",

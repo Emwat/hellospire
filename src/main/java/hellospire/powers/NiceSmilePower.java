@@ -30,10 +30,9 @@ public class NiceSmilePower extends BasePower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
+    // TODO: A user has reported that this infinitely loops. :( 06/05/2025 01:52 PM
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        super.onApplyPower(power, target, source);
-
         if (power.ID == "Vigor" && debounce == false) {
             addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount)));
             debounce = true;
@@ -42,4 +41,15 @@ public class NiceSmilePower extends BasePower {
         debounce = false;
 
     }
+
+    // Not working :(
+//    @Override
+//    public boolean betterOnApplyPower(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+//        if (abstractPower.ID.equals(VigorPower.POWER_ID)) {
+//            this.flash();
+//            addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount)));
+//            return false;
+//        }
+//        return true;
+//    }
 }

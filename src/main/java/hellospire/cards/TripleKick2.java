@@ -24,8 +24,8 @@ public class TripleKick2 extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 8;
-    private static final int UPG_DAMAGE = 3;
+    private static final int DAMAGE = 7;
+    private static final int UPG_DAMAGE = 2;
 
     public TripleKick2() {
         super(ID, info);
@@ -43,8 +43,8 @@ public class TripleKick2 extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
-        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 3)));
+        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 3)));
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
 
     }

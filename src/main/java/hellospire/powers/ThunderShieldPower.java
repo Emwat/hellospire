@@ -1,11 +1,15 @@
 package hellospire.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.LightningOrbPassiveAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.BerserkPower;
 import hellospire.cards.Ring;
 
 import java.util.Objects;
@@ -26,25 +30,29 @@ public class ThunderShieldPower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
     }
-
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        AbstractCard heightCard = new Ring();
-
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
-                    if (Objects.equals(cardInHand.cardID, heightCard.cardID)) {
-                        addToBot(new ChannelAction(new Lightning()));
-                    }
-                }
-                this.isDone = true;
+        int rings = 0;
+        addToTop(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), this.amount ));
+        for (int i = 0; i < amount; i++) {
+            addToTop(new ChannelAction(new Lightning()));
+        }
+        for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
+            if (Objects.equals(cardInHand.cardID, Ring.ID)) {
+                rings++;
             }
-        });
+        }
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+            if (Objects.equals(orb.name, "Lightning")) {
+                for (int i = 0; i < rings; i++) {
+                    orb.onStartOfTurn();
+                    orb.onEndOfTurn();
+                }
+            }
+        }
     }
 
 }

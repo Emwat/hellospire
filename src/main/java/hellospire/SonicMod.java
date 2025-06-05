@@ -350,9 +350,6 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.OmochaoIncorrectLanding, audioEngPath("SND_00616_ohh_he_failed_to_land_correctly.ogg"));
         BaseMod.addAudio(SoundLibrary.OmochaoTurbulence, audioEngPath("SND_00765_look_at_sonic_ride_that_turbulence.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.TooSlow, audioEngPath("snd_vc_Sonic_Appeal02_Too_Slow.ogg"));
-        BaseMod.addAudio(SoundLibrary.StepItUp, audioEngPath("snd_vc_Sonic_Appeal03_Step_It_Up.ogg"));
-        BaseMod.addAudio(SoundLibrary.TskTsk, audioEngPath("snd_vc_Sonic_Appeal01_Tsk.ogg"));
         BaseMod.addAudio(SoundLibrary.SonicsTheName, audioEngPath("snd_vc_Sonic_Win01_Sonics_The_Name.ogg"));
         BaseMod.addAudio(SoundLibrary.TooEasy, audioEngPath("snd_vc_Sonic_Win02_Too_Easy.ogg"));
         BaseMod.addAudio(SoundLibrary.HeyWeShould, audioEngPath("snd_vc_Sonic_Win03_Hey_We_Should.ogg"));

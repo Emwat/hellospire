@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.actions.IncreaseCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -24,6 +25,7 @@ public class CuteCouple extends BaseCard {
     public CuteCouple() {
         super(ID, info);
         setExhaust(true);
+        tags.add(SonicTags.ANTI_DASH);
     }
 
     @Override

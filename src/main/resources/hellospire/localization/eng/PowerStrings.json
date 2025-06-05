@@ -117,8 +117,9 @@
   "${modID}:ThunderShieldPower": {
     "NAME": "Thunder Shield",
     "DESCRIPTIONS": [
-      "At the end of your turn, Channel ",
-      " for every Ring you have."
+      "At the end of your turn, Gain ",
+      " Ring and Channel ",
+      " Lightning. Your Rings trigger Lightning an additional time."
     ]
   },
   "${modID}:TrickPower": {

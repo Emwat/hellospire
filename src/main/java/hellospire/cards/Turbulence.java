@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.TurbulencePower;
@@ -26,6 +27,9 @@ public class Turbulence extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC);
+        if (this.upgraded) {
+            tags.add(SonicTags.ANTI_DASH);
+        }
     }
 
     @Override

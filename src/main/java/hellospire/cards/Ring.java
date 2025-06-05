@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -42,6 +43,7 @@ public class Ring extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlaySound(SoundLibrary.Ring));
         addToBot(new HealAction(p, p, magicNumber));
+//        addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {

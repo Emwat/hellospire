@@ -29,7 +29,7 @@ public class Taunt extends BaseCard {
     );
 
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 3;
+    private static final int UPG_MAGIC = 2;
 
     ///    "DESCRIPTION": "Apply 2 Vulnerable. NL Gain 2 Temporary Dexterity."
     public Taunt() {
@@ -40,15 +40,6 @@ public class Taunt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.upgraded) {
-            addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
-                    SoundLibrary.TooSlow,
-                    SoundLibrary.StepItUp
-            ))));
-        } else {
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.TskTsk));
-        }
-
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));

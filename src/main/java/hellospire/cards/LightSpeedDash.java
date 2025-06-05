@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
+import java.util.Objects;
+
 public class LightSpeedDash extends BaseCard {
     public static final String ID = makeID("LightSpeedDash");
     private static final CardStats info = new CardStats(
@@ -34,8 +36,8 @@ public class LightSpeedDash extends BaseCard {
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                for (AbstractCard card : p.hand.group){
-                    if(card.cardID == cardsToPreview.cardID){
+                for (AbstractCard card : p.hand.group) {
+                    if (Objects.equals(card.cardID, Ring.ID)) {
                         addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
                     }
                 }
@@ -52,7 +54,7 @@ public class LightSpeedDash extends BaseCard {
 //        initializeDescription();
 //    }
 
-    private int CalculateRings(){
+    private int CalculateRings() {
         return BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size();
     }
 

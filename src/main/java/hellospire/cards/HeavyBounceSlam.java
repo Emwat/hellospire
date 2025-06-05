@@ -24,7 +24,7 @@ public class HeavyBounceSlam extends BaseCard {
 
     private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 2;
-    private static int timesPlayed = 2;
+    private static int timesPlayed = 0;
 
     public HeavyBounceSlam() {
         super(ID, info);
@@ -41,8 +41,10 @@ public class HeavyBounceSlam extends BaseCard {
         timesPlayed++;
         if (timesPlayed == 1){
             loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
-        } else if (timesPlayed > 1){
+        } else if (timesPlayed == 2){
             loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam2.png"));
+        } else {
+            loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam.png"));
         }
 
     }

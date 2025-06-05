@@ -24,10 +24,9 @@ public class Checkpoint extends BaseCard {
     public Checkpoint() {
         super(ID, info);
         this.cardsToPreview = new SuperSonicForm();
-        this.cardsToPreview.rarity = CardRarity.RARE;
+//        this.cardsToPreview.rarity = CardRarity.RARE;
         setExhaust(true);
     }
-
 
     /// "Apply !M! Vulnerable. NL Add a Ring to your hand."
     @Override

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -30,9 +31,9 @@ public class SpeedUp extends BaseCard {
         this.cardsToPreview = new Trick();
 
         setMagic(MAGIC, UPG_MAGIC);
+        setExhaust(true);
     }
 
-    /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int thisCardsIndex = 0;

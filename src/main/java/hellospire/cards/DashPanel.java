@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -23,8 +24,6 @@ public class DashPanel extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
 
@@ -57,7 +56,11 @@ public class DashPanel extends BaseCard {
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
             for (AbstractCard q : getCardsToTheRight(AbstractDungeon.player.hand.group)) {
-                q.glowColor = Color.GOLD.cpy();
+                if (q.hasTag(SonicTags.ANTI_DASH)){
+                    q.glowColor = Color.RED.cpy();
+                } else {
+                    q.glowColor = Color.GOLD.cpy();
+                }
                 q.beginGlowing();
             }
         }
@@ -77,8 +80,6 @@ public class DashPanel extends BaseCard {
 //            AbstractDungeon.player.hand.applyPowers();
         }
     }
-
-
 
     private ArrayList<AbstractCard> getCardsToTheRight(ArrayList<AbstractCard> hand) {
         ArrayList<AbstractCard> cardsToTheRight = new ArrayList<>();

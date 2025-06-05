@@ -20,7 +20,6 @@ public class UnbreakableBond extends BaseCard {
             2
     );
 
-
     public UnbreakableBond() {
         super(ID, info);
         setExhaust(true);

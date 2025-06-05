@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.unique.DiscardPileToTopOfDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -18,14 +19,14 @@ public class Slide extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 2;
+    private static final int BLOCK = 7;
+    private static final int UPG_BLOCK = 3;
 
     public Slide() {
         super(ID, info);
 
         setBlock(BLOCK, UPG_BLOCK);
-
+        tags.add(SonicTags.ANTI_DASH);
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -28,6 +29,7 @@ public class Windmill extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.ANTI_DASH);
     }
 
     @Override
@@ -46,11 +48,16 @@ public class Windmill extends BaseCard {
         addToBot(new SelectCardsInHandAction(
                 1,
                 "Windmill: Select a card and randomize its cost for the rest of combat.",
-                false, false, cardFilter -> {return true;}, cards -> {
+                false, false, cardFilter -> {
+            return true;
+        }, cards -> {
             for (AbstractCard c : cards) {
+                int currentCost = c.costForTurn;
 //                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
                 c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
-                c.isCostModifiedForTurn = true;
+                if (currentCost != c.costForTurn) {
+                    c.isCostModifiedForTurn = true;
+                }
             }
         }));
     }

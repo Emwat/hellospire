@@ -5,9 +5,11 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.ApplyBulletTimeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.green.BulletTime;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -32,9 +34,11 @@ public class SpeedBreak extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlayVoice(SoundLibrary.SpeedBreak));
-        addToBot(new ApplyPowerAction(p, p, new SpeedHurtPower(p)));
+//        addToBot(new ApplyPowerAction(p, p, new SpeedHurtPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new NoDrawPower(p), 1));
         addToBot(new ApplyBulletTimeAction());
     }
+
 
     public void upgrade() {
         if (!this.upgraded) {

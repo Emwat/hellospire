@@ -46,6 +46,7 @@ public class Assist extends BaseCard {
         AbstractCard randomCard = characterCards.get(AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1));
         if (this.upgraded) {
             randomCard.setCostForTurn(-99);
+            randomCard.isCostModifiedForTurn = true;
         }
         addToBot(new MakeTempCardInHandAction(randomCard, true));
     }

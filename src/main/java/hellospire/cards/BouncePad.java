@@ -20,7 +20,7 @@ public class BouncePad extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 7;
     private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
@@ -28,7 +28,6 @@ public class BouncePad extends BaseCard {
     public BouncePad() {
         super(ID, info);
         this.cardsToPreview = new Ring();
-
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);

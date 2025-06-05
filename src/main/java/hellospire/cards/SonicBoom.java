@@ -25,7 +25,6 @@ public class SonicBoom extends BaseCard {
     public SonicBoom() {
         super(ID, info);
         setBlock(BLOCK, UPG_BLOCK);
-
     }
 
     @Override

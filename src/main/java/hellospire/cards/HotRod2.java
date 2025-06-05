@@ -15,7 +15,7 @@ public class HotRod2 extends BaseCard {
     public static final String ID = makeID("HotRod2");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
-            CardType.SKILL,
+            CardType.ATTACK,
             CardRarity.SPECIAL,
             CardTarget.SELF,
             1
@@ -24,8 +24,9 @@ public class HotRod2 extends BaseCard {
     public HotRod2() {
         super(ID, info);
 
-        setBlock(HotRod.BLOCK_HOT, 1);
-        loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
+        setBlock(HotRod.BLOCK_CRITICAL, HotRod.UPG_BLOCK);
+        setDamage(HotRod.DAMAGE, HotRod.UPG_DAMAGE);
+        loadCardImage(SonicMod.imagePath("cards/attack/HotRod2.png"));
     }
 
     @Override

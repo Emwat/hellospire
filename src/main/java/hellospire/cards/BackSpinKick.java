@@ -53,8 +53,12 @@ public class BackSpinKick extends BaseCard {
             currentCost -= 1;
         }
         if (this.costForTurn > 0) {
-            this.setCostForTurn(Math.min(this.baseCost - attacksPlayed, currentCost));
-            this.isCostModifiedForTurn = true;
+            int newCost = Math.min(this.baseCost - attacksPlayed, currentCost);
+
+            if (this.baseCost != newCost) {
+                this.setCostForTurn(newCost);
+                this.isCostModifiedForTurn = true;
+            }
         }
     }
 

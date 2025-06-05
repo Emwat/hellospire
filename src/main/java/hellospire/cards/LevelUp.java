@@ -2,7 +2,6 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,17 +19,15 @@ public class LevelUp extends BaseCard {
     public static final String ID = makeID("LevelUp");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
-            CardType.SKILL,
-            CardRarity.COMMON,
+            CardType.POWER,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
     );
 
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
-    private CardType LastTypeCardPlayed;
+    private static final int MAGIC = 1;
+    private static CardType LastTypeCardPlayed;
 
-    /// I seriously want to nerf this to 1, but honestly, it's just more fun w/ 2
     public LevelUp() {
         super(ID, info);
 
@@ -60,29 +57,40 @@ public class LevelUp extends BaseCard {
     }
 
     @Override
-    public void triggerWhenDrawn() {
-        super.triggerWhenDrawn();
+    public void atTurnStartPreDraw() {
+        super.atTurnStartPreDraw();
         UpdateLastCardPlayed();
-        UpdateCardImage();
-
+        UpdateCardImageAndText();
     }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         UpdateLastCardPlayed();
-        UpdateCardImage();
-
+        UpdateCardImageAndText();
     }
-    private void UpdateCardImage(){
+
+    private void UpdateCardImageAndText(){
         if (LastTypeCardPlayed == CardType.ATTACK) {
             loadCardImage(LevelUpPath("LevelUpPower.png"));
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+            initializeDescription();
         } else if (LastTypeCardPlayed == CardType.SKILL) {
             loadCardImage(LevelUpPath("LevelUpSpeed.png"));
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
+            initializeDescription();
         } else if (LastTypeCardPlayed == CardType.POWER) {
             loadCardImage(LevelUpPath("LevelUpFlight.png"));
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3];
+            initializeDescription();
         } else {
             loadCardImage(LevelUpPath("LevelUp.png"));
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
         }
     }
+//       "Add !M! Rings to your hand.",
+//               "Rings give you !M! Strength.",
+//               "Rings give you !M! Dexterity.",
+//               "Rings give you !M! Temporary Focus at the start of your turn."
 
     private String LevelUpPath(String filename){
         return imagePath("cards/skill/" + filename);

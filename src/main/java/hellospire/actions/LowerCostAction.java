@@ -22,6 +22,7 @@ public class LowerCostAction extends AbstractGameAction {
     private void LowerCost(AbstractCard card) {
         if (card.costForTurn > 0) {
             card.setCostForTurn(card.costForTurn - 1);
+            card.isCostModifiedForTurn = true;
         }
     }
 

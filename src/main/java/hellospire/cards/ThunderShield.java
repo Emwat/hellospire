@@ -16,7 +16,7 @@ public class ThunderShield extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            2
+            1
     );
 
     private static final int MAGIC = 1;
@@ -35,9 +35,10 @@ public class ThunderShield extends BaseCard {
 
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.setInnate(true);
         }
+
+        super.upgrade();
     }
 
     @Override

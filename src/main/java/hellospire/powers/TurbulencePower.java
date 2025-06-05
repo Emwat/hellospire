@@ -26,7 +26,9 @@ public class TurbulencePower extends BasePower {
 
     public void onExhaust(AbstractCard card) {
         this.flash();
-        this.addToBot(new ChannelAction(new Frost()));
+        for (int i = 0; i < amount; i++) {
+            this.addToBot(new ChannelAction(new Frost()));
+        }
     }
 
 }

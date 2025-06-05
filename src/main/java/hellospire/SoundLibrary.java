@@ -49,10 +49,6 @@ public class SoundLibrary {
     public static String OmochaoIncorrectLanding = makeID("ogg_OmochaoIncorrectLanding");
     public static String OmochaoTurbulence = makeID("ogg_OmochaoTurbulence");
 
-    public static String TooSlow = makeID("ogg_TooSlow");
-    public static String StepItUp = makeID("ogg_StepItUp");
-    public static String TskTsk = makeID("ogg_TskTsk");
-
     public static String SonicsTheName = makeID("ogg_SonicsTheName");
     public static String TooEasy = makeID("ogg_TooEasy");
     public static String HeyWeShould = makeID("ogg_HeyWeShould");

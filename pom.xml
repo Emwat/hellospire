@@ -24,15 +24,15 @@
 
     <!-- This information will be displayed in ModTheSpire, the modded launcher. -->
     <name>The Hedgehog</name>
-    <version>0.6.0</version>
+    <version>0.6.4</version>
     <!-- Avoid using \ in this description, as they can cause the description to fail to load. -->
     <!-- If you really want to use them, you'll need to "escape" them by putting another one in front, like \\ -->
     <description>
         A free spirited hedgehog that hates evil.
         Gotta go fast.
 
-        \r\nThe Hedgehog is a remix of the four vanilla characters and a little bit of Snecko.
-        - Collect and Retain Rings to build your Dexterity
+        \r\nThe Hedgehog is a remix of the four vanilla characters.
+        - Collect Rings to build your Dexterity
         - Perform Tricks to gain Vigor
         - Channel and Evoke Orbs
 

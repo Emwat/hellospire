@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.red.Havoc;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.actions.LowerCostAction;
 import hellospire.actions.SwapCostsAction;
 import hellospire.character.Sonic;
@@ -33,6 +34,9 @@ public class GrindRail extends BaseCard {
     public GrindRail() {
         super(ID, info);
 //        setMagic(MAGIC, UPG_MAGIC);
+        if (this.upgraded){
+            tags.add(SonicTags.ANTI_DASH);
+        }
     }
 
     @Override
@@ -68,13 +72,13 @@ public class GrindRail extends BaseCard {
             int index = hand.group.indexOf(this);
             if (index > 0) {
                 AbstractCard leftCard = hand.group.get(index - 1);
-                if (leftCard.canUse(AbstractDungeon.player, modGetRandomMonster())) {
+                if (leftCard.costForTurn > 0) {
                     neighbors.add(leftCard);
                 }
             }
             if (index < hand.size() - 1) {
                 AbstractCard rightCard = hand.group.get(index + 1);
-                if (rightCard.canUse(AbstractDungeon.player, modGetRandomMonster())) {
+                if (rightCard.costForTurn > 0) {
                     neighbors.add(rightCard);
                 }
             }

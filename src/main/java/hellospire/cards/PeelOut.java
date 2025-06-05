@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -25,6 +26,7 @@ public class PeelOut extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.ANTI_DASH);
     }
 
     /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.

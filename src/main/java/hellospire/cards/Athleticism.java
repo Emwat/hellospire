@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.actions.ReduceDebuffsAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -27,6 +28,7 @@ public class Athleticism extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
+        tags.add(SonicTags.ANTI_DASH);
     }
 
     ///     "DESCRIPTION": "Exhaust up to two cards. NL Your debuffs decrease by one."

@@ -20,8 +20,8 @@ public class GizoidRouge extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 20;
-    private static final int MAGIC = 20;
+    private static final int DAMAGE = 25;
+    private static final int MAGIC = 25;
 
 
     public GizoidRouge() {

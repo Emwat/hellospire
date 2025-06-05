@@ -22,15 +22,15 @@ public class SonicWave extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 6;
-    private static final int MAGIC = 0;
-    private static final int UPG_MAGIC = 1;
+    private static final int DAMAGE = 8;
+    private static final int UPG_DAMAGE = 2;
+    private static final int MAGIC = 1;
 
     public SonicWave() {
         super(ID, info);
 
-        setDamage(DAMAGE);
-        setMagic(MAGIC, UPG_MAGIC);
+        setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC);
     }
 
     /// "DESCRIPTION": "Deal !D! damage. NL Evoke all of your orbs.",
@@ -38,13 +38,10 @@ public class SonicWave extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new ChannelAction(new Lightning()));
         if (this.upgraded) {
-            for (int i = 0; i < magicNumber; i++) {
-                addToBot(new ChannelAction(new Lightning()));
-            }
+            addToBot(new EvokeAllOrbsAction());
         }
-        addToBot(new EvokeAllOrbsAction());
-
     }
 
     @Override

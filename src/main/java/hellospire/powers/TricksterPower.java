@@ -24,8 +24,10 @@ public class TricksterPower extends BasePower {
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
         this.flash();
-        AbstractCard trick = new Trick();
-        addToBot(new MakeTempCardInHandAction(trick));
+        for (int i = 0; i < amount; i++) {
+            AbstractCard trick = new Trick();
+            addToBot(new MakeTempCardInHandAction(trick));
+        }
     }
 
 

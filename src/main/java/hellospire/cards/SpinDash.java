@@ -23,7 +23,7 @@ public class SpinDash extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 12;
+    private static final int DAMAGE = 15;
     private static final int UPG_DAMAGE = 4;
 
     public SpinDash() {
@@ -38,15 +38,11 @@ public class SpinDash extends BaseCard {
         if (p.drawPile.isEmpty()) {
             return;
         }
-        if (this.upgraded) {
-            addToBot(new UpgradeSpecificCardAction(p.drawPile.getTopCard()));
-        }
         if (m == null) {
             m = modGetRandomMonster();
         }
 
         addToBot(new PlayTopCardAction(m, false));
-
     }
 
     @Override

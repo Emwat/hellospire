@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -12,7 +13,7 @@ import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-public class BlueTornado extends BaseCard {
+public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("BlueTornado");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -22,15 +23,12 @@ public class BlueTornado extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
     private static final int MAGIC = 99;
 
     public BlueTornado() {
         super(ID, info);
-        this.cardsToPreview = new Ring();
 
-//        setDamage(DAMAGE, UPG_DAMAGE);
+
         setMagic(MAGIC);
 
     }
@@ -40,7 +38,33 @@ public class BlueTornado extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlaySound(SoundLibrary.BlueTornado));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), !upgraded ? 1 : 2 ));
+        if (this.upgraded) {
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+        }
+    }
+
+    @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            if (isBranchUpgrade()) {
+                branchUpgrade();
+            } else {
+                baseUpgrade();
+            }
+        }
+    }
+
+    public void baseUpgrade() {
+        this.cardsToPreview = new Ring();
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+
+    public void branchUpgrade() {
+        this.cardsToPreview = new Trick();
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
     }
 
     @Override

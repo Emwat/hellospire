@@ -11,6 +11,7 @@ import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LightSpeedAttack extends BaseCard {
     public static final String ID = makeID("LightSpeedAttack");
@@ -34,34 +35,34 @@ public class LightSpeedAttack extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int hits = 1 + CalculateRingHits(p);
+        int hits = CalculateRingHits(p);
 
-        for (int i = 0; i < hits; i++) {
-            addToBot(new DamageAction(
-                    modGetRandomMonster(),
-                    new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
-                    AbstractGameAction.AttackEffect.LIGHTNING));
+        if (hits > 0) {
+            for (int i = 0; i < hits; i++) {
+                addToBot(new DamageAction(
+                        modGetRandomMonster(),
+                        new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
+                        AbstractGameAction.AttackEffect.LIGHTNING));
+            }
         }
     }
 
-    private int CalculateRingHits(AbstractPlayer p){
+    private int CalculateRingHits(AbstractPlayer p) {
         int hits = 0;
-        AbstractCard card = new Ring();
-
-        hits += CountInDeck(p.hand.group, card);
-        hits += CountInDeck(p.drawPile.group, card);
-        hits += CountInDeck(p.discardPile.group, card);
-        hits += CountInDeck(p.exhaustPile.group, card);
+        hits += CountInDeck(p.hand.group);
+        hits += CountInDeck(p.drawPile.group);
+        hits += CountInDeck(p.discardPile.group);
+        hits += CountInDeck(p.exhaustPile.group);
         return hits;
     }
 
-    private int CountInDeck(ArrayList<AbstractCard> deck, AbstractCard specificCard){
+    private int CountInDeck(ArrayList<AbstractCard> deck) {
         int count = 0;
-        if (deck.size() == 0) {
+        if (deck.isEmpty()) {
             return 0;
         }
-        for (AbstractCard card : deck){
-            if(card.cardID == specificCard.cardID) {
+        for (AbstractCard card : deck) {
+            if (Objects.equals(card.cardID, Ring.ID)) {
                 count++;
             }
         }

@@ -32,9 +32,9 @@ public class ExtenderPower extends BasePower {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
-    }
+//    public void updateDescription() {
+//        this.description = DESCRIPTIONS[0];
+//    }
 
     @Override
     public void atStartOfTurnPostDraw() {
