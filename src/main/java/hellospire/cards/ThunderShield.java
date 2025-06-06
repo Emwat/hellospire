@@ -16,7 +16,7 @@ public class ThunderShield extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            1
+            2
     );
 
     private static final int MAGIC = 1;

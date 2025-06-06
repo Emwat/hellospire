@@ -1,12 +1,14 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.MyModConfig;
+import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -22,7 +24,6 @@ public class BackSpinKick extends BaseCard {
 
     private static final int DAMAGE = 18;
     private static final int UPG_DAMAGE = 4;
-    private static int attacksPlayed;
 
     public BackSpinKick() {
         super(ID, info);
@@ -38,24 +39,29 @@ public class BackSpinKick extends BaseCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
-    public void atTurnStart() {
-        this.resetAttributes();
-        attacksPlayed = 0;
-        this.applyPowers();
+    public void triggerWhenDrawn() {
+        super.triggerWhenDrawn();
+        ApplyNewCost();
     }
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         super.triggerOnOtherCardPlayed(c);
-        int currentCost = this.costForTurn;
-        if (c.type == CardType.ATTACK) {
-            attacksPlayed++;
-            currentCost -= 1;
-        }
-        if (this.costForTurn > 0) {
-            int newCost = Math.min(this.baseCost - attacksPlayed, currentCost);
+        ApplyNewCost();
+    }
 
-            if (this.baseCost != newCost) {
+    public void atTurnStart() {
+        this.resetAttributes();
+        this.applyPowers();
+    }
+
+    private void ApplyNewCost(){
+        int currentCost = this.costForTurn;
+
+        if (this.costForTurn > 0) {
+            int newCost = Math.min(this.baseCost - SonicMod.attackCardsPlayedThisTurn, currentCost);
+
+            if (this.costForTurn != newCost) {
                 this.setCostForTurn(newCost);
                 this.isCostModifiedForTurn = true;
             }

@@ -76,7 +76,7 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, add 2 Rings to your hand. NL If your last card played was an attack, your Rings will give you 2 Strength. NL If your last card played was a skill, your Rings will give you 2 Dexterity. NL If your last card played was a Power, your Rings will give you 2 Temporary Focus."
+    "DESCRIPTION": "If you haven't played any cards this combat, add 1 Ring to your hand. NL If your last card played was an attack, your Rings will give you 1 Strength. NL If your last card played was a skill, your Rings will give you 1 Dexterity. NL If your last card played was a Power, your Rings will give you 1 Temporary Focus."
   },
   {
     "ID": "wordRing",

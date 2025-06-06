@@ -119,7 +119,10 @@
     "DESCRIPTIONS": [
       "At the end of your turn, Gain ",
       " Ring and Channel ",
-      " Lightning. Your Rings trigger Lightning an additional time."
+      " Rings and Channel ",
+      " Lightning. Your Rings trigger Lightning ",
+      " time.",
+      " times."
     ]
   },
   "${modID}:TrickPower": {

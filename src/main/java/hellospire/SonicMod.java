@@ -51,6 +51,7 @@ public class SonicMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         OnPlayerTurnStartSubscriber,
+        OnCardUseSubscriber,
 //        OnStartBattleSubscriber,
         PostExhaustSubscriber,
 //        PostBattleSubscriber,
@@ -366,6 +367,7 @@ public class SonicMod implements
     }
 
 
+    public static int attackCardsPlayedThisTurn = 0;
     public static int cardsExhaustedThisTurn = 0;
 
     @Override
@@ -375,7 +377,15 @@ public class SonicMod implements
 
     @Override
     public void receiveOnPlayerTurnStart() {
+        attackCardsPlayedThisTurn = 0;
         cardsExhaustedThisTurn = 0;
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard abstractCard) {
+        if (abstractCard.type == AbstractCard.CardType.ATTACK){
+            attackCardsPlayedThisTurn++;
+        }
     }
 
 

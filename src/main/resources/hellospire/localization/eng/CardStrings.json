@@ -247,7 +247,7 @@
   },
   "${modID}:HotRod": {
     "NAME": "Hot Rod",
-    "DESCRIPTION": "This card's effects change based on how many cards you've played this turn.",
+    "DESCRIPTION": "After this card is drawn, this card's effects change based on how many cards you've played this turn.",
     "EXTENDED_DESCRIPTION": [
       "Warming up. NL Gain !B! Block.",
       "Standard. NL Gain !B! block.",
@@ -277,7 +277,7 @@
   },
   "${modID}:LevelUp": {
     "NAME": "Level Up",
-    "DESCRIPTION": "This card's effects change based on the last card you played. NL See ${modID}:Level_Up.",
+    "DESCRIPTION": "This card's effects change based on the last card you played this combat. NL See ${modID}:Level_Up.",
     "EXTENDED_DESCRIPTION": [
       "{@@}Add !M! Ring{!M!|>1=s} to your hand.",
       "Rings give you !M! Strength.",

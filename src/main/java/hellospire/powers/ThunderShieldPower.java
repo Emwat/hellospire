@@ -20,23 +20,30 @@ public class ThunderShieldPower extends BasePower {
     public static final String POWER_ID = makeID("ThunderShieldPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
-    //The only thing TURN_BASED controls is the color of the number on the power icon.
-    //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
-    //For a power to actually decrease/go away on its own they do it themselves.
-    //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
     public ThunderShieldPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        if (amount == 1) {
+            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
+        } else {
+            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
+        }
     }
+
+//0    "At the end of your turn, Gain ",
+//1            " Ring and Channel ",
+//2            " Rings and Channel ",
+//3            " Lightning. Your Rings trigger Lightning ",
+//4            " time.",
+//5            " times."
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
         int rings = 0;
-        addToTop(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), this.amount ));
+        addToTop(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), this.amount));
         for (int i = 0; i < amount; i++) {
             addToTop(new ChannelAction(new Lightning()));
         }
@@ -48,8 +55,10 @@ public class ThunderShieldPower extends BasePower {
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
             if (Objects.equals(orb.name, "Lightning")) {
                 for (int i = 0; i < rings; i++) {
-                    orb.onStartOfTurn();
-                    orb.onEndOfTurn();
+                    for (int j = 0; j < amount; j++) {
+                        orb.onStartOfTurn();
+                        orb.onEndOfTurn();
+                    }
                 }
             }
         }

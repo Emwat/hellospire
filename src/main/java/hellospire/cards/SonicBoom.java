@@ -31,6 +31,7 @@ public class SonicBoom extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
         addToBot(new ApplyPowerAction(p, p, new SonicBoomPower(p, 1)));
+
     }
 
     @Override

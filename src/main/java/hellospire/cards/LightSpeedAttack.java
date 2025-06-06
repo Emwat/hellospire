@@ -1,9 +1,12 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
+import com.megacrit.cardcrawl.cards.purple.Ragnarok;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,15 +26,13 @@ public class LightSpeedAttack extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 8;
-    private static final int UPG_DAMAGE = 1;
-//    private static final int HITS = 7;
+    private static final int DAMAGE = 7;
+    private static final int UPG_DAMAGE = 2;
 
     public LightSpeedAttack() {
         super(ID, info);
         setDamage(DAMAGE, UPG_DAMAGE);
     }
-
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,10 +40,7 @@ public class LightSpeedAttack extends BaseCard {
 
         if (hits > 0) {
             for (int i = 0; i < hits; i++) {
-                addToBot(new DamageAction(
-                        modGetRandomMonster(),
-                        new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
-                        AbstractGameAction.AttackEffect.LIGHTNING));
+                this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
             }
         }
     }

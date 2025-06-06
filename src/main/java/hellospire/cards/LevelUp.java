@@ -3,6 +3,9 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.FTL;
+import com.megacrit.cardcrawl.cards.curses.Pain;
+import com.megacrit.cardcrawl.cards.purple.Sanctity;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,6 +28,8 @@ public class LevelUp extends BaseCard {
             1
     );
 
+    // NOTE: wordLevelUp
+    // If you update this, please also update Keywords.json wordLevelUp
     private static final int MAGIC = 1;
     private static CardType LastTypeCardPlayed;
 
@@ -57,15 +62,16 @@ public class LevelUp extends BaseCard {
     }
 
     @Override
-    public void atTurnStartPreDraw() {
-        super.atTurnStartPreDraw();
+    public void atTurnStart() {
         UpdateLastCardPlayed();
         UpdateCardImageAndText();
+        super.atTurnStart();
     }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         UpdateLastCardPlayed();
         UpdateCardImageAndText();
+        super.triggerOnOtherCardPlayed(c);
     }
 
     private void UpdateCardImageAndText(){

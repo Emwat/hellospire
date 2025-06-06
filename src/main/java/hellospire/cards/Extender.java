@@ -17,16 +17,14 @@ public class Extender extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.POWER,
-            CardRarity.UNCOMMON,
+            CardRarity.RARE,
             CardTarget.SELF,
             1
     );
 
-
     public Extender() {
         super(ID, info);
     }
-
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

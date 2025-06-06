@@ -19,14 +19,14 @@ public class InstaShield extends BaseCard {
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            0
     );
 
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 3;
     private static final int UPG_DAMAGE = 2;
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 3;
     private static final int UPG_BLOCK = 2;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 2;
 
 
