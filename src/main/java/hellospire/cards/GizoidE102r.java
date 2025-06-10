@@ -26,6 +26,7 @@ public class GizoidE102r extends BaseCard {
     public GizoidE102r() {
         super(ID, info);
 
+        this.isMultiDamage = true;
         setDamage(DAMAGE);
         setMagic(MAGIC);
         setExhaust(true);
@@ -35,7 +36,7 @@ public class GizoidE102r extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(p, new DamageInfo(p, magicNumber)));
-        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
     }
 
 

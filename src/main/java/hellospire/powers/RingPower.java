@@ -23,6 +23,7 @@ public class RingPower extends BasePower {
     //For a power to actually decrease/go away on its own they do it themselves.
     //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
+
     public RingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
@@ -55,20 +56,19 @@ public class RingPower extends BasePower {
     public void onPlayCard(AbstractCard playedCard, AbstractMonster m) {
         super.onPlayCard(playedCard, m);
 
-        AbstractCard heightCard = new Ring();
-        int numberOfHeights = 0;
+        int numberOfRings = 0;
 
         for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
-            if (Objects.equals(cardInHand.cardID, heightCard.cardID)) {
-                numberOfHeights++;
+            if (Objects.equals(cardInHand.cardID, Ring.ID)) {
+                numberOfRings++;
             }
         }
 
-        if (playedCard.cardID == heightCard.cardID) {
-            numberOfHeights--;
+        if (Objects.equals(playedCard.cardID, Ring.ID)) {
+            numberOfRings--;
         }
 
-        amount = numberOfHeights;
+        amount = numberOfRings;
     }
 
     @Override

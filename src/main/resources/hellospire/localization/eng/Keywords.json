@@ -45,6 +45,14 @@
     "DESCRIPTION": "Target deals damage reduced by the cost of the highest card in your hand."
   },
   {
+    "ID": "wordFriend",
+    "PROPER_NAME": "Friend",
+    "NAMES": [
+      "friend"
+    ],
+    "DESCRIPTION": "At the end of combat, you may choose between keeping Assist or the new generated card."
+  },
+  {
     "ID": "wordHotRod",
     "PROPER_NAME": "HotRod",
     "NAMES": [

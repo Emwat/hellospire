@@ -21,15 +21,16 @@ public class GizoidSonic extends BaseCard {
             CardType.ATTACK,
             CardRarity.SPECIAL,
             CardTarget.ALL_ENEMY,
-            2
+            3
     );
 
-    private static final int DAMAGE = 16;
+    private static final int DAMAGE = 12;
+    private static final int UPG_DAMAGE = 4;
 
     public GizoidSonic() {
         super(ID, info);
 
-        setDamage(DAMAGE);
+        setDamage(DAMAGE, UPG_DAMAGE);
         setExhaust(true);
     }
 

@@ -21,7 +21,7 @@ import hellospire.util.CardStats;
 
 import java.util.ArrayList;
 
-public class SmoothLanding extends BaseCard implements OnPlayerTurnStartSubscriber {
+public class SmoothLanding extends BaseCard {
     public static final String ID = makeID("SmoothLanding");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -45,7 +45,6 @@ public class SmoothLanding extends BaseCard implements OnPlayerTurnStartSubscrib
         addToBot(new DrawCardAction(magicNumber));
         if (hasVigor()) {
             addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, 1), 1));
-//            addToBot(new GainEnergyAction(1));
             addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoPerfectLanding));
         } else {
             addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoIncorrectLanding));
@@ -54,14 +53,14 @@ public class SmoothLanding extends BaseCard implements OnPlayerTurnStartSubscrib
 
     @Override
     public void triggerWhenDrawn() {
-        super.triggerWhenDrawn();
         transitionToSmoothLanding();
+        super.triggerWhenDrawn();
     }
 
     @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
-//        super.triggerOnOtherCardPlayed(c);
+    public void applyPowers() {
         transitionToSmoothLanding();
+        super.applyPowers();
     }
 
     public void triggerOnGlowCheck() {
@@ -91,10 +90,5 @@ public class SmoothLanding extends BaseCard implements OnPlayerTurnStartSubscrib
     @Override
     public AbstractCard makeCopy() { //Optional
         return new SmoothLanding();
-    }
-
-    @Override
-    public void receiveOnPlayerTurnStart() {
-        transitionToSmoothLanding();
     }
 }

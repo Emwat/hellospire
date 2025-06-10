@@ -3,7 +3,6 @@ package hellospire.powers;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -58,16 +57,16 @@ public class AMAZINGPower extends BasePower {
         --this.amount;
 
         if (this.amount == 2){
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.nice_03));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing3));
         }
 
         if (this.amount == 1){
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.nice_02));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing2));
         }
 
         if (this.amount == 0) {
             this.flash();
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.nice_01));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing1));
             this.amount = CARD_AMT;
             this.addToBot(new DamageAllEnemiesAction(
                     AbstractDungeon.player,

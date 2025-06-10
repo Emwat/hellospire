@@ -1,19 +1,18 @@
 package hellospire.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.Distraction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
+import hellospire.rewards.AssistReward;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
 
 public class Assist extends BaseCard {
-    public static final String ID = makeID("Assist");
+    public static final String ID = makeID("AssistBlaze");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -27,11 +26,13 @@ public class Assist extends BaseCard {
     public Assist() {
         super(ID, info);
 
-        characterCards.add(new UnbreakableBond());
-        characterCards.add(new CuteCouple());
-        characterCards.add(new FightingBuddies());
-        characterCards.add(new PoliteGirl());
-        characterCards.add(new Barry());
+        characterCards.add(new AssistTails());
+        characterCards.add(new AssistAmy());
+        characterCards.add(new AssistKnuckles());
+        characterCards.add(new AssistCream());
+        characterCards.add(new AssistBarry());
+        characterCards.add(new AssistBig());
+        characterCards.add(new AssistBlaze());
         if (this.upgraded) {
             characterCards.add(new Gizoid());
         }
@@ -43,12 +44,13 @@ public class Assist extends BaseCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard randomCard = characterCards.get(AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1));
+        AbstractCard randomCard = characterCards.get(AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1)).makeCopy();
         if (this.upgraded) {
             randomCard.setCostForTurn(-99);
             randomCard.isCostModifiedForTurn = true;
         }
         addToBot(new MakeTempCardInHandAction(randomCard, true));
+        AbstractDungeon.getCurrRoom().rewards.add(new AssistReward(this, this.uuid, randomCard));
     }
 
     @Override

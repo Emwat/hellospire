@@ -2,14 +2,13 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Hologram;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-public class Barry extends BaseCard {
-    public static final String ID = makeID("Barry");
+public class AssistBarry extends BaseCard {
+    public static final String ID = makeID("AssistBarry");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -18,16 +17,19 @@ public class Barry extends BaseCard {
             0
     );
 
-    public Barry() {
-        super(ID, info);
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
 
+    public AssistBarry() {
+        super(ID, info);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
     }
 
     /// "Show me your power. Or I shall not obey. I represent all things, and shall become Gizoid, the conquerer of all."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new BetterDiscardPileToHandAction(1));
+        addToBot(new BetterDiscardPileToHandAction(magicNumber));
     }
 
     public void upgrade() {
@@ -42,6 +44,6 @@ public class Barry extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new Barry();
+        return new AssistBarry();
     }
 }

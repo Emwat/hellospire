@@ -26,12 +26,13 @@ public class GizoidKnuckles extends BaseCard {
     );
 
     private static final int DAMAGE = 24;
+    private static final int UPG_DAMAGE = 6;
     private static final int MAGIC = 3;
 
     public GizoidKnuckles() {
         super(ID, info);
 
-        setDamage(DAMAGE);
+        setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC);
         setExhaust(true);
     }

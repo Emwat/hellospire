@@ -5,11 +5,12 @@ import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-public class PoliteGirl extends BaseCard {
-    public static final String ID = makeID("PoliteGirl");
+public class AssistCream extends BaseCard {
+    public static final String ID = makeID("AssistCream");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -22,7 +23,7 @@ public class PoliteGirl extends BaseCard {
     private static final int UPG_MAGIC = 1;
     private static final int SLOT_INCREASE = 2;
 
-    public PoliteGirl() {
+    public AssistCream() {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
@@ -33,6 +34,7 @@ public class PoliteGirl extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Cream));
         addToBot(new HealAction(p, p, magicNumber));
         addToBot(new IncreaseMaxOrbAction(SLOT_INCREASE));
     }
@@ -48,6 +50,6 @@ public class PoliteGirl extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new PoliteGirl();
+        return new AssistCream();
     }
 }

@@ -35,11 +35,10 @@ public class SonicBoomPower extends BasePower {
         AbstractPlayer p = AbstractDungeon.player;
 
         if (Settings.FAST_MODE) {
-            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.3F));
+            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.BLUE_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.3F));
         } else {
-            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));
+            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.BLUE_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 1.5F));
         }
-
 
         addToBot(new ReducePowerAction(owner, owner, ID, 1));
 //        for (AbstractCreature mo : AbstractDungeon.getCurrRoom().monsters.monsters) {

@@ -69,11 +69,9 @@ public class Checkpoint extends BaseCard {
 
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
             this.cardsToPreview.upgrade();
         }
+        super.upgrade();
     }
 
     @Override

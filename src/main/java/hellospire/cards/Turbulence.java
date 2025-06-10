@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -27,9 +28,6 @@ public class Turbulence extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC);
-        if (this.upgraded) {
-            tags.add(SonicTags.ANTI_DASH);
-        }
     }
 
     @Override
@@ -37,7 +35,7 @@ public class Turbulence extends BaseCard {
         addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoTurbulence));
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, magicNumber)));
         if (this.upgraded) {
-            addToBot(new ExhaustAction(1, false, true, true));
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
         }
     }
 
@@ -46,6 +44,7 @@ public class Turbulence extends BaseCard {
             this.upgradeName();
 //            this.upgradeBaseCost(2);
 //            this.setInnate(true);
+            this.cardsToPreview = new Trick();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

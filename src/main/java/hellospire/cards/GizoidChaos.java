@@ -21,10 +21,11 @@ public class GizoidChaos extends BaseCard {
     );
 
     private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 1;
 
     public GizoidChaos() {
         super(ID, info);
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
     }
 

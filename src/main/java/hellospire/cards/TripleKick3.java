@@ -23,13 +23,17 @@ public class TripleKick3 extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 7;
-    private static final int UPG_DAMAGE = 2;
+    private static final int DAMAGE = 5;
+    private static final int UPG_DAMAGE = 1;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 1;
 
     public TripleKick3() {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC, UPG_MAGIC);
+
         setEthereal(true);
         setExhaust(true);
         if (MyModConfig.enableKicksForStrikeDummy) {
@@ -40,8 +44,8 @@ public class TripleKick3 extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 3)));
-        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 3)));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber)));
     }
 
     @Override

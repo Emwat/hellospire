@@ -13,6 +13,12 @@
       "This is a key": "This is a value."
     }
   },
+  "${modID}:AssistMessage": {
+    "TEXT": [
+      "Lose",
+      "Get"
+    ]
+  },
   "${modID}:CheckpointMessage": {
     "TEXT": [
       "I can only play this if I have a Ring in my hand."

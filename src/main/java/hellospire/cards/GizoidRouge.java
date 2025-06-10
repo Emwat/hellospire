@@ -20,15 +20,17 @@ public class GizoidRouge extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 25;
-    private static final int MAGIC = 25;
+    private static final int DAMAGE = 20;
+    private static final int UPG_DAMAGE = 5;
+    private static final int MAGIC = 20;
+    private static final int UPG_MAGIC = 5;
 
 
     public GizoidRouge() {
         super(ID, info);
 
-        setDamage(DAMAGE);
-        setMagic(MAGIC);
+        setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
     }
 

@@ -9,10 +9,10 @@ import static hellospire.SonicMod.makeID;
 
 public class SoundLibrary {
 
-    static public String nice_01 = makeID("ogg_AMAZING");
-    static public String nice_02 = makeID("ogg_OUTSTANDING");
-    static public String nice_03 = makeID("ogg_GREAT");
-    static public String nice_04 = makeID("ogg_GOOD");
+    static public String Amazing1 = makeID("ogg_AMAZING");
+    static public String Amazing2 = makeID("ogg_OUTSTANDING");
+    static public String Amazing3 = makeID("ogg_GREAT");
+    static public String Amazing4 = makeID("ogg_GOOD");
     static public String ALLRIGHT = makeID("ALLRIGHT");
     static public String COOL = makeID("ogg_COOL");
     static public String OK = makeID("ogg_OK");
@@ -55,13 +55,21 @@ public class SoundLibrary {
     public static String WindUpPunchGo = makeID("ogg_WindUpPunchGo");
 
     public static String Nooo = makeID("ogg_Nooo");
+    public static String Dead = makeID("ogg_Dead");
+    public static String LongLiveTheEggmanEmpire = makeID("ogg_HailEggmanEmpire");
     public static String SpeedBreak = makeID("ogg_SpeedBreak");
     public static String TimeBreak = makeID("ogg_TimeBreak");
 
     public static String BossMusic = makeID("mp3_WindUpPunchGo");
 
-    static public int randomNumber = -1;
+    public static String Tails = makeID("ogg_tails");
+    public static String Knux = makeID("ogg_knux");
+    public static String Cream = makeID("ogg_cream");
+    public static String Amy = makeID("ogg_amy");
+    public static String CuteCouple = makeID("ogg_cutecouple");
+    public static String Big = makeID("ogg_big");
 
+    static public int randomNumber = -1;
 
     static public SFXAction PlaySound(String key){
         if (MyModConfig.enableSound) {
@@ -73,7 +81,7 @@ public class SoundLibrary {
     static public SFXAction PlayVoice(String key){
         int maxVoiceFrequency = 10;
         if (MyModConfig.enableVoice) {
-            if (AbstractDungeon.cardRandomRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0){
+            if (AbstractDungeon.miscRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0){
                 return new SFXAction(key);
             }
         }
@@ -86,18 +94,7 @@ public class SoundLibrary {
             return new SFXAction(BlankSound);
         }
 
-        int generatedRandomNumber = AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1);
-
-        if (sounds.size() < 2) {
-            randomNumber = generatedRandomNumber;
-        } else {
-            while (generatedRandomNumber == randomNumber) {
-                generatedRandomNumber = AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1);
-            }
-            randomNumber = generatedRandomNumber;
-        }
-
-        return new SFXAction(sounds.get(randomNumber));
+        return new SFXAction(GetRandomClip(sounds));
     }
 
     static public SFXAction PlayRandomVoice(ArrayList<String> sounds) {
@@ -105,20 +102,33 @@ public class SoundLibrary {
             return new SFXAction(BlankSound);
         }
 
-        int generatedRandomNumber = AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1);
+        return new SFXAction(GetRandomClip(sounds));
+    }
+
+    /// Used for CardCrawlGame.sound.play()
+    /// Which I'm guessing is for outside combat (for example: com.megacrit.cardcrawl.events.exordium.ScrapOoze)
+    static public String GetRandomVoice(ArrayList<String> sounds) {
+        if (!MyModConfig.enableVoice) {
+            return BlankSound;
+        }
+
+        return GetRandomClip(sounds);
+    }
+
+    private static String GetRandomClip(ArrayList<String> sounds) {
+        int generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
 
         if (sounds.size() < 2) {
             randomNumber = generatedRandomNumber;
         } else {
             while (generatedRandomNumber == randomNumber) {
-                generatedRandomNumber = AbstractDungeon.cardRandomRng.random(0, sounds.size() - 1);
+                generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
             }
             randomNumber = generatedRandomNumber;
         }
 
-        return new SFXAction(sounds.get(randomNumber));
+        return sounds.get(randomNumber);
     }
-
 }
 
 //        CardCrawlGame.sound.playA(hellospire.SonicMod.makeID("AOUTSTANDING"), MathUtils.random(-0.2F, 0.2F));

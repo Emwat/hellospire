@@ -24,6 +24,7 @@ public class RampJump extends BaseCard {
         this.cardsToPreview = new Trick();
 
         setMagic(MAGIC);
+        setExhaust(true);
     }
 
     @Override

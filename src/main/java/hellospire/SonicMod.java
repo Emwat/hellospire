@@ -2,22 +2,23 @@ package hellospire;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.ModPanel;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
-import com.badlogic.gdx.audio.AudioDevice;
+import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.OnPlayerDamagedHook;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.utils.Array;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import hellospire.cards.BaseCard;
 import hellospire.cards.CrestOfFireCard;
 import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
+import hellospire.rewards.AssistReward;
+import hellospire.rewards.RewardTypePatch;
 import hellospire.util.GeneralUtils;
 import hellospire.util.KeywordInfo;
 import hellospire.util.TextureLoader;
@@ -38,8 +39,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -55,7 +54,7 @@ public class SonicMod implements
 //        OnStartBattleSubscriber,
         PostExhaustSubscriber,
 //        PostBattleSubscriber,
-//        PostDeathSubscriber,
+        PostDeathSubscriber,
         PostInitializeSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
@@ -130,6 +129,15 @@ public class SonicMod implements
             }
         });
 
+        BaseMod.registerCustomReward(
+                RewardTypePatch.ASSIST_LOCKIN,
+                (rewardSave) -> { // this handles what to do when this quest type is loaded.
+                    // I don't understand this code at all.
+                    return new AssistReward(null, null, null);
+                },
+                (customReward) -> { // this handles what to do when this quest type is saved.
+                    return new RewardSave(customReward.type.toString(), null, 0, 0);
+                });
     }
 
     /*----------Localization----------*/
@@ -317,10 +325,10 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.YES, audioEngPath("yes.ogg"));
         BaseMod.addAudio(SoundLibrary.FeelingGood, audioEngPath("feelinggood.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.nice_01, audioEngPath("01_AMAZING.ogg"));
-        BaseMod.addAudio(SoundLibrary.nice_02, audioEngPath("02_OUTSTANDING.ogg"));
-        BaseMod.addAudio(SoundLibrary.nice_03, audioEngPath("03_GREAT.ogg"));
-        BaseMod.addAudio(SoundLibrary.nice_04, audioEngPath("04_GOOD.ogg"));
+        BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("01_AMAZING.ogg"));
+        BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("02_OUTSTANDING.ogg"));
+        BaseMod.addAudio(SoundLibrary.Amazing3, audioEngPath("03_GREAT.ogg"));
+        BaseMod.addAudio(SoundLibrary.Amazing4, audioEngPath("04_GOOD.ogg"));
 
         BaseMod.addAudio(SoundLibrary.QuickAir1, audioEngPath("01_V_SNC_000_b.ogg"));
         BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("01_V_SNC_001_a.ogg"));
@@ -357,13 +365,20 @@ public class SonicMod implements
 
         BaseMod.addAudio(SoundLibrary.WindUpPunchGo, audioEngPath("snd_vc_Sonic_Attack05_Go.ogg"));
         BaseMod.addAudio(SoundLibrary.Nooo, audioEngPath("snd_vc_Sonic_Nooo.ogg"));
+        BaseMod.addAudio(SoundLibrary.Dead, audioPath("Dead.ogg"));
+        BaseMod.addAudio(SoundLibrary.LongLiveTheEggmanEmpire, audioEngPath("Long_Live_The_Eggman_Empire.ogg"));
 
         BaseMod.addAudio(SoundLibrary.BossMusic, resourcesFolder + "/audio/music/" + "MetalScratchin2.mp3");
 
         BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("VOICE_E_2_Speed_Break.ogg"));
         BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("VOICE_E_24_Time_Break.ogg"));
 
-
+        BaseMod.addAudio(SoundLibrary.Amy, audioEngPath("sh_amy_herewego.ogg"));
+        BaseMod.addAudio(SoundLibrary.Big, audioEngPath("big_myturn.ogg"));
+        BaseMod.addAudio(SoundLibrary.Cream, audioEngPath("sh_cream_herewego.ogg"));
+        BaseMod.addAudio(SoundLibrary.Knux, audioEngPath("sh_knux_gotit.ogg"));
+        BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
+        BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("0509_Cute_Couples.ogg"));
     }
 
 
@@ -383,13 +398,13 @@ public class SonicMod implements
 
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
-        if (abstractCard.type == AbstractCard.CardType.ATTACK){
+        if (abstractCard.type == AbstractCard.CardType.ATTACK) {
             attackCardsPlayedThisTurn++;
         }
     }
 
 
-//
+    //
 //    @Override
 //    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
 //        if (!(AbstractDungeon.player instanceof Sonic)){
@@ -407,14 +422,27 @@ public class SonicMod implements
 //
 //        if (bosses.contains(monsterName)) {
 //            logger.info("PING");
-//            abstractRoom.playBGM("MetalScratchin2.mp3");
+//            CardCrawlGame.sound.play(SoundLibrary.SonicStyle);
+////            MainMusic.newMusic(resourcesFolder + "/audio/music/MetalScratchin2.mp3");
+////            abstractRoom.playBgmInstantly("MetalScratchin2.mp3");
+//        }
+//    }
+////
 //
+//    @SpirePatch(clz = MainMusic.class, method = "getSong")
+//    public static class Boss1Audio {
+//        @SpirePostfixPatch
+//        public static Music Postfix(Music __result, MainMusic __instance, String key) {
+//            if (!(AbstractDungeon.player instanceof Sonic) &&
+//                    "BOSS_BOTTOM".equals(key))
+//                return MainMusic.newMusic(resourcesFolder + "/audio/music/MetalScratchin2.mp3");
+//            return __result;
 //        }
 //    }
 //
 //    @Override
 //    public void receivePostBattle(AbstractRoom abstractRoom) {
-//        if (!(AbstractDungeon.player instanceof Sonic)){
+//        if (!(AbstractDungeon.player instanceof Sonic)) {
 //            return;
 //        }
 //        String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
@@ -425,30 +453,35 @@ public class SonicMod implements
 //        logger.info("loggginggg" + monsterName);
 //        if (bosses.contains(monsterName)) {
 //            logger.info("PING");
-//            abstractRoom.playBGM("MetalScratchin2.mp3");
-//
-////            SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
-////                    SoundLibrary.SonicsTheName,
-////                    SoundLibrary.TooEasy,
-////                    SoundLibrary.HeyWeShould
-////            )));
-//        }
-//    }
-//
-//    @Override
-//    public void receivePostDeath() {
-//        if (AbstractDungeon.player instanceof Sonic)
-//        {
-//            SoundLibrary.PlayVoice(SoundLibrary.Nooo);
-//        }
-//    }
 
-//    /// Used for FlagDropDown
-//    public static int getIndex()
-//    {
-//        if (modConfig == null) return 0;
-//        return modConfig.getInt(ConfigField.INDEX.id);
+    /// /            abstractRoom.playBGM("MetalScratchin2.mp3");
+//
+//            AbstractDungeon.actionManager.addToTop(
+//                    SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+//                            SoundLibrary.SonicsTheName,
+//                            SoundLibrary.TooEasy,
+//                            SoundLibrary.HeyWeShould
+//                    ))));
+//        }
 //    }
+    @Override
+    public void receivePostDeath() {
+        if (AbstractDungeon.player instanceof Sonic) {
+            CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                    SoundLibrary.Nooo,
+                    SoundLibrary.Dead,
+                    SoundLibrary.LongLiveTheEggmanEmpire
+            ))));
+        }
+    }
+
+//
+////    /// Used for FlagDropDown
+////    public static int getIndex()
+////    {
+////        if (modConfig == null) return 0;
+////        return modConfig.getInt(ConfigField.INDEX.id);
+////    }
 
 
 }

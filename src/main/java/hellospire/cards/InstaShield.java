@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.purple.JustLucky;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
@@ -23,12 +24,11 @@ public class InstaShield extends BaseCard {
     );
 
     private static final int DAMAGE = 3;
-    private static final int UPG_DAMAGE = 2;
-    private static final int BLOCK = 3;
-    private static final int UPG_BLOCK = 2;
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 2;
-
+    private static final int UPG_DAMAGE = 1;
+    private static final int BLOCK = 2;
+    private static final int UPG_BLOCK = 1;
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
 
     /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker. My wife was here and I didn't notice."
     public InstaShield() {

@@ -27,8 +27,45 @@
   },
   "${modID}:Assist": {
     "NAME": "Assist",
-    "DESCRIPTION": "Get a random friend skill card to add to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Get a random friend skill to add to your hand. It costs zero this turn. NL Exhaust."
+    "DESCRIPTION": "Get a random ${modID}:Friend skill card to add to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend skill to add to your hand. It costs zero this turn. NL Exhaust."
+  },
+  "${modID}:AssistAmy": {
+    "NAME": "Cute Couple",
+    "DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat. NL Exhaust."
+  },
+  "${modID}:AssistBarry": {
+    "NAME": "Barry the Quokka",
+    "DESCRIPTION": "Put a card from your discard pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your discard pile into your hand. NL Exhaust."
+  },
+  "${modID}:AssistBig": {
+    "NAME": "Big the Cat",
+    "DESCRIPTION": "Put a card from your draw pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your draw pile into your hand. NL Exhaust."
+  },
+  "${modID}:AssistBlaze": {
+    "NAME": "Otherworldly Friend",
+    "DESCRIPTION": "Gain !B! Block. When you are attacked this turn, deal !M! damage to the attacker."
+  },
+  "${modID}:AssistCream": {
+    "NAME": "Polite Girl",
+    "DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots."
+  },
+  "${modID}:AssistKnuckles": {
+    "NAME": "Fighting Buddies",
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! Block."
+  },
+  "${modID}:AssistRosy": {
+    "NAME": "Believe in Yourself",
+    "DESCRIPTION": "If you have no Attacks in your hand, draw !M! cards.",
+    "FLAVOR": "Extraordinary things can happen if you believe in yourself."
+  },
+  "${modID}:AssistTails": {
+    "NAME": "Unbreakable Bond",
+    "DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Plasma. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma. Exhaust."
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
@@ -38,10 +75,9 @@
     "NAME": "Back Spin Kick",
     "DESCRIPTION": "Deal !D! damage. This costs 1 less for each attack played this turn."
   },
-  "${modID}:Barry": {
-    "NAME": "Barry the Quokka",
-    "DESCRIPTION": "Put a card from your discard pile into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Put a card from your discard pile into your hand."
+  "${modID}:BlastProcessing": {
+    "NAME": "Blast Processing",
+    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded."
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
@@ -71,7 +107,7 @@
   "${modID}:Checkpoint": {
     "NAME": "Checkpoint",
     "DESCRIPTION": "Can only be played if you have a Ring in your hand. Shuffle Super Sonic Form into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Can only be played if you have a Ring in your hand. Shuffle an Super Sonic Form+ into your draw pile."
+    "UPGRADE_DESCRIPTION": "Can only be played if you have a Ring in your hand. Shuffle Super Sonic Form+ into your draw pile."
   },
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
@@ -82,11 +118,6 @@
     "NAME": "Crouch",
     "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. NL Exhaust !M! card{!M!|>1=s}."
   },
-  "${modID}:CuteCouple": {
-    "NAME": "Cute Couple",
-    "DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat."
-  },
   "${modID}:CyanLaser": {
     "NAME": "Cyan Laser",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. Draw a card for each enemy hit."
@@ -94,6 +125,10 @@
   "${modID}:DashPanel": {
     "NAME": "Dash Panel",
     "DESCRIPTION": "Play !M! cards to the right of this card."
+  },
+  "${modID}:DebugMode": {
+    "NAME": "Debug Mode",
+    "DESCRIPTION": "Choose a card in your hand. Add a copy to your hand. Exhaust."
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
@@ -108,6 +143,10 @@
     "NAME": "Double Air Kick",
     "DESCRIPTION": "Deal !D! damage 2 times."
   },
+  "${modID}:Dreamweaver": {
+    "NAME": "Dreamweaver",
+    "DESCRIPTION": ""
+  },
   "${modID}:Drift": {
     "NAME": "Drift",
     "DESCRIPTION": "Activate the passive effects of NL your Orbs 3X times.",
@@ -119,7 +158,7 @@
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "Lose 2 Dexterity this turn. NL Every turn, gain 1 [E].",
+    "DESCRIPTION": "At the end of this turn, lose 2 Dexterity. NL Every turn, gain 1 [E].",
     "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity this turn. NL Every turn, gain 1 [E]."
   },
   "${modID}:Enerbeam": {
@@ -147,11 +186,6 @@
     "NAME": "Falcon Punch",
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust 1 card."
   },
-  "${modID}:FightingBuddies": {
-    "NAME": "Fighting Buddies",
-    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! Block. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain !M! Block."
-  },
   "${modID}:FireSomersault": {
     "NAME": "Fire Somersault",
     "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. If exhausted, add another Fire Somersault to your hand. It does !M! additional damage."
@@ -161,7 +195,7 @@
     "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. When you are attacked this turn, deal !M! damage to the attacker."
   },
   "${modID}:FlagPole": {
-    "NAME": "Flag Pole",
+    "NAME": "Triangle Dive",
     "DESCRIPTION": "Channel a Frost for each Ring in your hand.",
     "UPGRADE_DESCRIPTION": "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
   },
@@ -287,20 +321,32 @@
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",
-    "EXTENDED_DESCRIPTION": ["Your Rings give you ", " extra Dexterity."]
+    "EXTENDED_DESCRIPTION": [
+      "For each Ring in your hand, you have ",
+      " extra Dexterity."
+    ]
   },
   "${modID}:LevelUpFlight": {
     "NAME": "LevelUpFlight",
-    "EXTENDED_DESCRIPTION": ["Your Rings give you ", " Temporary Focus."]
+    "EXTENDED_DESCRIPTION": [
+      "For each Ring in your hand, you have ",
+      " Temporary Focus."
+    ]
   },
   "${modID}:LevelUpPower": {
     "NAME": "LevelUpPower",
-    "EXTENDED_DESCRIPTION": ["Your Rings give you ", " extra Strength."]
+    "EXTENDED_DESCRIPTION": [
+      "For each Ring in your hand, you have ",
+      " extra Strength."
+    ]
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
     "DESCRIPTION": "Deal !D! damage to a random enemy for ALL Rings in combat.",
-    "EXTENDED_DESCRIPTION": [" NL (", " Hits)"]
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " Hits)"
+    ]
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
@@ -318,11 +364,6 @@
   "${modID}:PeelOut": {
     "NAME": "Peel Out",
     "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card."
-  },
-  "${modID}:PoliteGirl": {
-    "NAME": "Polite Girl",
-    "DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Gain 2 Orb slots."
   },
   "${modID}:PowerRing": {
     "NAME": "Power Ring",
@@ -360,7 +401,7 @@
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
-    "DESCRIPTION": "Add !M! Tricks to your hand."
+    "DESCRIPTION": "Add !M! Tricks to your hand. NL Exhaust."
   },
   "${modID}:ScissorKick": {
     "NAME": "Scissor Kick",
@@ -422,7 +463,7 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "Transform ALL of your Rings into Tricks. NL Exhaust."
+    "DESCRIPTION": "Exhaust ALL of your Rings in your hand. For each Ring exhausted, add a Trick to your hand. NL Exhaust."
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
@@ -447,11 +488,12 @@
   },
   "${modID}:Teaser": {
     "NAME": "Teaser",
-    "DESCRIPTION": "Channel !M! Dark. NL Shuffle a Claws Unleashed into your draw pile.",
+    "DESCRIPTION": "Channel !M! Dark. NL Shuffle Claws Unleashed into your draw pile.",
     "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle Claws Unleashed+ into your draw pile."
-  },"${modID}:TopKick": {
+  },
+  "${modID}:TopKick": {
     "NAME": "Top Kick",
-    "DESCRIPTION": "Deal !D! damage. Your next attack deals !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable."
   },
   "${modID}:ThunderShield": {
     "NAME": "Thunder Shield",
@@ -474,36 +516,27 @@
   },
   "${modID}:TripleKick": {
     "NAME": "Triple Kick",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Temporary Strength. NL Add part 2 to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 1 Temporary Strength. NL Add an upgraded part 2 to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add Part 2 to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add Part 2+ to your hand."
   },
   "${modID}:TripleKick2": {
     "NAME": "Triple Kick Part 2",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain 1 Temporary Strength. NL Add part 3 to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain 1 Temporary Strength. NL Add an upgraded part 3 to your hand. Exhaust."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Add Part 3 to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. Deal !D! damage. NL Gain !M! Temporary Strength. NL Add Part 3+ to your hand. Exhaust."
   },
   "${modID}:TripleKick3": {
     "NAME": "Triple Kick Part 3",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain 1 Temporary Strength. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain 1 Temporary Strength. Exhaust."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. Exhaust."
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
     "DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost. You may exhaust one card in your hand."
-  },
-  "${modID}:UnbreakableBond": {
-    "NAME": "Unbreakable Bond",
-    "DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Plasma. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma."
+    "UPGRADE_DESCRIPTION": "Whenever you exhaust a card, Channel 1 Frost. Add a Trick to your hand."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a Ring to your hand."
-  },
-  "${modID}:UpperSpin": {
-    "NAME": "Upper Spin",
-    "DESCRIPTION": ""
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",

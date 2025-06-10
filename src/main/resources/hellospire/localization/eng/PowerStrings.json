@@ -14,6 +14,13 @@
       " Attack cards in a single turn, deal "
     ]
   },
+  "${modID}:BlastProcessingPower": {
+    "NAME": "Blast Processing",
+    "DESCRIPTIONS": [
+      "Each turn, your first ",
+      " created cards cost one less [E]. Zero cost created cards are excluded."
+    ]
+  },
   "${modID}:DirectJumpPower": {
     "NAME": "Direct Jump",
     "DESCRIPTIONS": [
@@ -35,22 +42,22 @@
   "${modID}:LevelUpFlightPower": {
     "NAME": "Flight Level Up",
     "DESCRIPTIONS": [
-      "Your Rings grant you ",
-      " more Temporary Focus."
+      "For each Ring in your hand, gain ",
+      " Temporary Focus at the start of your turn."
     ]
   },
   "${modID}:LevelUpSpeedPower": {
     "NAME": "Speed Level Up",
     "DESCRIPTIONS": [
-      "Your Rings grant you ",
-      " more Dexterity."
+      "For each Ring in your hand, increase Block gained from cards by ",
+      "."
     ]
   },
   "${modID}:LevelUpPowerPower": {
     "NAME": "Power Level Up",
     "DESCRIPTIONS": [
-      "Your Rings grant you ",
-      " more Strength."
+      "For each Ring in your hand, increase damage dealt from cards by ",
+      "."
     ]
   },
   "${modID}:LoseEchoPower": {

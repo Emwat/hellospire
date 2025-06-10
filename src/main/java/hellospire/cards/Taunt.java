@@ -1,6 +1,7 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Bash;
@@ -40,6 +41,7 @@ public class Taunt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new TalkAction(true, "You're TOO SLOW!", 2f, 2f));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));

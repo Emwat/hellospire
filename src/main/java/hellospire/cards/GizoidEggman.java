@@ -14,7 +14,7 @@ public class GizoidEggman extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            2
+            3
     );
 
     private static final int MAGIC = 3;
@@ -22,6 +22,7 @@ public class GizoidEggman extends BaseCard {
     public GizoidEggman() {
         super(ID, info);
 
+        setCostUpgrade(2);
         setMagic(MAGIC);
         setExhaust(true);
     }

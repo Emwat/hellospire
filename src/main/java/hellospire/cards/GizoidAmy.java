@@ -16,7 +16,7 @@ public class GizoidAmy extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0
+            1
     );
 
     public GizoidAmy() {
@@ -31,6 +31,12 @@ public class GizoidAmy extends BaseCard {
         this.addToBot(new ObtainPotionAction(AbstractDungeon.returnRandomPotion(true)));
     }
 
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeBaseCost(0);
+        }
+    }
 
     @Override
     public AbstractCard makeCopy() { //Optional

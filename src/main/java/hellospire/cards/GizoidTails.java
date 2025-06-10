@@ -29,7 +29,6 @@ public class GizoidTails extends BaseCard {
         addToBot(new ExhumeAction(true));
     }
 
-
     @Override
     public AbstractCard makeCopy() { //Optional
         return new GizoidTails();

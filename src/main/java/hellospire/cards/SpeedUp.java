@@ -1,10 +1,7 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.TransformCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,6 +9,8 @@ import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import java.util.Objects;
 
 public class SpeedUp extends BaseCard {
     public static final String ID = makeID("SpeedUp");
@@ -36,6 +35,19 @@ public class SpeedUp extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int ringAmount = 0;
+        for (AbstractCard card : p.hand.group){
+            if (Objects.equals(card.cardID, Ring.ID)){
+                ringAmount++;
+                addToBot(new ExhaustSpecificCardAction(card, p.hand, true));
+            }
+        }
+        for (int i = 0; i < ringAmount; i++) {
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+        }
+    }
+
+    private void TransformRingToTrick(AbstractPlayer p, AbstractMonster m){
         int thisCardsIndex = 0;
         for (int i = 0; i < p.hand.size(); i++) {
             if (p.hand.group.get(i) == this) {

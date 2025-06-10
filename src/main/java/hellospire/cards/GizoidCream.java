@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.BandageUp;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
@@ -14,15 +15,16 @@ public class GizoidCream extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            1
+            0
     );
 
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 2;
 
     public GizoidCream() {
         super(ID, info);
 
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
     }
 
@@ -31,7 +33,6 @@ public class GizoidCream extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new HealAction(p, p, magicNumber));
     }
-
 
     @Override
     public AbstractCard makeCopy() { //Optional

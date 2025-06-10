@@ -19,12 +19,13 @@ public class GizoidShadow extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            2
+            3
     );
 
     public GizoidShadow() {
         super(ID, info);
 
+        setCostUpgrade(2);
         setExhaust(true);
     }
 

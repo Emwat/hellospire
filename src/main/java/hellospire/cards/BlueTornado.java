@@ -3,10 +3,11 @@ package hellospire.cards;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.CarveReality;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
@@ -28,9 +29,7 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
     public BlueTornado() {
         super(ID, info);
 
-
         setMagic(MAGIC);
-
     }
 
     /// "Apply !M! Vulnerable. NL Add a Ring to your hand."

@@ -7,11 +7,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.orbs.Plasma;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-public class UnbreakableBond extends BaseCard {
-    public static final String ID = makeID("UnbreakableBond");
+public class AssistTails extends BaseCard {
+    public static final String ID = makeID("AssistTails");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -20,13 +21,14 @@ public class UnbreakableBond extends BaseCard {
             2
     );
 
-    public UnbreakableBond() {
+    public AssistTails() {
         super(ID, info);
         setExhaust(true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Tails));
         addToBot(new IncreaseMaxOrbAction(1));
         if (this.upgraded) {
             addToBot(new ChannelAction(new Lightning()));
@@ -34,15 +36,8 @@ public class UnbreakableBond extends BaseCard {
         addToBot(new ChannelAction(new Plasma()));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.setExhaust(false);
-        }
-    }
-
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new UnbreakableBond();
+        return new AssistTails();
     }
 }
