@@ -37,15 +37,19 @@ public class LightSpeedDash extends BaseCard {
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
+                int ringsPlayed = 0;
                 for (AbstractCard card : p.hand.group) {
                     if (Objects.equals(card.cardID, Ring.ID)) {
+                        ringsPlayed++;
                         addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
                     }
+                }
+                if (ringsPlayed > 6) {
+                    addToBot(SoundLibrary.PlayVoice(SoundLibrary.FeelingGood));
                 }
                 this.isDone = true;
             }
         });
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.FeelingGood));
     }
 
 //    @Override
@@ -57,7 +61,7 @@ public class LightSpeedDash extends BaseCard {
 //    }
 
     private int CalculateRings() {
-        return BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size();
+        return BaseMod.MAX_HAND_SIZE - (AbstractDungeon.player.hand.size() - 1);
     }
 
     public void upgrade() {

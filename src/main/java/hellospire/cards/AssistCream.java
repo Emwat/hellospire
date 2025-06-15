@@ -19,9 +19,9 @@ public class AssistCream extends BaseCard {
             1
     );
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
-    private static final int SLOT_INCREASE = 2;
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 2;
+    private static final int SLOT_INCREASE = 1;
 
     public AssistCream() {
         super(ID, info);
@@ -31,21 +31,11 @@ public class AssistCream extends BaseCard {
         tags.add(CardTags.HEALING);
     }
 
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlayVoice(SoundLibrary.Cream));
         addToBot(new HealAction(p, p, magicNumber));
         addToBot(new IncreaseMaxOrbAction(SLOT_INCREASE));
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.upgradeMagicNumber(UPG_MAGIC);
-            this.setExhaust(false);
-        }
     }
 
     @Override

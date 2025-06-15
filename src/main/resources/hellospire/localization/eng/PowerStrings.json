@@ -2,7 +2,7 @@
   "${modID}:PowerID": {
     "NAME": "Ultimate Power",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "You are Very Cool and Strong. You MUST have spaces around [E] for it to parse correctly."
     ]
   },
   "${modID}:AMAZINGPower": {
@@ -18,7 +18,7 @@
     "NAME": "Blast Processing",
     "DESCRIPTIONS": [
       "Each turn, your first ",
-      " created cards cost one less [E]. Zero cost created cards are excluded."
+      " created cards cost one less [E] . Zero cost created cards are excluded."
     ]
   },
   "${modID}:DirectJumpPower": {
@@ -36,14 +36,14 @@
   "${modID}:ExtenderPower": {
     "NAME": "Mid Air Trick Actions",
     "DESCRIPTIONS": [
-      "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or 2 [E]. Repeat for each stack of this power."
+      "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or [E] [E] . Repeat for each stack of this power."
     ]
   },
   "${modID}:LevelUpFlightPower": {
     "NAME": "Flight Level Up",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, gain ",
-      " Temporary Focus at the start of your turn."
+      "At the start of your turn, gain ",
+      " Temporary Focus for each Ring in your hand."
     ]
   },
   "${modID}:LevelUpSpeedPower": {
@@ -103,7 +103,9 @@
   "${modID}:RingPower": {
     "NAME": "Ring",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, increase Block gained from cards by 1. You have ",
+      "For each Ring in your hand, increase Block gained from cards by 1. NL NL You only heal a max of ",
+      " HP via Rings in a single combat. You have healed ",
+      ". NL You have ",
       " Ring.",
       " Rings."
     ]
@@ -118,6 +120,12 @@
     "NAME": "Arrow of Judgement",
     "DESCRIPTIONS": [
       "At the end of your turn, deal damage equal to your block."
+    ]
+  },
+  "${modID}:SuperSonicPower": {
+    "NAME": "Super Sonic",
+    "DESCRIPTIONS": [
+      "You MUST play your Rings to gain Intangible. DIE EVERY TURN."
     ]
   },
 

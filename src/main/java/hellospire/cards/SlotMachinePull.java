@@ -57,6 +57,12 @@ public class SlotMachinePull extends BaseCard {
         addToBot(new DiscardSpecificCardAction(this));
     }
 
+    @Override
+    public void onMoveToDiscard() {
+        this.returnToHand = true;
+        super.onMoveToDiscard();
+    }
+
     private void ExhaustALLEggmanCards(){
         ExhaustCurses(AbstractDungeon.player.hand);
         ExhaustCurses(AbstractDungeon.player.drawPile);

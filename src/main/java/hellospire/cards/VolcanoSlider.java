@@ -43,6 +43,7 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
         this.timesUpgraded = upgrades;
 
         tags.add(SonicTags.CREST_OF_FIRE);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override

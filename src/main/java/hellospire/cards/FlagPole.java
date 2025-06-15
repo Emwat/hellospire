@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -28,6 +29,7 @@ public class FlagPole extends BaseCard {
         this.cardsToPreview = new Ring();
 
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     /// "Add a Ring to your hand. Channel a Frost for each Ring in your hand."

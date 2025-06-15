@@ -6,9 +6,11 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
+import hellospire.powers.LoseFocusPower;
 import hellospire.powers.TurbulencePower;
 import hellospire.util.CardStats;
 
@@ -22,18 +24,22 @@ public class Turbulence extends BaseCard {
             2
     );
 
-    private static final int MAGIC = 1;
+    private static final int MAGIC = -2;
+    private static final int UPG_MAGIC = 1;
+
 
     public Turbulence() {
         super(ID, info);
 
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoTurbulence));
-        addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber), -magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, 1), 1));
         if (this.upgraded) {
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
         }

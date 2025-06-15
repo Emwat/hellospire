@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.MyModConfig;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -32,6 +33,7 @@ public class BackSpinKick extends BaseCard {
         if (MyModConfig.enableKicksForStrikeDummy) {
             tags.add(CardTags.STRIKE);
         }
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     /// Deal !D! damage. This costs 1 less for each attack played.

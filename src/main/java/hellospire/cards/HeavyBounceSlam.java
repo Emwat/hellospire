@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.actions.IncreaseCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -30,6 +31,7 @@ public class HeavyBounceSlam extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     );
 
     private static final int DAMAGE = 9;
-    private static final int UPG_DAMAGE = 3;
+    private static final int UPG_DAMAGE = 1;
     private String upgradeStatus = "base";
 
     public HomingAttack() {

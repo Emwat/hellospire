@@ -3,13 +3,14 @@ package hellospire.powers;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.LightningOrbPassiveAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.powers.BerserkPower;
+import com.megacrit.cardcrawl.powers.InfiniteBladesPower;
+import hellospire.SonicMod;
+import hellospire.actions.ThunderShieldAction;
 import hellospire.cards.Ring;
 
 import java.util.Objects;
@@ -42,25 +43,30 @@ public class ThunderShieldPower extends BasePower {
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        int rings = 0;
-        addToTop(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), this.amount));
+        addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), this.amount));
         for (int i = 0; i < amount; i++) {
-            addToTop(new ChannelAction(new Lightning()));
+            addToBot(new ChannelAction(new Lightning()));
         }
-        for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
-            if (Objects.equals(cardInHand.cardID, Ring.ID)) {
-                rings++;
+        addToBot(new ThunderShieldAction(AbstractDungeon.player, amount));
+    }
+
+    private void calculateOrbDamage(){
+        int totalLightningDamage = 0;
+
+        // Lightning, Orb Slot, Orb Slot
+
+        int i = 0;
+        int emptyOrbSlots = 0;
+        for (AbstractOrb orb : AbstractDungeon.player.orbs){
+            SonicMod.logger.info(String.format("Orb %s", orb.name));
+            if (Objects.equals(orb.name, "Orb Slot")) {
+                emptyOrbSlots++;
             }
-        }
-        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-            if (Objects.equals(orb.name, "Lightning")) {
-                for (int i = 0; i < rings; i++) {
-                    for (int j = 0; j < amount; j++) {
-                        orb.onStartOfTurn();
-                        orb.onEndOfTurn();
-                    }
-                }
+            else if (Objects.equals(orb.name, "Lightning")){
+
+
             }
+            i++;
         }
     }
 

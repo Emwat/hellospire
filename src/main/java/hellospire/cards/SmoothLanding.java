@@ -31,20 +31,19 @@ public class SmoothLanding extends BaseCard {
             1
     );
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int MAGIC = 2;
 
     public SmoothLanding() {
         super(ID, info);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ChannelAction(new Frost()));
-        addToBot(new DrawCardAction(magicNumber));
-        if (hasVigor()) {
-            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, 1), 1));
+        addToBot(new ChannelAction(new Frost()));
+        if (hasVigor() || this.upgraded) {
+            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
             addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoPerfectLanding));
         } else {
             addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoIncorrectLanding));
@@ -76,7 +75,7 @@ public class SmoothLanding extends BaseCard {
     }
 
     private void transitionToSmoothLanding() {
-        if (hasVigor()) {
+        if (hasVigor() || this.upgraded) {
             name = "Smooth Landing";
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding1.png"));

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.TricksterPower;
@@ -27,6 +28,7 @@ public class Trickster extends BaseCard {
 
     public Trickster() {
         super(ID, info);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

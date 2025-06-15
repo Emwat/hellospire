@@ -1,5 +1,6 @@
 package hellospire.powers;
 
+import basemod.interfaces.OnStartBattleSubscriber;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hellospire.cards.Ring;
 
 import java.util.Objects;
@@ -18,19 +20,50 @@ public class RingPower extends BasePower {
     public static final String POWER_ID = makeID("RingPower");
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.BUFF;
     private static final boolean TURN_BASED = false;
-    //The only thing TURN_BASED controls is the color of the number on the power icon.
-    //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
-    //For a power to actually decrease/go away on its own they do it themselves.
-    //Look at powers that do this like VulnerablePower and DoubleTapPower.
 
+    // When changing maxAmountHealed, please also change it in Keywords.json
+    private static int amountHealed = 0;
+    private static final int maxAmountHealed = 12;
 
     public RingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + (amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]);
+    public static int getAmountHealed() {
+        return amountHealed;
     }
+
+    public static void incrementAmountHealed(int amountHealed) {
+        RingPower.amountHealed += amountHealed;
+    }
+
+    public static void resetAmountHealed() {
+        RingPower.amountHealed = 0;
+    }
+
+    public static int getMaxAmountHealed() {
+        return maxAmountHealed;
+    }
+
+    public static int calculateAmountToHeal(int amountToHeal){
+        if (amountHealed + amountToHeal <= maxAmountHealed){
+            return amountToHeal;
+        } else {
+            return maxAmountHealed - amountHealed;
+        }
+    }
+
+    public void updateDescription() {
+        final String youHaveThisMuch = DESCRIPTIONS[2] + amount + (amount == 1 ? DESCRIPTIONS[3] : DESCRIPTIONS[4]);
+        final String HPTell = String.format("%s/%s", amountHealed, maxAmountHealed);
+        this.description = String.format("%s %s %s %s %s", DESCRIPTIONS[0], maxAmountHealed, DESCRIPTIONS[1], HPTell, youHaveThisMuch);
+    }
+
+//      "For each Ring in your hand, increase Block gained from cards by 1. You can only heal a max of ",
+//              " HP via Rings in a single combat. You have healed ",
+//              ". NL You have ",
+//              " Ring.",
+//              " Rings."
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         int amountPower = GetPowerAmount("LevelUpPowerPower") * this.amount;
@@ -56,6 +89,10 @@ public class RingPower extends BasePower {
     public void onPlayCard(AbstractCard playedCard, AbstractMonster m) {
         super.onPlayCard(playedCard, m);
 
+        CalculateNumberOfRings(playedCard);
+    }
+
+    private void CalculateNumberOfRings(AbstractCard playedCard){
         int numberOfRings = 0;
 
         for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
@@ -64,11 +101,17 @@ public class RingPower extends BasePower {
             }
         }
 
-        if (Objects.equals(playedCard.cardID, Ring.ID)) {
+        if (playedCard != null && Objects.equals(playedCard.cardID, Ring.ID)) {
             numberOfRings--;
         }
 
         amount = numberOfRings;
+    }
+
+    @Override
+    public void onExhaust(AbstractCard card) {
+        CalculateNumberOfRings(null);
+        super.onExhaust(card);
     }
 
     @Override
@@ -81,14 +124,6 @@ public class RingPower extends BasePower {
             addToBot(new ApplyPowerAction(owner, owner, new LoseFocusPower(owner, amountFlight)));
         }
 
-    }
-
-    public void atEndOfTurn(boolean isPlayer) {
-//        this.flash();
-        if (amount == 0) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-        }
-//        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
     }
 
     private int GetPowerAmount(String targetID) {

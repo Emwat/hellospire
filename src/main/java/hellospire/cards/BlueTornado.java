@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -30,6 +31,7 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
         super(ID, info);
 
         setMagic(MAGIC);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     /// "Apply !M! Vulnerable. NL Add a Ring to your hand."

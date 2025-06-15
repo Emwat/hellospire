@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -26,6 +27,8 @@ public class EndlessBoost extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_IRONCLAD);
+
     }
 
     /// "Lose 2 Dexterity. NL Every turn, gain 1 [E]."

@@ -142,24 +142,17 @@ public class Sonic extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-//        retVal.add(Strike_Red.ID);
-//        retVal.add(Strike_Red.ID);
-//        retVal.add(Defend_Blue.ID);
-//        retVal.add(Defend_Blue.ID);
-//        retVal.add(Neutralize.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-
         retVal.add(HomingAttack.ID);
-//        retVal.add(DevCreateCard.ID);
+
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
         return retVal;
     }
 
@@ -177,7 +170,8 @@ public class Sonic extends CustomPlayer {
     public AbstractCard getStartCardForEvent() {
         //This card is used for the Gremlin card matching game.
         //It should be a non-strike non-defend starter card, but it doesn't have to be.
-        return new Strike_Red();
+        //return new Strike_Red();
+        return new HomingAttack();
     }
 
     /*- Below this is methods that you should *probably* adjust, but don't have to. -*/

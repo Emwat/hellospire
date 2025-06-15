@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -33,6 +34,7 @@ public class CyanLaser extends BaseCard {
         this.isMultiDamage = true;
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

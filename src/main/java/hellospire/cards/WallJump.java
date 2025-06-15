@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.actions.WallJumpAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -19,12 +20,12 @@ public class WallJump extends BaseCard {
     private static final int BLOCK = 7;
     private static final int UPG_BLOCK = 2;
 
-    ///"DESCRIPTION": "Add Ring to your hand. NL Gain !B! Block. NL Repeat this X times."
     public WallJump() {
         super(ID, info);
         this.cardsToPreview = new Ring();
 
         setBlock(BLOCK, UPG_BLOCK);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

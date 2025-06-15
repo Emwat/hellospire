@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Dark;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -26,7 +27,7 @@ public class Teaser extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new ClawsUnleashed();
         setMagic(MAGIC);
-
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     public void upgrade() {

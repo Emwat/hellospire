@@ -1,5 +1,6 @@
 package hellospire;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -11,13 +12,12 @@ public class SoundLibrary {
 
     static public String Amazing1 = makeID("ogg_AMAZING");
     static public String Amazing2 = makeID("ogg_OUTSTANDING");
-    static public String Amazing3 = makeID("ogg_GREAT");
-    static public String Amazing4 = makeID("ogg_GOOD");
+//    static public String Amazing3 = makeID("ogg_GREAT");
+//    static public String Amazing4 = makeID("ogg_GOOD");
     static public String ALLRIGHT = makeID("ALLRIGHT");
     static public String COOL = makeID("ogg_COOL");
     static public String OK = makeID("ogg_OK");
     static public String OW = makeID("ogg_OW");
-    static public String YEAH = makeID("ogg_YEAH");
     static public String YES = makeID("ogg_YES");
     static public String FeelingGood = makeID("ogg_FeelingGood");
 
@@ -63,11 +63,12 @@ public class SoundLibrary {
     public static String BossMusic = makeID("mp3_WindUpPunchGo");
 
     public static String Tails = makeID("ogg_tails");
-    public static String Knux = makeID("ogg_knux");
+    public static String Knuckles = makeID("ogg_knux");
     public static String Cream = makeID("ogg_cream");
     public static String Amy = makeID("ogg_amy");
     public static String CuteCouple = makeID("ogg_cutecouple");
     public static String Big = makeID("ogg_big");
+    public static String Blaze  = makeID("ogg_blaze");;
 
     static public int randomNumber = -1;
 
@@ -128,6 +129,10 @@ public class SoundLibrary {
         }
 
         return sounds.get(randomNumber);
+    }
+
+    public static AbstractGameAction AlwaysPlayVoice(String key) {
+        return new SFXAction(key);
     }
 }
 

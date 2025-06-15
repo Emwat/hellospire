@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.powers.NextTurnEchoPower;
 import hellospire.util.CardStats;
@@ -20,7 +21,7 @@ public class Enerbeam extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
     private static final int MAGIC = 7;
@@ -29,6 +30,7 @@ public class Enerbeam extends BaseCard {
     public Enerbeam() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

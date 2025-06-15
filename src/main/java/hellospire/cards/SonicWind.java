@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -26,6 +27,7 @@ public class SonicWind extends BaseCard {
 
         setMagic(MAGIC);
         setExhaust(true);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

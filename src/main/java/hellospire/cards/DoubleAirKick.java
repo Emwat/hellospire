@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.MyModConfig;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -31,6 +32,7 @@ public class DoubleAirKick extends BaseCard {
         if (MyModConfig.enableKicksForStrikeDummy) {
             tags.add(CardTags.STRIKE);
         }
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     /// Deal !D! damage 2 times.

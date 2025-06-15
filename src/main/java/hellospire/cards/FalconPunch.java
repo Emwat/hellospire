@@ -31,6 +31,7 @@ public class FalconPunch extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         tags.add(SonicTags.ANTI_DASH);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

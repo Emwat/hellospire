@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -28,6 +29,7 @@ public class SecretRoute extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
         tags.add(CardTags.HEALING);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

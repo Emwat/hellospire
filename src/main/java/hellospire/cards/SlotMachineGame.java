@@ -26,6 +26,7 @@ public class SlotMachineGame extends BaseCard {
     private AbstractCard Curse = new SlotMachinePullEggman();
 
     private static final int MAGIC = 3;
+    private static final int UPG_COST = 0;
     private static final int UPG_MAGIC = -1;
 
     public SlotMachineGame() {
@@ -33,6 +34,7 @@ public class SlotMachineGame extends BaseCard {
         MultiCardPreview.add(this, Curse, Pull);
 
         setMagic(MAGIC, UPG_MAGIC);
+//        this.setCostUpgrade(UPG_COST);
         this.setExhaust(true);
     }
 

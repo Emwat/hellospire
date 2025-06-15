@@ -1,18 +1,11 @@
 package hellospire.powers;
 
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import hellospire.SonicMod;
-import hellospire.SoundLibrary;
+
+import java.util.Objects;
 
 import static hellospire.SonicMod.makeID;
 
@@ -33,13 +26,22 @@ public class NiceSmilePower extends BasePower {
     // TODO: A user has reported that this infinitely loops. :( 06/05/2025 01:52 PM
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.ID == "Vigor" && debounce == false) {
+        if (isOver99(owner)) {
+            return;
+        }
+
+        if (Objects.equals(power.ID, "Vigor") && debounce == false) {
             addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount)));
             debounce = true;
             return;
         }
         debounce = false;
 
+    }
+
+    private boolean isOver99(AbstractCreature creature) {
+        AbstractPower vigor = owner.getPower("Vigor");
+        return vigor != null && vigor.amount > 99;
     }
 
     // Not working :(

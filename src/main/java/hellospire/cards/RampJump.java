@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -25,6 +26,7 @@ public class RampJump extends BaseCard {
 
         setMagic(MAGIC);
         setExhaust(true);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

@@ -56,9 +56,9 @@ public class AMAZINGPower extends BasePower {
         }
         --this.amount;
 
-        if (this.amount == 2){
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing3));
-        }
+//        if (this.amount == 2){
+//            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing3));
+//        }
 
         if (this.amount == 1){
             addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing2));

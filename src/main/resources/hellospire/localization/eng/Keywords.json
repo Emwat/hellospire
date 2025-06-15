@@ -62,6 +62,14 @@
     "DESCRIPTION": "If you haven't played any cards, gain 5(6) Block. NL If you have played 1 card, gain 7(8) Block. NL If you have played 2 cards, gain 10(12) Block AND deal 6(8) damage. NL If you have played 2+ cards, gain 3(4) Block."
   },
   {
+    "ID": "wordMagicHandsKW",
+    "PROPER_NAME": "Gentle",
+    "NAMES": [
+      "gentle"
+    ],
+    "DESCRIPTION": "This card has Retain. If this card gets exhausted, enter Wrath."
+  },
+  {
     "ID": "wordMostLeft",
     "PROPER_NAME": "Most Left",
     "NAMES": [
@@ -84,7 +92,7 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, add 1 Ring to your hand. NL If your last card played was an attack, your Rings will give you 1 Strength. NL If your last card played was a skill, your Rings will give you 1 Dexterity. NL If your last card played was a Power, your Rings will give you 1 Temporary Focus."
+    "DESCRIPTION": "If you haven't played any cards this combat, add 1 Ring to your hand. NL If your last card played was an attack, retaining Rings will give you 1 Strength each. NL If your last card played was a skill, retaining Rings will give you 1 Dexterity each. NL If your last card played was a Power, retaining Rings will give you 1 Temporary Focus."
   },
   {
     "ID": "wordRing",
@@ -93,7 +101,7 @@
       "ring",
       "rings"
     ],
-    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by 1."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by 1. NL NL You cannot heal more than 12 HP per combat. See buff under character for more details."
   },
   {
     "ID": "wordTrick",

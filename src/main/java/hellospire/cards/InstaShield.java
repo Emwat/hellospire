@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.purple.JustLucky;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -37,6 +38,7 @@ public class InstaShield extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

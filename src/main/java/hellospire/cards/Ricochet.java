@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.powers.RicochetPower;
 import hellospire.util.CardStats;
@@ -30,6 +31,7 @@ public class Ricochet extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

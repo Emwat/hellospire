@@ -29,6 +29,11 @@
       "I can only play this if I have a Channeled Dark Orb."
     ]
   },
+  "${modID}:modifierMagicHands": {
+    "TEXT": [
+      "${modID}:Gentle. "
+    ]
+  },
   "${modID}:MyModConfig": {
     "TEXT_DICT": {
       "enableSound": "Enable Sounds",

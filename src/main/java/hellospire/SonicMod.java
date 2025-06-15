@@ -4,19 +4,18 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
-import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.OnPlayerDamagedHook;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardSave;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hellospire.cards.BaseCard;
 import hellospire.cards.CrestOfFireCard;
 import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
+import hellospire.powers.RingPower;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
 import hellospire.util.GeneralUtils;
@@ -51,7 +50,7 @@ public class SonicMod implements
         EditKeywordsSubscriber,
         OnPlayerTurnStartSubscriber,
         OnCardUseSubscriber,
-//        OnStartBattleSubscriber,
+        OnStartBattleSubscriber,
         PostExhaustSubscriber,
 //        PostBattleSubscriber,
         PostDeathSubscriber,
@@ -318,46 +317,46 @@ public class SonicMod implements
 
     @Override
     public void receiveAddAudio() {
-        BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioEngPath("allRight.ogg"));
-        BaseMod.addAudio(SoundLibrary.COOL, audioEngPath("cool.ogg"));
-        BaseMod.addAudio(SoundLibrary.OK, audioEngPath("OK.ogg"));
-        BaseMod.addAudio(SoundLibrary.OW, audioEngPath("OW.ogg"));
-        BaseMod.addAudio(SoundLibrary.YES, audioEngPath("yes.ogg"));
-        BaseMod.addAudio(SoundLibrary.FeelingGood, audioEngPath("feelinggood.ogg"));
+        BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioEngPath("sr_AllRight.ogg"));
+        BaseMod.addAudio(SoundLibrary.COOL, audioEngPath("sr_Cool.ogg"));
+        BaseMod.addAudio(SoundLibrary.OK, audioEngPath("sr_OK.ogg"));
+        BaseMod.addAudio(SoundLibrary.OW, audioEngPath("sr_OW.ogg"));
+        BaseMod.addAudio(SoundLibrary.YES, audioEngPath("sr_Yes.ogg"));
+        BaseMod.addAudio(SoundLibrary.FeelingGood, audioEngPath("su_feelinggood.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("01_AMAZING.ogg"));
-        BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("02_OUTSTANDING.ogg"));
-        BaseMod.addAudio(SoundLibrary.Amazing3, audioEngPath("03_GREAT.ogg"));
-        BaseMod.addAudio(SoundLibrary.Amazing4, audioEngPath("04_GOOD.ogg"));
+        BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("sc_01_AMAZING.ogg"));
+        BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("sc_02_OUTSTANDING.ogg"));
+//        BaseMod.addAudio(SoundLibrary.Amazing3, audioEngPath("03_GREAT.ogg"));
+//        BaseMod.addAudio(SoundLibrary.Amazing4, audioEngPath("04_GOOD.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.QuickAir1, audioEngPath("01_V_SNC_000_b.ogg"));
-        BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("01_V_SNC_001_a.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir1, audioEngPath("su_01_V_SNC_000_b.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("su_01_V_SNC_001_a.ogg"));
         BaseMod.addAudio(SoundLibrary.QuickAir3, audioEngPath("01_V_SNC_002_b.ogg"));
 
         BaseMod.addAudio(SoundLibrary.BlueTornado, audioPath("bluetornado.ogg"));
-        BaseMod.addAudio(SoundLibrary.Booster, audioPath("/SE_Booster.ogg"));
-        BaseMod.addAudio(SoundLibrary.Spring, audioPath("/SE_Spring.ogg"));
-        BaseMod.addAudio(SoundLibrary.Ring, audioPath("/Ring.ogg"));
+        BaseMod.addAudio(SoundLibrary.Booster, audioPath("SE_Booster.ogg"));
+        BaseMod.addAudio(SoundLibrary.Spring, audioPath("SE_Spring.ogg"));
+        BaseMod.addAudio(SoundLibrary.Ring, audioPath("Ring.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.LevelUp, audioEngPath("level_up.ogg"));
+        BaseMod.addAudio(SoundLibrary.LevelUp, audioEngPath("sh_level_up.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.Attack1, audioEngPath("vc_sonic_attack01.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack2, audioEngPath("vc_sonic_attack02.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack3, audioEngPath("vc_sonic_attack03.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack4, audioEngPath("vc_sonic_attack04.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack5, audioEngPath("vc_sonic_attack05.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack6, audioEngPath("vc_sonic_attack06.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack1, audioEngPath("smashult_vc_sonic_attack01.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack2, audioEngPath("smashult_vc_sonic_attack02.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack3, audioEngPath("smashult_vc_sonic_attack03.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack4, audioEngPath("smashult_vc_sonic_attack04.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack5, audioEngPath("smashult_vc_sonic_attack05.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack6, audioEngPath("smashult_vc_sonic_attack06.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("vc_sonic_super_sonic_style.ogg"));
+        BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("smashult_vc_sonic_super_sonic_style.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.DropDash, "/audio/DropDash.ogg");
-        BaseMod.addAudio(SoundLibrary.LightningShield, "/audio/LightningShield.ogg");
-        BaseMod.addAudio(SoundLibrary.Jump, "/audio/Jump.ogg");
-        BaseMod.addAudio(SoundLibrary.StarPost, "/audio/StarPost.ogg");
+        BaseMod.addAudio(SoundLibrary.DropDash, audioPath("DropDash.ogg"));
+        BaseMod.addAudio(SoundLibrary.LightningShield, audioPath("LightningShield.ogg"));
+        BaseMod.addAudio(SoundLibrary.Jump, audioPath("Jump.ogg"));
+        BaseMod.addAudio(SoundLibrary.StarPost, audioPath("StarPost.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.OmochaoPerfectLanding, audioEngPath("SND_00610_he_makes_a_perfect_landing_and.ogg"));
-        BaseMod.addAudio(SoundLibrary.OmochaoIncorrectLanding, audioEngPath("SND_00616_ohh_he_failed_to_land_correctly.ogg"));
-        BaseMod.addAudio(SoundLibrary.OmochaoTurbulence, audioEngPath("SND_00765_look_at_sonic_ride_that_turbulence.ogg"));
+        BaseMod.addAudio(SoundLibrary.OmochaoPerfectLanding, audioEngPath("sri_00610_he_makes_a_perfect_landing_and.ogg"));
+        BaseMod.addAudio(SoundLibrary.OmochaoIncorrectLanding, audioEngPath("sri_00616_ohh_he_failed_to_land_correctly.ogg"));
+        BaseMod.addAudio(SoundLibrary.OmochaoTurbulence, audioEngPath("sri_00765_look_at_sonic_ride_that_turbulence.ogg"));
 
         BaseMod.addAudio(SoundLibrary.SonicsTheName, audioEngPath("snd_vc_Sonic_Win01_Sonics_The_Name.ogg"));
         BaseMod.addAudio(SoundLibrary.TooEasy, audioEngPath("snd_vc_Sonic_Win02_Too_Easy.ogg"));
@@ -366,19 +365,20 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.WindUpPunchGo, audioEngPath("snd_vc_Sonic_Attack05_Go.ogg"));
         BaseMod.addAudio(SoundLibrary.Nooo, audioEngPath("snd_vc_Sonic_Nooo.ogg"));
         BaseMod.addAudio(SoundLibrary.Dead, audioPath("Dead.ogg"));
-        BaseMod.addAudio(SoundLibrary.LongLiveTheEggmanEmpire, audioEngPath("Long_Live_The_Eggman_Empire.ogg"));
+        BaseMod.addAudio(SoundLibrary.LongLiveTheEggmanEmpire, audioEngPath("sa2_Long_Live_The_Eggman_Empire.ogg"));
 
         BaseMod.addAudio(SoundLibrary.BossMusic, resourcesFolder + "/audio/music/" + "MetalScratchin2.mp3");
 
-        BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("VOICE_E_2_Speed_Break.ogg"));
-        BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("VOICE_E_24_Time_Break.ogg"));
+        BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("satsr_VOICE_E_2_Speed_Break.ogg"));
+        BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("satsr_VOICE_E_24_Time_Break.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Amy, audioEngPath("sh_amy_herewego.ogg"));
-        BaseMod.addAudio(SoundLibrary.Big, audioEngPath("big_myturn.ogg"));
+        BaseMod.addAudio(SoundLibrary.Big, audioEngPath("sh_big_myturn.ogg"));
+        BaseMod.addAudio(SoundLibrary.Blaze, audioEngPath("sr_blaze_youcantescapeme.ogg"));
         BaseMod.addAudio(SoundLibrary.Cream, audioEngPath("sh_cream_herewego.ogg"));
-        BaseMod.addAudio(SoundLibrary.Knux, audioEngPath("sh_knux_gotit.ogg"));
+        BaseMod.addAudio(SoundLibrary.Knuckles, audioEngPath("sh_knux_gotit.ogg"));
         BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
-        BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("0509_Cute_Couples.ogg"));
+        BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
     }
 
 
@@ -473,6 +473,11 @@ public class SonicMod implements
                     SoundLibrary.LongLiveTheEggmanEmpire
             ))));
         }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        RingPower.resetAmountHealed();
     }
 
 //

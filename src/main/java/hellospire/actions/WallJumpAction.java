@@ -17,8 +17,9 @@ public class WallJumpAction extends AbstractGameAction {
     private boolean freeToPlayOnce = false;
     private AbstractPlayer p;
     private int energyOnUse = -1;
-    private AbstractCard heightCard;
+    private AbstractCard ring;
 
+    /// amount is block
     public WallJumpAction(AbstractPlayer p, int amount, boolean freeToPlayOnce, int energyOnUse) {
         this.amount = amount;
         this.p = p;
@@ -26,7 +27,7 @@ public class WallJumpAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
-        this.heightCard = new Ring();
+        this.ring = new Ring();
 
     }
 
@@ -42,10 +43,10 @@ public class WallJumpAction extends AbstractGameAction {
         }
 
         if (effect > 0) {
+            addToBot(new MakeTempCardInHandAction(ring.makeStatEquivalentCopy(), effect));
+
             for(int i = 0; i < effect; ++i) {
-                addToTop(new MakeTempCardInHandAction(heightCard.makeStatEquivalentCopy(), 1));
-                p.updatePowers();
-                addToTop(new GainBlockAction(this.p, this.p, this.amount));
+                addToBot(new GainBlockAction(this.p, this.p, this.amount));
             }
 
             if (!this.freeToPlayOnce) {

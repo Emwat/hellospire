@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.SpeedHurtPower;
@@ -29,6 +30,7 @@ public class SpeedBreak extends BaseCard {
     public SpeedBreak() {
         super(ID, info);
 //        setExhaust(true);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override
