@@ -30,13 +30,16 @@ public class MagicHands extends BaseCard {
     public MagicHands() {
         super(ID, info);
         tags.add(SonicTags.ANTI_DASH);
-        setCostUpgrade(0);
+        tags.add(SonicTags.LIKE_WATCHER);
+        setExhaust(true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // TODO: Don't worry Buddy
-        addToBot(new ChangeStanceAction("Calm"));
+        if (this.upgraded) {
+            addToBot(new ChangeStanceAction("Calm"));
+        }
         addToBot(new SelectCardsInHandAction(1, "Apply Magic Hands",
                 false, false, filter -> true, cards -> {
             if (cards.isEmpty()) {

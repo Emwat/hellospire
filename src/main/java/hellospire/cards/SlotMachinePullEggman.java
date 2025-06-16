@@ -21,7 +21,7 @@ public class SlotMachinePullEggman extends BaseCard {
     public static final String ID = makeID("SlotMachineEggman");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
-            CardType.CURSE,
+            CardType.STATUS,
             CardRarity.SPECIAL,
             CardTarget.NONE,
             -2

@@ -80,7 +80,8 @@
   },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
-    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded."
+    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded.",
+    "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded."
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
@@ -353,7 +354,8 @@
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
-    "DESCRIPTION": "Enter Calm. Choose a card in your hand. It gains Retain. If this card is exhausted, enter Wrath."
+    "DESCRIPTION": "Choose a card in your hand. It gains Retain and when this card exhausts, enter Wrath. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Enter Calm. Choose a card in your hand. It gains Retain and when this card exhausts, enter Wrath. Exhaust."
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",

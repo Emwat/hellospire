@@ -41,7 +41,6 @@ public class SpeedBreak extends BaseCard {
         addToBot(new ApplyBulletTimeAction());
     }
 
-
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();

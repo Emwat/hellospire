@@ -56,7 +56,7 @@ public class Ring extends BaseCard {
             RingPower.incrementAmountHealed(healAmount);
             ringPower.updateDescription();
         } else {
-            addToBot(new TalkAction(true, "These Rings won't heal anymore this combat. Let's get going!", 2f, 2f));
+            addToBot(new TalkAction(true, "These Rings won't heal anymore this combat.", 3f, 3f));
         }
 
         if (p.hasPower(makeID("SuperSonicPower"))) {

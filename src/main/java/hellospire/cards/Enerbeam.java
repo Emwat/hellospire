@@ -21,7 +21,7 @@ public class Enerbeam extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            2
+            1
     );
 
     private static final int MAGIC = 7;

@@ -1,6 +1,7 @@
 package hellospire.powers;
 
 import basemod.interfaces.OnStartBattleSubscriber;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import hellospire.SonicMod;
 import hellospire.cards.Ring;
 
 import java.util.Objects;
@@ -29,6 +31,14 @@ public class RingPower extends BasePower {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
+    // When testing Ring, see methods to check if amount updated correctly.
+    // 1) Play a Ring.
+    // 2) Exhaust a Ring.
+    // 3) Volcano Slider a Ring.
+    // 4) Get Dazed.
+    // 5) Draw a Ring.
+    // 6) Discard a Ring.
+
     public static int getAmountHealed() {
         return amountHealed;
     }
@@ -45,8 +55,8 @@ public class RingPower extends BasePower {
         return maxAmountHealed;
     }
 
-    public static int calculateAmountToHeal(int amountToHeal){
-        if (amountHealed + amountToHeal <= maxAmountHealed){
+    public static int calculateAmountToHeal(int amountToHeal) {
+        if (amountHealed + amountToHeal <= maxAmountHealed) {
             return amountToHeal;
         } else {
             return maxAmountHealed - amountHealed;
@@ -74,25 +84,38 @@ public class RingPower extends BasePower {
         float outputBlock;
         float tempAmount = (float) this.amount;
         int amountSpeed = GetPowerAmount("LevelUpSpeedPower") * this.amount;
-//        SonicMod.logger.info("amountSpeed: " + amountSpeed);
+        // SonicMod.logger.info("amountSpeed: " + amountSpeed);
 
         outputBlock = blockAmount + tempAmount + amountSpeed;
 
         if (outputBlock < 0.0F) {
             outputBlock = 0.0F;
         }
-//        BaseMod.logger.info(String.format("blockAmount %s | amount %s | var2 %s", blockAmount, amount, outputBlock));
+        //  BaseMod.logger.info(String.format("blockAmount %s | amount %s | var2 %s", blockAmount, amount, outputBlock));
         return outputBlock;
     }
 
     @Override
-    public void onPlayCard(AbstractCard playedCard, AbstractMonster m) {
-        super.onPlayCard(playedCard, m);
-
-        CalculateNumberOfRings(playedCard);
+    public void onAfterCardPlayed(AbstractCard usedCard) {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                CalculateNumberOfRings();
+                this.isDone = true;
+            }
+        });
+        // ThousandCutsPower does not have this super method.
+        // super.onAfterCardPlayed(usedCard);
     }
 
-    private void CalculateNumberOfRings(AbstractCard playedCard){
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        if (Objects.equals(card.cardID, Ring.ID)) {
+            CalculateNumberOfRings();
+        }
+    }
+
+    private void CalculateNumberOfRings() {
         int numberOfRings = 0;
 
         for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
@@ -101,17 +124,8 @@ public class RingPower extends BasePower {
             }
         }
 
-        if (playedCard != null && Objects.equals(playedCard.cardID, Ring.ID)) {
-            numberOfRings--;
-        }
-
         amount = numberOfRings;
-    }
-
-    @Override
-    public void onExhaust(AbstractCard card) {
-        CalculateNumberOfRings(null);
-        super.onExhaust(card);
+        updateDescription();
     }
 
     @Override
@@ -125,6 +139,7 @@ public class RingPower extends BasePower {
         }
 
     }
+
 
     private int GetPowerAmount(String targetID) {
         if (owner.getPower(makeID(targetID)) != null) {

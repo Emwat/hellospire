@@ -1,7 +1,9 @@
 package hellospire.cards;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -9,8 +11,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import java.util.Objects;
 
 public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("HomingAttack");
@@ -34,6 +39,10 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         Trick trick = new Trick();
         MultiCardPreview.add(this, ring, trick);
 
+        if (Loader.isModLoaded("PrideMod")) {
+            loadCardImage(SonicMod.imagePath("cards/attack/HomingAttackPrideMod.png"));
+        }
+
         setDamage(DAMAGE, UPG_DAMAGE);
     }
 
@@ -44,12 +53,12 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
-        if (this.upgraded && upgradeStatus == "Rings2") {
+        if (this.upgraded && Objects.equals(upgradeStatus, "Rings2")) {
             addToBot(new MakeTempCardInHandAction(ring, 1, true));
         }
         addToBot(new MakeTempCardInHandAction(ring, 1, true));
 
-        if (this.upgraded && upgradeStatus == "Tricks2") {
+        if (this.upgraded && Objects.equals(upgradeStatus, "Tricks2")) {
             addToBot(new MakeTempCardInHandAction(trick, 1, true));
         }
         addToBot(new MakeTempCardInHandAction(trick, 1, true));

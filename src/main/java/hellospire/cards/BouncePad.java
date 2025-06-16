@@ -33,7 +33,6 @@ public class BouncePad extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    ///  Gain !B! Block. NL Add !M! Heights to your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlaySound(SoundLibrary.Spring));

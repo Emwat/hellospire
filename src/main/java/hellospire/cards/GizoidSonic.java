@@ -29,8 +29,9 @@ public class GizoidSonic extends BaseCard {
 
     public GizoidSonic() {
         super(ID, info);
+        this.cardsToPreview = new SonicFlare();
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(cardsToPreview.baseDamage, UPG_DAMAGE);
         setExhaust(true);
     }
 
