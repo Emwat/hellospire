@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BurstPower;
 import com.megacrit.cardcrawl.powers.DoubleTapPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.DashPanelAction;
@@ -45,8 +47,14 @@ public class DashPanel extends BaseCard {
             return;
         }
         for (AbstractCard card : cards) {
-            addToBot(new DashPanelAction(m, card));
-            addToBot(new DiscardSpecificCardAction(card));
+            addToBot(new DashPanelAction(m, card, this.energyOnUse));
+            if (card.exhaust) {
+                addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
+            } else if (card.returnToHand) {
+
+            } else {
+                addToBot(new DiscardSpecificCardAction(card));
+            }
         }
     }
 

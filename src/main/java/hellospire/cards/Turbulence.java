@@ -49,13 +49,9 @@ public class Turbulence extends BaseCard {
 
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-//            this.upgradeBaseCost(2);
-//            this.setInnate(true);
             this.cardsToPreview = new Trick();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
         }
+        super.upgrade();
     }
 
     @Override

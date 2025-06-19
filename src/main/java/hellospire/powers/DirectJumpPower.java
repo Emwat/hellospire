@@ -14,6 +14,7 @@ public class DirectJumpPower extends BasePower {
     public static final String POWER_ID = makeID("DirectJumpPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = true;
+    private AbstractCard ring = new Ring();
     //The only thing TURN_BASED controls is the color of the number on the power icon.
     //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
     //For a power to actually decrease/go away on its own they do it themselves.
@@ -32,8 +33,7 @@ public class DirectJumpPower extends BasePower {
 //        super.onPlayCard(card, m);
 
         if (card.type == AbstractCard.CardType.SKILL) {
-            AbstractCard heightCard = new Ring();
-            addToTop(new MakeTempCardInHandAction(heightCard, 1));
+            addToTop(new MakeTempCardInHandAction(ring, 1));
         }
     }
 

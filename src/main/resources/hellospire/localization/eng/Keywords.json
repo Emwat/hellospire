@@ -100,7 +100,7 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, add #b1 Ring to your hand. NL If your last card played was an attack, retaining Rings will give you #b1 Strength each. NL If your last card played was a skill, retaining Rings will give you #b1 Dexterity each. NL If your last card played was a Power, retaining Rings will give you #b1 Temporary Focus."
+    "DESCRIPTION": "If you haven't played any cards this combat, add #b1 Ring to your hand. NL If your last card played was an attack, Rings in your hand increases your damage by #b1. NL If your last card played was a skill, Rings in your hand increases your Block by #b1. NL If your last card played was a Power, Rings in your hand give you #b1 #yTemporary #yFocus at the start of your turn."
   },
   {
     "ID": "wordRing",

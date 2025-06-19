@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.SonicMod;
 
 import java.util.Objects;
 
@@ -31,20 +32,9 @@ public class NiceSmilePower extends BasePower implements BetterOnApplyPowerPower
     @Override
     public int betterOnApplyPowerStacks(AbstractPower power, AbstractCreature target, AbstractCreature source, int stackAmount) {
         if (Objects.equals(power.ID, VigorPower.POWER_ID)) {
-            return power.amount + this.amount;
+            power.amount += this.amount;
+            return stackAmount + this.amount;
         }
-
-        return BetterOnApplyPowerPower.super.betterOnApplyPowerStacks(power, target, source, stackAmount);
+        return stackAmount;
     }
-
-    // Not working :(
-//    @Override
-//    public boolean betterOnApplyPower(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
-//        if (abstractPower.ID.equals(VigorPower.POWER_ID)) {
-//            this.flash();
-//            addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount)));
-//            return false;
-//        }
-//        return true;
-//    }
 }

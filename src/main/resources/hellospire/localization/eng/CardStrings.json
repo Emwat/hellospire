@@ -9,7 +9,15 @@
       "Blizzard is a good example for this.",
       "{@@}Draw !M! card{!M!|>1=s}",
       "${modID}:Ring.",
-      "stslib:Exhaustive !stslib:ex!"
+      "stslib:Exhaustive !stslib:ex!",
+      "[#012345]insertBlackWordHere[]",
+      "fff6e2ff cream",
+      "87ceebff blue",
+      "7fff00ff green",
+      "efc851ff gold",
+      "ffeda7ff yellow",
+      "ee82eeff purple",
+      "ff6563ff red"
     ],
     "FLAVOR": "SpireWolf25 says Hello."
   },
@@ -154,8 +162,12 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "Activate the passive effects of NL your Orbs 3X times.",
-    "UPGRADE_DESCRIPTION": "Activate the passive effects of NL your Orbs 3(X + 1) times."
+    "DESCRIPTION": "Activate the passive effects of your Orbs 3X times.",
+    "UPGRADE_DESCRIPTION": "Activate the passive effects of your Orbs 3(X + 1) times.",
+    "EXTENDED_DESCRIPTION": [
+      "Activate the passive effects of your Orbs [#7fff00ff]",
+      "[] times."
+    ]
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",

@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.cards.BaseCard;
 import hellospire.cards.CrestOfFireCard;
 import hellospire.cards.SuperSonicForm;
@@ -18,6 +19,7 @@ import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
 import hellospire.powers.RingPower;
 import hellospire.powers.SuperSonicPower;
+import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
 import hellospire.util.GeneralUtils;
@@ -47,6 +49,7 @@ import java.util.*;
 public class SonicMod implements
         EditCharactersSubscriber,
         EditCardsSubscriber,
+        EditRelicsSubscriber,
         AddAudioSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
@@ -344,7 +347,7 @@ public class SonicMod implements
 
         BaseMod.addAudio(SoundLibrary.QuickAir1, audioEngPath("su_01_V_SNC_000_b.ogg"));
         BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("su_01_V_SNC_001_a.ogg"));
-        BaseMod.addAudio(SoundLibrary.QuickAir3, audioEngPath("01_V_SNC_002_b.ogg"));
+        BaseMod.addAudio(SoundLibrary.QuickAir3, audioEngPath("su_01_V_SNC_002_a.ogg"));
 
         BaseMod.addAudio(SoundLibrary.BlueTornado, audioPath("bluetornado.ogg"));
         BaseMod.addAudio(SoundLibrary.Booster, audioPath("SE_Booster.ogg"));
@@ -500,6 +503,23 @@ public class SonicMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         RingPower.resetAmountHealed();
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BaseRelic.class) //In the same package as this class
+                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+                    if (relic.pool != null)
+                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                    else
+                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
+
+                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
+                    //If you want all your relics to be visible by default, just remove this if statement.
+//                    if (info.seen)
+                    UnlockTracker.markRelicAsSeen(relic.relicId);
+                });
     }
 
 //

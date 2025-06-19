@@ -14,15 +14,13 @@ public class DriftAction extends AbstractGameAction {
     private int energyOnUse;
     private boolean freeToPlayOnce;
     private int damage;
-    private boolean isUpgraded;
 
-    public DriftAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse, boolean isUpgraded) {
+    public DriftAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
         this.energyOnUse = energyOnUse;
         this.freeToPlayOnce = freeToPlayOnce;
-        this.isUpgraded = isUpgraded;
     }
 
     public int CalculateEffect() {
@@ -34,10 +32,6 @@ public class DriftAction extends AbstractGameAction {
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
-        }
-
-        if (this.isUpgraded) {
-            effect += 1;
         }
 
         effect = effect * 3;
@@ -53,10 +47,6 @@ public class DriftAction extends AbstractGameAction {
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
-        }
-
-        if (this.isUpgraded) {
-            effect += 1;
         }
 
         effect = effect * 3;

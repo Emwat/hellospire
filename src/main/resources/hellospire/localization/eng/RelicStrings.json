@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:ChaoRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Chao chao chao chao!",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 additional Orb slot."
+    ]
   }
 }

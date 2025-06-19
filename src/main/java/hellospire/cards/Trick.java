@@ -34,7 +34,6 @@ public class Trick extends BaseCard {
 
         setEthereal(true);
         setExhaust(true);
-//        RefundVariable.setBaseValue(this, REFUND);
     }
 
     /// "DESCRIPTION": "Ethereal. NL Gain 2 Vigor. NL stslib:Refund 1. NL Exhaust.",
@@ -49,18 +48,6 @@ public class Trick extends BaseCard {
         ))));
         addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
         addToBot(new GainEnergyAction(REFUND));
-//        addToBot(new ApplyPowerAction(p, p, new TrickPower(p, magicNumber)));
-    }
-
-    private int CalculateVigorToGain(AbstractPlayer p) {
-        int amount = p.getPower("Vigor").amount;
-        int CAP = 50;
-        if (amount >= CAP) {
-            amount = 0;
-        } else if (amount + amount > CAP) {
-            amount = CAP - amount;
-        }
-        return amount;
     }
 
     @Override
