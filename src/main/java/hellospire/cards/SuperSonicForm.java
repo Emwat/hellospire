@@ -29,7 +29,9 @@ public class SuperSonicForm extends BaseCard {
     public SuperSonicForm() {
         super(ID, info);
         // This code adds Super Sonic to card rewards.
-//        this.rarity = CardRarity.RARE;
+        // this.rarity = CardRarity.RARE;
+        setDisplayRarity(CardRarity.RARE);
+        // setBackgroundTexture();
 
         setMagic(MAGIC);
         tags.add(BaseModCardTags.FORM);

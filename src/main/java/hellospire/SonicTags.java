@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 public class SonicTags
 {
     @SpireEnum public static AbstractCard.CardTags CREST_OF_FIRE;
-    @SpireEnum public static AbstractCard.CardTags ANTI_DASH;
+    @SpireEnum public static AbstractCard.CardTags HEAVY;
     @SpireEnum public static AbstractCard.CardTags LIKE_IRONCLAD;
     @SpireEnum public static AbstractCard.CardTags LIKE_SILENT;
     @SpireEnum public static AbstractCard.CardTags LIKE_DEFECT;

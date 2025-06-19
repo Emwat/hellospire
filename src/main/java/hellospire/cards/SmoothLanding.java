@@ -65,7 +65,7 @@ public class SmoothLanding extends BaseCard {
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (hasVigor()) {
+        if (hasVigor() && !this.upgraded) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

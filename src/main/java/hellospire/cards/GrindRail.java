@@ -34,9 +34,6 @@ public class GrindRail extends BaseCard {
     public GrindRail() {
         super(ID, info);
 //        setMagic(MAGIC, UPG_MAGIC);
-        if (this.upgraded){
-            tags.add(SonicTags.ANTI_DASH);
-        }
     }
 
     @Override

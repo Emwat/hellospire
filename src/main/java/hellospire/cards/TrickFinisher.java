@@ -38,8 +38,15 @@ public class TrickFinisher extends BaseCard {
         if (vigor != null && vigor.amount > 0) {
             addToBot(SoundLibrary.PlayVoice(SoundLibrary.FeelingGood));
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vigor.amount)));
+            if (vigor.amount > 12){
+                addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+                        SoundLibrary.FeelingGood,
+                        SoundLibrary.ThatsIt
+                ))));
+            }
         }
         addToBot(new GainEnergyAction(1));
+
     }
 
     public void upgrade() {

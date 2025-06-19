@@ -30,7 +30,6 @@ public class FalconPunch extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        tags.add(SonicTags.ANTI_DASH);
         tags.add(SonicTags.LIKE_SILENT);
     }
 

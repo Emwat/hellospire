@@ -43,15 +43,15 @@ public class FireTackle extends BaseCard implements CrestOfFireCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.timesUpgraded > CREST_OF_FIRE_MARK){
+        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+
+        if (this.timesUpgraded > CREST_OF_FIRE_MARK) {
             int self_damage = timesUpgraded - CREST_OF_FIRE_MARK;
             addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         }
 
 //        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
-        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
-
     }
 
     public void upgrade() {

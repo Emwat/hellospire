@@ -4,7 +4,9 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.actions.IncreaseCostAction;
+import hellospire.SonicTags;
+import hellospire.actions.HeavyIncrementAction;
+import hellospire.actions.HeavyKeepCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -19,8 +21,7 @@ public class BlastOff extends BaseCard {
     );
 
 
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 2;
+    // This card's description is hardcoded to show [E] [E]
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
 
@@ -28,13 +29,18 @@ public class BlastOff extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.HEAVY);
     }
-
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(magicNumber));
-        addToBot(new IncreaseCostAction(this.uuid, 1));
+        addToBot(new HeavyIncrementAction(this));
+    }
+
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        addToBot(new HeavyKeepCostAction(this));
     }
 
     @Override

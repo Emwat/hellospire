@@ -34,7 +34,7 @@
       "crest of fire",
       "crest_of_fire"
     ],
-    "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards permanently. Crest of Fire cards can be upgraded any number of times. NL NL After upgrading more than 7 times, take 1 damage per upgrade. For example, Fire Tackle+10 will hurt you for 3 damage."
+    "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards in your deck permanently. Crest of Fire cards can be upgraded any number of times. NL NL After upgrading more than 7 times, take 1 damage per upgrade. For example, Fire Somersault+10 will hurt you for 3 damage."
   },
   {
     "ID": "wordDizzy",
@@ -51,6 +51,14 @@
       "friend"
     ],
     "DESCRIPTION": "At the end of combat, you may choose between keeping Assist or the new generated card."
+  },
+  {
+    "ID": "wordHeavy",
+    "PROPER_NAME": "Heavy",
+    "NAMES": [
+      "heavy"
+    ],
+    "DESCRIPTION": "When you play this card, increase its cost by #b1. Any modifications to cost persist for the rest of combat."
   },
   {
     "ID": "wordHotRod",
@@ -92,7 +100,7 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, add 1 Ring to your hand. NL If your last card played was an attack, retaining Rings will give you 1 Strength each. NL If your last card played was a skill, retaining Rings will give you 1 Dexterity each. NL If your last card played was a Power, retaining Rings will give you 1 Temporary Focus."
+    "DESCRIPTION": "If you haven't played any cards this combat, add #b1 Ring to your hand. NL If your last card played was an attack, retaining Rings will give you #b1 Strength each. NL If your last card played was a skill, retaining Rings will give you #b1 Dexterity each. NL If your last card played was a Power, retaining Rings will give you #b1 Temporary Focus."
   },
   {
     "ID": "wordRing",
@@ -101,7 +109,7 @@
       "ring",
       "rings"
     ],
-    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by 1. NL NL You cannot heal more than 12 HP per combat. See buff under character for more details."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. You cannot heal more than #b12 HP per combat. See buff under character for more details."
   },
   {
     "ID": "wordTrick",

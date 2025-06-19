@@ -26,7 +26,6 @@ public class Slide extends BaseCard {
         super(ID, info);
 
         setBlock(BLOCK, UPG_BLOCK);
-        tags.add(SonicTags.ANTI_DASH);
         tags.add(SonicTags.LIKE_IRONCLAD);
     }
 

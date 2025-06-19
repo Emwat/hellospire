@@ -23,19 +23,13 @@ public class GizoidAmy extends BaseCard {
         super(ID, info);
 
         setExhaust(true);
+        setCostUpgrade(0);
     }
 
     /// "Show me your power. Or I shall not obey. I represent all things, and shall become Gizoid, the conquerer of all."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ObtainPotionAction(AbstractDungeon.returnRandomPotion(true)));
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
-        }
     }
 
     @Override

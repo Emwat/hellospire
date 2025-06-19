@@ -16,4 +16,6 @@ public interface CrestOfFireCard {
         int upgrades = thisCard.timesUpgraded;
         return upgrades > CREST_OF_FIRE_MARK;
     }
+
+
 }

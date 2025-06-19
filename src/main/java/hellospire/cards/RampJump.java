@@ -19,26 +19,21 @@ public class RampJump extends BaseCard {
     );
 
     private static final int MAGIC = 3;
+    private static final int UPG_MAGIC = 1;
 
     public RampJump() {
         super(ID, info);
         this.cardsToPreview = new Trick();
 
-        setMagic(MAGIC);
-        setExhaust(true);
+        // setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
+        // setExhaust(true);
         tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
-        }
     }
 
     @Override

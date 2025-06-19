@@ -30,6 +30,7 @@ public class SpeedBreak extends BaseCard {
     public SpeedBreak() {
         super(ID, info);
 //        setExhaust(true);
+        setCostUpgrade(2);
         tags.add(SonicTags.LIKE_SILENT);
     }
 
@@ -39,13 +40,6 @@ public class SpeedBreak extends BaseCard {
 //        addToBot(new ApplyPowerAction(p, p, new SpeedHurtPower(p)));
         addToBot(new ApplyPowerAction(p, p, new NoDrawPower(p), 1));
         addToBot(new ApplyBulletTimeAction());
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(2);
-        }
     }
 
     @Override

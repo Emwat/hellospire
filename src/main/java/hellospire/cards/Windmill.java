@@ -6,9 +6,13 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
+import hellospire.SoundLibrary;
+import hellospire.actions.HeavyIncrementAction;
+import hellospire.actions.HeavyKeepCostAction;
+import hellospire.actions.RandomizeCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -19,47 +23,50 @@ public class Windmill extends BaseCard {
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            0
     );
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 3;
 
     public Windmill() {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        tags.add(SonicTags.ANTI_DASH);
+        tags.add(SonicTags.HEAVY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-//        addToBot(new SelectCardsAction(
-//                p.hand.group,
-//                1,
-//                "Windmill: Select a card and randomize its cost for this turn.",
-//                cards -> {
-//                    for (AbstractCard c : cards) {
-////                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
-//                        c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
-//                    }
-//                }));
+        addToBot(new HeavyIncrementAction(this));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+
         addToBot(new SelectCardsInHandAction(
                 1,
                 "Windmill: Select a card and randomize its cost for the rest of combat.",
-                false, false, cardFilter -> {
-            return true;
-        }, cards -> {
+                false, false, pickableCards, cards -> {
             for (AbstractCard c : cards) {
-                int currentCost = c.costForTurn;
-//                c.modifyCostForCombat(AbstractDungeon.cardRandomRng.random(0, 3));
-                c.setCostForTurn(AbstractDungeon.cardRandomRng.random(0, 3));
-                if (currentCost != c.costForTurn) {
-                    c.isCostModifiedForTurn = true;
-                }
+                int oldCost = c.costForTurn;
+                addToBot(new RandomizeCostAction((BaseCard) c));
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        int difference = Math.abs(c.costForTurn - oldCost);
+                        if (difference >= 3) {
+                            addToBot(SoundLibrary.PlayVoice(SoundLibrary.PerfectBingo));
+                        } else if (c.costForTurn == 0) {
+                            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Bingo));
+                        }
+                        this.isDone = true;
+                    }
+                });
             }
         }));
+    }
+
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        addToBot(new HeavyKeepCostAction(this));
     }
 
     @Override

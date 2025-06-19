@@ -47,18 +47,18 @@ public class ExtenderPower extends BasePower {
         tmp.add(c3);
 
         if (vigor != null && vigor.amount > 0){
-            this.flash();
-            addToBot(new SelectCardsAction(tmp, 1, "Choose a Trick Finisher", cards -> {
-                for (AbstractCard c : cards) {
-                    TrickHelper(c);
-                }
-            }));
-
+            for (int i = 0; i < amount; i++) {
+                this.flash();
+                addToBot(new SelectCardsAction(tmp, 1, "Choose a Trick Finisher", cards -> {
+                    for (AbstractCard c : cards) {
+                        TrickHelper(c);
+                    }
+                }));
+            }
         }
     }
 
     private void TrickHelper(AbstractCard card) {
-        AbstractCreature p = this.owner;
         if (card.cardID.equals(c1.cardID)) {
             addToBot(new IncreaseMaxOrbAction(2));
         } else if (card.cardID.equals(c2.cardID)) {

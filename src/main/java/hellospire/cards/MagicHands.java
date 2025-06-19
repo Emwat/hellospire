@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PanachePower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SonicTags;
+import hellospire.actions.HeavyIncrementAction;
+import hellospire.actions.HeavyKeepCostAction;
 import hellospire.cardmodifiers.MagicHandsModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -24,18 +26,19 @@ public class MagicHands extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            1
+            0
     );
 
     public MagicHands() {
         super(ID, info);
-        tags.add(SonicTags.ANTI_DASH);
+        tags.add(SonicTags.HEAVY);
         tags.add(SonicTags.LIKE_WATCHER);
-        setExhaust(true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new HeavyIncrementAction(this));
+
         // TODO: Don't worry Buddy
         if (this.upgraded) {
             addToBot(new ChangeStanceAction("Calm"));
@@ -49,7 +52,11 @@ public class MagicHands extends BaseCard {
                 CardModifierManager.addModifier(card, new MagicHandsModifier());
             }
         }));
+    }
 
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        addToBot(new HeavyKeepCostAction(this));
     }
 
     @Override

@@ -42,9 +42,7 @@ public class Strike extends BaseCard {
         addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
                 SoundLibrary.Attack1,
                 SoundLibrary.Attack2,
-                SoundLibrary.Attack3,
-                SoundLibrary.Attack4,
-                SoundLibrary.Attack5
+                SoundLibrary.Attack3
         ))));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }

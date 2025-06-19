@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -59,14 +60,22 @@ public class HotRod extends BaseCard {
         addToBot(new GainBlockAction(p, block));
         if (ticker == 0) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Hehe));
         }
     }
 
     @Override
     public void triggerWhenDrawn() {
-        super.triggerWhenDrawn();
         ticker = END_TICKER;
         TransformCardEffects();
+        super.triggerWhenDrawn();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        ticker = END_TICKER;
+        TransformCardEffects();
+        super.onMoveToDiscard();
     }
 
     @Override

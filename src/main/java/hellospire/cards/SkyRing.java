@@ -17,21 +17,22 @@ public class SkyRing extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.UNCOMMON,
+            CardRarity.COMMON,
             CardTarget.SELF,
             1
     );
 
-    private static final int BLOCK = 7;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 6;
+    private static final int UPG_BLOCK = 1;
     private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
 
     public SkyRing() {
         super(ID, info);
         this.cardsToPreview = new Trick();
 
         setBlock(BLOCK, UPG_BLOCK);
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override

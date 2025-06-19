@@ -85,7 +85,8 @@
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
-    "DESCRIPTION": "Gain !M! [E]. NL Increase this card's COST by 1 this combat."
+    "DESCRIPTION": "${modID}:Heavy. NL Gain [E] [E] .",
+    "UPGRADE_DESCRIPTION": "${modID}:Heavy. NL Gain [E] [E] [E] ."
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
@@ -167,7 +168,7 @@
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
-    "DESCRIPTION": "Enemy loses !M! Strength this turn."
+    "DESCRIPTION": "${modID}:Heavy. NL Enemy loses !M! Strength this turn."
   },
   "${modID}:Extender": {
     "NAME": "Mid-Air Trick Action",
@@ -268,7 +269,7 @@
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
-    "DESCRIPTION": "Deal !D! damage. NL Double this card's damage and increase its COST by 1."
+    "DESCRIPTION": "${modID}:Heavy. Deal !D! damage. Double this card's damage. When you play this card, it stays in your hand."
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
@@ -354,8 +355,8 @@
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
-    "DESCRIPTION": "Choose a card in your hand. It gains Retain and when this card exhausts, enter Wrath. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Enter Calm. Choose a card in your hand. It gains Retain and when this card exhausts, enter Wrath. Exhaust."
+    "DESCRIPTION": "${modID}:Heavy. Choose a card in your hand. It gains Retain and when this card exhausts, enter Wrath. Exhaust.",
+    "UPGRADE_DESCRIPTION": "${modID}:Heavy. Enter Calm. Choose a card in your hand. It gains Retain and when this card exhausts, enter Wrath. Exhaust."
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
@@ -565,6 +566,6 @@
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",
-    "DESCRIPTION": "Deal !D! damage. NL Randomize a card's cost in your hand for this turn."
+    "DESCRIPTION": "${modID}:Heavy. NL Deal !D! damage. NL Randomize a card's cost in your hand for this turn."
   }
 }

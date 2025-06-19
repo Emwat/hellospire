@@ -3,6 +3,7 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Bash;
 import com.megacrit.cardcrawl.cards.red.PommelStrike;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -18,6 +20,7 @@ import hellospire.util.CardStats;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Taunt extends BaseCard {
     public static final String ID = makeID("Taunt");
@@ -41,7 +44,21 @@ public class Taunt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new TalkAction(true, "You're TOO SLOW!", 2f, 2f));
+        String voiceLine = SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                SoundLibrary.CatchMeIfYouCan,
+                SoundLibrary.StepItUp,
+                SoundLibrary.TooSlow
+        )));
+
+        addToBot(SoundLibrary.PlayVoice(voiceLine));
+        if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
+            addToBot(new TalkAction(true, "Catch me if you can!", 2f, 2f));
+        } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
+            addToBot(new TalkAction(true, "Come on! Step it up!", 2f, 2f));
+        } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
+            addToBot(new TalkAction(true, "You're too slow!", 2f, 2f));
+        }
+
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));

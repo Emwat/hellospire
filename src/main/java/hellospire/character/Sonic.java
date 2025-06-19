@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.SnakeRing;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import hellospire.SoundLibrary;
 import hellospire.cards.Defend;
 import hellospire.cards.HomingAttack;
 import hellospire.cards.Strike;
@@ -221,8 +222,9 @@ public class Sonic extends CustomPlayer {
     public void doCharSelectScreenSelectEffect() {
         //This occurs when you click the character's button in the character select screen.
         //See SoundMaster for a full list of existing sound effects, or look at BaseMod's wiki for adding custom audio.
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_2", MathUtils.random(-0.2F, 0.2F));
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        //CardCrawlGame.sound.playA("ATTACK_DAGGER_2", MathUtils.random(-0.2F, 0.2F));
+        //CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        CardCrawlGame.sound.play(SoundLibrary.LetsBlastThrough);
     }
     @Override
     public String getCustomModeCharacterButtonSoundKey() {

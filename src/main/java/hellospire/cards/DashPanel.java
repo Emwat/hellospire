@@ -1,14 +1,18 @@
 package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.BurstPower;
+import com.megacrit.cardcrawl.powers.DoubleTapPower;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
+import hellospire.actions.DashPanelAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -32,14 +36,17 @@ public class DashPanel extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    /// TODO: Additional testing. Like what happens if there's two dash panels next to each other?
-    /// TODO: If Crouch (selects a card) is queued, the cards after Crouch will not play.
     /// Play the two cards to the right of this card.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction(SoundLibrary.Booster));
-        for (AbstractCard card : getCardsToTheRight(AbstractDungeon.player.hand.group)){
-            this.addToBot(new NewQueueCardAction(card, m, true, true));
+        ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
+        if (cards.isEmpty()) {
+            return;
+        }
+        for (AbstractCard card : cards) {
+            addToBot(new DashPanelAction(m, card));
+            addToBot(new DiscardSpecificCardAction(card));
         }
     }
 
@@ -55,12 +62,12 @@ public class DashPanel extends BaseCard {
             return;
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
-            for (AbstractCard q : getCardsToTheRight(AbstractDungeon.player.hand.group)) {
-                if (q.hasTag(SonicTags.ANTI_DASH)){
-                    q.glowColor = Color.RED.cpy();
-                } else {
-                    q.glowColor = Color.GOLD.cpy();
-                }
+            ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
+            if (cards.isEmpty()) {
+                return;
+            }
+            for (AbstractCard q : cards) {
+                q.glowColor = Color.GOLD.cpy();
                 q.beginGlowing();
             }
         }
@@ -73,11 +80,14 @@ public class DashPanel extends BaseCard {
             return;
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
-            for (AbstractCard q : getCardsToTheRight(AbstractDungeon.player.hand.group)) {
+            ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
+            if (cards.isEmpty()) {
+                return;
+            }
+            for (AbstractCard q : cards) {
                 q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
                 q.triggerOnGlowCheck();
             }
-//            AbstractDungeon.player.hand.applyPowers();
         }
     }
 
@@ -87,7 +97,7 @@ public class DashPanel extends BaseCard {
         int numberOfCards = magicNumber;
 
         for (AbstractCard q : hand) {
-            if(cardsToTheRight.size() >= numberOfCards){
+            if (cardsToTheRight.size() >= numberOfCards) {
                 break;
             }
 

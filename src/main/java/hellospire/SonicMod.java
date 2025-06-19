@@ -13,9 +13,11 @@ import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hellospire.cards.BaseCard;
 import hellospire.cards.CrestOfFireCard;
+import hellospire.cards.SuperSonicForm;
 import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
 import hellospire.powers.RingPower;
+import hellospire.powers.SuperSonicPower;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
 import hellospire.util.GeneralUtils;
@@ -52,7 +54,7 @@ public class SonicMod implements
         OnCardUseSubscriber,
         OnStartBattleSubscriber,
         PostExhaustSubscriber,
-//        PostBattleSubscriber,
+        PostBattleSubscriber,
         PostDeathSubscriber,
         PostInitializeSubscriber {
     public static ModInfo info;
@@ -317,12 +319,23 @@ public class SonicMod implements
 
     @Override
     public void receiveAddAudio() {
+        BaseMod.addAudio(SoundLibrary.LetsBlastThrough, audioEngPath("sh_lets_blast_through_w_sonic_speed.ogg"));
         BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioEngPath("sr_AllRight.ogg"));
         BaseMod.addAudio(SoundLibrary.COOL, audioEngPath("sr_Cool.ogg"));
         BaseMod.addAudio(SoundLibrary.OK, audioEngPath("sr_OK.ogg"));
         BaseMod.addAudio(SoundLibrary.OW, audioEngPath("sr_OW.ogg"));
         BaseMod.addAudio(SoundLibrary.YES, audioEngPath("sr_Yes.ogg"));
         BaseMod.addAudio(SoundLibrary.FeelingGood, audioEngPath("su_feelinggood.ogg"));
+        BaseMod.addAudio(SoundLibrary.SmallYahoo, audioEngPath("sh_yahoo.ogg"));
+        BaseMod.addAudio(SoundLibrary.SmallYes, audioEngPath("sh_Yes.ogg"));
+        BaseMod.addAudio(SoundLibrary.SmallAllRight, audioEngPath("sh_AllRight.ogg"));
+        BaseMod.addAudio(SoundLibrary.SmallAllRightLetsGo, audioEngPath("sh_AllRight_LetsGo.ogg"));
+        BaseMod.addAudio(SoundLibrary.Hehe, audioEngPath("sh_Hehe.ogg"));
+        BaseMod.addAudio(SoundLibrary.ThatsIt, audioEngPath("sh_Thats_It.ogg"));
+        BaseMod.addAudio(SoundLibrary.BlastAway, audioEngPath("sh_Blast_Away.ogg"));
+        BaseMod.addAudio(SoundLibrary.NeverUnderestimate, audioEngPath("sh_Never_Underestimate_Sonic_Speed.ogg"));
+        BaseMod.addAudio(SoundLibrary.Bingo, audioEngPath("sh_bingo.ogg"));
+        BaseMod.addAudio(SoundLibrary.PerfectBingo, audioEngPath("sh_Perfect_Bingo.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("sc_01_AMAZING.ogg"));
         BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("sc_02_OUTSTANDING.ogg"));
@@ -340,14 +353,15 @@ public class SonicMod implements
 
         BaseMod.addAudio(SoundLibrary.LevelUp, audioEngPath("sh_level_up.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.Attack1, audioEngPath("smashult_vc_sonic_attack01.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack2, audioEngPath("smashult_vc_sonic_attack02.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack3, audioEngPath("smashult_vc_sonic_attack03.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack4, audioEngPath("smashult_vc_sonic_attack04.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack5, audioEngPath("smashult_vc_sonic_attack05.ogg"));
-        BaseMod.addAudio(SoundLibrary.Attack6, audioEngPath("smashult_vc_sonic_attack06.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack1, audioEngPath("brawl_Attack01.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack2, audioEngPath("brawl_Attack02.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack3, audioEngPath("brawl_Attack03.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack4, audioEngPath("brawl_Attack04.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack5Go, audioEngPath("brawl_Attack05_Go.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack6, audioEngPath("brawl_Attack06.ogg"));
+        BaseMod.addAudio(SoundLibrary.Attack7, audioEngPath("brawl_Attack07.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("smashult_vc_sonic_super_sonic_style.ogg"));
+        BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("ult_super_sonic_style.ogg"));
 
         BaseMod.addAudio(SoundLibrary.DropDash, audioPath("DropDash.ogg"));
         BaseMod.addAudio(SoundLibrary.LightningShield, audioPath("LightningShield.ogg"));
@@ -358,19 +372,24 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.OmochaoIncorrectLanding, audioEngPath("sri_00616_ohh_he_failed_to_land_correctly.ogg"));
         BaseMod.addAudio(SoundLibrary.OmochaoTurbulence, audioEngPath("sri_00765_look_at_sonic_ride_that_turbulence.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.SonicsTheName, audioEngPath("snd_vc_Sonic_Win01_Sonics_The_Name.ogg"));
-        BaseMod.addAudio(SoundLibrary.TooEasy, audioEngPath("snd_vc_Sonic_Win02_Too_Easy.ogg"));
-        BaseMod.addAudio(SoundLibrary.HeyWeShould, audioEngPath("snd_vc_Sonic_Win03_Hey_We_Should.ogg"));
+        BaseMod.addAudio(SoundLibrary.SonicsTheName, audioEngPath("brawl_Win01_SonicsTheName.ogg"));
+        BaseMod.addAudio(SoundLibrary.TooEasy, audioEngPath("brawl_Win02_TooEasyPieceOfCake.ogg"));
+        BaseMod.addAudio(SoundLibrary.HeyWeShould, audioEngPath("brawl_Win03_HeyWeShould.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.WindUpPunchGo, audioEngPath("snd_vc_Sonic_Attack05_Go.ogg"));
-        BaseMod.addAudio(SoundLibrary.Nooo, audioEngPath("snd_vc_Sonic_Nooo.ogg"));
+        BaseMod.addAudio(SoundLibrary.CatchMeIfYouCan, audioEngPath("sh_catchmeifyoucan.ogg"));
+        BaseMod.addAudio(SoundLibrary.WhatsTheMatter, audioEngPath("sh_Whats_The_Matter.ogg"));
+        BaseMod.addAudio(SoundLibrary.StepItUp, audioEngPath("brawl_Step_It_Up.ogg"));
+        BaseMod.addAudio(SoundLibrary.TooSlow, audioEngPath("brawl_Too_Slow.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.Nooo, audioEngPath("brawl_Nooo.ogg"));
+        BaseMod.addAudio(SoundLibrary.Shoot, audioEngPath("sh_shoot_not_my_day.ogg"));
         BaseMod.addAudio(SoundLibrary.Dead, audioPath("Dead.ogg"));
         BaseMod.addAudio(SoundLibrary.LongLiveTheEggmanEmpire, audioEngPath("sa2_Long_Live_The_Eggman_Empire.ogg"));
 
         BaseMod.addAudio(SoundLibrary.BossMusic, resourcesFolder + "/audio/music/" + "MetalScratchin2.mp3");
 
-        BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("satsr_VOICE_E_2_Speed_Break.ogg"));
-        BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("satsr_VOICE_E_24_Time_Break.ogg"));
+        BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("satsr_Speed_Break.ogg"));
+        BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("satsr_Time_Break.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Amy, audioEngPath("sh_amy_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.Big, audioEngPath("sh_big_myturn.ogg"));
@@ -440,36 +459,39 @@ public class SonicMod implements
 //        }
 //    }
 //
-//    @Override
-//    public void receivePostBattle(AbstractRoom abstractRoom) {
-//        if (!(AbstractDungeon.player instanceof Sonic)) {
-//            return;
-//        }
-//        String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
-//        ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
-//                "TheGuardian",
-//                "CorruptHeart"
-//        ));
-//        logger.info("loggginggg" + monsterName);
-//        if (bosses.contains(monsterName)) {
-//            logger.info("PING");
 
-    /// /            abstractRoom.playBGM("MetalScratchin2.mp3");
-//
-//            AbstractDungeon.actionManager.addToTop(
-//                    SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
-//                            SoundLibrary.SonicsTheName,
-//                            SoundLibrary.TooEasy,
-//                            SoundLibrary.HeyWeShould
-//                    ))));
-//        }
-//    }
+//            abstractRoom.playBGM("MetalScratchin2.mp3");
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        // SuperSonicForm.CardRarity = AbstractCard.CardRarity.SPECIAL;
+
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return;
+        }
+        String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
+        ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
+                "TheCollector",
+                "TheChamp",
+                "BronzeAutomaton"
+        ));
+
+        if (bosses.contains(monsterName)) {
+            CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                    SoundLibrary.SonicsTheName,
+                    SoundLibrary.TooEasy,
+                    SoundLibrary.HeyWeShould
+            ))));
+        }
+    }
+
     @Override
     public void receivePostDeath() {
         if (AbstractDungeon.player instanceof Sonic) {
             CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
                     SoundLibrary.Nooo,
                     SoundLibrary.Dead,
+                    SoundLibrary.Shoot,
                     SoundLibrary.LongLiveTheEggmanEmpire
             ))));
         }

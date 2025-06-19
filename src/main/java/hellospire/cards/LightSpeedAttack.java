@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.purple.Ragnarok;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -38,9 +39,12 @@ public class LightSpeedAttack extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int hits = CalculateRingHits(p);
 
+        if (hits > 5) {
+            addToBot(SoundLibrary.PlayVoice(SoundLibrary.BlastAway));
+        }
         if (hits > 0) {
             for (int i = 0; i < hits; i++) {
-                this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
+                addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
             }
         }
     }

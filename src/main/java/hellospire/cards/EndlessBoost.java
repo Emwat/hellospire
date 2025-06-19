@@ -7,8 +7,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import hellospire.SonicTags;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EndlessBoost extends BaseCard {
     public static final String ID = makeID("EndlessBoost");
@@ -34,6 +38,11 @@ public class EndlessBoost extends BaseCard {
     /// "Lose 2 Dexterity. NL Every turn, gain 1 [E]."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+//        addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+//                SoundLibrary.CatchMeIfYouCan,
+//                SoundLibrary.NeverUnderestimate
+//        ))));
+        addToBot(SoundLibrary.PlayVoice(SoundLibrary.NeverUnderestimate));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new BerserkPower(p, 1)));
     }

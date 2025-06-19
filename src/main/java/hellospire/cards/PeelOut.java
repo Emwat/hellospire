@@ -26,7 +26,6 @@ public class PeelOut extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
-        tags.add(SonicTags.ANTI_DASH);
         tags.add(SonicTags.LIKE_SILENT);
     }
 

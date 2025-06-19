@@ -12,6 +12,8 @@ import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class LightSpeedDash extends BaseCard {
@@ -45,7 +47,12 @@ public class LightSpeedDash extends BaseCard {
                     }
                 }
                 if (ringsPlayed > 6) {
-                    addToBot(SoundLibrary.PlayVoice(SoundLibrary.FeelingGood));
+                    addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+                            SoundLibrary.FeelingGood,
+                            SoundLibrary.Hehe,
+                            SoundLibrary.SmallYahoo,
+                            SoundLibrary.SmallYes
+                    ))));
                 }
                 this.isDone = true;
             }

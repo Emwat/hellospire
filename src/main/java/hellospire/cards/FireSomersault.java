@@ -48,9 +48,7 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
             addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         }
 
-//        addToBot(new ApplyPowerAction(p, p, new CrestOfFirePower(p, m, 1, this)));
         addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
-//        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
     }
 
     public void upgrade() {

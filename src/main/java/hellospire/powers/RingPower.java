@@ -66,7 +66,7 @@ public class RingPower extends BasePower {
     public void updateDescription() {
         final String youHaveThisMuch = DESCRIPTIONS[2] + amount + (amount == 1 ? DESCRIPTIONS[3] : DESCRIPTIONS[4]);
         final String HPTell = String.format("%s/%s", amountHealed, maxAmountHealed);
-        this.description = String.format("%s %s %s %s %s", DESCRIPTIONS[0], maxAmountHealed, DESCRIPTIONS[1], HPTell, youHaveThisMuch);
+        this.description = String.format("%s%s%s%s%s", DESCRIPTIONS[0], maxAmountHealed, DESCRIPTIONS[1], HPTell, youHaveThisMuch);
     }
 
 //      "For each Ring in your hand, increase Block gained from cards by 1. You can only heal a max of ",

@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
 import hellospire.cards.Ricochet;
 
+import java.util.Objects;
+
 import static hellospire.SonicMod.makeID;
 
 public class RicochetPower extends BasePower {
@@ -23,10 +25,9 @@ public class RicochetPower extends BasePower {
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         super.onPlayCard(card, m);
-        AbstractCard rico = new Ricochet();
         if (card.type == AbstractCard.CardType.ATTACK && owner.hasPower("Vigor")){
             for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group){
-                if (discardedCard.cardID == rico.cardID) {
+                if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
                     addToBot(new SFXAction(SoundLibrary.Spring));
                     addToBot(new DiscardToHandAction(discardedCard));
                 }

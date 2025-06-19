@@ -20,8 +20,8 @@ public class BouncePad extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 8;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 6;
+    private static final int UPG_BLOCK = 1;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 

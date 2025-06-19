@@ -1,12 +1,12 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
-import hellospire.actions.IncreaseCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -26,7 +26,6 @@ public class AssistAmy extends BaseCard {
     public AssistAmy() {
         super(ID, info);
         setExhaust(true);
-        tags.add(SonicTags.ANTI_DASH);
     }
 
     @Override
@@ -40,7 +39,13 @@ public class AssistAmy extends BaseCard {
                 return;
             }
             for (AbstractCard pickedCard : cards) {
-                addToBot(new IncreaseCostAction(pickedCard.uuid, -99));
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        pickedCard.modifyCostForCombat(-99);
+                        this.isDone = true;
+                    }
+                });
             }
         }));
     }
