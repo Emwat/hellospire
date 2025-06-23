@@ -125,7 +125,10 @@
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
     "DESCRIPTION": "Can only be played if you have a channeled Dark Orb. NL Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage."
+    "EXTENDED_DESCRIPTION": [
+      "Can only be played if you have a channeled Dark Orb. NL Deal !D! damage.",
+      "Deal !D! damage."
+    ]
   },
   "${modID}:Crouch": {
     "NAME": "Crouch",
@@ -288,8 +291,8 @@
     "DESCRIPTION": "Deal !D! damage. NL Add a Ring and a Trick to your hand.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
-      "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand."
+      "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand.",
+      "Deal !D! damage. NL Add 2 Rings and a Trick to your hand."
     ]
   },
   "${modID}:HotRod": {
@@ -326,10 +329,10 @@
     "NAME": "Level Up",
     "DESCRIPTION": "This card's effects change based on the last card you played this combat. NL See ${modID}:Level_Up.",
     "EXTENDED_DESCRIPTION": [
-      "{@@}Add !M! Ring{!M!|>1=s} to your hand.",
-      "Rings give you !M! Strength.",
-      "Rings give you !M! Dexterity.",
-      "Rings give you !M! Temporary Focus at the start of your turn."
+      "{@@}Add !M! Ring{!M!|>1=s} to your hand. ",
+      "For each Ring in your hand, increase damage dealt from cards by !M!.",
+      "For each Ring in your hand, increase Block gained from cards by !M!.",
+      "For each Ring in your hand, gain !M! Temporary Focus at the start of your turn."
     ]
   },
   "${modID}:LevelUpSpeed": {
@@ -409,13 +412,13 @@
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. If this card is most left, draw 1 card. Add Quick Step to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. If this card is most left, draw 1 card. Add Quick Step+ to your hand. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_most_left, activate the passive effect of your leftmost Orb. Add Quick Step to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_most_left, activate the passive effect of your leftmost Orb. Add Quick Step+ to your hand. Exhaust."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
-    "DESCRIPTION": "Gain !B! Block. If this card is most right, draw 1 card. Add Quick Air to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. If this card is most right, draw 1 card. Add Quick Air+ to your hand. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_most_right, activate the passive effect of your rightmost Orb. Add Quick Air to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_most_right, activate the passive effect of your rightmost Orb. Add Quick Air+ to your hand. Exhaust."
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
@@ -511,7 +514,11 @@
   "${modID}:Teaser": {
     "NAME": "Teaser",
     "DESCRIPTION": "Channel !M! Dark. NL Shuffle Claws Unleashed into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle Claws Unleashed+ into your draw pile."
+    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle Claws Unleashed+ into your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "Channel !M! Dark. NL Shuffle Claws Unleashed+ into your draw pile",
+      "Channel !M! Dark. NL Shuffle Claws Unleashed* into your draw pile"
+    ]
   },
   "${modID}:TopKick": {
     "NAME": "Top Kick",

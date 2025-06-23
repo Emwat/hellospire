@@ -36,6 +36,10 @@
   },
   "${modID}:MyModConfig": {
     "TEXT_DICT": {
+      "enableBoss2Music": "Enable Act II Boss Music",
+      "enableBoss3Music": "Enable Act IV Boss Music",
+      "enableBossSpearShieldMusic": "Enable Act IV Music",
+      "enableBossHeartMusic": "Enable Act IV Boss Music",
       "enableSound": "Enable Sounds",
       "enableVoice": "Enable Voice",
       "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",

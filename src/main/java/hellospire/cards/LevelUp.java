@@ -32,17 +32,25 @@ public class LevelUp extends BaseCard {
     // NOTE: wordLevelUp
     // If you update this, please also update Keywords.json wordLevelUp
     private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
     private static CardType LastTypeCardPlayed;
 
     public LevelUp() {
         super(ID, info);
+        this.cardsToPreview = new Ring();
 
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlayVoice(SoundLibrary.LevelUp));
+//        if (!this.upgraded) {
+//            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+//        } else {
+//            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 2));
+//        }
+
         if (LastTypeCardPlayed == CardType.ATTACK) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpPowerPower(p, magicNumber)));
         } else if (LastTypeCardPlayed == CardType.SKILL) {
@@ -50,17 +58,11 @@ public class LevelUp extends BaseCard {
         } else if (LastTypeCardPlayed == CardType.POWER) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, magicNumber)));
         } else {
-            addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber ));
+            addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber));
 //            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, magicNumber)));
         }
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
-        }
-    }
 
     @Override
     public void triggerWhenDrawn() {
@@ -75,7 +77,7 @@ public class LevelUp extends BaseCard {
         super.triggerOnOtherCardPlayed(c);
     }
 
-    private void UpdateCardImageAndText(){
+    private void UpdateCardImageAndText() {
         if (LastTypeCardPlayed == CardType.ATTACK) {
             loadCardImage(LevelUpPath("LevelUpPower.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
@@ -99,7 +101,7 @@ public class LevelUp extends BaseCard {
 //               "Rings give you !M! Dexterity.",
 //               "Rings give you !M! Temporary Focus at the start of your turn."
 
-    private String LevelUpPath(String filename){
+    private String LevelUpPath(String filename) {
         return imagePath("cards/skill/" + filename);
     }
 

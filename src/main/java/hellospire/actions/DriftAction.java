@@ -13,29 +13,13 @@ public class DriftAction extends AbstractGameAction {
     private AbstractPlayer p;
     private int energyOnUse;
     private boolean freeToPlayOnce;
-    private int damage;
 
     public DriftAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_MED;
+        this.actionType = ActionType.SPECIAL;
+        this.duration = Settings.ACTION_DUR_XFAST;
         this.energyOnUse = energyOnUse;
         this.freeToPlayOnce = freeToPlayOnce;
-    }
-
-    public int CalculateEffect() {
-        int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
-        }
-
-        if (this.p.hasRelic("Chemical X")) {
-            effect += 2;
-            this.p.getRelic("Chemical X").flash();
-        }
-
-        effect = effect * 3;
-        return effect;
     }
 
     public void update() {

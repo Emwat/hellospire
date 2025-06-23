@@ -39,19 +39,24 @@ public class SlotMachinePullEggman extends BaseCard {
 
     @Override
     public void triggerWhenDrawn() {
-        int count = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group){
-            SonicMod.logger.info(c.cardID + " " + SlotMachinePullEggman.ID);
-            if (Objects.equals(c.cardID, SlotMachinePullEggman.ID)){
-                count++;
-                SonicMod.logger.info("substracted. count is now " + count);
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                int count = 0;
+                for (AbstractCard c : AbstractDungeon.player.hand.group){
+                    SonicMod.logger.info(c.cardID + " " + SlotMachinePullEggman.ID);
+                    if (Objects.equals(c.cardID, SlotMachinePullEggman.ID)){
+                        count++;
+                        SonicMod.logger.info("substracted. count is now " + count);
+                    }
+                }
+                if (count > 1){
+                    addToBot(new PressEndTurnButtonAction());
+                }
+                this.isDone = true;
             }
-        }
-        SonicMod.logger.info("count is " + count);
+        });
 
-        if (count > 0){
-            addToBot(new PressEndTurnButtonAction());
-        }
 
         super.triggerWhenDrawn();
     }

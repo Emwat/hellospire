@@ -1,6 +1,7 @@
 package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -12,15 +13,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.vfx.combat.ClawEffect;
-import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 import java.util.Objects;
 
-public class ClawsUnleashed extends BaseCard {
+public class ClawsUnleashed extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("ClawsUnleashed");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -30,14 +29,15 @@ public class ClawsUnleashed extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 19;
-    private static final int UPG_DAMAGE = -3;
+    private static final int DAMAGE = 14;
+    private static final int BASE_UPG_DAMAGE = 4;
+    private static final int BRANCH_UPG_DAMAGE = 0;
     private final String playerErrorMessage =  CardCrawlGame.languagePack.getUIString(makeID("ClawsUnleashedMessage")).TEXT[0];
 
     public ClawsUnleashed() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(DAMAGE, BASE_UPG_DAMAGE);
     }
 
     /// "Can only be played if you have a Dark orb."
@@ -54,7 +54,7 @@ public class ClawsUnleashed extends BaseCard {
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         boolean canUse = super.canUse(p, m);
 
-        if (this.upgraded) {
+        if (this.isBranchUpgrade()) {
             return canUse;
         }
 
@@ -66,6 +66,30 @@ public class ClawsUnleashed extends BaseCard {
 
         this.cantUseMessage = playerErrorMessage;
         return false;
+    }
+
+    @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            if (isBranchUpgrade()) {
+                branchUpgrade();
+            } else {
+                baseUpgrade();
+            }
+        }
+    }
+
+    public void baseUpgrade() {
+        upgradeDamage(BASE_UPG_DAMAGE);
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+
+    public void branchUpgrade() {
+        upgradeDamage(BRANCH_UPG_DAMAGE);
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
     }
 
     @Override

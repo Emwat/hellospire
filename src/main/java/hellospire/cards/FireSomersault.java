@@ -53,7 +53,7 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
 
     public void upgrade() {
         if (canUpgrade()){
-            this.upgradeDamage(UPG_DAMAGE);
+//            this.upgradeDamage(UPG_DAMAGE);
             this.upgradeMagicNumber(UPG_MAGIC);
             ++this.timesUpgraded;
             this.upgraded = true;

@@ -22,7 +22,7 @@ public class FalconPunch extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 9;
     private static final int UPG_DAMAGE = 3;
 
     /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."

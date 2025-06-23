@@ -27,9 +27,8 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
             1
     );
 
-    private static final int DAMAGE = 9;
+    private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 1;
-    private String upgradeStatus = "base";
 
     public HomingAttack() {
         super(ID, info);
@@ -53,12 +52,12 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
-        if (this.upgraded && Objects.equals(upgradeStatus, "Rings2")) {
+        if (this.upgraded && this.isBranchUpgrade()) {
             addToBot(new MakeTempCardInHandAction(ring, 1, true));
         }
         addToBot(new MakeTempCardInHandAction(ring, 1, true));
 
-        if (this.upgraded && Objects.equals(upgradeStatus, "Tricks2")) {
+        if (this.upgraded && !this.isBranchUpgrade()) {
             addToBot(new MakeTempCardInHandAction(trick, 1, true));
         }
         addToBot(new MakeTempCardInHandAction(trick, 1, true));
@@ -79,21 +78,19 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
 
 
     public void baseUpgrade() {
-        upgradeStatus = "Tricks2";
-        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
 
     public void branchUpgrade() {
         name = "Homing Dash";
-        upgradeStatus = "Rings2";
-        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
         this.initializeDescription();
     }
 
 //    "EXTENDED_DESCRIPTION": [
-//            "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
 //            "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand."
+//            "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
 //            ]
 
 

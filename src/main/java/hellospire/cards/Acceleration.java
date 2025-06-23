@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import hellospire.character.Sonic;
 import hellospire.powers.ModDrawReductionPower;
 import hellospire.util.CardStats;
@@ -31,7 +32,8 @@ public class Acceleration extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new ApplyPowerAction(p, p, new ModDrawReductionPower(p, 1)));
-        addToTop(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
+//        addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 2, false), 2));
+        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
     }
 
     @Override

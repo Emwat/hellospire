@@ -43,7 +43,7 @@ public class MagicHands extends BaseCard {
         if (this.upgraded) {
             addToBot(new ChangeStanceAction("Calm"));
         }
-        addToBot(new SelectCardsInHandAction(1, "Apply Magic Hands",
+        addToBot(new SelectCardsInHandAction(1, "Retain. If the Selected Card is exhausted, enter Wrath.",
                 false, false, filter -> true, cards -> {
             if (cards.isEmpty()) {
                 return;

@@ -3,12 +3,18 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.red.Defend_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Frost;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import hellospire.SoundLibrary;
+import hellospire.actions.ActivateLeftMostPassiveOrbAction;
+import hellospire.actions.ActivatePassiveOrbAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -45,7 +51,9 @@ public class QuickAir extends BaseCard {
         ))));
         addToBot(new GainBlockAction(p, block));
         if (CheckIfLeftCard(this, p.hand)) {
-            addToBot(new DrawCardAction(p, 1));
+            // addToBot(new DrawCardAction(p, 1));
+            // addToBot(new ChannelAction(new Frost()));
+            addToBot(new ActivateLeftMostPassiveOrbAction(p));
         }
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
     }
@@ -81,6 +89,19 @@ public class QuickAir extends BaseCard {
             return false;
         }
 
-        return hand.group.get(0) == card;
+        int j = 0;
+        for (int i = 0; i < hand.size(); i++) {
+            AbstractCard handCard = hand.group.get(i);
+            if (handCard == card) {
+                return true;
+            }
+            if (!handCard.cardID.equals(Ring.ID)) {
+                j++;
+            }
+            if (j > 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

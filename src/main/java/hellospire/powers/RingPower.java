@@ -128,17 +128,17 @@ public class RingPower extends BasePower {
         updateDescription();
     }
 
-    @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
-        int amountFlight = GetPowerAmount("LevelUpFlightPower") * this.amount;
-
-        if (amountFlight > 0) {
-            addToBot(new ApplyPowerAction(owner, owner, new FocusPower(owner, amountFlight)));
-            addToBot(new ApplyPowerAction(owner, owner, new LoseFocusPower(owner, amountFlight)));
-        }
-
-    }
+//    @Override
+//    public void atStartOfTurn() {
+//        super.atStartOfTurn();
+//        int amountFlight = GetPowerAmount("LevelUpFlightPower") * this.amount;
+//
+//        if (amountFlight > 0) {
+//            addToBot(new ApplyPowerAction(owner, owner, new FocusPower(owner, amountFlight)));
+//            addToBot(new ApplyPowerAction(owner, owner, new LoseFocusPower(owner, amountFlight)));
+//        }
+//
+//    }
 
 
     private int GetPowerAmount(String targetID) {

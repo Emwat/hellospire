@@ -49,9 +49,9 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
         for (int i = 0; i < HITS; i++) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-        if (this.upgraded && upgradeStatus == "Super Rush") {
+        if (this.upgraded && upgradeStatus.equals("Super Rush")) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage + magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        } else if (this.upgraded && upgradeStatus == "Rush Spin") {
+        } else if (this.upgraded && upgradeStatus.equals("Rush Spin")) {
             addToBot(new PlayTopCardAction(m, false));
         }
     }

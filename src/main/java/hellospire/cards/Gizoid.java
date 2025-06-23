@@ -17,7 +17,7 @@ public class Gizoid extends BaseCard {
     public static final String ID = makeID("Gizoid");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
-            CardType.CURSE,
+            CardType.STATUS,
             CardRarity.SPECIAL,
             CardTarget.SELF,
             -2

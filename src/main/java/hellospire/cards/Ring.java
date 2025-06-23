@@ -43,7 +43,6 @@ public class Ring extends BaseCard {
         setSelfRetain(true);
         setExhaust(true);
         tags.add(CardTags.HEALING);
-        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

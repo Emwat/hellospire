@@ -24,8 +24,8 @@ public class Trick extends BaseCard {
             1
     );
 
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 1;
+    private static final int MAGIC = 4;
+    private static final int UPG_MAGIC = 2;
     private static final int REFUND = 1;
 
     public Trick() {

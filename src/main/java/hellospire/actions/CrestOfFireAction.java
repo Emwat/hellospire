@@ -2,13 +2,10 @@ package hellospire.actions;
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.unique.ApotheosisAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.colorless.Chrysalis;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -37,22 +34,21 @@ public class CrestOfFireAction extends AbstractGameAction {
 
     public void update() {
         boolean didUpgrade = false;
-        ArrayList<AbstractCard> upgradedCards = new ArrayList<>();
         if (this.duration == Settings.ACTION_DUR_MED && this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.FIRE));
             this.target.damage(this.info);
             if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0) &&
                     !this.target.halfDead &&
                     !this.target.hasPower("Minion")) {
-                for (AbstractCard theCard : thePlayer.masterDeck.group) {
-                    if (theCard.tags.contains(SonicTags.CREST_OF_FIRE) && theCard.canUpgrade()) {
-                        didUpgrade = true;
-                        theCard.upgrade();
-                        thePlayer.bottledCardUpgradeCheck(theCard);
-                        upgradedCards.add(theCard);
-                    }
-                }
+                didUpgrade = true;
 
+                upgradeCards(thePlayer.masterDeck);
+                upgradeCards(thePlayer.hand);
+                upgradeCards(thePlayer.drawPile);
+                upgradeCards(thePlayer.discardPile);
+                upgradeCards(thePlayer.exhaustPile);
+
+                theCard.upgrade();
             }
 
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
@@ -62,7 +58,7 @@ public class CrestOfFireAction extends AbstractGameAction {
 
         this.tickDuration();
 
-        if (this.isDone && theCard != null && didUpgrade) {
+        if (this.isDone && didUpgrade) {
             AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
             AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(theCard.makeStatEquivalentCopy()));
             this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
@@ -70,12 +66,25 @@ public class CrestOfFireAction extends AbstractGameAction {
         // TODO: Make Upgrade animation
 //        This commented code is not working.
 //        if (this.isDone && !upgradedCards.isEmpty()) {
-//            for (AbstractCard theCard : upgradedCards) {
+//            for (AbstractCard upgradedCard : upgradedCards) {
 //                AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-//                AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(theCard.makeStatEquivalentCopy()));
+//                AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(upgradedCard.makeStatEquivalentCopy()));
 //                this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
 //            }
 //        }
 
+    }
+
+    protected void upgradeCards(CardGroup cardGroup) {
+        for (AbstractCard card : cardGroup.group) {
+            if (card.tags.contains(SonicTags.CREST_OF_FIRE) && card.canUpgrade()) {
+                card.upgrade();
+                if (cardGroup.type == CardGroup.CardGroupType.HAND) {
+                    card.superFlash();
+                }
+                card.applyPowers();
+                thePlayer.bottledCardUpgradeCheck(card);
+            }
+        }
     }
 }

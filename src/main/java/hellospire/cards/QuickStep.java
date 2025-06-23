@@ -3,12 +3,15 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import hellospire.SoundLibrary;
+import hellospire.actions.ActivatePassiveOrbAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -49,18 +52,17 @@ public class QuickStep extends BaseCard {
                 SoundLibrary.QuickAir3
         ))));
         addToBot(new GainBlockAction(p, block));
-        if (CheckIfRightCard(this, p.hand)){
-            addToBot(new DrawCardAction(p, 1));
+        if (CheckIfRightCard(this, p.hand)) {
+            // addToBot(new DrawCardAction(p, 1));
+            // addToBot(new ChannelAction(new Lightning()));
+            addToBot(new ActivatePassiveOrbAction(p));
         }
         AbstractCard leftCard = new QuickAir();
-//        leftCard.exhaust = true;
-        if(this.upgraded) {
+        if (this.upgraded) {
             leftCard.upgrade();
         }
 
         addToBot(new MakeTempCardInHandAction(leftCard, 1));
-
-
     }
 
     @Override
@@ -80,7 +82,7 @@ public class QuickStep extends BaseCard {
     }
 
     private boolean CheckIfRightCard(AbstractCard card, CardGroup hand) {
-        if(hand.size() <= 0){
+        if (hand.size() <= 0) {
             return false;
         }
 

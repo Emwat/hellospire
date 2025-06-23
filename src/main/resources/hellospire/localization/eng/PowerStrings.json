@@ -9,9 +9,9 @@
     "NAME": "AMAZING",
     "DESCRIPTIONS": [
       "Every time you play ",
-      " Attack card in a single turn, deal ",
+      " Attack card in a single turn, deal #b",
       " damage to ALL enemies. ",
-      " Attack cards in a single turn, deal "
+      " Attack cards in a single turn, deal #b"
     ]
   },
   "${modID}:BlastProcessingPower": {
@@ -36,27 +36,27 @@
   "${modID}:ExtenderPower": {
     "NAME": "Mid Air Trick Actions",
     "DESCRIPTIONS": [
-      "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or [E] [E] . Repeat for each stack of this power."
+      "If you have #yVigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or [E] [E] . Repeat for each stack of this power."
     ]
   },
   "${modID}:LevelUpFlightPower": {
     "NAME": "Flight Level Up",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain ",
-      " Temporary Focus for each Ring in your hand."
+      "For each Ring in your hand, increase #yFocus by #b",
+      "."
     ]
   },
   "${modID}:LevelUpSpeedPower": {
     "NAME": "Speed Level Up",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, increase Block gained from cards by ",
+      "For each Ring in your hand, increase Block gained from cards by #b",
       "."
     ]
   },
   "${modID}:LevelUpPowerPower": {
     "NAME": "Power Level Up",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, increase damage dealt from cards by ",
+      "For each Ring in your hand, increase damage dealt from cards by #b",
       "."
     ]
   },
@@ -69,7 +69,7 @@
   "${modID}:LoseFocusPower": {
     "NAME": "Lose Focus",
     "DESCRIPTIONS": [
-      "At the end of your turn, lose ",
+      "At the end of your turn, lose #b",
       " Focus."
     ]
   },
@@ -77,7 +77,7 @@
     "NAME": "Draw Reduction",
     "DESCRIPTIONS": [
       "Draw 1 less card for the next turn.",
-      "Draw 1 less card for the next ",
+      "Draw 1 less card for the next #b",
       " turns."
     ]
   },
@@ -90,21 +90,21 @@
   "${modID}:NiceSmilePower": {
     "NAME": "Perfect Score",
     "DESCRIPTIONS": [
-      "Whenever you gain Vigor, gain ",
+      "Whenever you gain #yVigor, gain #b",
       " more."
     ]
   },
   "${modID}:RicochetPower": {
     "NAME": "Ricochet",
     "DESCRIPTIONS": [
-      "When you use Vigor, return ALL Ricochets from the Discard Pile to your hand."
+      "When you use #yVigor, return ALL Ricochets from the Discard Pile to your hand."
     ]
   },
   "${modID}:RingPower": {
     "NAME": "Ring",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, increase Block gained from cards by 1. NL NL You only heal a max of ",
-      " HP via Rings in a single combat. You have healed ",
+      "For each Ring in your hand, increase Block gained from cards by 1. NL NL You only heal a max of #b",
+      " HP via Rings in a single combat. You have healed #b",
       ". NL You have ",
       " Ring.",
       " Rings."
@@ -113,7 +113,7 @@
   "${modID}:SonicBoomPower": {
     "NAME": "Sonic Boom",
     "DESCRIPTIONS": [
-      "At the end of your turn, deal damage equal to your block."
+      "At the end of your turn, deal damage equal to your block AND damage modifiers."
     ]
   },
   "${modID}:SpeedHurtPower": {
@@ -132,10 +132,10 @@
   "${modID}:ThunderShieldPower": {
     "NAME": "Thunder Shield",
     "DESCRIPTIONS": [
-      "At the end of your turn, Gain ",
-      " Ring and Channel ",
-      " Rings and Channel ",
-      " Lightning. Your Rings trigger Lightning ",
+      "At the end of your turn, Gain #b",
+      " Ring and Channel #b",
+      " Rings and Channel #b",
+      " Lightning. Your Rings trigger Lightning #b",
       " time.",
       " times."
     ]
@@ -150,7 +150,7 @@
   "${modID}:TricksterPower": {
     "NAME": "Trickster",
     "DESCRIPTIONS": [
-      "At the start of your turn, add ",
+      "At the start of your turn, add #b",
       " Trick to your hand.",
       " Tricks to your hand."
     ]
@@ -158,7 +158,7 @@
   "${modID}:TurbulencePower": {
     "NAME": "Turbulence",
     "DESCRIPTIONS": [
-      "When you exhaust a card, channel ",
+      "When you exhaust a card, channel #b",
       " Frost.",
       " Frosts."
     ]

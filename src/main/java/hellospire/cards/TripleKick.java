@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -13,6 +14,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import hellospire.MyModConfig;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import java.util.ArrayList;
 
 public class TripleKick extends BaseCard {
     public static final String ID = makeID("TripleKick");
@@ -28,10 +31,13 @@ public class TripleKick extends BaseCard {
     private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
+    AbstractCard kick2 = new TripleKick2();
+    AbstractCard kick3 = new TripleKick3();
 
     public TripleKick() {
         super(ID, info);
-        this.cardsToPreview = new TripleKick2();
+
+        MultiCardPreview.add(this, kick2, kick3);
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
@@ -45,12 +51,17 @@ public class TripleKick extends BaseCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber)));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+        addToBot(new MakeTempCardInHandAction(kick2.makeStatEquivalentCopy(), 1));
     }
 
     public void upgrade() {
         if (!this.upgraded) {
-            this.cardsToPreview.upgrade();
+            ArrayList<AbstractCard> previewCards = MultiCardPreview.multiCardPreview.get(this);
+            if (previewCards != null) {
+                for (AbstractCard c : MultiCardPreview.multiCardPreview.get(this)) {
+                    c.upgrade();
+                }
+            }
         }
         super.upgrade();
     }

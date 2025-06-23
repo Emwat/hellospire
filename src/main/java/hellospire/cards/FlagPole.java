@@ -21,14 +21,10 @@ public class FlagPole extends BaseCard {
             1
     );
 
-    private static final int MAGIC = 6;
-    private static final int UPG_MAGIC = 2;
-
     public FlagPole() {
         super(ID, info);
         this.cardsToPreview = new Ring();
 
-        setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
@@ -43,7 +39,7 @@ public class FlagPole extends BaseCard {
             public void update() {
                 p.updatePowers();
                 for (AbstractCard card : p.hand.group) {
-                    if (card.cardID == cardsToPreview.cardID) {
+                    if (card.cardID.equals(cardsToPreview.cardID)) {
                         addToBot(new ChannelAction(new Frost()));
                     }
                 }
@@ -51,13 +47,6 @@ public class FlagPole extends BaseCard {
             }
         });
     }
-
-//    public void upgrade() {
-//        if (!this.upgraded) {
-//            this.upgradeName();
-//            this.upgradeBaseCost(1);
-//        }
-//    }
 
     @Override
     public AbstractCard makeCopy() { //Optional

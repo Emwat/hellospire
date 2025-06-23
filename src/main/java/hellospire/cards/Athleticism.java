@@ -1,6 +1,7 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -34,6 +35,7 @@ public class Athleticism extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ExhaustAction(EXHAUSTED, false, true, true));
+        // addToBot(new ChangeStanceAction("Neutral"));
         addToBot(new ReduceDebuffsAction(p, magicNumber));
     }
 

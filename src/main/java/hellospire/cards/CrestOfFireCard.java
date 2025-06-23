@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Armaments;
 
 public interface CrestOfFireCard {
     Color CREST_OF_FIRE_BURN_GLOW_COLOR = Color.RED;
@@ -16,6 +17,4 @@ public interface CrestOfFireCard {
         int upgrades = thisCard.timesUpgraded;
         return upgrades > CREST_OF_FIRE_MARK;
     }
-
-
 }

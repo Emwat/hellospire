@@ -12,13 +12,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import hellospire.cards.BaseCard;
-import hellospire.cards.CrestOfFireCard;
-import hellospire.cards.SuperSonicForm;
+import hellospire.cards.*;
 import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
 import hellospire.powers.RingPower;
-import hellospire.powers.SuperSonicPower;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
@@ -44,6 +41,8 @@ import org.scannotation.AnnotationDB;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
+import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 
 @SpireInitializer
 public class SonicMod implements
@@ -317,6 +316,32 @@ public class SonicMod implements
                 .packageFilter(BaseCard.class) //In the same package as this class
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
+
+        BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistAmy.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistBarry.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistBig.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistBlaze.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistCream.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistKnuckles.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistTails.ID, Sonic.Meta.CARD_COLOR);
+
+        BaseMod.removeCard(Gizoid.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidAmy.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidChaos.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidCream.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidE102r.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidEggman.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidKnuckles.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidRouge.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidShadow.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidSonic.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(GizoidTails.ID, Sonic.Meta.CARD_COLOR);
+
+        BaseMod.removeCard(Extender1.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Extender2.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Extender3.ID, Sonic.Meta.CARD_COLOR);
     }
 
 
@@ -402,7 +427,6 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
     }
-
 
     public static int attackCardsPlayedThisTurn = 0;
     public static int cardsExhaustedThisTurn = 0;
@@ -490,13 +514,18 @@ public class SonicMod implements
 
     @Override
     public void receivePostDeath() {
+        // TODO: Disable game over sound
+        // SonicMod.logger.info("Did you proc?");
         if (AbstractDungeon.player instanceof Sonic) {
-            CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
-                    SoundLibrary.Nooo,
-                    SoundLibrary.Dead,
-                    SoundLibrary.Shoot,
-                    SoundLibrary.LongLiveTheEggmanEmpire
-            ))));
+            if (isVictory) {
+            } else {
+                CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                        SoundLibrary.Nooo,
+                        SoundLibrary.Dead,
+                        SoundLibrary.Shoot,
+                        SoundLibrary.LongLiveTheEggmanEmpire
+                ))));
+            }
         }
     }
 

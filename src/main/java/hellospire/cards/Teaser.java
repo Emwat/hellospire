@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,7 +11,7 @@ import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-public class Teaser extends BaseCard {
+public class Teaser extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("Teaser");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -30,13 +31,30 @@ public class Teaser extends BaseCard {
         tags.add(SonicTags.LIKE_DEFECT);
     }
 
+    @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.cardsToPreview.upgrade();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            upgradeName();
+            if (isBranchUpgrade()) {
+                branchUpgrade();
+            } else {
+                baseUpgrade();
+            }
         }
+    }
+
+    public void baseUpgrade() {
+        BranchingUpgradesCard tmp = (BranchingUpgradesCard) this.cardsToPreview;
+        tmp.doNormalUpgrade();
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+
+    public void branchUpgrade() {
+        BranchingUpgradesCard tmp = (BranchingUpgradesCard) this.cardsToPreview;
+        tmp.doBranchUpgrade();
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
     }
 
     @Override
