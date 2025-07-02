@@ -50,8 +50,6 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         AbstractCard ring = new Ring();
         AbstractCard trick = new Trick();
 
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-
         if (this.upgraded && this.isBranchUpgrade()) {
             addToBot(new MakeTempCardInHandAction(ring, 1, true));
         }
@@ -61,6 +59,8 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
             addToBot(new MakeTempCardInHandAction(trick, 1, true));
         }
         addToBot(new MakeTempCardInHandAction(trick, 1, true));
+
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     @Override

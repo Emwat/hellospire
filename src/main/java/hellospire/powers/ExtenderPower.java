@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
@@ -22,6 +24,10 @@ public class ExtenderPower extends BasePower {
     public static final String POWER_ID = makeID("ExtenderPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     AbstractCard c1 = new Extender1();
     AbstractCard c2 = new Extender2();
@@ -68,5 +74,9 @@ public class ExtenderPower extends BasePower {
         }
     }
 
-
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    }
 }

@@ -28,6 +28,8 @@ public class Trickster extends BaseCard {
 
     public Trickster() {
         super(ID, info);
+        this.cardsToPreview = new Trick();
+
         tags.add(SonicTags.LIKE_SILENT);
     }
 

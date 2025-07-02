@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.green.PiercingWail;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.PanachePower;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
@@ -21,6 +23,10 @@ public class SonicBoomPower extends BasePower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = true;
     private static boolean isUpgraded;
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     public SonicBoomPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -65,4 +71,9 @@ public class SonicBoomPower extends BasePower {
 
     }
 
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    }
 }

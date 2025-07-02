@@ -4,7 +4,9 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.cards.Ring;
 import hellospire.cards.Trick;
@@ -17,6 +19,10 @@ public class ChaoPower extends BasePower {
     private static final boolean TURN_BASED = false;
     private AbstractCard ring = new Ring();
     private AbstractCard trick = new Trick();
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     public ChaoPower(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, -1);
@@ -36,5 +42,11 @@ public class ChaoPower extends BasePower {
             addToBot(new MakeTempCardInHandAction(ring, 1));
         }
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+    }
+
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }

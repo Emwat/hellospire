@@ -8,9 +8,31 @@
   },
   "${modID}:ChaoRelic": {
     "NAME": "Chao",
-    "FLAVOR": "Chao chao chao chao!",
+    "FLAVOR": "No way! This can't be...! Your Chao is very healthy, please take good care of your Chao.",
     "DESCRIPTIONS": [
       "Start each combat with #b1 additional Orb slot."
+    ]
+  },
+  "${modID}:EmblemRelic": {
+    "NAME": "Emblem",
+    "FLAVOR": "Time to crack that Eggman wide open. Yeah, let's party!",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain #b",
+      " Level Up Power."
+    ]
+  },
+  "${modID}:Player2Relic": {
+    "NAME": "Player 2",
+    "FLAVOR": "WHOAA MY HEADS SPINNING -Tails",
+    "DESCRIPTIONS": [
+      "For the first two turns of combat, when you play your second card, add a copy of it to your hand."
+    ]
+  },
+  "${modID}:RingKeeperRelic": {
+    "NAME": "Ring Keeper",
+    "FLAVOR": "Aw yeah! This is happening!",
+    "DESCRIPTIONS": [
+      "Your Rings persist between each combat. If you take #b5+ damage, exhaust ALL of your Rings."
     ]
   }
 }

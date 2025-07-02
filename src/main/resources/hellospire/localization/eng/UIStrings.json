@@ -31,19 +31,20 @@
   },
   "${modID}:modifierMagicHands": {
     "TEXT": [
-      "${modID}:Gentle. "
+      "${modID}:Do_NOT_throw. "
     ]
   },
   "${modID}:MyModConfig": {
     "TEXT_DICT": {
-      "enableBoss2Music": "Enable Act II Boss Music",
-      "enableBoss3Music": "Enable Act IV Boss Music",
-      "enableBossSpearShieldMusic": "Enable Act IV Music",
-      "enableBossHeartMusic": "Enable Act IV Boss Music",
+      "enableBoss2Music": "Enable City Boss Music",
+      "enableBoss3Music": "Enable Beyond Boss Music",
+      "enableBossSpearShieldMusic": "Enable The Ending Music",
+      "enableBossHeartMusic": "Enable The Ending Boss Music",
       "enableSound": "Enable Sounds",
       "enableVoice": "Enable Voice",
       "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
-      "voiceFrequency": "Voice Frequency (10 = Always play voices)"
+      "voiceFrequency": "Voice Frequency (10 = Always play voices)",
+      "optionStarterRelic": "Switch Starter Relic"
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "Champ": {
+    "MOVES": [
+      "Defensive Stance",
+      "Execute",
+      "Face Slap"
+    ],
+    "NAME": "The Champ",
+    "DIALOG": [
+      "You call that a weapon?",
+      "Come at me!",
+      "Do your worst! NL @HAHAHA!@",
+      "Have a free shot! NL Futile weakling!",
+      "~You've~ ~done~ ~it~ ~now...~",
+      "@DEFEAT??@ NL @IMPOSSIBLE!!@",
+      "~DIE~ ~.~ ~.~ ~.~",
+      "Face my wrath!",
+      "@THAT'S@ NL @MY@ @BELT!!@,,"
+    ]
+  }
+}

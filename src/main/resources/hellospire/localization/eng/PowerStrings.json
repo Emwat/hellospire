@@ -94,10 +94,17 @@
       " more."
     ]
   },
+  "${modID}:RelaxPower": {
+    "NAME": "Relax",
+    "DESCRIPTIONS": [
+      "At the end of your turn, enter Calm and reduce this power's amount by #b1."
+    ]
+  },
   "${modID}:RicochetPower": {
     "NAME": "Ricochet",
     "DESCRIPTIONS": [
-      "When you use #yVigor, return ALL Ricochets from the Discard Pile to your hand."
+      "When you use #yVigor, return ALL Ricochets from the discard pile to your hand. NL You have #b",
+      " Ricochets in the discard pile."
     ]
   },
   "${modID}:RingPower": {

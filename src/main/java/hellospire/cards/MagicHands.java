@@ -44,7 +44,7 @@ public class MagicHands extends BaseCard {
             addToBot(new ChangeStanceAction("Calm"));
         }
         addToBot(new SelectCardsInHandAction(1, "Retain. If the Selected Card is exhausted, enter Wrath.",
-                false, false, filter -> true, cards -> {
+                false, false, filter -> !filter.tags.contains(SonicTags.DO_NOT_THROW), cards -> {
             if (cards.isEmpty()) {
                 return;
             }

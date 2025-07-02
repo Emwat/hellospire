@@ -2,6 +2,7 @@ package hellospire;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.abstracts.CustomUnlockBundle;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
@@ -11,10 +12,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.cards.*;
 import hellospire.character.Sonic;
 //import hellospire.ui.FlagDropDown;
+import hellospire.potions.BasePotion;
 import hellospire.powers.RingPower;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
@@ -46,18 +49,19 @@ import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 
 @SpireInitializer
 public class SonicMod implements
-        EditCharactersSubscriber,
-        EditCardsSubscriber,
-        EditRelicsSubscriber,
         AddAudioSubscriber,
+        EditCardsSubscriber,
+        EditCharactersSubscriber,
+        EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        OnPlayerTurnStartSubscriber,
         OnCardUseSubscriber,
+        OnPlayerTurnStartSubscriber,
         OnStartBattleSubscriber,
         PostExhaustSubscriber,
         PostBattleSubscriber,
         PostDeathSubscriber,
+        SetUnlocksSubscriber,
         PostInitializeSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
@@ -141,6 +145,20 @@ public class SonicMod implements
                 (customReward) -> { // this handles what to do when this quest type is saved.
                     return new RewardSave(customReward.type.toString(), null, 0, 0);
                 });
+
+        registerPotions();
+    }
+
+    private void registerPotions() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BasePotion.class) //In the same package as this class
+                .any(BasePotion.class, (info, potion) -> { //Run this code for any classes that extend this class
+                    //These three null parameters are colors.
+                    //If they're not null, they'll overwrite whatever color is set in the potions themselves.
+                    //This is an old feature added before having potions determine their own color was possible.
+                    BaseMod.addPotion(potion.getClass(), null, null, null, potion.ID, potion.playerClass);
+                    //playerClass will make a potion character-specific. By default, it's null and will do nothing.
+                });
     }
 
     /*----------Localization----------*/
@@ -191,6 +209,8 @@ public class SonicMod implements
                 localizationPath(lang, "RelicStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 localizationPath(lang, "UIStrings.json"));
+        // BaseMod.loadCustomStringsFile(MonsterStrings.class,
+        //         localizationPath(lang, "MonsterStrings.json"));
     }
 
     @Override
@@ -342,11 +362,17 @@ public class SonicMod implements
         BaseMod.removeCard(Extender1.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Extender2.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Extender3.ID, Sonic.Meta.CARD_COLOR);
+
+        BaseMod.removeCard(LevelUpSpeedPick.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(LevelUpFlightPick.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(LevelUpPowerPick.ID, Sonic.Meta.CARD_COLOR);
+
     }
 
 
     @Override
     public void receiveAddAudio() {
+        BaseMod.addAudio(SoundLibrary.LoseRings, audioPath("LoseRings.ogg"));
         BaseMod.addAudio(SoundLibrary.LetsBlastThrough, audioEngPath("sh_lets_blast_through_w_sonic_speed.ogg"));
         BaseMod.addAudio(SoundLibrary.ALLRIGHT, audioEngPath("sr_AllRight.ogg"));
         BaseMod.addAudio(SoundLibrary.COOL, audioEngPath("sr_Cool.ogg"));
@@ -388,6 +414,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Attack5Go, audioEngPath("brawl_Attack05_Go.ogg"));
         BaseMod.addAudio(SoundLibrary.Attack6, audioEngPath("brawl_Attack06.ogg"));
         BaseMod.addAudio(SoundLibrary.Attack7, audioEngPath("brawl_Attack07.ogg"));
+        BaseMod.addAudio(SoundLibrary.YESSS, audioEngPath("SBAT_325_SonicYESS.ogg"));
 
         BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("ult_super_sonic_style.ogg"));
 
@@ -449,46 +476,6 @@ public class SonicMod implements
         }
     }
 
-
-    //
-//    @Override
-//    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
-//        if (!(AbstractDungeon.player instanceof Sonic)){
-//            return;
-//        }
-//        if (abstractRoom.monsters.getMonsterNames().isEmpty()){
-//            return;
-//        }
-//
-//        String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
-//        ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
-//                "TheGuardian",
-//                "CorruptHeart"
-//        ));
-//
-//        if (bosses.contains(monsterName)) {
-//            logger.info("PING");
-//            CardCrawlGame.sound.play(SoundLibrary.SonicStyle);
-////            MainMusic.newMusic(resourcesFolder + "/audio/music/MetalScratchin2.mp3");
-////            abstractRoom.playBgmInstantly("MetalScratchin2.mp3");
-//        }
-//    }
-////
-//
-//    @SpirePatch(clz = MainMusic.class, method = "getSong")
-//    public static class Boss1Audio {
-//        @SpirePostfixPatch
-//        public static Music Postfix(Music __result, MainMusic __instance, String key) {
-//            if (!(AbstractDungeon.player instanceof Sonic) &&
-//                    "BOSS_BOTTOM".equals(key))
-//                return MainMusic.newMusic(resourcesFolder + "/audio/music/MetalScratchin2.mp3");
-//            return __result;
-//        }
-//    }
-//
-
-//            abstractRoom.playBGM("MetalScratchin2.mp3");
-
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         // SuperSonicForm.CardRarity = AbstractCard.CardRarity.SPECIAL;
@@ -549,6 +536,18 @@ public class SonicMod implements
 //                    if (info.seen)
                     UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receiveSetUnlocks() {
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
+                FireTackle.ID,
+                FireSomersault.ID,
+                VolcanoSlider.ID), Sonic.Meta.THE_HEDGEHOG, 0);
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
+                MagicHands.ID,
+                Relax.ID,
+                Enerbeam.ID), Sonic.Meta.THE_HEDGEHOG, 1);
     }
 
 //

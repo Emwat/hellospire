@@ -5,11 +5,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.curses.Regret;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
+import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -35,14 +39,14 @@ public class LightSpeedDash extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), CalculateRings()));
+        int ringsPlayed = CalculateRings();
+        RingPower.setIsLightSpeedDashing(true);
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), ringsPlayed));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                int ringsPlayed = 0;
                 for (AbstractCard card : p.hand.group) {
                     if (Objects.equals(card.cardID, Ring.ID)) {
-                        ringsPlayed++;
                         addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
                     }
                 }
@@ -57,6 +61,7 @@ public class LightSpeedDash extends BaseCard {
                 this.isDone = true;
             }
         });
+
     }
 
 //    @Override
@@ -66,6 +71,16 @@ public class LightSpeedDash extends BaseCard {
 //        this.rawDescription = cardStrings.DESCRIPTION + String.format(" (%s Rings)", CalculateRings());
 //        initializeDescription();
 //    }
+
+
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        // this function does not trigger.
+        // SonicMod.logger.info("You are Light Speed Dashing... " + RingPower.isLightSpeedDashing);
+        // RingPower.setIsLightSpeedDashing(false);
+        // SonicMod.logger.info("After set: You are Light Speed Dashing... " + RingPower.isLightSpeedDashing);
+
+    }
 
     private int CalculateRings() {
         return BaseMod.MAX_HAND_SIZE - (AbstractDungeon.player.hand.size() - 1);

@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.HexPower;
 import hellospire.SoundLibrary;
 
@@ -19,6 +21,10 @@ public class SpeedHurtPower extends BasePower {
     public static final String POWER_ID = makeID("SpeedHurtPower");
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = true;
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     public SpeedHurtPower(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, 1);
@@ -41,5 +47,11 @@ public class SpeedHurtPower extends BasePower {
 
     public void atEndOfTurn(boolean isPlayer) {
         addToBot(new ReducePowerAction(owner, owner, ID, 1));
+    }
+
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }

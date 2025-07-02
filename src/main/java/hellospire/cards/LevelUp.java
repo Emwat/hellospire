@@ -31,8 +31,9 @@ public class LevelUp extends BaseCard {
 
     // NOTE: wordLevelUp
     // If you update this, please also update Keywords.json wordLevelUp
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 0;
     private static final int UPG_MAGIC = 1;
+
     private static CardType LastTypeCardPlayed;
 
     public LevelUp() {
@@ -45,24 +46,21 @@ public class LevelUp extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlayVoice(SoundLibrary.LevelUp));
-//        if (!this.upgraded) {
-//            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
-//        } else {
-//            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 2));
-//        }
+        if (magicNumber > 0){
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
+        }
 
         if (LastTypeCardPlayed == CardType.ATTACK) {
-            addToBot(new ApplyPowerAction(p, p, new LevelUpPowerPower(p, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new LevelUpPowerPower(p, 1)));
         } else if (LastTypeCardPlayed == CardType.SKILL) {
-            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, 1)));
         } else if (LastTypeCardPlayed == CardType.POWER) {
-            addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, 1)));
         } else {
-            addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber));
-//            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, magicNumber)));
+            // addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber));
+            addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, 1)));
         }
     }
-
 
     @Override
     public void triggerWhenDrawn() {
@@ -81,25 +79,27 @@ public class LevelUp extends BaseCard {
         if (LastTypeCardPlayed == CardType.ATTACK) {
             loadCardImage(LevelUpPath("LevelUpPower.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
-            initializeDescription();
         } else if (LastTypeCardPlayed == CardType.SKILL) {
             loadCardImage(LevelUpPath("LevelUpSpeed.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
-            initializeDescription();
         } else if (LastTypeCardPlayed == CardType.POWER) {
             loadCardImage(LevelUpPath("LevelUpFlight.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3];
-            initializeDescription();
         } else {
             loadCardImage(LevelUpPath("LevelUp.png"));
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
-            initializeDescription();
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
         }
+
+        if (upgraded) {
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + this.rawDescription;
+        }
+        initializeDescription();
     }
-//       "Add !M! Rings to your hand.",
-//               "Rings give you !M! Strength.",
-//               "Rings give you !M! Dexterity.",
-//               "Rings give you !M! Temporary Focus at the start of your turn."
+
+    // "{@@}Add !M! Ring{!M!|>1=s} to your hand. ",
+    //         "For each Ring in your hand, increase damage dealt from cards by !M!.",
+    //         "For each Ring in your hand, increase Block gained from cards by !M!.",
+    //         "For each Ring in your hand, gain !M! Temporary Focus at the start of your turn."
 
     private String LevelUpPath(String filename) {
         return imagePath("cards/skill/" + filename);

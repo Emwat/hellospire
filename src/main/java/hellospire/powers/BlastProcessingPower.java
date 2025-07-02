@@ -12,7 +12,9 @@ import com.megacrit.cardcrawl.cards.purple.CarveReality;
 import com.megacrit.cardcrawl.cards.purple.MasterReality;
 import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.deprecated.DEPRECATEDMasterRealityPower;
@@ -28,6 +30,10 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     private static int numberOfFreeCards = 0;
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     public BlastProcessingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -66,5 +72,11 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
     public void atEndOfTurn(boolean isPlayer) {
         amount = numberOfFreeCards;
         super.atEndOfTurn(isPlayer);
+    }
+
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }

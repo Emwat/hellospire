@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 
 import static hellospire.SonicMod.makeID;
 
@@ -24,12 +25,13 @@ public class MagicHandsModifier extends AbstractCardModifier {
     @Override
     public void onInitialApplication(AbstractCard card) {
         card.selfRetain = true;
+        card.tags.add(SonicTags.DO_NOT_THROW);
     }
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
         if (rawDescription.length() < 75) {
-            return magicHandsKeyword + " NL " + rawDescription;
+            return magicHandsKeyword + "NL " + rawDescription;
         }
         return magicHandsKeyword + rawDescription;
     }

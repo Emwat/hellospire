@@ -31,7 +31,7 @@
   },
   "${modID}:Acceleration": {
     "NAME": "Acceleration",
-    "DESCRIPTION": "You draw one less card next turn. Gain !M! Focus."
+    "DESCRIPTION": "Gain !M! Focus."
   },
   "${modID}:AMAZING": {
     "NAME": "AMAZING",
@@ -86,6 +86,10 @@
     "NAME": "Back Spin Kick",
     "DESCRIPTION": "Deal !D! damage. This costs 1 less for each attack played this turn."
   },
+  "${modID}:Bait": {
+    "NAME": "Bait",
+    "DESCRIPTION": "A random enemy will attack this target and you. Gain 75% amount of block that matches the random enemy's intent."
+  },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
     "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded.",
@@ -93,8 +97,8 @@
   },
   "${modID}:BlastOff": {
     "NAME": "Blast Off",
-    "DESCRIPTION": "${modID}:Heavy. NL Gain [E] [E] .",
-    "UPGRADE_DESCRIPTION": "${modID}:Heavy. NL Gain [E] [E] [E] ."
+    "DESCRIPTION": "${modID}:Heavy. NL Gain [E] . NL ${modID}:If_most_left, gain 1 more.",
+    "UPGRADE_DESCRIPTION": "${modID}:Heavy. NL Gain [E] [E] . NL ${modID}:If_most_left, gain 1 more."
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
@@ -103,10 +107,10 @@
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
-    "DESCRIPTION": "Apply !M! Vulnerable.",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "Apply !M! Vulnerable. NL Add a Ring to your hand.",
-      "Apply !M! Vulnerable. NL Add a Trick to your hand."
+      "Apply !M! Vulnerable. NL Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy. NL Exhaust.",
+      "Apply !M! Vulnerable. NL Add a Trick to your hand. NL Exhaust."
     ]
   },
   "${modID}:Boost": {
@@ -179,7 +183,7 @@
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
     "DESCRIPTION": "At the end of this turn, lose 2 Dexterity. NL Every turn, gain 1 [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL Lose 2 Dexterity this turn. NL Every turn, gain 1 [E]."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of this turn, lose 2 Dexterity. NL Every turn, gain 1 [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -288,12 +292,16 @@
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Add a Ring and a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
+    "DESCRIPTION": "Add a Ring and a Trick to your hand. NL Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Add 2 Rings and a Trick to your hand. NL Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand.",
-      "Deal !D! damage. NL Add 2 Rings and a Trick to your hand."
+      "Add a Ring and 2 Tricks to your hand. NL Deal !D! damage. ",
+      "Add 2 Rings and a Trick to your hand. NL Deal !D! damage. "
     ]
+  },
+  "${modID}:HorseKick": {
+    "NAME": "Heavy Kick",
+    "DESCRIPTION": "Deal !D! damage. ${modID}:If_most_right, deal double damage."
   },
   "${modID}:HotRod": {
     "NAME": "Hot Rod",
@@ -328,11 +336,15 @@
   "${modID}:LevelUp": {
     "NAME": "Level Up",
     "DESCRIPTION": "This card's effects change based on the last card you played this combat. NL See ${modID}:Level_Up.",
+    "UPGRADE_DESCRIPTION": "{@@}Add !M! Ring{!M!|>1=s} to your hand. This card's effects change based on the last card you played this combat. NL See ${modID}:Level_Up.",
     "EXTENDED_DESCRIPTION": [
       "{@@}Add !M! Ring{!M!|>1=s} to your hand. ",
-      "For each Ring in your hand, increase damage dealt from cards by !M!.",
-      "For each Ring in your hand, increase Block gained from cards by !M!.",
-      "For each Ring in your hand, gain !M! Temporary Focus at the start of your turn."
+      "For each Ring in your hand, increase damage dealt from cards by 1.",
+      "For each Ring in your hand, increase Block gained from cards by 1.",
+      "For each Ring in your hand, increase Focus by 1.",
+      "Level Up Speed",
+      "Level Up Flight",
+      "Level Up Power"
     ]
   },
   "${modID}:LevelUpSpeed": {
@@ -366,7 +378,7 @@
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
-    "DESCRIPTION": "Add a Ring to your hand until your hand is full. Play ALL of the Rings in your hand. Exhaust."
+    "DESCRIPTION": "${modID}:LSD. Add a Ring to your hand until your hand is full. Play ALL of the Rings in your hand. Exhaust."
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
@@ -398,6 +410,11 @@
       "Deal !D! damage 4 times. NL Play the top card of your draw pile."
     ]
   },
+  "${modID}:Relax": {
+    "NAME": "Relax",
+    "DESCRIPTION": "Enter Calm. Shuffle Relax into your draw pile. ${modID}:If_most_left or ${modID}:If_most_right, enter Wrath.",
+    "UPGRADE_DESCRIPTION": "Ethereal. Enter Calm. Shuffle Relax+ into your draw pile. ${modID}:If_most_left or ${modID}:If_most_right, enter Wrath."
+  },
   "${modID}:Ricochet": {
     "NAME": "Ricochet",
     "DESCRIPTION": "Deal !D! damage. When you use Vigor, return this from the discard pile to your hand."
@@ -422,7 +439,7 @@
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
-    "DESCRIPTION": "Add !M! Tricks to your hand. NL Exhaust."
+    "DESCRIPTION": "Add !M! Tricks to your hand."
   },
   "${modID}:ScissorKick": {
     "NAME": "Scissor Kick",
@@ -509,7 +526,7 @@
   },
   "${modID}:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Temporary Dexterity."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Temporary Dexterity. NL Draw 1 card."
   },
   "${modID}:Teaser": {
     "NAME": "Teaser",

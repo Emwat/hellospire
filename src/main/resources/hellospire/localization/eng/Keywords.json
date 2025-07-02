@@ -71,9 +71,10 @@
   },
   {
     "ID": "wordMagicHandsKW",
-    "PROPER_NAME": "Gentle",
+    "PROPER_NAME": "Do Not Throw",
     "NAMES": [
-      "gentle"
+      "do not throw",
+      "do_not_throw"
     ],
     "DESCRIPTION": "This card has Retain. If this card gets exhausted, enter Wrath."
   },
@@ -93,7 +94,7 @@
       "if most right",
       "if_most_right"
     ],
-    "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect."
+    "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect. Ignore Rings for this condition."
   },
   {
     "ID": "wordLevelUp",
@@ -102,7 +103,15 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, add #b1 Ring to your hand. NL If your last card played was an attack, Rings in your hand increases your damage by #b1. NL If your last card played was a skill, Rings in your hand increases your Block by #b1. NL If your last card played was a Power, Rings in your hand give you #b1 #yTemporary #yFocus at the start of your turn."
+    "DESCRIPTION": "If you haven't played any cards this combat, Rings in your hand increase your Block by #b1. NL If your last card played was an #yAttack, Rings in your hand increase your damage by #b1. NL If your last card played was a #ySkill, Rings in your hand increase your Block by #b1. NL If your last card played was a #yPower, Rings in your hand increase your #yFocus by #b1."
+  },
+  {
+    "ID": "wordLightSpeedDashSmallPrint",
+    "PROPER_NAME": "LSD",
+    "NAMES": [
+      "lsd"
+    ],
+    "DESCRIPTION": "Version0.7.2: After you play this card, Rings can heal you and do not count towards the healing cap for the rest of the turn."
   },
   {
     "ID": "wordRing",
@@ -111,7 +120,7 @@
       "ring",
       "rings"
     ],
-    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. You cannot heal more than #b12 HP per combat. See buff under character for more details."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. You cannot heal more than #b5 HP per combat. Rings cannot be upgraded. See buff under character for more details."
   },
   {
     "ID": "wordTrick",

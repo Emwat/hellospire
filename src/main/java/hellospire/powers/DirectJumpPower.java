@@ -4,8 +4,11 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.CorruptionPower;
 import hellospire.cards.Ring;
 
 import static hellospire.SonicMod.makeID;
@@ -15,10 +18,10 @@ public class DirectJumpPower extends BasePower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = true;
     private AbstractCard ring = new Ring();
-    //The only thing TURN_BASED controls is the color of the number on the power icon.
-    //Turn based powers are white, non-turn based powers are red or green depending on if their amount is positive or negative.
-    //For a power to actually decrease/go away on its own they do it themselves.
-    //Look at powers that do this like VulnerablePower and DoubleTapPower.
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     public DirectJumpPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -41,5 +44,11 @@ public class DirectJumpPower extends BasePower {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
 //        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
+    }
+
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }

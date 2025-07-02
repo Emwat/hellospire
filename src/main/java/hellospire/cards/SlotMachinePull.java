@@ -63,6 +63,10 @@ public class SlotMachinePull extends BaseCard {
         super.onMoveToDiscard();
     }
 
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+    }
+
     private void ExhaustALLEggmanCards(){
         ExhaustCurses(AbstractDungeon.player.hand);
         ExhaustCurses(AbstractDungeon.player.drawPile);

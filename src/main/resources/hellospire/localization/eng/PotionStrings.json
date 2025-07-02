@@ -8,5 +8,19 @@
       " into a description.",
       " Exactly how depends on the potion, and you can set it up however you want."
     ]
+  },
+  "${modID}:AssistPotion": {
+    "NAME": "Assist Potion",
+    "DESCRIPTIONS": [
+      "Choose 1 of 3 random Assist cards to add to your hand. It costs 0 this turn.",
+      "Choose 1 of 3 random Assist cards to add 2 copies to your hand. It costs 0 this turn."
+    ]
+  },
+  "${modID}:PowerCorePotion": {
+    "NAME": "Power Core",
+    "DESCRIPTIONS": [
+      "Add a Ring to your hand and choose between Level Up Speed, Level Up Flight, and Level Up Power.",
+      "Add a Ring to your hand and choose between Level Up Speed, Level Up Flight, and Level Up Power. Repeat."
+    ]
   }
 }

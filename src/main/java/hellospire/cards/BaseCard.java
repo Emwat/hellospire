@@ -3,6 +3,7 @@ package hellospire.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.SonicMod;
@@ -726,6 +727,52 @@ public abstract class BaseCard extends CustomCard {
         }
         this.cost = newCost;
         this.costForTurn = newCost;
+    }
+
+    public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
+        if (hand.isEmpty()) {
+            return true;
+        }
+
+        int j = 0;
+        for (int i = 0; i < hand.size(); i++) {
+            AbstractCard handCard = hand.group.get(i);
+            if (handCard == card) {
+                return true;
+            }
+            if (!handCard.cardID.equals(Ring.ID)) {
+                j++;
+            }
+            if (j > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean CheckIfRightCard(AbstractCard card, CardGroup hand) {
+        if (hand.isEmpty()) {
+            return true;
+        }
+
+        int j = 0;
+        for (int i = hand.size() - 1; i > 0; i--) {
+            AbstractCard handCard = hand.group.get(i);
+            if (handCard == card) {
+                return true;
+            }
+            if (!handCard.cardID.equals(Ring.ID)) {
+                j++;
+            }
+            if (j > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean HasNonEmptyOrb(){
+        return !"Orb Slot".equals(AbstractDungeon.player.orbs.get(0).name);
     }
 
 }

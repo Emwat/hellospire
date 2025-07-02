@@ -79,29 +79,17 @@ public class QuickAir extends BaseCard {
         if (isPlayerHandNull()) {
             return;
         }
-        if (CheckIfLeftCard(this, AbstractDungeon.player.hand)) {
+
+        if (AbstractDungeon.player.orbs.isEmpty()) {
+            return;
+        }
+
+        if (CheckIfLeftCard(this, AbstractDungeon.player.hand) && HasNonEmptyOrb()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
-    public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
-        if (hand.size() <= 0) {
-            return false;
-        }
 
-        int j = 0;
-        for (int i = 0; i < hand.size(); i++) {
-            AbstractCard handCard = hand.group.get(i);
-            if (handCard == card) {
-                return true;
-            }
-            if (!handCard.cardID.equals(Ring.ID)) {
-                j++;
-            }
-            if (j > 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+
+
 }

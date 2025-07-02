@@ -13,7 +13,7 @@ public class Extender2 extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            0
+            -2
     );
 
 

@@ -5,9 +5,14 @@
       "the Hedgehog"
     ],
     "TEXT": [
-      "A free spirited hedgehog that hates evil. NL Gotta go fast.",
-      "You charge up your spin dash.",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~spiky~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+      "A free spirited hedgehog that hates evil. NL (You can change the voice frequency in Mods Config)",
+      "You charge your spin dash.",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~spiky~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~",
+      "~Catch~ ~me~ ~if~ ~you~ ~can!~",
+      "Come on! Step it up!",
+      "@YOU'RE@ @TOO@ @SLOW!@",
+      "I'm a hedgehog! ~HEDGE~ ~HOG!~",
+      "I don't suppose you're going to let me by."
     ]
   }
 }

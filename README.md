@@ -1,12 +1,16 @@
 # Basic Mod
 
 Brings Sonic the Hedgehog as a character to Slay the Spire. He plays like a Prismatic Shard.
-Requires [BaseMod](https://github.com/daviscook477/BaseMod/releases) and [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases) to work.
+
+# Requirements
+Requires subscription to
+[BaseMod](https://github.com/daviscook477/BaseMod/releases)
+[ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases)
 
 # Gameplay Features
-- Retained cards
+- Creating cards
 - Exhaust Synergy
-- Orbs
+- Defect Vanilla Orbs
 - Manipulating other cards' energy costs
 - Audio
 - Ending

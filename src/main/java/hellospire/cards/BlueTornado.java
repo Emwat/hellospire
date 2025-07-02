@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.purple.CarveReality;
@@ -13,6 +14,7 @@ import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
+import hellospire.powers.DizzyPower;
 import hellospire.util.CardStats;
 
 public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
@@ -26,22 +28,32 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
     );
 
     private static final int MAGIC = 99;
+    private static final int DIZZY = 0;
+    private static final int UPG_DIZZY = 2;
+    private static final String DIZZY_KEYWORD = "CustomVar_DIZZY";
 
     public BlueTornado() {
         super(ID, info);
 
         setMagic(MAGIC);
+        // setCustomVar(DIZZY_KEYWORD, DIZZY, UPG_DIZZY);
+        setExhaust(true);
         tags.add(SonicTags.LIKE_SILENT);
     }
 
-    /// "Apply !M! Vulnerable. NL Add a Ring to your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.PlaySound(SoundLibrary.BlueTornado));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
-        if (this.upgraded) {
+        if (this.upgraded && !isBranchUpgrade()) {
+            addToBot(new ApplyPowerAction(m, p, new DizzyPower(m, customVar(DIZZY_KEYWORD)), customVar(DIZZY_KEYWORD)));
+        } else if (this.upgraded && isBranchUpgrade()) {
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
         }
+        // if (CheckIfLeftCard(this, p.hand) || CheckIfRightCard(this, p.hand)) {
+        //     addToBot(new ExhaustSpecificCardAction(this, p.hand));
+        // }
+        addToBot(new ExhaustSpecificCardAction(this, p.hand));
     }
 
     @Override
@@ -57,7 +69,7 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void baseUpgrade() {
-        this.cardsToPreview = new Ring();
+        setCustomVar(DIZZY_KEYWORD, UPG_DIZZY);
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }

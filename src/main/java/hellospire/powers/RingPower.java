@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
@@ -23,9 +25,14 @@ public class RingPower extends BasePower {
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
+
     // When changing maxAmountHealed, please also change it in Keywords.json
     private static int amountHealed = 0;
-    private static final int maxAmountHealed = 12;
+    private static final int maxAmountHealed = 5;
+    public static boolean isLightSpeedDashing = false;
 
     public RingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -44,6 +51,10 @@ public class RingPower extends BasePower {
     }
 
     public static void incrementAmountHealed(int amountHealed) {
+        if (isLightSpeedDashing) {
+            return;
+        }
+
         RingPower.amountHealed += amountHealed;
     }
 
@@ -56,11 +67,18 @@ public class RingPower extends BasePower {
     }
 
     public static int calculateAmountToHeal(int amountToHeal) {
+        if (isLightSpeedDashing) {
+            return amountToHeal;
+        }
         if (amountHealed + amountToHeal <= maxAmountHealed) {
             return amountToHeal;
         } else {
             return maxAmountHealed - amountHealed;
         }
+    }
+
+    public static void setIsLightSpeedDashing(boolean newValue){
+        isLightSpeedDashing = newValue;
     }
 
     public void updateDescription() {
@@ -115,7 +133,7 @@ public class RingPower extends BasePower {
         }
     }
 
-    private void CalculateNumberOfRings() {
+    public void CalculateNumberOfRings() {
         int numberOfRings = 0;
 
         for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
@@ -141,10 +159,23 @@ public class RingPower extends BasePower {
 //    }
 
 
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            setIsLightSpeedDashing(false);
+        }
+    }
+
     private int GetPowerAmount(String targetID) {
         if (owner.getPower(makeID(targetID)) != null) {
             return owner.getPower(makeID(targetID)).amount;
         }
         return 0;
+    }
+
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }

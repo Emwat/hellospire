@@ -88,6 +88,11 @@ public class Ring extends BaseCard {
     }
 
     @Override
+    public boolean canUpgrade() {
+        return false;
+    }
+
+    @Override
     public AbstractCard makeCopy() { //Optional
         return new Ring();
     }

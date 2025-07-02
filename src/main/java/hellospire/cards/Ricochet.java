@@ -38,8 +38,8 @@ public class Ricochet extends BaseCard {
     public void onMoveToDiscard() {
         super.onMoveToDiscard();
         AbstractPlayer p = AbstractDungeon.player;
-        if (!p.hasPower(makeID("GainedRichochet"))) {
-            addToBot(new ApplyPowerAction(p, p, new RicochetPower(p)));
+        if (!p.hasPower(RicochetPower.POWER_ID)) {
+            addToBot(new ApplyPowerAction(p, p, new RicochetPower(p, 1), 1));
         }
     }
 

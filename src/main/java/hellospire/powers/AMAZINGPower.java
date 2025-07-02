@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import hellospire.SoundLibrary;
 
 import static hellospire.SonicMod.makeID;
@@ -17,9 +19,12 @@ public class AMAZINGPower extends BasePower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     public static final int CARD_AMT = 3;
-    public static final String NAME = "AMAZING";
     private int damage;
     // amount is attack cards played counter
+
+    private static final PowerStrings powerStrings;
+    public static final String NAME;
+    public static final String[] DESCRIPTIONS;
 
     public AMAZINGPower(AbstractCreature owner, int damage) {
         super(POWER_ID, TYPE, TURN_BASED, owner, damage);
@@ -81,5 +86,11 @@ public class AMAZINGPower extends BasePower {
     public void atStartOfTurn() {
         this.amount = CARD_AMT;
         this.updateDescription();
+    }
+
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     }
 }

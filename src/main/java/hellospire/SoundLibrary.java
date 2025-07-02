@@ -10,96 +10,100 @@ import static hellospire.SonicMod.makeID;
 
 public class SoundLibrary {
 
-    static public String LetsBlastThrough = makeID("ogg_LetsBlastThrough");
-    static public String Amazing1 = makeID("ogg_AMAZING");
-    static public String Amazing2 = makeID("ogg_OUTSTANDING");
-//    static public String Amazing3 = makeID("ogg_GREAT");
-//    static public String Amazing4 = makeID("ogg_GOOD");
-    static public String ALLRIGHT = makeID("ogg_ALLRIGHT");
-    static public String COOL = makeID("ogg_COOL");
-    static public String OK = makeID("ogg_OK");
-    static public String OW = makeID("ogg_OW");
-    static public String YES = makeID("ogg_YES");
-    static public String FeelingGood = makeID("ogg_FeelingGood");
-    public static String SmallAllRight = makeID("ogg_SmallAllRight");
-    public static String SmallAllRightLetsGo = makeID("ogg_SmallAllRightLetsGo");
-    static public String SmallYahoo = makeID("ogg_SmallYahoo");
-    static public String SmallYes = makeID("ogg_SmallYes");
-    static public String Hehe = makeID("ogg_Hehe");
-    static public String ThatsIt = makeID("ogg_ThatsIt");
-    static public String BlastAway = makeID("ogg_BlastAway");
+    static public final String LetsBlastThrough = makeID("ogg_LetsBlastThrough");
+    static public final String LoseRings = makeID("ogg_LoseRings");
 
-    public static String Bingo = makeID("ogg_Bingo");
-    public static String PerfectBingo = makeID("ogg_PerfectBingo");
+    static public final String Amazing1 = makeID("ogg_AMAZING");
+    static public final String Amazing2 = makeID("ogg_OUTSTANDING");
+//    static public final String Amazing3 = makeID("ogg_GREAT");
+//    static public final String Amazing4 = makeID("ogg_GOOD");
+    static public final String ALLRIGHT = makeID("ogg_ALLRIGHT");
+    static public final String COOL = makeID("ogg_COOL");
+    static public final String OK = makeID("ogg_OK");
+    static public final String OW = makeID("ogg_OW");
+    static public final String YES = makeID("ogg_YES");
+    static public final String FeelingGood = makeID("ogg_FeelingGood");
+    static public final String SmallAllRight = makeID("ogg_SmallAllRight");
+    static public final String SmallAllRightLetsGo = makeID("ogg_SmallAllRightLetsGo");
+    static public final String SmallYahoo = makeID("ogg_SmallYahoo");
+    static public final String SmallYes = makeID("ogg_SmallYes");
+    static public final String Hehe = makeID("ogg_Hehe");
+    static public final String ThatsIt = makeID("ogg_ThatsIt");
+    static public final String BlastAway = makeID("ogg_BlastAway");
 
-    static public String QuickAir1 = makeID("ogg_QuickAir1");
-    static public String QuickAir2 = makeID("ogg_QuickAir2");
-    static public String QuickAir3 = makeID("ogg_QuickAir3");
+    static public final String Bingo = makeID("ogg_Bingo");
+    static public final String PerfectBingo = makeID("ogg_PerfectBingo");
 
-    static public String BlueTornado = makeID("ogg_BlueTornado");
-    static public String Booster = makeID("ogg_Booster");
-    static public String Spring = makeID("ogg_Spring");
-    static public String LevelUp = makeID("ogg_LevelUp");
-    static public String Ring = makeID("ogg_Ring");
+    static public final String QuickAir1 = makeID("ogg_QuickAir1");
+    static public final String QuickAir2 = makeID("ogg_QuickAir2");
+    static public final String QuickAir3 = makeID("ogg_QuickAir3");
 
-    static public String Attack1 = makeID("ogg_attack1");
-    static public String Attack2 = makeID("ogg_attack2");
-    static public String Attack3 = makeID("ogg_attack3");
-    static public String Attack4 = makeID("ogg_attack4"); // sharp_whistle
-    static public String Attack5Go = makeID("ogg_attack5");
-    static public String Attack6 = makeID("ogg_attack6");
-    static public String Attack7 = makeID("ogg_attack7");
-    static public String SonicStyle = makeID("ogg_SonicStyle");
+    static public final String BlueTornado = makeID("ogg_BlueTornado");
+    static public final String Booster = makeID("ogg_Booster");
+    static public final String Spring = makeID("ogg_Spring");
+    static public final String LevelUp = makeID("ogg_LevelUp");
+    static public final String Ring = makeID("ogg_Ring");
 
-    static public String LightningShield = makeID("ogg_LightningShield");
-    static public String Jump = makeID("ogg_Jump");
-    static public String StarPost = makeID("ogg_StarPost");
-    static public String DropDash = makeID("ogg_DropDash");
-    static public String BlankSound = makeID("BlankSound");
+    static public final String Attack1 = makeID("ogg_attack1");
+    static public final String Attack2 = makeID("ogg_attack2");
+    static public final String Attack3 = makeID("ogg_attack3");
+    static public final String Attack4 = makeID("ogg_attack4"); // sharp_whistle
+    static public final String Attack5Go = makeID("ogg_attack5");
+    static public final String Attack6 = makeID("ogg_attack6");
+    static public final String Attack7 = makeID("ogg_attack7");
+    static public final String YESSS = makeID("ogg_YESSS");
+    
+    static public final String SonicStyle = makeID("ogg_SonicStyle");
 
-    public static String OmochaoPerfectLanding = makeID("ogg_OmochaoPerfectLanding");
-    public static String OmochaoIncorrectLanding = makeID("ogg_OmochaoIncorrectLanding");
-    public static String OmochaoTurbulence = makeID("ogg_OmochaoTurbulence");
+    static public final String LightningShield = makeID("ogg_LightningShield");
+    static public final String Jump = makeID("ogg_Jump");
+    static public final String StarPost = makeID("ogg_StarPost");
+    static public final String DropDash = makeID("ogg_DropDash");
+    static public final String BlankSound = makeID("BlankSound");
 
-    public static String SonicsTheName = makeID("ogg_SonicsTheName");
-    public static String TooEasy = makeID("ogg_TooEasy");
-    public static String HeyWeShould = makeID("ogg_HeyWeShould");
+    static public final String OmochaoPerfectLanding = makeID("ogg_OmochaoPerfectLanding");
+    static public final String OmochaoIncorrectLanding = makeID("ogg_OmochaoIncorrectLanding");
+    static public final String OmochaoTurbulence = makeID("ogg_OmochaoTurbulence");
 
-    public static String CatchMeIfYouCan = makeID("ogg_CatchMeIfYouCan");
-    public static String WhatsTheMatter = makeID("ogg_WhatsTheMatter");
-    public static String StepItUp = makeID("ogg_stepitup");
-    public static String TooSlow = makeID("ogg_tooslow");
-    public static String NeverUnderestimate = makeID("ogg_NeverUnderestimate");;
+    static public final String SonicsTheName = makeID("ogg_SonicsTheName");
+    static public final String TooEasy = makeID("ogg_TooEasy");
+    static public final String HeyWeShould = makeID("ogg_HeyWeShould");
 
-    public static String Shoot = makeID("ogg_Shoot");
-    public static String Nooo = makeID("ogg_Nooo");
-    public static String Dead = makeID("ogg_Dead");
-    public static String LongLiveTheEggmanEmpire = makeID("ogg_HailEggmanEmpire");
-    public static String SpeedBreak = makeID("ogg_SpeedBreak");
-    public static String TimeBreak = makeID("ogg_TimeBreak");
+    static public final String CatchMeIfYouCan = makeID("ogg_CatchMeIfYouCan");
+    static public final String WhatsTheMatter = makeID("ogg_WhatsTheMatter");
+    static public final String StepItUp = makeID("ogg_stepitup");
+    static public final String TooSlow = makeID("ogg_tooslow");
+    static public final String NeverUnderestimate = makeID("ogg_NeverUnderestimate");;
 
-    public static String BossMusic = makeID("mp3_WindUpPunchGo");
+    static public final String Shoot = makeID("ogg_Shoot");
+    static public final String Nooo = makeID("ogg_Nooo");
+    static public final String Dead = makeID("ogg_Dead");
+    static public final String LongLiveTheEggmanEmpire = makeID("ogg_HailEggmanEmpire");
+    static public final String SpeedBreak = makeID("ogg_SpeedBreak");
+    static public final String TimeBreak = makeID("ogg_TimeBreak");
 
-    public static String Tails = makeID("ogg_tails");
-    public static String Knuckles = makeID("ogg_knux");
-    public static String Cream = makeID("ogg_cream");
-    public static String Amy = makeID("ogg_amy");
-    public static String CuteCouple = makeID("ogg_cutecouple");
-    public static String Big = makeID("ogg_big");
-    public static String Blaze = makeID("ogg_blaze");
+    static public final String BossMusic = makeID("mp3_WindUpPunchGo");
+
+    static public final String Tails = makeID("ogg_tails");
+    static public final String Knuckles = makeID("ogg_knux");
+    static public final String Cream = makeID("ogg_cream");
+    static public final String Amy = makeID("ogg_amy");
+    static public final String CuteCouple = makeID("ogg_cutecouple");
+    static public final String Big = makeID("ogg_big");
+    static public final String Blaze = makeID("ogg_blaze");
 
 
     static public int randomNumber = -1;
 
 
-    static public SFXAction PlaySound(String key){
+    static public final SFXAction PlaySound(String key){
         if (MyModConfig.enableSound) {
             return new SFXAction(key);
         }
         return new SFXAction(BlankSound);
     }
 
-    static public SFXAction PlayVoice(String key){
+    static public final SFXAction PlayVoice(String key){
         int maxVoiceFrequency = 10;
         if (MyModConfig.enableVoice) {
             if (AbstractDungeon.miscRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0){
@@ -110,7 +114,7 @@ public class SoundLibrary {
         return new SFXAction(BlankSound);
     }
 
-    static public SFXAction PlayRandomSound(ArrayList<String> sounds) {
+    static public final SFXAction PlayRandomSound(ArrayList<String> sounds) {
         if (!MyModConfig.enableSound) {
             return new SFXAction(BlankSound);
         }
@@ -118,7 +122,7 @@ public class SoundLibrary {
         return new SFXAction(GetRandomClip(sounds));
     }
 
-    static public SFXAction PlayRandomVoice(ArrayList<String> sounds) {
+    static public final SFXAction PlayRandomVoice(ArrayList<String> sounds) {
         if (!MyModConfig.enableVoice) {
             return new SFXAction(BlankSound);
         }
@@ -128,7 +132,7 @@ public class SoundLibrary {
 
     /// Used for CardCrawlGame.sound.play()
     /// Which I'm guessing is for outside combat (for example: com.megacrit.cardcrawl.events.exordium.ScrapOoze)
-    static public String GetRandomVoice(ArrayList<String> sounds) {
+    static public final String GetRandomVoice(ArrayList<String> sounds) {
         if (!MyModConfig.enableVoice) {
             return BlankSound;
         }
@@ -151,7 +155,7 @@ public class SoundLibrary {
         return sounds.get(randomNumber);
     }
 
-    public static AbstractGameAction AlwaysPlayVoice(String key) {
+    static public final AbstractGameAction AlwaysPlayVoice(String key) {
         return new SFXAction(key);
     }
 }

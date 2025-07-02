@@ -1,6 +1,7 @@
 package hellospire.actions;
 
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.beyond.MindBloom;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
@@ -57,27 +59,22 @@ public class CrestOfFireAction extends AbstractGameAction {
         }
 
         this.tickDuration();
-
-        if (this.isDone && didUpgrade) {
-            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-            AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(theCard.makeStatEquivalentCopy()));
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
-        }
-        // TODO: Make Upgrade animation
-//        This commented code is not working.
-//        if (this.isDone && !upgradedCards.isEmpty()) {
-//            for (AbstractCard upgradedCard : upgradedCards) {
-//                AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-//                AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(upgradedCard.makeStatEquivalentCopy()));
-//                this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
-//            }
-//        }
-
     }
 
     protected void upgradeCards(CardGroup cardGroup) {
+        int effectCount = 0;
         for (AbstractCard card : cardGroup.group) {
             if (card.tags.contains(SonicTags.CREST_OF_FIRE) && card.canUpgrade()) {
+                if (cardGroup.type == CardGroup.CardGroupType.MASTER_DECK) {
+                    ++effectCount;
+                    if (effectCount <= 20) {
+                        float x = MathUtils.random(0.1F, 0.9F) * (float)Settings.WIDTH;
+                        float y = MathUtils.random(0.2F, 0.8F) * (float)Settings.HEIGHT;
+                        AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(card.makeStatEquivalentCopy(), x, y));
+                        AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(x, y));
+                    }
+                }
+
                 card.upgrade();
                 if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                     card.superFlash();

@@ -38,7 +38,7 @@ public class TempMusicPatch {
         }
 
         if (MyModConfig.enableBoss3Music && "BOSS_BEYOND".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/Egg_Emperor.ogg"));
+            return MainMusic.newMusic(SonicMod.audioPath("music/Egg_Dragoon.ogg"));
         }
 
         if (MyModConfig.enableBossHeartMusic && "BOSS_ENDING".equals(key)) {

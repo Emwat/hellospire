@@ -76,16 +76,14 @@ public class QuickStep extends BaseCard {
         if (isPlayerHandNull()) {
             return;
         }
-        if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {
+
+        if (AbstractDungeon.player.orbs.isEmpty()) {
+            return;
+        }
+
+        if (CheckIfRightCard(this, AbstractDungeon.player.hand) && HasNonEmptyOrb()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
-    private boolean CheckIfRightCard(AbstractCard card, CardGroup hand) {
-        if (hand.size() <= 0) {
-            return false;
-        }
-
-        return hand.group.get(hand.size() - 1) == card;
-    }
 }
