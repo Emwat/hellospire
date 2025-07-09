@@ -37,11 +37,6 @@ public class SlotMachineStatus extends BaseCard {
     }
 
     @Override
-    public void atTurnStartPreDraw() {
-        hasAppliedDebuff = false;
-    }
-
-    @Override
     public void triggerWhenDrawn() {
         if (!hasAppliedDebuff){
             addToBot(new AbstractGameAction() {

@@ -487,6 +487,7 @@ public class SonicMod implements
         cardsExhaustedThisTurn = 0;
         Trick.TricksPlayed = 0;
         Trick.firstTrickNumber = 0;
+        SlotMachineStatus.hasAppliedDebuff = false;
     }
 
     @Override
