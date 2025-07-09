@@ -19,7 +19,7 @@ public class Boost extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.ALL_ENEMY,
             0
     );
@@ -29,6 +29,7 @@ public class Boost extends BaseCard {
 
     public Boost() {
         super(ID, info);
+        this.cardsToPreview = new Ring();
         this.isMultiDamage = true;
         setDamage(DAMAGE, UPG_DAMAGE);
         tags.add(SonicTags.LIKE_WATCHER);

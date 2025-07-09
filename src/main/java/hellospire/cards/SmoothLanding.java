@@ -1,13 +1,8 @@
 package hellospire.cards;
 
-import basemod.interfaces.OnPlayerTurnStartSubscriber;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -15,11 +10,8 @@ import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
-import hellospire.actions.SwapCostsAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
-
-import java.util.ArrayList;
 
 public class SmoothLanding extends BaseCard {
     public static final String ID = makeID("SmoothLanding");
@@ -44,9 +36,9 @@ public class SmoothLanding extends BaseCard {
         addToBot(new ChannelAction(new Frost()));
         if (hasVigor() || this.upgraded) {
             addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoPerfectLanding));
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoPerfectLanding));
         } else {
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoIncorrectLanding));
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoIncorrectLanding));
         }
     }
 

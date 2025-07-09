@@ -5,6 +5,7 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.SonicMod;
 import hellospire.util.CardStats;
@@ -22,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import static hellospire.SonicMod.imagePath;
 import static hellospire.util.GeneralUtils.removePrefix;
 import static hellospire.util.TextureLoader.getCardTextureString;
 
@@ -90,6 +92,20 @@ public abstract class BaseCard extends CustomCard {
         this.damageUpgrade = 0;
         this.blockUpgrade = 0;
         this.magicUpgrade = 0;
+
+        // this.setPortraitTextures(SonicMod.imagePath("nothing.png"),SonicMod.imagePath("nothing.png"));
+        // ImageMaster.CARD_RARE_FRAME_LEFT
+        // setPortraitTextures(
+                // String cardFrameSmall,
+                // String cardFrameLarge,
+                // String dynamicLeftFrame,
+                // String dynamicMiddleFrame,
+                // String dynamicRightFrame,
+                // String dynamicLeftFrameLarge,
+                // String dynamicMiddleFrameLarge,
+                // String dynamicRightFrameLarge
+        // );
+
     }
 
     private static String getName(String ID) {
@@ -773,6 +789,10 @@ public abstract class BaseCard extends CustomCard {
 
     public boolean HasNonEmptyOrb(){
         return !"Orb Slot".equals(AbstractDungeon.player.orbs.get(0).name);
+    }
+
+    public String imageSkillPath(String filename) {
+        return imagePath("cards/skill/" + filename);
     }
 
 }

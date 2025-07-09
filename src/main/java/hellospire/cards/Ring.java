@@ -1,24 +1,20 @@
 package hellospire.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Apparition;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
-import hellospire.SonicTags;
+import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
-import hellospire.powers.SuperSonicPower;
 import hellospire.util.CardStats;
 
 import java.util.Objects;
@@ -43,10 +39,14 @@ public class Ring extends BaseCard {
         setSelfRetain(true);
         setExhaust(true);
         tags.add(CardTags.HEALING);
+
+        if (Loader.isModLoaded("PrideMod")) {
+            loadCardImage(SonicMod.imagePath("cards/skill/WorldRings.png"));
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlaySound(SoundLibrary.Ring));
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.Ring));
         RingPower ringPower = (RingPower) p.getPower(makeID("RingPower"));
 
         if (RingPower.getAmountHealed() < RingPower.getMaxAmountHealed()) {

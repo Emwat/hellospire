@@ -2,11 +2,7 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.ThunderStrike;
-import com.megacrit.cardcrawl.cards.purple.Ragnarok;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,7 +20,7 @@ public class LightSpeedAttack extends BaseCard {
             CardType.ATTACK,
             CardRarity.RARE,
             CardTarget.ALL_ENEMY,
-            2
+            3
     );
 
     private static final int DAMAGE = 7;
@@ -39,8 +35,9 @@ public class LightSpeedAttack extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int hits = CalculateRingHits(p);
 
-        if (hits > 5) {
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.BlastAway));
+        // Ragnarok deals 5(6) damage to an enemy 5(6) times
+        if (hits > 6) {
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.BlastAway));
         }
         if (hits > 0) {
             for (int i = 0; i < hits; i++) {

@@ -3,7 +3,8 @@
     "NAME": "Good Relic",
     "FLAVOR": "Flavor text displayed in detailed relic view.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. [E] is an energy icon."
+      "Gain [E] at the start of your turn. [E] is an energy icon.",
+      "#Attacks, #ySkills, and #yPowers are gold in relic texts but not in card texts."
     ]
   },
   "${modID}:ChaoRelic": {
@@ -18,7 +19,15 @@
     "FLAVOR": "Time to crack that Eggman wide open. Yeah, let's party!",
     "DESCRIPTIONS": [
       "At the start of combat, gain #b",
-      " Level Up Power."
+      " #yLevel #yUp #yPower."
+    ]
+  },
+  "${modID}:EmblemPlusRelic": {
+    "NAME": "Emblem+",
+    "FLAVOR": "Time to crack that Eggman wide open. Yeah, let's party!",
+    "DESCRIPTIONS": [
+      "Replaces #bEmblem. At the start of combat, gain #b",
+      " #yLevel #yUp #yFlight and #yPower."
     ]
   },
   "${modID}:Player2Relic": {
@@ -28,11 +37,19 @@
       "For the first two turns of combat, when you play your second card, add a copy of it to your hand."
     ]
   },
+  "${modID}:RingEnergyBonusRelic": {
+    "NAME": "Ring Energy Bonus",
+    "FLAVOR": "Wow, where does somebody put all those gold rings?",
+    "DESCRIPTIONS": [
+      "If you have #b",
+      "+ #yRings at the start of your turn, gain 1 [E] ."
+    ]
+  },
   "${modID}:RingKeeperRelic": {
     "NAME": "Ring Keeper",
     "FLAVOR": "Aw yeah! This is happening!",
     "DESCRIPTIONS": [
-      "Your Rings persist between each combat. If you take #b5+ damage, exhaust ALL of your Rings."
+      "Your #yRings persist between each combat. If you take #b3+ damage, exhaust ALL of your #yRings."
     ]
   }
 }

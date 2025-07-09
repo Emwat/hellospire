@@ -60,7 +60,7 @@ public class HotRod extends BaseCard {
         addToBot(new GainBlockAction(p, block));
         if (ticker == 0) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Hehe));
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Hehe));
         }
     }
 
@@ -125,7 +125,7 @@ public class HotRod extends BaseCard {
             this.target = CardTarget.SELF;
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3];
             this.initializeDescription();
-            loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
+            loadCardImage(SonicMod.imagePath("cards/skill/HotRodOverloaded.png"));
         }
     }
 

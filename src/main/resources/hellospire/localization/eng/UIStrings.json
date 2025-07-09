@@ -31,7 +31,12 @@
   },
   "${modID}:modifierMagicHands": {
     "TEXT": [
-      "${modID}:Do_NOT_throw. "
+      "${modID}:DO_NOT_THROW. "
+    ]
+  },
+  "${modID}:modifierSpinUp": {
+    "TEXT": [
+      "${modID}:Spin_Up. "
     ]
   },
   "${modID}:MyModConfig": {

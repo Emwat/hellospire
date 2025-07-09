@@ -89,6 +89,26 @@ public class Sonic extends CustomPlayer {
                     BG_ATTACK, BG_SKILL, BG_POWER, ENERGY_ORB,
                     BG_ATTACK_P, BG_SKILL_P, BG_POWER_P, ENERGY_ORB_P,
                     SMALL_ORB);
+
+            // BaseMod.addColor(
+            //         CARD_COLOR, // AbstractCard.CardColor color,
+            //         Color.RED.cpy(), // Color bgColor,
+            //         Color.RED.cpy(), // Color backColor,
+            //         Color.RED.cpy(), // Color frameColor,
+            //         Color.RED.cpy(), // Color frameOutlineColor,
+            //         Color.RED.cpy(), // Color descBoxColor,
+            //         Color.RED.cpy(), // Color trailVfxColor,
+            //         Color.RED.cpy(), // Color glowColor,
+            //         BG_ATTACK, // String attackBg,
+            //         BG_SKILL, // String skillBg,
+            //         BG_POWER, // String powerBg,
+            //         ENERGY_ORB, // String energyOrb,
+            //         BG_ATTACK_P, // String attackBgPortrait,
+            //         BG_SKILL_P, // String skillBgPortrait,
+            //         BG_POWER_P, // String powerBgPortrait,
+            //         ENERGY_ORB_P // String energyOrbPortrait
+            // );
+
         }
 
         public static void registerCharacter() {

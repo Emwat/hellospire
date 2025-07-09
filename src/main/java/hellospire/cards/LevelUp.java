@@ -3,10 +3,6 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.FTL;
-import com.megacrit.cardcrawl.cards.curses.Pain;
-import com.megacrit.cardcrawl.cards.purple.Sanctity;
-import com.megacrit.cardcrawl.cards.purple.SashWhip;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -45,7 +41,7 @@ public class LevelUp extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.LevelUp));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.LevelUp));
         if (magicNumber > 0){
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
         }

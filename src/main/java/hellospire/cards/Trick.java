@@ -1,16 +1,26 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.modthespire.Loader;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.SonicMod;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModAnimateHopAction;
+import hellospire.actions.ModTextAboveCreatureAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,6 +37,10 @@ public class Trick extends BaseCard {
     private static final int MAGIC = 4;
     private static final int UPG_MAGIC = 2;
     private static final int REFUND = 1;
+    private static final String[] TrickNames1 = new String[]{"indy", "melon"};
+    private static final String[] TrickNames2 = new String[]{"blue scorpion", "blue sky", "double mouse", "method", "mute", "nose grab", "tweak", "twister", "japan", "jessy"};
+    public static int TricksPlayed = 0;
+    public static int firstTrickNumber = 0;
 
     public Trick() {
         super(ID, info);
@@ -34,13 +48,26 @@ public class Trick extends BaseCard {
 
         setEthereal(true);
         setExhaust(true);
+
+        if (Loader.isModLoaded("PrideMod")) {
+            loadCardImage(SonicMod.imagePath("cards/skill/TrickAlexDivato.png"));
+        }
     }
 
     /// "DESCRIPTION": "Ethereal. NL Gain 2 Vigor. NL stslib:Refund 1. NL Exhaust.",
     /// "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+        // addToBot(new ModAnimateHopAction(p));
+        addToBot(TrickNameAction(p));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                TricksPlayed++;
+                this.isDone = true;
+            }
+        });
+        addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.ALLRIGHT,
                 SoundLibrary.COOL,
                 SoundLibrary.OK,
@@ -50,8 +77,27 @@ public class Trick extends BaseCard {
         addToBot(new GainEnergyAction(REFUND));
     }
 
+    private AbstractGameAction TrickNameAction(AbstractPlayer p) {
+        int randomNumber1 = AbstractDungeon.miscRng.random(0, TrickNames1.length - 1);
+        int randomNumber2 = AbstractDungeon.miscRng.random(0, 2);
+        int randomNumber3 = AbstractDungeon.miscRng.random(0, TrickNames2.length - 1);
+        Color textColor = new Color(0f / 255f, 255f, 228f / 255f, 1f);
+        if (TricksPlayed == 0) {
+            firstTrickNumber = randomNumber1;
+            return new ModTextAboveCreatureAction(p, TrickNames1[randomNumber1], textColor);
+        } else if (TricksPlayed == 1) {
+            if (randomNumber2 == 2) {
+                return new ModTextAboveCreatureAction(p, TrickNames2[randomNumber3], textColor);
+            } else {
+                int otherNumber = firstTrickNumber == 0 ? 1 : 0;
+                return new ModTextAboveCreatureAction(p, TrickNames1[otherNumber], textColor);
+            }
+        }
+        return new ModTextAboveCreatureAction(p, TrickNames2[randomNumber3], textColor);
+    }
+
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new Trick();
     }
 }

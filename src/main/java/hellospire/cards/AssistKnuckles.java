@@ -30,7 +30,7 @@ public class AssistKnuckles extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Knuckles));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Knuckles));
         addToBot(new ApplyPowerAction(p, p, new RagePower(p, magicNumber)));
     }
 

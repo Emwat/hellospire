@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,9 +29,9 @@ public class SpeedUp extends BaseCard {
     public SpeedUp() {
         super(ID, info);
         this.cardsToPreview = new Trick();
+        MultiCardPreview.add(this, new Ring(), new Trick());
 
         setMagic(MAGIC, UPG_MAGIC);
-        setExhaust(true);
     }
 
     @Override

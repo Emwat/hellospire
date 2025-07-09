@@ -1,10 +1,12 @@
 package hellospire.cards;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -18,27 +20,26 @@ public class Momentum extends BaseCard {
             1
     );
 
+    private static final int MAGIC = 0;
+    private static final int UPG_MAGIC = 4;
+
     public Momentum() {
         super(ID, info);
 
-        setExhaust(true);
+        setMagic(MAGIC, UPG_MAGIC);
+        CardModifierManager.addModifier(this, new SpinUpModifier());
     }
 
     /// "Gain Vigor for every card in your Exhaust Pile."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, p.exhaustPile.size())));
-    }
+        int vigorAmount = p.exhaustPile.size() + (!this.upgraded ? 0 : p.hand.size());
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
-        }
+        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vigorAmount), vigorAmount));
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new Momentum();
     }
 }

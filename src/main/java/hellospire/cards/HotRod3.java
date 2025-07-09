@@ -22,7 +22,7 @@ public class HotRod3 extends BaseCard {
         super(ID, info);
 
         setBlock(HotRod.BLOCK_OVERLOADED, 1);
-        loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
+        loadCardImage(SonicMod.imagePath("cards/skill/HotRodOverloaded.png"));
     }
 
     @Override

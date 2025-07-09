@@ -1,0 +1,28 @@
+package hellospire.patches;
+
+import com.badlogic.gdx.audio.Music;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.audio.MainMusic;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
+import hellospire.MyModConfig;
+import hellospire.SonicMod;
+import hellospire.SonicTags;
+import hellospire.character.Sonic;
+
+@SpirePatch(clz = ConfusionPower.class, method = "onCardDraw")
+public class SpinUpPatch {
+    @SpirePostfixPatch
+    public static void Postfix(AbstractPower __instance, AbstractCard card) {
+        int oldCost = card.cost;
+        int newCost = card.cost;
+        if (card.hasTag(SonicTags.SPIN_UP) && card.cost > 0){
+            card.cost -= 1;
+            newCost = card.cost;
+            SonicMod.logger.info(String.format("%s oldCost: %s | newCost: %s", card.name, oldCost, newCost));
+        }
+    }
+}

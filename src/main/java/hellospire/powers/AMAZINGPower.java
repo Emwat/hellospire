@@ -2,7 +2,9 @@ package hellospire.powers;
 
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.TextAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import hellospire.SoundLibrary;
+import hellospire.actions.AMAZINGEffect;
 
 import static hellospire.SonicMod.makeID;
 
@@ -66,13 +69,17 @@ public class AMAZINGPower extends BasePower {
 //        }
 
         if (this.amount == 1){
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing2));
+            addToTop(new TextAboveCreatureAction(owner, "OUTSTANDING!"));
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing2));
         }
 
         if (this.amount == 0) {
             this.flash();
-            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing1));
+            addToTop(new VFXAction(new AMAZINGEffect("amazing")));
+            // addToTop(new TextAboveCreatureAction(owner, "AMAZING!"));
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing1));
             this.amount = CARD_AMT;
+            // this.addToBot(new VFXAction());
             this.addToBot(new DamageAllEnemiesAction(
                     AbstractDungeon.player,
                     DamageInfo.createDamageMatrix(this.damage, true),

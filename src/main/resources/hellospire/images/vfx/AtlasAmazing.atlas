@@ -1,0 +1,48 @@
+
+AtlasAmazing.png
+size: 400,400
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+260/amazing
+  rotate: false
+  xy: 75, 0
+  size: 260, 70
+  orig: 260, 70
+  offset: 75, 0
+  index: -1
+260/outstanding
+  rotate: false
+  xy: 75, 70
+  size: 260, 70
+  orig: 260, 70
+  offset: 75, 70
+  index: -1
+260/awesome
+  rotate: false
+  xy: 75, 140
+  size: 260, 70
+  orig: 260, 70
+  offset: 75, 140
+  index: -1
+260/great
+  rotate: false
+  xy: 75, 205
+  size: 260, 70
+  orig: 260, 70
+  offset: 75, 205
+  index: -1
+260/good
+  rotate: false
+  xy: 75, 270
+  size: 260, 70
+  orig: 260, 70
+  offset: 75, 270
+  index: -1
+260/slam
+  rotate: false
+  xy: 75, 333
+  size: 260, 70
+  orig: 260, 70
+  offset: 75, 333
+  index: -1

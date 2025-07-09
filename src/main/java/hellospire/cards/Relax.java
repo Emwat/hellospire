@@ -1,26 +1,21 @@
 package hellospire.cards;
 
-import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Color;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
+import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.purple.Vigilance;
-import com.megacrit.cardcrawl.cards.red.Anger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.stances.WrathStance;
 import hellospire.SonicTags;
-import hellospire.actions.HeavyIncrementAction;
-import hellospire.actions.HeavyKeepCostAction;
-import hellospire.cardmodifiers.MagicHandsModifier;
 import hellospire.character.Sonic;
-import hellospire.powers.RelaxPower;
 import hellospire.util.CardStats;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Relax extends BaseCard {
     public static final String ID = makeID("Relax");
@@ -47,9 +42,17 @@ public class Relax extends BaseCard {
         // addToBot(new ApplyPowerAction(p, p, new RelaxPower(p, 1), 1));
         addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));
         addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
-        if (WrathCondition(p)) {
-            addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
+        if (!this.upgraded) {
+            if (WrathCondition(p)) {
+                addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
+            }
+        } else {
+            addToBot(new ChooseOneAction(new ArrayList<>(Arrays.asList(
+                    new RelaxPick1(),
+                    new RelaxPick2()
+            ))));
         }
+
     }
 
     @Override

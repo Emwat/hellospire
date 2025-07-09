@@ -2,28 +2,18 @@ package hellospire.relics;
 
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.BurningBlood;
-import com.megacrit.cardcrawl.relics.CentennialPuzzle;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.SoundLibrary;
 import hellospire.cards.Ring;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static hellospire.SonicMod.makeID;
 
@@ -33,7 +23,7 @@ public class RingKeeperRelic extends BaseRelic implements CustomSavable<Integer>
     private static final RelicTier RARITY = RelicTier.STARTER; // The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; // The sound played when the relic is clicked.
     private static boolean hasSoundPlayed = false;
-    private static final int toleranceToPain = 5;
+    private static final int toleranceToPain = 3;
 
     // Putting these stats here in case I want to revisit this relic for tolerance.
     // This enemy intends to Attack for a total of 0-4 damage.
@@ -92,7 +82,7 @@ public class RingKeeperRelic extends BaseRelic implements CustomSavable<Integer>
                     AbstractPower ringPower = AbstractDungeon.player.getPower(RingPower.POWER_ID);
                     if (ringPower != null && ringPower.amount > 0 && !hasSoundPlayed) {
                         thisRelic.flash();
-                        addToBot(SoundLibrary.PlaySound(SoundLibrary.LoseRings));
+                        addToBot(SoundLibrary.SoundAction(SoundLibrary.LoseRings));
                         hasSoundPlayed = true;
                     }
 

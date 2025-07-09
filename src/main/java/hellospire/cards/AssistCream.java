@@ -33,7 +33,7 @@ public class AssistCream extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Cream));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Cream));
         addToBot(new HealAction(p, p, magicNumber));
         addToBot(new IncreaseMaxOrbAction(SLOT_INCREASE));
     }

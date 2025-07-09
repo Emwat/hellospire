@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -26,11 +25,12 @@ public class AssistAmy extends BaseCard {
     public AssistAmy() {
         super(ID, info);
         setExhaust(true);
+        setMagic(1);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+        addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.Amy,
                 SoundLibrary.CuteCouple
         ))));

@@ -2,7 +2,6 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,7 +37,7 @@ public class TrickFinisher extends BaseCard {
         if (vigor != null && vigor.amount > 0) {
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vigor.amount)));
             if (vigor.amount > 12){
-                addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+                addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                         SoundLibrary.FeelingGood,
                         SoundLibrary.ThatsIt
                 ))));

@@ -39,7 +39,7 @@ public class Strike extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
+        addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.Attack1,
                 SoundLibrary.Attack2,
                 SoundLibrary.Attack3

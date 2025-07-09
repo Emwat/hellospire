@@ -1,6 +1,8 @@
 package hellospire.cards;
 
-import com.badlogic.gdx.graphics.Color;
+import basemod.abstracts.CustomPlayer;
+import basemod.animations.SpriterAnimation;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
 import hellospire.actions.HeavyIncrementAction;
 import hellospire.actions.HeavyKeepCostAction;
+import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -17,7 +20,7 @@ public class BlastOff extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.UNCOMMON,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
             0
     );
@@ -31,7 +34,6 @@ public class BlastOff extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
-        tags.add(SonicTags.HEAVY);
     }
 
     @Override
@@ -39,7 +41,6 @@ public class BlastOff extends BaseCard {
         int extraMagic = CheckIfLeftCard(this, p.hand) ? 1 : 0;
 
         addToBot(new GainEnergyAction(magicNumber + extraMagic));
-        addToBot(new HeavyIncrementAction(this));
     }
 
     public void triggerOnGlowCheck() {
@@ -52,11 +53,6 @@ public class BlastOff extends BaseCard {
         if (CheckIfLeftCard(this, AbstractDungeon.player.hand)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
-    }
-
-    @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
-        addToBot(new HeavyKeepCostAction(this));
     }
 
     @Override

@@ -1,9 +1,7 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Seek;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
@@ -33,7 +31,7 @@ public class AssistBig extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Big));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Big));
         addToBot(new BetterDrawPileToHandAction(this.magicNumber));
     }
 

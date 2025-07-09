@@ -1,14 +1,10 @@
 package hellospire.cards;
 
-import basemod.BaseMod;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -23,7 +19,7 @@ public class SlotMachineGame extends BaseCard {
             1
     );
     private AbstractCard Pull = new SlotMachinePull();
-    private AbstractCard Curse = new SlotMachinePullEggman();
+    private AbstractCard Curse = new SlotMachineStatus();
 
     private static final int MAGIC = 3;
     private static final int UPG_COST = 0;

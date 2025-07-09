@@ -34,7 +34,7 @@ public class DropDash extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlaySound(SoundLibrary.DropDash));
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.DropDash));
         addToBot(new GainBlockAction(p, block));
         if (SonicMod.cardsExhaustedThisTurn > 0) {
             addToBot(new GainEnergyAction(2));

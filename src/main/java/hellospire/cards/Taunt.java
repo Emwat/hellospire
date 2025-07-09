@@ -1,20 +1,15 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.red.Bash;
-import com.megacrit.cardcrawl.cards.red.PommelStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -66,7 +61,7 @@ public class Taunt extends BaseCard {
         //             "Do you know who I am?",
         // ]
 
-        addToBot(SoundLibrary.PlayVoice(voiceLine));
+        addToBot(SoundLibrary.VoiceAction(voiceLine));
         if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
             addToBot(new TalkAction(true, texts[3], 2f, 2f));
         } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {

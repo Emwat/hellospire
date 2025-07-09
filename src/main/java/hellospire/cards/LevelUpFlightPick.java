@@ -28,13 +28,21 @@ public class LevelUpFlightPick extends BaseCard {
     public LevelUpFlightPick() {
         super(ID, info);
         this.cardsToPreview = new Ring();
-        loadCardImage(LevelUpPath("LevelUpFlight.png"));
-        this.name =  CardCrawlGame.languagePack.getCardStrings(LevelUp.ID).EXTENDED_DESCRIPTION[5];
+        loadCardImage(imageSkillPath("LevelUpFlight.png"));
+        this.name = CardCrawlGame.languagePack.getCardStrings(LevelUp.ID).EXTENDED_DESCRIPTION[5];
         initializeTitle();
         this.rawDescription = CardCrawlGame.languagePack.getCardStrings(LevelUp.ID).EXTENDED_DESCRIPTION[3];
         initializeDescription();
 
     }
+
+          // "{@@}Add !M! Ring{!M!|>1=s} to your hand. ",
+          //         "For each Ring in your hand, increase damage dealt from cards by 1.",
+          //         "For each Ring in your hand, increase Block gained from cards by 1.",
+          //         "For each Ring in your hand, increase Focus by 1.",
+          //         "Level Up Speed",
+          //         "Level Up Flight",
+          //         "Level Up Power"
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -45,10 +53,6 @@ public class LevelUpFlightPick extends BaseCard {
     public void onChoseThisOption() {
         AbstractCreature p = AbstractDungeon.player;
         addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, 1), 1));
-    }
-
-    private String LevelUpPath(String filename) {
-        return imagePath("cards/skill/" + filename);
     }
 
     @Override

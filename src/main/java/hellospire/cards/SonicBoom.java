@@ -32,6 +32,7 @@ public class SonicBoom extends BaseCard implements BranchingUpgradesCard {
         setBlock(0);
         setMagic(0);
         tags.add(SonicTags.LIKE_IRONCLAD);
+        setEthereal(true);
     }
 
     @Override

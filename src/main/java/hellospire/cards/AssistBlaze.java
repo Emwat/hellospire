@@ -38,7 +38,7 @@ public class AssistBlaze extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Blaze));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Blaze));
 
         if (Settings.FAST_MODE) {
             this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.1F));

@@ -91,22 +91,25 @@ public class SoundLibrary {
     static public final String CuteCouple = makeID("ogg_cutecouple");
     static public final String Big = makeID("ogg_big");
     static public final String Blaze = makeID("ogg_blaze");
+    public static final String Sticks = makeID("ogg_sticks");;
+    public static final String Shadow = makeID("ogg_shadow");;
+    public static final String Rouge = makeID("ogg_rouge");;
+    public static final String Chip = makeID("ogg_chip");
 
 
     static public int randomNumber = -1;
 
 
-    static public final SFXAction PlaySound(String key){
+    static public SFXAction SoundAction(String key){
         if (MyModConfig.enableSound) {
             return new SFXAction(key);
         }
         return new SFXAction(BlankSound);
     }
 
-    static public final SFXAction PlayVoice(String key){
-        int maxVoiceFrequency = 10;
+    static public SFXAction VoiceAction(String key){
         if (MyModConfig.enableVoice) {
-            if (AbstractDungeon.miscRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0){
+            if (isRandomlyTrue()){
                 return new SFXAction(key);
             }
         }
@@ -114,7 +117,7 @@ public class SoundLibrary {
         return new SFXAction(BlankSound);
     }
 
-    static public final SFXAction PlayRandomSound(ArrayList<String> sounds) {
+    static public SFXAction RandomSoundAction(ArrayList<String> sounds) {
         if (!MyModConfig.enableSound) {
             return new SFXAction(BlankSound);
         }
@@ -122,17 +125,21 @@ public class SoundLibrary {
         return new SFXAction(GetRandomClip(sounds));
     }
 
-    static public final SFXAction PlayRandomVoice(ArrayList<String> sounds) {
+    static public SFXAction RandomVoiceAction(ArrayList<String> sounds) {
         if (!MyModConfig.enableVoice) {
             return new SFXAction(BlankSound);
         }
 
-        return new SFXAction(GetRandomClip(sounds));
+        if (isRandomlyTrue()) {
+            return new SFXAction(GetRandomClip(sounds));
+        }
+
+        return new SFXAction(BlankSound);
     }
 
     /// Used for CardCrawlGame.sound.play()
     /// Which I'm guessing is for outside combat (for example: com.megacrit.cardcrawl.events.exordium.ScrapOoze)
-    static public final String GetRandomVoice(ArrayList<String> sounds) {
+    static public String GetRandomVoice(ArrayList<String> sounds) {
         if (!MyModConfig.enableVoice) {
             return BlankSound;
         }
@@ -155,8 +162,13 @@ public class SoundLibrary {
         return sounds.get(randomNumber);
     }
 
-    static public final AbstractGameAction AlwaysPlayVoice(String key) {
+    public static AbstractGameAction AlwaysPlayVoice(String key) {
         return new SFXAction(key);
+    }
+
+    public static boolean isRandomlyTrue(){
+        int maxVoiceFrequency = 10;
+        return AbstractDungeon.miscRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0;
     }
 }
 

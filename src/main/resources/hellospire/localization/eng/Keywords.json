@@ -53,14 +53,6 @@
     "DESCRIPTION": "At the end of combat, you may choose between keeping Assist or the new generated card."
   },
   {
-    "ID": "wordHeavy",
-    "PROPER_NAME": "Heavy",
-    "NAMES": [
-      "heavy"
-    ],
-    "DESCRIPTION": "When you play this card, increase its cost by #b1. Any modifications to cost persist for the rest of combat."
-  },
-  {
     "ID": "wordHotRod",
     "PROPER_NAME": "HotRod",
     "NAMES": [
@@ -111,7 +103,16 @@
     "NAMES": [
       "lsd"
     ],
-    "DESCRIPTION": "Version0.7.2: After you play this card, Rings can heal you and do not count towards the healing cap for the rest of the turn."
+    "DESCRIPTION": "After you play this card, Rings can heal you and do not count towards the healing cap for the rest of the turn."
+  },
+  {
+    "ID": "wordSpinUp",
+    "PROPER_NAME": "Spin Up",
+    "NAMES": [
+      "spin up",
+      "spin_up"
+    ],
+    "DESCRIPTION": "When you play this card, increase its cost by #b1. Any modifications to cost persist for the rest of combat. If randomized, lower the randomized cost by #b1."
   },
   {
     "ID": "wordRing",
@@ -130,5 +131,14 @@
       "tricks"
     ],
     "DESCRIPTION": "You should not see this message."
+  },
+  {
+    "ID": "wordTwoRandomAttacks",
+    "PROPER_NAME": "Two Random Attacks",
+    "NAMES": [
+      "two random attacks",
+      "two_random_attacks"
+    ],
+    "DESCRIPTION": "If you have only one attack in your hand, that card will only get the effect once."
   }
 ]

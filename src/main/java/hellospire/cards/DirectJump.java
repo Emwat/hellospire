@@ -22,6 +22,8 @@ public class DirectJump extends BaseCard {
 
     public DirectJump() {
         super(ID, info);
+        this.cardsToPreview = new Ring();
+
 
     }
 

@@ -1,5 +1,6 @@
 package hellospire.relics;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.CentennialPuzzle;
 import com.megacrit.cardcrawl.relics.HappyFlower;
 import hellospire.SonicMod;
+import hellospire.actions.ModTextInCenterAction;
 import hellospire.character.Sonic;
 
 import static hellospire.SonicMod.makeID;
@@ -55,6 +57,7 @@ public class Player2Relic extends BaseRelic {
         if (cardsPlayed == 1) {
             this.pulse = true;
             this.beginPulse();
+            addToTop(new ModTextInCenterAction("PLAYER 2 IS READY.", Color.WHITE.cpy()));
         }
 
         if (cardsPlayed == 2) {

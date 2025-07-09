@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Dark;
 import hellospire.SonicTags;
+import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -29,6 +31,7 @@ public class Teaser extends BaseCard implements BranchingUpgradesCard {
         this.cardsToPreview = new ClawsUnleashed();
         setMagic(MAGIC);
         tags.add(SonicTags.LIKE_DEFECT);
+        CardModifierManager.addModifier(this, new SpinUpModifier());
     }
 
     @Override

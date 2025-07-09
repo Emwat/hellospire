@@ -5,12 +5,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.purple.CarveReality;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -43,7 +40,7 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlaySound(SoundLibrary.BlueTornado));
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.BlueTornado));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
         if (this.upgraded && !isBranchUpgrade()) {
             addToBot(new ApplyPowerAction(m, p, new DizzyPower(m, customVar(DIZZY_KEYWORD)), customVar(DIZZY_KEYWORD)));

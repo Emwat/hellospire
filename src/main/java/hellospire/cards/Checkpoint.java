@@ -1,11 +1,11 @@
 package hellospire.cards;
 
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -25,13 +25,15 @@ public class Checkpoint extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new SuperSonicForm();
 //        this.cardsToPreview.rarity = CardRarity.RARE;
+        tags.add(BaseModCardTags.FORM);
+
         setExhaust(true);
     }
 
     /// "Apply !M! Vulnerable. NL Add a Ring to your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlaySound(SoundLibrary.StarPost));
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.StarPost));
         this.addToBot(new MakeTempCardInDrawPileAction(
                 this.cardsToPreview.makeStatEquivalentCopy(),
                 1, true, true, false));

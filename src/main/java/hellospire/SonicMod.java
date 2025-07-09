@@ -277,6 +277,10 @@ public class SonicMod implements
         return resourcesFolder + "/audio/eng/" + file;
     }
 
+    public static String vfxPath(String file) {
+        return resourcesFolder + "/images/vfx/" + file;
+    }
+
     /**
      * Checks the expected resources path based on the package name.
      */
@@ -337,15 +341,21 @@ public class SonicMod implements
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
 
-        BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistAmy.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistBarry.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistBig.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistBlaze.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistCream.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistKnuckles.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(AssistTails.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
+
+        // BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistAmy.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistBarry.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistBig.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistBlaze.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistChip.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistCream.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistKnuckles.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistRouge.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistShadow.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistSticks.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistTails.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(Gizoid.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(GizoidAmy.ID, Sonic.Meta.CARD_COLOR);
@@ -367,6 +377,10 @@ public class SonicMod implements
         BaseMod.removeCard(LevelUpFlightPick.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(LevelUpPowerPick.ID, Sonic.Meta.CARD_COLOR);
 
+        BaseMod.removeCard(RelaxPick1.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(RelaxPick2.ID, Sonic.Meta.CARD_COLOR);
+
+        // BaseMod.removeCard(SuperSonicForm.ID, Sonic.Meta.CARD_COLOR);
     }
 
 
@@ -449,8 +463,12 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Amy, audioEngPath("sh_amy_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.Big, audioEngPath("sh_big_myturn.ogg"));
         BaseMod.addAudio(SoundLibrary.Blaze, audioEngPath("sr_blaze_youcantescapeme.ogg"));
+        BaseMod.addAudio(SoundLibrary.Chip, audioEngPath("su_chip_myturnsonic.ogg"));
         BaseMod.addAudio(SoundLibrary.Cream, audioEngPath("sh_cream_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.Knuckles, audioEngPath("sh_knux_gotit.ogg"));
+        BaseMod.addAudio(SoundLibrary.Rouge, audioEngPath("sh_rouge_illtakeitfromhere.ogg"));
+        BaseMod.addAudio(SoundLibrary.Shadow, audioEngPath("sh_shadow_illtakeitfromhere.ogg"));
+        BaseMod.addAudio(SoundLibrary.Sticks, audioEngPath("boom_sticks_imready.ogg"));
         BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
     }
@@ -467,6 +485,8 @@ public class SonicMod implements
     public void receiveOnPlayerTurnStart() {
         attackCardsPlayedThisTurn = 0;
         cardsExhaustedThisTurn = 0;
+        Trick.TricksPlayed = 0;
+        Trick.firstTrickNumber = 0;
     }
 
     @Override
@@ -547,7 +567,7 @@ public class SonicMod implements
         BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
                 MagicHands.ID,
                 Relax.ID,
-                Enerbeam.ID), Sonic.Meta.THE_HEDGEHOG, 1);
+                SlotMachineGame.ID), Sonic.Meta.THE_HEDGEHOG, 1);
     }
 
 //

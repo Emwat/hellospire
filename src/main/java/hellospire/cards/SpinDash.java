@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
@@ -43,6 +44,18 @@ public class SpinDash extends BaseCard {
         }
 
         addToBot(new PlayTopCardAction(m, false));
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (AbstractDungeon.player.drawPile.isEmpty()) {
+            this.glowColor = Color.RED.cpy();
+        }
     }
 
     @Override

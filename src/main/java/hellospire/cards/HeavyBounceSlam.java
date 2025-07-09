@@ -1,5 +1,7 @@
 package hellospire.cards;
 
+import basemod.helpers.CardModifierManager;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
@@ -10,8 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
-import hellospire.actions.HeavyIncrementAction;
-import hellospire.actions.HeavyKeepCostAction;
+import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -34,41 +35,45 @@ public class HeavyBounceSlam extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         this.returnToHand = true;
-        tags.add(SonicTags.HEAVY);
         tags.add(SonicTags.LIKE_IRONCLAD);
+        CardModifierManager.addModifier(this, new SpinUpModifier());
+
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HeavyIncrementAction(this));
+        SonicMod.logger.info(this.name + " damage is " + this.damage);
+        // addToBot(new HeavyIncrementAction(this);
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
                 damage < 11 ? AbstractGameAction.AttackEffect.BLUNT_LIGHT : AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        addToBot(new ModifyDamageAction(this.uuid, this.damage));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                timesPlayed++;
-                if (timesPlayed == 1){
-                    loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
-                } else if (timesPlayed == 2){
-                    loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam2.png"));
-                } else {
-                    loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam.png"));
-                }
+        addToBot(new ModifyDamageAction(this.uuid, this.baseDamage));
+        if (!Loader.isModLoaded("PrideMod")){
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    timesPlayed++;
+                    if (timesPlayed == 1){
+                        loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
+                    } else if (timesPlayed == 2){
+                        loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam2.png"));
+                    } else {
+                        loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam.png"));
+                    }
 
-                if (damage > 30) {
-                    addToBot(SoundLibrary.PlayVoice(SoundLibrary.SmallAllRight));
-                }
+                    if (damage > 30) {
+                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.SmallAllRight));
+                    }
 
-                this.isDone = true;
-            }
-        });
+                    this.isDone = true;
+                }
+            });
+        }
     }
 
-    @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
-        addToBot(new HeavyKeepCostAction(this));
-    }
+    // @Override
+    // public void triggerOnOtherCardPlayed(AbstractCard c) {
+    //     addToBot(new HeavyKeepCostAction(this));
+    // }
 
 //    @Override
 //    public void updateCost(int amt) {

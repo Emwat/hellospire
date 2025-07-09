@@ -28,7 +28,7 @@ public class AssistTails extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.Tails));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Tails));
         addToBot(new IncreaseMaxOrbAction(1));
         if (this.upgraded) {
             addToBot(new ChannelAction(new Lightning()));

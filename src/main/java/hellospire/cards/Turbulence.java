@@ -1,18 +1,14 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.BiasedCognition;
-import com.megacrit.cardcrawl.cards.green.WraithForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
-import hellospire.powers.LoseFocusPower;
 import hellospire.powers.TurbulencePower;
 import hellospire.util.CardStats;
 
@@ -39,7 +35,7 @@ public class Turbulence extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.OmochaoTurbulence));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoTurbulence));
         addToBot(new ApplyPowerAction(p, p, new FocusPower(p, -magicNumber), -magicNumber));
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, 1), 1));
         if (this.upgraded) {

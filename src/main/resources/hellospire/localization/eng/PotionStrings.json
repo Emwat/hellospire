@@ -16,11 +16,25 @@
       "Choose 1 of 3 random Assist cards to add 2 copies to your hand. It costs 0 this turn."
     ]
   },
+  "${modID}:ChaosSodaPotion": {
+    "NAME": "Chaos Soda",
+    "DESCRIPTIONS": [
+      "Exhaust up to #b1 card. Add #b1 #yTrick+ that costs #b0 to your hand. Gain #b1 Orb slot. Enter #yCalm.",
+      "Exhaust up to #b2 cards. Add #b2 #yTricks+ that costs #b0 to your hand. Gain #b2 Orb slots. Enter #yCalm."
+    ]
+  },
   "${modID}:PowerCorePotion": {
     "NAME": "Power Core",
     "DESCRIPTIONS": [
-      "Add a Ring to your hand and choose between Level Up Speed, Level Up Flight, and Level Up Power.",
-      "Add a Ring to your hand and choose between Level Up Speed, Level Up Flight, and Level Up Power. Repeat."
+      "Add a #yRing to your hand and choose between #yLevel #yUp #ySpeed, #yFlight, and #yPower.",
+      "Add a #yRing to your hand and choose between #yLevel #yUp #ySpeed, #yFlight, and #yPower. Repeat."
+    ]
+  },
+  "${modID}:SlowPotion": {
+    "NAME": "Ice Cannon",
+    "DESCRIPTIONS": [
+      "Apply #ySlow to ALL enemies.",
+      "Apply #ySlow to ALL enemies twice."
     ]
   }
 }

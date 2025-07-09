@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.FocusPower;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.ThunderShieldPower;
@@ -24,13 +23,14 @@ public class ThunderShield extends BaseCard {
 
     public ThunderShield() {
         super(ID, info);
+        this.cardsToPreview = new Ring();
 
         setMagic(MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.PlaySound(SoundLibrary.LightningShield));
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.LightningShield));
         addToBot(new ApplyPowerAction(p, p, new ThunderShieldPower(p, magicNumber)));
     }
 

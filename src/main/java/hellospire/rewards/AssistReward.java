@@ -24,6 +24,11 @@ public class AssistReward extends CustomReward {
     private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("AssistMessage")).TEXT;
 //    private static final Texture ICON = new Texture(Gdx.files.internal("[pathtotexturefile]"));
 
+    // TEXT is [
+      // "Lose",
+      // "Get"
+    // ]
+
     public AbstractCard assist;
     public UUID uuid;
     public AbstractCard transformedAssist;

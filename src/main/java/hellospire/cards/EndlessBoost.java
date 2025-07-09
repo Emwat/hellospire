@@ -11,9 +11,6 @@ import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class EndlessBoost extends BaseCard {
     public static final String ID = makeID("EndlessBoost");
     private static final CardStats info = new CardStats(
@@ -42,7 +39,7 @@ public class EndlessBoost extends BaseCard {
 //                SoundLibrary.CatchMeIfYouCan,
 //                SoundLibrary.NeverUnderestimate
 //        ))));
-        addToBot(SoundLibrary.PlayVoice(SoundLibrary.NeverUnderestimate));
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.NeverUnderestimate));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new BerserkPower(p, 1)));
     }
