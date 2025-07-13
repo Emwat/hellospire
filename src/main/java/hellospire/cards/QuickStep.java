@@ -24,7 +24,7 @@ public class QuickStep extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 5;
     private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 1;
 
@@ -77,7 +77,7 @@ public class QuickStep extends BaseCard {
             return;
         }
 
-        if (CheckIfRightCard(this, AbstractDungeon.player.hand) && HasNonEmptyOrb()) {
+        if (CheckIfRightCard(this, AbstractDungeon.player.hand) && HasChanneledOrb()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

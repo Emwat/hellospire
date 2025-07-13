@@ -55,7 +55,7 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
     public void onCreateCard(AbstractCard abstractCard) {
         boolean possible = abstractCard.cost > 0;
 
-        if (!possible) {
+        if (!possible || abstractCard.freeToPlay()) {
             return;
         }
 

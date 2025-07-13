@@ -1,6 +1,7 @@
 package hellospire.powers;
 
 import basemod.BaseMod;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -12,8 +13,11 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.exordium.GremlinThief;
+import hellospire.MyModConfig;
 import hellospire.SoundLibrary;
 import hellospire.actions.AMAZINGEffect;
+import hellospire.actions.ModTextInCenterAction;
 
 import static hellospire.SonicMod.makeID;
 
@@ -67,15 +71,20 @@ public class AMAZINGPower extends BasePower {
 //        if (this.amount == 2){
 //            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing3));
 //        }
+        if (this.amount == 2){
+            addToTop(new ModTextInCenterAction("Great!", Color.WHITE.cpy()));
+        }
 
         if (this.amount == 1){
-            addToTop(new TextAboveCreatureAction(owner, "OUTSTANDING!"));
+            addToTop(new ModTextInCenterAction("OUTSTANDING!", Color.WHITE.cpy()));
             addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing2));
         }
 
         if (this.amount == 0) {
             this.flash();
-            addToTop(new VFXAction(new AMAZINGEffect("amazing")));
+            if (MyModConfig.enableTextPopUps) {
+                addToTop(new VFXAction(new AMAZINGEffect("amazing")));
+            }
             // addToTop(new TextAboveCreatureAction(owner, "AMAZING!"));
             addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing1));
             this.amount = CARD_AMT;
@@ -93,6 +102,7 @@ public class AMAZINGPower extends BasePower {
     public void atStartOfTurn() {
         this.amount = CARD_AMT;
         this.updateDescription();
+        addToTop(new ModTextInCenterAction("Good!", Color.WHITE.cpy()));
     }
 
     static {

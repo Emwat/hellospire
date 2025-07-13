@@ -1,6 +1,7 @@
 package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
@@ -73,7 +74,38 @@ public class Relax extends BaseCard {
         }
     }
 
-    private boolean WrathCondition(AbstractPlayer p){
+    @Override
+    public void triggerWhenDrawn() {
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if (WrathCondition(AbstractDungeon.player)) {
+                    loadCardImage(imageSkillPath("RelaxPick2.png"));
+                } else {
+                    loadCardImage(imageSkillPath("Relax.png"));
+                }
+                this.isDone = true;
+            }
+        });
+    }
+
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if (WrathCondition(AbstractDungeon.player)) {
+                    loadCardImage(imageSkillPath("RelaxPick2.png"));
+                } else {
+                    loadCardImage(imageSkillPath("Relax.png"));
+                }
+                this.isDone = true;
+            }
+        });
+        super.triggerOnOtherCardPlayed(c);
+    }
+
+    private boolean WrathCondition(AbstractPlayer p) {
         return CheckIfLeftCard(this, p.hand) || CheckIfRightCard(this, p.hand);
     }
 

@@ -4,6 +4,7 @@ package hellospire.actions;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -24,6 +25,8 @@ import hellospire.SoundLibrary;
 public class YESSSAction extends AbstractGameAction {
     private DamageInfo info;
     private float pitchVar = 0.0F;
+    private boolean skipWait;
+
 
     public YESSSAction(AbstractCreature target, DamageInfo info, AttackEffect attackEffect) {
         this.info = info;
@@ -31,6 +34,7 @@ public class YESSSAction extends AbstractGameAction {
         this.attackEffect = attackEffect;
         this.actionType = ActionType.DAMAGE;
         this.duration = Settings.ACTION_DUR_MED;
+        this.skipWait = false;
 
     }
 
@@ -47,7 +51,13 @@ public class YESSSAction extends AbstractGameAction {
                 if (MyModConfig.enableVoice) {
                     CardCrawlGame.sound.play(SoundLibrary.YESSS, this.pitchVar);
                 }
+            }
+            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                AbstractDungeon.actionManager.clearPostCombatActions();
+            }
 
+            if (!this.skipWait && !Settings.FAST_MODE) {
+                this.addToTop(new WaitAction(0.1F));
             }
         }
         this.isDone = true;

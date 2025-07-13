@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
 import hellospire.actions.RandomizeCostAction;
@@ -40,11 +41,11 @@ public class Windmill extends BaseCard {
 
         addToBot(new SelectCardsInHandAction(
                 1,
-                "Windmill: Select a card and randomize its cost for the rest of combat.",
+                CardCrawlGame.languagePack.getUIString(makeID("WindmillMessage")).TEXT[0],
                 false, false, pickableCards, cards -> {
             for (AbstractCard c : cards) {
                 int oldCost = c.costForTurn;
-                addToBot(new RandomizeCostAction((BaseCard) c));
+                addToBot(new RandomizeCostAction(c));
                 addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {

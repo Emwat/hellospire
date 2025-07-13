@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
@@ -49,13 +50,10 @@ public class Ring extends BaseCard {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Ring));
         RingPower ringPower = (RingPower) p.getPower(makeID("RingPower"));
 
-        if (RingPower.getAmountHealed() < RingPower.getMaxAmountHealed()) {
-            int healAmount = RingPower.calculateAmountToHeal(magicNumber);
-            addToBot(new HealAction(p, p, healAmount));
-            RingPower.incrementAmountHealed(healAmount);
-            ringPower.updateDescription();
+        if (RingPower.isLightSpeedDashing) {
+            addToBot(new HealAction(p, p, magicNumber));
         } else {
-            addToBot(new TalkAction(true, "These Rings won't heal anymore this combat.", 3f, 3f));
+            addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         }
 
         if (p.hasPower(makeID("SuperSonicPower"))) {

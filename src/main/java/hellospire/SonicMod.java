@@ -3,22 +3,26 @@ package hellospire;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomUnlockBundle;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.cards.*;
 import hellospire.character.Sonic;
-//import hellospire.ui.FlagDropDown;
+// import hellospire.ui.FlagDropDown;
+import hellospire.events.RougeEvent;
 import hellospire.potions.BasePotion;
-import hellospire.powers.RingPower;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
@@ -57,15 +61,14 @@ public class SonicMod implements
         EditKeywordsSubscriber,
         OnCardUseSubscriber,
         OnPlayerTurnStartSubscriber,
-        OnStartBattleSubscriber,
         PostExhaustSubscriber,
         PostBattleSubscriber,
         PostDeathSubscriber,
         SetUnlocksSubscriber,
         PostInitializeSubscriber {
     public static ModInfo info;
-    public static String modID; //Edit your pom.xml to change this
-    public static SpireConfig modConfig = null; //Used for implementing dropdown?? 05/26/2025 11:32 AM
+    public static String modID; // Edit your pom.xml to change this
+    public static SpireConfig modConfig = null; // Used for implementing dropdown?? 05/26/2025 11:32 AM
 
 
     static {
@@ -73,22 +76,22 @@ public class SonicMod implements
     }
 
     private static final String resourcesFolder = checkResourcesPath();
-    public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
+    public static final Logger logger = LogManager.getLogger(modID); // Used to output to the console.
 
-    //This is used to prefix the IDs of various objects like cards and relics,
-    //to avoid conflicts between different mods using the same name for things.
+    // This is used to prefix the IDs of various objects like cards and relics,
+    // to avoid conflicts between different mods using the same name for things.
     public static String makeID(String id) {
         return modID + ":" + id;
     }
 
-    //This will be called by ModTheSpire because of the @SpireInitializer annotation at the top of the class.
+    // This will be called by ModTheSpire because of the @SpireInitializer annotation at the top of the class.
     public static void initialize() {
         new SonicMod();
         Sonic.Meta.registerColor();
     }
 
     public SonicMod() {
-        BaseMod.subscribe(this); //This will make BaseMod trigger all the subscribers at their appropriate times.
+        BaseMod.subscribe(this); // This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
     }
 
@@ -119,20 +122,20 @@ public class SonicMod implements
             @Override
             public boolean test(AbstractCard card) {
                 return card instanceof CrestOfFireCard && ((CrestOfFireCard) card).willBurnPlayer(card);
-                //return true if "card" follows this rule, else return false
+                // return true if "card" follows this rule, else return false
             }
 
             @Override
             public Color getColor(AbstractCard card) {
                 return CrestOfFireCard.CREST_OF_FIRE_BURN_GLOW_COLOR.cpy();
-                //return an instance of Color to be used as the color. e.g. Color.WHITE.cpy().
+                // return an instance of Color to be used as the color. e.g. Color.WHITE.cpy().
             }
 
             @Override
             public String glowID() {
                 return makeID("CrestOfFireBurnGlow");
-                //return a string to be used as a unique ID for this glow.
-                //It's recommended to follow the usual modding convention of "modname:name"
+                // return a string to be used as a unique ID for this glow.
+                // It's recommended to follow the usual modding convention of "modname:name"
             }
         });
 
@@ -140,30 +143,40 @@ public class SonicMod implements
                 RewardTypePatch.ASSIST_LOCKIN,
                 (rewardSave) -> { // this handles what to do when this quest type is loaded.
                     // I don't understand this code at all.
-                    return new AssistReward(null, null, null);
+                    return AssistReward.Constructor2(rewardSave.type, rewardSave.id, 0, rewardSave.bonusGold);
                 },
                 (customReward) -> { // this handles what to do when this quest type is saved.
-                    return new RewardSave(customReward.type.toString(), null, 0, 0);
+                    AssistReward a = (AssistReward)customReward;
+
+                    return new RewardSave(customReward.type.toString(), a.transformedAssist.cardID, 0, a.isAssistUpgraded ? 1 : 0);
                 });
 
         registerPotions();
+
+        // BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
+        //         .dungeonID(TheCity.ID)
+        //         .playerClass(Sonic.Meta.THE_HEDGEHOG)
+        //         .eventType(EventUtils.EventType.NORMAL)
+        //         .create()
+        // );
+
     }
 
     private void registerPotions() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BasePotion.class) //In the same package as this class
-                .any(BasePotion.class, (info, potion) -> { //Run this code for any classes that extend this class
-                    //These three null parameters are colors.
-                    //If they're not null, they'll overwrite whatever color is set in the potions themselves.
-                    //This is an old feature added before having potions determine their own color was possible.
+        new AutoAdd(modID) // Loads files from this mod
+                .packageFilter(BasePotion.class) // In the same package as this class
+                .any(BasePotion.class, (info, potion) -> { // Run this code for any classes that extend this class
+                    // These three null parameters are colors.
+                    // If they're not null, they'll overwrite whatever color is set in the potions themselves.
+                    // This is an old feature added before having potions determine their own color was possible.
                     BaseMod.addPotion(potion.getClass(), null, null, null, potion.ID, potion.playerClass);
-                    //playerClass will make a potion character-specific. By default, it's null and will do nothing.
+                    // playerClass will make a potion character-specific. By default, it's null and will do nothing.
                 });
     }
 
     /*----------Localization----------*/
 
-    //This is used to load the appropriate localization files based on language.
+    // This is used to load the appropriate localization files based on language.
     private static String getLangString() {
         return Settings.language.name().toLowerCase();
     }
@@ -180,7 +193,7 @@ public class SonicMod implements
             This results in the default localization being used for anything that might be missing.
             The same process is used to load keywords slightly below.
         */
-        loadLocalization(defaultLanguage); //no exception catching for default localization; you better have at least one that works.
+        loadLocalization(defaultLanguage); // no exception catching for default localization; you better have at least one that works.
         if (!defaultLanguage.equals(getLangString())) {
             try {
                 loadLocalization(getLangString());
@@ -191,8 +204,8 @@ public class SonicMod implements
     }
 
     private void loadLocalization(String lang) {
-        //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
-        //Feel free to comment out/delete any that you don't end up using.
+        // While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
+        // Feel free to comment out/delete any that you don't end up using.
         BaseMod.loadCustomStringsFile(CardStrings.class,
                 localizationPath(lang, "CardStrings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
@@ -244,7 +257,7 @@ public class SonicMod implements
         }
     }
 
-    //These methods are used to generate the correct filepaths to various parts of the resources folder.
+    // These methods are used to generate the correct filepaths to various parts of the resources folder.
     public static String localizationPath(String lang, String file) {
         return resourcesFolder + "/localization/" + lang + "/" + file;
     }
@@ -285,7 +298,7 @@ public class SonicMod implements
      * Checks the expected resources path based on the package name.
      */
     private static String checkResourcesPath() {
-        String name = SonicMod.class.getName(); //getPackage can be iffy with patching, so class name is used instead.
+        String name = SonicMod.class.getName(); // getPackage can be iffy with patching, so class name is used instead.
         int separator = name.indexOf('.');
         if (separator > 0)
             name = name.substring(0, separator);
@@ -336,12 +349,11 @@ public class SonicMod implements
 
     @Override
     public void receiveEditCards() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseCard.class) //In the same package as this class
-                .setDefaultSeen(true) //And marks them as seen in the compendium
-                .cards(); //Adds the cards
+        new AutoAdd(modID) // Loads files from this mod
+                .packageFilter(BaseCard.class) // In the same package as this class
+                .setDefaultSeen(false) // And marks them as seen in the compendium
+                .cards(); // Adds the cards
 
-        BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
 
         // BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(AssistAmy.ID, Sonic.Meta.CARD_COLOR);
@@ -379,6 +391,14 @@ public class SonicMod implements
 
         BaseMod.removeCard(RelaxPick1.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(RelaxPick2.ID, Sonic.Meta.CARD_COLOR);
+
+        BaseMod.removeCard(Acceleration.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Bait.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Piping.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
 
         // BaseMod.removeCard(SuperSonicForm.ID, Sonic.Meta.CARD_COLOR);
     }
@@ -499,7 +519,7 @@ public class SonicMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
-        // SuperSonicForm.CardRarity = AbstractCard.CardRarity.SPECIAL;
+        SonicMod.logger.info("receivePostBattle");
 
         if (!(AbstractDungeon.player instanceof Sonic)) {
             return;
@@ -538,22 +558,17 @@ public class SonicMod implements
     }
 
     @Override
-    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
-        RingPower.resetAmountHealed();
-    }
-
-    @Override
     public void receiveEditRelics() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseRelic.class) //In the same package as this class
-                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+        new AutoAdd(modID) // Loads files from this mod
+                .packageFilter(BaseRelic.class) // In the same package as this class
+                .any(BaseRelic.class, (info, relic) -> { // Run this code for any classes that extend this class
                     if (relic.pool != null)
-                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                        BaseMod.addRelicToCustomPool(relic, relic.pool); // Register a custom character specific relic
                     else
-                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
+                        BaseMod.addRelic(relic, relic.relicType); // Register a shared or base game character specific relic
 
-                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
-                    //If you want all your relics to be visible by default, just remove this if statement.
+                    // If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
+                    // If you want all your relics to be visible by default, just remove this if statement.
 //                    if (info.seen)
                     UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
@@ -561,10 +576,33 @@ public class SonicMod implements
 
     @Override
     public void receiveSetUnlocks() {
+        // UnlockTracker.markCardAsSeen(AssistAmy.ID);
+        // UnlockTracker.markCardAsSeen(AssistBarry.ID);
+        // UnlockTracker.markCardAsSeen(AssistBig.ID);
+        // UnlockTracker.markCardAsSeen(AssistBlaze.ID);
+        // UnlockTracker.markCardAsSeen(AssistChip.ID);
+        // UnlockTracker.markCardAsSeen(AssistCream.ID);
+        // UnlockTracker.markCardAsSeen(AssistKnuckles.ID);
+        // UnlockTracker.markCardAsSeen(AssistRosy.ID);
+        // UnlockTracker.markCardAsSeen(AssistRouge.ID);
+        // UnlockTracker.markCardAsSeen(AssistShadow.ID);
+        // UnlockTracker.markCardAsSeen(AssistSticks.ID);
+        // UnlockTracker.markCardAsSeen(AssistTails.ID);
+        // UnlockTracker.markCardAsSeen(AssistTikal.ID);
+
+        UnlockTracker.addCard(FireTackle.ID);
+        UnlockTracker.addCard(FireSomersault.ID);
+        UnlockTracker.addCard(VolcanoSlider.ID);
+
         BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
                 FireTackle.ID,
                 FireSomersault.ID,
                 VolcanoSlider.ID), Sonic.Meta.THE_HEDGEHOG, 0);
+
+        UnlockTracker.addCard(MagicHands.ID);
+        UnlockTracker.addCard(Relax.ID);
+        UnlockTracker.addCard(SlotMachineGame.ID);
+
         BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
                 MagicHands.ID,
                 Relax.ID,

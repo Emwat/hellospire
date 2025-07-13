@@ -30,12 +30,12 @@ public class SpinUpModifier extends AbstractCardModifier {
 
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        addToTop(new HeavyIncrementAction((BaseCard)card));
+        addToTop(new HeavyIncrementAction(card));
     }
 
     @Override
     public void onOtherCardPlayed(AbstractCard card, AbstractCard otherCard, CardGroup group) {
-        addToBot(new HeavyKeepCostAction((BaseCard)card));
+        addToBot(new HeavyKeepCostAction(card));
     }
 
     @Override

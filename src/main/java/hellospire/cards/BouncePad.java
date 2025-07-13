@@ -24,16 +24,14 @@ public class BouncePad extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 1;
+    private static final int BLOCK = 5;
+    private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 
-
     public BouncePad() {
         super(ID, info);
-        MultiCardPreview.add(this, new Ring(), new Trick());
-        // this.cardsToPreview = new Ring();
+        this.cardsToPreview = new Ring();
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
@@ -41,20 +39,9 @@ public class BouncePad extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> picks = new ArrayList<AbstractCard>(Arrays.asList(
-                new BouncePadPick1(),
-                new BouncePadPick2()
-        ));
-
-        if (this.upgraded) {
-            for (AbstractCard c : picks) {
-                c.upgrade();
-            }
-        }
-
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Spring));
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ChooseOneAction(picks));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
     }
 
     @Override

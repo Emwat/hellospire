@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Assist extends BaseCard {
-    public static final String ID = makeID("AssistBlaze");
+    public static final String ID = makeID("Assist");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -39,6 +39,7 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistRosy());
         characterCards.add(new AssistRouge());
         characterCards.add(new AssistShadow());
+        // characterCards.add(new AssistSilver());
         characterCards.add(new AssistSticks());
         characterCards.add(new AssistTails());
         characterCards.add(new AssistTikal());
@@ -61,7 +62,7 @@ public class Assist extends BaseCard {
 
 
         addToBot(new MakeTempCardInHandAction(randomCard, true));
-        AbstractDungeon.getCurrRoom().rewards.add(new AssistReward(this, this.uuid, randomCard));
+        AbstractDungeon.getCurrRoom().rewards.add(new AssistReward(this, this.uuid, randomCard, this.upgraded));
     }
 
     @Override

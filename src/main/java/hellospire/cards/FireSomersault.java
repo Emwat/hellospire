@@ -1,5 +1,7 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -7,10 +9,13 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+import hellospire.util.ExtraIcons;
+import hellospire.util.TextureLoader;
 
 public class FireSomersault extends BaseCard implements CrestOfFireCard {
     public static final String ID = makeID("FireSomersault");
@@ -26,6 +31,7 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
     private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
+    private final Texture fireIcon = TextureLoader.getTexture(SonicMod.imagePath("ui/fireIcon.png"));
 
     public FireSomersault() {
         this(0);
@@ -43,7 +49,7 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.timesUpgraded > CREST_OF_FIRE_MARK){
+        if (this.timesUpgraded > CREST_OF_FIRE_MARK) {
             int self_damage = timesUpgraded - CREST_OF_FIRE_MARK;
             addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         }
@@ -52,8 +58,8 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
     }
 
     public void upgrade() {
-        if (canUpgrade()){
-//            this.upgradeDamage(UPG_DAMAGE);
+        if (canUpgrade()) {
+            this.upgradeDamage(UPG_DAMAGE);
             this.upgradeMagicNumber(UPG_MAGIC);
             ++this.timesUpgraded;
             this.upgraded = true;
@@ -82,6 +88,19 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
 
         if (this.willBurnPlayer(this)) {
             this.glowColor = CrestOfFireCard.CREST_OF_FIRE_BURN_GLOW_COLOR.cpy();
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (this.timesUpgraded > 7) {
+            ExtraIcons.icon(fireIcon)
+                    .text(String.valueOf(timesUpgraded - 7))
+                    .textColor(Color.ORANGE.cpy())
+                    .textOffsetY(-30f)
+                    .drawColor(new Color(1, 1, 1, this.transparency))
+                    .render(this);
         }
     }
 

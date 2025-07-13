@@ -5,7 +5,7 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.SonicMod;
 import hellospire.util.CardStats;
@@ -737,12 +737,12 @@ public abstract class BaseCard extends CustomCard {
 
     public Predicate<AbstractCard> pickableCards = card -> card.costForTurn > -1;
 
-    public void setCostForCombat(int newCost) {
-        if (this.cost == -1 || this.cost == -2) {
+    static public void setCostForCombat(AbstractCard card, int newCost) {
+        if (card.cost == -1 || card.cost == -2) {
             return;
         }
-        this.cost = newCost;
-        this.costForTurn = newCost;
+        card.cost = newCost;
+        card.costForTurn = newCost;
     }
 
     public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
@@ -787,8 +787,13 @@ public abstract class BaseCard extends CustomCard {
         return true;
     }
 
-    public boolean HasNonEmptyOrb(){
-        return !"Orb Slot".equals(AbstractDungeon.player.orbs.get(0).name);
+
+    public boolean HasChanneledOrb(){
+        if (AbstractDungeon.player.orbs.isEmpty()) {
+            return false;
+        }
+
+        return !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot);
     }
 
     public String imageSkillPath(String filename) {

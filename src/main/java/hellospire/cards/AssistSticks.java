@@ -47,7 +47,7 @@ public class AssistSticks extends BaseCard {
     private void modifyStrikesAndDefends(CardGroup cardGroup) {
         for (AbstractCard card : cardGroup.group) {
             if (card.hasTag(CardTags.STARTER_STRIKE) || card.hasTag(CardTags.STARTER_DEFEND)) {
-                ((BaseCard)card).setCostForCombat(0);
+                BaseCard.setCostForCombat(card, 0);
                 CardModifierManager.addModifier(card, new SpinUpModifier());
                 if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                     card.flash();

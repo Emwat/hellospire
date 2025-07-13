@@ -41,7 +41,7 @@ public class AssistTikal extends BaseCard {
 
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!m.isDeadOrEscaped() && m.getIntentBaseDmg() >= 0) {
-                this.glowColor = Color.RED.cpy();
+                this.glowColor = Color.PINK.cpy();
                 break;
             }
         }

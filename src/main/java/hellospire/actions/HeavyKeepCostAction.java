@@ -8,21 +8,21 @@ import hellospire.SonicMod;
 import hellospire.cards.BaseCard;
 
 public class HeavyKeepCostAction extends AbstractGameAction {
-    private BaseCard card;
+    private AbstractCard card;
 
     // Testing methods:
     // Playing the card and then check discard pile
     // Playing Speed Break and then playing the card
     // Playing Speed Break and not playing the card. Let the turn end, check the discard pile
 
-    public HeavyKeepCostAction(BaseCard card) {
+    public HeavyKeepCostAction(AbstractCard card) {
         this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_XFAST;
     }
 
     public void update() {
-        card.setCostForCombat(card.costForTurn);
+        BaseCard.setCostForCombat(card, card.costForTurn);
         this.isDone = true;
     }
 }

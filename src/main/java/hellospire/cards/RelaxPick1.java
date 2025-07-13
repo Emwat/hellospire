@@ -11,7 +11,7 @@ import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class RelaxPick1 extends BaseCard {
-    public static final String ID = makeID("Relax");
+    public static final String ID = makeID("RelaxPick1");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,

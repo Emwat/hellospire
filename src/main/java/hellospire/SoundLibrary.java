@@ -3,6 +3,7 @@ package hellospire;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import hellospire.character.Sonic;
 
 import java.util.ArrayList;
 
@@ -108,6 +109,10 @@ public class SoundLibrary {
     }
 
     static public SFXAction VoiceAction(String key){
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return new SFXAction(BlankSound);
+        }
+
         if (MyModConfig.enableVoice) {
             if (isRandomlyTrue()){
                 return new SFXAction(key);
@@ -125,13 +130,13 @@ public class SoundLibrary {
         return new SFXAction(GetRandomClip(sounds));
     }
 
-    static public SFXAction RandomVoiceAction(ArrayList<String> sounds) {
+    static public SFXAction RandomVoiceAction(ArrayList<String> voices) {
         if (!MyModConfig.enableVoice) {
             return new SFXAction(BlankSound);
         }
 
         if (isRandomlyTrue()) {
-            return new SFXAction(GetRandomClip(sounds));
+            return new SFXAction(GetRandomClip(voices));
         }
 
         return new SFXAction(BlankSound);
@@ -140,6 +145,10 @@ public class SoundLibrary {
     /// Used for CardCrawlGame.sound.play()
     /// Which I'm guessing is for outside combat (for example: com.megacrit.cardcrawl.events.exordium.ScrapOoze)
     static public String GetRandomVoice(ArrayList<String> sounds) {
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return BlankSound;
+        }
+
         if (!MyModConfig.enableVoice) {
             return BlankSound;
         }

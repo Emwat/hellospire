@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
 import hellospire.actions.HeavyIncrementAction;
@@ -36,7 +37,7 @@ public class MagicHands extends BaseCard {
         if (this.upgraded) {
             addToBot(new ChangeStanceAction("Calm"));
         }
-        addToBot(new SelectCardsInHandAction(1, "Retain. If the Selected Card is exhausted, enter Wrath.",
+        addToBot(new SelectCardsInHandAction(1, CardCrawlGame.languagePack.getUIString(makeID("MagicHandsMessage")).TEXT[0],
                 false, false, filter -> !filter.tags.contains(SonicTags.DO_NOT_THROW), cards -> {
             if (cards.isEmpty()) {
                 return;

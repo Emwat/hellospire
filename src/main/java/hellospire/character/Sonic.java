@@ -10,7 +10,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.characters.Ironclad;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -21,13 +20,12 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import hellospire.MyModConfig;
-import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.cards.Defend;
 import hellospire.cards.HomingAttack;
 import hellospire.cards.Strike;
-import hellospire.relics.EmblemRelic;
-import hellospire.relics.RingKeeperRelic;
+import hellospire.relics.BlueQuillRelic;
+import hellospire.relics.ClassicModeRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -193,9 +191,12 @@ public class Sonic extends CustomPlayer {
         // IDs of starting relics. You can have multiple, but one is recommended.
         // retVal.add(BurningBlood.ID);
         // retVal.add(SnakeRing.ID);
+        if (MyModConfig.enableClassicMode) {
+            retVal.add(ClassicModeRelic.ID);
+        }
+
         if (MyModConfig.optionStarterRelic == 0) {
-            retVal.add(RingKeeperRelic.ID);
-            retVal.add(EmblemRelic.ID);
+            retVal.add(BlueQuillRelic.ID);
         } else if (MyModConfig.optionStarterRelic == 1) {
             retVal.add(BurningBlood.ID);
         } else if (MyModConfig.optionStarterRelic == 2) {
@@ -207,20 +208,17 @@ public class Sonic extends CustomPlayer {
         } else if (MyModConfig.optionStarterRelic == 5) {
             retVal.add(SneckoEye.ID);
         } else if (MyModConfig.optionStarterRelic == 6) {
-            String relic = GetRelic(AbstractDungeon.miscRng.random(0, 5));
+            String relic = GetOptionRelic(AbstractDungeon.miscRng.random(0, 5));
             retVal.add(relic);
-            if (RingKeeperRelic.ID.equals(relic)) {
-                retVal.add(EmblemRelic.ID);
-            }
         }
         logger.info("startingRelic " + retVal.size());
 
         return retVal;
     }
 
-    private String GetRelic(int option){
+    private String GetOptionRelic(int option) {
         if (option == 0) {
-            return RingKeeperRelic.ID;
+            return BlueQuillRelic.ID;
         } else if (option == 1) {
             return BurningBlood.ID;
         } else if (option == 2) {
@@ -349,9 +347,9 @@ public class Sonic extends CustomPlayer {
     public List<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
 
-        panels.add(new CutscenePanel(endingPath("EndingSlice_4.png")));
-        panels.add(new CutscenePanel(endingPath("EndingSlice_5.png")));
-        panels.add(new CutscenePanel(endingPath("EndingSlice_6.png")));
+        panels.add(new CutscenePanel(endingPath("endingDefect1.png")));
+        panels.add(new CutscenePanel(endingPath("endingDefect2.png")));
+        panels.add(new CutscenePanel(endingPath("endingDefect3.png")));
         return panels;
     }
 

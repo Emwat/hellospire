@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -34,7 +35,7 @@ public class AssistAmy extends BaseCard {
                 SoundLibrary.Amy,
                 SoundLibrary.CuteCouple
         ))));
-        addToBot(new SelectCardsInHandAction("to cost 0 for the rest of combat.", cards -> {
+        addToBot(new SelectCardsInHandAction(CardCrawlGame.languagePack.getUIString(makeID("AssistAmyMessage")).TEXT[0], cards -> {
             if (cards.isEmpty()) {
                 return;
             }

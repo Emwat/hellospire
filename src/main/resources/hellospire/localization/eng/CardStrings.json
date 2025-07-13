@@ -122,8 +122,8 @@
   },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn, your first move will play twice. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, your first move will play twice."
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, your first card will play twice. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, your first card will play twice."
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
@@ -139,7 +139,7 @@
   },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} or add !M! [#efc851ff]Trick{!M!|>1=s} to your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand."
   },
   "${modID}:BouncePadPick1": {
     "NAME": "Get Ring",
@@ -311,8 +311,7 @@
   },
   "${modID}:GrindRail": {
     "NAME": "Grind Rail",
-    "DESCRIPTION": "Lowers the cost of adjacent cards by 1 for this turn.",
-    "UPGRADE_DESCRIPTION": "Lowers the cost of 2 cards for this turn."
+    "DESCRIPTION": "Lowers the cost of adjacent cards by !M! for this turn."
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
@@ -323,11 +322,11 @@
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Add a [#efc851ff]Ring and a [#efc851ff]Trick to your hand. NL Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Add 2 [#efc851ff]Rings and a [#efc851ff]Trick to your hand. NL Deal !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. Add a [#efc851ff]Ring and a [#efc851ff]Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add 2 [#efc851ff]Rings and a [#efc851ff]Trick to your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Add a [#efc851ff]Ring and 2 [#efc851ff]Tricks to your hand. NL Deal !D! damage. ",
-      "Add 2 [#efc851ff]Rings and a [#efc851ff]Trick to your hand. NL Deal !D! damage. "
+      "Deal !D! damage. NL Add a [#efc851ff]Ring and 2 [#efc851ff]Tricks to your hand.",
+      "Deal !D! damage. NL Add 2 [#efc851ff]Rings and a [#efc851ff]Trick to your hand."
     ]
   },
   "${modID}:HorseKick": {
@@ -339,9 +338,9 @@
     "DESCRIPTION": "After this card is drawn, this card's effects change based on how many cards you've played this turn.",
     "EXTENDED_DESCRIPTION": [
       "Warming up. NL Gain !B! Block.",
-      "Standard. NL Gain !B! block.",
-      "Critical! NL Gain !B! block. NL Deal !D! damage.",
-      "Overloaded. NL Gain !B! block."
+      "Standard. NL Gain !B! Block.",
+      "Critical! NL Gain !B! Block. NL Deal !D! damage.",
+      "Overloaded. NL Gain !B! Block."
     ]
   },
   "${modID}:HotRod0": {
@@ -350,15 +349,15 @@
   },
   "${modID}:HotRod1": {
     "NAME": "Hot Rod Part 2 of 3",
-    "DESCRIPTION": "Standard. NL Gain !B! block."
+    "DESCRIPTION": "Standard. NL Gain !B! Block."
   },
   "${modID}:HotRod2": {
     "NAME": "Hot Rod Part 3 of 3",
-    "DESCRIPTION": "Critical! NL Gain !B! block. NL Deal !D! damage."
+    "DESCRIPTION": "Critical! NL Gain !B! Block. NL Deal !D! damage."
   },
   "${modID}:HotRod3": {
     "NAME": "Hot Rod Overloaded",
-    "DESCRIPTION": "Overloaded. NL Gain !B! block."
+    "DESCRIPTION": "Overloaded. NL Gain !B! Block."
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
@@ -427,7 +426,7 @@
   },
   "${modID}:PeelOut": {
     "NAME": "Peel Out",
-    "DESCRIPTION": "Draw !M! cards. NL Exhaust 1 card."
+    "DESCRIPTION": "Exhaust 1 card. NL Draw !M! cards."
   },
   "${modID}:Piping": {
     "NAME": "Piping",
@@ -464,7 +463,7 @@
   },
   "${modID}:Ring": {
     "NAME": "Ring",
-    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL Heal !M! HP. NL Exhaust."
+    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL Gain !M! Temporary_HP. NL Exhaust."
   },
   "${modID}:RocketAccel": {
     "NAME": "Rocket Accel",
@@ -490,11 +489,16 @@
   },
   "${modID}:SecretRoute": {
     "NAME": "Secret Route",
-    "DESCRIPTION": "Draw !M! cards. They cost 1 less this turn. NL Exhaust."
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. ${modID}:If_most_right, draw 1 more. They cost 1 less this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. They cost 1 less this turn. NL Exhaust."
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
     "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Trick{!M!|>1=s} to your hand."
+  },
+  "${modID}:Shortcut": {
+    "NAME": "Shortcut",
+    "DESCRIPTION": "{@@}Retain. NL Lower the cost of !M! card{!M!|>1=s} in your hand by 1. NL Exhaust."
   },
   "${modID}:Slide": {
     "NAME": "Slide",
@@ -535,8 +539,7 @@
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke ALL of your Orbs."
+    "DESCRIPTION": "If you have no Channeled orbs, Channel !M! Lightning. Otherwise Evoke ALL of your Orbs twice and exhaust."
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",
@@ -617,7 +620,7 @@
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
     "DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a #y to your hand."
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",

@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import com.megacrit.cardcrawl.vfx.WallopEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
-public class HeavyBounceSlamAction extends AbstractGameAction{
+public class HeavyBounceSlamAction extends AbstractGameAction {
     private DamageInfo info;
 
-    public HeavyBounceSlamAction(AbstractCreature target, DamageInfo info){
+    public HeavyBounceSlamAction(AbstractCreature target, DamageInfo info) {
         this.info = info;
         setValues(target, info);
         this.actionType = ActionType.DAMAGE;
@@ -23,7 +23,7 @@ public class HeavyBounceSlamAction extends AbstractGameAction{
         this.duration = this.startDuration;
     }
 
-    public void update(){
+    public void update() {
         if (this.shouldCancelAction()) {
             this.isDone = true;
         } else {
@@ -32,7 +32,7 @@ public class HeavyBounceSlamAction extends AbstractGameAction{
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY, false));
                 this.target.damage(this.info);
                 if (this.target.lastDamageTaken > 0) {
-                    this.addToTop(new ApplyPowerAction(this.source, this.source, new VigorPower(this.source, (int)(this.target.lastDamageTaken * 0.5F))));
+                    this.addToTop(new ApplyPowerAction(this.source, this.source, new VigorPower(this.source, (int) (this.target.lastDamageTaken * 0.5F))));
                     if (this.target.hb != null) {
                         this.addToTop(new VFXAction(new WallopEffect(this.target.lastDamageTaken, this.target.hb.cX, this.target.hb.cY)));
                     }

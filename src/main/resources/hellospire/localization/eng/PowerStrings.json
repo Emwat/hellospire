@@ -110,9 +110,8 @@
   "${modID}:RingPower": {
     "NAME": "Ring",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, increase Block gained from cards by 1. NL NL You only heal a max of #b",
-      " HP via Rings in a single combat. You have healed #b",
-      ". NL You have ",
+      "For each Ring in your hand, increase Block gained from cards by #b1",
+      ". NL NL You have ",
       " Ring.",
       " Rings."
     ]

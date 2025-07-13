@@ -8,9 +8,9 @@ import hellospire.SonicMod;
 import hellospire.cards.BaseCard;
 
 public class HeavyIncrementAction extends AbstractGameAction {
-    private BaseCard card;
+    private AbstractCard card;
 
-    public HeavyIncrementAction(BaseCard card) {
+    public HeavyIncrementAction(AbstractCard card) {
         this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_XFAST;
@@ -28,9 +28,9 @@ public class HeavyIncrementAction extends AbstractGameAction {
                     "|chargeCost", c.chargeCost));
 //            c.cost = c.costForTurn + 1;
             if (c.freeToPlay()) {
-                ((BaseCard)c).setCostForCombat(1);
+                BaseCard.setCostForCombat(c, 1);
             } else {
-                ((BaseCard)c).setCostForCombat(c.costForTurn + 1);
+                BaseCard.setCostForCombat(c, c.costForTurn + 1);
             }
 
             // modifyCostForCombat ADDS the amount to the current cost.

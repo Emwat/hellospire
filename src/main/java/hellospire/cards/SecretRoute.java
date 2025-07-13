@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
 import hellospire.actions.SecretRouteAction;
@@ -21,7 +22,7 @@ public class SecretRoute extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 
     public SecretRoute() {
@@ -33,7 +34,26 @@ public class SecretRoute extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (!this.upgraded && CheckIfRightCard(this, p.hand)) {
+            setMagic(2);
+        }
         addToBot(new SecretRouteAction(p, magicNumber));
+    }
+
+    public void triggerOnGlowCheck() {
+        if (this.upgraded) {
+            return;
+        }
+
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     @Override

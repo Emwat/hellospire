@@ -17,5 +17,19 @@
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
+  },
+  "${modID}:RougeEvent": {
+    "NAME": "Bats",
+    "DESCRIPTIONS": [
+      "\"Well, hello there! If you give me ~that~, I'll use my connections to help you find your friends. What do you say?\"",
+      "\"I'll see you around, Big Blue. ❤\"",
+      "\"I guess I'll have to find my own. Flying solo is our style anyway.\""
+    ],
+    "OPTIONS": [
+      "[Buy] #y70 #yGold: #gObtain #ga #gRelic.",
+      "[Locked] Requires: 70 Gold.",
+      "[Decline]",
+      "[Leave]"
+    ]
   }
 }

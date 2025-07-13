@@ -7,11 +7,63 @@
       "#Attacks, #ySkills, and #yPowers are gold in relic texts but not in card texts."
     ]
   },
+  "${modID}:BlueQuillRelic": {
+    "NAME": "Blue Quill",
+    "FLAVOR": "Aw yeah! This is happening!",
+    "DESCRIPTIONS": [
+      "At the start of combat, add #b",
+      " #yShortcut to your hand."
+    ]
+  },
+  "${modID}:BlueQuillPlusRelic": {
+    "NAME": "Blue Quill+",
+    "FLAVOR": "Talk about low budget flights!",
+    "DESCRIPTIONS": [
+      "Replaces #bBlue #bQuill. At the start of combat, add #b",
+      " #yShortcuts to your hand."
+    ]
+  },
+  "${modID}:ChaoDefectRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "I must be getting stronger!",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 additional Orb slot. Channel #b1 #yPlasma."
+    ]
+  },
+  "${modID}:ChaoIroncladRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Stone fists!",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 additional Orb slot. Channel #b1 #yLightning."
+    ]
+  },
   "${modID}:ChaoRelic": {
     "NAME": "Chao",
     "FLAVOR": "No way! This can't be...! Your Chao is very healthy, please take good care of your Chao.",
     "DESCRIPTIONS": [
       "Start each combat with #b1 additional Orb slot."
+    ]
+  },
+  "${modID}:ChaoSilentRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Sweet!",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 additional Orb slot. Channel #b1 #yFrost."
+    ]
+  },
+  "${modID}:ChaoWatcherRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Didn't even break a sweat!",
+    "DESCRIPTIONS": [
+      "Start each combat with #b1 additional Orb slot. Channel #b1 #yDark."
+    ]
+  },
+  "${modID}:ClassicModeRelic": {
+    "NAME": "Classic Mode",
+    "FLAVOR": "Aw yeah! This is happening!",
+    "DESCRIPTIONS": [
+      "If you take #b",
+      "+ damage, exhaust ALL of your #yRings."
     ]
   },
   "${modID}:EmblemRelic": {
@@ -32,7 +84,7 @@
   },
   "${modID}:Player2Relic": {
     "NAME": "Player 2",
-    "FLAVOR": "WHOAA MY HEADS SPINNING -Tails",
+    "FLAVOR": "WHOAA MY HEADS SPINNING!!",
     "DESCRIPTIONS": [
       "For the first two turns of combat, when you play your second card, add a copy of it to your hand."
     ]

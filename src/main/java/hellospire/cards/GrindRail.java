@@ -33,32 +33,15 @@ public class GrindRail extends BaseCard {
 
     public GrindRail() {
         super(ID, info);
-//        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(new DrawCardAction(magicNumber));
-        if (!this.upgraded) {
-            ArrayList<AbstractCard> neighbors = getNeighbors(p.hand);
-            for (AbstractCard neighbor : neighbors) {
-                addToBot(new LowerCostAction(neighbor));
-            }
-        } else {
-            addToBot(new SelectCardsInHandAction(
-                    2,
-                    "Select 2 cards to lower costs.",
-                    true,
-                    true,
-                    pickableCards,
-                    cards -> {
-                        if (cards.isEmpty()) {
-                            return;
-                        }
-                        for (AbstractCard card : cards) {
-                            addToBot(new LowerCostAction(card));
-                        }
-                    }));
+        ArrayList<AbstractCard> neighbors = getNeighbors(p.hand);
+        for (AbstractCard neighbor : neighbors) {
+            addToBot(new LowerCostAction(neighbor, magicNumber));
         }
     }
 
@@ -124,7 +107,7 @@ public class GrindRail extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new GrindRail();
     }
 }

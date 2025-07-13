@@ -30,9 +30,6 @@ public class RingPower extends BasePower {
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
 
-    // When changing maxAmountHealed, please also change it in Keywords.json
-    private static int amountHealed = 0;
-    private static final int maxAmountHealed = 5;
     public static boolean isLightSpeedDashing = false;
 
     public RingPower(AbstractCreature owner, int amount) {
@@ -47,52 +44,25 @@ public class RingPower extends BasePower {
     // 5) Draw a Ring.
     // 6) Discard a Ring.
 
-    public static int getAmountHealed() {
-        return amountHealed;
-    }
-
-    public static void incrementAmountHealed(int amountHealed) {
-        if (isLightSpeedDashing) {
-            return;
-        }
-
-        RingPower.amountHealed += amountHealed;
-    }
-
-    public static void resetAmountHealed() {
-        RingPower.amountHealed = 0;
-    }
-
-    public static int getMaxAmountHealed() {
-        return maxAmountHealed;
-    }
-
-    public static int calculateAmountToHeal(int amountToHeal) {
-        if (isLightSpeedDashing) {
-            return amountToHeal;
-        }
-        if (amountHealed + amountToHeal <= maxAmountHealed) {
-            return amountToHeal;
-        } else {
-            return maxAmountHealed - amountHealed;
-        }
-    }
-
-    public static void setIsLightSpeedDashing(boolean newValue){
+    public static void setIsLightSpeedDashing(boolean newValue) {
         isLightSpeedDashing = newValue;
     }
 
     public void updateDescription() {
-        final String youHaveThisMuch = DESCRIPTIONS[2] + amount + (amount == 1 ? DESCRIPTIONS[3] : DESCRIPTIONS[4]);
-        final String HPTell = String.format("%s/%s", amountHealed, maxAmountHealed);
-        this.description = String.format("%s%s%s%s%s", DESCRIPTIONS[0], maxAmountHealed, DESCRIPTIONS[1], HPTell, youHaveThisMuch);
+        int amountSpeed = GetPowerAmount("LevelUpSpeedPower");
+        String amountSpeedText = "";
+
+        if (amount == 1) {
+            this.description = String.format("%s%s%s%s", DESCRIPTIONS[0], amountSpeedText, DESCRIPTIONS[1], DESCRIPTIONS[2]);
+        } else {
+            this.description = String.format("%s%s%s%s", DESCRIPTIONS[0], amountSpeedText, DESCRIPTIONS[1], DESCRIPTIONS[3]);
+        }
     }
 
-//      "For each Ring in your hand, increase Block gained from cards by 1. You can only heal a max of ",
-//              " HP via Rings in a single combat. You have healed ",
-//              ". NL You have ",
-//              " Ring.",
-//              " Rings."
+    // "For each Ring in your hand, increase Block gained from cards by #b1",
+    //         ". NL NL You have ",
+    //         " Ring.",
+    //         " Rings."
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         int amountPower = GetPowerAmount("LevelUpPowerPower") * this.amount;

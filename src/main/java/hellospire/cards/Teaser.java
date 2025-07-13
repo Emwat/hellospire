@@ -31,7 +31,6 @@ public class Teaser extends BaseCard implements BranchingUpgradesCard {
         this.cardsToPreview = new ClawsUnleashed();
         setMagic(MAGIC);
         tags.add(SonicTags.LIKE_DEFECT);
-        CardModifierManager.addModifier(this, new SpinUpModifier());
     }
 
     @Override

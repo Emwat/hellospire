@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
+import hellospire.MyModConfig;
 
 public class ModTextInCenterAction extends AbstractGameAction {
     private final float x;
@@ -26,7 +27,7 @@ public class ModTextInCenterAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (!this.used) {
+        if (!this.used && MyModConfig.enableTextPopUps) {
             AbstractDungeon.effectList.add(new TextAboveCreatureEffect(this.x, this.y, this.msg, color));
             this.used = true;
         }

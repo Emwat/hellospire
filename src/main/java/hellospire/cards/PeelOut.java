@@ -32,8 +32,8 @@ public class PeelOut extends BaseCard {
     /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(magicNumber));
         addToBot(new ExhaustAction(1, false, false, false));
+        addToBot(new DrawCardAction(magicNumber));
     }
 
     @Override

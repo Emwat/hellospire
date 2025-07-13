@@ -103,7 +103,7 @@
     "NAMES": [
       "lsd"
     ],
-    "DESCRIPTION": "After you play this card, Rings can heal you and do not count towards the healing cap for the rest of the turn."
+    "DESCRIPTION": "After you play this card, Rings will heal you instead of giving you Temporary HP for the rest of the turn."
   },
   {
     "ID": "wordSpinUp",
