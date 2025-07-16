@@ -18,6 +18,20 @@
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
   },
+  "${modID}:GravitySwitchEvent": {
+    "NAME": "Gravity Switch",
+    "DESCRIPTIONS": [
+      "You come across a very large switch attached to an animated monitor. The monitor is scrolling through up arrows. Behind the switch is a deep fall where you cannot see the end.",
+      "Through some unholy, black magic witchcraft, you fly into some strange otherworldly dimension. Spectators? Are cheering? Your expertise is ever growing.",
+      "You drop into the depths below and find an item capsule full of rings tucked away in a corner. After grabbing the rings, you press on."
+    ],
+    "OPTIONS": [
+      "[Pull the switch] #b5 random cards will cost 1 less and gain ${modID}:Spin_Up.",
+      "[Locked] Requires: #yBlue #yQuill+ or #yRing #yEnergy #yBonus.",
+      "[Use Speed Run Strat] Gain #g5 #gMax #gHP.",
+      "[Jump down] Heal #g5 #gHP."
+    ]
+  },
   "${modID}:RougeEvent": {
     "NAME": "Bats",
     "DESCRIPTIONS": [

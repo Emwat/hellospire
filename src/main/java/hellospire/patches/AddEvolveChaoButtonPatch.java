@@ -24,8 +24,6 @@ public class AddEvolveChaoButtonPatch {
     public static class AddKeys {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(CampfireUI __instance, ArrayList<AbstractCampfireOption> ___buttons) {
-            boolean active = true;
-
             if (!AbstractDungeon.player.hasRelic(ChaoRelic.ID) ||
                     AbstractDungeon.player.hasRelic(ChaoIroncladRelic.ID) ||
                     AbstractDungeon.player.hasRelic(ChaoSilentRelic.ID) ||
@@ -35,7 +33,7 @@ public class AddEvolveChaoButtonPatch {
                 return;
             }
 
-            ___buttons.add(new EvolveChaoOption(active));
+            ___buttons.add(new EvolveChaoOption());
         }
 
         @SpireInstrumentPatch

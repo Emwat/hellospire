@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.blue.SweepingBeam;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -30,6 +31,7 @@ public class Whirlwind extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(HITS);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override

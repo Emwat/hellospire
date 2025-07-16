@@ -27,6 +27,7 @@ public class BlastProcessing extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC);
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

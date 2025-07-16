@@ -28,7 +28,7 @@ public class BlueBlur extends BaseCard {
 
         setBlock(BLOCK);
         setExhaust(true);
-        tags.add(SonicTags.LIKE_SILENT);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     ///            "DESCRIPTION": "Gain !B! Block. Next turn, your first move will play twice."

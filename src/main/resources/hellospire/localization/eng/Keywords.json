@@ -121,7 +121,7 @@
       "ring",
       "rings"
     ],
-    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. You cannot heal more than #b5 HP per combat. Rings cannot be upgraded. See buff under character for more details."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. Rings cannot be upgraded."
   },
   {
     "ID": "wordTrick",

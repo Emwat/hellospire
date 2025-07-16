@@ -110,10 +110,8 @@
   "${modID}:RingPower": {
     "NAME": "Ring",
     "DESCRIPTIONS": [
-      "For each Ring in your hand, increase Block gained from cards by #b1",
-      ". NL NL You have ",
-      " Ring.",
-      " Rings."
+      "Increase Block gained from cards by #b",
+      "."
     ]
   },
   "${modID}:SonicBoomPower": {

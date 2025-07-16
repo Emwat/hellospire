@@ -9,9 +9,11 @@ import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
+import hellospire.effects.ChaoEvolveEffect;
 import hellospire.relics.*;
 import hellospire.util.TextureLoader;
 
@@ -31,30 +33,21 @@ public class EvolveChaoOption extends AbstractCampfireOption {
     }
 
     // private ArrayList<String> idleMessages;
-    public EvolveChaoOption(boolean active) {
-        this.label = DESCRIPTIONS[0];
+    public EvolveChaoOption() {
+        this.label = DESCRIPTIONS[0];   // "Evolve Chao"
 
-        this.usable = active;
-        if (active) {
-            this.description = DESCRIPTIONS[1] + HedgehogPack.goldCostToEvolve + DESCRIPTIONS[2];
-            this.img = TextureLoader.getTexture(SonicMod.imagePath("ui/chaoCampfire.png"));
-        } else {
-            this.img = TextureLoader.getTexture(SonicMod.imagePath("ui/chaoCampfireDisabled.png"));
-            if (AbstractDungeon.player.gold < HedgehogPack.goldCostToEvolve) {
-                this.description = DESCRIPTIONS[3] + HedgehogPack.goldCostToEvolve + DESCRIPTIONS[4];
-            } else {
-                this.description = DESCRIPTIONS[3] + HedgehogPack.goldCostToEvolve + DESCRIPTIONS[4];
-            }
-        }
+        EnableOrDisableButton();
     }
 
     @Override
     public void useOption() {
         if (this.usable) {
             AbstractCard.CardTags mostTagged = GetMostTagged();
-            AbstractDungeon.player.loseGold(HedgehogPack.goldCostToEvolve);
-            AbstractDungeon.player.loseRelic(ChaoRelic.ID);
-            GrantRelic(mostTagged);
+            // AbstractDungeon.player.loseGold(HedgehogPack.goldCostToEvolve);
+            // AbstractDungeon.player.loseRelic(ChaoRelic.ID);
+            // GrantRelic(mostTagged);
+            ChaoEvolveEffect chaoEvolveEffect = new ChaoEvolveEffect(this, mostTagged, this.hb.x, this.hb.y);
+            AbstractDungeon.effectList.add(chaoEvolveEffect);
         }
     }
 
@@ -64,9 +57,14 @@ public class EvolveChaoOption extends AbstractCampfireOption {
         else if (tag == SonicTags.LIKE_SILENT) { r = new ChaoSilentRelic(); }
         else if (tag == SonicTags.LIKE_DEFECT) { r = new ChaoDefectRelic(); }
         else if (tag == SonicTags.LIKE_WATCHER) { r = new ChaoWatcherRelic(); }
+        // AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.hb.x, this.hb.y, r);
         AbstractDungeon.getCurrRoom().addRelicToRewards(r);
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
         AbstractDungeon.combatRewardScreen.open();
+        // ((RestRoom) AbstractDungeon.getCurrRoom()).campfireUI.reopen();
+        // there was a bug with the fire sound persisting and I'm not sure why,
+        // so this is basically a randomly thrown out preventative measure.
+        // ((RestRoom) AbstractDungeon.getCurrRoom()).cutFireSound();
     }
 
     private AbstractCard.CardTags GetMostTagged() {
@@ -83,15 +81,10 @@ public class EvolveChaoOption extends AbstractCampfireOption {
             }
         }
 
-        if (maxCount == countIronclad) {
-            return SonicTags.LIKE_IRONCLAD;
-        } else if (maxCount == countSilent) {
-            return SonicTags.LIKE_SILENT;
-        } else if (maxCount == countDefect) {
-            return SonicTags.LIKE_DEFECT;
-        } else if (maxCount == countWatcher) {
-            return SonicTags.LIKE_WATCHER;
-        }
+        if (maxCount == countIronclad) { return SonicTags.LIKE_IRONCLAD; }
+        else if (maxCount == countSilent) { return SonicTags.LIKE_SILENT; }
+        else if (maxCount == countDefect) { return SonicTags.LIKE_DEFECT; }
+        else if (maxCount == countWatcher) { return SonicTags.LIKE_WATCHER; }
         return SonicTags.LIKE_DEFECT;
     }
 
@@ -106,18 +99,45 @@ public class EvolveChaoOption extends AbstractCampfireOption {
     }
 
 
-    // public void reCheck() {
-    //     if (SocketGemEffect.getModifiableCards().isEmpty() || SocketGemEffect.getGems().isEmpty() || AbstractDungeon.player.gold < GemsPack.goldCostToSocket) {
-    //         this.usable = false;
-    //     }
-    //     if (this.usable) {
-    //         this.description = DESCRIPTIONS[1] + GemsPack.goldCostToSocket + DESCRIPTIONS[2];
-    //         this.img = TexLoader.getTexture(SpireAnniversary5Mod.makeImagePath("ui/chaoCampfire.png"));
-    //     } else {
-    //         this.description = DESCRIPTIONS[3] + GemsPack.goldCostToSocket + DESCRIPTIONS[4];
-    //         this.img = TexLoader.getTexture(SpireAnniversary5Mod.makeImagePath("ui/chaoCampfireDisabled.png"));
-    //     }
-    // }
+    public void EnableOrDisableButton() {
+        // "Evolve Chao",
+        //         "Requires a chao.",
+        //         "(Free Action) Your chao is careless. Evolve your chao.",
+        //         "(Free Action) Your chao is quiet. Evolve your chao.",
+        //         "(Free Action) Your chao is energetic. Evolve your chao.",
+        //         "(Free Action) Your chao is curious. Evolve your chao."
+        boolean hasChao = AbstractDungeon.player.hasRelic(ChaoRelic.ID);
+
+        if (!hasChao) {
+            this.usable = false;
+        }
+        if (this.usable) {
+            AbstractCard.CardTags tag = GetMostTagged();
+            if (tag == SonicTags.LIKE_IRONCLAD) { this.description = DESCRIPTIONS[2]; }
+            else if (tag == SonicTags.LIKE_SILENT) { this.description = DESCRIPTIONS[3]; }
+            else if (tag == SonicTags.LIKE_DEFECT) { this.description = DESCRIPTIONS[4]; }
+            else if (tag == SonicTags.LIKE_WATCHER) { this.description = DESCRIPTIONS[5]; }
+            this.img = TextureLoader.getTexture(SonicMod.imagePath("ui/chaoCampfire.png"));
+        } else {
+            this.description = DESCRIPTIONS[1];
+            this.img = TextureLoader.getTexture(SonicMod.imagePath("ui/chaoCampfireDisabled.png"));
+        }
+    }
+
+    public void EnableOrDisableButtonWithGold() {
+        boolean hasEnoughGold = AbstractDungeon.player.gold >= HedgehogPack.goldCostToEvolve;
+        boolean hasChao = AbstractDungeon.player.hasRelic(ChaoRelic.ID);
+        if (!hasChao && hasEnoughGold) {
+            this.usable = false;
+        }
+        if (this.usable) {
+            this.description = DESCRIPTIONS[1] + HedgehogPack.goldCostToEvolve + DESCRIPTIONS[2];
+            this.img = TextureLoader.getTexture(SonicMod.imagePath("ui/chaoCampfire.png"));
+        } else {
+            this.description = DESCRIPTIONS[3] +  HedgehogPack.goldCostToEvolve + DESCRIPTIONS[4];
+            this.img = TextureLoader.getTexture(SonicMod.imagePath("ui/chaoCampfireDisabled.png"));
+        }
+    }
 
     @Override
     public void update() {

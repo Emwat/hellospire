@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -35,6 +36,7 @@ public class BouncePad extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

@@ -491,6 +491,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Sticks, audioEngPath("boom_sticks_imready.ogg"));
         BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
+        BaseMod.addAudio(SoundLibrary.Chao, audioPath("sa2_chao.ogg"));
     }
 
     public static int attackCardsPlayedThisTurn = 0;
@@ -531,7 +532,7 @@ public class SonicMod implements
                 "BronzeAutomaton"
         ));
 
-        if (bosses.contains(monsterName)) {
+        if (bosses.contains(monsterName) && MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
             CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
                     SoundLibrary.SonicsTheName,
                     SoundLibrary.TooEasy,
@@ -547,12 +548,15 @@ public class SonicMod implements
         if (AbstractDungeon.player instanceof Sonic) {
             if (isVictory) {
             } else {
-                CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
-                        SoundLibrary.Nooo,
-                        SoundLibrary.Dead,
-                        SoundLibrary.Shoot,
-                        SoundLibrary.LongLiveTheEggmanEmpire
-                ))));
+                if (MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
+                    CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                            SoundLibrary.Nooo,
+                            SoundLibrary.Dead,
+                            SoundLibrary.Shoot,
+                            SoundLibrary.LongLiveTheEggmanEmpire
+                    ))));
+                }
+
             }
         }
     }

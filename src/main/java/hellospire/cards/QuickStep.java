@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.ActivatePassiveOrbAction;
 import hellospire.character.Sonic;
@@ -24,18 +25,15 @@ public class QuickStep extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 6;
     private static final int UPG_BLOCK = 2;
-    private static final int MAGIC = 1;
 
-    /// Gain !B! Block. NL If this card is to the very right of your hand, draw !M! cards.
     public QuickStep() {
         super(ID, info);
         // Overflow error
 //        this.cardsToPreview = new QuickAir();
 
         setBlock(BLOCK, UPG_BLOCK);
-        setMagic(MAGIC);
         setExhaust(true);
     }
 

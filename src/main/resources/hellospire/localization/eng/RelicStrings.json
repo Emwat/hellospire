@@ -27,14 +27,14 @@
     "NAME": "Chao",
     "FLAVOR": "I must be getting stronger!",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 additional Orb slot. Channel #b1 #yPlasma."
+      "Start each combat with #b1 additional Orb slot. #yChannel #b1 #yPlasma."
     ]
   },
   "${modID}:ChaoIroncladRelic": {
     "NAME": "Chao",
     "FLAVOR": "Stone fists!",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 additional Orb slot. Channel #b1 #yLightning."
+      "Start each combat with #b1 additional Orb slot. #yChannel #b1 #yLightning."
     ]
   },
   "${modID}:ChaoRelic": {
@@ -48,14 +48,14 @@
     "NAME": "Chao",
     "FLAVOR": "Sweet!",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 additional Orb slot. Channel #b1 #yFrost."
+      "Start each combat with #b1 additional Orb slot. #yChannel #b1 #yFrost."
     ]
   },
   "${modID}:ChaoWatcherRelic": {
     "NAME": "Chao",
     "FLAVOR": "Didn't even break a sweat!",
     "DESCRIPTIONS": [
-      "Start each combat with #b1 additional Orb slot. Channel #b1 #yDark."
+      "Start each combat with #b1 additional Orb slot. #yChannel #b1 #yDark."
     ]
   },
   "${modID}:ClassicModeRelic": {

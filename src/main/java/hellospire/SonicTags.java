@@ -12,5 +12,6 @@ public class SonicTags
     @SpireEnum public static AbstractCard.CardTags LIKE_SILENT;
     @SpireEnum public static AbstractCard.CardTags LIKE_DEFECT;
     @SpireEnum public static AbstractCard.CardTags LIKE_WATCHER;
+    @SpireEnum public static AbstractCard.CardTags LIKE_SNECKO;
     @SpireEnum public static AbstractCard.CardTags DO_NOT_THROW;
 }

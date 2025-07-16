@@ -65,6 +65,7 @@
       "enableBoss3Music": "Enable Beyond Boss Music",
       "enableBossSpearShieldMusic": "Enable The Ending Music",
       "enableBossHeartMusic": "Enable The Ending Boss Music",
+      "enableClassicMode": "Enable Classic Mode (When you get take 2+ damage, lose ALL of your Rings).",
       "enableTextPopUps": "Enable text pop ups for AMAZING, tricks, and the Player 2 relic.",
       "enableSound": "Enable Sounds",
       "enableVoice": "Enable Voice",
@@ -76,10 +77,11 @@
   "${modID}:EvolveChaoOptions": {
     "TEXT": [
       "Evolve Chao",
-      "(Free Action) Spend ",
-      " Gold. Evolve your chao.",
-      "Requires a chao and ",
-      " Gold."
+      "Requires a chao.",
+      "(Free Action) Your chao is careless. Evolve your chao.",
+      "(Free Action) Your chao is quiet. Evolve your chao.",
+      "(Free Action) Your chao is energetic. Evolve your chao.",
+      "(Free Action) Your chao is curious. Evolve your chao."
     ]
   },
   "${modID}:SingleCardReward": {

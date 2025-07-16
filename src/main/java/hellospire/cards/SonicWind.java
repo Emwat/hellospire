@@ -27,7 +27,6 @@ public class SonicWind extends BaseCard {
 
         setMagic(MAGIC);
         setExhaust(true);
-        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.RandomizeCostAction;
 import hellospire.cardmodifiers.SpinUpModifier;
@@ -33,6 +34,7 @@ public class Windmill extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         CardModifierManager.addModifier(this, new SpinUpModifier());
+        tags.add(SonicTags.LIKE_SNECKO);
     }
 
     @Override

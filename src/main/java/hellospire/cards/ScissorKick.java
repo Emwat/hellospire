@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.MyModConfig;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -33,6 +34,7 @@ public class ScissorKick extends BaseCard {
         if (MyModConfig.enableKicksForStrikeDummy) {
             tags.add(CardTags.STRIKE);
         }
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

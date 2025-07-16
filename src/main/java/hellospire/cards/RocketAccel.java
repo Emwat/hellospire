@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.cardmodifiers.RocketAccelModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -31,6 +32,7 @@ public class RocketAccel extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override

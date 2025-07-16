@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -29,6 +30,7 @@ public class LightSpeedAttack extends BaseCard {
     public LightSpeedAttack() {
         super(ID, info);
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

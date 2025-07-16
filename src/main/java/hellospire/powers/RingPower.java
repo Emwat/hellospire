@@ -50,19 +50,17 @@ public class RingPower extends BasePower {
 
     public void updateDescription() {
         int amountSpeed = GetPowerAmount("LevelUpSpeedPower");
-        String amountSpeedText = "";
+        String amountSpeedText = String.valueOf(this.amount + (amountSpeed * this.amount));
 
         if (amount == 1) {
-            this.description = String.format("%s%s%s%s", DESCRIPTIONS[0], amountSpeedText, DESCRIPTIONS[1], DESCRIPTIONS[2]);
+            this.description = String.format("%s%s%s", DESCRIPTIONS[0], this.amount, DESCRIPTIONS[1]);
         } else {
-            this.description = String.format("%s%s%s%s", DESCRIPTIONS[0], amountSpeedText, DESCRIPTIONS[1], DESCRIPTIONS[3]);
+            this.description = String.format("%s%s%s", DESCRIPTIONS[0], this.amount, DESCRIPTIONS[1]);
         }
     }
 
-    // "For each Ring in your hand, increase Block gained from cards by #b1",
-    //         ". NL NL You have ",
-    //         " Ring.",
-    //         " Rings."
+    // "Increase Block gained from cards by #b1",
+    //         "."
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         int amountPower = GetPowerAmount("LevelUpPowerPower") * this.amount;

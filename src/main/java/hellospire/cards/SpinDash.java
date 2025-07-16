@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.cards.red.Havoc;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -31,6 +32,7 @@ public class SpinDash extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override

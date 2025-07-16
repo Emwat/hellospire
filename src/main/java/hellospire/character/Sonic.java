@@ -6,6 +6,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -290,9 +291,12 @@ public class Sonic extends CustomPlayer {
     public void doCharSelectScreenSelectEffect() {
         // This occurs when you click the character's button in the character select screen.
         // See SoundMaster for a full list of existing sound effects, or look at BaseMod's wiki for adding custom audio.
-        // CardCrawlGame.sound.playA("ATTACK_DAGGER_2", MathUtils.random(-0.2F, 0.2F));
         // CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
-        CardCrawlGame.sound.play(SoundLibrary.LetsBlastThrough);
+        if (MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
+            CardCrawlGame.sound.play(SoundLibrary.LetsBlastThrough);
+        } else {
+            CardCrawlGame.sound.playA("ATTACK_DAGGER_2", MathUtils.random(-0.2F, 0.2F));
+        }
     }
 
     @Override

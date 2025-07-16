@@ -22,7 +22,6 @@ public class RelaxPick1 extends BaseCard {
 
     public RelaxPick1() {
         super(ID, info);
-        tags.add(SonicTags.LIKE_WATCHER);
         loadCardImage(imageSkillPath("Relax.png"));
     }
 

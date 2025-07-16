@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.LevelUpFlightPower;
@@ -37,6 +38,7 @@ public class LevelUp extends BaseCard {
         this.cardsToPreview = new Ring();
 
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

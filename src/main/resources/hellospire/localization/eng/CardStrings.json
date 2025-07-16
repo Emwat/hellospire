@@ -510,7 +510,7 @@
   },
   "${modID}:SlotMachineGame": {
     "NAME": "Slot Machine Game",
-    "DESCRIPTION": "Add Slot Machine Pull to your hand. Shuffle !M! Slot Machine Eggman cards into the draw pile. Exhaust."
+    "DESCRIPTION": "Add #ySlot #yMachine #yPull to your hand. Shuffle !M! #ySlot #yMachine #yEggman into the draw pile. Exhaust."
   },
   "${modID}:SlotMachinePull": {
     "NAME": "Slot Machine Pull",

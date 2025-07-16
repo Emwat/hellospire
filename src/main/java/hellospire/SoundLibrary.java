@@ -96,6 +96,7 @@ public class SoundLibrary {
     public static final String Shadow = makeID("ogg_shadow");;
     public static final String Rouge = makeID("ogg_rouge");;
     public static final String Chip = makeID("ogg_chip");
+    public static final String Chao = makeID("ogg_chao");;
 
 
     static public int randomNumber = -1;

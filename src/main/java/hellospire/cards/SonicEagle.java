@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -30,6 +31,7 @@ public class SonicEagle extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     @Override

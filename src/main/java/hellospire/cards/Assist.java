@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.MyModConfig;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.rewards.AssistReward;
@@ -63,6 +64,7 @@ public class Assist extends BaseCard {
 
         addToBot(new MakeTempCardInHandAction(randomCard, true));
         AbstractDungeon.getCurrRoom().rewards.add(new AssistReward(this, this.uuid, randomCard, this.upgraded));
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

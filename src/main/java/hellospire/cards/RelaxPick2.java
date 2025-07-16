@@ -23,7 +23,6 @@ public class RelaxPick2 extends BaseCard {
 
     public RelaxPick2() {
         super(ID, info);
-        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

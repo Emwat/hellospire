@@ -48,7 +48,7 @@ public class YESSSAction extends AbstractGameAction {
             if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0) &&
                     !this.target.halfDead &&
                     !this.target.hasPower("Minion")) {
-                if (MyModConfig.enableVoice) {
+                if (MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
                     CardCrawlGame.sound.play(SoundLibrary.YESSS, this.pitchVar);
                 }
             }
