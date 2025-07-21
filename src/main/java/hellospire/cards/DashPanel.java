@@ -52,8 +52,7 @@ public class DashPanel extends BaseCard {
             addToBot(new DashPanelAction(m, card, this.energyOnUse));
 
             if (card.type == CardType.POWER) {
-                // TODO: Purge from combat
-                addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
+                p.hand.removeCard(card);
             } else if (card.exhaust) {
                 addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
             } else if (card.returnToHand) {

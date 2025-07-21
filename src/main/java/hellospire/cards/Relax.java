@@ -42,28 +42,41 @@ public class Relax extends BaseCard {
 
         // addToBot(new ApplyPowerAction(p, p, new RelaxPower(p, 1), 1));
         addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));
-        addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
+        if (!this.upgraded) {
+            addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
+        }
         if (!this.upgraded) {
             if (WrathCondition(p)) {
                 addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
             }
         } else {
-            addToBot(new ChooseOneAction(new ArrayList<>(Arrays.asList(
+            ArrayList<AbstractCard> picks = new ArrayList<>(Arrays.asList(
                     new RelaxPick1(),
                     new RelaxPick2()
-            ))));
+            ));
+            if (upgraded) {
+                for (AbstractCard pick : picks) {
+                    pick.upgrade();
+                }
+            }
+
+            addToBot(new ChooseOneAction(picks));
         }
 
     }
 
-    @Override
-    public void upgrade() {
-        setEthereal(true);
-        super.upgrade();
-    }
+    // @Override
+    // public void upgrade() {
+    //     setEthereal(true);
+    //     super.upgrade();
+    // }
 
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (this.upgraded) {
+            return;
+        }
 
         if (isPlayerHandNull()) {
             return;
@@ -76,6 +89,9 @@ public class Relax extends BaseCard {
 
     @Override
     public void triggerWhenDrawn() {
+        if (this.upgraded) {
+            return;
+        }
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -91,17 +107,20 @@ public class Relax extends BaseCard {
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (WrathCondition(AbstractDungeon.player)) {
-                    loadCardImage(imageSkillPath("RelaxPick2.png"));
-                } else {
-                    loadCardImage(imageSkillPath("Relax.png"));
+        if (!this.upgraded) {
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    if (WrathCondition(AbstractDungeon.player)) {
+                        loadCardImage(imageSkillPath("RelaxPick2.png"));
+                    } else {
+                        loadCardImage(imageSkillPath("Relax.png"));
+                    }
+                    this.isDone = true;
                 }
-                this.isDone = true;
-            }
-        });
+            });
+        }
+
         super.triggerOnOtherCardPlayed(c);
     }
 

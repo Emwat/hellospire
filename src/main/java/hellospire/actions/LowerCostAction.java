@@ -26,14 +26,18 @@ public class LowerCostAction extends AbstractGameAction {
         if (card.hasTag(SonicTags.SPIN_UP)) {
             if (card.costForTurn - amount < 0) {
                 BaseCard.setCostForCombat(card, 0);
+                card.flash();
             } else {
                 BaseCard.setCostForCombat(card, card.costForTurn - amount);
+                card.flash();
             }
         } else {
             if (card.costForTurn - amount < 0) {
                 card.setCostForTurn(0);
+                card.flash();
             } else {
                 card.setCostForTurn(card.costForTurn - amount);
+                card.flash();
             }
         }
 

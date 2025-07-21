@@ -18,7 +18,7 @@ public class RocketAccel extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.SPECIAL,
+            CardRarity.RARE,
             CardTarget.ENEMY,
             3
     );
@@ -50,8 +50,12 @@ public class RocketAccel extends BaseCard {
                         randomNumber2 = AbstractDungeon.cardRng.random(0, amountOfAttacks - 1);
                     }
 
-                    CardModifierManager.addModifier(p.hand.getAttacks().group.get(randomNumber1), new RocketAccelModifier());
-                    CardModifierManager.addModifier(p.hand.getAttacks().group.get(randomNumber2), new RocketAccelModifier());
+                    AbstractCard card1 = p.hand.getAttacks().group.get(randomNumber1);
+                    AbstractCard card2 = p.hand.getAttacks().group.get(randomNumber2);
+                    CardModifierManager.addModifier(card1, new RocketAccelModifier());
+                    card1.flash();
+                    CardModifierManager.addModifier(card2, new RocketAccelModifier());
+                    card2.flash();
                 } else if (amountOfAttacks == 1) {
                     CardModifierManager.addModifier(p.hand.getAttacks().group.get(0), new RocketAccelModifier());
                 }

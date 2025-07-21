@@ -11,10 +11,10 @@
       "Hex color codes also work in card text! But not on keywords, without some workarounds."
     ],
     "OPTIONS": [
+      "[Leave]",
       "[Action Description] What you actually get.",
       "[Denial] #rLose #r1 #rMax #rHP. Bad stuff is red.",
       "[Acceptance] #gGain #gApotheosis. Good stuff is green.",
-      "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
   },
@@ -22,14 +22,22 @@
     "NAME": "Gravity Switch",
     "DESCRIPTIONS": [
       "You come across a very large switch attached to an animated monitor. The monitor is scrolling through up arrows. Behind the switch is a deep fall where you cannot see the end.",
-      "Through some unholy, black magic witchcraft, you fly into some strange otherworldly dimension. Spectators? Are cheering? Your expertise is ever growing.",
-      "You drop into the depths below and find an item capsule full of rings tucked away in a corner. After grabbing the rings, you press on."
+      "You pull the switch. You feel your body starting to float. As you ascend by some gravitational force, you whip your body to land feet first on the ceiling. NL NL You find yourself feeling very weightless and flexible.",
+      "#rMadness. You laugh to yourself. NL NL #r@HAHAHA!@ The Spire consumes all...",
+      "You drop into the depths below and find an item capsule full of rings tucked away in a corner. NL NL You grab the rings. However, when you press forward, you find yourself at a dead end to see a small crevice in the ceiling, just big enough to squeeze through. You find yourself backtracking and a little bit frustrated at the whole experience.",
+      "You walk between a random prop and the wall. Through some unholy, black magic witchcraft, you disappear into the wall and start flying inexplicably fast. You can see the inside and outside of objects and they're hollow. NL NL You reach your destination. That little trip through time and space probably took some years out of your life, but look at the time you saved!"
     ],
     "OPTIONS": [
-      "[Pull the switch] #b5 random cards will cost 1 less and gain ${modID}:Spin_Up.",
-      "[Locked] Requires: #yBlue #yQuill+ or #yRing #yEnergy #yBonus.",
-      "[Use Speed Run Strat] Gain #g5 #gMax #gHP.",
-      "[Jump down] Heal #g5 #gHP."
+      "[Leave]",
+      "[Pull the switch] #b",
+      " random cards #gcost #g1 #gless and #rgain #rSpin #rUp. #rLose #r",
+      " #rHP.",
+      "[Embrace Madness] #gReceive #g2 Madness. #rLose #r",
+      " #rHP.",
+      "[Jump down] Become #rCursed - #rWrithe. #gHeal #g",
+      " #gHP.",
+      "[Use Speed Run Strat] #rLose #r",
+      " #rMax #rHP."
     ]
   },
   "${modID}:RougeEvent": {

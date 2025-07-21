@@ -39,32 +39,13 @@ public class GrindRail extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(new DrawCardAction(magicNumber));
-        ArrayList<AbstractCard> neighbors = getNeighbors(p.hand);
+        ArrayList<AbstractCard> neighbors = getNeighbors(p.hand, false);
         for (AbstractCard neighbor : neighbors) {
             addToBot(new LowerCostAction(neighbor, magicNumber));
         }
     }
 
-    public ArrayList<AbstractCard> getNeighbors(CardGroup hand) {
-        ArrayList<AbstractCard> neighbors = new ArrayList<>();
 
-        if (hand.contains(this)) {
-            int index = hand.group.indexOf(this);
-            if (index > 0) {
-                AbstractCard leftCard = hand.group.get(index - 1);
-                if (leftCard.costForTurn > 0) {
-                    neighbors.add(leftCard);
-                }
-            }
-            if (index < hand.size() - 1) {
-                AbstractCard rightCard = hand.group.get(index + 1);
-                if (rightCard.costForTurn > 0) {
-                    neighbors.add(rightCard);
-                }
-            }
-        }
-        return neighbors;
-    }
 
     @Override
     public void hover() {
@@ -76,7 +57,7 @@ public class GrindRail extends BaseCard {
             return;
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
-            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand);
+            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
             if (!neighbors.isEmpty()) {
                 for (AbstractCard q : neighbors) {
                     q.glowColor = Color.GOLD.cpy();
@@ -96,7 +77,7 @@ public class GrindRail extends BaseCard {
             return;
         }
         if (AbstractDungeon.isPlayerInDungeon()) {
-            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand);
+            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
             if (!neighbors.isEmpty()) {
                 for (AbstractCard q : neighbors) {
                     q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;

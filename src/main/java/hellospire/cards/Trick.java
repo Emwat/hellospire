@@ -49,13 +49,11 @@ public class Trick extends BaseCard {
         setEthereal(true);
         setExhaust(true);
 
-        if (Loader.isModLoaded("PrideMod")) {
+        if (Loader.isModLoaded("PrideMod") || isTheRainbow()) {
             loadCardImage(SonicMod.imagePath("cards/skill/TrickAlexDivato.png"));
         }
     }
 
-    /// "DESCRIPTION": "Ethereal. NL Gain 2 Vigor. NL stslib:Refund 1. NL Exhaust.",
-    /// "DESCRIPTION": "Ethereal. NL If you already have Vigor, double it. NL If not, gain 1 Vigor. NL stslib:Refund 1. NL Exhaust.",
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new ModAnimateHopAction(p));

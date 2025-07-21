@@ -8,11 +8,13 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
+import hellospire.relics.FireSoulRelic;
 import hellospire.util.CardStats;
 import hellospire.util.ExtraIcons;
 import hellospire.util.TextureLoader;
@@ -31,6 +33,7 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
     private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
+    private static int FireSoulRelicAmount = 0;
     private final Texture fireIcon = TextureLoader.getTexture(SonicMod.imagePath("ui/fireIcon.png"));
 
     public FireSomersault() {
@@ -45,6 +48,9 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
         setMagic(MAGIC, UPG_MAGIC);
         this.timesUpgraded = upgrades;
         tags.add(SonicTags.CREST_OF_FIRE);
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(FireSoulRelic.ID)){
+            FireSoulRelicAmount = AbstractDungeon.player.getRelic(FireSoulRelic.ID).counter;
+        }
     }
 
     @Override
@@ -94,9 +100,9 @@ public class FireSomersault extends BaseCard implements CrestOfFireCard {
     @Override
     public void update() {
         super.update();
-        if (this.timesUpgraded > 7) {
+        if (this.timesUpgraded > 7 + FireSoulRelicAmount) {
             ExtraIcons.icon(fireIcon)
-                    .text(String.valueOf(timesUpgraded - 7))
+                    .text(String.valueOf(timesUpgraded - 7 - FireSoulRelicAmount))
                     .textColor(Color.ORANGE.cpy())
                     .textOffsetY(-30f)
                     .drawColor(new Color(1, 1, 1, this.transparency))

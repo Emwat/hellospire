@@ -28,11 +28,14 @@ public class RandomizeCostAction extends AbstractGameAction {
         if (card.hasTag(SonicTags.SPIN_UP)) {
             if (newCost - 1 < 0) {
                 BaseCard.setCostForCombat( card, 0);
+                card.flash();
             } else {
                 BaseCard.setCostForCombat(card, newCost - 1);
+                card.flash();
             }
         } else {
             card.setCostForTurn(newCost);
+            card.flash();
         }
 
         this.isDone = true;

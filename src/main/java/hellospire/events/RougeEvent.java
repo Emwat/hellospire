@@ -32,7 +32,7 @@ public class RougeEvent extends PhasedEvent {
         super(ID, NAME, IMG);
 
         registerPhase("start", new TextPhase(DESCRIPTIONS[0])
-                .addOption(new TextPhase.OptionInfo(OPTIONS[0]).enabledCondition(() -> !getUncommonCards().isEmpty(), OPTIONS[1])
+                .addOption(new TextPhase.OptionInfo(OPTIONS[1]).enabledCondition(() -> !getUncommonCards().isEmpty(), OPTIONS[1])
                         .setOptionResult((i)->{
 
                             // AbstractRelic relic = AbstractDungeon.returnRandomScreenlessRelic(AbstractDungeon.returnRandomRelicTier());
@@ -43,8 +43,8 @@ public class RougeEvent extends PhasedEvent {
                         }))
                 .addOption(OPTIONS[2], (i)->transitionKey("02reject")));
 
-        registerPhase("01accept", new TextPhase(DESCRIPTIONS[1]).addOption(OPTIONS[3], (i)->openMap()));
-        registerPhase("02reject", new TextPhase(DESCRIPTIONS[2]).addOption(OPTIONS[3], (i)->openMap()));
+        registerPhase("01accept", new TextPhase(DESCRIPTIONS[1]).addOption(OPTIONS[0], (i)->openMap()));
+        registerPhase("02reject", new TextPhase(DESCRIPTIONS[2]).addOption(OPTIONS[0], (i)->openMap()));
 
         transitionKey("start");
     }

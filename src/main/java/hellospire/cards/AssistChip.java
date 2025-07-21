@@ -1,6 +1,7 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,17 +21,21 @@ public class AssistChip extends BaseCard {
             1
     );
 
+    private static final int BLOCK = 5;
+    private static final int UPG_BLOCK = 3;
+
     public AssistChip() {
         super(ID, info);
 
+        setBlock(BLOCK, UPG_BLOCK);
         setSelfRetain(true);
         setExhaust(true);
-        setCostUpgrade(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.Chip));
+        addToBot(new GainBlockAction(p, block));
         addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));
     }
 

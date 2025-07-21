@@ -5,6 +5,7 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.SonicMod;
@@ -712,6 +713,14 @@ public abstract class BaseCard extends CustomCard {
         }
     }
 
+    public int getVanillaPower(AbstractCreature owner, String targetID) {
+        AbstractPower power = owner.getPower(targetID);
+        if (power != null) {
+            return power.amount;
+        }
+        return 0;
+    }
+
     public int getPower(AbstractPlayer p, String targetID) {
         AbstractPower power = p.getPower(makeID(targetID));
         if (power != null) {
@@ -787,7 +796,6 @@ public abstract class BaseCard extends CustomCard {
         return true;
     }
 
-
     public boolean HasChanneledOrb(){
         if (AbstractDungeon.player.orbs.isEmpty()) {
             return false;
@@ -796,8 +804,35 @@ public abstract class BaseCard extends CustomCard {
         return !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot);
     }
 
+    public ArrayList<AbstractCard> getNeighbors(CardGroup hand, boolean includeUnderZero) {
+        ArrayList<AbstractCard> neighbors = new ArrayList<>();
+
+        if (hand.contains(this)) {
+            int index = hand.group.indexOf(this);
+            if (index > 0) {
+                AbstractCard leftCard = hand.group.get(index - 1);
+                if (leftCard.costForTurn > 0 || includeUnderZero) {
+                    neighbors.add(leftCard);
+                }
+            }
+            if (index < hand.size() - 1) {
+                AbstractCard rightCard = hand.group.get(index + 1);
+                if (rightCard.costForTurn > 0 || includeUnderZero) {
+                    neighbors.add(rightCard);
+                }
+            }
+        }
+        return neighbors;
+    }
+
     public String imageSkillPath(String filename) {
         return imagePath("cards/skill/" + filename);
     }
 
+    public boolean isTheRainbow() {
+        if (AbstractDungeon.player == null) {
+            return false;
+        }
+        return AbstractDungeon.player.title.equals("the Rainbow");
+    }
 }

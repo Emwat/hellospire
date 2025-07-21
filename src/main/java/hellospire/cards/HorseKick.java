@@ -39,6 +39,29 @@ public class HorseKick extends BaseCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
+    // Does not work for hologram
+    // @Override
+    // public void triggerWhenDrawn() {
+    //     super.triggerWhenDrawn();
+    //     addToBot(setIsRightmostCard(this));
+    // }
+    //
+    // @Override
+    // public void triggerOnOtherCardPlayed(AbstractCard c) {
+    //     super.triggerOnOtherCardPlayed(c);
+    //     addToBot(setIsRightmostCard(this));
+    // }
+    //
+    // private AbstractGameAction setIsRightmostCard(AbstractCard thisCard){
+    //     return new AbstractGameAction() {
+    //         @Override
+    //         public void update() {
+    //             isRightmostCard = CheckIfRightCard(thisCard, AbstractDungeon.player.hand);
+    //             this.isDone = true;
+    //         }
+    //     };
+    // }
+
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
         if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {

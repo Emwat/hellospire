@@ -27,7 +27,7 @@ public class Ring extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            1
     );
 
     private static final int MAGIC = 1;
@@ -41,14 +41,13 @@ public class Ring extends BaseCard {
         setExhaust(true);
         tags.add(CardTags.HEALING);
 
-        if (Loader.isModLoaded("PrideMod")) {
+        if (Loader.isModLoaded("PrideMod") || isTheRainbow()) {
             loadCardImage(SonicMod.imagePath("cards/skill/WorldRings.png"));
         }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Ring));
-        RingPower ringPower = (RingPower) p.getPower(makeID("RingPower"));
 
         if (RingPower.isLightSpeedDashing) {
             addToBot(new HealAction(p, p, magicNumber));
@@ -60,7 +59,6 @@ public class Ring extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
         }
 
-//        addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -76,12 +74,10 @@ public class Ring extends BaseCard {
         });
     }
 
-    /// "DESCRIPTION": "Retain. NL Ring. NL While you have this in your hand, you have two temporary dexterity. Exhaust."
     @Override
     public void triggerWhenCopied() {
         AbstractPlayer p = AbstractDungeon.player;
         addToTop(new ApplyPowerAction(p, p, new RingPower(p, 1)));
-//        this.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
         super.triggerWhenCopied();
     }
 
@@ -91,7 +87,7 @@ public class Ring extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new Ring();
     }
 }

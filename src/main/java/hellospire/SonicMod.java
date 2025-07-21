@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheCity;
+import com.megacrit.cardcrawl.events.beyond.WindingHalls;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
@@ -21,6 +22,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.cards.*;
 import hellospire.character.Sonic;
 // import hellospire.ui.FlagDropDown;
+import hellospire.events.GravitySwitchEvent;
 import hellospire.events.RougeEvent;
 import hellospire.potions.BasePotion;
 import hellospire.relics.BaseRelic;
@@ -50,6 +52,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
+
+// IntelliJ
+// Double tapping Shift : brings up a Universal Code Search Tool
+// Ctrl + Shift + F : Find All
+// Alt + Enter : Context Actions
+// Ctrl + B : Decompile/Direct to source
 
 @SpireInitializer
 public class SonicMod implements
@@ -159,6 +167,24 @@ public class SonicMod implements
         //         .eventType(EventUtils.EventType.NORMAL)
         //         .create()
         // );
+
+        if (MyModConfig.enableEventsForAllCharacters) {
+            BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .overrideEvent(WindingHalls.ID)
+                    .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .create()
+            );
+        } else if (MyModConfig.enableEventsForOnlySonic) {
+            BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                    .overrideEvent(WindingHalls.ID)
+                    .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .create()
+            );
+        }
+
 
     }
 

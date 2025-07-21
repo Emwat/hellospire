@@ -25,7 +25,7 @@ public class QuickAir extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 6;
+    private static final int BLOCK = 7;
     private static final int UPG_BLOCK = 2;
 
     /// Gain !B! Block. NL Add a Quick Step to your hand.

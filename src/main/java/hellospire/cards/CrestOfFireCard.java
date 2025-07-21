@@ -3,6 +3,8 @@ package hellospire.cards;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Armaments;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import hellospire.relics.FireSoulRelic;
 
 public interface CrestOfFireCard {
     Color CREST_OF_FIRE_BURN_GLOW_COLOR = Color.RED;
@@ -15,6 +17,11 @@ public interface CrestOfFireCard {
 
     default boolean willBurnPlayer(AbstractCard thisCard) {
         int upgrades = thisCard.timesUpgraded;
-        return upgrades > CREST_OF_FIRE_MARK;
+        int fireSoulCounter = 0;
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(FireSoulRelic.ID)){
+            fireSoulCounter = AbstractDungeon.player.getRelic(FireSoulRelic.ID).counter;
+        }
+
+        return upgrades > CREST_OF_FIRE_MARK + fireSoulCounter;
     }
 }

@@ -178,7 +178,11 @@ public class SoundLibrary {
 
     public static boolean isRandomlyTrue(){
         int maxVoiceFrequency = 10;
-        return AbstractDungeon.miscRng.random(0, maxVoiceFrequency) - MyModConfig.voiceFrequency <= 0;
+        try {
+            return AbstractDungeon.miscRng.random(0, 10) - MyModConfig.voiceFrequency <= 0;
+        } catch (NullPointerException nullPointerException) {
+            return (int)(Math.random() * 11) - MyModConfig.voiceFrequency <= 0;
+        }
     }
 }
 

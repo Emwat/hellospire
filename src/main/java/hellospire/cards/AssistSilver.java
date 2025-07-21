@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.green.PiercingWail;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
@@ -10,7 +11,7 @@ import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
 public class AssistSilver extends BaseCard {
-    public static final String ID = makeID("AssistShadow");
+    public static final String ID = makeID("AssistSilver");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,

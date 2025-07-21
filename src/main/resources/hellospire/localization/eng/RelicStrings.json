@@ -82,6 +82,14 @@
       " #yLevel #yUp #yFlight and #yPower."
     ]
   },
+  "${modID}:FireSoulRelic": {
+    "NAME": "Fire Soul",
+    "FLAVOR": "Do you think you could take this Judgement thing out of my chest for me?",
+    "DESCRIPTIONS": [
+      "When you use a #yCrest #yof #yFire card, first gain #b",
+      " Block. This amount permanently increases when you enter a Rest Site."
+    ]
+  },
   "${modID}:Player2Relic": {
     "NAME": "Player 2",
     "FLAVOR": "WHOAA MY HEADS SPINNING!!",

@@ -62,7 +62,7 @@
   },
   "${modID}:AssistChip": {
     "NAME": "Chip",
-    "DESCRIPTION": "Retain. NL Enter Calm. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !B! Block. NL Enter Calm. NL Exhaust."
   },
   "${modID}:AssistCream": {
     "NAME": "Cream the Rabbit",
@@ -82,8 +82,9 @@
     "DESCRIPTION": "Discard !M! cards. NL Gain [E] [E]."
   },
   "${modID}:AssistShadow": {
-    "NAME": "Shadow the Hedgehog",
-    "DESCRIPTION": "Gain 1 Intangible. Exhaust."
+    "NAME": "Shadow",
+    "DESCRIPTION": "Ethereal. NL Gain 1 Intangible. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust."
   },
   "${modID}:AssistSticks": {
     "NAME": "Sticks the Badger",
@@ -415,6 +416,10 @@
     "DESCRIPTION": "Choose a card in your hand. It gains Retain and when it exhausts, enter Wrath.",
     "UPGRADE_DESCRIPTION": "Enter Calm. Choose a card in your hand. It gains Retain and when it exhausts, enter Wrath."
   },
+  "${modID}:MeteorKick": {
+    "NAME": "Meteor Kick",
+    "DESCRIPTION": "Deal !D! damage. If the enemy has Vulnerable, deal !M! additional damage."
+  },
   "${modID}:Momentum": {
     "NAME": "Momentum",
     "DESCRIPTION": "Gain Vigor for every card in your exhaust pile.",
@@ -454,7 +459,7 @@
     "DESCRIPTION": "Stay Calm. Shuffle [#efc851ff]Relax+ into your draw pile."
   },
   "${modID}:RelaxPick2": {
-    "NAME": "NOW",
+    "NAME": "DON'T BLINK",
     "DESCRIPTION": "Enter Wrath. Shuffle [#efc851ff]Relax+ into your draw pile."
   },
   "${modID}:Ricochet": {
@@ -467,7 +472,7 @@
   },
   "${modID}:RocketAccel": {
     "NAME": "Rocket Accel",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Two_random_attacks in your hand deal !M! additional damage for the rest of combat."
+    "DESCRIPTION": "Deal !D! damage. NL Two random attacks in your hand deal !M! additional damage for the rest of combat."
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
@@ -510,7 +515,7 @@
   },
   "${modID}:SlotMachineGame": {
     "NAME": "Slot Machine Game",
-    "DESCRIPTION": "Add #ySlot #yMachine #yPull to your hand. Shuffle !M! #ySlot #yMachine #yEggman into the draw pile. Exhaust."
+    "DESCRIPTION": "Add [#efc851ff]Slot [#efc851ff]Machine [#efc851ff]Pull to your hand. Shuffle !M! [#efc851ff]Slot [#efc851ff]Machine [#efc851ff]Eggman into the draw pile. Exhaust."
   },
   "${modID}:SlotMachinePull": {
     "NAME": "Slot Machine Pull",
@@ -557,6 +562,10 @@
   "${modID}:SpinDash": {
     "NAME": "Spin Dash",
     "DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile."
+  },
+  "${modID}:SpinningNeedleAttack": {
+    "NAME": "Spinning Needle Atk",
+    "DESCRIPTION": "Deal !D! damage. This deals additional damage equal to each adjacent card's cost !M!X."
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",

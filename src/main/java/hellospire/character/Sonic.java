@@ -117,8 +117,8 @@ public class Sonic extends CustomPlayer {
 
 
     // In-game images
-    private static final String SHOULDER_1 = characterPath("shoulder.png"); // Shoulder 1 and 2 are used at rest sites.
-    private static final String SHOULDER_2 = characterPath("shoulder2.png");
+    private static final String SHOULDER_1 = characterPath("shoulder5.png"); // Shoulder 1 and 2 are used at rest sites.
+    private static final String SHOULDER_2 = characterPath("shoulderBlank.png");
     private static final String CORPSE = characterPath("corpse.png"); // Corpse is when you die.
 
     // Textures used for the energy orb
@@ -292,6 +292,8 @@ public class Sonic extends CustomPlayer {
         // This occurs when you click the character's button in the character select screen.
         // See SoundMaster for a full list of existing sound effects, or look at BaseMod's wiki for adding custom audio.
         // CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
+        // 07/21/2025 07:55 AM Players are getting a null exception??
+        // https://discord.com/channels/765527707428585473/1396313039510175854/1396313039510175854
         if (MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
             CardCrawlGame.sound.play(SoundLibrary.LetsBlastThrough);
         } else {

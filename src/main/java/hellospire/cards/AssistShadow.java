@@ -35,6 +35,14 @@ public class AssistShadow extends BaseCard {
     }
 
     @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            setEthereal(false);
+        }
+        super.upgrade();
+    }
+
+    @Override
     public AbstractCard makeCopy() { //Optional
         return new AssistShadow();
     }
