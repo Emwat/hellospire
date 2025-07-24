@@ -94,6 +94,7 @@ public class SoundLibrary {
     static public final String Blaze = makeID("ogg_blaze");
     public static final String Sticks = makeID("ogg_sticks");;
     public static final String Shadow = makeID("ogg_shadow");;
+    public static final String Silver = makeID("ogg_silver");
     public static final String Rouge = makeID("ogg_rouge");;
     public static final String Chip = makeID("ogg_chip");
     public static final String Chao = makeID("ogg_chao");;

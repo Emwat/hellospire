@@ -80,7 +80,7 @@ public class GrindRail extends BaseCard {
             ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
             if (!neighbors.isEmpty()) {
                 for (AbstractCard q : neighbors) {
-                    q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+                    q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
                     q.triggerOnGlowCheck();
                 }
             }

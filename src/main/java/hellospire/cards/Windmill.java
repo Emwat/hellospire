@@ -34,7 +34,6 @@ public class Windmill extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         CardModifierManager.addModifier(this, new SpinUpModifier());
-        tags.add(SonicTags.LIKE_SNECKO);
     }
 
     @Override

@@ -42,7 +42,7 @@ public class RingEnergyBonusRelic extends BaseRelic {
                 }
                 if (ringCount >= NumberOfRingsForEnergy) {
                     thisRelic.flash();
-                    addToBot(new GainEnergyAction(1));
+                    addToBot(new GainEnergyAction(ringCount / 3));
                 }
                 this.isDone = true;
             }

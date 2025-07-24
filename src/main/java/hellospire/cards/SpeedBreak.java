@@ -1,8 +1,12 @@
 package hellospire.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.ApplyBulletTimeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
@@ -21,9 +25,13 @@ public class SpeedBreak extends BaseCard {
             3
     );
 
+    private static final int MAGIC = 3;
+    // private static final int UPG_MAGIC = 2;
+
     public SpeedBreak() {
         super(ID, info);
 //        setExhaust(true);
+        setMagic(MAGIC);
         setCostUpgrade(2);
         tags.add(SonicTags.LIKE_SILENT);
     }
@@ -31,8 +39,9 @@ public class SpeedBreak extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.SpeedBreak));
-//        addToBot(new ApplyPowerAction(p, p, new SpeedHurtPower(p)));
-        addToBot(new ApplyPowerAction(p, p, new NoDrawPower(p), 1));
+        addToBot(new DamageAction(p, new DamageInfo(p, magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+        // addToBot(new ApplyPowerAction(p, p, new SpeedHurtPower(p)));
+        // addToBot(new ApplyPowerAction(p, p, new NoDrawPower(p), 1));
         addToBot(new ApplyBulletTimeAction());
     }
 

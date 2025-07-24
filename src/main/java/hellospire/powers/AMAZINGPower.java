@@ -74,17 +74,23 @@ public class AMAZINGPower extends BasePower {
         }
 
         if (this.amount == 1){
-            addToTop(new ModTextInCenterAction("OUTSTANDING!", Color.WHITE.cpy()));
-            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing2));
+            addToTop(new ModTextInCenterAction("OUTSTANDING!", Color.PINK.cpy()));
+            if (MyModConfig.enableVoice && MyModConfig.voiceFrequency == 10) {
+                addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing2));
+            }
         }
 
         if (this.amount == 0) {
             this.flash();
-            if (MyModConfig.enableTextPopUps) {
+            if (MyModConfig.enableTextPopUps && MyModConfig.enableVoice && MyModConfig.voiceFrequency == 10) {
                 addToTop(new VFXAction(new AMAZINGEffect("amazing")));
+            } else {
+                addToTop(new ModTextInCenterAction("AMAZING!!", Color.GOLD.cpy()));
             }
             // addToTop(new TextAboveCreatureAction(owner, "AMAZING!"));
-            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing1));
+            if (MyModConfig.enableVoice && MyModConfig.voiceFrequency == 10) {
+                addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing1));
+            }
             this.amount = CARD_AMT;
             // this.addToBot(new VFXAction());
             this.addToBot(new DamageAllEnemiesAction(

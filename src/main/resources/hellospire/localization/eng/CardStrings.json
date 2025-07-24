@@ -40,7 +40,7 @@
   "${modID}:Assist": {
     "NAME": "Assist",
     "DESCRIPTION": "Get a random ${modID}:Friend skill to add to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend skill to add to your hand. It costs zero this turn. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend skill to add to your hand. It is upgraded and costs zero this turn. NL Exhaust."
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
@@ -86,6 +86,10 @@
     "DESCRIPTION": "Ethereal. NL Gain 1 Intangible. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust."
   },
+  "${modID}:AssistSilver": {
+    "NAME": "Silver",
+    "DESCRIPTION": "Scry !${modID}:CustomVar_SCRY!. NL ALL enemies lose !M! Strength next turn for one turn. NL Exhaust."
+  },
   "${modID}:AssistSticks": {
     "NAME": "Sticks the Badger",
     "DESCRIPTION": "All Starter Strikes and Defends cost 0 and gain ${modID}:Spin_Up."
@@ -93,7 +97,7 @@
   "${modID}:AssistTails": {
     "NAME": "Unbreakable Bond",
     "DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Plasma. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma. Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma. NL Exhaust."
   },
   "${modID}:AssistTikal": {
     "NAME": "Tikal the Echidna",
@@ -116,15 +120,19 @@
     "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded.",
     "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded."
   },
-  "${modID}:BlastOff": {
-    "NAME": "Blast Off",
-    "DESCRIPTION": "${modID}:Spin_Up. NL Gain [E]. NL ${modID}:If_most_left, gain 1 more.",
-    "UPGRADE_DESCRIPTION": "${modID}:Spin_Up. NL Gain [E] [E]. NL ${modID}:If_most_left, gain 1 more."
-  },
+    "${modID}:BlastOff": {
+      "NAME": "Blast Off",
+      "DESCRIPTION": "${modID}:Spin_Up. NL Gain [E]. NL ${modID}:If_most_left, gain 1 more.",
+      "UPGRADE_DESCRIPTION": "${modID}:Spin_Up. NL Gain [E] [E]. NL ${modID}:If_most_left, gain 1 more."
+    },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
     "DESCRIPTION": "Gain !B! Block. NL Next turn, your first card will play twice. Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, your first card will play twice."
+  },
+  "${modID}:BlueBomber": {
+    "NAME": "Blue Bomber",
+    "DESCRIPTION": "Deal !D! damage. NL Dexterity and [#efc851ff]Rings affect this card !M! times."
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
@@ -181,7 +189,7 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": "When you play a skill this turn, add a [#efc851ff]Ring to your hand."
+    "DESCRIPTION": "When you play a skill this turn, add a [#efc851ff]Ring to your hand. NL Exhaust."
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
@@ -314,6 +322,15 @@
     "NAME": "Grind Rail",
     "DESCRIPTION": "Lowers the cost of adjacent cards by !M! for this turn."
   },
+  "${modID}:Hailstorm": {
+    "NAME": "Hailstorm",
+    "DESCRIPTION": "Deal !D! damage 1 time. This hits an additional time for each time you've drawn this card.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage ",
+      " time. This hits an additional time for each time you've drawn this card.",
+      " times. This hits an additional time for each time you've drawn this card."
+    ]
+  },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
     "DESCRIPTION": "Deal !D! damage. Double this card's damage. When you play this card, it stays in your hand.",
@@ -398,6 +415,18 @@
       "For each [#efc851ff]Ring in your hand, you have ",
       " extra Strength."
     ]
+  },
+  "${modID}:LevelUpSpeedPick": {
+    "NAME": "Level Up Speed",
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Block gained from cards by 1."
+  },
+  "${modID}:LevelUpFlightPick": {
+    "NAME": "Level Up Flight",
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Focus by 1."
+  },
+  "${modID}:LevelUpPowerPick": {
+    "NAME": "Level Up Power",
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase damage dealt from cards by 1."
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
@@ -540,7 +569,7 @@
   },
   "${modID}:SonicFlare": {
     "NAME": "Sonic Flare",
-    "DESCRIPTION": "Deal !D! damage. NL Gain Vigor by HALF of the unblocked damage dealt."
+    "DESCRIPTION": "Deal !D! damage. NL Gain Vigor by half of the unblocked damage dealt."
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
@@ -557,7 +586,7 @@
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
-    "DESCRIPTION": "You cannot draw additional cards this turn. Reduce the cost of ALL cards in your hand to 0 this turn."
+    "DESCRIPTION": "Take !M! damage. Reduce the cost of ALL cards in your hand to 0 this turn."
   },
   "${modID}:SpinDash": {
     "NAME": "Spin Dash",
@@ -565,7 +594,7 @@
   },
   "${modID}:SpinningNeedleAttack": {
     "NAME": "Spinning Needle Atk",
-    "DESCRIPTION": "Deal !D! damage. This deals additional damage equal to each adjacent card's cost !M!X."
+    "DESCRIPTION": "Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost !M! times."
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",

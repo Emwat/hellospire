@@ -14,7 +14,7 @@ public class PeelOut extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
     );

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
@@ -48,7 +49,9 @@ public class AssistSticks extends BaseCard {
         for (AbstractCard card : cardGroup.group) {
             if (card.hasTag(CardTags.STARTER_STRIKE) || card.hasTag(CardTags.STARTER_DEFEND)) {
                 BaseCard.setCostForCombat(card, 0);
-                CardModifierManager.addModifier(card, new SpinUpModifier());
+                if (!card.hasTag(SonicTags.SPIN_UP)) {
+                    CardModifierManager.addModifier(card, new SpinUpModifier());
+                }
                 if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                     card.flash();
                 }

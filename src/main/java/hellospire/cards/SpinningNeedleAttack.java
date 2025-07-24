@@ -1,15 +1,16 @@
 package hellospire.cards;
 
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.SonicMod;
-import hellospire.SoundLibrary;
+import hellospire.actions.RandomizeCostAction;
+import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -21,72 +22,43 @@ public class SpinningNeedleAttack extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.SPECIAL,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            2
+            0
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 4;
+    private static final int DAMAGE = 8;
+    private static final int UPG_DAMAGE = 2;
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
-    private int adjacentCosts;
+    private static final int UPG_MAGIC = 2;
 
     public SpinningNeedleAttack() {
         super(ID, info);
 
         setDamage(DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        CardModifierManager.addModifier(this, new SpinUpModifier());
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-    }
-
-    @Override
-    public void triggerWhenDrawn() {
-        super.triggerWhenDrawn();
-        CalculateAdjacentCosts();
-    }
-
-    @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
-        super.triggerOnOtherCardPlayed(c);
-        CalculateAdjacentCosts();
-    }
-
-    private void CalculateAdjacentCosts(){
+        // addToBot(new SpinningNeedleAttackAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        addToBot(new DrawCardAction(1));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, true);
-                int totalCost = 0;
-                for (AbstractCard neighbor : neighbors) {
-                    SonicMod.logger.info(String.format("name %s | cost %s | EnergyPanel.totalCount %s",
-                            neighbor.name, neighbor.cost, EnergyPanel.totalCount));
-                    if (neighbor.cost == -1) {
-                        SonicMod.logger.info(String.format("%s += EnergyPanel.totalCount %s", totalCost, EnergyPanel.totalCount));
-                        totalCost += EnergyPanel.totalCount;
-                    } else if (neighbor.cost < -1) {
-                        totalCost += 0;
-                    } else {
-                        SonicMod.logger.info(String.format("%s += neighor.costForTurn %s", totalCost, neighbor.costForTurn));
-                        totalCost += neighbor.costForTurn;
-                    }
-                }
-                SonicMod.logger.info(String.format("totalCost is %s", totalCost));
-
-                adjacentCosts = totalCost;
+                AbstractCard lastCard = p.hand.getTopCard();
+                addToBot(new RandomizeCostAction(lastCard));
+                addToBot(new DamageAction(m, new DamageInfo(p, damage + (lastCard.costForTurn * magicNumber), DamageInfo.DamageType.NORMAL),
+                        AbstractGameAction.AttackEffect.SLASH_VERTICAL));
                 this.isDone = true;
             }
         });
-
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += adjacentCosts * magicNumber;
+        this.baseDamage += magicNumber * SonicMod.attackCardsPlayedThisTurn;
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;

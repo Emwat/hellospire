@@ -1,12 +1,16 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.blue.SweepingBeam;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
+import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -36,8 +40,14 @@ public class Whirlwind extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        addToBot(new SFXAction("ATTACK_WHIRLWIND"));
+        addToBot(new VFXAction(new WhirlwindEffect(), 0.0F));
         for (int i = 0; i < magicNumber; i++) {
+            addToBot(new SFXAction("ATTACK_HEAVY"));
             addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            addToBot(new VFXAction(p, new CleaveEffect(), 0.0F));
+
         }
 
     }

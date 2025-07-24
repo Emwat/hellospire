@@ -63,11 +63,11 @@ public class SmoothLanding extends BaseCard {
     }
 
     private boolean hasVigor() {
-        return AbstractDungeon.player.hasPower("Vigor");
+        return AbstractDungeon.player != null && AbstractDungeon.player.hasPower("Vigor");
     }
 
     private void transitionToSmoothLanding() {
-        if (hasVigor() || this.upgraded) {
+        if (this.upgraded || hasVigor()) {
             name = "Smooth Landing";
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding1.png"));
@@ -76,6 +76,14 @@ public class SmoothLanding extends BaseCard {
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding.png"));
         }
+    }
+
+    @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            transitionToSmoothLanding();
+        }
+        super.upgrade();
     }
 
     @Override

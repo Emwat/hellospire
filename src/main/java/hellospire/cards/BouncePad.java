@@ -1,12 +1,14 @@
 package hellospire.cards;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -15,7 +17,7 @@ import hellospire.util.CardStats;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BouncePad extends BaseCard {
+public class BouncePad extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("BouncePad");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,

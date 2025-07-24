@@ -23,8 +23,7 @@ public class DirectJump extends BaseCard {
     public DirectJump() {
         super(ID, info);
         this.cardsToPreview = new Ring();
-
-
+        setExhaust(true);
     }
 
     /// When you gain Block this turn, add a Ring to your hand.

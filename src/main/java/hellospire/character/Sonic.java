@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import hellospire.MyModConfig;
 import hellospire.SoundLibrary;
+import hellospire.cards.BouncePad;
 import hellospire.cards.Defend;
 import hellospire.cards.HomingAttack;
 import hellospire.cards.Strike;

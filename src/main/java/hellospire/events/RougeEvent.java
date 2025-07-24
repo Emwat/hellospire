@@ -26,7 +26,7 @@ public class RougeEvent extends PhasedEvent {
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
 
-    private static final String IMG = SonicMod.imagePath("events/rougeTypingAway.png");
+    private static final String IMG = SonicMod.imagePath("events/SonicXRouge.png");
 
     public RougeEvent() {
         super(ID, NAME, IMG);

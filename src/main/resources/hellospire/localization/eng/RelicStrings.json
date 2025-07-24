@@ -84,7 +84,7 @@
   },
   "${modID}:FireSoulRelic": {
     "NAME": "Fire Soul",
-    "FLAVOR": "Do you think you could take this Judgement thing out of my chest for me?",
+    "FLAVOR": "Don't sweat it! Anyways, no adventure is fun if it's too easy, right?",
     "DESCRIPTIONS": [
       "When you use a #yCrest #yof #yFire card, first gain #b",
       " Block. This amount permanently increases when you enter a Rest Site."
@@ -101,8 +101,8 @@
     "NAME": "Ring Energy Bonus",
     "FLAVOR": "Wow, where does somebody put all those gold rings?",
     "DESCRIPTIONS": [
-      "If you have #b",
-      "+ #yRings at the start of your turn, gain 1 [E] ."
+      "For every #b",
+      " #yRings at the start of your turn, gain 1 [E] ."
     ]
   },
   "${modID}:RingKeeperRelic": {

@@ -40,13 +40,13 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistRosy());
         characterCards.add(new AssistRouge());
         characterCards.add(new AssistShadow());
-        // characterCards.add(new AssistSilver());
+        characterCards.add(new AssistSilver());
         characterCards.add(new AssistSticks());
         characterCards.add(new AssistTails());
         characterCards.add(new AssistTikal());
-        if (this.upgraded) {
-            characterCards.add(new Gizoid());
-        }
+        // if (this.upgraded) {
+        //     characterCards.add(new Gizoid());
+        // }
 
         setExhaust(true);
     }
@@ -55,41 +55,27 @@ public class Assist extends BaseCard {
     @Override
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard randomCard = characterCards.get(AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1)).makeCopy();
+        int randomNumber = AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1);
+        AbstractCard randomCard = characterCards.get(randomNumber).makeStatEquivalentCopy();
+        AbstractCard randomCard2 = characterCards.get(randomNumber).makeStatEquivalentCopy();
+
         if (this.upgraded) {
+            randomCard.upgrade();
+            randomCard2.upgrade();
             randomCard.setCostForTurn(-99);
             randomCard.isCostModifiedForTurn = true;
         }
 
-
         addToBot(new MakeTempCardInHandAction(randomCard, true));
-        AbstractDungeon.getCurrRoom().rewards.add(new AssistReward(this, this.uuid, randomCard, this.upgraded));
+        if (!this.inBottleLightning) {
+            AbstractDungeon.getCurrRoom().rewards.add(
+                    new AssistReward(this, this.uuid, randomCard2, this.upgraded));
+        }
         tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override
     public AbstractCard makeCopy() { //Optional
         return new Assist();
-    }
-
-    // The card already plays the voice.
-    private void PlayAssistVoice(AbstractCard randomCard){
-        if (MyModConfig.enableVoice && MyModConfig.voiceFrequency > 0) {
-            if (Objects.equals(randomCard.cardID, AssistAmy.ID)) {
-                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Amy));
-            } else if (Objects.equals(randomCard.cardID, AssistBarry.ID)) {
-//                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Barry));
-            } else if (Objects.equals(randomCard.cardID, AssistBig.ID)) {
-                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Big));
-            } else if (Objects.equals(randomCard.cardID, AssistBlaze.ID)) {
-                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Blaze));
-            } else if (Objects.equals(randomCard.cardID, AssistCream.ID)) {
-                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Cream));
-            } else if (Objects.equals(randomCard.cardID, AssistKnuckles.ID)) {
-                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Knuckles));
-            } else if (Objects.equals(randomCard.cardID, AssistTails.ID)) {
-                addToBot(SoundLibrary.AlwaysPlayVoice(SoundLibrary.Tails));
-            }
-        }
     }
 }

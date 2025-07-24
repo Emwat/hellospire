@@ -5,14 +5,17 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
+import basemod.eventUtil.util.Condition;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.beyond.WindingHalls;
 import com.megacrit.cardcrawl.rewards.RewardSave;
@@ -164,23 +167,41 @@ public class SonicMod implements
         // BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
         //         .dungeonID(TheCity.ID)
         //         .playerClass(Sonic.Meta.THE_HEDGEHOG)
+        //                 .spawnCondition(new Condition() {
+        //                     @Override
+        //                     public boolean test() {
+        //                         return true;
+        //                     }
+        //                 })
         //         .eventType(EventUtils.EventType.NORMAL)
+        //         .create()
+        // );
+        //
+        // BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
+        //         .dungeonID(TheBeyond.ID)
+        //         .playerClass(Sonic.Meta.THE_HEDGEHOG)
+        //         .spawnCondition(new Condition() {
+        //             @Override
+        //             public boolean test() {
+        //                 return true;
+        //             }
+        //         })
+        //         .eventType(EventUtils.EventType.FULL_REPLACE)
+        //         .overrideEvent(WindingHalls.ID)
         //         .create()
         // );
 
         if (MyModConfig.enableEventsForAllCharacters) {
             BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
-                    .dungeonID(TheCity.ID)
-                    .overrideEvent(WindingHalls.ID)
                     .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .overrideEvent(WindingHalls.ID)
                     .create()
             );
         } else if (MyModConfig.enableEventsForOnlySonic) {
             BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
-                    .dungeonID(TheCity.ID)
                     .playerClass(Sonic.Meta.THE_HEDGEHOG)
-                    .overrideEvent(WindingHalls.ID)
                     .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .overrideEvent(WindingHalls.ID)
                     .create()
             );
         }
@@ -392,6 +413,7 @@ public class SonicMod implements
         // BaseMod.removeCard(AssistRouge.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(AssistShadow.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(AssistSilver.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(AssistSticks.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(AssistTails.ID, Sonic.Meta.CARD_COLOR);
 
@@ -418,14 +440,18 @@ public class SonicMod implements
         BaseMod.removeCard(RelaxPick1.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(RelaxPick2.ID, Sonic.Meta.CARD_COLOR);
 
+        BaseMod.removeCard(BouncePadPick1.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(BouncePadPick2.ID, Sonic.Meta.CARD_COLOR);
+
         BaseMod.removeCard(Acceleration.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Bait.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Piping.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
 
+        // BaseMod.removeCard(SpinningNeedleAttack.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SuperSonicForm.ID, Sonic.Meta.CARD_COLOR);
     }
 
@@ -514,6 +540,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Knuckles, audioEngPath("sh_knux_gotit.ogg"));
         BaseMod.addAudio(SoundLibrary.Rouge, audioEngPath("sh_rouge_illtakeitfromhere.ogg"));
         BaseMod.addAudio(SoundLibrary.Shadow, audioEngPath("sh_shadow_illtakeitfromhere.ogg"));
+        BaseMod.addAudio(SoundLibrary.Silver, audioEngPath("s06_silver_itsnouse.ogg"));
         BaseMod.addAudio(SoundLibrary.Sticks, audioEngPath("boom_sticks_imready.ogg"));
         BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
@@ -646,6 +673,16 @@ public class SonicMod implements
 ////        if (modConfig == null) return 0;
 ////        return modConfig.getInt(ConfigField.INDEX.id);
 ////    }
+
+    // public static SingleCardReward hoverRewardWorkaround;
+    // @Override
+    // public void receivePostRender(SpriteBatch sb) {
+    //     if(hoverRewardWorkaround != null) {
+    //         hoverRewardWorkaround.renderCardOnHover(sb);
+    //         hoverRewardWorkaround = null;
+    //     }
+    //     BrokenSpaceZone.shaderTimer += Gdx.graphics.getDeltaTime();
+    // }
 
 
 }

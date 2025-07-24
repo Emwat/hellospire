@@ -5,12 +5,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.purple.Eruption;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.util.ExtraIcons;
@@ -18,7 +14,7 @@ import hellospire.util.TextureLoader;
 
 import static hellospire.SonicMod.makeID;
 
-//https://github.com/daviscook477/BaseMod/wiki/CardModifiers
+// https://github.com/daviscook477/BaseMod/wiki/CardModifiers
 public class MagicHandsModifier extends AbstractCardModifier {
 
     private final static String magicHandsKeyword = CardCrawlGame.languagePack.getUIString(makeID("modifierMagicHands")).TEXT[0];
@@ -59,4 +55,12 @@ public class MagicHandsModifier extends AbstractCardModifier {
     public AbstractCardModifier makeCopy() {
         return new MagicHandsModifier();
     }
+
+    Color purpleBorder = CardHelper.getColor(239, 103, 246);
+
+    @Override
+    public Color getGlow(AbstractCard card) {
+        return purpleBorder;
+    }
+
 }

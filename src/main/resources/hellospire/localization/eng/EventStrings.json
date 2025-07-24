@@ -48,10 +48,11 @@
       "\"I guess I'll have to find my own. Flying solo is our style anyway.\""
     ],
     "OPTIONS": [
-      "[Buy] #y70 #yGold: #gObtain #ga #gRelic.",
-      "[Locked] Requires: 70 Gold.",
       "[Decline]",
-      "[Leave]"
+      "[Hang out] #yPay #y70 #yGold. #gObtain #ga #gRelic.",
+      "[Trade] #rLose #r",
+      ". #gGain #g2 #Assists.",
+      "[Decline]"
     ]
   }
 }
