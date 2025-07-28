@@ -11,11 +11,13 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class DriftAction extends AbstractGameAction {
     private AbstractPlayer p;
+    private int magicNumber;
     private int energyOnUse;
     private boolean freeToPlayOnce;
 
-    public DriftAction(AbstractPlayer p, boolean freeToPlayOnce, int energyOnUse) {
+    public DriftAction(AbstractPlayer p, int magicNumber, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
+        this.magicNumber = magicNumber;
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.energyOnUse = energyOnUse;
@@ -33,7 +35,7 @@ public class DriftAction extends AbstractGameAction {
             this.p.getRelic("Chemical X").flash();
         }
 
-        effect = effect * 3;
+        effect = effect * magicNumber;
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
                 for (AbstractOrb orb : AbstractDungeon.player.orbs) {

@@ -31,7 +31,7 @@ public class LightSpeedDash extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new Ring();
         this.setExhaust(true);
-
+        tags.add(CardTags.HEALING);
     }
 
     @Override

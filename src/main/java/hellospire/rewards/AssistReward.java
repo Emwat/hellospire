@@ -73,10 +73,14 @@ public class AssistReward extends CustomReward {
             reward = new AssistBig();
         } else if (AssistBlaze.ID.equals(id)) {
             reward = new AssistBlaze();
+        } else if (AssistCharmy.ID.equals(id)) {
+            reward = new AssistCharmy();
         } else if (AssistChip.ID.equals(id)) {
             reward = new AssistChip();
         } else if (AssistCream.ID.equals(id)) {
             reward = new AssistCream();
+        } else if (AssistEspio.ID.equals(id)){
+            reward = new AssistEspio();
         } else if (AssistKnuckles.ID.equals(id)) {
             reward = new AssistKnuckles();
         } else if (AssistRosy.ID.equals(id)) {
@@ -93,6 +97,8 @@ public class AssistReward extends CustomReward {
             reward = new AssistTails();
         } else if (AssistTikal.ID.equals(id)){
             reward = new AssistTikal();
+        } else if (AssistVector.ID.equals(id)){
+            reward = new AssistVector();
         } else {
             SonicMod.logger.error("SpireWolf25 Error: AssistCard {} is not found.", id);
         }

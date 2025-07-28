@@ -5,18 +5,13 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
-import basemod.eventUtil.util.Condition;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.TheBeyond;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.beyond.WindingHalls;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -26,7 +21,6 @@ import hellospire.cards.*;
 import hellospire.character.Sonic;
 // import hellospire.ui.FlagDropDown;
 import hellospire.events.GravitySwitchEvent;
-import hellospire.events.RougeEvent;
 import hellospire.potions.BasePotion;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
@@ -535,20 +529,27 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Amy, audioEngPath("sh_amy_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.Big, audioEngPath("sh_big_myturn.ogg"));
         BaseMod.addAudio(SoundLibrary.Blaze, audioEngPath("sr_blaze_youcantescapeme.ogg"));
+        BaseMod.addAudio(SoundLibrary.Charmy, audioEngPath("sh_charmy_illtakethelead.ogg"));
+        BaseMod.addAudio(SoundLibrary.Chao, audioEngPath("sa2_chao.ogg"));
         BaseMod.addAudio(SoundLibrary.Chip, audioEngPath("su_chip_myturnsonic.ogg"));
         BaseMod.addAudio(SoundLibrary.Cream, audioEngPath("sh_cream_herewego.ogg"));
+        BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
+        BaseMod.addAudio(SoundLibrary.Espio, audioEngPath("sh_espio_letsgo.ogg"));
         BaseMod.addAudio(SoundLibrary.Knuckles, audioEngPath("sh_knux_gotit.ogg"));
         BaseMod.addAudio(SoundLibrary.Rouge, audioEngPath("sh_rouge_illtakeitfromhere.ogg"));
         BaseMod.addAudio(SoundLibrary.Shadow, audioEngPath("sh_shadow_illtakeitfromhere.ogg"));
         BaseMod.addAudio(SoundLibrary.Silver, audioEngPath("s06_silver_itsnouse.ogg"));
         BaseMod.addAudio(SoundLibrary.Sticks, audioEngPath("boom_sticks_imready.ogg"));
         BaseMod.addAudio(SoundLibrary.Tails, audioEngPath("sh_tails_leaveittome.ogg"));
-        BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
-        BaseMod.addAudio(SoundLibrary.Chao, audioPath("sa2_chao.ogg"));
+        BaseMod.addAudio(SoundLibrary.Vector, audioEngPath("sh_vector_herewego.ogg"));
+        BaseMod.addAudio(SoundLibrary.MetalHaha, audioEngPath("sh_metal_hahaha.ogg"));
+        BaseMod.addAudio(SoundLibrary.MetalData, audioEngPath("sh_metal_alllifeformdata.ogg"));
+        BaseMod.addAudio(SoundLibrary.MetalAppropiate, audioEngPath("sh_metal_how_appropriate.ogg"));
     }
 
     public static int attackCardsPlayedThisTurn = 0;
     public static int cardsExhaustedThisTurn = 0;
+    public static boolean sawMetalRelic = false;
 
     @Override
     public void receivePostExhaust(AbstractCard abstractCard) {

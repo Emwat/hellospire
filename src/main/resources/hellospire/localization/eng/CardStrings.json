@@ -60,6 +60,10 @@
     "NAME": "Blaze the Cat",
     "DESCRIPTION": "Gain !B! Block. When you are attacked this turn, deal !M! damage to the attacker."
   },
+  "${modID}:AssistCharmy": {
+    "NAME": "Charmy the Bee",
+    "DESCRIPTION": "Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy. NL Channel !M! Lightning."
+  },
   "${modID}:AssistChip": {
     "NAME": "Chip",
     "DESCRIPTION": "Retain. NL Gain !B! Block. NL Enter Calm. NL Exhaust."
@@ -67,6 +71,10 @@
   "${modID}:AssistCream": {
     "NAME": "Cream the Rabbit",
     "DESCRIPTION": "Heal !M! HP. NL Gain 1 Orb slot. Exhaust."
+  },
+  "${modID}:AssistEspio": {
+    "NAME": "Espio the Chameleon",
+    "DESCRIPTION": "Gain !B! Block. NL Add !M! Shivs to your hand."
   },
   "${modID}:AssistKnuckles": {
     "NAME": "Fighting Buddies",
@@ -102,6 +110,10 @@
   "${modID}:AssistTikal": {
     "NAME": "Tikal the Echidna",
     "DESCRIPTION": "Innate. NL Gain !B! Block. NL If the enemy intends to attack, this card will glow. NL Exhaust."
+  },
+  "${modID}:AssistVector": {
+    "NAME": "Vector the Crocodile",
+    "DESCRIPTION": "{@@}Gain !M! Vigor. NL Put a card from your discard pile on top of your draw pile."
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
@@ -206,8 +218,8 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "Activate the passive effects of your Orbs 3X times.",
-    "UPGRADE_DESCRIPTION": "Activate the passive effects of your Orbs 3(X + 1) times.",
+    "DESCRIPTION": "Activate the passive effects of your Orbs !M!X times.",
+    "UPGRADE_DESCRIPTION": "Activate the passive effects of your Orbs !M!(X + 1) times.",
     "EXTENDED_DESCRIPTION": [
       "Activate the passive effects of your Orbs [#7fff00ff]",
       "[] times."

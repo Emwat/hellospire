@@ -85,20 +85,26 @@ public class SoundLibrary {
 
     static public final String BossMusic = makeID("mp3_WindUpPunchGo");
 
-    static public final String Tails = makeID("ogg_tails");
-    static public final String Knuckles = makeID("ogg_knux");
-    static public final String Cream = makeID("ogg_cream");
     static public final String Amy = makeID("ogg_amy");
-    static public final String CuteCouple = makeID("ogg_cutecouple");
     static public final String Big = makeID("ogg_big");
     static public final String Blaze = makeID("ogg_blaze");
+    public static final String Chao = makeID("ogg_chao");;
+    static public final String Charmy = makeID("ogg_charmy");
+    public static final String Chip = makeID("ogg_chip");
+    static public final String CuteCouple = makeID("ogg_cutecouple");
+    static public final String Cream = makeID("ogg_cream");
+    static public final String Espio = makeID("ogg_espio");
+    static public final String Knuckles = makeID("ogg_knux");
     public static final String Sticks = makeID("ogg_sticks");;
     public static final String Shadow = makeID("ogg_shadow");;
     public static final String Silver = makeID("ogg_silver");
     public static final String Rouge = makeID("ogg_rouge");;
-    public static final String Chip = makeID("ogg_chip");
-    public static final String Chao = makeID("ogg_chao");;
+    static public final String Tails = makeID("ogg_tails");
+    static public final String Vector = makeID("ogg_vector");
 
+    public static String MetalHaha = makeID("ogg_metal_haha");
+    public static String MetalData = makeID("ogg_metal_data");
+    public static String MetalAppropiate = makeID("ogg_metal_appropriate");
 
     static public int randomNumber = -1;
 
@@ -134,6 +140,10 @@ public class SoundLibrary {
 
     static public SFXAction RandomVoiceAction(ArrayList<String> voices) {
         if (!MyModConfig.enableVoice) {
+            return new SFXAction(BlankSound);
+        }
+
+        if (!(AbstractDungeon.player instanceof Sonic)) {
             return new SFXAction(BlankSound);
         }
 

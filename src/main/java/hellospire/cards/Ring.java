@@ -50,7 +50,7 @@ public class Ring extends BaseCard {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Ring));
 
         if (RingPower.isLightSpeedDashing) {
-            addToBot(new HealAction(p, p, magicNumber));
+            addToBot(new HealAction(p, p, 1));
         } else {
             addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         }

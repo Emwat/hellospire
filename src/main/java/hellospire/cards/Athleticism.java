@@ -15,7 +15,7 @@ public class Athleticism extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.SPECIAL,
+            CardRarity.UNCOMMON,
             CardTarget.SELF,
             1
     );

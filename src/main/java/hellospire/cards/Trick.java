@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
+import hellospire.actions.FasterAction;
 import hellospire.actions.ModAnimateHopAction;
 import hellospire.actions.ModTextAboveCreatureAction;
 import hellospire.character.Sonic;
@@ -58,13 +59,7 @@ public class Trick extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new ModAnimateHopAction(p));
         addToBot(TrickNameAction(p));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                TricksPlayed++;
-                this.isDone = true;
-            }
-        });
+        addToBot(new FasterAction(() -> TricksPlayed++ ));
         addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.ALLRIGHT,
                 SoundLibrary.COOL,

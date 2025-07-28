@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.actions.DriftAction;
 import hellospire.character.Sonic;
@@ -25,22 +26,26 @@ public class Drift extends BaseCard {
             -1
     );
 
-    private static final int MAGIC = 6;
-    private static final int UPG_MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int THREE_ORB_MAGIC = 2;
 
     public Drift() {
         super(ID, info);
 
-        setMagic(MAGIC, UPG_MAGIC);
+        if (MyModConfig.enableThreeOrbs || !(AbstractDungeon.player instanceof Sonic)) {
+            setMagic(THREE_ORB_MAGIC);
+        } else {
+            setMagic(MAGIC);
+        }
     }
 
     ///"DESCRIPTION": "Activate the passive effects of your orbs X times."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.upgraded) {
-            addToBot(new DriftAction(p, this.freeToPlayOnce, this.energyOnUse + 1));
+            addToBot(new DriftAction(p, magicNumber, this.freeToPlayOnce, this.energyOnUse + 1));
         } else {
-            addToBot(new DriftAction(p, this.freeToPlayOnce, this.energyOnUse));
+            addToBot(new DriftAction(p, magicNumber, this.freeToPlayOnce, this.energyOnUse));
         }
     }
 
@@ -67,7 +72,7 @@ public class Drift extends BaseCard {
                 if (thisCard.upgraded){
                     energy += 1;
                 }
-                energy = energy * 3;
+                energy = energy * magicNumber;
 
                 thisCard.rawDescription = String.format("%s%s%s", cardStrings.EXTENDED_DESCRIPTION[0], energy, cardStrings.EXTENDED_DESCRIPTION[1]);
                 initializeDescription();

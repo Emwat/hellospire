@@ -77,7 +77,7 @@
       "if most left",
       "if_most_left"
     ],
-    "DESCRIPTION": "If this card is at the very left of your hand, activate the extra effect. Ignore Rings for this condition."
+    "DESCRIPTION": "If this card is at the very left of your hand, activate the extra effect. Ignore #yRings for this condition."
   },
   {
     "ID": "wordMostRight",
@@ -86,7 +86,7 @@
       "if most right",
       "if_most_right"
     ],
-    "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect. Ignore Rings for this condition."
+    "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect. Ignore #yRings for this condition."
   },
   {
     "ID": "wordLevelUp",
@@ -95,7 +95,7 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, Rings in your hand increase your Block by #b1. NL If your last card played was an #yAttack, Rings in your hand increase your damage by #b1. NL If your last card played was a #ySkill, Rings in your hand increase your Block by #b1. NL If your last card played was a #yPower, Rings in your hand increase your #yFocus by #b1."
+    "DESCRIPTION": "If you haven't played any cards this combat, #yRings in your hand increase your Block by #b1. NL If your last card played was an #yAttack, #yRings in your hand increase your damage by #b1. NL If your last card played was a #ySkill, #yRings in your hand increase your Block by #b1. NL If your last card played was a #yPower, #yRings in your hand increase your #yFocus by #b1."
   },
   {
     "ID": "wordLightSpeedDashSmallPrint",
@@ -103,7 +103,7 @@
     "NAMES": [
       "lsd"
     ],
-    "DESCRIPTION": "After you play this card, Rings will heal you instead of giving you Temporary HP for the rest of the turn."
+    "DESCRIPTION": "After you play this card, Rings will heal you for 1 HP instead of giving you Temporary HP for the rest of the turn."
   },
   {
     "ID": "wordSpinUp",

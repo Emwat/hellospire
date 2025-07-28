@@ -34,8 +34,10 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistBarry());
         characterCards.add(new AssistBig());
         characterCards.add(new AssistBlaze());
+        characterCards.add(new AssistCharmy());
         characterCards.add(new AssistChip());
         characterCards.add(new AssistCream());
+        characterCards.add(new AssistEspio());
         characterCards.add(new AssistKnuckles());
         characterCards.add(new AssistRosy());
         characterCards.add(new AssistRouge());
@@ -44,6 +46,7 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistSticks());
         characterCards.add(new AssistTails());
         characterCards.add(new AssistTikal());
+        characterCards.add(new AssistVector());
         // if (this.upgraded) {
         //     characterCards.add(new Gizoid());
         // }

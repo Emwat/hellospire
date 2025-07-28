@@ -69,6 +69,7 @@
       "enableEventsForAllCharacters": "Enable custom events for all characters (overwrites the next option)",
       "enableEventsForOnlySonic": "Enable custom events for only Sonic",
       "enableTextPopUps": "Enable text pop ups for AMAZING, tricks, and the Player 2 relic.",
+      "enableThreeOrbs": "Enable 3 Orb slots",
       "enableSound": "Enable Sounds",
       "enableVoice": "Enable Voice",
       "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
