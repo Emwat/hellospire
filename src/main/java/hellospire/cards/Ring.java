@@ -11,9 +11,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
+import hellospire.actions.FasterAction;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
@@ -44,6 +46,12 @@ public class Ring extends BaseCard {
         if (Loader.isModLoaded("PrideMod") || isTheRainbow()) {
             loadCardImage(SonicMod.imagePath("cards/skill/WorldRings.png"));
         }
+
+        if (IsConfusedEgg()){
+            this.name = "Coin";
+            initializeTitle();
+            loadCardImage(SonicMod.imagePath("cards/skill/Ring_b.png"));
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -59,19 +67,17 @@ public class Ring extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
         }
 
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (!p.discardPile.isEmpty()) {
-                    for (AbstractCard card : p.discardPile.group) {
-                        if (Objects.equals(card.cardID, Boost.ID)) {
-                            addToBot(new DiscardToHandAction(card));
-                        }
-                    }
+        addToBot(new FasterAction(() -> ReturnBoostToHand(p)));
+    }
+
+    private void ReturnBoostToHand(AbstractPlayer p){
+        if (!p.discardPile.isEmpty()) {
+            for (AbstractCard card : p.discardPile.group) {
+                if (Objects.equals(card.cardID, Boost.ID)) {
+                    addToBot(new DiscardToHandAction(card));
                 }
-                this.isDone = true;
             }
-        });
+        };
     }
 
     @Override

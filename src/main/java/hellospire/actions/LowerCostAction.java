@@ -14,7 +14,7 @@ public class LowerCostAction extends AbstractGameAction {
         this.card = card;
         this.amount = amount;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_MED;
+        this.duration = Settings.ACTION_DUR_FASTER;
     }
 
     public void update() {

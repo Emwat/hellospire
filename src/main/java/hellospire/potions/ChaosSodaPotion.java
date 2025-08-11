@@ -56,7 +56,7 @@ public class ChaosSodaPotion extends BasePotion {
         AbstractCard trick = new Trick();
         trick.setCostForTurn(0);
         trick.upgrade();
-        addToBot(new ExhaustAction(potency, false, true));
+        addToBot(new ExhaustAction(potency, false, true, true));
         addToBot(new MakeTempCardInHandAction(trick.makeStatEquivalentCopy(), potency));
         addToBot(new IncreaseMaxOrbAction(potency));
         addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));

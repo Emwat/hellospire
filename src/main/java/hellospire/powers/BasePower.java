@@ -84,4 +84,21 @@ public abstract class BasePower extends AbstractPower {
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(this.amount2), x, y + 15.0F * Settings.scale, this.fontScale, c);
         }
     }
+
+    Texture textureRankS = TextureLoader.getPowerTexture("MissionSPower");
+    Texture textureRankA = TextureLoader.getPowerTexture("MissionAPower");
+    Texture textureRankB = TextureLoader.getPowerTexture("MissionBPower");
+    Texture textureRankC = TextureLoader.getPowerTexture("MissionCPower");
+    TextureAtlas.AtlasRegion atlasRankS = new TextureAtlas.AtlasRegion(textureRankS, 0, 0, textureRankS.getWidth(), textureRankS.getHeight());
+    TextureAtlas.AtlasRegion atlasRankA = new TextureAtlas.AtlasRegion(textureRankA, 0, 0, textureRankA.getWidth(), textureRankA.getHeight());
+    TextureAtlas.AtlasRegion atlasRankB = new TextureAtlas.AtlasRegion(textureRankB, 0, 0, textureRankB.getWidth(), textureRankB.getHeight());
+    TextureAtlas.AtlasRegion atlasRankC = new TextureAtlas.AtlasRegion(textureRankC, 0, 0, textureRankC.getWidth(), textureRankC.getHeight());
+
+    public void updateIcon(int amount, int S, int A, int B) {
+        if (amount <= S) { region48 = atlasRankS; }
+        else if (amount <= A) { region48 = atlasRankA; }
+        else if (amount <= B) { region48 = atlasRankB; }
+        else { region48 = atlasRankC; }
+    }
+
 }

@@ -11,20 +11,35 @@ Requires subscription to
 - Creating cards
 - Exhaust Synergy
 - Defect Vanilla Orbs
-- Manipulating other cards' energy costs
-- Audio
-- Ending
+- Watcher Vanilla Stances
+- Manipulating cards' energy costs
+- Voice clips, Music Patches
+- 10+ patches
+ - Chao Evolve at rest site
+ - Dialogue against the Champ
+- Relics
+- 1 Event w/ combat reward
+- Easy Config
+- Ending Pictures
 
 # Good wiki links
+- [How to Start Modding] (https://discord.com/channels/309399445785673728/1145803879821361293/1145803879821361293)
 - [BasicMod] (https://github.com/Alchyr/BasicMod) - this is the base for this mod.
 - [Base Mod wiki] (https://github.com/daviscook477/BaseMod/wiki)
 - [StSLib wiki] (https://github.com/kiooeht/StSLib/wiki)
 - [Spreadsheet of Vanilla Characters] (https://docs.google.com/spreadsheets/d/1c5j-O1zIckvEPtI4sSI7YeG6v1EptKxRwmPV-J73tCA/edit?pli=1#gid=0 )
+- [Character Design Pitfalls] (https://discord.com/channels/309399445785673728/1146430771528220792/1146431508119306340)
+- [Packmaster Github] (https://github.com/erasels/PackmasterCharacter) - this has been code reviewed. My code has NOT been code reviewed sadface.
 
-# Good modding tools
-- [Loadout Mod] (https://steamcommunity.com/sharedfiles/filedetails/?id=2814267979)
-- [Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use
+# Good modding tools - HUGE THANKS TO ALL OF YOU.
+- Slay the Spire Discord - #modding-technical - Thank you guys so much again for helping me out.
+- [StSModdingToolCardImagesCreator] (https://github.com/JohnnyBazooka89/StSModdingToolCardImagesCreator) - crops and masks card images.
+- [Loadout Mod] (https://steamcommunity.com/sharedfiles/filedetails/?id=2814267979) - there's a tab on the left side of the screen which lets you spawn any card, any relic, and any enemy.
 - [Run Resumer] (https://steamcommunity.com/sharedfiles/filedetails/?id=3127212809) - to test against the Heart after balancing cards. Also easy campfire access.
+- [Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use
+- [Modded Spire Exporter] (https://steamcommunity.com/sharedfiles/filedetails/?id=2069872611&searchtext=exporter) - Export every card of a mod to an html file! Now I can Ctrl + F for specific descriptions in Packmaster
+- [Googly Eyes steam] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
+- [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/)
 - [Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
 
 # Steam Workshop Link

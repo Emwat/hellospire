@@ -7,7 +7,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
+import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.actions.LowerCostAction;
 import hellospire.character.Sonic;
@@ -37,6 +40,10 @@ public class Shortcut extends BaseCard {
         setSelfRetain(true);
         setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
+
+        if (IsConfusedEgg()){
+            loadCardImage(SonicMod.imagePath("cards/skill/Shortcut_b.png"));
+        }
     }
 
     @Override

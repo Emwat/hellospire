@@ -34,7 +34,7 @@ public class QuickAir extends BaseCard {
         this.cardsToPreview = new QuickStep();
         setBlock(BLOCK, UPG_BLOCK);
         setExhaust(true);
-        tags.add(SonicTags.LIKE_DEFECT);
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

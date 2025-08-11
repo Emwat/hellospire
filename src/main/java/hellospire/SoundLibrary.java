@@ -174,7 +174,13 @@ public class SoundLibrary {
         if (sounds.size() < 2) {
             randomNumber = generatedRandomNumber;
         } else {
+            int tries = 0;
+            int maxTries = 99;
             while (generatedRandomNumber == randomNumber) {
+                tries++;
+                if (tries >= maxTries) {
+                    break;
+                }
                 generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
             }
             randomNumber = generatedRandomNumber;

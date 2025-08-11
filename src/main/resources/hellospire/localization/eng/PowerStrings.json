@@ -73,6 +73,33 @@
       " Focus."
     ]
   },
+  "${modID}:MissionRingRacePower": {
+    "NAME": "Mission: Ring Race",
+    "DESCRIPTIONS": [
+      "S Rank: ",
+      " Turns NL A Rank: ",
+      " Turns NL B Rank: ",
+      " Turns"
+    ]
+  },
+  "${modID}:MissionScoreAttackPower": {
+    "NAME": "Mission: Score Attack",
+    "DESCRIPTIONS": [
+      "S Rank: ",
+      "+ Damage NL A Rank: ",
+      "+ Damage NL B Rank: ",
+      "+ Damage"
+    ]
+  },
+  "${modID}:MissionTimeAttackPower": {
+    "NAME": "Mission: Time Attack",
+    "DESCRIPTIONS": [
+      "S Rank: ",
+      " Turns NL A Rank: ",
+      " Turns NL B Rank: ",
+      " Turns"
+    ]
+  },
   "${modID}:ModDrawReductionPower": {
     "NAME": "Draw Reduction",
     "DESCRIPTIONS": [
@@ -114,6 +141,13 @@
       "."
     ]
   },
+  "${modID}:SilverPower": {
+    "NAME": "Telekinesis",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, ALL enemies lose ",
+      " Strength for one turn."
+    ]
+  },
   "${modID}:SonicBoomPower": {
     "NAME": "Sonic Boom",
     "DESCRIPTIONS": [
@@ -132,7 +166,6 @@
       "You MUST play your Rings to gain Intangible. DIE EVERY TURN."
     ]
   },
-
   "${modID}:ThunderShieldPower": {
     "NAME": "Thunder Shield",
     "DESCRIPTIONS": [

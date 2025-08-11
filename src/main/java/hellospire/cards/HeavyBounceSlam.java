@@ -35,7 +35,6 @@ public class HeavyBounceSlam extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         this.returnToHand = true;
-        tags.add(SonicTags.LIKE_IRONCLAD);
         CardModifierManager.addModifier(this, new SpinUpModifier());
 
     }

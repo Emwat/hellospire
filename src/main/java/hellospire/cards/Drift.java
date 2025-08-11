@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.MyModConfig;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.actions.DriftAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -37,6 +38,7 @@ public class Drift extends BaseCard {
         } else {
             setMagic(MAGIC);
         }
+        tags.add(SonicTags.LIKE_DEFECT);
     }
 
     ///"DESCRIPTION": "Activate the passive effects of your orbs X times."

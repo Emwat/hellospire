@@ -1,10 +1,14 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
+import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.EmptyFist;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,7 +16,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.vfx.combat.EmptyStanceEffect;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -27,7 +33,7 @@ public class Taunt extends BaseCard {
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF_AND_ENEMY,
             1
     );
 
@@ -44,6 +50,8 @@ public class Taunt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        float duration = 3f;
+        float bubbleDuration = 3f;
 
         if (!(AbstractDungeon.player instanceof Sonic)) {
             addToBot(new TalkAction(true, texts[8], 2f, 2f));
@@ -67,18 +75,20 @@ public class Taunt extends BaseCard {
 
             addToBot(SoundLibrary.VoiceAction(voiceLine));
             if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                addToBot(new TalkAction(true, texts[3], 2f, 2f));
+                addToBot(new TalkAction(true, texts[3], duration, bubbleDuration));
             } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                addToBot(new TalkAction(true, texts[4], 2f, 2f));
+                addToBot(new TalkAction(true, texts[4], duration, bubbleDuration));
             } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                addToBot(new TalkAction(true, texts[5], 2f, 2f));
+                addToBot(new TalkAction(true, texts[5], duration, bubbleDuration));
             }
         }
 
+        addToBot(new DrawCardAction(1));
+        // addToBot(new NotStanceCheckAction("Neutral", new VFXAction(new EmptyStanceEffect(p.hb.cX, p.hb.cY), 0.1F)));
+        // addToBot(new ChangeStanceAction("Neutral"));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
-        addToBot(new DrawCardAction(1));
     }
 
     public void upgrade() {

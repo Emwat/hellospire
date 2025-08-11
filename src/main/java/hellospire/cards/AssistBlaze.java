@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.BowlingBash;
+import com.megacrit.cardcrawl.cards.red.FlameBarrier;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,11 +23,11 @@ public class AssistBlaze extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            2
+            1
     );
 
-    private static final int BLOCK = 12;
-    private static final int UPG_BLOCK = 4;
+    private static final int BLOCK = 4;
+    private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 4;
     private static final int UPG_MAGIC = 2;
 
@@ -34,6 +36,7 @@ public class AssistBlaze extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
+        setEthereal(true);
     }
 
     @Override
@@ -46,26 +49,16 @@ public class AssistBlaze extends BaseCard {
             this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5F));
         }
 
-        this.addToBot(new GainBlockAction(p, p, this.block));
-        this.addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, this.magicNumber), this.magicNumber));
-    }
-
-    public void triggerOnGlowCheck() {
-        this.glowColor = this.shouldGlow() ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-    }
-
-    private boolean shouldGlow() {
-        for(AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c.type == CardType.ATTACK) {
-                return false;
+        for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m2.isDeadOrEscaped()) {
+                addToBot(new GainBlockAction(p, p, block));
+                addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber), magicNumber));
             }
         }
-
-        return true;
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new AssistBlaze();
     }
 }

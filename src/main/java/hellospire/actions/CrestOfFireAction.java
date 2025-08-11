@@ -65,6 +65,8 @@ public class CrestOfFireAction extends AbstractGameAction {
         int effectCount = 0;
         for (AbstractCard card : cardGroup.group) {
             if (card.tags.contains(SonicTags.CREST_OF_FIRE) && card.canUpgrade()) {
+                card.upgrade();
+
                 if (cardGroup.type == CardGroup.CardGroupType.MASTER_DECK) {
                     ++effectCount;
                     if (effectCount <= 20) {
@@ -75,7 +77,6 @@ public class CrestOfFireAction extends AbstractGameAction {
                     }
                 }
 
-                card.upgrade();
                 if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                     card.superFlash();
                 }

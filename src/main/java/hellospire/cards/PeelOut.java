@@ -26,7 +26,7 @@ public class PeelOut extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
-        tags.add(SonicTags.LIKE_SILENT);
+        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.

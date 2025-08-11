@@ -48,17 +48,15 @@
   },
   "${modID}:AssistBarry": {
     "NAME": "Barry the Quokka",
-    "DESCRIPTION": "Put a card from your discard pile into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your discard pile into your hand. NL Exhaust."
+    "DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your discard pile into your hand. NL Exhaust."
   },
   "${modID}:AssistBig": {
     "NAME": "Big the Cat",
-    "DESCRIPTION": "Put a card from your draw pile into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your draw pile into your hand. NL Exhaust."
+    "DESCRIPTION": "{@@}Scry !M!. NL Draw !${modID}:CustomVar_DRAW! card{!${modID}:CustomVar_DRAW!|>1=s}."
   },
   "${modID}:AssistBlaze": {
     "NAME": "Blaze the Cat",
-    "DESCRIPTION": "Gain !B! Block. When you are attacked this turn, deal !M! damage to the attacker."
+    "DESCRIPTION": "Ethereal. NL Gain !B! Block and !M! ${modID}:Flame_Barrier for each enemy."
   },
   "${modID}:AssistCharmy": {
     "NAME": "Charmy the Bee",
@@ -74,11 +72,11 @@
   },
   "${modID}:AssistEspio": {
     "NAME": "Espio the Chameleon",
-    "DESCRIPTION": "Gain !B! Block. NL Add !M! Shivs to your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! Shiv{!M!|>1=s} to your hand. If you have not played any attacks this turn, add 1 more."
   },
   "${modID}:AssistKnuckles": {
     "NAME": "Fighting Buddies",
-    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! Block."
+    "DESCRIPTION": "Gain !${modID}:CustomVar_STR! Temporary Strength. Whenever you play an Attack this turn, gain !M! Block."
   },
   "${modID}:AssistRosy": {
     "NAME": "Believe in Yourself",
@@ -87,7 +85,7 @@
   },
   "${modID}:AssistRouge": {
     "NAME": "Rouge the Bat",
-    "DESCRIPTION": "Discard !M! cards. NL Gain [E] [E]."
+    "DESCRIPTION": "Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! cards. NL Gain [E] [E]."
   },
   "${modID}:AssistShadow": {
     "NAME": "Shadow",
@@ -129,8 +127,8 @@
   },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
-    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded.",
-    "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost created cards are excluded."
+    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded.",
+    "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded."
   },
     "${modID}:BlastOff": {
       "NAME": "Blast Off",
@@ -160,7 +158,12 @@
   },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !B! Block. NL Add 2 [#efc851ff]Rings to your hand.",
+      "Gain !B! Block. NL Add a [#efc851ff]Ring to your hand. This stays in your hand for 1 more use.",
+      "Gain !B! Block. NL Add a [#efc851ff]Ring to your hand."
+    ]
   },
   "${modID}:BouncePadPick1": {
     "NAME": "Get Ring",
@@ -265,7 +268,7 @@
   },
   "${modID}:FireTackle": {
     "NAME": "Fire Tackle",
-    "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. When you are attacked this turn, deal !M! damage to the attacker."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL Gain !M! ${modID}:Flame_Barrier."
   },
   "${modID}:FlagPole": {
     "NAME": "Triangle Dive",
@@ -352,11 +355,11 @@
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. Add a [#efc851ff]Ring and a [#efc851ff]Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Add 2 [#efc851ff]Rings and a [#efc851ff]Trick to your hand.",
+    "DESCRIPTION": "Deal !D! damage. Add a [#efc851ff]Trick to your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. NL Add a [#efc851ff]Ring and 2 [#efc851ff]Tricks to your hand.",
-      "Deal !D! damage. NL Add 2 [#efc851ff]Rings and a [#efc851ff]Trick to your hand."
+      "Deal !D! damage. NL Add 2 [#efc851ff]Tricks to your hand.",
+      "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand. This stays in your hand for 1 more use.",
+      "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand."
     ]
   },
   "${modID}:HorseKick": {
@@ -391,7 +394,7 @@
   },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
-    "DESCRIPTION": "Gain !B! Block. Deal !D! damage. When you are attacked this turn, deal !M! damage to the attacker."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${modID}:Flame_Barrier."
   },
   "${modID}:LevelUp": {
     "NAME": "Level Up",
@@ -450,7 +453,7 @@
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
-    "DESCRIPTION": "${modID}:LSD. Add a [#efc851ff]Ring to your hand until your hand is full. Play ALL of the [#efc851ff]Rings in your hand. Exhaust."
+    "DESCRIPTION": "${modID}:LSD. Add a [#efc851ff]Ring to your hand until your hand is full. Play ALL [#efc851ff]Rings in your hand. Exhaust."
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
@@ -544,7 +547,7 @@
   },
   "${modID}:Shortcut": {
     "NAME": "Shortcut",
-    "DESCRIPTION": "{@@}Retain. NL Lower the cost of !M! card{!M!|>1=s} in your hand by 1. NL Exhaust."
+    "DESCRIPTION": "{@@}Retain. NL Lower the cost of !M! card{!M!|>1=s} in your hand by 1 for this turn. NL Exhaust."
   },
   "${modID}:Slide": {
     "NAME": "Slide",
@@ -585,7 +588,7 @@
   },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
-    "DESCRIPTION": "If you have no Channeled orbs, Channel !M! Lightning. Otherwise Evoke ALL of your Orbs twice and exhaust."
+    "DESCRIPTION": "If you have any empty Orb slots, Channel !M! Lightning. Otherwise Evoke ALL Orbs twice and Exhaust."
   },
   "${modID}:SonicWind": {
     "NAME": "Sonic Wind",
@@ -594,7 +597,7 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "Exhaust ALL of your [#efc851ff]Rings in your hand. For each [#efc851ff]Ring exhausted, add a [#efc851ff]Trick to your hand."
+    "DESCRIPTION": "Exhaust ALL [#efc851ff]Rings in your hand. For each [#efc851ff]Ring exhausted, add a [#efc851ff]Trick to your hand."
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
@@ -606,7 +609,7 @@
   },
   "${modID}:SpinningNeedleAttack": {
     "NAME": "Spinning Needle Atk",
-    "DESCRIPTION": "Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost !M! times."
+    "DESCRIPTION": "{@@}Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost !M! time{!M!|>1=s}."
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",
@@ -618,7 +621,7 @@
   },
   "${modID}:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Temporary Dexterity. NL Draw 1 card."
+    "DESCRIPTION": "Draw 1 card. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable."
   },
   "${modID}:Teaser": {
     "NAME": "Teaser",
@@ -669,8 +672,8 @@
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
+    "DESCRIPTION": "${modID}:If_not_most_left, lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "${modID}:If_not_most_left, lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
@@ -678,7 +681,7 @@
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",
-    "DESCRIPTION": "${modID}:Crest_of_Fire. Exhaust all to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. Exhaust ALL to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",

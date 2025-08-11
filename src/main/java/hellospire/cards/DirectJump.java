@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.red.Corruption;
 import com.megacrit.cardcrawl.cards.red.FeelNoPain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.powers.DirectJumpPower;
 import hellospire.util.CardStats;
@@ -24,9 +25,9 @@ public class DirectJump extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new Ring();
         setExhaust(true);
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
-    /// When you gain Block this turn, add a Ring to your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new DirectJumpPower(p, 1)));

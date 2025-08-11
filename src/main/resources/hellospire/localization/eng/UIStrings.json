@@ -65,7 +65,7 @@
       "enableBoss3Music": "Enable Beyond Boss Music (Sonic Only)",
       "enableBossSpearShieldMusic": "Enable The Ending Music (Sonic Only)",
       "enableBossHeartMusic": "Enable The Ending Boss Music (Sonic Only)",
-      "enableClassicMode": "Enable Classic Mode (When you get take 2+ damage, lose ALL of your Rings).",
+      "enableClassicMode": "Enable Classic Mode (When you take 2+ damage, lose ALL of your Rings).",
       "enableEventsForAllCharacters": "Enable custom events for all characters (overwrites the next option)",
       "enableEventsForOnlySonic": "Enable custom events for only Sonic",
       "enableTextPopUps": "Enable text pop ups for AMAZING, tricks, and the Player 2 relic.",
@@ -85,6 +85,11 @@
       "(Free Action) Your chao is quiet. Evolve your chao.",
       "(Free Action) Your chao is energetic. Evolve your chao.",
       "(Free Action) Your chao is curious. Evolve your chao."
+    ]
+  },
+  "${modID}:ModExhaustAction": {
+    "TEXT": [
+      "Exhaust"
     ]
   },
   "${modID}:SingleCardReward": {

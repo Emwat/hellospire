@@ -39,8 +39,10 @@ public class GizoidSonic extends BaseCard {
     ///
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters){
-            addToBot(new UnblockedVigorAction(mo, new DamageInfo(p, damage, this.damageTypeForTurn)));
+        for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m2.isDeadOrEscaped()) {
+                addToBot(new UnblockedVigorAction(m2, new DamageInfo(p, damage, this.damageTypeForTurn)));
+            }
         }
     }
 

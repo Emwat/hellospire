@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.cards.green.Burst;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,10 +32,16 @@ public class DashPanelAction extends AbstractGameAction {
         this.energyOnUse = energyOnUse;
     }
 
+    private AbstractMonster modGetRandomMonster() {
+        return AbstractDungeon.getCurrRoom().monsters.getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
+    }
+
     public void update() {
         AbstractMonster m = null;
         if (action.target != null) {
             m = (AbstractMonster) action.target;
+        } else {
+            m = modGetRandomMonster();
         }
 
         AbstractCard tmp = card.makeSameInstanceOf();

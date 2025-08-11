@@ -15,7 +15,7 @@ public class RandomizeCostAction extends AbstractGameAction {
     public RandomizeCostAction(AbstractCard card) {
         this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        this.duration = Settings.ACTION_DUR_FASTER;
     }
 
     public void update() {

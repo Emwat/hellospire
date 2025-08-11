@@ -45,6 +45,15 @@
     "DESCRIPTION": "Target deals damage reduced by the cost of the highest card in your hand."
   },
   {
+    "ID": "wordFlameBarrier",
+    "PROPER_NAME": "Flame Barrier",
+    "NAMES": [
+      "flame barrier",
+      "flame_barrier"
+    ],
+    "DESCRIPTION": "When you are attacked this turn, deal X damage to the attacker."
+  },
+  {
     "ID": "wordFriend",
     "PROPER_NAME": "Friend",
     "NAMES": [
@@ -69,6 +78,15 @@
       "do_not_throw"
     ],
     "DESCRIPTION": "This card has Retain. If this card gets exhausted, enter Wrath."
+  },
+  {
+    "ID": "wordNotMostLeft",
+    "PROPER_NAME": "If Not Most Left",
+    "NAMES": [
+      "if not most left",
+      "if_not_most_left"
+    ],
+    "DESCRIPTION": "If this card is NOT at the very left of your hand, activate the extra effect. Ignore #yRings for this condition."
   },
   {
     "ID": "wordMostLeft",

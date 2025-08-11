@@ -126,7 +126,7 @@ public class Sonic extends CustomPlayer {
 
     // In-game images
     private static final String SHOULDER_1 = characterPath("shoulder5.png"); // Shoulder 1 and 2 are used at rest sites.
-    private static final String SHOULDER_2 = characterPath("shoulderBlank.png");
+    private static final String SHOULDER_2 = characterPath("shoulder6.png");
     private static final String CORPSE = characterPath("corpse.png"); // Corpse is when you die.
 
     // Textures used for the energy orb
@@ -184,13 +184,15 @@ public class Sonic extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-        retVal.add(HomingAttack.ID);
 
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
+
+        retVal.add(HomingAttack.ID);
+        retVal.add(BouncePad.ID);
+
         return retVal;
     }
 
@@ -373,6 +375,23 @@ public class Sonic extends CustomPlayer {
         panels.add(new CutscenePanel(endingPath("endingDefect2.png")));
         panels.add(new CutscenePanel(endingPath("endingDefect3.png")));
         return panels;
+    }
+
+    // Lights out mod
+    // https://steamcommunity.com/sharedfiles/filedetails/?id=3133446987
+    public float[] _lightsOutGetCharSelectXYRI() {
+        return new float[] {
+                1190*Settings.scale, 626*Settings.scale, 20f, 1.0f,
+                1130*Settings.scale, 591*Settings.scale, 20f, 1.0f
+        };
+    }
+
+    public Color[] _lightsOutGetCharSelectColor() {
+        Color emeraldGreen = new Color(153f / 255f, 205f / 255f, 51f / 255f, 1f);
+        return new Color[] {
+                emeraldGreen,
+                emeraldGreen
+        };
     }
 
 

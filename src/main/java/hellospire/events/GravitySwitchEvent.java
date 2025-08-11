@@ -100,14 +100,17 @@ public class GravitySwitchEvent extends PhasedEvent {
         int maxPossibleSize = Math.min(numberOfModifiers, masterDeck.size());
         int j = 0;
         int tries = 0;
-        int maxTries = 100;
+        int maxTries = 99;
         ArrayList<String> loggedCards = new ArrayList<>();
-        while (j < maxPossibleSize && tries < maxTries) {
+        while (j < maxPossibleSize) {
             int randomNumber = AbstractDungeon.eventRng.random(0, masterDeck.size() - 1);
             AbstractCard randomCard = masterDeck.group.get(randomNumber);
             if (randomCard.cost <= 0) {
                 tries++;
                 continue;
+            }
+            if (tries >= maxTries) {
+                break;
             }
             randomCard.modifyCostForCombat(-1);
             if (!randomCard.hasTag(SonicTags.SPIN_UP)) {

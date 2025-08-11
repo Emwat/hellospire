@@ -6,9 +6,13 @@ import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
+import com.megacrit.cardcrawl.relics.SneckoEye;
 import hellospire.SonicMod;
+import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 import hellospire.util.TriFunction;
 import com.badlogic.gdx.graphics.Color;
@@ -94,19 +98,30 @@ public abstract class BaseCard extends CustomCard {
         this.blockUpgrade = 0;
         this.magicUpgrade = 0;
 
-        // this.setPortraitTextures(SonicMod.imagePath("nothing.png"),SonicMod.imagePath("nothing.png"));
-        // ImageMaster.CARD_RARE_FRAME_LEFT
-        // setPortraitTextures(
-                // String cardFrameSmall,
-                // String cardFrameLarge,
-                // String dynamicLeftFrame,
-                // String dynamicMiddleFrame,
-                // String dynamicRightFrame,
-                // String dynamicLeftFrameLarge,
-                // String dynamicMiddleFrameLarge,
-                // String dynamicRightFrameLarge
-        // );
+        // SetCustomCardback();
+    }
 
+    private void SetCustomCardback(){
+        if (this.color == Sonic.Meta.CARD_COLOR) {
+            this.setPortraitTextures(SonicMod.imagePath("nothing.png"),SonicMod.imagePath("nothing.png"));
+            // ImageMaster.CARD_RARE_FRAME_LEFT
+            // setPortraitTextures(
+            // String cardFrameSmall,
+            // String cardFrameLarge,
+            // String dynamicLeftFrame,
+            // String dynamicMiddleFrame,
+            // String dynamicRightFrame,
+            // String dynamicLeftFrameLarge,
+            // String dynamicMiddleFrameLarge,
+            // String dynamicRightFrameLarge
+            // );
+            // setBannerTexture(SonicMod.imagePath("character/cardback/banner_common_small.png"), SonicMod.imagePath("character/cardback/banner_common_large.png"));
+            // see AbstractCard.renderType()
+            // PROBLEM: This hurts the offclass cards.
+            AbstractCard.TEXT[0] = "";
+            AbstractCard.TEXT[1] = "";
+            AbstractCard.TEXT[2] = "";
+        }
     }
 
     private static String getName(String ID) {
@@ -804,6 +819,20 @@ public abstract class BaseCard extends CustomCard {
         return !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot);
     }
 
+    public boolean HasEmptyOrbSlots(){
+        if (AbstractDungeon.player.orbs.isEmpty()) {
+            return false;
+        }
+
+        for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+            if (orb instanceof EmptyOrbSlot) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public ArrayList<AbstractCard> getNeighbors(CardGroup hand, boolean includeUnderZero) {
         ArrayList<AbstractCard> neighbors = new ArrayList<>();
 
@@ -834,5 +863,11 @@ public abstract class BaseCard extends CustomCard {
             return false;
         }
         return AbstractDungeon.player.title.equals("the Rainbow");
+    }
+
+    public boolean IsConfusedEgg(){
+        return AbstractDungeon.player != null &&
+                !AbstractDungeon.player.hasRelic(SneckoEye.ID) &&
+                AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID);
     }
 }

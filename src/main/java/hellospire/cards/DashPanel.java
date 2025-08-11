@@ -29,7 +29,7 @@ public class DashPanel extends BaseCard {
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
-            CardTarget.ENEMY,
+            CardTarget.SELF,
             1
     );
 

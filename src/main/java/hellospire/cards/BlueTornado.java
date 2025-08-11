@@ -8,11 +8,13 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.DizzyPower;
 import hellospire.util.CardStats;
+import hellospire.util.TextureLoader;
 
 public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("BlueTornado");
@@ -67,6 +69,8 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
 
     public void baseUpgrade() {
         setCustomVar(DIZZY_KEYWORD, UPG_DIZZY);
+        loadCardImage(SonicMod.imagePath("cards/skill/BlueTornado2.png"));
+        portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/skill/BlueTornado2_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }

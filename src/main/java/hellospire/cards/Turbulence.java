@@ -4,10 +4,12 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
+import hellospire.actions.ActivateLeftMostPassiveOrbAction;
 import hellospire.character.Sonic;
 import hellospire.powers.TurbulencePower;
 import hellospire.util.CardStats;
@@ -36,7 +38,9 @@ public class Turbulence extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoTurbulence));
-        addToBot(new ApplyPowerAction(p, p, new FocusPower(p, -magicNumber), -magicNumber));
+        if (!CheckIfLeftCard(this, p.hand)) {
+            addToBot(new ApplyPowerAction(p, p, new FocusPower(p, -magicNumber), -magicNumber));
+        }
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, 1), 1));
         if (this.upgraded) {
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
@@ -48,6 +52,19 @@ public class Turbulence extends BaseCard {
             this.cardsToPreview = new Trick();
         }
         super.upgrade();
+    }
+
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (CheckIfLeftCard(this, AbstractDungeon.player.hand)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     @Override

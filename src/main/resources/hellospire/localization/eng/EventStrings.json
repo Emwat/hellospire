@@ -40,19 +40,46 @@
       " #rMax #rHP."
     ]
   },
-  "${modID}:RougeEvent": {
-    "NAME": "Bats",
+  "${modID}:MissionEvent": {
+    "NAME": "Mission",
     "DESCRIPTIONS": [
-      "\"Well, hello there! If you give me ~that~, I'll use my connections to help you find your friends. What do you say?\"",
-      "\"I'll see you around, Big Blue. ❤\"",
-      "\"I guess I'll have to find my own. Flying solo is our style anyway.\""
+      "You come across three doors, each with a mystical message of what's to come. Select a mission. NL NL S Rank Reward: #y",
+      " #yGold. NL A Rank Reward: #y",
+      " #yGold. NL B Rank Reward: #y",
+      " #yGold. NL C Rank Reward: #y",
+      " #yGold."
     ],
     "OPTIONS": [
-      "[Decline]",
-      "[Hang out] #yPay #y70 #yGold. #gObtain #ga #gRelic.",
-      "[Trade] #rLose #r",
-      ". #gGain #g2 #Assists.",
-      "[Decline]"
+      "[Leave]",
+      "[Ring Race] #rFight #rBronze #rAutomaton. Exhaust ", " cards as fast as possible.",
+      "[Score Attack] #rFight #rthe #rTransient. Deal as much damage as possible.",
+      "[Time Attack] #rFight #r3 #rsleeping #rLagavulins. Defeat ALL enemies as fast as you can."
+    ]
+  },
+  "${modID}:RougeEvent": {
+    "NAME": "Talk to Rouge",
+    "DESCRIPTIONS": [
+      "You spot a beautiful woman sitting atop a streetlamp. She glides down to your level. NL NL \"Well, hello there! If you give me ~that~, I'll use my connections to help you find your friends. What do you say?\"",
+      "You spot a beautiful woman sitting atop a streetlamp. She glides down to your level. NL NL \"You look like you could use some help. We can't have our hero unable to give the doctor a good fight.\"",
+      "\"I'll see you around, Big Blue.\" She flies off into the city.",
+      "\"I guess I'll have to find my own. Flying solo is our style anyway.\" NL She flies off into the city. NL NL When you check your belongings, you instinctively hold a tight grip on ",
+      ", but your wallet seems lighter. #r~THIEF!~",
+      "\"Oh, it's in a bottle? Is it cursed? I guess I can't trade for it. Maybe another time then.\" With that, she disappears into the city. NL NL The bottle shines ever so brightly.",
+      "\"I'll see you around, Big Blue. Don't be a stranger.\"",
+      "\"Hmph. See how far you get without ~MY~ help.\""
+    ],
+    "OPTIONS": [
+      "[Leave]",
+      "[Accept trade] #rLose ",
+      ". #gGain ",
+      "[Decline trade] #yPay #y",
+      "#yGold. ",
+      " gains #bDO #bNOT #bTHROW.",
+      "[Discuss] ",
+      "[Accept offer] #gHeal #g",
+      " #gHP. #rLose #r",
+      "#rMax #rHP.",
+      "[Decline offer] Leave."
     ]
   }
 }

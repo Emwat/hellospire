@@ -3,7 +3,10 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
+import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -28,6 +31,9 @@ public class Defend extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
 
         tags.add(CardTags.STARTER_DEFEND);
+        if (IsConfusedEgg()){
+            loadCardImage(SonicMod.imagePath("cards/skill/Defend_b.png"));
+        }
     }
 
     @Override

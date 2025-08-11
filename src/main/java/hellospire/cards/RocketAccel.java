@@ -32,7 +32,6 @@ public class RocketAccel extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC);
-        tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
     @Override
@@ -44,9 +43,15 @@ public class RocketAccel extends BaseCard {
                 int amountOfAttacks = p.hand.getAttacks().size();
                 if (amountOfAttacks > 1) {
                     int randomNumber1 = AbstractDungeon.cardRng.random(0, amountOfAttacks - 1);
+                    int tries = 0;
+                    int maxTries = 99;
 
                     int randomNumber2 = randomNumber1;
                     while (randomNumber1 == randomNumber2) {
+                        tries++;
+                        if (tries >= maxTries) {
+                            break;
+                        }
                         randomNumber2 = AbstractDungeon.cardRng.random(0, amountOfAttacks - 1);
                     }
 

@@ -1,0 +1,10 @@
+{
+  "${modID}:Pg01_Intro": {
+    "TEXT": [
+      "Welcome to the intro!"
+    ],
+    "LABEL": [
+      "This is a label"
+    ]
+  }
+}

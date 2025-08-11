@@ -33,7 +33,6 @@ public class MagicHands extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // TODO: Don't worry Buddy
         if (this.upgraded) {
             addToBot(new ChangeStanceAction("Calm"));
         }

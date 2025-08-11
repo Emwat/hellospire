@@ -32,16 +32,6 @@ public class AssistBarry extends BaseCard {
         addToBot(new BetterDiscardPileToHandAction(magicNumber));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-//            this.upgradeMagicNumber(UPG_MAGIC);
-            this.setExhaust(false);
-        }
-    }
-
     @Override
     public AbstractCard makeCopy() { //Optional
         return new AssistBarry();

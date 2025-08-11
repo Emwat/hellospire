@@ -3,6 +3,7 @@ package hellospire;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomUnlockBundle;
+import basemod.devcommands.ConsoleCommand;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
 import basemod.helpers.CardBorderGlowManager;
@@ -12,7 +13,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.beyond.WindingHalls;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
@@ -20,11 +25,16 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.cards.*;
 import hellospire.character.Sonic;
 // import hellospire.ui.FlagDropDown;
+import hellospire.character.SonicConsoleResetTip;
 import hellospire.events.GravitySwitchEvent;
+import hellospire.events.MissionEvent;
+import hellospire.events.ModLagavulin;
+import hellospire.events.RougeEvent;
 import hellospire.potions.BasePotion;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
+import hellospire.ui.HedgehogPack;
 import hellospire.util.GeneralUtils;
 import hellospire.util.KeywordInfo;
 import hellospire.util.TextureLoader;
@@ -48,6 +58,8 @@ import org.scannotation.AnnotationDB;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static basemod.BaseMod.addMonster;
+import static basemod.BaseMod.addMonsterEncounter;
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 
 // IntelliJ
@@ -73,8 +85,7 @@ public class SonicMod implements
         PostInitializeSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
-    public static SpireConfig modConfig = null; // Used for implementing dropdown?? 05/26/2025 11:32 AM
-
+    // public static SpireConfig modConfig; // Used for implementing dropdown?? 05/26/2025 11:32 AM
 
     static {
         loadModInfo();
@@ -151,44 +162,38 @@ public class SonicMod implements
                     return AssistReward.Constructor2(rewardSave.type, rewardSave.id, 0, rewardSave.bonusGold);
                 },
                 (customReward) -> { // this handles what to do when this quest type is saved.
-                    AssistReward a = (AssistReward)customReward;
+                    AssistReward a = (AssistReward) customReward;
 
                     return new RewardSave(customReward.type.toString(), a.transformedAssist.cardID, 0, a.isAssistUpgraded ? 1 : 0);
                 });
 
         registerPotions();
+        registerMonsters();
+        registerEvents();
 
-        // BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
-        //         .dungeonID(TheCity.ID)
-        //         .playerClass(Sonic.Meta.THE_HEDGEHOG)
-        //                 .spawnCondition(new Condition() {
-        //                     @Override
-        //                     public boolean test() {
-        //                         return true;
-        //                     }
-        //                 })
-        //         .eventType(EventUtils.EventType.NORMAL)
-        //         .create()
-        // );
-        //
-        // BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
-        //         .dungeonID(TheBeyond.ID)
-        //         .playerClass(Sonic.Meta.THE_HEDGEHOG)
-        //         .spawnCondition(new Condition() {
-        //             @Override
-        //             public boolean test() {
-        //                 return true;
-        //             }
-        //         })
-        //         .eventType(EventUtils.EventType.FULL_REPLACE)
-        //         .overrideEvent(WindingHalls.ID)
-        //         .create()
-        // );
+        // loadConfig();
+        // ConsoleCommand.addCommand("resettip", SonicConsoleResetTip.class);
+    }
+
+    private void registerEvents() {
 
         if (MyModConfig.enableEventsForAllCharacters) {
             BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
                     .eventType(EventUtils.EventType.FULL_REPLACE)
                     .overrideEvent(WindingHalls.ID)
+                    .create()
+            );
+
+            BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
+                    .dungeonID(TheBeyond.ID)
+                    .eventType(EventUtils.EventType.NORMAL)
+                    .endsWithRewardsUI(true)
+                    .create()
+            );
+
+            BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .eventType(EventUtils.EventType.NORMAL)
                     .create()
             );
         } else if (MyModConfig.enableEventsForOnlySonic) {
@@ -198,9 +203,31 @@ public class SonicMod implements
                     .overrideEvent(WindingHalls.ID)
                     .create()
             );
+
+            BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
+                    .dungeonID(TheBeyond.ID)
+                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                    .eventType(EventUtils.EventType.NORMAL)
+                    .endsWithRewardsUI(true)
+                    .create()
+            );
+
+            BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                    .eventType(EventUtils.EventType.NORMAL)
+                    .create()
+            );
         }
+    }
 
-
+    private void registerMonsters() {
+        addMonster("TimeAttackLaga", () -> new MonsterGroup(new AbstractMonster[]{
+                        new ModLagavulin(true, -465.0F, -20.0F),
+                        new ModLagavulin(true, -130.0F, 15.0F),
+                        new ModLagavulin(true, 200.0F, -5.0F)
+                })
+        );
     }
 
     private void registerPotions() {
@@ -214,6 +241,8 @@ public class SonicMod implements
                     // playerClass will make a potion character-specific. By default, it's null and will do nothing.
                 });
     }
+
+
 
     /*----------Localization----------*/
 
@@ -263,8 +292,10 @@ public class SonicMod implements
                 localizationPath(lang, "RelicStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 localizationPath(lang, "UIStrings.json"));
-        // BaseMod.loadCustomStringsFile(MonsterStrings.class,
-        //         localizationPath(lang, "MonsterStrings.json"));
+        BaseMod.loadCustomStringsFile(MonsterStrings.class,
+                localizationPath(lang, "MonsterStrings.json"));
+        BaseMod.loadCustomStringsFile(TutorialStrings.class,
+                localizationPath(lang, "Tutorials.json"));
     }
 
     @Override
@@ -441,14 +472,12 @@ public class SonicMod implements
         BaseMod.removeCard(Bait.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(Piping.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
 
         // BaseMod.removeCard(SpinningNeedleAttack.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SuperSonicForm.ID, Sonic.Meta.CARD_COLOR);
     }
-
 
     @Override
     public void receiveAddAudio() {
@@ -550,6 +579,11 @@ public class SonicMod implements
     public static int attackCardsPlayedThisTurn = 0;
     public static int cardsExhaustedThisTurn = 0;
     public static boolean sawMetalRelic = false;
+    public static final int RANK_S_REWARD = 100;
+    public static final int RANK_A_REWARD = 70;
+    public static final int RANK_B_REWARD = 50;
+    public static final int RANK_C_REWARD = 20;
+    public static int damageDealt = 0;
 
     @Override
     public void receivePostExhaust(AbstractCard abstractCard) {
@@ -575,15 +609,39 @@ public class SonicMod implements
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         SonicMod.logger.info("receivePostBattle");
+        damageDealt = 0;
 
         if (!(AbstractDungeon.player instanceof Sonic)) {
             return;
         }
         String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
+
+        SonicMod.logger.info("MonsterName: " + monsterName);
+
+        ArrayList<String> elites = new ArrayList<>(Arrays.asList(
+                "GremlinNob",
+                "Lagavulin",
+                "Sentry",
+                "SlaverBoss",
+                "BookOfStabbing",
+                "GremlinLeader",
+                "Reptomancer",
+                "Nemesis",
+                "GiantHead"
+        ));
+
         ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
+                "Hexaghost",
+                "SlimeBoss",
+                "TheGuardian",
+
+                "BronzeAutomaton",
+                "Champ",
                 "TheCollector",
-                "TheChamp",
-                "BronzeAutomaton"
+
+                "AwakenedOne",
+                "Deca",
+                "TimeEater"
         ));
 
         if (bosses.contains(monsterName) && MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
@@ -597,8 +655,6 @@ public class SonicMod implements
 
     @Override
     public void receivePostDeath() {
-        // TODO: Disable game over sound
-        // SonicMod.logger.info("Did you proc?");
         if (AbstractDungeon.player instanceof Sonic) {
             if (isVictory) {
             } else {
@@ -666,6 +722,18 @@ public class SonicMod implements
                 Relax.ID,
                 SlotMachineGame.ID), Sonic.Meta.THE_HEDGEHOG, 1);
     }
+
+    // private void loadConfig() {
+    //     // info.Name = The Hedgehog
+    //     String configName = "sonicmod";
+    //     try {
+    //         modConfig = new SpireConfig(configName, configName + ".config");
+    //         modConfig.load();
+    //         // SonicTipTracker.initialize();
+    //     } catch (Exception ex) {
+    //         logger.catching(ex);
+    //     }
+    // }
 
 //
 ////    /// Used for FlagDropDown

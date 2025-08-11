@@ -39,7 +39,7 @@ public class AssistCharmy extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.Charmy));
-        addToBot(new ApplyPowerAction(m, p, new DizzyPower(m, DIZZY_AMOUNT), DIZZY_AMOUNT));
+        addToBot(new ApplyPowerAction(m, p, new DizzyPower(m, customVar(KEYWORD_DIZZY)), customVar(KEYWORD_DIZZY)));
         for (int i = 0; i < magicNumber; i++) {
             addToBot(new ChannelAction(new Lightning()));
         }

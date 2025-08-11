@@ -17,5 +17,17 @@
       "Face my wrath!",
       "@THAT'S@ NL @MY@ @BELT!!@,,"
     ]
+  },
+  "Eggman": {
+    "MOVES": [
+      "300 IQ Move"
+    ],
+    "NAME": "Dr. Eggman",
+    "DIALOG": [
+      "Get a load of this!",
+      "Get ready to be schooled!",
+      "Take this!",
+      "~You'll~ ~regret~ ~this...~"
+    ]
   }
 }
