@@ -24,7 +24,7 @@ public class MainMusicPatch {
         }
 
         if (MyModConfig.enableBossSpearShieldMusic && "TheEnding".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/Biolizard_Supporting_Me.mp3"));
+            return MainMusic.newMusic(SonicMod.audioPath("music/Biolizard_Supporting_Me.ogg"));
         }
         return __result;
     }

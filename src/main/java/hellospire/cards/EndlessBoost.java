@@ -3,8 +3,10 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
@@ -29,10 +31,8 @@ public class EndlessBoost extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_IRONCLAD);
-
     }
 
-    /// "Lose 2 Dexterity. NL Every turn, gain 1 [E]."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(SoundLibrary.PlayRandomVoice(new ArrayList<>(Arrays.asList(
@@ -40,7 +40,11 @@ public class EndlessBoost extends BaseCard {
 //                SoundLibrary.NeverUnderestimate
 //        ))));
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.NeverUnderestimate));
-        addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
+        if (!this.upgraded && CheckIfRightCard(this, p.hand)) {
+            addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber - 1), magicNumber - 1));
+        } else {
+            addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber), magicNumber));
+        }
         addToBot(new ApplyPowerAction(p, p, new BerserkPower(p, 1)));
     }
 
@@ -50,6 +54,18 @@ public class EndlessBoost extends BaseCard {
             this.setInnate(true);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+        }
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 

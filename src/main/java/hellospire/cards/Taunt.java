@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -22,12 +23,13 @@ import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+import hellospire.util.TextureLoader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Taunt extends BaseCard {
+public class Taunt extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("Taunt");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -37,15 +39,15 @@ public class Taunt extends BaseCard {
             1
     );
 
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 3;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 1;
     private final String[] texts = CardCrawlGame.languagePack.getCharacterString(makeID("TheHedgehog")).TEXT;
 
     ///    "DESCRIPTION": "Apply 2 Vulnerable. NL Gain 2 Temporary Dexterity."
     public Taunt() {
         super(ID, info);
 
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
     }
 
     @Override
@@ -83,23 +85,40 @@ public class Taunt extends BaseCard {
             }
         }
 
-        addToBot(new DrawCardAction(1));
-        // addToBot(new NotStanceCheckAction("Neutral", new VFXAction(new EmptyStanceEffect(p.hb.cX, p.hb.cY), 0.1F)));
-        // addToBot(new ChangeStanceAction("Neutral"));
+        if (this.upgraded && !this.isBranchUpgrade()) {
+            addToBot(new DrawCardAction(1));
+        } else if (this.upgraded && this.isBranchUpgrade()) {
+            addToBot(new NotStanceCheckAction("Neutral", new VFXAction(new EmptyStanceEffect(p.hb.cX, p.hb.cY), 0.1F)));
+            addToBot(new ChangeStanceAction("Neutral"));
+        }
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
     }
 
+    @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPG_MAGIC);
-//            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            loadCardImage(SonicMod.imagePath("cards/skill/Taunt2.png"));
-//            this.initializeDescription();
+            upgradeName();
+            upgradeMagicNumber(UPG_MAGIC);
+            if (isBranchUpgrade()) {
+                branchUpgrade();
+            } else {
+                baseUpgrade();
+            }
         }
+    }
 
+    public void baseUpgrade() {
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+
+    public void branchUpgrade() {
+        loadCardImage(SonicMod.imagePath("cards/skill/Taunt2.png"));
+        portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/skill/Taunt2_p.png"));
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
     }
 
     @Override

@@ -19,7 +19,7 @@ public class SonicBoom extends BaseCard implements BranchingUpgradesCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF,
-            2
+            3
     );
 
     private static final int BLOCK = 0;

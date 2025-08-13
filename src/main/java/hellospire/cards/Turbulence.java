@@ -24,7 +24,6 @@ public class Turbulence extends BaseCard {
             1
     );
 
-    /// TODO: UPG_MAGIC isn't working.
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = -1;
 
@@ -38,7 +37,9 @@ public class Turbulence extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoTurbulence));
-        if (!CheckIfLeftCard(this, p.hand)) {
+        if (!this.upgraded && CheckIfLeftCard(this, p.hand)) {
+            addToBot(new ApplyPowerAction(p, p, new FocusPower(p, -magicNumber + 1), -magicNumber + 1));
+        } else {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, -magicNumber), -magicNumber));
         }
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, 1), 1));

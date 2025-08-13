@@ -234,8 +234,8 @@
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "At the end of this turn, lose 2 Dexterity. NL Every turn, gain 1 [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the end of this turn, lose 2 Dexterity. NL Every turn, gain 1 [E]."
+    "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. NL ${modID}:If_most_right, lose 1 less. NL Every turn, gain 1 [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of this turn, lose !M! Dexterity. NL Every turn, gain 1 [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -621,7 +621,11 @@
   },
   "${modID}:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Draw 1 card. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable."
+    "DESCRIPTION": "Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      "Draw 1 Card. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable.",
+      "Exit your stance. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable."
+    ]
   },
   "${modID}:Teaser": {
     "NAME": "Teaser",
@@ -672,8 +676,8 @@
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "${modID}:If_not_most_left, lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "${modID}:If_not_most_left, lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
+    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_most_left, lose 1 less. Whenever you exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",

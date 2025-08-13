@@ -113,6 +113,9 @@ public class SonicMod implements
 
     @Override
     public void receivePostInitialize() {
+        SonicMod.logger.info("CARD_COLOR: " + Sonic.Meta.CARD_COLOR);
+        SonicMod.logger.info("LIBRARY_COLOR: " + Sonic.Meta.LIBRARY_COLOR);
+
         Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
 
 //        ModPanel settingsPanel = new ModPanel();

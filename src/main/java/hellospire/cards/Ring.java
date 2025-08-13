@@ -2,8 +2,6 @@ package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.Loader;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
@@ -11,8 +9,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.actions.FasterAction;
@@ -20,6 +18,7 @@ import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ring extends BaseCard {
@@ -51,6 +50,12 @@ public class Ring extends BaseCard {
             this.name = "Coin";
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/Ring_b.png"));
+        }
+
+        if (Loader.isModLoaded("ModAchievement")){
+            if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
+                unlockRingmasterAchievement();
+            }
         }
     }
 
@@ -95,5 +100,29 @@ public class Ring extends BaseCard {
     @Override
     public AbstractCard makeCopy() { // Optional
         return new Ring();
+    }
+
+    private void unlockRingmasterAchievement(){
+        if (AbstractDungeon.player == null) {
+            return;
+        }
+        int total = 0;
+        total += countRings(AbstractDungeon.player.drawPile.group);
+        total += countRings(AbstractDungeon.player.exhaustPile.group);
+        total += countRings(AbstractDungeon.player.discardPile.group);
+        total += countRings(AbstractDungeon.player.hand.group);
+        if (total > 20) {
+            UnlockTracker.unlockAchievement(makeID("Ringmaster"));
+        }
+    }
+
+    private int countRings(ArrayList<AbstractCard> group){
+        int count = 0;
+        for (AbstractCard c : group) {
+            if (c.cardID.equals(this.cardID)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
