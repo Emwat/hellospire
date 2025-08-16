@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.actions.FasterAction;
 import hellospire.character.Sonic;
 import hellospire.powers.DizzyPower;
 import hellospire.util.CardStats;
@@ -40,27 +41,25 @@ public class DizzySpin extends BaseCard {
         if (magicNumber > 0) {
             addToBot(new DrawCardAction(magicNumber));
         }
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                    int newCost = AbstractDungeon.cardRandomRng.random(3);
-                    card.setCostForTurn(newCost);
-                    card.isCostModifiedForTurn = true;
-                }
-                this.isDone = true;
+        addToBot(new FasterAction(() -> {
+            for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                int newCost = AbstractDungeon.cardRandomRng.random(3);
+                card.setCostForTurn(newCost);
+                card.isCostModifiedForTurn = true;
             }
-        });
+        }));
 
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
-            this.addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
+            if (!mo.isDeadOrEscaped()) {
+                addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
+                addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
+            }
         }
 
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new DizzySpin();
     }
 }

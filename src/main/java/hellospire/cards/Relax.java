@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.stances.WrathStance;
 import hellospire.SonicTags;
+import hellospire.actions.FasterAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -42,9 +43,8 @@ public class Relax extends BaseCard {
 
         // addToBot(new ApplyPowerAction(p, p, new RelaxPower(p, 1), 1));
         addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));
-        if (!this.upgraded) {
-            addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
-        }
+        addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
+
         if (!this.upgraded) {
             if (WrathCondition(p)) {
                 addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
@@ -64,12 +64,6 @@ public class Relax extends BaseCard {
         }
 
     }
-
-    // @Override
-    // public void upgrade() {
-    //     setEthereal(true);
-    //     super.upgrade();
-    // }
 
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
@@ -108,17 +102,13 @@ public class Relax extends BaseCard {
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         if (!this.upgraded) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    if (WrathCondition(AbstractDungeon.player)) {
-                        loadCardImage(imageSkillPath("RelaxPick2.png"));
-                    } else {
-                        loadCardImage(imageSkillPath("Relax.png"));
-                    }
-                    this.isDone = true;
+            addToBot(new FasterAction(() -> {
+                if (WrathCondition(AbstractDungeon.player)) {
+                    loadCardImage(imageSkillPath("RelaxPick2.png"));
+                } else {
+                    loadCardImage(imageSkillPath("Relax.png"));
                 }
-            });
+            }));
         }
 
         super.triggerOnOtherCardPlayed(c);

@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.ActivatePassiveOrbAction;
 import hellospire.character.Sonic;
+import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -68,6 +68,10 @@ public class QuickStep extends BaseCard {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
         if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
             return;
         }
 

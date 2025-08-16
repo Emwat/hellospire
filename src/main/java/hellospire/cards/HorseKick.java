@@ -1,18 +1,14 @@
 package hellospire.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.blue.GoForTheEyes;
-import com.megacrit.cardcrawl.cards.purple.Sanctity;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import hellospire.SonicTags;
 import hellospire.character.Sonic;
+import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
 
 public class HorseKick extends BaseCard {
@@ -76,6 +72,10 @@ public class HorseKick extends BaseCard {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
         if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
             return;
         }
 

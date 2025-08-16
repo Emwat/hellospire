@@ -1,18 +1,12 @@
 package hellospire.cards;
 
-import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
-import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.SonicTags;
-import hellospire.actions.HeavyIncrementAction;
-import hellospire.actions.HeavyKeepCostAction;
-import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
+import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
 
 public class BlastOff extends BaseCard {
@@ -38,15 +32,21 @@ public class BlastOff extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int extraMagic = CheckIfLeftCard(this, p.hand) ? 1 : 0;
-
-        addToBot(new GainEnergyAction(magicNumber + extraMagic));
+        int magicOutput = magicNumber;
+        if (CheckIfLeftCard(this, p.hand)) {
+            magicOutput += 1;
+        }
+        addToBot(new GainEnergyAction(magicOutput));
     }
 
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
         if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
             return;
         }
 

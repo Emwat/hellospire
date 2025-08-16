@@ -52,7 +52,7 @@
             </mainline>
             <timeline id="0" name="Sonic_pose_63">
                 <key id="0" spin="0">
-                    <object folder="0" file="0" x="-95" y="231" angle="0" scale_x="1.4" scale_y="1.4"/>
+                    <object folder="0" file="0" x="-95" y="230" angle="0" scale_x="1.4" scale_y="1.4"/>
                 </key>
             </timeline>
         </animation>

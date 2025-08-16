@@ -8,10 +8,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,12 +24,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import hellospire.MyModConfig;
-import hellospire.SonicMod;
-import hellospire.SoundLibrary;
+import hellospire.*;
 import hellospire.cards.BouncePad;
 import hellospire.cards.Defend;
 import hellospire.cards.HomingAttack;
@@ -159,8 +160,10 @@ public class Sonic extends CustomPlayer {
     public Sonic() {
         super(getNames()[0], Meta.THE_HEDGEHOG,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), // Energy Orb
-                new SpriterAnimation(characterPath("animation/SonicBattlePose.scml"))); // Animation
+                new CustomSpriterAnimation(characterPath("animation/SonicBattlePose.scml"))); // Animation
 
+        Player.PlayerListener listener = new CustomAnimationListener(this);
+        ((CustomSpriterAnimation)this.animation).myPlayer.addListener(listener);
 
         initializeClass(null,
                 SHOULDER_2,
@@ -394,5 +397,59 @@ public class Sonic extends CustomPlayer {
         };
     }
 
+    // animation code
+    public CustomSpriterAnimation getAnimation() {
+        return (CustomSpriterAnimation) this.animation;
+    }
 
+    public void playAnimation(String name) {
+        ((CustomSpriterAnimation)this.animation).myPlayer.setAnimation(name);
+    }
+
+    public void stopAnimation() {
+        CustomSpriterAnimation anim = (CustomSpriterAnimation) this.animation;
+        int time = anim.myPlayer.getAnimation().length;
+        anim.myPlayer.setTime(time);
+        anim.myPlayer.speed = 0;
+    }
+
+    public void resetToIdleAnimation() {
+        playAnimation("idle");
+    }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        super.useCard(c, monster, energyOnUse);
+        switch (c.type) {
+            case ATTACK:
+                playAnimation("attack");
+                break;
+            case POWER:
+                playAnimation("happy");
+                break;
+            default:
+                playAnimation("idle");
+                break;
+        }
+    }
+
+    public void damage(DamageInfo info) {
+        boolean hadBlockBeforeSuper = this.currentBlock > 0;
+        super.damage(info);
+        boolean hasBlockAfterSuper = this.currentBlock > 0;
+        boolean tookNoDamage = this.lastDamageTaken == 0;
+        if (hadBlockBeforeSuper && (hasBlockAfterSuper || tookNoDamage)) {
+            playAnimation("happy");
+        } else {
+            playAnimation("hurt");
+        }
+    }
+
+    @Override
+    public void heal(int healAmount) {
+        if (healAmount > 0) {
+            playAnimation("happy");
+        }
+        super.heal(healAmount);
+    }
 }

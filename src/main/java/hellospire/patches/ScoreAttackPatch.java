@@ -1,5 +1,6 @@
 package hellospire.patches;
 
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.powers.MissionScoreAttackPower;
 
 public class ScoreAttackPatch {
@@ -57,7 +59,6 @@ public class ScoreAttackPatch {
 
                 if (scoreAttackPower != null) {
                     scoreAttackPower.addDamage(info.output);
-
                 }
             }
         }

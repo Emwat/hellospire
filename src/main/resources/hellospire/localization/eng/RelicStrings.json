@@ -7,6 +7,13 @@
       "#Attacks, #ySkills, and #yPowers are gold in relic texts but not in card texts."
     ]
   },
+  "${modID}:AirBoostShoesRelic": {
+    "NAME": "Air Boost Shoes",
+    "FLAVOR": "Shoes as light as a feather. They let you accelerate even in midair.",
+    "DESCRIPTIONS": [
+      "#yIf #ymost #yleft #yor #yright effects are free."
+    ]
+  },
   "${modID}:BlueQuillRelic": {
     "NAME": "Blue Quill",
     "FLAVOR": "Aw yeah! This is happening!",
@@ -97,6 +104,14 @@
       " Block. This amount permanently increases when you enter a Rest Site."
     ]
   },
+  "${modID}:GoldenGloveRelic": {
+    "NAME": "Golden Glove",
+    "FLAVOR": "Part of a Black Tie set.",
+    "DESCRIPTIONS": [
+      "When you play a #yRing, gain #b",
+      " Temporary HP."
+    ]
+  },
   "${modID}:Player2Relic": {
     "NAME": "Player 2",
     "FLAVOR": "WHOAA MY HEADS SPINNING!!",
@@ -106,6 +121,13 @@
       " (TURN 1)",
       " (TURN 2)",
       " DATA SUCCESSFULLY COPIED."
+    ]
+  },
+  "${modID}:PowerBrakeRelic": {
+    "NAME": "Power Brake",
+    "FLAVOR": "Toot, toot, Sonic Warrior",
+    "DESCRIPTIONS": [
+      "When you have #bX energy at the end of your turn, apply #bX #yDizzy to ALL enemies."
     ]
   },
   "${modID}:RingEnergyBonusRelic": {
@@ -121,6 +143,13 @@
     "FLAVOR": "Aw yeah! This is happening!",
     "DESCRIPTIONS": [
       "Your #yRings persist between each combat. If you take #b3+ damage, exhaust ALL of your #yRings."
+    ]
+  },
+  "${modID}:TailsToyRelic": {
+    "NAME": "Tails Toy",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      ""
     ]
   }
 }

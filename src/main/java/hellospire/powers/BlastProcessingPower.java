@@ -69,9 +69,10 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
         amount = numberOfFreeCards;
-        super.atEndOfTurn(isPlayer);
+
     }
 
     static {

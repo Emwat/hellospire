@@ -1,15 +1,12 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.SonicTags;
 import hellospire.actions.SecretRouteAction;
 import hellospire.character.Sonic;
+import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
 
 public class SecretRoute extends BaseCard {
@@ -34,20 +31,21 @@ public class SecretRoute extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int magicOutput = magicNumber;
         if (!this.upgraded && CheckIfRightCard(this, p.hand)) {
-            setMagic(2);
+            magicOutput += 1;
         }
-        addToBot(new SecretRouteAction(p, magicNumber));
+        addToBot(new SecretRouteAction(p, magicOutput));
     }
 
     public void triggerOnGlowCheck() {
-        if (this.upgraded) {
-            return;
-        }
-
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
         if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
             return;
         }
 

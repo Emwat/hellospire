@@ -85,7 +85,7 @@ public class BouncePad extends BaseCard implements BranchingUpgradesCard {
     }
 
     private void updatePlays(){
-        if (this.isBranchUpgrade()){
+        if (upgraded && this.isBranchUpgrade()){
             if (plays < maxPlays) {
                 this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
             } else {

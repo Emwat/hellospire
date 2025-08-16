@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.relics.SneckoEye;
 import hellospire.SonicMod;
 import hellospire.character.Sonic;
+import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
 import hellospire.util.TriFunction;
 import com.badlogic.gdx.graphics.Color;
@@ -774,6 +775,10 @@ public abstract class BaseCard extends CustomCard {
             return true;
         }
 
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            return true;
+        }
+
         int j = 0;
         for (int i = 0; i < hand.size(); i++) {
             AbstractCard handCard = hand.group.get(i);
@@ -792,6 +797,10 @@ public abstract class BaseCard extends CustomCard {
 
     public boolean CheckIfRightCard(AbstractCard card, CardGroup hand) {
         if (hand.isEmpty()) {
+            return true;
+        }
+
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
             return true;
         }
 

@@ -24,6 +24,7 @@ public class DizzyPower extends BasePower {
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
+    public int highestCost = 0;
 
     public DizzyPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -33,32 +34,27 @@ public class DizzyPower extends BasePower {
         this.description = DESCRIPTIONS[0];
     }
 
-//    public void atEndOfTurn(boolean isPlayer) {
-//        this.flash();
-//        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
-////        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
-//    }
+    @Override
+    public void atStartOfTurnPostDraw() {
+        super.atStartOfTurnPostDraw();
+        highestCost = 0;
+    }
 
     public void atEndOfRound() {
-        if (this.justApplied) {
-            this.justApplied = false;
+        if (justApplied) {
+            justApplied = false;
         } else {
-            if (this.amount == 0) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            if (amount == 0) {
+                addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
             } else {
-                this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
+                addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
             }
         }
     }
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            int highestCost = 0;
-            int totalCost = 0;
-            for (AbstractCard card : AbstractDungeon.player.hand.group){
-                highestCost = Math.max(card.costForTurn, highestCost);
-                totalCost += card.costForTurn;
-            }
+            calculateHighestCost();
             if (damage - highestCost < 0) {
                 return 0;
             }
@@ -72,5 +68,11 @@ public class DizzyPower extends BasePower {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    }
+
+    private void calculateHighestCost(){
+        for (AbstractCard card : AbstractDungeon.player.hand.group){
+            highestCost = Math.max(card.costForTurn, highestCost);
+        }
     }
 }

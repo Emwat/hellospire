@@ -25,7 +25,9 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.cards.*;
 import hellospire.character.Sonic;
 // import hellospire.ui.FlagDropDown;
-import hellospire.character.SonicConsoleResetTip;
+import hellospire.character.SonicStartTalkingHelper;
+import hellospire.util.*;
+import hellospire.character.SonicTipTracker;
 import hellospire.events.GravitySwitchEvent;
 import hellospire.events.MissionEvent;
 import hellospire.events.ModLagavulin;
@@ -34,10 +36,6 @@ import hellospire.potions.BasePotion;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
 import hellospire.rewards.RewardTypePatch;
-import hellospire.ui.HedgehogPack;
-import hellospire.util.GeneralUtils;
-import hellospire.util.KeywordInfo;
-import hellospire.util.TextureLoader;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglFileHandle;
@@ -59,7 +57,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static basemod.BaseMod.addMonster;
-import static basemod.BaseMod.addMonsterEncounter;
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 
 // IntelliJ
@@ -77,6 +74,7 @@ public class SonicMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         OnCardUseSubscriber,
+        OnStartBattleSubscriber,
         OnPlayerTurnStartSubscriber,
         PostExhaustSubscriber,
         PostBattleSubscriber,
@@ -85,7 +83,7 @@ public class SonicMod implements
         PostInitializeSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
-    // public static SpireConfig modConfig; // Used for implementing dropdown?? 05/26/2025 11:32 AM
+    public static SpireConfig sonicmodConfig; // Used for implementing dropdown?? 05/26/2025 11:32 AM
 
     static {
         loadModInfo();
@@ -113,9 +111,6 @@ public class SonicMod implements
 
     @Override
     public void receivePostInitialize() {
-        SonicMod.logger.info("CARD_COLOR: " + Sonic.Meta.CARD_COLOR);
-        SonicMod.logger.info("LIBRARY_COLOR: " + Sonic.Meta.LIBRARY_COLOR);
-
         Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
 
 //        ModPanel settingsPanel = new ModPanel();
@@ -174,8 +169,9 @@ public class SonicMod implements
         registerMonsters();
         registerEvents();
 
-        // loadConfig();
-        // ConsoleCommand.addCommand("resettip", SonicConsoleResetTip.class);
+        loadConfig();
+        ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
+        ConsoleCommand.addCommand("sonicunlock", SonicConsoleAchievement.class);
     }
 
     private void registerEvents() {
@@ -621,18 +617,6 @@ public class SonicMod implements
 
         SonicMod.logger.info("MonsterName: " + monsterName);
 
-        ArrayList<String> elites = new ArrayList<>(Arrays.asList(
-                "GremlinNob",
-                "Lagavulin",
-                "Sentry",
-                "SlaverBoss",
-                "BookOfStabbing",
-                "GremlinLeader",
-                "Reptomancer",
-                "Nemesis",
-                "GiantHead"
-        ));
-
         ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
                 "Hexaghost",
                 "SlimeBoss",
@@ -726,17 +710,24 @@ public class SonicMod implements
                 SlotMachineGame.ID), Sonic.Meta.THE_HEDGEHOG, 1);
     }
 
-    // private void loadConfig() {
-    //     // info.Name = The Hedgehog
-    //     String configName = "sonicmod";
-    //     try {
-    //         modConfig = new SpireConfig(configName, configName + ".config");
-    //         modConfig.load();
-    //         // SonicTipTracker.initialize();
-    //     } catch (Exception ex) {
-    //         logger.catching(ex);
-    //     }
-    // }
+    private void loadConfig() {
+        // info.Name = The Hedgehog
+        String configName = "sonicmod";
+        try {
+            sonicmodConfig = new SpireConfig(configName, configName + ".config");
+            sonicmodConfig.load();
+            SonicTipTracker.initialize();
+        } catch (Exception ex) {
+            logger.catching(ex);
+        }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if (SoundLibrary.isRandomlyTrue()) {
+            SonicStartTalkingHelper.Chat(abstractRoom);
+        }
+    }
 
 //
 ////    /// Used for FlagDropDown
