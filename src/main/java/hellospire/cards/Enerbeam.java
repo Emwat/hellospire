@@ -29,7 +29,6 @@ public class Enerbeam extends BaseCard {
     public Enerbeam() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
-        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override

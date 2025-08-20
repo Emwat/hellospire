@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import hellospire.SoundLibrary;
+import hellospire.actions.FasterAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -43,6 +44,12 @@ public class SuperSonicForm extends BaseCard {
         if (this.upgraded) {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
         }
+        if (p instanceof Sonic) {
+            addToBot(new FasterAction(() -> {
+                ((Sonic) p).playAnimation("super");
+            }));
+        }
+
 //        addToBot(new ApplyPowerAction(p, p, new SuperSonicPower(p)));
     }
 

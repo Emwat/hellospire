@@ -54,7 +54,7 @@ public class Relax extends BaseCard {
                     new RelaxPick1(),
                     new RelaxPick2()
             ));
-            if (upgraded) {
+            if (this.upgraded) {
                 for (AbstractCard pick : picks) {
                     pick.upgrade();
                 }
@@ -86,17 +86,14 @@ public class Relax extends BaseCard {
         if (this.upgraded) {
             return;
         }
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
+        addToBot(new FasterAction( () -> {
                 if (WrathCondition(AbstractDungeon.player)) {
                     loadCardImage(imageSkillPath("RelaxPick2.png"));
                 } else {
                     loadCardImage(imageSkillPath("Relax.png"));
                 }
-                this.isDone = true;
-            }
-        });
+            })
+        );
     }
 
     @Override

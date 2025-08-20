@@ -14,6 +14,7 @@ public class CustomAnimationListener implements Player.PlayerListener {
     }
 
     public void animationFinished(Animation animation) {
+
         if (animation.name.equals("ko")) {
             character.playAnimation("ko");
         } else if (!animation.name.equals("idle")) {

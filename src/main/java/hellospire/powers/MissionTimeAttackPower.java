@@ -29,7 +29,7 @@ public class MissionTimeAttackPower extends BasePower {
 
     public static final int RANK_S_TURN = 6;
     public static final int RANK_A_TURN = 7;
-    public static final int RANK_B_TURN = 8;
+    public static final int RANK_B_TURN = 9;
 
     public MissionTimeAttackPower(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, 0);

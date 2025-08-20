@@ -403,7 +403,22 @@ public class Sonic extends CustomPlayer {
     }
 
     public void playAnimation(String name) {
-        ((CustomSpriterAnimation)this.animation).myPlayer.setAnimation(name);
+        playAnimation(name, false);
+    }
+
+    public void playAnimation(String name, boolean overrideSuperSonic) {
+        CustomSpriterAnimation anim = (CustomSpriterAnimation) this.animation;
+        if (anim.myPlayer.getAnimation().name.equals("super") && !overrideSuperSonic) {
+
+        } else {
+            anim.myPlayer.setAnimation(name);
+        }
+    }
+
+    @Override
+    public void applyStartOfCombatLogic() {
+        super.applyStartOfCombatLogic();
+        playAnimation("idle", true);
     }
 
     public void stopAnimation() {

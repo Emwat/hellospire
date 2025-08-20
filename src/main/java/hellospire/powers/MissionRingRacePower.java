@@ -33,10 +33,10 @@ public class MissionRingRacePower extends BasePower {
     public static final int RANK_B_REWARD = SonicMod.RANK_B_REWARD;
     public static final int RANK_C_REWARD = SonicMod.RANK_C_REWARD;
 
-    public static final int RANK_S_TURN = 3;
-    public static final int RANK_A_TURN = 4;
-    public static final int RANK_B_TURN = 5;
-    public static final int MISSION_AMOUNT = 20;
+    public static final int RANK_S_TURN = 4;
+    public static final int RANK_A_TURN = 5;
+    public static final int RANK_B_TURN = 7;
+    public static final int MISSION_AMOUNT = 15;
 
     public MissionRingRacePower(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, 0);

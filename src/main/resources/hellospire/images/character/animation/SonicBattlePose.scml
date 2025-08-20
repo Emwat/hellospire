@@ -6,6 +6,7 @@
         <file id="2" name="SonicBattleNormal.png" width="156" height="208" pivot_x="0" pivot_y="1"/>
         <file id="3" name="SonicBattleSad.png" width="164" height="209" pivot_x="0" pivot_y="1"/>
         <file id="4" name="SonicBattleMe.png" width="176" height="208" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="SuperSonic.png" width="162" height="270" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="entity_000">
         <animation id="0" name="idle" length="1000" interval="100">
@@ -53,6 +54,18 @@
             <timeline id="0" name="Sonic_pose_63">
                 <key id="0" spin="0">
                     <object folder="0" file="0" x="-95" y="231" angle="0" scale_x="1.4" scale_y="1.4"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="super" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="SuperSonic">
+                <key id="0" spin="0">
+                    <object folder="0" file="5" x="-77.444015" y="262.405405" angle="0"/>
                 </key>
             </timeline>
         </animation>

@@ -582,7 +582,6 @@ public class SonicMod implements
     public static final int RANK_A_REWARD = 70;
     public static final int RANK_B_REWARD = 50;
     public static final int RANK_C_REWARD = 20;
-    public static int damageDealt = 0;
 
     @Override
     public void receivePostExhaust(AbstractCard abstractCard) {
@@ -607,9 +606,6 @@ public class SonicMod implements
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
-        SonicMod.logger.info("receivePostBattle");
-        damageDealt = 0;
-
         if (!(AbstractDungeon.player instanceof Sonic)) {
             return;
         }
@@ -724,6 +720,10 @@ public class SonicMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return;
+        }
+
         if (SoundLibrary.isRandomlyTrue()) {
             SonicStartTalkingHelper.Chat(abstractRoom);
         }

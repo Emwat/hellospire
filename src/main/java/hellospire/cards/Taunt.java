@@ -36,7 +36,7 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF_AND_ENEMY,
-            1
+            0
     );
 
     private static final int MAGIC = 2;
