@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
+import hellospire.SoundLibrary;
 import hellospire.actions.LowerCostAction;
 import hellospire.actions.SwapCostsAction;
 import hellospire.character.Sonic;
@@ -38,8 +39,8 @@ public class GrindRail extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        addToBot(new DrawCardAction(magicNumber));
         ArrayList<AbstractCard> neighbors = getNeighbors(p.hand, false);
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.Rail));
         for (AbstractCard neighbor : neighbors) {
             addToBot(new LowerCostAction(neighbor, magicNumber));
         }

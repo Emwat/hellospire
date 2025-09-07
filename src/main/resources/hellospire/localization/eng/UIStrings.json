@@ -39,6 +39,11 @@
       "Magic Hands: Retain. If the selected Card is exhausted, enter Wrath."
     ]
   },
+  "${modID}:PipingMessage": {
+    "TEXT": [
+      "Piping: Exhaust and add a copy to your hand."
+    ]
+  },
   "${modID}:ShortcutMessage": {
     "TEXT": [
       "Shortcut: Lower its cost for this turn."
@@ -95,6 +100,19 @@
   "${modID}:SingleCardReward": {
     "TEXT": [
       "idk what im doing"
+    ]
+  },
+  "${modID}:SonicStylePack": {
+    "TEXT": [
+      "Sonic Style",
+      "Ah yeah! This is happening!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicStylePackHat": {
+    "TEXT": [
+      "Gotta go fast.",
+      "Sonic Hat"
     ]
   }
 }

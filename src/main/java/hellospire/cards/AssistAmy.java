@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -40,13 +41,9 @@ public class AssistAmy extends BaseCard {
                 return;
             }
             for (AbstractCard pickedCard : cards) {
-                addToBot(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        pickedCard.modifyCostForCombat(-99);
-                        this.isDone = true;
-                    }
-                });
+                addToBot(new ModFastAction(() -> {
+                    pickedCard.modifyCostForCombat(-99);
+                }));
             }
         }));
     }
@@ -60,7 +57,7 @@ public class AssistAmy extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new AssistAmy();
     }
 }

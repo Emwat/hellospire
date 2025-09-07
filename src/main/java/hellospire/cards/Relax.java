@@ -1,7 +1,6 @@
 package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.stances.WrathStance;
 import hellospire.SonicTags;
-import hellospire.actions.FasterAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -86,7 +85,7 @@ public class Relax extends BaseCard {
         if (this.upgraded) {
             return;
         }
-        addToBot(new FasterAction( () -> {
+        addToBot(new ModFastAction( () -> {
                 if (WrathCondition(AbstractDungeon.player)) {
                     loadCardImage(imageSkillPath("RelaxPick2.png"));
                 } else {
@@ -99,7 +98,7 @@ public class Relax extends BaseCard {
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         if (!this.upgraded) {
-            addToBot(new FasterAction(() -> {
+            addToBot(new ModFastAction(() -> {
                 if (WrathCondition(AbstractDungeon.player)) {
                     loadCardImage(imageSkillPath("RelaxPick2.png"));
                 } else {

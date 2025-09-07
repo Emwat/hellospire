@@ -4,12 +4,11 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.FocusPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.*;
 import hellospire.SoundLibrary;
-import hellospire.actions.FasterAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
+import hellospire.powers.SuperSonicPower;
 import hellospire.util.CardStats;
 
 public class SuperSonicForm extends BaseCard {
@@ -38,14 +37,17 @@ public class SuperSonicForm extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.SonicStyle));
 //        addToBot(new GainEnergyAction(magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new SuperSonicPower(p)));
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new WraithFormPower(p, -1), -1));
 
         if (this.upgraded) {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new BiasPower(p, 1), 1));
         }
         if (p instanceof Sonic) {
-            addToBot(new FasterAction(() -> {
+            addToBot(new ModFastAction(() -> {
                 ((Sonic) p).playAnimation("super");
             }));
         }

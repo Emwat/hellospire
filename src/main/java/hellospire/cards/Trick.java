@@ -3,26 +3,20 @@ package hellospire.cards;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateJumpAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
-import hellospire.actions.FasterAction;
-import hellospire.actions.ModAnimateHopAction;
-import hellospire.actions.ModTextAboveCreatureAction;
+import hellospire.actions.ModFastAction;
+import hellospire.actions.ModTextInCenterAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -64,7 +58,7 @@ public class Trick extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new ModAnimateHopAction(p));
         addToBot(TrickNameAction(p));
-        addToBot(new FasterAction(() -> TricksPlayed++ ));
+        addToBot(new ModFastAction(() -> TricksPlayed++ ));
         addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.ALLRIGHT,
                 SoundLibrary.COOL,
@@ -82,16 +76,16 @@ public class Trick extends BaseCard {
         Color textColor = new Color(0f / 255f, 255f, 228f / 255f, 1f);
         if (TricksPlayed == 0) {
             firstTrickNumber = randomNumber1;
-            return new ModTextAboveCreatureAction(p, TrickNames1[randomNumber1], textColor);
+            return new ModTextInCenterAction(TrickNames1[randomNumber1], textColor);
         } else if (TricksPlayed == 1) {
             if (randomNumber2 == 2) {
-                return new ModTextAboveCreatureAction(p, TrickNames2[randomNumber3], textColor);
+                return new ModTextInCenterAction(TrickNames2[randomNumber3], textColor);
             } else {
                 int otherNumber = firstTrickNumber == 0 ? 1 : 0;
-                return new ModTextAboveCreatureAction(p, TrickNames1[otherNumber], textColor);
+                return new ModTextInCenterAction(TrickNames1[otherNumber], textColor);
             }
         }
-        return new ModTextAboveCreatureAction(p, TrickNames2[randomNumber3], textColor);
+        return new ModTextInCenterAction(TrickNames2[randomNumber3], textColor);
     }
 
     @Override

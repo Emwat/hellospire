@@ -42,9 +42,7 @@ public class TripleKick extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
-        if (MyModConfig.enableKicksForStrikeDummy) {
-            tags.add(CardTags.STRIKE);
-        }
+        tags.add(SonicTags.KICK);
         tags.add(SonicTags.LIKE_WATCHER);
     }
 

@@ -1,5 +1,11 @@
 {
-  "${modID}:Ringmaster": {
+  "${modID}:GooglyEyes": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "Mods on top of mods",
+    "DESCRIPTION": "Play Assist with the Googly Eyes mod.",
+    "IMAGE": "hellospire/images/achievement/GooglyEyes.png",
+    "HIDDEN": false
+  }, "${modID}:Ringmaster": {
     "CARD_COLOR": "HEDGEHOG_BLUE25",
     "TITLE": "Ringmaster",
     "DESCRIPTION": "Have 20 Rings in one combat.",

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.relics.SneckoEye;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
@@ -785,7 +786,7 @@ public abstract class BaseCard extends CustomCard {
             if (handCard == card) {
                 return true;
             }
-            if (!handCard.cardID.equals(Ring.ID)) {
+            if (!card.hasTag(SonicTags.RING)) {
                 j++;
             }
             if (j > 0) {
@@ -810,7 +811,7 @@ public abstract class BaseCard extends CustomCard {
             if (handCard == card) {
                 return true;
             }
-            if (!handCard.cardID.equals(Ring.ID)) {
+            if (!card.hasTag(SonicTags.RING)) {
                 j++;
             }
             if (j > 0) {

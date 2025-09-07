@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -33,6 +34,7 @@ public class Crouch extends BaseCard {
     /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.Jump));
         addToBot(new DrawCardAction(magicNumber));
         addToBot(new ExhaustAction(magicNumber, false, false, false));
     }

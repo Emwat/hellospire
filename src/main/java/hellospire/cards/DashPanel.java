@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.DashPanelAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -52,13 +53,9 @@ public class DashPanel extends BaseCard {
         for (AbstractCard card : cards) {
             addToBot(new DashPanelAction(m, card, this.energyOnUse));
             if (card.type == CardType.POWER) {
-                addToBot(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        p.hand.removeCard(card);
-                        this.isDone = true;
-                    }
-                });
+                addToBot(new ModFastAction( () -> {
+                    p.hand.removeCard(card);
+                }));
             } else if (card.exhaust) {
                 addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
             } else if (card.returnToHand) {

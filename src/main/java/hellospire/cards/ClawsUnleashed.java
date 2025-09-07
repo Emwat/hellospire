@@ -15,11 +15,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.vfx.combat.ClawEffect;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+import hellospire.util.TextureLoader;
 
 import java.util.Objects;
+
+import static hellospire.SonicMod.imagePath;
 
 public class ClawsUnleashed extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("ClawsUnleashed");
@@ -91,6 +95,8 @@ public class ClawsUnleashed extends BaseCard implements BranchingUpgradesCard {
 
     public void branchUpgrade() {
         upgradeDamage(BRANCH_UPG_DAMAGE);
+        this.loadCardImage( imagePath("cards/attack/ClawsUnleashed2.png"));
+        this.portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/attack/ClawsUnleashed2_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
         this.initializeDescription();
     }

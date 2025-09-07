@@ -3,6 +3,8 @@ package hellospire.patches;
 import com.badlogic.gdx.audio.Music;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.audio.MainMusic;
 import com.megacrit.cardcrawl.audio.TempMusic;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,6 +14,16 @@ import hellospire.character.Sonic;
 
 @SpirePatch(clz = TempMusic.class, method = "getSong")
 public class TempMusicPatch {
+
+    @SpirePrefixPatch
+    public static SpireReturn<Music> Prefix(TempMusic __instance, String key) {
+        if ("CHAO_GARDEN".equals(key)) {
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/JoinUs4HappyTime.mp3")));
+        }
+
+        return SpireReturn.Continue();
+    }
+
     @SpirePostfixPatch
     public static Music Postfix(Music __result, TempMusic __instance, String key) {
         // case "SHOP":
@@ -44,6 +56,7 @@ public class TempMusicPatch {
         if (MyModConfig.enableBossHeartMusic && "BOSS_ENDING".equals(key)) {
             return MainMusic.newMusic(SonicMod.audioPath("music/Big_Arms.ogg"));
         }
+
         return __result;
     }
 }

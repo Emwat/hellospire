@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.MyModConfig;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -24,7 +25,7 @@ public class TopKick extends BaseCard {
     );
 
     private static final int DAMAGE = 7;
-    private static final int UPG_DAMAGE = 2;
+    private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 2;
 
@@ -33,9 +34,7 @@ public class TopKick extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
-        if (MyModConfig.enableKicksForStrikeDummy) {
-            tags.add(CardTags.STRIKE);
-        }
+        tags.add(SonicTags.KICK);
     }
 
     @Override

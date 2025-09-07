@@ -1,13 +1,12 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.actions.FasterAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.powers.DizzyPower;
 import hellospire.util.CardStats;
@@ -41,7 +40,7 @@ public class DizzySpin extends BaseCard {
         if (magicNumber > 0) {
             addToBot(new DrawCardAction(magicNumber));
         }
-        addToBot(new FasterAction(() -> {
+        addToBot(new ModFastAction(() -> {
             for (AbstractCard card : AbstractDungeon.player.hand.group) {
                 int newCost = AbstractDungeon.cardRandomRng.random(3);
                 card.setCostForTurn(newCost);

@@ -14,7 +14,6 @@ public class MyModConfig extends EasyConfigPanel {
     public static boolean enableThreeOrbs = false;
     public static boolean enableSound = true;
     public static boolean enableVoice = true;
-    public static boolean enableKicksForStrikeDummy = true;
     public static int voiceFrequency = 10;
     public static int optionStarterRelic = 0;
 

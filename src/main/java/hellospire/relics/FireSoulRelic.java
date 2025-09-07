@@ -46,6 +46,7 @@ public class FireSoulRelic extends BaseRelic implements CustomSavable<Integer> {
     @Override
     public void onEnterRestRoom() {
         super.onEnterRestRoom();
+        this.flash();
         counter++;
         UpdateDescriptions();
     }

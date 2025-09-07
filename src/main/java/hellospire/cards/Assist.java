@@ -1,10 +1,12 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.MyModConfig;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
@@ -54,17 +56,18 @@ public class Assist extends BaseCard {
         setExhaust(true);
     }
 
-
     @Override
-
     public void use(AbstractPlayer p, AbstractMonster m) {
         int randomNumber = AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1);
         AbstractCard randomCard = characterCards.get(randomNumber).makeStatEquivalentCopy();
         AbstractCard randomCard2 = characterCards.get(randomNumber).makeStatEquivalentCopy();
+        if (Loader.isModLoaded("ModAchievement") && Loader.isModLoaded("GooglyMod")){
+            if (!UnlockTracker.isAchievementUnlocked(makeID("GooglyEyes"))) {
+                unlockGooglyEyesAchievement();
+            }
+        }
 
         if (this.upgraded) {
-            randomCard.upgrade();
-            randomCard2.upgrade();
             randomCard.setCostForTurn(-99);
             randomCard.isCostModifiedForTurn = true;
         }
@@ -80,5 +83,13 @@ public class Assist extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new Assist();
+    }
+
+    private void unlockGooglyEyesAchievement(){
+        if (AbstractDungeon.player == null) {
+            return;
+        }
+
+        UnlockTracker.unlockAchievement(makeID("GooglyEyes"));
     }
 }

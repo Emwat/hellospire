@@ -1,18 +1,14 @@
 package hellospire.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeAllOrbsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import hellospire.SonicTags;
 import hellospire.actions.EvokeAllOrbsWithoutRemovingAction;
-import hellospire.actions.FasterAction;
-import hellospire.actions.YESSSAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -42,7 +38,7 @@ public class SonicWave extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         // addToBot(new YESSSAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new FasterAction(() -> {
+        addToBot(new ModFastAction(() -> {
             if (HasEmptyOrbSlots()) {
                 for (int i = 0; i < magicNumber; i++) {
                     addToBot(new ChannelAction(new Lightning()));

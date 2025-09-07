@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.MyModConfig;
+import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
@@ -28,6 +30,7 @@ public class HorseKick extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.KICK);
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
+import hellospire.actions.ModFastAction;
 import hellospire.actions.RandomizeCostAction;
 import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
@@ -44,16 +45,12 @@ public class SpinningNeedleAttack extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new SpinningNeedleAttackAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         addToBot(new DrawCardAction(1));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractCard lastCard = p.hand.getTopCard();
-                addToBot(new RandomizeCostAction(lastCard));
-                addToBot(new DamageAction(m, new DamageInfo(p, damage + (lastCard.costForTurn * magicNumber), DamageInfo.DamageType.NORMAL),
-                        AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                this.isDone = true;
-            }
-        });
+        addToBot(new ModFastAction(() -> {
+            AbstractCard lastCard = p.hand.getTopCard();
+            addToBot(new RandomizeCostAction(lastCard));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage + (lastCard.costForTurn * magicNumber), DamageInfo.DamageType.NORMAL),
+                    AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        }));
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
@@ -65,7 +62,7 @@ public class SpinningNeedleAttack extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new SpinningNeedleAttack();
     }
 }

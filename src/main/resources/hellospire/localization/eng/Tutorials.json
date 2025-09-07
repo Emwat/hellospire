@@ -1,10 +1,32 @@
 {
   "${modID}:Pg01_Intro": {
     "TEXT": [
-      "Welcome to the intro!"
+      "#bThe #bSpire #bcalls #bout #bto #bme...",
+      "#bI #bmust #bgo #bon..."
     ],
     "LABEL": [
       "This is a label"
+    ]
+  },
+  "${modID}:Rouge00": {
+    "TEXT": [
+      "He seems to recognize me, but he doesn't remember our last encounter. This is the fifth time I've stolen from him."
+    ]
+  },
+  "${modID}:Tails00": {
+    "TEXT": [
+      "#ySonic! #yIt's #yme #yTails! #yDo #yyou #yremember #me? NL NL #yHey #Sonic! #yWait #up!"
+    ]
+  },
+  "${modID}:Tails01": {
+    "TEXT": [
+      "#yThe #ySpire? #yIt #ydoesn't #ylook #ylike #Eggman #is #behind #this.",
+      "What am I going to do Sonic? You're not yourself. Amy and Knuckles are missing. And the Spireblight is slowly taking over...",
+      "No I won't let it end like this! Wait for me Sonic. I'm on my way!"
+    ]
+  },
+  "${modID}:Tails02": {
+    "TEXT": [
     ]
   }
 }

@@ -26,17 +26,14 @@ public class RandomizeCostAction extends AbstractGameAction {
 
         int newCost = AbstractDungeon.cardRandomRng.random(0, 3);
         if (card.hasTag(SonicTags.SPIN_UP)) {
-            if (newCost - 1 < 0) {
-                BaseCard.setCostForCombat( card, 0);
-                card.flash();
-            } else {
-                BaseCard.setCostForCombat(card, newCost - 1);
-                card.flash();
-            }
+            newCost -= 1;
+            BaseCard.setCostForCombat(card, Math.max(newCost, 0));
+            card.flash();
         } else {
             card.setCostForTurn(newCost);
             card.flash();
         }
+        SonicMod.logger.info("RandomizeCostAction: oldCost (" + card.cost + ") -> new Cost (" + newCost + ")" );
 
         this.isDone = true;
     }

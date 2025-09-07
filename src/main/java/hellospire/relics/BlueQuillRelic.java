@@ -24,6 +24,7 @@ public class BlueQuillRelic extends BaseRelic {
 
     @Override
     public void atBattleStartPreDraw() {
+        this.flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         this.addToBot(new MakeTempCardInHandAction(new Shortcut(), 1, false));
     }

@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Dark;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+import hellospire.util.TextureLoader;
 
 public class Teaser extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("Teaser");
@@ -55,6 +57,8 @@ public class Teaser extends BaseCard implements BranchingUpgradesCard {
     public void branchUpgrade() {
         BranchingUpgradesCard tmp = (BranchingUpgradesCard) this.cardsToPreview;
         tmp.doBranchUpgrade();
+        this.loadCardImage(imageSkillPath("Teaser2.png"));
+        this.portraitImg = TextureLoader.getTexture(imageSkillPath("Teaser2_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
         this.initializeDescription();
     }

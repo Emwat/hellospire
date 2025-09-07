@@ -9,11 +9,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
-import hellospire.actions.FasterAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
@@ -31,7 +31,7 @@ public class Ring extends BaseCard {
             1
     );
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 1;
 
     public Ring() {
@@ -41,6 +41,7 @@ public class Ring extends BaseCard {
         setSelfRetain(true);
         setExhaust(true);
         tags.add(CardTags.HEALING);
+        tags.add(SonicTags.RING);
 
         if (Loader.isModLoaded("PrideMod") || isTheRainbow()) {
             loadCardImage(SonicMod.imagePath("cards/skill/WorldRings.png"));
@@ -68,11 +69,7 @@ public class Ring extends BaseCard {
             addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         }
 
-        if (p.hasPower(makeID("SuperSonicPower"))) {
-            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
-        }
-
-        addToBot(new FasterAction(() -> ReturnBoostToHand(p)));
+        addToBot(new ModFastAction(() -> ReturnBoostToHand(p)));
     }
 
     private void ReturnBoostToHand(AbstractPlayer p){

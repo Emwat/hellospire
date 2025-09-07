@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.stances.WrathStance;
 import hellospire.SonicMod;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -38,37 +39,33 @@ public class SlotMachineStatus extends BaseCard {
 
     @Override
     public void triggerWhenDrawn() {
-        if (!hasAppliedDebuff){
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    int count = 0;
-                    for (AbstractCard c : AbstractDungeon.player.hand.group){
-                        SonicMod.logger.info(c.cardID + " " + SlotMachineStatus.ID);
-                        if (Objects.equals(c.cardID, SlotMachineStatus.ID)){
-                            count++;
-                            SonicMod.logger.info("substracted. count is now " + count);
-                        }
+        if (!hasAppliedDebuff) {
+            addToBot(new ModFastAction(() -> {
+                int count = 0;
+                for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                    SonicMod.logger.info(c.cardID + " " + SlotMachineStatus.ID);
+                    if (Objects.equals(c.cardID, SlotMachineStatus.ID)) {
+                        count++;
+                        SonicMod.logger.info("substracted. count is now " + count);
                     }
-                    if (count > 1){
-                        hasAppliedDebuff = true;
-                        addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
-                        // addToBot(new ApplyPowerAction(
-                        //         AbstractDungeon.player,
-                        //         AbstractDungeon.player,
-                        //         new FrailPower(AbstractDungeon.player, magicNumber, false), magicNumber));
-                    }
-
-                    this.isDone = true;
                 }
-            });
+                if (count > 1) {
+                    hasAppliedDebuff = true;
+                    addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
+                    // addToBot(new ApplyPowerAction(
+                    //         AbstractDungeon.player,
+                    //         AbstractDungeon.player,
+                    //         new FrailPower(AbstractDungeon.player, magicNumber, false), magicNumber));
+                }
+
+            }));
         }
 
         super.triggerWhenDrawn();
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new SlotMachineStatus();
     }
 }

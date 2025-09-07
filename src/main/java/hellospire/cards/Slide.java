@@ -19,7 +19,7 @@ public class Slide extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 8;
     private static final int UPG_BLOCK = 3;
 
     public Slide() {

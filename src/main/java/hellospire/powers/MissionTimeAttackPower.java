@@ -1,16 +1,11 @@
 package hellospire.powers;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import hellospire.SonicMod;
-import hellospire.actions.FasterAction;
-import hellospire.events.MissionEvent;
-import hellospire.util.TextureLoader;
 
 import static hellospire.SonicMod.makeID;
 
@@ -36,11 +31,12 @@ public class MissionTimeAttackPower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = String.format("%s%s%s%s%s%s%s",
-                DESCRIPTIONS[0], RANK_S_TURN,
-                DESCRIPTIONS[1], RANK_A_TURN,
-                DESCRIPTIONS[2], RANK_B_TURN,
-                DESCRIPTIONS[3]
+        this.description = String.format("%s%s%s%s%s%s%s%s",
+                DESCRIPTIONS[0],
+                DESCRIPTIONS[1], RANK_S_TURN,
+                DESCRIPTIONS[2], RANK_A_TURN,
+                DESCRIPTIONS[3], RANK_B_TURN,
+                DESCRIPTIONS[4]
         );
     }
 

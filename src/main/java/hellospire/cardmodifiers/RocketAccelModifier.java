@@ -18,9 +18,14 @@ import static hellospire.SonicMod.makeID;
 
 //https://github.com/daviscook477/BaseMod/wiki/CardModifiers
 public class RocketAccelModifier extends AbstractCardModifier {
-    private int additionalDamage = RocketAccel.MAGIC;
+    private int additionalDamage;
 
     public RocketAccelModifier() {
+        new RocketAccelModifier(0);
+    }
+
+    public RocketAccelModifier(int additionalDamage) {
+        this.additionalDamage = additionalDamage;
     }
 
     public float modifyBaseDamage(float damage, DamageInfo.DamageType type, AbstractCard card, AbstractMonster target) {

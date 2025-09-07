@@ -18,6 +18,55 @@
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
   },
+  "${modID}:ChaoGardenEvent": {
+    "NAME": "Chao Garden",
+    "DESCRIPTIONS": [
+      "#b~WELCOME~ #b~to~ #b~the~ #b~Chao~ #b~Garden!~",
+      "You sit down.",
+      "You start with #g",
+      " #gactions. You should keep track of it.",
+      "You have #g",
+      " #gChaos #gSodas left.",
+      "You and the gang talk about things.",
+      "You are in a sea of colorful things.",
+      "You throw your arms around a chao and squeeze it. It's too cute. You start to carry the chao towards the exit. NL NL The staff tackles you.",
+      "You apologize for almost kidnapping the chao. Unfortunately, all those battle-ready twitch reflexes and wild spirit have conditioned you to act on your impulses. NL NL A man comes over and introduces himself as Professor Palm. He applauds you for your brazen act of kidnapping and gives you one of his chao. NL NL \"Take this. May it help you on your journey.\""
+    ],
+    "OPTIONS": [
+      "[Leave]",
+      "[LOCKED] You're out of actions.",
+      "[Sit down]",
+      "[Look around]",
+      "[Go to the bar]",
+      "[LOCKED] You do not have enough gold.",
+      "[Get drinks] Action: #yPay #y",
+      " #yGold. #gFill #gyour #gpotion #gslots #gwith #gChaos #gSoda.",
+      "[Get a pack] Action: #yPay #y",
+      " #yGold. #gAdd #g",
+      " #gchoices #gfor #geach #gcolor #gto #gthe #grewards",
+      "[LOCKED] You need a Chaos Soda.",
+      "[Give Chaos Soda to ",
+      "] Action: #gAdd #g",
+      " #gchoices #gto #gthe #grewards.",
+      "[Watch the show] Action: #gHeal #g",
+      " #gHP. #g(",
+      "% #gof #gMax #gHP)",
+      "[Discuss",
+      "] Final Action: #gChoose #g1 #gof #g",
+      " #gcards #gto #gadd #gto #gyour #gdeck.",
+      "[LOCKED] The conversation has moved on.",
+      "[Hug a giant chao staff member]",
+      "[Hug that chao] Action: Your chao will channel a Lightning Orb.",
+      "[Hug that chao] Action: Your chao will channel a Frost Orb.",
+      "[Hug that chao] Action: Your chao will channel a Plasma Orb.",
+      "[Hug that chao] Action: Your chao will channel a Dark Orb.",
+      "[LOCKED] You need a chao to perform this action.",
+      "[Take a chao] #rLose #r",
+      " #rHP. (100% chance on getting a chao)",
+      "[LOCKED] You already have a chao.",
+      "[Apologize] (Oops)"
+    ]
+  },
   "${modID}:GravitySwitchEvent": {
     "NAME": "Gravity Switch",
     "DESCRIPTIONS": [

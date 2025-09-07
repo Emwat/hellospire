@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -33,16 +34,12 @@ public class AssistSticks extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.Sticks));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                modifyStrikesAndDefends(p.drawPile);
-                modifyStrikesAndDefends(p.discardPile);
-                modifyStrikesAndDefends(p.hand);
-                modifyStrikesAndDefends(p.exhaustPile);
-                this.isDone = true;
-            }
-        });
+        addToBot(new ModFastAction(() -> {
+            modifyStrikesAndDefends(p.drawPile);
+            modifyStrikesAndDefends(p.discardPile);
+            modifyStrikesAndDefends(p.hand);
+            modifyStrikesAndDefends(p.exhaustPile);
+        }));
     }
 
     private void modifyStrikesAndDefends(CardGroup cardGroup) {
@@ -60,7 +57,7 @@ public class AssistSticks extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new AssistSticks();
     }
 }

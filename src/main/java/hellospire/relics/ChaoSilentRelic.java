@@ -26,6 +26,7 @@ public class ChaoSilentRelic extends BaseRelic {
 
     @Override
     public void atBattleStart() {
+        this.flash();
         addToTop(new IncreaseMaxOrbAction(1));
         addToBot(new ChannelAction(new Frost()));
         //addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChaoPower(AbstractDungeon.player)));

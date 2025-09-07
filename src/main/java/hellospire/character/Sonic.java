@@ -126,8 +126,8 @@ public class Sonic extends CustomPlayer {
 
 
     // In-game images
-    private static final String SHOULDER_1 = characterPath("shoulder5.png"); // Shoulder 1 and 2 are used at rest sites.
-    private static final String SHOULDER_2 = characterPath("shoulder6.png");
+    private static final String SHOULDER_1 = characterPath("shoulder9.png"); // Shoulder 1 and 2 are used at rest sites.
+    private static final String SHOULDER_2 = characterPath("shoulder10.png");
     private static final String CORPSE = characterPath("corpse.png"); // Corpse is when you die.
 
     // Textures used for the energy orb
@@ -163,7 +163,7 @@ public class Sonic extends CustomPlayer {
                 new CustomSpriterAnimation(characterPath("animation/SonicBattlePose.scml"))); // Animation
 
         Player.PlayerListener listener = new CustomAnimationListener(this);
-        ((CustomSpriterAnimation)this.animation).myPlayer.addListener(listener);
+        getAnimation().myPlayer.addListener(listener);
 
         initializeClass(null,
                 SHOULDER_2,
@@ -407,22 +407,14 @@ public class Sonic extends CustomPlayer {
     }
 
     public void playAnimation(String name, boolean overrideSuperSonic) {
-        CustomSpriterAnimation anim = (CustomSpriterAnimation) this.animation;
-        if (anim.myPlayer.getAnimation().name.equals("super") && !overrideSuperSonic) {
-
-        } else {
+        CustomSpriterAnimation anim = getAnimation();
+        if (overrideSuperSonic || !anim.myPlayer.getAnimation().name.equals("super")) {
             anim.myPlayer.setAnimation(name);
         }
     }
 
-    @Override
-    public void applyStartOfCombatLogic() {
-        super.applyStartOfCombatLogic();
-        playAnimation("idle", true);
-    }
-
     public void stopAnimation() {
-        CustomSpriterAnimation anim = (CustomSpriterAnimation) this.animation;
+        CustomSpriterAnimation anim = getAnimation();
         int time = anim.myPlayer.getAnimation().length;
         anim.myPlayer.setTime(time);
         anim.myPlayer.speed = 0;

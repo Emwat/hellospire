@@ -8,6 +8,8 @@ public class SonicTags
     @SpireEnum public static AbstractCard.CardTags CREST_OF_FIRE;
     @SpireEnum public static AbstractCard.CardTags SPIN_UP;
     @SpireEnum public static AbstractCard.CardTags CLAW;
+    @SpireEnum public static AbstractCard.CardTags RING;
+    @SpireEnum public static AbstractCard.CardTags KICK;
     @SpireEnum public static AbstractCard.CardTags LIKE_IRONCLAD;
     @SpireEnum public static AbstractCard.CardTags LIKE_SILENT;
     @SpireEnum public static AbstractCard.CardTags LIKE_DEFECT;

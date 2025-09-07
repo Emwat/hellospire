@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.cards.Ring;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
@@ -45,18 +47,16 @@ public class RingKeeperRelic extends BaseRelic implements CustomSavable<Integer>
     }
 
     @Override
-    public Integer onSave()
-    {
+    public Integer onSave() {
         return counter;
     }
 
     @Override
-    public void onLoad(Integer savedInteger)
-    {
+    public void onLoad(Integer savedInteger) {
         if (savedInteger == null) {
             return;
         }
-        if (savedInteger >= 0 ) {
+        if (savedInteger >= 0) {
             counter = savedInteger;
         }
     }
@@ -75,35 +75,26 @@ public class RingKeeperRelic extends BaseRelic implements CustomSavable<Integer>
     public void wasHPLost(int damageAmount) {
         BaseRelic thisRelic = this;
         if (damageAmount >= toleranceToPain && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            addToTop(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    // CardCrawlGame.sound.play(SoundLibrary.LoseRings);
-                    AbstractPower ringPower = AbstractDungeon.player.getPower(RingPower.POWER_ID);
-                    if (ringPower != null && ringPower.amount > 0 && !hasSoundPlayed) {
-                        thisRelic.flash();
-                        addToBot(SoundLibrary.SoundAction(SoundLibrary.LoseRings));
-                        hasSoundPlayed = true;
-                    }
-
-                    for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                        if (Ring.ID.equals(card.cardID)) {
-                            addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
-                        }
-                    }
-                    addToBot(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            RingPower ringPower = (RingPower) AbstractDungeon.player.getPower(RingPower.POWER_ID);
-                            if (ringPower != null) {
-                                ringPower.CalculateNumberOfRings();
-                            }
-                            this.isDone = true;
-                        }
-                    });
-                    this.isDone = true;
+            addToTop(new ModFastAction(() -> {
+                // CardCrawlGame.sound.play(SoundLibrary.LoseRings);
+                RingPower ringPower = (RingPower) AbstractDungeon.player.getPower(RingPower.POWER_ID);
+                if (ringPower != null && ringPower.amount > 0 && !hasSoundPlayed) {
+                    thisRelic.flash();
+                    addToBot(SoundLibrary.SoundAction(SoundLibrary.LoseRings));
+                    hasSoundPlayed = true;
                 }
-            });
+
+                for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                    if (card.hasTag(SonicTags.RING)) {
+                        addToBot(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
+                    }
+                }
+                addToBot(new ModFastAction(() -> {
+                    if (ringPower != null) {
+                        ringPower.CalculateNumberOfRings();
+                    }
+                }));
+            }));
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
     }
@@ -137,7 +128,6 @@ public class RingKeeperRelic extends BaseRelic implements CustomSavable<Integer>
         }
 
     }
-
 
 
 }

@@ -1,8 +1,6 @@
 package hellospire.powers;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,13 +8,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.beyond.Transient;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import hellospire.SonicMod;
-import hellospire.actions.FasterAction;
 import hellospire.actions.ModTextInCenterAction;
-import hellospire.events.MissionEvent;
-import hellospire.util.TextureLoader;
 
 import static hellospire.SonicMod.makeID;
 
@@ -44,11 +38,12 @@ public class MissionRingRacePower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = String.format("%s%s%s%s%s%s%s",
-                DESCRIPTIONS[0], RANK_S_TURN,
-                DESCRIPTIONS[1], RANK_A_TURN,
-                DESCRIPTIONS[2], RANK_B_TURN,
-                DESCRIPTIONS[3]
+        this.description = String.format("%s%s%s%s%s%s%s%s%s%s",
+                DESCRIPTIONS[0], MISSION_AMOUNT, DESCRIPTIONS[1],
+                DESCRIPTIONS[2], RANK_S_TURN,
+                DESCRIPTIONS[3], RANK_A_TURN,
+                DESCRIPTIONS[4], RANK_B_TURN,
+                DESCRIPTIONS[5]
         );
     }
 

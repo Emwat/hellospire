@@ -18,10 +18,11 @@ public class SpinUpPatch {
     @SpirePostfixPatch
     public static void Postfix(AbstractPower __instance, AbstractCard card) {
         int oldCost = card.cost;
-        int newCost = card.cost;
-        if (card.hasTag(SonicTags.SPIN_UP) && card.cost > 0){
-            card.cost -= 1;
-            newCost = card.cost;
+        if (card.hasTag(SonicTags.SPIN_UP) && card.cost >= 0) {
+            int newCost = Math.max(0, card.cost - 1);
+            card.cost = newCost;
+            card.costForTurn = newCost;
+            card.isCostModified = false;
             SonicMod.logger.info(String.format("%s oldCost: %s | newCost: %s", card.name, oldCost, newCost));
         }
     }

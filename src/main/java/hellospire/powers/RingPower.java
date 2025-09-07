@@ -1,9 +1,7 @@
 package hellospire.powers;
 
-import basemod.interfaces.OnStartBattleSubscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,10 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.FocusPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.powers.ThousandCutsPower;
 import hellospire.SonicMod;
-import hellospire.cards.Ring;
+import hellospire.SonicTags;
+import hellospire.actions.ModFastAction;
 
 import java.util.Objects;
 
@@ -31,6 +29,7 @@ public class RingPower extends BasePower {
     public static final String[] DESCRIPTIONS;
 
     public static boolean isLightSpeedDashing = false;
+    public static boolean isPlayingBoost = false;
 
     public RingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -83,21 +82,23 @@ public class RingPower extends BasePower {
     }
 
     @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        super.onPlayCard(card, m);
+        addToTop(new ModFastAction(()-> {
+            isPlayingBoost = card.cardID.equals(hellospire.cardsPackExclusive.Boost.ID);
+        }));
+    }
+
+    @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-            @Override
-            public void update() {
-                CalculateNumberOfRings();
-                this.isDone = true;
-            }
-        });
+        AbstractDungeon.actionManager.addToBottom(new ModFastAction(this::CalculateNumberOfRings));
         // ThousandCutsPower does not have this super method.
         // super.onAfterCardPlayed(usedCard);
     }
 
     @Override
     public void onCardDraw(AbstractCard card) {
-        if (Objects.equals(card.cardID, Ring.ID)) {
+        if (card.hasTag(SonicTags.RING)) {
             CalculateNumberOfRings();
         }
     }
@@ -106,7 +107,7 @@ public class RingPower extends BasePower {
         int numberOfRings = 0;
 
         for (AbstractCard cardInHand : AbstractDungeon.player.hand.group) {
-            if (Objects.equals(cardInHand.cardID, Ring.ID)) {
+            if (cardInHand.hasTag(SonicTags.RING)) {
                 numberOfRings++;
             }
         }
@@ -140,6 +141,46 @@ public class RingPower extends BasePower {
             return owner.getPower(makeID(targetID)).amount;
         }
         return 0;
+    }
+
+    @Override
+    public int onHeal(int healAmount) {
+        DiscardBoostsToHand();
+        return super.onHeal(healAmount);
+    }
+
+    public void DiscardBoostsToHand() {
+        addToBot(new ModFastAction(() -> {
+            if (AbstractDungeon.player.discardPile.isEmpty()) {
+                return;
+            }
+            // AbstractCard lastCardPlayed = null;
+            // boolean lastCardPlayedIsBoost = false;
+
+            // Prevents Boost from returning itself to hand
+            // if (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() >= 2) {
+            //     lastCardPlayed = ((AbstractCard) AbstractDungeon.actionManager.cardsPlayedThisCombat.get(
+            //             AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 2));
+            //     lastCardPlayedIsBoost = lastCardPlayed.cardID.equals(hellospire.cards.Boost.ID) || lastCardPlayed.cardID.equals(hellospire.cardsPackExclusive.Boost.ID);
+            // }
+            //
+            // if (!lastCardPlayedIsBoost) {
+            //     for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group) {
+            //         if (Objects.equals(discardedCard.cardID, hellospire.cardsPackExclusive.Boost.ID)) {
+            //             addToBot(new DiscardToHandAction(discardedCard));
+            //         }
+            //     }
+            // }
+            SonicMod.logger.info("DiscardBoostsToHand isPlayingBoost : " + isPlayingBoost);
+            if (!isPlayingBoost) {
+                for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group) {
+                    if (Objects.equals(discardedCard.cardID, hellospire.cardsPackExclusive.Boost.ID)) {
+                        addToBot(new DiscardToHandAction(discardedCard));
+                    }
+                }
+            }
+
+        }));
     }
 
     static {

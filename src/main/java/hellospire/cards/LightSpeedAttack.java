@@ -63,7 +63,7 @@ public class LightSpeedAttack extends BaseCard {
             return 0;
         }
         for (AbstractCard card : deck) {
-            if (Objects.equals(card.cardID, Ring.ID)) {
+            if (card.hasTag(SonicTags.RING)) {
                 count++;
             }
         }

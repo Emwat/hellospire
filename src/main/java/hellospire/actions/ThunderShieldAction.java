@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.SonicMod;
+import hellospire.SonicTags;
 import hellospire.cards.Ring;
 
 import java.util.Objects;
@@ -32,7 +33,7 @@ public class ThunderShieldAction extends AbstractGameAction {
         int rings = 0;
 
         for (AbstractCard cardInHand : p.hand.group) {
-            if (Objects.equals(cardInHand.cardID, Ring.ID)) {
+            if (cardInHand.hasTag(SonicTags.RING)) {
                 rings++;
             }
         }

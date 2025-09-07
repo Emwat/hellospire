@@ -29,9 +29,7 @@ public class DoubleAirKick extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPGRADED_DAMAGE);
-        if (MyModConfig.enableKicksForStrikeDummy) {
-            tags.add(CardTags.STRIKE);
-        }
+        tags.add(SonicTags.KICK);
         tags.add(SonicTags.LIKE_IRONCLAD);
     }
 

@@ -8,7 +8,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
@@ -39,25 +41,21 @@ public class LightSpeedDash extends BaseCard {
         int ringsPlayed = CalculateRings();
         RingPower.setIsLightSpeedDashing(true);
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), ringsPlayed));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                for (AbstractCard card : p.hand.group) {
-                    if (Objects.equals(card.cardID, Ring.ID)) {
-                        addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
-                    }
+        addToBot(new ModFastAction(() -> {
+            for (AbstractCard card : p.hand.group) {
+                if (card.hasTag(SonicTags.RING)) {
+                    addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
                 }
-                if (ringsPlayed > 6) {
-                    addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
-                            SoundLibrary.FeelingGood,
-                            SoundLibrary.Hehe,
-                            SoundLibrary.SmallYahoo,
-                            SoundLibrary.SmallYes
-                    ))));
-                }
-                this.isDone = true;
             }
-        });
+            if (ringsPlayed > 6) {
+                addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
+                        SoundLibrary.FeelingGood,
+                        SoundLibrary.Hehe,
+                        SoundLibrary.SmallYahoo,
+                        SoundLibrary.SmallYes
+                ))));
+            }
+        }));
 
     }
 
@@ -91,7 +89,7 @@ public class LightSpeedDash extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new LightSpeedDash();
     }
 }

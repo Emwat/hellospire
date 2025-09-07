@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.cards.Ricochet;
 
 import java.util.ArrayList;
@@ -73,20 +74,16 @@ public class RicochetPower extends BasePower {
     @Override
     public void atStartOfTurnPostDraw() {
         AbstractPower thisPower = this;
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                int countRicochets = 0;
+        addToBot(new ModFastAction(() -> {
+            int countRicochets = 0;
 
-                for (AbstractCard discardedCard : player.discardPile.group) {
-                    if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
-                        countRicochets++;
-                    }
+            for (AbstractCard discardedCard : player.discardPile.group) {
+                if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
+                    countRicochets++;
                 }
-                thisPower.amount = countRicochets;
-                this.isDone = true;
             }
-        });
+            thisPower.amount = countRicochets;
+        }));
     }
 
     public void updateDescription() {

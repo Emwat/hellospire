@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicTags;
 import hellospire.cards.Ring;
 import hellospire.character.Sonic;
 
@@ -24,7 +25,7 @@ public class GoldenGloveRelic extends BaseRelic {
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         super.onPlayCard(c, m);
 
-        if (c.cardID.equals(Ring.ID)) {
+        if (c.hasTag(SonicTags.RING)) {
             this.flash();
             addToBot(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, HPamt));
         }

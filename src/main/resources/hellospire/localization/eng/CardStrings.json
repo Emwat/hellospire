@@ -39,8 +39,8 @@
   },
   "${modID}:Assist": {
     "NAME": "Assist",
-    "DESCRIPTION": "Get a random ${modID}:Friend skill to add to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend skill to add to your hand. It is upgraded and costs zero this turn. NL Exhaust."
+    "DESCRIPTION": "Add a random ${modID}:Friend skill to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend skill to your hand. It costs zero this turn. NL Exhaust."
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
@@ -127,7 +127,7 @@
   },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
-    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded.",
+    "DESCRIPTION": "Each turn, your first !M! created cards cost [E] less. Zero cost cards are excluded.",
     "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded."
   },
     "${modID}:BlastOff": {
@@ -186,6 +186,10 @@
       "Deal !D! damage."
     ]
   },
+  "${modID}:CloseShave": {
+    "NAME": "Close Shave",
+    "DESCRIPTION": "Gain !B! Block. If you have less than !M! HP, gain it again. Decrease this card's Block by 1 this combat."
+  },
   "${modID}:Crouch": {
     "NAME": "Jump",
     "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. NL Exhaust !M! card{!M!|>1=s}."
@@ -204,7 +208,10 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": "When you play a skill this turn, add a [#efc851ff]Ring to your hand. NL Exhaust."
+    "DESCRIPTION": "When you play a skill this turn, add a [#efc851ff]Ring to your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "When you play a skill this turn, add a [#efc851ff]Ring to your hand."
+    ]
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
@@ -230,7 +237,7 @@
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
-    "DESCRIPTION": "Gain !B! Block. If you exhausted a card this turn, gain 2 [E]."
+    "DESCRIPTION": "Gain !B! Block. If you exhausted a card this turn, gain [E] [E]."
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
@@ -473,6 +480,27 @@
     "NAME": "Perfect Score",
     "DESCRIPTION": "Whenever you gain Vigor, gain !M! more."
   },
+  "${modID}:PackBoost": {
+    "NAME": "Boost",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. When you heal or gain Temporary_HP, return this card from the discard pile to your hand."
+  },
+  "${modID}:PackBouncePad": {
+    "NAME": "Bounce Pad",
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand."
+  },
+  "${modID}:PackHomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Add a Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a Trick+ to your hand."
+  },
+  "${modID}:PackRing": {
+    "NAME": "Ring",
+    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL Gain !M! Temporary_HP. NL Exhaust."
+  },
+  "${modID}:PackTrick": {
+    "NAME": "Trick",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Vigor. NL Gain 1 [E]. NL Exhaust."
+  },
   "${modID}:PeelOut": {
     "NAME": "Peel Out",
     "DESCRIPTION": "Exhaust 1 card. NL Draw !M! cards."
@@ -545,6 +573,10 @@
     "NAME": "Sky Ring",
     "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Trick{!M!|>1=s} to your hand."
   },
+  "${modID}:Shield": {
+    "NAME": "Shield",
+    "DESCRIPTION": "Prevent the next time you would lose HP."
+  },
   "${modID}:Shortcut": {
     "NAME": "Shortcut",
     "DESCRIPTION": "{@@}Retain. NL Lower the cost of !M! card{!M!|>1=s} in your hand by 1 for this turn. NL Exhaust."
@@ -613,8 +645,8 @@
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",
-    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Gain !M! Focus.",
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL At start of turn, lose 1 Dexterity.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Gain !M! Focus. NL At start of turn, lose 1 Dexterity and lose 1 Focus.",
     "EXTENDED_DESCRIPTION": [
       "Gain !M! Strength. NL Gain !M! Focus. You MUST play your [#efc851ff]Rings to gain Intangible. DIE EVERY TURN."
     ]

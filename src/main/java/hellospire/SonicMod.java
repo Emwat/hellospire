@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.beyond.WindingHalls;
+import com.megacrit.cardcrawl.events.city.TheLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rewards.RewardSave;
@@ -26,12 +27,9 @@ import hellospire.cards.*;
 import hellospire.character.Sonic;
 // import hellospire.ui.FlagDropDown;
 import hellospire.character.SonicStartTalkingHelper;
+import hellospire.events.*;
 import hellospire.util.*;
 import hellospire.character.SonicTipTracker;
-import hellospire.events.GravitySwitchEvent;
-import hellospire.events.MissionEvent;
-import hellospire.events.ModLagavulin;
-import hellospire.events.RougeEvent;
 import hellospire.potions.BasePotion;
 import hellospire.relics.BaseRelic;
 import hellospire.rewards.AssistReward;
@@ -52,6 +50,7 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+import thePackmaster.SpireAnniversary5Mod;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -107,6 +106,9 @@ public class SonicMod implements
     public SonicMod() {
         BaseMod.subscribe(this); // This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
+        if (Loader.isModLoaded("anniv5")) {
+            SpireAnniversary5Mod.subscribe(new PackLoader());
+        }
     }
 
     @Override
@@ -196,6 +198,14 @@ public class SonicMod implements
                     .create()
             );
         } else if (MyModConfig.enableEventsForOnlySonic) {
+            BaseMod.addEvent(new AddEventParams.Builder(ChaoGardenEvent.ID, ChaoGardenEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                    .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .overrideEvent(TheLibrary.ID)
+                    .create()
+            );
+
             BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
                     .playerClass(Sonic.Meta.THE_HEDGEHOG)
                     .eventType(EventUtils.EventType.FULL_REPLACE)
@@ -476,6 +486,14 @@ public class SonicMod implements
 
         // BaseMod.removeCard(SpinningNeedleAttack.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SuperSonicForm.ID, Sonic.Meta.CARD_COLOR);
+
+        if (!Loader.isModLoaded("anniv5")) {
+            BaseMod.removeCard(hellospire.cardsPackExclusive.Boost.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(hellospire.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(hellospire.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(hellospire.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(hellospire.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
+        }
     }
 
     @Override
@@ -528,7 +546,6 @@ public class SonicMod implements
 
         BaseMod.addAudio(SoundLibrary.DropDash, audioPath("DropDash.ogg"));
         BaseMod.addAudio(SoundLibrary.LightningShield, audioPath("LightningShield.ogg"));
-        BaseMod.addAudio(SoundLibrary.Jump, audioPath("Jump.ogg"));
         BaseMod.addAudio(SoundLibrary.StarPost, audioPath("StarPost.ogg"));
 
         BaseMod.addAudio(SoundLibrary.OmochaoPerfectLanding, audioEngPath("sri_00610_he_makes_a_perfect_landing_and.ogg"));
@@ -549,8 +566,6 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Dead, audioPath("Dead.ogg"));
         BaseMod.addAudio(SoundLibrary.LongLiveTheEggmanEmpire, audioEngPath("sa2_Long_Live_The_Eggman_Empire.ogg"));
 
-        BaseMod.addAudio(SoundLibrary.BossMusic, resourcesFolder + "/audio/music/" + "MetalScratchin2.mp3");
-
         BaseMod.addAudio(SoundLibrary.SpeedBreak, audioEngPath("satsr_Speed_Break.ogg"));
         BaseMod.addAudio(SoundLibrary.TimeBreak, audioEngPath("satsr_Time_Break.ogg"));
 
@@ -558,7 +573,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Big, audioEngPath("sh_big_myturn.ogg"));
         BaseMod.addAudio(SoundLibrary.Blaze, audioEngPath("sr_blaze_youcantescapeme.ogg"));
         BaseMod.addAudio(SoundLibrary.Charmy, audioEngPath("sh_charmy_illtakethelead.ogg"));
-        BaseMod.addAudio(SoundLibrary.Chao, audioEngPath("sa2_chao.ogg"));
+        BaseMod.addAudio(SoundLibrary.Chao, audioPath("sa2_chao.ogg"));
         BaseMod.addAudio(SoundLibrary.Chip, audioEngPath("su_chip_myturnsonic.ogg"));
         BaseMod.addAudio(SoundLibrary.Cream, audioEngPath("sh_cream_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
@@ -572,7 +587,16 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Vector, audioEngPath("sh_vector_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.MetalHaha, audioEngPath("sh_metal_hahaha.ogg"));
         BaseMod.addAudio(SoundLibrary.MetalData, audioEngPath("sh_metal_alllifeformdata.ogg"));
-        BaseMod.addAudio(SoundLibrary.MetalAppropiate, audioEngPath("sh_metal_how_appropriate.ogg"));
+        BaseMod.addAudio(SoundLibrary.MetalAppropriate, audioEngPath("sh_metal_how_appropriate.ogg"));
+
+        BaseMod.addAudio(SoundLibrary.Boost, audioPath("su_boost.ogg"));
+        BaseMod.addAudio(SoundLibrary.Homing, audioPath("su_homing.ogg"));
+        BaseMod.addAudio(SoundLibrary.Jump, audioPath("su_jump.ogg"));
+        BaseMod.addAudio(SoundLibrary.Rail, audioPath("su_rail.ogg"));
+        BaseMod.addAudio(SoundLibrary.SonicBoom, audioPath("su_sonicboom.ogg"));
+        BaseMod.addAudio(SoundLibrary.Trick, audioPath("su_trickpress.ogg"));
+        BaseMod.addAudio(SoundLibrary.TrickOK, audioPath("su_trick_ok.ogg"));
+
     }
 
     public static int attackCardsPlayedThisTurn = 0;
@@ -639,8 +663,7 @@ public class SonicMod implements
     @Override
     public void receivePostDeath() {
         if (AbstractDungeon.player instanceof Sonic) {
-            if (isVictory) {
-            } else {
+            if (!isVictory) {
                 if (MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
                     CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
                             SoundLibrary.Nooo,

@@ -38,7 +38,7 @@ public class SpeedUp extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int ringAmount = 0;
         for (AbstractCard card : p.hand.group){
-            if (Objects.equals(card.cardID, Ring.ID)){
+            if (card.hasTag(SonicTags.RING)){
                 ringAmount++;
                 addToBot(new ExhaustSpecificCardAction(card, p.hand, true));
             }
@@ -63,7 +63,7 @@ public class SpeedUp extends BaseCard {
             if (i > thisCardsIndex) {
                 j = 1;
             }
-            if (card.cardID == Ring.ID) {
+            if (card.hasTag(SonicTags.RING)) {
                 addToBot(new TransformCardInHandAction(i - j, cardsToPreview.makeStatEquivalentCopy()));
             }
         }

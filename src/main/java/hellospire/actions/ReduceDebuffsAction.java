@@ -37,15 +37,11 @@ public class ReduceDebuffsAction extends AbstractGameAction {
                     this.addToTop(new RemoveSpecificPowerAction(this.c, this.c, p));
                 }
                 else {
-                    this.addToTop(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            p.stackPower(ReduceDebuffsAction.this.amount);
-                            p.updateDescription();
-                            AbstractDungeon.onModifyPower();
-                            this.isDone = true;
-                        }
-                    });
+                    this.addToTop(new ModFastAction( () -> {
+                        p.stackPower(ReduceDebuffsAction.this.amount);
+                        p.updateDescription();
+                        AbstractDungeon.onModifyPower();
+                    }));
                 }
             }
         }

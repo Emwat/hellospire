@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.SonicTags;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.actions.RandomizeCostAction;
 import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
@@ -47,18 +47,14 @@ public class Windmill extends BaseCard {
             for (AbstractCard c : cards) {
                 int oldCost = c.costForTurn;
                 addToBot(new RandomizeCostAction(c));
-                addToBot(new AbstractGameAction() {
-                    @Override
-                    public void update() {
+                addToBot(new ModFastAction( () -> {
                         int difference = Math.abs(c.costForTurn - oldCost);
                         if (difference >= 3) {
                             addToBot(SoundLibrary.VoiceAction(SoundLibrary.PerfectBingo));
                         } else if (c.costForTurn == 0) {
                             addToBot(SoundLibrary.VoiceAction(SoundLibrary.Bingo));
                         }
-                        this.isDone = true;
-                    }
-                });
+                }));
             }
         }));
     }

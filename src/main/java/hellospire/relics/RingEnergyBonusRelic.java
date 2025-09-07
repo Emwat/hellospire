@@ -1,14 +1,11 @@
 package hellospire.relics;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import hellospire.cards.Ring;
+import hellospire.SonicTags;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
-import hellospire.powers.LevelUpPowerPower;
 
 import static hellospire.SonicMod.makeID;
 
@@ -31,22 +28,18 @@ public class RingEnergyBonusRelic extends BaseRelic {
     @Override
     public void atTurnStartPostDraw() {
         RingEnergyBonusRelic thisRelic = this;
-        addToTop(new AbstractGameAction() {
-            @Override
-            public void update() {
-                int ringCount = 0;
-                for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                    if (Ring.ID.equals(card.cardID)) {
-                        ringCount++;
-                    }
+        addToTop(new ModFastAction(() -> {
+            int ringCount = 0;
+            for (AbstractCard card : AbstractDungeon.player.hand.group) {
+                if (card.hasTag(SonicTags.RING)) {
+                    ringCount++;
                 }
-                if (ringCount >= NumberOfRingsForEnergy) {
-                    thisRelic.flash();
-                    addToBot(new GainEnergyAction(ringCount / 3));
-                }
-                this.isDone = true;
             }
-        });
+            if (ringCount >= NumberOfRingsForEnergy) {
+                thisRelic.flash();
+                addToBot(new GainEnergyAction(ringCount / 3));
+            }
+        }));
     }
 
 }

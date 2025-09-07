@@ -1,17 +1,20 @@
 package hellospire.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Corruption;
 import com.megacrit.cardcrawl.cards.red.FeelNoPain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.powers.DirectJumpPower;
 import hellospire.util.CardStats;
+import hellospire.util.TextureLoader;
 
-public class DirectJump extends BaseCard {
+public class DirectJump extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("DirectJump");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -33,11 +36,29 @@ public class DirectJump extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new DirectJumpPower(p, 1)));
     }
 
+    @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
+            upgradeName();
+            if (isBranchUpgrade()) {
+                branchUpgrade();
+            } else {
+                baseUpgrade();
+            }
         }
+    }
+
+    public void baseUpgrade() {
+        this.upgradeBaseCost(0);
+    }
+
+    public void branchUpgrade() {
+        // name = "Serial Homing Attack";
+        // loadCardImage(SonicMod.imagePath("cards/attack/HomingAttackSerial.png"));
+        // portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/attack/HomingAttackSerial_p.png"));
+        setExhaust(false);
+        this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
     }
 
     @Override

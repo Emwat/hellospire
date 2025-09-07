@@ -1,25 +1,19 @@
 package hellospire.cards;
 
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
-import hellospire.actions.FasterAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 import hellospire.util.TextureLoader;
-
-import java.util.Objects;
 
 public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     public static final String ID = makeID("HomingAttack");
@@ -63,7 +57,7 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
             addToBot(new MakeTempCardInHandAction(trick, 1, true));
         }
         addToBot(new MakeTempCardInHandAction(trick, 1, true));
-        addToBot(new FasterAction(() -> {
+        addToBot(new ModFastAction(() -> {
             plays++;
             updatePlays();
         }));
@@ -109,7 +103,7 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     @Override
     public void onMoveToDiscard() {
         super.onMoveToDiscard();
-        addToBot(new FasterAction(() -> {
+        addToBot(new ModFastAction(() -> {
             plays = 0;
             updatePlays();;
         }));

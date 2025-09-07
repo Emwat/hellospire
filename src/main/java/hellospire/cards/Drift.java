@@ -14,6 +14,7 @@ import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.DriftAction;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -33,15 +34,17 @@ public class Drift extends BaseCard {
     public Drift() {
         super(ID, info);
 
-        if (MyModConfig.enableThreeOrbs || !(AbstractDungeon.player instanceof Sonic)) {
-            setMagic(THREE_ORB_MAGIC);
-        } else {
-            setMagic(MAGIC);
-        }
+        setMagic(MAGIC);
+
+        // if (MyModConfig.enableThreeOrbs || !(AbstractDungeon.player instanceof Sonic)) {
+        //     setMagic(THREE_ORB_MAGIC);
+        // } else {
+        //     setMagic(MAGIC);
+        // }
         tags.add(SonicTags.LIKE_DEFECT);
     }
 
-    ///"DESCRIPTION": "Activate the passive effects of your orbs X times."
+    /// "DESCRIPTION": "Activate the passive effects of your orbs X times."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.upgraded) {
@@ -59,32 +62,28 @@ public class Drift extends BaseCard {
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         updateDescription();
-        //SonicMod.logger.info("cre" + Settings.CREAM_COLOR.toString());
+        // SonicMod.logger.info("cre" + Settings.CREAM_COLOR.toString());
     }
 
-    private void updateDescription(){
+    private void updateDescription() {
         AbstractCard thisCard = this;
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                int energy = EnergyPanel.totalCount;
-                if (AbstractDungeon.player.hasRelic("Chemical X")) {
-                    energy += 2;
-                }
-                if (thisCard.upgraded){
-                    energy += 1;
-                }
-                energy = energy * magicNumber;
-
-                thisCard.rawDescription = String.format("%s%s%s", cardStrings.EXTENDED_DESCRIPTION[0], energy, cardStrings.EXTENDED_DESCRIPTION[1]);
-                initializeDescription();
-                this.isDone = true;
+        addToBot(new ModFastAction(() -> {
+            int energy = EnergyPanel.totalCount;
+            if (AbstractDungeon.player.hasRelic("Chemical X")) {
+                energy += 2;
             }
-        });
+            if (thisCard.upgraded) {
+                energy += 1;
+            }
+            energy = energy * magicNumber;
+
+            thisCard.rawDescription = String.format("%s%s%s", cardStrings.EXTENDED_DESCRIPTION[0], energy, cardStrings.EXTENDED_DESCRIPTION[1]);
+            initializeDescription();
+        }));
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new Drift();
     }
 }

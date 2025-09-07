@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.SmokeBomb;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import hellospire.SonicTags;
+import hellospire.SoundLibrary;
+import hellospire.actions.BoostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -37,15 +39,8 @@ public class Boost extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // addToBot(new AbstractGameAction() {
-        //     @Override
-        //     public void update() {
-        //         this.isDone = true;
-        //     }
-        // });
-        // addToBot(new VFXAction(new SmokeBombEffect(p.hb.cX, p.hb.cY)));
-        addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        // addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.Boost));
+        addToBot(new BoostAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     @Override

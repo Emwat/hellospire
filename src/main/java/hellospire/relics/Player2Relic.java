@@ -3,7 +3,6 @@ package hellospire.relics;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.Loader;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -12,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
 import hellospire.actions.ModTextInCenterAction;
 import hellospire.character.Sonic;
 import hellospire.util.TextureLoader;
@@ -71,25 +71,21 @@ public class Player2Relic extends BaseRelic {
 
         if (cardsPlayed == 2 && currentTurn < 3) {
             Player2Relic thisRelic = this;
-            addToTop(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    thisRelic.flash();
-                    thisRelic.stopPulse();
-                    addToTop(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
-                    if (Loader.isModLoaded("downfall")) {
-                        addToBot(new ModTextInCenterAction(c.name.toUpperCase() + DESCRIPTIONS[4], Color.PINK.cpy()));
-                        if (!SonicMod.sawMetalRelic) {
-                            addToBot(SoundLibrary.VoiceAction(SoundLibrary.MetalData));
-                            SonicMod.sawMetalRelic = true;
-                        }
+            addToTop(new ModFastAction(() -> {
+                thisRelic.flash();
+                thisRelic.stopPulse();
+                addToTop(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
+                if (Loader.isModLoaded("downfall")) {
+                    addToBot(new ModTextInCenterAction(c.name.toUpperCase() + DESCRIPTIONS[4], Color.PINK.cpy()));
+                    if (!SonicMod.sawMetalRelic) {
+                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.MetalData));
+                        SonicMod.sawMetalRelic = true;
                     }
-                    if (currentTurn == 2) {
-                        thisRelic.grayscale = true;
-                    }
-                    this.isDone = true;
                 }
-            });
+                if (currentTurn == 2) {
+                    thisRelic.grayscale = true;
+                }
+            }));
 
         }
     }

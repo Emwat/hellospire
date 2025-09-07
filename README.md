@@ -30,6 +30,13 @@ Requires subscription to
 - [Spreadsheet of Vanilla Characters] (https://docs.google.com/spreadsheets/d/1c5j-O1zIckvEPtI4sSI7YeG6v1EptKxRwmPV-J73tCA/edit?pli=1#gid=0 )
 - [Character Design Pitfalls] (https://discord.com/channels/309399445785673728/1146430771528220792/1146431508119306340)
 - [Packmaster Github] (https://github.com/erasels/PackmasterCharacter) - this has been code reviewed. My code has NOT been code reviewed sadface.
+- Common mod pitfalls comment by BigGucciSosa
+```
+- too many random card ideas that don't synergize well with each other, leading to a disjointed-feeling drafting experience
+- too much text on the cards, often indicating ideas that are too complex for the actual amount of value and fun they bring
+- Too many scattered mechanics preventing the mod from FEELING cohesive from a game design standpoint.
+- ideas that are too similar to base game mechanics, causing the character to not feel differentiated enough.
+```
 
 # Good modding tools - HUGE THANKS TO ALL OF YOU.
 - Slay the Spire Discord - #modding-technical - Thank you guys so much again for helping me out.
@@ -41,6 +48,7 @@ Requires subscription to
 - [Googly Eyes steam] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
 - [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/)
 - [Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
+- Steam > Settings > Game Recording > Record in Background. Play game. Steam > Library > Slay the Spire > video is underneath POST-GAME SUMMARY. Amazing debugging tool.
 
 # Steam Workshop Link
 https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473

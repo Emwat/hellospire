@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import hellospire.MyModConfig;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -36,6 +37,7 @@ public class MeteorKick extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
+        tags.add(SonicTags.KICK);
     }
 
     @Override

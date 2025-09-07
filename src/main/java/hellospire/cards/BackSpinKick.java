@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.green.Eviscerate;
+import com.megacrit.cardcrawl.cards.red.BloodForBlood;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.MyModConfig;
@@ -23,16 +25,14 @@ public class BackSpinKick extends BaseCard {
             3
     );
 
-    private static final int DAMAGE = 18;
+    private static final int DAMAGE = 16;
     private static final int UPG_DAMAGE = 4;
 
     public BackSpinKick() {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        if (MyModConfig.enableKicksForStrikeDummy) {
-            tags.add(CardTags.STRIKE);
-        }
+        tags.add(SonicTags.KICK);
         tags.add(SonicTags.LIKE_SILENT);
     }
 

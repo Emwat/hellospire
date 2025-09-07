@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
 import hellospire.SonicTags;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -34,22 +35,18 @@ public class FlagPole extends BaseCard {
         if (this.upgraded) {
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
         }
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                p.updatePowers();
-                for (AbstractCard card : p.hand.group) {
-                    if (card.cardID.equals(cardsToPreview.cardID)) {
-                        addToBot(new ChannelAction(new Frost()));
-                    }
+        addToBot(new ModFastAction(() -> {
+            p.updatePowers();
+            for (AbstractCard card : p.hand.group) {
+                if (card.cardID.equals(cardsToPreview.cardID)) {
+                    addToBot(new ChannelAction(new Frost()));
                 }
-                this.isDone = true;
             }
-        });
+        }));
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new FlagPole();
     }
 }

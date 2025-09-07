@@ -57,7 +57,6 @@ public class SoundLibrary {
     static public final String SonicStyle = makeID("ogg_SonicStyle");
 
     static public final String LightningShield = makeID("ogg_LightningShield");
-    static public final String Jump = makeID("ogg_Jump");
     static public final String StarPost = makeID("ogg_StarPost");
     static public final String DropDash = makeID("ogg_DropDash");
     static public final String BlankSound = makeID("BlankSound");
@@ -104,7 +103,15 @@ public class SoundLibrary {
 
     public static String MetalHaha = makeID("ogg_metal_haha");
     public static String MetalData = makeID("ogg_metal_data");
-    public static String MetalAppropiate = makeID("ogg_metal_appropriate");
+    public static String MetalAppropriate = makeID("ogg_metal_appropriate");
+
+    static public final String Boost = makeID("ogg_boost");
+    static public final String Homing = makeID("ogg_homing");
+    static public final String Jump = makeID("ogg_jump");
+    static public final String Rail = makeID("ogg_rail");
+    static public final String SonicBoom = makeID("ogg_sonic_boom");
+    static public final String Trick = makeID("ogg_trick_press");
+    static public final String TrickOK = makeID("ogg_trick_ok");
 
     static public int randomNumber = -1;
 
@@ -170,6 +177,7 @@ public class SoundLibrary {
 
     private static String GetRandomClip(ArrayList<String> sounds) {
         int generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
+        SonicMod.logger.info("(0) GetRandomClip randomNumber: " + randomNumber);
 
         if (sounds.size() < 2) {
             randomNumber = generatedRandomNumber;
@@ -185,6 +193,7 @@ public class SoundLibrary {
             }
             randomNumber = generatedRandomNumber;
         }
+        SonicMod.logger.info("(1) GetRandomClip generatedRandomNumber: " + generatedRandomNumber);
 
         return sounds.get(randomNumber);
     }

@@ -1,15 +1,18 @@
 package hellospire.powers;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.purple.Blasphemy;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.watcher.EndTurnDeathPower;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import hellospire.character.Sonic;
 
 import static hellospire.SonicMod.makeID;
 
@@ -30,11 +33,36 @@ public class SuperSonicPower extends BasePower {
         this.description = DESCRIPTIONS[0];
     }
 
-    @Override
-    public void atStartOfTurn() {
-        this.flash();
-        this.addToBot(new VFXAction(new LightningEffect(this.owner.hb.cX, this.owner.hb.cY)));
-        this.addToBot(new LoseHPAction(this.owner, this.owner, 99999));
+    // @Override
+    // public void atStartOfTurn() {
+    //     this.flash();
+    //     this.addToBot(new VFXAction(new LightningEffect(this.owner.hb.cX, this.owner.hb.cY)));
+    //     this.addToBot(new LoseHPAction(this.owner, this.owner, 99999));
+    // }
+
+    public void onVictory() {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p instanceof Sonic && p.currentHealth > 0) {
+            ((Sonic) p).playAnimation("idle", true);
+        }
+    }
+
+    public float[] _lightsOutGetXYRI() {
+        // 08/28/2025 07:43 PM
+        // he's green and he doesn't get brighter w/ more stacks of dex
+        int shine = 1;
+        AbstractPower str = owner.getPower(DexterityPower.POWER_ID);
+        if (str != null) {
+            shine = str.amount / 7;
+        }
+        return new float[]{owner.hb.cX, owner.hb.cY, (100f + 10 * shine) * Settings.scale, (0.5f + 0.05f * shine)};
+    }
+
+    public Color[] _lightsOutGetColor() {
+        // return new Color[]{new Color(1.0f, 245f / 255f, 0f, 1f)};
+        return new Color[] {Color.RED.cpy()};
+        // return new Color[] {Color.GOLD.cpy()};
+        // return new Color[] {Color.YELLOW};
     }
 
     static {

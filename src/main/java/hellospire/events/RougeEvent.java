@@ -1,5 +1,6 @@
 package hellospire.events;
 
+import com.badlogic.gdx.graphics.Color;
 import basemod.abstracts.events.PhasedEvent;
 import basemod.abstracts.events.phases.TextPhase;
 import basemod.helpers.CardModifierManager;
@@ -231,4 +232,20 @@ public class RougeEvent extends PhasedEvent {
         AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(wantedCard.makeStatEquivalentCopy(), x, y));
         AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(x, y));
     }
+
+    // 08/28/2025 07:49 PM
+    // I can't get it to work.
+    // public float[] _lightsOutGetXYRI() {
+    //     return new float[] {
+    //             450*Settings.scale, 183*Settings.scale, 500f, 1.5f,
+    //             478*Settings.scale, 167*Settings.scale, 500f, 1.5f,
+    //     };
+    // }
+    //
+    // public Color[] _lightsOutGetColor() {
+    //     return new Color[] {
+    //             new Color(67f / 255f, 188f / 255f, 188f / 255f, 1f),
+    //             new Color(67f / 255f, 188f / 255f, 188f / 255f, 1f)
+    //     };
+    // }
 }

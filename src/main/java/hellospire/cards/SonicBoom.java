@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SonicTags;
+import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.powers.SonicBoomPower;
 import hellospire.util.CardStats;
@@ -37,6 +38,7 @@ public class SonicBoom extends BaseCard implements BranchingUpgradesCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.SonicBoom));
         if (this.upgraded && !this.isBranchUpgrade()){
             addToBot(new GainBlockAction(p, block));
         } else if (this.upgraded && this.isBranchUpgrade()) {

@@ -76,6 +76,8 @@
   "${modID}:MissionRingRacePower": {
     "NAME": "Mission: Ring Race",
     "DESCRIPTIONS": [
+      "Exhaust ",
+      " cards as fast as possible! Doing so will immediately end the combat.",
       "S Rank: ",
       " Turns NL A Rank: ",
       " Turns NL B Rank: ",
@@ -85,6 +87,7 @@
   "${modID}:MissionScoreAttackPower": {
     "NAME": "Mission: Score Attack",
     "DESCRIPTIONS": [
+      "Deal as much damage as you can!",
       "S Rank: ",
       "+ Damage NL A Rank: ",
       "+ Damage NL B Rank: ",
@@ -94,6 +97,7 @@
   "${modID}:MissionTimeAttackPower": {
     "NAME": "Mission: Time Attack",
     "DESCRIPTIONS": [
+      "Win the combat as fast as possible!",
       "S Rank: ",
       " Turns NL A Rank: ",
       " Turns NL B Rank: ",
@@ -163,6 +167,7 @@
   "${modID}:SuperSonicPower": {
     "NAME": "Super Sonic",
     "DESCRIPTIONS": [
+      "Behold the power of the Chaos Emeralds!",
       "You MUST play your Rings to gain Intangible. DIE EVERY TURN."
     ]
   },

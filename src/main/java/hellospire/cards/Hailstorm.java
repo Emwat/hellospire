@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.colorless.DeepBreath;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
@@ -34,33 +35,25 @@ public class Hailstorm extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (timesDrawn == 0) {
-                    incrementTimesDrawn();
-                }
-                for (int i = 0; i < timesDrawn; i++) {
-                    addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                }
-                this.isDone = true;
+        addToBot(new ModFastAction(() -> {
+            if (timesDrawn == 0) {
+                incrementTimesDrawn();
             }
-        });
+            for (int i = 0; i < timesDrawn; i++) {
+                addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            }
+        }));
     }
 
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                incrementTimesDrawn();
-                this.isDone = true;
-            }
-        });
+        addToBot(new ModFastAction(() -> {
+            incrementTimesDrawn();
+        }));
     }
 
-    private void incrementTimesDrawn(){
+    private void incrementTimesDrawn() {
         timesDrawn++;
 
         if (timesDrawn == 1) {
