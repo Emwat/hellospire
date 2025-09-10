@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import hellospire.SonicMod;
 import hellospire.actions.ModTextInCenterAction;
+import hellospire.util.MissionTextures;
 
 import static hellospire.SonicMod.makeID;
 
@@ -52,7 +53,7 @@ public class MissionRingRacePower extends BasePower {
         super.atStartOfTurnPostDraw();
         this.flash();
         amount++;
-        updateIcon(amount, RANK_S_TURN, RANK_A_TURN, RANK_B_TURN);
+        MissionTextures.updateIconA(this, amount, RANK_S_TURN, RANK_A_TURN, RANK_B_TURN);
     }
 
     @Override

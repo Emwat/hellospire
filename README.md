@@ -24,8 +24,8 @@ Requires subscription to
 
 # Good wiki links
 - [How to Start Modding] (https://discord.com/channels/309399445785673728/1145803879821361293/1145803879821361293)
-- [BasicMod] (https://github.com/Alchyr/BasicMod) - this is the base for this mod.
-- [Base Mod wiki] (https://github.com/daviscook477/BaseMod/wiki)
+- [BasicMod (getting started)] (https://github.com/Alchyr/BasicMod/wiki) - this is the base for this mod.
+- [Base Mod wiki (40 Pages)] (https://github.com/daviscook477/BaseMod/wiki)
 - [StSLib wiki] (https://github.com/kiooeht/StSLib/wiki)
 - [Spreadsheet of Vanilla Characters] (https://docs.google.com/spreadsheets/d/1c5j-O1zIckvEPtI4sSI7YeG6v1EptKxRwmPV-J73tCA/edit?pli=1#gid=0 )
 - [Character Design Pitfalls] (https://discord.com/channels/309399445785673728/1146430771528220792/1146431508119306340)
@@ -49,11 +49,29 @@ Requires subscription to
 - [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/)
 - [Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
 - Steam > Settings > Game Recording > Record in Background. Play game. Steam > Library > Slay the Spire > video is underneath POST-GAME SUMMARY. Amazing debugging tool.
+- YouTube - You can double right-click a video and take snapshot. You can also press . or , to move the video by one frame.
+
+# IntelliJ shortcuts
+- Double tapping Shift : brings up a Universal Code Search Tool
+- Ctrl + Shift + F : Find All
+- Alt + Enter : Context Actions
+- Ctrl + B : Decompile/Direct to source
 
 # Steam Workshop Link
-https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473
+- https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473
+- Your mod won't get any stars until you have 25 ratings.
+- Steam likes to mark things with <30 ratings as 3 stars regardless of how many positive ratings you have. They're rounding it.
 
 # Design Process
 1) Think of an incredibly awesome attack
 2) let’s find the closest vanilla card’s description 
 3) figure out the synergy later
+
+# My review of my mod
+I think people are leaning towards okay/meh with my mod, because I very heavily leaned towards a vanilla character. There's no crazy new mechanic. There's no vfx. It doesn't add anything new to Slay the Spire.
+
+I designed Sonic to be that way, b/c 1) it's my first mod and 2) It's loyal to his character. In the Sonic Advance series, ALL of his friends have an extra ability, but Sonic is very vanilla except for the fact that he can go Super Sonic for the ending.
+
+People don't like single-use keywords and at the time "If most Left/Right" was only for Quick Air/Quick Step. Well, I decided to apply it to the rare cards. The problem with it is I never remember which cards are lefties and righties now. The idea is that LEFT symbolized for being far away from your enemy and RIGHT symbolized up close and personal. I don't think that flavor carried well enough and I didn't add cards that help activate their effects.
+
+

@@ -40,12 +40,13 @@ public class SonicConsoleAchievement extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
-        if (tokens.length < 3) {
-            DevConsole.log("3 Parameters required");
+        if (tokens.length < 2) {
+            DevConsole.log("2 Parameters required");
             return;
         }
-        String subcommand = tokens[2];
+        String subcommand = tokens[1];
         UnlockTracker.unlockAchievement(subcommand);
+        DevConsole.log(subcommand + " unlocked.");
     }
 
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
@@ -53,8 +54,9 @@ public class SonicConsoleAchievement extends ConsoleCommand {
         ArrayList<String> result = new ArrayList<>();
         result.add(makeID("Ringmaster"));
         result.add(makeID("VigorAbuse"));
+        result.add(makeID("GooglyEyes"));
 
-        if (tokens.length == 3) {
+        if (tokens.length == 2) {
             complete = true;
         }
 

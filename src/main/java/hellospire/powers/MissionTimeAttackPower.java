@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import hellospire.SonicMod;
+import hellospire.util.MissionTextures;
 
 import static hellospire.SonicMod.makeID;
 
@@ -45,7 +46,7 @@ public class MissionTimeAttackPower extends BasePower {
         super.atStartOfTurnPostDraw();
         this.flash();
         amount++;
-        updateIcon(amount, RANK_S_TURN, RANK_A_TURN, RANK_B_TURN);
+        MissionTextures.updateIconA(this, amount, RANK_S_TURN, RANK_A_TURN, RANK_B_TURN);
     }
 
     @Override

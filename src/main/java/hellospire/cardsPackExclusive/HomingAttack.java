@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.cards.BaseCard;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -33,12 +34,16 @@ public class HomingAttack extends BaseCard {
 
     private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 1;
+    private static final int PERSIST = 2;
+    private static final int PERSIST_UPG = 1;
 
     public HomingAttack() {
         super(ID, info);
         this.cardsToPreview = new hellospire.cardsPackExclusive.Trick();
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        setBackgroundTexture(SonicMod.characterPath("cardback/bg_attack.png"), SonicMod.characterPath("cardback/bg_attack_p"));
+        // PersistFields.setBaseValue(this, PERSIST);
     }
 
     @Override
@@ -51,6 +56,7 @@ public class HomingAttack extends BaseCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.cardsToPreview.upgrade();
+            // PersistFields.upgrade(this, PERSIST_UPG);
         }
         super.upgrade();
     }

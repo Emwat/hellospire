@@ -17,7 +17,9 @@
       "efc851ff gold",
       "ffeda7ff yellow",
       "ee82eeff purple",
-      "ff6563ff red"
+      "ff6563ff red",
+      "[E] is energy",
+      "Attack and Skill start w/ uppercase."
     ],
     "FLAVOR": "SpireWolf25 says Hello."
   },
@@ -35,12 +37,12 @@
   },
   "${modID}:AMAZING": {
     "NAME": "AMAZING",
-    "DESCRIPTION": "When playing 3 attacks in a single turn, deal !M! damage to ALL enemies."
+    "DESCRIPTION": "When playing 3 Attacks in a single turn, deal !M! damage to ALL enemies."
   },
   "${modID}:Assist": {
     "NAME": "Assist",
-    "DESCRIPTION": "Add a random ${modID}:Friend skill to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend skill to your hand. It costs zero this turn. NL Exhaust."
+    "DESCRIPTION": "Add a random ${modID}:Friend Skill to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend Skill to your hand. It costs zero this turn. NL Exhaust."
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
@@ -72,7 +74,7 @@
   },
   "${modID}:AssistEspio": {
     "NAME": "Espio the Chameleon",
-    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! Shiv{!M!|>1=s} to your hand. If you have not played any attacks this turn, add 1 more."
+    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more."
   },
   "${modID}:AssistKnuckles": {
     "NAME": "Fighting Buddies",
@@ -119,7 +121,7 @@
   },
   "${modID}:BackSpinKick": {
     "NAME": "Back Spin Kick",
-    "DESCRIPTION": "Deal !D! damage. This costs 1 less for each attack played this turn."
+    "DESCRIPTION": "Deal !D! damage. This costs 1 less for each Attack played this turn."
   },
   "${modID}:Bait": {
     "NAME": "Bait",
@@ -208,9 +210,9 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": "When you play a skill this turn, add a [#efc851ff]Ring to your hand. NL Exhaust.",
+    "DESCRIPTION": "When you play a Skill this turn, add a [#efc851ff]Ring to your hand. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "When you play a skill this turn, add a [#efc851ff]Ring to your hand."
+      "When you play a Skill this turn, add a [#efc851ff]Ring to your hand."
     ]
   },
   "${modID}:DizzySpin": {
@@ -462,6 +464,11 @@
     "NAME": "Light Speed Dash",
     "DESCRIPTION": "${modID}:LSD. Add a [#efc851ff]Ring to your hand until your hand is full. Play ALL [#efc851ff]Rings in your hand. Exhaust."
   },
+  "${modID}:LoopDeLoop": {
+    "NAME": "Loop De Loop",
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. ${modID}:If_most_right, draw 1 more. They cost 0 this turn.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. They cost 0 this turn."
+  },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
     "DESCRIPTION": "Choose a card in your hand. It gains Retain and when it exhausts, enter Wrath.",
@@ -491,7 +498,8 @@
   "${modID}:PackHomingAttack": {
     "NAME": "Homing Attack",
     "DESCRIPTION": "Deal !D! damage. NL Add a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a Trick+ to your hand."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a Trick+ to your hand.",
+    "IGNORE_ME": "stslib:Persist !stslib:persist!"
   },
   "${modID}:PackRing": {
     "NAME": "Ring",
@@ -637,7 +645,7 @@
   },
   "${modID}:SpinDash": {
     "NAME": "Spin Dash",
-    "DESCRIPTION": "Deal !D! damage. Play the top card of your draw pile."
+    "DESCRIPTION": "Deal !D! damage. The next Attack you play costs 0."
   },
   "${modID}:SpinningNeedleAttack": {
     "NAME": "Spinning Needle Atk",
@@ -653,10 +661,10 @@
   },
   "${modID}:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable.",
+    "DESCRIPTION": "Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn.",
     "EXTENDED_DESCRIPTION": [
-      "Draw 1 Card. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable.",
-      "Exit your stance. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable."
+      "Draw 1 Card. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn.",
+      "Exit your stance. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn."
     ]
   },
   "${modID}:Teaser": {

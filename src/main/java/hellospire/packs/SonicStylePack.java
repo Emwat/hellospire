@@ -30,7 +30,7 @@ public class SonicStylePack extends AbstractHedgehogPack {
         cards.add(DashPanel.ID);
         cards.add(SpinDash.ID);
 
-        cards.add(SecretRoute.ID);
+        cards.add(LoopDeLoop.ID);
         cards.add(BlastProcessing.ID);
         cards.add(RocketAccel.ID);
 

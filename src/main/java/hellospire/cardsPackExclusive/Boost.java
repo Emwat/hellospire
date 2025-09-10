@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.actions.BoostAction;
 import hellospire.actions.ModFastAction;
 import hellospire.cards.BaseCard;
@@ -41,6 +42,8 @@ public class Boost extends BaseCard {
         super(ID, info);
         // this.cardsToPreview = new hellospire.cardsPackExclusive.Ring();
         this.isMultiDamage = true;
+        setBackgroundTexture(SonicMod.characterPath("cardback/bg_attack.png"), SonicMod.characterPath("cardback/bg_attack_p"));
+
         setDamage(DAMAGE, UPG_DAMAGE);
     }
 

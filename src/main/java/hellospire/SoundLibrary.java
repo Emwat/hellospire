@@ -74,6 +74,7 @@ public class SoundLibrary {
     static public final String StepItUp = makeID("ogg_stepitup");
     static public final String TooSlow = makeID("ogg_tooslow");
     static public final String NeverUnderestimate = makeID("ogg_NeverUnderestimate");;
+    static public final String TheHedgehog = makeID("ogg_the_hedgehog");
 
     static public final String Shoot = makeID("ogg_Shoot");
     static public final String Nooo = makeID("ogg_Nooo");

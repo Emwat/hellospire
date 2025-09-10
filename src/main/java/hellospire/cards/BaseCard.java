@@ -880,4 +880,21 @@ public abstract class BaseCard extends CustomCard {
                 !AbstractDungeon.player.hasRelic(SneckoEye.ID) &&
                 AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID);
     }
+
+    public void ApplyNewCost(AbstractCard card) {
+        int currentCost = this.costForTurn;
+        int isAttack = 0;
+        if (card != null && card.type == CardType.ATTACK) {
+            isAttack = 1;
+        }
+
+        if (this.costForTurn > 0) {
+            int newCost = Math.min(this.baseCost - SonicMod.attackCardsPlayedThisTurn, currentCost - isAttack);
+
+            if (this.costForTurn != newCost) {
+                this.setCostForTurn(newCost);
+                this.isCostModifiedForTurn = true;
+            }
+        }
+    }
 }

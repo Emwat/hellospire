@@ -58,11 +58,7 @@ import java.util.*;
 import static basemod.BaseMod.addMonster;
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 
-// IntelliJ
-// Double tapping Shift : brings up a Universal Code Search Tool
-// Ctrl + Shift + F : Find All
-// Alt + Enter : Context Actions
-// Ctrl + B : Decompile/Direct to source
+
 
 @SpireInitializer
 public class SonicMod implements
@@ -108,6 +104,9 @@ public class SonicMod implements
         logger.info(modID + " subscribed to BaseMod.");
         if (Loader.isModLoaded("anniv5")) {
             SpireAnniversary5Mod.subscribe(new PackLoader());
+        }
+        if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")){
+            // Skindexer.register();
         }
     }
 
@@ -166,6 +165,7 @@ public class SonicMod implements
 
                     return new RewardSave(customReward.type.toString(), a.transformedAssist.cardID, 0, a.isAssistUpgraded ? 1 : 0);
                 });
+
 
         registerPotions();
         registerMonsters();
@@ -482,6 +482,7 @@ public class SonicMod implements
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(SecretRoute.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
 
         // BaseMod.removeCard(SpinningNeedleAttack.ID, Sonic.Meta.CARD_COLOR);
@@ -516,6 +517,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.NeverUnderestimate, audioEngPath("sh_Never_Underestimate_Sonic_Speed.ogg"));
         BaseMod.addAudio(SoundLibrary.Bingo, audioEngPath("sh_bingo.ogg"));
         BaseMod.addAudio(SoundLibrary.PerfectBingo, audioEngPath("sh_Perfect_Bingo.ogg"));
+        BaseMod.addAudio(SoundLibrary.TheHedgehog, audioEngPath("sa2_im_sonic_the_hedgehog.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("sc_01_AMAZING.ogg"));
         BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("sc_02_OUTSTANDING.ogg"));

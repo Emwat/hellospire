@@ -36,11 +36,12 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.SELF_AND_ENEMY,
-            0
+            1
     );
 
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC_BASE = 2;
+    private static final int UPG_MAGIC_BRANCH = 1;
     private final String[] texts = CardCrawlGame.languagePack.getCharacterString(makeID("TheHedgehog")).TEXT;
 
     ///    "DESCRIPTION": "Apply 2 Vulnerable. NL Gain 2 Temporary Dexterity."
@@ -85,9 +86,7 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
             }
         }
 
-        if (this.upgraded && !this.isBranchUpgrade()) {
-            addToBot(new DrawCardAction(1));
-        } else if (this.upgraded && this.isBranchUpgrade()) {
+        if (this.upgraded && this.isBranchUpgrade()) {
             addToBot(new NotStanceCheckAction("Neutral", new VFXAction(new EmptyStanceEffect(p.hb.cX, p.hb.cY), 0.1F)));
             addToBot(new ChangeStanceAction("Neutral"));
         }
@@ -100,7 +99,6 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPG_MAGIC);
             if (isBranchUpgrade()) {
                 branchUpgrade();
             } else {
@@ -111,14 +109,28 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
 
     public void baseUpgrade() {
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
+        upgradeMagicNumber(UPG_MAGIC_BASE);
+
         this.initializeDescription();
     }
 
     public void branchUpgrade() {
         loadCardImage(SonicMod.imagePath("cards/skill/Taunt2.png"));
         portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/skill/Taunt2_p.png"));
+        upgradeMagicNumber(UPG_MAGIC_BRANCH);
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
         this.initializeDescription();
+    }
+
+    public void triggerWhenDrawn() {
+        super.triggerWhenDrawn();
+        ApplyNewCost(null);
+    }
+
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c) {
+        super.triggerOnOtherCardPlayed(c);
+        ApplyNewCost(c);
     }
 
     @Override

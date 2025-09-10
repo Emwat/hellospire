@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import hellospire.SonicMod;
+import hellospire.util.MissionTextures;
 
 import static hellospire.SonicMod.makeID;
 
@@ -55,11 +56,12 @@ public class MissionScoreAttackPower extends BasePower {
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
         this.flash();
+        MissionTextures.updateIconZ(this, amount, RANK_S_SCORE, RANK_A_SCORE, RANK_B_SCORE);
+
     }
 
     public void addDamage(int damage) {
         amount += damage;
-        updateIcon(amount, RANK_S_SCORE, RANK_A_SCORE, RANK_B_SCORE);
     }
 
     public void onVictory() {

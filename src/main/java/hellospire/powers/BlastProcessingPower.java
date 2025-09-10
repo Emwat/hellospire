@@ -2,26 +2,11 @@ package hellospire.powers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnCreateCardInterface;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.unique.ApplyBulletTimeAction;
-import com.megacrit.cardcrawl.actions.unique.MadnessAction;
-import com.megacrit.cardcrawl.actions.watcher.MasterRealityAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.purple.CarveReality;
-import com.megacrit.cardcrawl.cards.purple.MasterReality;
-import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Lightning;
-import com.megacrit.cardcrawl.powers.deprecated.DEPRECATEDMasterRealityPower;
-import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
-import hellospire.cards.Ring;
-
-import java.util.Objects;
+import hellospire.SonicMod;
 
 import static hellospire.SonicMod.makeID;
 
@@ -29,7 +14,7 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
     public static final String POWER_ID = makeID("BlastProcessingPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
-    private static int numberOfFreeCards = 0;
+    private static int maxAmount = 0;
 
     private static final PowerStrings powerStrings;
     public static final String NAME;
@@ -37,16 +22,16 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
 
     public BlastProcessingPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
-        numberOfFreeCards = amount;
+        maxAmount = amount;
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + maxAmount + DESCRIPTIONS[1];
     }
 
     @Override
     public void stackPower(int stackAmount) {
-        numberOfFreeCards += stackAmount;
+        maxAmount += stackAmount;
         amount += stackAmount;
 //        super.stackPower(stackAmount);
     }
@@ -70,9 +55,14 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
 
     @Override
     public void atStartOfTurn() {
-        super.atStartOfTurn();
-        amount = numberOfFreeCards;
+        // SonicMod.logger.info("Blast Processing amount : " + amount + " | maxAmount : " + maxAmount);
 
+        // 09/08/2025 04:10 PM TogetherInSpire (v6.4.20) seems to overwrite my maxAmount.
+        if (maxAmount < 2) {
+            amount = 2;
+        } else {
+            amount = maxAmount;
+        }
     }
 
     static {

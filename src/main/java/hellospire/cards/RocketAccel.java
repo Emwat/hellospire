@@ -68,7 +68,6 @@ public class RocketAccel extends BaseCard {
         }));
     }
 
-
     @Override
     public AbstractCard makeCopy() { // Optional
         return new RocketAccel();

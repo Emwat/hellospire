@@ -27,13 +27,28 @@ public class SonicStartTalkingHelper {
         if (elites.contains(monsterName)) {
             switch (monsterName) {
                 case "GremlinNob":
-                    say("Hey you. Get out of my way!");
+                    if (room.monsters.monsters.size() == 1) {
+                        say(new ArrayList<>(Arrays.asList(
+                                "You're no match for me!",
+                                "Hey you. Get out of my way!"
+                        )));
+                    } else {
+                        say("Bring it on!");
+                    }
                     break;
                 case "Lagavulin":
-                    say("Is that a giant egg?");
+                    say(new ArrayList<>(Arrays.asList(
+                            "Is that a giant egg?",
+                            "Sorry, but you have to go!"
+                    )));
                     break;
                 case "Sentry":
-                    say("I remember... fighting these before...");
+                    if ("Sentry".equals(room.monsters.getMonsterNames().get(1))){
+                        say(new ArrayList<>(Arrays.asList(
+                                "Let's rock!",
+                                "I remember... fighting these before..."
+                        )));
+                    }
                     break;
             }
         }

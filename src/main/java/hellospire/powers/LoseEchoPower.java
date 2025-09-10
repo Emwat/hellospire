@@ -1,8 +1,12 @@
 package hellospire.powers;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.EchoPower;
 
@@ -20,6 +24,7 @@ public class LoseEchoPower extends BasePower {
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
+    // private DoubleSonicParticleAttempt2 VFX;
 
     public LoseEchoPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -35,6 +40,19 @@ public class LoseEchoPower extends BasePower {
         addToBot(new ReducePowerAction(this.owner, this.owner, EchoPower.POWER_ID, amount));
 //        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
     }
+
+    // public void onInitialApplication() {
+    //     AbstractPlayer p = AbstractDungeon.player;
+    //
+    //     AbstractDungeon.effectsQueue.add(new SmokePuffEffect(p.hb.cX, p.hb.cY));
+    //     VFX = new DoubleSonicParticleAttempt2(AbstractDungeon.player);
+    //     AbstractDungeon.actionManager.addToBottom(new VFXAction(VFX));
+    //
+    //     p.hb_x = p.hb_x + (100 * Settings.scale);
+    //     p.drawX = p.drawX - (100 * Settings.scale);
+    //     p.hb.cX = p.hb.cX + (100 * Settings.scale);
+    // }
+
 
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

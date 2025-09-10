@@ -87,7 +87,7 @@
   "${modID}:MissionScoreAttackPower": {
     "NAME": "Mission: Score Attack",
     "DESCRIPTIONS": [
-      "Deal as much damage as you can!",
+      "Deal as much damage as you can! NL ",
       "S Rank: ",
       "+ Damage NL A Rank: ",
       "+ Damage NL B Rank: ",
@@ -97,7 +97,7 @@
   "${modID}:MissionTimeAttackPower": {
     "NAME": "Mission: Time Attack",
     "DESCRIPTIONS": [
-      "Win the combat as fast as possible!",
+      "Win the combat as fast as possible! NL",
       "S Rank: ",
       " Turns NL A Rank: ",
       " Turns NL B Rank: ",

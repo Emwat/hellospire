@@ -7,6 +7,7 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -36,6 +37,7 @@ import hellospire.cards.Strike;
 import hellospire.relics.BlueQuillRelic;
 import hellospire.relics.ChaoThreeRelic;
 import hellospire.relics.ClassicModeRelic;
+import hellospire.util.TextureLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +55,7 @@ public class Sonic extends CustomPlayer {
     // Strings
     private static final String ID = makeID("TheHedgehog"); // This should match whatever you have in the CharacterStrings.json file
 
-    private static String[] getNames() {
+    public static String[] getNames() {
         return CardCrawlGame.languagePack.getCharacterString(ID).NAMES;
     }
 
@@ -88,8 +90,10 @@ public class Sonic extends CustomPlayer {
         private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
         private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
 
+
+
         // This is used to color *some* images, but NOT the actual cards. For that, edit the images in the cardback folder!
-        private static final Color cardColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
+        public static final Color cardColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
 
         // Methods that will be used in the main mod file
         public static void registerColor() {
@@ -374,7 +378,7 @@ public class Sonic extends CustomPlayer {
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(endingPath("endingDefect1.png"), "ATTACK_MAGIC_BEAM_SHORT"));
+        panels.add(new CutscenePanel(endingPath("endingDefect1.png"), SoundLibrary.Boost));
         panels.add(new CutscenePanel(endingPath("endingDefect2.png")));
         panels.add(new CutscenePanel(endingPath("endingDefect3.png")));
         return panels;
@@ -383,15 +387,15 @@ public class Sonic extends CustomPlayer {
     // Lights out mod
     // https://steamcommunity.com/sharedfiles/filedetails/?id=3133446987
     public float[] _lightsOutGetCharSelectXYRI() {
-        return new float[] {
-                1190*Settings.scale, 626*Settings.scale, 20f, 1.0f,
-                1130*Settings.scale, 591*Settings.scale, 20f, 1.0f
+        return new float[]{
+                1190 * Settings.scale, 626 * Settings.scale, 20f, 1.0f,
+                1130 * Settings.scale, 591 * Settings.scale, 20f, 1.0f
         };
     }
 
     public Color[] _lightsOutGetCharSelectColor() {
         Color emeraldGreen = new Color(153f / 255f, 205f / 255f, 51f / 255f, 1f);
-        return new Color[] {
+        return new Color[]{
                 emeraldGreen,
                 emeraldGreen
         };
@@ -459,4 +463,5 @@ public class Sonic extends CustomPlayer {
         }
         super.heal(healAmount);
     }
+
 }

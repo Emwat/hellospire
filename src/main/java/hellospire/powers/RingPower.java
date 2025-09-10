@@ -136,6 +136,12 @@ public class RingPower extends BasePower {
         }
     }
 
+    @Override
+    public void onVictory() {
+        setIsLightSpeedDashing(false);
+        super.onVictory();
+    }
+
     private int GetPowerAmount(String targetID) {
         if (owner.getPower(makeID(targetID)) != null) {
             return owner.getPower(makeID(targetID)).amount;

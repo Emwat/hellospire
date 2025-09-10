@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.cards.BaseCard;
 import hellospire.cards.Ring;
@@ -40,6 +41,7 @@ public class BouncePad extends BaseCard {
     public BouncePad() {
         super(ID, info);
         this.cardsToPreview = new hellospire.cardsPackExclusive.Ring();
+        setBackgroundTexture(SonicMod.characterPath("cardback/bg_skill.png"), SonicMod.characterPath("cardback/bg_skill_p"));
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
