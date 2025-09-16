@@ -55,7 +55,7 @@
       " #yGold. Shuffle #g",
       " choices for each color to the Discussion.",
       "[LOCKED] You need a Chaos Soda.",
-      "[#rGive #rChaos #rSoda to ",
+      "[Give #rChaos #rSoda to ",
       "] Add #b",
       " choices to the Discussion.",
       "[Watch the show] #bAction: #gHeal #g",
@@ -85,17 +85,21 @@
       "If the attack is fatal on anything but Darklings, Defect's Echo Form will persist for the next card. ",
       "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
       "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1.",
-      "The Ironclad prefers alcohol, but this is a kid-friendly zone.",
+      "The Ironclad prefers ~The~ ~BlOOD~ ~of~ ~HIS~ ~ENEMIES~, but this is a kid-friendly zone.",
       "In his debut, Knuckles sucker punched Super Sonic so hard, Sonic lost his Super form and the Chaos Emeralds.",
       "Knuckles: \"Grape flavored. Just how I like it!\"",
       "Rouge has her own casino.",
       "Rouge: \"Thanks Handsome. Now, let's talk Business.\"",
       "Alchemize can generate Regen and Blood Potion. It cannot generate Fruit Juice.",
-      "\"...\" The Silent calmly drinks the soda.",
+      "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
       "Tails has a Mega Buster.",
       "Tails: \"Thanks Sonic! It's nice to slow down for a change.\"",
       "Meditate + Establishment = Free cards.",
-      "She already had some tea set aside, but she takes it and thanks you anyway."
+      "She already had some tea set aside, but she takes it and thanks you anyway.",
+      "To Rummage... or not to Rummage?",
+      "The Packmaster smiles and is eager to talk about their collection.",
+      "The character takes the soda and hands you a note. \"Thank you.\" This is your handwriting. What is going on?",
+      "The character seems pleased."
     ],
     "OPTIONS": [
       "[Leave]"

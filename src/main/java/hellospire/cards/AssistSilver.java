@@ -1,9 +1,12 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
 import hellospire.powers.SilverPower;
@@ -23,13 +26,16 @@ public class AssistSilver extends BaseCard {
     private static final int UPG_MAGIC = 2;
     private static final int SCRY_AMOUNT = 3;
     private static final String KEYWORD_SCRY = "CustomVar_SCRY";
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(165, 183, 170);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(255, 255, 255);
 
     public AssistSilver() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
         setCustomVar(KEYWORD_SCRY, SCRY_AMOUNT);
-
+        FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
+        FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override

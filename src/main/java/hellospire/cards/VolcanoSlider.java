@@ -1,19 +1,24 @@
 package hellospire.cards;
 
+import basemod.helpers.VfxBuilder;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
+import hellospire.effects.ModFireSomersaultEffect;
+import hellospire.effects.ModVolcanoSliderEffect;
 import hellospire.relics.FireSoulRelic;
 import hellospire.util.CardStats;
 import hellospire.util.ExtraIcons;
@@ -59,6 +64,12 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (Settings.FAST_MODE) {
+            addToBot(new VFXAction(p, new ModVolcanoSliderEffect(p.hb.cX, p.hb.cY, m.hb.cX, (int)(damage / DAMAGE)), 0.1F));
+        } else {
+            addToBot(new VFXAction(p, new ModVolcanoSliderEffect(p.hb.cX, p.hb.cY, m.hb.cX, (int)(damage / DAMAGE)), 0.5F));
+        }
+
         if (this.timesUpgraded > CREST_OF_FIRE_MARK){
             int self_damage = timesUpgraded - CREST_OF_FIRE_MARK;
             addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));

@@ -122,7 +122,7 @@
       "level up",
       "level_up"
     ],
-    "DESCRIPTION": "If you haven't played any cards this combat, #yRings in your hand increase your Block by #b1. NL If your last card played was an #yAttack, #yRings in your hand increase your damage by #b1. NL If your last card played was a #ySkill, #yRings in your hand increase your Block by #b1. NL If your last card played was a #yPower, #yRings in your hand increase your #yFocus by #b1."
+    "DESCRIPTION": "If you haven't played anything or your last card played was a #ySkill, #yRings in your hand increase your Block by #b1. NL If your last card played was an #yAttack, #yRings in your hand increase your damage by #b1. NL If your last card played was a #yPower, #yRings in your hand increase your #yFocus by #b1."
   },
   {
     "ID": "wordLightSpeedDashSmallPrint",

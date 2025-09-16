@@ -40,6 +40,7 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistChip());
         characterCards.add(new AssistCream());
         characterCards.add(new AssistEspio());
+        characterCards.add(new AssistJet());
         characterCards.add(new AssistKnuckles());
         characterCards.add(new AssistRosy());
         characterCards.add(new AssistRouge());

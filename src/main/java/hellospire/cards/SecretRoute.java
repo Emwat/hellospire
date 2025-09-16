@@ -16,7 +16,7 @@ public class SecretRoute extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.SPECIAL,
+            CardRarity.RARE,
             CardTarget.SELF,
             1
     );

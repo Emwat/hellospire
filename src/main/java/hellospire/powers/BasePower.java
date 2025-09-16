@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import static hellospire.SonicMod.makeID;
+
 public abstract class BasePower extends AbstractPower {
     private static PowerStrings getPowerStrings(String ID)
     {
@@ -83,6 +85,13 @@ public abstract class BasePower extends AbstractPower {
 
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(this.amount2), x, y + 15.0F * Settings.scale, this.fontScale, c);
         }
+    }
+
+    public int ModGetPowerAmount(String targetID) {
+        if (owner.getPower(targetID) != null) {
+            return owner.getPower(targetID).amount;
+        }
+        return 0;
     }
 
 

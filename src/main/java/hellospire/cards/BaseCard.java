@@ -103,9 +103,9 @@ public abstract class BaseCard extends CustomCard {
         // SetCustomCardback();
     }
 
-    private void SetCustomCardback(){
+    private void SetCustomCardback() {
         if (this.color == Sonic.Meta.CARD_COLOR) {
-            this.setPortraitTextures(SonicMod.imagePath("nothing.png"),SonicMod.imagePath("nothing.png"));
+            this.setPortraitTextures(SonicMod.imagePath("nothing.png"), SonicMod.imagePath("nothing.png"));
             // ImageMaster.CARD_RARE_FRAME_LEFT
             // setPortraitTextures(
             // String cardFrameSmall,
@@ -134,7 +134,7 @@ public abstract class BaseCard extends CustomCard {
         return CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
     }
 
-    //Methods meant for constructor use
+    // Methods meant for constructor use
     protected final void setDamage(int damage) {
         this.setDamage(damage, 0);
     }
@@ -386,7 +386,7 @@ public abstract class BaseCard extends CustomCard {
     }
 
     public int customVar(String key) {
-        LocalVarInfo var = cardVariables == null ? null : cardVariables.get(key); //Prevents crashing when used with dynamic text
+        LocalVarInfo var = cardVariables == null ? null : cardVariables.get(key); // Prevents crashing when used with dynamic text
         if (var == null)
             return -1;
         return var.value;
@@ -522,7 +522,7 @@ public abstract class BaseCard extends CustomCard {
 
             if (upgradeCost) {
                 if (isCostModified && this.cost < this.baseCost && this.cost >= 0) {
-                    int diff = this.costUpgrade - this.baseCost; //how the upgrade alters cost
+                    int diff = this.costUpgrade - this.baseCost; // how the upgrade alters cost
                     this.upgradeBaseCost(this.cost + diff);
                     if (this.cost < 0)
                         this.cost = 0;
@@ -786,7 +786,7 @@ public abstract class BaseCard extends CustomCard {
             if (handCard == card) {
                 return true;
             }
-            if (!card.hasTag(SonicTags.RING)) {
+            if (!handCard.hasTag(SonicTags.RING)) {
                 j++;
             }
             if (j > 0) {
@@ -811,7 +811,7 @@ public abstract class BaseCard extends CustomCard {
             if (handCard == card) {
                 return true;
             }
-            if (!card.hasTag(SonicTags.RING)) {
+            if (!handCard.hasTag(SonicTags.RING)) {
                 j++;
             }
             if (j > 0) {
@@ -821,7 +821,7 @@ public abstract class BaseCard extends CustomCard {
         return true;
     }
 
-    public boolean HasChanneledOrb(){
+    public boolean HasChanneledOrb() {
         if (AbstractDungeon.player.orbs.isEmpty()) {
             return false;
         }
@@ -829,7 +829,7 @@ public abstract class BaseCard extends CustomCard {
         return !(AbstractDungeon.player.orbs.get(0) instanceof EmptyOrbSlot);
     }
 
-    public boolean HasEmptyOrbSlots(){
+    public boolean HasEmptyOrbSlots() {
         if (AbstractDungeon.player.orbs.isEmpty()) {
             return false;
         }
@@ -875,7 +875,7 @@ public abstract class BaseCard extends CustomCard {
         return AbstractDungeon.player.title.equals("the Rainbow");
     }
 
-    public boolean IsConfusedEgg(){
+    public boolean IsConfusedEgg() {
         return AbstractDungeon.player != null &&
                 !AbstractDungeon.player.hasRelic(SneckoEye.ID) &&
                 AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID);

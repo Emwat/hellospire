@@ -3,19 +3,25 @@ package hellospire.cards;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Bludgeon;
+import com.megacrit.cardcrawl.cards.red.IronWave;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
+import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
+import com.megacrit.cardcrawl.vfx.combat.IronWaveEffect;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.CrestOfFireAction;
 import hellospire.character.Sonic;
+import hellospire.effects.ModFireTackleEffect;
 import hellospire.relics.FireSoulRelic;
 import hellospire.util.CardStats;
 import hellospire.util.ExtraIcons;
@@ -58,6 +64,12 @@ public class FireTackle extends BaseCard implements CrestOfFireCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (Settings.FAST_MODE) {
+            addToBot(new VFXAction(p, new ModFireTackleEffect(p.hb.cX, p.hb.cY), 0.1F));
+        } else {
+            addToBot(new VFXAction(p, new ModFireTackleEffect(p.hb.cX, p.hb.cY), 0.5F));
+        }
+
         addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
 
         if (this.timesUpgraded > CREST_OF_FIRE_MARK) {

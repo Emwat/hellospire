@@ -28,7 +28,7 @@ public class BlueBomber extends BaseCard {
     private static final int DAMAGE = 14;
     private static final int UPG_DAMAGE = 2;
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 2;
+    private static final int UPG_MAGIC = 3;
 
     public BlueBomber() {
         super(ID, info);

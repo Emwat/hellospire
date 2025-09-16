@@ -34,11 +34,7 @@ public class LoopDeLoop extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int magicOutput = magicNumber;
-        if (!this.upgraded && CheckIfRightCard(this, p.hand)) {
-            magicOutput += 1;
-        }
-        addToBot(new LoopDeLoopAction(p, magicOutput));
+        addToBot(new LoopDeLoopAction(p, magicNumber));
     }
 
     public void triggerOnGlowCheck() {
@@ -56,16 +52,6 @@ public class LoopDeLoop extends BaseCard {
             this.glowColor = Color.RED.cpy();
             return;
         }
-
-        if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    private void setExhaustive2() {
-        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
-        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
-        exhaust = false;
     }
 
     @Override

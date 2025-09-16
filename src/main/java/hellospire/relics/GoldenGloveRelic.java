@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicTags;
 import hellospire.cards.Ring;
 import hellospire.character.Sonic;
+import hellospire.powers.RingPower;
 
 import static hellospire.SonicMod.makeID;
 
@@ -26,7 +27,9 @@ public class GoldenGloveRelic extends BaseRelic {
         super.onPlayCard(c, m);
 
         if (c.hasTag(SonicTags.RING)) {
-            this.flash();
+            if (!RingPower.isLightSpeedDashing) {
+                this.flash();
+            }
             addToBot(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, HPamt));
         }
     }

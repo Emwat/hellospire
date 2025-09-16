@@ -1,9 +1,12 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.orbs.Plasma;
@@ -21,9 +24,14 @@ public class AssistTails extends BaseCard {
             2
     );
 
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(217, 196, 138);
+    private static final Color FLAVOR_TEXT_COLOR = Color.YELLOW.cpy();
+
     public AssistTails() {
         super(ID, info);
         setExhaust(true);
+        FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
+        FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override

@@ -24,6 +24,11 @@
       "Cute Couple: Cost 0 for the rest of combat."
     ]
   },
+  "${modID}:AssistJetMessage": {
+    "TEXT": [
+      "Jet the Hawk: Randomize its cost for this turn."
+    ]
+  },
   "${modID}:CheckpointMessage": {
     "TEXT": [
       "I can only play this if I have a Ring in my hand."

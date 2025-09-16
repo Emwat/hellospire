@@ -1,10 +1,13 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SoundLibrary;
 import hellospire.actions.ModFastAction;
@@ -24,10 +27,15 @@ public class AssistAmy extends BaseCard {
             1
     );
 
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(224, 156, 180);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(181, 0, 0    );
+
     public AssistAmy() {
         super(ID, info);
         setExhaust(true);
         setMagic(1);
+        FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
+        FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override

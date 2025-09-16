@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import hellospire.SonicTags;
 import hellospire.actions.ModFastAction;
+import hellospire.cards.BaseCard;
 import hellospire.character.Sonic;
 
 import static hellospire.SonicMod.makeID;

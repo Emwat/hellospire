@@ -46,74 +46,95 @@
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
-    "DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat. NL Exhaust."
+    "DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat. NL Exhaust.",
+    "FLAVOR": "Have no fear! Amy Rose is here!"
   },
   "${modID}:AssistBarry": {
     "NAME": "Barry the Quokka",
-    "DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your discard pile into your hand. NL Exhaust."
+    "DESCRIPTION": "{@@}Put !M! card{!M!|>1=s} from your discard pile into your hand. NL Exhaustive !stslib:ex!.",
+    "FLAVOR": "Something’s always hidden in the trash, let’s check there."
   },
   "${modID}:AssistBig": {
     "NAME": "Big the Cat",
-    "DESCRIPTION": "{@@}Scry !M!. NL Draw !${modID}:CustomVar_DRAW! card{!${modID}:CustomVar_DRAW!|>1=s}."
+    "DESCRIPTION": "{@@}Scry !M!. NL Draw !${modID}:CustomVar_DRAW! card{!${modID}:CustomVar_DRAW!|>1=s}.",
+    "FLAVOR": "Hold on Froggy, I'm coming!"
   },
   "${modID}:AssistBlaze": {
     "NAME": "Blaze the Cat",
-    "DESCRIPTION": "Ethereal. NL Gain !B! Block and !M! ${modID}:Flame_Barrier for each enemy."
+    "DESCRIPTION": "Ethereal. NL Gain !B! Block and !M! ${modID}:Flame_Barrier for each enemy.",
+    "FLAVOR": "Don't get on my bad side!"
   },
   "${modID}:AssistCharmy": {
     "NAME": "Charmy the Bee",
-    "DESCRIPTION": "Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy. NL Channel !M! Lightning."
+    "DESCRIPTION": "Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy. NL Channel !M! Lightning.",
+    "FLAVOR": "Yeah! Time to rock and roll!"
   },
   "${modID}:AssistChip": {
     "NAME": "Chip",
-    "DESCRIPTION": "Retain. NL Gain !B! Block. NL Enter Calm. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !B! Block. NL Enter Calm. NL Exhaust.",
+    "FLAVOR": "Don't eat me! I taste bad!"
   },
   "${modID}:AssistCream": {
     "NAME": "Cream the Rabbit",
-    "DESCRIPTION": "Heal !M! HP. NL Gain 1 Orb slot. Exhaust."
+    "DESCRIPTION": "Heal !M! HP. NL Gain 1 Orb slot. Exhaust.",
+    "FLAVOR": "Come on, Cheese! We have to help Mr. Sonic!"
   },
   "${modID}:AssistEspio": {
     "NAME": "Espio the Chameleon",
-    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more."
+    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more.",
+    "FLAVOR": "Behold! Ninja power!"
   },
   "${modID}:AssistKnuckles": {
     "NAME": "Fighting Buddies",
-    "DESCRIPTION": "Gain !${modID}:CustomVar_STR! Temporary Strength. Whenever you play an Attack this turn, gain !M! Block."
+    "DESCRIPTION": "Gain !${modID}:CustomVar_STR! Temporary Strength. Whenever you play an Attack this turn, gain !M! Block.",
+    "FLAVOR": "Do I look like I need YOUR power?"
+  },
+  "${modID}:AssistJet": {
+    "NAME": "Jet the Hawk",
+    "DESCRIPTION": "Gain !M! Frost. NL Randomize a card's cost in your hand for this turn.",
+    "FLAVOR": "You're supposed to be the fastest thing alive? NL NL -Art by Yui Karasuno"
   },
   "${modID}:AssistRosy": {
     "NAME": "Believe in Yourself",
-    "DESCRIPTION": "If you have no Attacks in your hand, draw !M! cards.",
-    "FLAVOR": "Extraordinary things can happen if you believe in yourself."
+    "DESCRIPTION": "Gain [E] [E]. If you have no Attacks in your hand, draw !M! cards.",
+    "FLAVOR": "Inside your mind, you will see~ NL Cosmic eternity~"
   },
   "${modID}:AssistRouge": {
     "NAME": "Rouge the Bat",
-    "DESCRIPTION": "Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! cards. NL Gain [E] [E]."
+    "DESCRIPTION": "Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! cards. NL Gain [E] [E].",
+    "FLAVOR": "Never underestimate an agent. You'll get burned."
   },
   "${modID}:AssistShadow": {
     "NAME": "Shadow",
     "DESCRIPTION": "Ethereal. NL Gain 1 Intangible. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust.",
+    "FLAVOR": "Witness the Ultimate Power."
   },
   "${modID}:AssistSilver": {
     "NAME": "Silver",
-    "DESCRIPTION": "Scry !${modID}:CustomVar_SCRY!. NL ALL enemies lose !M! Strength next turn for one turn. NL Exhaust."
+    "DESCRIPTION": "Scry !${modID}:CustomVar_SCRY!. NL ALL enemies lose !M! Strength next turn for one turn. NL Exhaust.",
+    "FLAVOR": "Don't you DARE turn your back on me!"
   },
   "${modID}:AssistSticks": {
     "NAME": "Sticks the Badger",
-    "DESCRIPTION": "All Starter Strikes and Defends cost 0 and gain ${modID}:Spin_Up."
+    "DESCRIPTION": "All Starter Strikes and Defends cost 0 and gain ${modID}:Spin_Up.",
+    "FLAVOR": "Blast Processing technology? Those are just phoney-baloney buzz words to fool the simple minded!"
   },
   "${modID}:AssistTails": {
     "NAME": "Unbreakable Bond",
     "DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Plasma. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma. NL Exhaust.",
+    "FLAVOR": "It has the same wavelength and properties, but it's less powerful than the real one."
   },
   "${modID}:AssistTikal": {
     "NAME": "Tikal the Echidna",
-    "DESCRIPTION": "Innate. NL Gain !B! Block. NL If the enemy intends to attack, this card will glow. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Gain !B! Block. NL If the enemy intends to attack, this card will glow. NL Exhaust.",
+    "FLAVOR": "The servers are the seven chaos. Chaos is power, power enriched by the heart."
   },
   "${modID}:AssistVector": {
     "NAME": "Vector the Crocodile",
-    "DESCRIPTION": "{@@}Gain !M! Vigor. NL Put a card from your discard pile on top of your draw pile."
+    "DESCRIPTION": "{@@}Gain !M! Vigor. NL Put a card from your discard pile on top of your draw pile.",
+    "FLAVOR": "All a part of being a good detective."
   },
   "${modID}:Athleticism": {
     "NAME": "Athleticism",
@@ -243,8 +264,8 @@
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_most_right, lose 1 less. NL Every turn, gain 1 [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the end of this turn, lose !M! Dexterity. NL Every turn, gain 1 [E]."
+    "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_most_right, lose 1 less. NL Every turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of this turn, lose !M! Dexterity. NL Every turn, gain [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -466,7 +487,7 @@
   },
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
-    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. ${modID}:If_most_right, draw 1 more. They cost 0 this turn.",
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. It costs 0 this turn.",
     "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. They cost 0 this turn."
   },
   "${modID}:MagicHands": {
@@ -480,8 +501,8 @@
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Gain Vigor for every card in your exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Gain Vigor for every card in your exhaust pile and every card in your hand."
+    "DESCRIPTION": "Gain Vigor for every card in your Exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Gain Vigor for every card in your Exhaust pile and every card in your hand."
   },
   "${modID}:NiceSmile": {
     "NAME": "Perfect Score",

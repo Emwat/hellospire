@@ -174,6 +174,7 @@ public class SonicMod implements
         loadConfig();
         ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
         ConsoleCommand.addCommand("sonicunlock", SonicConsoleAchievement.class);
+        ConsoleCommand.addCommand("sss", SonicConsoleFast.class);
     }
 
     private void registerEvents() {
@@ -580,6 +581,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.Cream, audioEngPath("sh_cream_herewego.ogg"));
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
         BaseMod.addAudio(SoundLibrary.Espio, audioEngPath("sh_espio_letsgo.ogg"));
+        BaseMod.addAudio(SoundLibrary.Jet, audioEngPath("sri_jet_nowayimgonnalose.ogg"));
         BaseMod.addAudio(SoundLibrary.Knuckles, audioEngPath("sh_knux_gotit.ogg"));
         BaseMod.addAudio(SoundLibrary.Rouge, audioEngPath("sh_rouge_illtakeitfromhere.ogg"));
         BaseMod.addAudio(SoundLibrary.Shadow, audioEngPath("sh_shadow_illtakeitfromhere.ogg"));
@@ -592,7 +594,6 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.MetalAppropriate, audioEngPath("sh_metal_how_appropriate.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Boost, audioPath("su_boost.ogg"));
-        BaseMod.addAudio(SoundLibrary.Homing, audioPath("su_homing.ogg"));
         BaseMod.addAudio(SoundLibrary.Jump, audioPath("su_jump.ogg"));
         BaseMod.addAudio(SoundLibrary.Rail, audioPath("su_rail.ogg"));
         BaseMod.addAudio(SoundLibrary.SonicBoom, audioPath("su_sonicboom.ogg"));

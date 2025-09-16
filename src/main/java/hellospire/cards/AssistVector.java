@@ -1,5 +1,7 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -8,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Headbutt;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
@@ -27,11 +30,15 @@ public class AssistVector extends BaseCard {
 
     private static final int MAGIC = 5;
     private static final int UPG_MAGIC = 3;
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(113, 163, 90);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(78, 113, 63);
 
     public AssistVector() {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
+        FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
+        FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override

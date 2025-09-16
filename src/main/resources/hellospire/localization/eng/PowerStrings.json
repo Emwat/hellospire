@@ -76,8 +76,8 @@
   "${modID}:MissionRingRacePower": {
     "NAME": "Mission: Ring Race",
     "DESCRIPTIONS": [
-      "Exhaust ",
-      " cards as fast as possible! Doing so will immediately end the combat.",
+      "#yExhaust #b",
+      " #ycards #yas #yfast #yas #ypossible! Doing so will immediately end the combat.",
       "S Rank: ",
       " Turns NL A Rank: ",
       " Turns NL B Rank: ",
@@ -87,7 +87,7 @@
   "${modID}:MissionScoreAttackPower": {
     "NAME": "Mission: Score Attack",
     "DESCRIPTIONS": [
-      "Deal as much damage as you can! NL ",
+      "#yDeal #yas #ymuch #ydamage #yas #yyou #ycan! NL ",
       "S Rank: ",
       "+ Damage NL A Rank: ",
       "+ Damage NL B Rank: ",
@@ -97,7 +97,7 @@
   "${modID}:MissionTimeAttackPower": {
     "NAME": "Mission: Time Attack",
     "DESCRIPTIONS": [
-      "Win the combat as fast as possible! NL",
+      "#yWin #ythe #ycombat #yas #yfast #yas #ypossible! NL ",
       "S Rank: ",
       " Turns NL A Rank: ",
       " Turns NL B Rank: ",
@@ -107,8 +107,8 @@
   "${modID}:ModDrawReductionPower": {
     "NAME": "Draw Reduction",
     "DESCRIPTIONS": [
-      "Draw 1 less card for the next turn.",
-      "Draw 1 less card for the next #b",
+      "Draw #b1 less card for the next turn.",
+      "Draw #b1 less card for the next #b",
       " turns."
     ]
   },
@@ -134,8 +134,8 @@
   "${modID}:RicochetPower": {
     "NAME": "Ricochet",
     "DESCRIPTIONS": [
-      "When you use #yVigor, return ALL Ricochets from the discard pile to your hand. NL You have #b",
-      " Ricochets in the discard pile."
+      "When you use #yVigor, return ALL #yRicochets from the discard pile to your hand. NL You have #b",
+      " #yRicochets in the discard pile."
     ]
   },
   "${modID}:RingPower": {
@@ -174,10 +174,10 @@
   "${modID}:ThunderShieldPower": {
     "NAME": "Thunder Shield",
     "DESCRIPTIONS": [
-      "At the end of your turn, Gain #b",
-      " Ring and Channel #b",
-      " Rings and Channel #b",
-      " Lightning. Your Rings trigger Lightning #b",
+      "At the end of your turn and after your orbs activate their passives, Gain #b",
+      " #yRing and #yChannel #b",
+      " #yRings and #yChannel #b",
+      " Lightning. Your #yRings trigger Lightning #b",
       " time.",
       " times."
     ]

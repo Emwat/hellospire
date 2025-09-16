@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.ModFastAction;
+import hellospire.cards.BaseCard;
 import hellospire.cards.Ring;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;

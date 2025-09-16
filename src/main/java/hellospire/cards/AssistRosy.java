@@ -2,6 +2,7 @@ package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.utility.ConditionalDrawAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,7 +39,7 @@ public class AssistRosy extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ConditionalDrawAction(this.magicNumber, CardType.ATTACK));
+        addToBot(new ConditionalDrawAction(this.magicNumber, CardType.ATTACK));
     }
 
     public void triggerOnGlowCheck() {

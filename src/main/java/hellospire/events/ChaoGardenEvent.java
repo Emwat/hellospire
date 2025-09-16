@@ -2,7 +2,7 @@ package hellospire.events;
 
 import basemod.abstracts.events.PhasedEvent;
 import basemod.abstracts.events.phases.TextPhase;
-import com.megacrit.cardcrawl.audio.SoundMaster;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.city.TheLibrary;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -29,6 +28,7 @@ import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.potions.ChaosSodaPotion;
 import hellospire.relics.*;
+import thePackmaster.ThePackmaster;
 
 import java.util.*;
 import java.util.List;
@@ -37,6 +37,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static hellospire.SonicMod.makeID;
+import static thePackmaster.ThePackmaster.Enums.PACKMASTER_RAINBOW;
 
 public class ChaoGardenEvent extends PhasedEvent {
 
@@ -44,14 +45,16 @@ public class ChaoGardenEvent extends PhasedEvent {
         public String Name;
         public int NumberOfDrinks = 0;
         public AbstractCard.CardColor Color;
+        public CardLibrary.LibraryType CardLibrary;
         public String Character;
         public String DiscussionText;
         public String DrinkText;
         public String VoiceKey;
 
-        private DrinkingBuddy(String buddy, AbstractCard.CardColor color, String characterName, String discussionText, String drinkText, String voiceKey) {
+        private DrinkingBuddy(String buddy, AbstractCard.CardColor color, CardLibrary.LibraryType cardLibrary, String characterName, String discussionText, String drinkText, String voiceKey) {
             this.Name = buddy;
             this.Color = color;
+            this.CardLibrary = cardLibrary;
             this.Character = characterName;
             this.DiscussionText = discussionText;
             this.DrinkText = drinkText;
@@ -78,6 +81,7 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     public static final String ID = makeID("ChaoGardenEvent");
 
+    // region Strings Description
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
     private static final EventStrings discussionStrings = CardCrawlGame.languagePack.getEventString(makeID("ChaoGardenEventDiscussions"));
     private static final String NAME = eventStrings.NAME;
@@ -102,7 +106,9 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String DesKidnapA = DESCRIPTIONS[16];
     private static final String DesKidnapB = DESCRIPTIONS[17];
     private static final String DesAfterGettingChao = DESCRIPTIONS[18];
+    // endregion
 
+    // region Discussion and Drink
     private static final String AmyDiscussion = discussionStrings.DESCRIPTIONS[0];
     private static final String AmyDrink = discussionStrings.DESCRIPTIONS[1];
     private static final String DefectDiscussion = discussionStrings.DESCRIPTIONS[2];
@@ -119,8 +125,11 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String TailsDrink = discussionStrings.DESCRIPTIONS[13];
     private static final String WatcherDiscussion = discussionStrings.DESCRIPTIONS[14];
     private static final String WatcherDrink = discussionStrings.DESCRIPTIONS[15];
+    private static final String PMDiscussion = discussionStrings.DESCRIPTIONS[16];
+    private static final String PMDrink = discussionStrings.DESCRIPTIONS[17];
+    // endregion
 
-
+    // region Options
     private static final String OptLeave = OPTIONS[0];
     private static final String OptAfterIntro = OPTIONS[1];
     private static final String OptNoMoreActions = OPTIONS[2];
@@ -154,6 +163,7 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String OptYouAlrHaveChao = OPTIONS[30];
     private static final String OptChao5C = OPTIONS[31];
     private static final String OptThankYouForChao = OPTIONS[32];
+    // endregion
 
     private static final String IMG = SonicMod.imagePath("events/ChaoGardenReveal.png");
     private static final String IMGLobby = SonicMod.imagePath("events/ChaoGardenReveal.png");
@@ -163,7 +173,7 @@ public class ChaoGardenEvent extends PhasedEvent {
     private boolean hasDiscussed = false;
     private final int maxActions = 2;
     private int actions;
-    private final int numberOfNewChoices = 3;
+    private final int numberOfNewChoices = 5;
     private final int trayWithNumberOfSodas = 3;
     private ArrayList<DrinkingBuddy> DrinkBuddies = new ArrayList<>();
     private static final String phase0_start = "0_welcome";
@@ -178,13 +188,14 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private static final String phase99_leave = "leave99";
     private int healAmt;
-    private int damageHealed = 0;
     private int healPercentage;
     private int hpLoss;
+    private int damageHealed = 0;
     private int damageTaken = 0;
     private int goldLoss = 0;
 
-    int numberOfChoices = 20;
+    int numberOfChoices = 5;
+    int numberOfSonicChoices = 5;
 
     int ChaosSodaCost;
     int ChaosSodaTrayCost;
@@ -209,6 +220,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         initializeEventVariables();
         CardCrawlGame.music.playTempBgmInstantly("CHAO_GARDEN", true);
 
+        // region phase start
         registerPhase(phase0_start, new TextPhase(DesWelcome)
                 .addOption(new TextPhase
                         .OptionInfo(OptAfterIntro)
@@ -235,7 +247,9 @@ public class ChaoGardenEvent extends PhasedEvent {
                         .OptionInfo(OptLeave)
                         .setOptionResult(this::Option99_Leave))
         );
+        // endregion
 
+        // region phase bar
         registerPhase(phase00_bar, GenerateTextPhaseWithActionAndImage(DesEnterBar, IMGBar)
                 .addOption(new TextPhase
                         .OptionInfo(String.format("%s%s%s", OptBuyDrinksA, ChaosSodaCost, OptBuyDrinksB))
@@ -247,25 +261,27 @@ public class ChaoGardenEvent extends PhasedEvent {
                         .setOptionResult(this::Option00_BuyPack))
                 .addOption(new TextPhase
                         .OptionInfo(OptLookAround)
-                        .setOptionResult(this::Option019_LookAround))
+                        .setOptionResult(this::Option090_LookAround))
         );
+        // endregion
 
+        // region phase table
         registerPhase(phase01_table, GenerateTextPhaseWithActionAndImage(DesSitDown, IMGTable)
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(0).OptBuddy())
                         .enabledCondition(() -> CountSodas() > 0, OptYouNeedDrink)
-                        .setOptionResult((i) -> Option020_GiveDrinkToBuddy(DrinkBuddies.get(0).Name, i)))
+                        .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(0).Name, i)))
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(1).OptBuddy())
                         .enabledCondition(() -> CountSodas() > 0, OptYouNeedDrink)
-                        .setOptionResult((i) -> Option020_GiveDrinkToBuddy(DrinkBuddies.get(1).Name, i)))
+                        .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(1).Name, i)))
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(2).OptBuddy())
                         .enabledCondition(() -> CountSodas() > 0, OptYouNeedDrink)
-                        .setOptionResult((i) -> Option020_GiveDrinkToBuddy(DrinkBuddies.get(2).Name, i))
+                        .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(2).Name, i))
                 )
                 .addOption(new TextPhase
-                        .OptionInfo(String.format("%s%s%s%s", OptDiscussA, OptDiscussB, numberOfChoices, OptDiscussC))
+                        .OptionInfo(String.format("%s%s%s+%s", OptDiscussA, OptDiscussB, numberOfChoices, OptDiscussC))
                         .enabledCondition(() -> !hasDiscussed, OptDiscussLocked)
                         .cardSelectOption(phase010_afterDiscussion,
                                 DiscussSupplier,
@@ -278,13 +294,13 @@ public class ChaoGardenEvent extends PhasedEvent {
                                 DiscussBiconsumer))
                 .addOption(new TextPhase
                         .OptionInfo(OptLookAround)
-                        .setOptionResult(this::Option019_LookAround))
+                        .setOptionResult(this::Option090_LookAround))
         );
 
         registerPhase(phase010_afterDiscussion, GenerateDiscussTextPhase()
                 .addOption(new TextPhase
                         .OptionInfo(OptLookAround)
-                        .setOptionResult(this::Option019_LookAround))
+                        .setOptionResult(this::Option090_LookAround))
         );
 
         registerPhase(phase02_afterHeal, GenerateTextPhaseWithActionAndImage("", IMGStage)
@@ -308,7 +324,9 @@ public class ChaoGardenEvent extends PhasedEvent {
                         .OptionInfo(OptLeave)
                         .setOptionResult(this::Option99_Leave))
         );
+        // endregion
 
+        // region phase chao
         registerPhase(phase03_chao, GenerateTextPhaseWithActionAndImage(DesChaoStart, IMGLobby)
                 .addOption(new TextPhase
                         .OptionInfo(OptChao1)
@@ -328,7 +346,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                         .setOptionResult(this::Option031_KidnapChaoPage1))
                 .addOption(new TextPhase
                         .OptionInfo(OptLookAround)
-                        .setOptionResult(this::Option019_LookAround))
+                        .setOptionResult(this::Option090_LookAround))
         );
 
         registerPhase(phase030_theKidnapping, new TextPhase(DesKidnapA)
@@ -342,6 +360,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                         .OptionInfo(OptThankYouForChao)
                         .setOptionResult(this::Option03100_Chao))
         );
+        // endregion
 
         registerPhase(phase99_leave, new TextPhase(DesExit)
                 .addOption(OPTIONS[0], (i) -> openMap()));
@@ -351,23 +370,27 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private void initializeEventVariables() {
         if (AbstractDungeon.player instanceof Sonic) {
-            DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, "Defect", TailsDiscussion, TailsDrink, SoundLibrary.Tails));
-            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, "Ironclad", KnucklesDiscussion, KnucklesDrink, SoundLibrary.Knuckles));
-            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, "Silent", RougeDiscussion, RougeDrink, SoundLibrary.Rouge));
-            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, "Watcher", AmyDiscussion, AmyDrink, SoundLibrary.Amy));
+            DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect", TailsDiscussion, TailsDrink, SoundLibrary.Tails));
+            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", KnucklesDiscussion, KnucklesDrink, SoundLibrary.Knuckles));
+            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", RougeDiscussion, RougeDrink, SoundLibrary.Rouge));
+            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", AmyDiscussion, AmyDrink, SoundLibrary.Amy));
+            if (Loader.isModLoaded("anniv5")) {
+                DrinkBuddies.add(new DrinkingBuddy("Packmaster", PACKMASTER_RAINBOW, ThePackmaster.Enums.LIBRARY_COLOR, "Packmaster", PMDiscussion, PMDrink, "VO_MERCHANT_2A"));
+            }
         } else {
             if (!(AbstractDungeon.player instanceof Ironclad)) {
-                DrinkBuddies.add(new DrinkingBuddy("Ironclad", AbstractCard.CardColor.RED, "Ironclad", IroncladDiscussion, IroncladDrink, "VO_IRONCLAD_1A"));
+                DrinkBuddies.add(new DrinkingBuddy("Ironclad", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED,"Ironclad", IroncladDiscussion, IroncladDrink, "VO_IRONCLAD_1A"));
             }
             if (!(AbstractDungeon.player instanceof TheSilent)) {
-                DrinkBuddies.add(new DrinkingBuddy("The Silent", AbstractCard.CardColor.GREEN, "Silent", SilentDiscussion, SilentDrink, "VO_SILENT_1A"));
+                DrinkBuddies.add(new DrinkingBuddy("The Silent", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN,"Silent", SilentDiscussion, SilentDrink, "VO_SILENT_1A"));
             }
             if (!(AbstractDungeon.player instanceof Defect)) {
-                DrinkBuddies.add(new DrinkingBuddy("Defect", AbstractCard.CardColor.BLUE, "Defect", DefectDiscussion, DefectDrink, "ATTACK_DEFECT_BEAM"));
+                DrinkBuddies.add(new DrinkingBuddy("Defect", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE,"Defect", DefectDiscussion, DefectDrink, "ATTACK_DEFECT_BEAM"));
             }
             if (!(AbstractDungeon.player instanceof Watcher)) {
-                DrinkBuddies.add(new DrinkingBuddy("Watcher", AbstractCard.CardColor.PURPLE, "Watcher", WatcherDiscussion, WatcherDrink, "SELECT_WATCHER"));
+                DrinkBuddies.add(new DrinkingBuddy("Watcher", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE,"Watcher", WatcherDiscussion, WatcherDrink, "SELECT_WATCHER"));
             }
+
         }
         Collections.shuffle(DrinkBuddies);
 
@@ -378,17 +401,18 @@ public class ChaoGardenEvent extends PhasedEvent {
         // Heal 30% (example: 21 hp from someone w/ 71 Max HP)
 
         if (AbstractDungeon.ascensionLevel >= 15) {
+            ChaosSodaTrayCost = 49;
             ChaosSodaCost = 39;
             healPercentage = 10;
             hpLoss = 7;
         } else {
+            ChaosSodaTrayCost = 39;
             ChaosSodaCost = 29;
             healPercentage = 16;
             hpLoss = 5;
         }
 
         actions = maxActions;
-        ChaosSodaTrayCost = 99;
 
         healAmt = (int) (AbstractDungeon.player.maxHealth * (healPercentage * 0.01F));
     }
@@ -412,6 +436,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         return String.format("%s %s%s%s", textBody, DesActionsA, actions, DesActionsPlural);
     }
 
+    // region options bar
     private void Option00_GoToBar(Integer i) {
         transitionKey(phase00_bar);
     }
@@ -434,8 +459,9 @@ public class ChaoGardenEvent extends PhasedEvent {
     private void Option00_BuyPack(Integer i) {
         AbstractDungeon.player.loseGold(ChaosSodaTrayCost);
         goldLoss += ChaosSodaTrayCost;
+        int numberOfDrinkBuddyChoices = 3;
 
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < numberOfDrinkBuddyChoices; j++) {
             DrinkingBuddy drinkingBuddy = DrinkBuddies.get(j);
             drinkingBuddy.NumberOfDrinks += 1;
         }
@@ -443,6 +469,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         FollowUp = DesAfterBuyingTray;
         transitionKey(phase0_mainArea);
     }
+    // endregion
 
     private void Option01_SitDown(Integer i) {
         transitionKey(phase01_table);
@@ -460,7 +487,8 @@ public class ChaoGardenEvent extends PhasedEvent {
         transitionKey(phase03_chao);
     }
 
-    private void Option020_GiveDrinkToBuddy(String buddy, Integer i) {
+    // region options table
+    private void Option010_GiveDrinkToBuddy(String buddy, Integer i) {
         actions -= actionCostForGivingDrink;
         DrinkingBuddy thisGuy = DrinkBuddies.stream().filter(d -> Objects.equals(d.Name, buddy)).findFirst().get();
         for (int j = 0; j < AbstractDungeon.player.potionSlots; j++) {
@@ -471,6 +499,13 @@ public class ChaoGardenEvent extends PhasedEvent {
         }
         thisGuy.NumberOfDrinks += 1;
         FollowUp = thisGuy.DrinkText + " NL NL ";
+
+        try {
+            CardCrawlGame.sound.play(thisGuy.VoiceKey);
+        } catch (Exception ex) {
+            SonicMod.logger.error("Option020_GiveDrinkToBuddy {} {} voice not found.", thisGuy.Name, thisGuy.VoiceKey);
+        }
+
         transitionKey(phase01_table);
     }
 
@@ -479,23 +514,8 @@ public class ChaoGardenEvent extends PhasedEvent {
         int extraCardChoice = AbstractDungeon.player.hasRelic(QuestionCard.ID) ? 1 : 0;
         if (!DrinkBuddies.isEmpty()) {
             for (DrinkingBuddy drinkBuddy : DrinkBuddies) {
-                int drinkBuddyCardChoices = drinkBuddy.NumberOfDrinks * (3 + extraCardChoice);
-                AbstractCard.CardColor cardColor = drinkBuddy.Color;
-                ArrayList<AbstractCard> list = null;
-
-                if (cardColor == AbstractCard.CardColor.RED ||
-                        cardColor == AbstractCard.CardColor.GREEN ||
-                        cardColor == AbstractCard.CardColor.BLUE ||
-                        cardColor == AbstractCard.CardColor.PURPLE) {
-                    list = CardLibrary.getCardList(
-                            cardColor == AbstractCard.CardColor.RED ? CardLibrary.LibraryType.RED :
-                                    cardColor == AbstractCard.CardColor.GREEN ? CardLibrary.LibraryType.GREEN :
-                                            cardColor == AbstractCard.CardColor.BLUE ? CardLibrary.LibraryType.BLUE :
-                                                    CardLibrary.LibraryType.PURPLE
-                    );
-                } else {
-                    // TODO: RANDOM CHARACTERS
-                }
+                int drinkBuddyCardChoices = drinkBuddy.NumberOfDrinks * (numberOfNewChoices + extraCardChoice);
+                ArrayList<AbstractCard> list = CardLibrary.getCardList(drinkBuddy.CardLibrary);
 
                 for (int j = 0; j < drinkBuddyCardChoices; j++) {
                     AbstractCard card = list.get(AbstractDungeon.miscRng.random(0, list.size() - 1));
@@ -518,10 +538,11 @@ public class ChaoGardenEvent extends PhasedEvent {
             }
         }
 
-        while (discussCards.size() < 20) {
+        for (int i = 0; i < numberOfSonicChoices; i++) {
             AbstractCard card = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
             discussCards.addToTop(card);
         }
+
         return discussCards;
     };
 
@@ -533,6 +554,10 @@ public class ChaoGardenEvent extends PhasedEvent {
                 DiscussReward = card.makeCopy();
                 AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(DiscussReward, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
                 cardsObtained.add(DiscussReward.name);
+
+                // StampRelic stampRelic = new StampRelic();
+                // AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) Settings.WIDTH * 0.28F, (float) Settings.HEIGHT / 2.0F, stampRelic);
+                // givenRelics.add(stampRelic.name);
             }
         }
     };
@@ -557,11 +582,9 @@ public class ChaoGardenEvent extends PhasedEvent {
         }
         return "";
     }
+    // endregion
 
-    private void Option019_LookAround(Integer i) {
-        transitionKey(phase0_mainArea);
-    }
-
+    // region options chao
     private void Option030_Chao(String element, Integer i) {
         actions -= actionCostForEvolvingChao;
         if ("Lightning".equals(element)) {
@@ -600,6 +623,11 @@ public class ChaoGardenEvent extends PhasedEvent {
         givenRelics.add(this.givenRelic.name);
         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) Settings.WIDTH * 0.28F, (float) Settings.HEIGHT / 2.0F, this.givenRelic);
         FollowUp = DesAfterGettingChao;
+        transitionKey(phase0_mainArea);
+    }
+    // endregion
+
+    private void Option090_LookAround(Integer i) {
         transitionKey(phase0_mainArea);
     }
 

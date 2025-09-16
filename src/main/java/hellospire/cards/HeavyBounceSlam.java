@@ -1,14 +1,18 @@
 package hellospire.cards;
 
 import basemod.helpers.CardModifierManager;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
@@ -42,6 +46,11 @@ public class HeavyBounceSlam extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         SonicMod.logger.info(this.name + " damage is " + this.damage);
+        if (m != null && damage > 30) {
+            addToBot(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY, Color.BLUE.cpy())));
+            addToBot(new WaitAction(0.8F));
+        }
+
         // addToBot(new HeavyIncrementAction(this);
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
                 damage < 11 ? AbstractGameAction.AttackEffect.BLUNT_LIGHT : AbstractGameAction.AttackEffect.BLUNT_HEAVY));

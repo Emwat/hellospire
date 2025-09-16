@@ -145,6 +145,16 @@
       "Your #yRings persist between each combat. If you take #b3+ damage, exhaust ALL of your #yRings."
     ]
   },
+  "${modID}:StampRelic": {
+    "NAME": "Stamp",
+    "FLAVOR": "Meme! Approved.",
+    "DESCRIPTIONS": [
+      "You may #yright-click this relic to #rremove your offclass card from the Chao Garden event.",
+      "You may #yright-click this relic to #rremove ",
+      " from your deck.",
+      "The bottled card has been #rremoved from your deck, the relic no longer functions."
+    ]
+  },
   "${modID}:TailsToyRelic": {
     "NAME": "Tails Toy",
     "FLAVOR": "",

@@ -23,12 +23,12 @@ public class AssistSticks extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            2
+            1
     );
 
     public AssistSticks() {
         super(ID, info);
-        setCostUpgrade(1);
+        setCostUpgrade(0);
     }
 
     @Override

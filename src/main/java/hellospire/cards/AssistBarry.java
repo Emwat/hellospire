@@ -1,8 +1,12 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
@@ -19,11 +23,15 @@ public class AssistBarry extends BaseCard {
 
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(222, 212, 171);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(157, 137, 87);
 
     public AssistBarry() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
-        setExhaust(true);
+        setExhaustive2();
+        FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
+        FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     /// "Show me your power. Or I shall not obey. I represent all things, and shall become Gizoid, the conquerer of all."
@@ -35,5 +43,11 @@ public class AssistBarry extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new AssistBarry();
+    }
+
+    private void setExhaustive2() {
+        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
+        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
+        exhaust = false;
     }
 }

@@ -1,5 +1,7 @@
 package hellospire.cards;
 
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -9,6 +11,7 @@ import com.megacrit.cardcrawl.cards.red.FlameBarrier;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
 import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
@@ -30,6 +33,8 @@ public class AssistBlaze extends BaseCard {
     private static final int UPG_BLOCK = 2;
     private static final int MAGIC = 4;
     private static final int UPG_MAGIC = 2;
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(180, 164, 193);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(61, 15, 79);
 
     public AssistBlaze() {
         super(ID, info);
@@ -37,6 +42,8 @@ public class AssistBlaze extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
         setEthereal(true);
+        FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
+        FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override

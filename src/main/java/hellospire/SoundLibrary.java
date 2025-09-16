@@ -94,6 +94,7 @@ public class SoundLibrary {
     static public final String CuteCouple = makeID("ogg_cutecouple");
     static public final String Cream = makeID("ogg_cream");
     static public final String Espio = makeID("ogg_espio");
+    static public final String Jet = makeID("ogg_jet");
     static public final String Knuckles = makeID("ogg_knux");
     public static final String Sticks = makeID("ogg_sticks");;
     public static final String Shadow = makeID("ogg_shadow");;
@@ -107,7 +108,6 @@ public class SoundLibrary {
     public static String MetalAppropriate = makeID("ogg_metal_appropriate");
 
     static public final String Boost = makeID("ogg_boost");
-    static public final String Homing = makeID("ogg_homing");
     static public final String Jump = makeID("ogg_jump");
     static public final String Rail = makeID("ogg_rail");
     static public final String SonicBoom = makeID("ogg_sonic_boom");

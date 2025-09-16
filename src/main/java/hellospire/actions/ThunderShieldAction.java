@@ -12,9 +12,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
+import hellospire.cards.BaseCard;
 import hellospire.cards.Ring;
 
 import java.util.Objects;
@@ -39,7 +41,7 @@ public class ThunderShieldAction extends AbstractGameAction {
         }
 
         for (AbstractOrb orb : p.orbs) {
-            if (Objects.equals(orb.name, "Lightning")) {
+            if (orb instanceof Lightning) {
                 for (int i = 0; i < rings; i++) {
                     for (int j = 0; j < amount; j++) {
                         orb.onStartOfTurn();

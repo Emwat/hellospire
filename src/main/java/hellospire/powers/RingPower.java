@@ -1,6 +1,5 @@
 package hellospire.powers;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,10 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.ThousandCutsPower;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.ModFastAction;
+import hellospire.cards.BaseCard;
 
 import java.util.Objects;
 
@@ -48,7 +47,7 @@ public class RingPower extends BasePower {
     }
 
     public void updateDescription() {
-        int amountSpeed = GetPowerAmount("LevelUpSpeedPower");
+        int amountSpeed = ModGetPowerAmount(LevelUpSpeedPower.POWER_ID);
         String amountSpeedText = String.valueOf(this.amount + (amountSpeed * this.amount));
 
         if (amount == 1) {
@@ -62,14 +61,14 @@ public class RingPower extends BasePower {
     //         "."
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        int amountPower = GetPowerAmount("LevelUpPowerPower") * this.amount;
+        int amountPower = ModGetPowerAmount(LevelUpPowerPower.POWER_ID) * this.amount;
         return type == DamageInfo.DamageType.NORMAL ? damage + (float) amountPower : damage;
     }
 
     public float modifyBlock(float blockAmount) {
         float outputBlock;
         float tempAmount = (float) this.amount;
-        int amountSpeed = GetPowerAmount("LevelUpSpeedPower") * this.amount;
+        int amountSpeed = ModGetPowerAmount(LevelUpSpeedPower.POWER_ID) * this.amount;
         // SonicMod.logger.info("amountSpeed: " + amountSpeed);
 
         outputBlock = blockAmount + tempAmount + amountSpeed;
@@ -142,12 +141,7 @@ public class RingPower extends BasePower {
         super.onVictory();
     }
 
-    private int GetPowerAmount(String targetID) {
-        if (owner.getPower(makeID(targetID)) != null) {
-            return owner.getPower(makeID(targetID)).amount;
-        }
-        return 0;
-    }
+
 
     @Override
     public int onHeal(int healAmount) {

@@ -1,72 +1,72 @@
 package hellospire.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.BladeDance;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
 import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
-import hellospire.SonicMod;
 import hellospire.SoundLibrary;
+import hellospire.actions.ModFastAction;
+import hellospire.actions.RandomizeCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
 
-public class AssistEspio extends BaseCard {
-    public static final String ID = makeID("AssistEspio");
+public class AssistJet extends BaseCard {
+    public static final String ID = makeID("AssistJet");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
-            1
+            0
     );
 
-    private static final int BLOCK = 3;
-    private static final int UPG_BLOCK = 3;
     private static final int MAGIC = 2;
-    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(200, 0, 140);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(255, 240, 0);
+    private static final int UPG_MAGIC = 1;
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(121, 181, 161);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(0, 0, 0);
 
-    public AssistEspio() {
+    public AssistJet() {
         super(ID, info);
-        this.cardsToPreview = new Shiv();
 
-        setBlock(BLOCK, UPG_BLOCK);
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
+        setEthereal(true);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Espio));
-        addToBot(new GainBlockAction(p, block));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.magicNumber));
-        if (SonicMod.attackCardsPlayedThisTurn == 0) {
-            addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
-        }
-    }
+        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Jet));
 
-    public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
-        if (SonicMod.attackCardsPlayedThisTurn == 0) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        for (int i = 0; i < magicNumber; i++) {
+            addToBot(new ChannelAction(new Frost()));
         }
+        addToBot(new SelectCardsInHandAction(
+                1,
+                CardCrawlGame.languagePack.getUIString(makeID("AssistJetMessage")).TEXT[0],
+                false, false, pickableCards, cards -> {
+            for (AbstractCard c : cards) {
+                addToBot(new RandomizeCostAction(c));
+            }
+        }));
+
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
-        return new AssistEspio();
+    public AbstractCard makeCopy() { // Optional
+        return new AssistJet();
     }
 }
