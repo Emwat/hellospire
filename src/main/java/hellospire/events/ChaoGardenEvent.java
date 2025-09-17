@@ -1,15 +1,14 @@
 package hellospire.events;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.events.PhasedEvent;
 import basemod.abstracts.events.phases.TextPhase;
 import com.evacipated.cardcrawl.modthespire.Loader;
+import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.Defect;
-import com.megacrit.cardcrawl.characters.Ironclad;
-import com.megacrit.cardcrawl.characters.TheSilent;
-import com.megacrit.cardcrawl.characters.Watcher;
+import com.megacrit.cardcrawl.characters.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -127,6 +126,8 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String WatcherDrink = discussionStrings.DESCRIPTIONS[15];
     private static final String PMDiscussion = discussionStrings.DESCRIPTIONS[16];
     private static final String PMDrink = discussionStrings.DESCRIPTIONS[17];
+    private static final String OtherDiscussion = discussionStrings.DESCRIPTIONS[18];
+    private static final String OtherDrink = discussionStrings.DESCRIPTIONS[19];
     // endregion
 
     // region Options
@@ -142,27 +143,28 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String OptBuyPackA = OPTIONS[9];
     private static final String OptBuyPackB = OPTIONS[10];
     private static final String OptBuyPackC = OPTIONS[11];
-    private static final String OptYouNeedDrink = OPTIONS[12];
-    private static final String OptPartnerA = OPTIONS[13];
-    private static final String OptPartnerB = OPTIONS[14];
-    private static final String OptPartnerC = OPTIONS[15];
-    private static final String OptWatchShowA = OPTIONS[16];
-    private static final String OptWatchShowB = OPTIONS[17];
-    private static final String OptWatchShowC = OPTIONS[18];
-    private static final String OptDiscussA = OPTIONS[19];
-    private static final String OptDiscussB = OPTIONS[20];
-    private static final String OptDiscussC = OPTIONS[21];
-    private static final String OptDiscussLocked = OPTIONS[22];
-    private static final String OptHugStart = OPTIONS[23];
-    private static final String OptChao1 = OPTIONS[24];
-    private static final String OptChao2 = OPTIONS[25];
-    private static final String OptChao3 = OPTIONS[26];
-    private static final String OptYouNeedChao = OPTIONS[27];
-    private static final String OptChao5A = OPTIONS[28];
-    private static final String OptChao5B = OPTIONS[29];
-    private static final String OptYouAlrHaveChao = OPTIONS[30];
-    private static final String OptChao5C = OPTIONS[31];
-    private static final String OptThankYouForChao = OPTIONS[32];
+    private static final String OptYouNeedDrinkA = OPTIONS[12];
+    private static final String OptYouNeedDrinkB = OPTIONS[13];
+    private static final String OptPartnerA = OPTIONS[14];
+    private static final String OptPartnerB = OPTIONS[15];
+    private static final String OptPartnerC = OPTIONS[16];
+    private static final String OptWatchShowA = OPTIONS[17];
+    private static final String OptWatchShowB = OPTIONS[18];
+    private static final String OptWatchShowC = OPTIONS[19];
+    private static final String OptDiscussA = OPTIONS[20];
+    private static final String OptDiscussB = OPTIONS[21];
+    private static final String OptDiscussC = OPTIONS[22];
+    private static final String OptDiscussLocked = OPTIONS[23];
+    private static final String OptHugStart = OPTIONS[24];
+    private static final String OptChao1 = OPTIONS[25];
+    private static final String OptChao2 = OPTIONS[26];
+    private static final String OptChao3 = OPTIONS[27];
+    private static final String OptYouNeedChao = OPTIONS[28];
+    private static final String OptChao5A = OPTIONS[29];
+    private static final String OptChao5B = OPTIONS[30];
+    private static final String OptYouAlrHaveChao = OPTIONS[31];
+    private static final String OptChao5C = OPTIONS[32];
+    private static final String OptThankYouForChao = OPTIONS[33];
     // endregion
 
     private static final String IMG = SonicMod.imagePath("events/ChaoGardenReveal.png");
@@ -173,8 +175,6 @@ public class ChaoGardenEvent extends PhasedEvent {
     private boolean hasDiscussed = false;
     private final int maxActions = 2;
     private int actions;
-    private final int numberOfNewChoices = 5;
-    private final int trayWithNumberOfSodas = 3;
     private ArrayList<DrinkingBuddy> DrinkBuddies = new ArrayList<>();
     private static final String phase0_start = "0_welcome";
     private static final String phase0_mainArea = "0_mainArea";
@@ -194,8 +194,8 @@ public class ChaoGardenEvent extends PhasedEvent {
     private int damageTaken = 0;
     private int goldLoss = 0;
 
-    int numberOfChoices = 5;
-    int numberOfSonicChoices = 5;
+    private final int numberOfNewChoices = 5;
+    private final int numberOfSonicChoices = 5;
 
     int ChaosSodaCost;
     int ChaosSodaTrayCost;
@@ -256,7 +256,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                         .enabledCondition(() -> AbstractDungeon.player.gold > ChaosSodaCost, OptYouNeedGold)
                         .setOptionResult(this::Option00_BuyDrinks))
                 .addOption(new TextPhase
-                        .OptionInfo(String.format("%s%s%s%s%s", OptBuyPackA, ChaosSodaTrayCost, OptBuyPackB, trayWithNumberOfSodas, OptBuyPackC))
+                        .OptionInfo(String.format("%s%s%s%s%s", OptBuyPackA, ChaosSodaTrayCost, OptBuyPackB, numberOfNewChoices, OptBuyPackC))
                         .enabledCondition(() -> AbstractDungeon.player.gold > ChaosSodaTrayCost, OptYouNeedGold)
                         .setOptionResult(this::Option00_BuyPack))
                 .addOption(new TextPhase
@@ -269,19 +269,19 @@ public class ChaoGardenEvent extends PhasedEvent {
         registerPhase(phase01_table, GenerateTextPhaseWithActionAndImage(DesSitDown, IMGTable)
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(0).OptBuddy())
-                        .enabledCondition(() -> CountSodas() > 0, OptYouNeedDrink)
+                        .enabledCondition(() -> CountSodas() > 0, OptNeedDrink(0) )
                         .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(0).Name, i)))
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(1).OptBuddy())
-                        .enabledCondition(() -> CountSodas() > 0, OptYouNeedDrink)
+                        .enabledCondition(() -> CountSodas() > 0, OptNeedDrink(1))
                         .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(1).Name, i)))
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(2).OptBuddy())
-                        .enabledCondition(() -> CountSodas() > 0, OptYouNeedDrink)
+                        .enabledCondition(() -> CountSodas() > 0, OptNeedDrink(2))
                         .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(2).Name, i))
                 )
                 .addOption(new TextPhase
-                        .OptionInfo(String.format("%s%s%s+%s", OptDiscussA, OptDiscussB, numberOfChoices, OptDiscussC))
+                        .OptionInfo(String.format("%s%s%s+%s", OptDiscussA, OptDiscussB, numberOfNewChoices, OptDiscussC))
                         .enabledCondition(() -> !hasDiscussed, OptDiscussLocked)
                         .cardSelectOption(phase010_afterDiscussion,
                                 DiscussSupplier,
@@ -368,30 +368,14 @@ public class ChaoGardenEvent extends PhasedEvent {
         transitionKey(phase0_start);
     }
 
-    private void initializeEventVariables() {
-        if (AbstractDungeon.player instanceof Sonic) {
-            DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect", TailsDiscussion, TailsDrink, SoundLibrary.Tails));
-            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", KnucklesDiscussion, KnucklesDrink, SoundLibrary.Knuckles));
-            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", RougeDiscussion, RougeDrink, SoundLibrary.Rouge));
-            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", AmyDiscussion, AmyDrink, SoundLibrary.Amy));
-            if (Loader.isModLoaded("anniv5")) {
-                DrinkBuddies.add(new DrinkingBuddy("Packmaster", PACKMASTER_RAINBOW, ThePackmaster.Enums.LIBRARY_COLOR, "Packmaster", PMDiscussion, PMDrink, "VO_MERCHANT_2A"));
-            }
-        } else {
-            if (!(AbstractDungeon.player instanceof Ironclad)) {
-                DrinkBuddies.add(new DrinkingBuddy("Ironclad", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED,"Ironclad", IroncladDiscussion, IroncladDrink, "VO_IRONCLAD_1A"));
-            }
-            if (!(AbstractDungeon.player instanceof TheSilent)) {
-                DrinkBuddies.add(new DrinkingBuddy("The Silent", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN,"Silent", SilentDiscussion, SilentDrink, "VO_SILENT_1A"));
-            }
-            if (!(AbstractDungeon.player instanceof Defect)) {
-                DrinkBuddies.add(new DrinkingBuddy("Defect", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE,"Defect", DefectDiscussion, DefectDrink, "ATTACK_DEFECT_BEAM"));
-            }
-            if (!(AbstractDungeon.player instanceof Watcher)) {
-                DrinkBuddies.add(new DrinkingBuddy("Watcher", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE,"Watcher", WatcherDiscussion, WatcherDrink, "SELECT_WATCHER"));
-            }
+    private String OptNeedDrink(int buddyIndex) {
+        return OptYouNeedDrinkA + DrinkBuddies.get(buddyIndex).Name + OptYouNeedDrinkB;
+    }
 
-        }
+    private void initializeEventVariables() {
+
+        // InitializeSonicsFriends();
+        InitializeEveryone();
         Collections.shuffle(DrinkBuddies);
 
         // Library
@@ -552,12 +536,12 @@ public class ChaoGardenEvent extends PhasedEvent {
         if (!cards.isEmpty()) {
             for (AbstractCard card : cards) {
                 DiscussReward = card.makeCopy();
-                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(DiscussReward, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(DiscussReward, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
                 cardsObtained.add(DiscussReward.name);
 
-                // StampRelic stampRelic = new StampRelic();
-                // AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) Settings.WIDTH * 0.28F, (float) Settings.HEIGHT / 2.0F, stampRelic);
-                // givenRelics.add(stampRelic.name);
+                StampRelic stampRelic = new StampRelic();
+                AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) Settings.WIDTH * 0.28F, (float) Settings.HEIGHT / 2.0F, stampRelic);
+                givenRelics.add(stampRelic.name);
             }
         }
     };
@@ -679,5 +663,94 @@ public class ChaoGardenEvent extends PhasedEvent {
                 AbstractDungeon.player.hasRelic(ChaoWatcherRelic.ID);
     }
 
+    private void InitializeSonicsFriends() {
+        if (AbstractDungeon.player instanceof Sonic) {
+            DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect", TailsDiscussion, TailsDrink, SoundLibrary.Tails));
+            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", KnucklesDiscussion, KnucklesDrink, SoundLibrary.Knuckles));
+            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", RougeDiscussion, RougeDrink, SoundLibrary.Rouge));
+            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", AmyDiscussion, AmyDrink, SoundLibrary.Amy));
+            if (Loader.isModLoaded("anniv5")) {
+                DrinkBuddies.add(new DrinkingBuddy("Packmaster", PACKMASTER_RAINBOW, ThePackmaster.Enums.LIBRARY_COLOR, "Packmaster", PMDiscussion, PMDrink, "VO_MERCHANT_2A"));
+            }
+        }
+    }
+
+    private void InitializeVanilla() {
+        if (!(AbstractDungeon.player instanceof Ironclad)) {
+            DrinkBuddies.add(new DrinkingBuddy("Ironclad", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", IroncladDiscussion, IroncladDrink, "VO_IRONCLAD_1A"));
+        }
+        if (!(AbstractDungeon.player instanceof TheSilent)) {
+            DrinkBuddies.add(new DrinkingBuddy("The Silent", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", SilentDiscussion, SilentDrink, "VO_SILENT_1A"));
+        }
+        if (!(AbstractDungeon.player instanceof Defect)) {
+            DrinkBuddies.add(new DrinkingBuddy("Defect", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect", DefectDiscussion, DefectDrink, "ATTACK_DEFECT_BEAM"));
+        }
+        if (!(AbstractDungeon.player instanceof Watcher)) {
+            DrinkBuddies.add(new DrinkingBuddy("Watcher", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", WatcherDiscussion, WatcherDrink, "SELECT_WATCHER"));
+        }
+    }
+
+    private void InitializeEveryone() {
+        for (AbstractPlayer character : CardCrawlGame.characterManager.getAllCharacters()) {
+            try {
+                CardLibrary.LibraryType libraryType = null;
+                String name = character.title.replace("the ", "");
+                String discussion = OtherDiscussion;
+                String drink = OtherDrink;
+                String voiceKey = "VO_MERCHANT_2A";
+
+                switch (name) {
+                    case "Ironclad":
+                        discussion = IroncladDiscussion;
+                        drink = IroncladDrink;
+                        voiceKey = "VO_IRONCLAD_1A";
+                        break;
+                    case "Silent":
+                        discussion = SilentDiscussion;
+                        drink = SilentDrink;
+                        voiceKey = "VO_SILENT_1A";
+                        break;
+                    case "Defect":
+                        discussion = DefectDiscussion;
+                        drink = DefectDrink;
+                        voiceKey = "ATTACK_DEFECT_BEAM";
+                        break;
+                    case "Watcher":
+                        discussion = WatcherDiscussion;
+                        drink = WatcherDrink;
+                        voiceKey = "SELECT_WATCHER";
+                        break;
+                }
+
+                switch (name) {
+                    case "Ironclad":
+                    case "Silent":
+                    case "Defect":
+                    case "Watcher":
+                        continue;
+                }
+
+                for (CardLibrary.LibraryType library : CardLibrary.LibraryType.values()) {
+                    // SonicMod.logger.info("Library is " + library.toString() + " and cardColor is " + character.getCardColor().toString());
+                    if (library.toString().equals(character.getCardColor().toString())) {
+                        libraryType = library;
+                        break;
+                    }
+                }
+
+                if (libraryType == null) {
+                    continue;
+                }
+
+                DrinkBuddies.add(new DrinkingBuddy(
+                        name,
+                        character.getCardColor(),
+                        libraryType,
+                        name, discussion, drink, voiceKey));
+            } catch (Exception ex) {
+                SonicMod.logger.info("Could not make " + character.name + " into a drinking buddy.");
+            }
+        }
+    }
 
 }

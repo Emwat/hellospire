@@ -96,7 +96,7 @@
   },
   "${modID}:AssistRosy": {
     "NAME": "Believe in Yourself",
-    "DESCRIPTION": "Gain [E] [E]. If you have no Attacks in your hand, draw !M! cards.",
+    "DESCRIPTION": "If you have no Attacks in your hand, draw !M! cards.",
     "FLAVOR": "Inside your mind, you will see~ NL Cosmic eternity~"
   },
   "${modID}:AssistRouge": {
