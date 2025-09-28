@@ -64,6 +64,7 @@ public class RocketAccel extends BaseCard {
                 card2.flash();
             } else if (amountOfAttacks == 1) {
                 CardModifierManager.addModifier(p.hand.getAttacks().group.get(0), new RocketAccelModifier(magicNumber));
+                p.hand.getAttacks().group.get(0).flash();
             }
         }));
     }

@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import hellospire.SonicMod;
@@ -18,6 +19,7 @@ import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.cardmodifiers.SpinUpModifier;
 import hellospire.character.Sonic;
+import hellospire.relics.AirBoostShoesRelic;
 import hellospire.util.CardStats;
 
 public class HeavyBounceSlam extends BaseCard {
@@ -27,7 +29,7 @@ public class HeavyBounceSlam extends BaseCard {
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            2
+            1
     );
 
     private static final int DAMAGE = 10;
@@ -38,14 +40,13 @@ public class HeavyBounceSlam extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        this.returnToHand = true;
         CardModifierManager.addModifier(this, new SpinUpModifier());
-
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        SonicMod.logger.info(this.name + " damage is " + this.damage);
+        this.returnToHand = CheckIfLeftCard(this, p.hand);
+
         if (m != null && damage > 30) {
             addToBot(new VFXAction(new WeightyImpactEffect(m.hb.cX, m.hb.cY, Color.BLUE.cpy())));
             addToBot(new WaitAction(0.8F));
@@ -75,6 +76,22 @@ public class HeavyBounceSlam extends BaseCard {
                     this.isDone = true;
                 }
             });
+        }
+    }
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (isPlayerHandNull()) {
+            return;
+        }
+
+        if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            return;
+        }
+
+        if (CheckIfLeftCard(this, AbstractDungeon.player.hand)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 

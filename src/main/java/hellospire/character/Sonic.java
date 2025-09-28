@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -180,6 +181,14 @@ public class Sonic extends CustomPlayer {
         // Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
+    }
+
+    public String currentSkin;
+    public String defaultSkin;
+
+    public void setupAnimation(String folder) {
+        currentSkin = folder;
+        defaultSkin = currentSkin;
     }
 
     @Override

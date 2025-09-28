@@ -37,8 +37,8 @@ public class Turbulence extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int magicOutput = magicNumber;
-        addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoTurbulence));
-        if (!this.upgraded && CheckIfLeftCard(this, p.hand)) {
+        if (CheckIfLeftCard(this, p.hand)) {
+            addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoTurbulence));
             magicOutput -= 1;
         }
         if (magicOutput > 0) {

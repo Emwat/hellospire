@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.potions.AttackPotion;
 import hellospire.SonicMod;
 
 import static hellospire.SonicMod.makeID;
@@ -40,7 +41,7 @@ public class BlastProcessingPower extends BasePower implements OnCreateCardInter
     public void onCreateCard(AbstractCard abstractCard) {
         boolean possible = abstractCard.cost > 0;
 
-        if (!possible || abstractCard.freeToPlay()) {
+        if (!possible || abstractCard.freeToPlay() || abstractCard.costForTurn == 0) {
             return;
         }
 

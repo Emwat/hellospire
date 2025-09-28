@@ -46,7 +46,7 @@ public class SonicStartTalkingHelper {
                     if ("Sentry".equals(room.monsters.getMonsterNames().get(1))){
                         say(new ArrayList<>(Arrays.asList(
                                 "Let's rock!",
-                                "I remember... fighting these before..."
+                                "Time to party!"
                         )));
                     }
                     break;

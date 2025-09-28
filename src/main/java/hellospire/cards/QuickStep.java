@@ -31,7 +31,7 @@ public class QuickStep extends BaseCard {
     public QuickStep() {
         super(ID, info);
         // Overflow error
-//        this.cardsToPreview = new QuickAir();
+        // this.cardsToPreview = new QuickAir();
 
         setBlock(BLOCK, UPG_BLOCK);
         setExhaust(true);

@@ -13,7 +13,7 @@ import hellospire.SonicMod;
 import hellospire.character.Sonic;
 
 @SpirePatch(clz = TempMusic.class, method = "getSong")
-public class TempMusicPatch {
+public class AudioBossMusicPatch {
 
     @SpirePrefixPatch
     public static SpireReturn<Music> Prefix(TempMusic __instance, String key) {

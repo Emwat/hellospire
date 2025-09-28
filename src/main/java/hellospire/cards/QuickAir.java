@@ -62,7 +62,10 @@ public class QuickAir extends BaseCard {
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
+        super.upgrade();
     }
+
+
 
     @Override
     public AbstractCard makeCopy() { //Optional

@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.actions.ModFastAction;
 
 import static hellospire.SonicMod.makeID;
 
@@ -52,9 +54,21 @@ public class DizzyPower extends BasePower {
         }
     }
 
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        addToBot(new ModFastAction(this::calculateHighestCost));
+    }
+
+    @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        super.onPlayCard(card, m);
+        addToBot(new ModFastAction(this::calculateHighestCost));
+    }
+
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
-            calculateHighestCost();
+            // calculateHighestCost();
             if (damage - highestCost < 0) {
                 return 0;
             }
@@ -71,6 +85,9 @@ public class DizzyPower extends BasePower {
     }
 
     private void calculateHighestCost(){
+        if (AbstractDungeon.player.hand.isEmpty()) {
+            return;
+        }
         for (AbstractCard card : AbstractDungeon.player.hand.group){
             highestCost = Math.max(card.costForTurn, highestCost);
         }

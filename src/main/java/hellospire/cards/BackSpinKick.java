@@ -25,6 +25,8 @@ public class BackSpinKick extends BaseCard {
             3
     );
 
+    // Eviscerate 7(9) * 3
+    // Blood For Blood 18
     private static final int DAMAGE = 16;
     private static final int UPG_DAMAGE = 4;
 

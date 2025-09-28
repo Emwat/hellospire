@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.exordium.Cleric;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.orbs.Plasma;
@@ -55,6 +56,7 @@ public class StampRelic extends BaseRelic implements ClickableRelic, CustomBottl
     public void onRightClick() {
         if (card != null) {
             AbstractDungeon.effectList.add(new PurgeCardEffect(card));
+            AbstractDungeon.player.masterDeck.removeCard(card);
             card = null;
             this.grayscale = true;
         }

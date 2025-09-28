@@ -30,7 +30,7 @@
   "${modID}:DizzyPower": {
     "NAME": "Too Slow",
     "DESCRIPTIONS": [
-      "Target deals damage reduced by the cost of the highest card in your hand (at the end of your turn)."
+      "Target deals damage reduced by the cost of the highest card in your hand."
     ]
   },
   "${modID}:ExtenderPower": {

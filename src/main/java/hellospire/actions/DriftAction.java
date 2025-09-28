@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import hellospire.MyModConfig;
@@ -44,30 +45,32 @@ public class DriftAction extends AbstractGameAction {
             effect = this.energyOnUse;
         }
 
-        if (this.p.hasRelic("Chemical X")) {
+        if (this.p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            this.p.getRelic(ChemicalX.ID).flash();
         }
 
         effect = effect * magicNumber;
-        int orbsPlayed = 0;
 
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
-                for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                    orb.onStartOfTurn();
-                    orb.onEndOfTurn();
-                    if (!(orb instanceof EmptyOrbSlot)) {
-                        orbsPlayed++;
+                addToBot(new ModFastAction(() -> {
+                    int orbsPlayed = 0;
+                    for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+                        orb.onStartOfTurn();
+                        orb.onEndOfTurn();
+                        if (!(orb instanceof EmptyOrbSlot)) {
+                            orbsPlayed++;
+                        }
                     }
-                }
-                boolean used = false;
+                    boolean used = false;
 
-                if (!used && MyModConfig.enableTextPopUps) {
-                    AbstractDungeon.effectList.add(new TextAboveCreatureEffect(this.x, this.y, orbsPlayed + " Orbs played!", GradualColor(orbsPlayed)));
-                    msgsPlayed++;
-                    used = true;
-                }
+                    if (!used && MyModConfig.enableTextPopUps) {
+                        AbstractDungeon.effectList.add(new TextAboveCreatureEffect(this.x, this.y, orbsPlayed + " Orbs played!", GradualColor(orbsPlayed)));
+                        msgsPlayed++;
+                        used = true;
+                    }
+                }));
             }
 
             if (!this.freeToPlayOnce) {

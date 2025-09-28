@@ -4,16 +4,11 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.defect.GashAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.city.Champ;
-import hellospire.SonicMod;
-import hellospire.SonicTags;
 import hellospire.character.Sonic;
 
 import java.util.ArrayList;
@@ -21,7 +16,7 @@ import java.util.ArrayList;
 import static hellospire.SonicMod.makeID;
 
 @SpirePatch(clz = Champ.class, method = "usePreBattleAction")
-public class ChampTalksPatch {
+public class TalksChampPatch {
     @SpirePrefixPatch
     public static void Prefix(Champ __instance) {
         // for (String s : Champ.MOVES){

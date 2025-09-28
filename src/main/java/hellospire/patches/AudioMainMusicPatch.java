@@ -10,7 +10,7 @@ import hellospire.SonicMod;
 import hellospire.character.Sonic;
 
 @SpirePatch(clz = MainMusic.class, method = "getSong")
-public class MainMusicPatch {
+public class AudioMainMusicPatch {
     @SpirePostfixPatch
     public static Music Postfix(Music __result, MainMusic __instance, String key) {
         // Exordium

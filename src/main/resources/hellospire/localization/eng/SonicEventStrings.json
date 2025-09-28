@@ -1,0 +1,26 @@
+{
+  "Champ": {
+    "SAMPLE": [
+      "You call that a weapon?",
+      "Come at me!",
+      "Do your worst! NL @HAHAHA!@",
+      "Have a free shot! NL Futile weakling!",
+      "~You've~ ~done~ ~it~ ~now...~",
+      "@DEFEAT??@ NL @IMPOSSIBLE!!@",
+      "~DIE~ ~.~ ~.~ ~.~",
+      "Face my wrath!",
+      "@THAT'S@ NL @MY@ @BELT!!@,,"
+    ]
+  },
+  "TimeEater": {
+    "SAMPLE": [
+      "~Ah...~ NL ~..company...~",
+      "~Foolish..~ NL @FOOOLISH!@",
+      "~Never....~ NL ~...liked..~ NL ~..you...~"
+    ],
+    "DIALOG": [
+      "You've messed with time... NL @FOR@ @TOO@ @LONG!@",
+      "~The~ ~Stage...~ NL ~is~ ~set...~"
+    ]
+  }
+}

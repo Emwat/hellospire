@@ -30,10 +30,11 @@ public class AssistRouge extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int UPG_MAGIC = -1;
     private final String KEYWORD_DEX = "CustomVar_DEX";
     private static final int DEX_AMT = 2;
+    private static final int ENERGY_AMT = 1;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(184, 144, 179);
     private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(0, 0, 0);
 
@@ -52,7 +53,7 @@ public class AssistRouge extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, customVar(KEYWORD_DEX)), customVar(KEYWORD_DEX)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, customVar(KEYWORD_DEX)), customVar(KEYWORD_DEX)));
         addToBot(new DiscardAction(p, p, magicNumber, false));
-        addToBot(new GainEnergyAction(2));
+        addToBot(new GainEnergyAction(ENERGY_AMT));
     }
 
     @Override

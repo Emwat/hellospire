@@ -29,5 +29,15 @@
       "Take this!",
       "~You'll~ ~regret~ ~this...~"
     ]
+  },
+  "TalksPatchTimeEater": {
+    "NAME": "Time Eater",
+    "DIALOG": [
+      "~Ah...~ NL ~..company...~",
+      "~Foolish..~ NL @FOOOLISH!@",
+      "~Never....~ NL ~...liked..~ NL ~..you...~",
+      "You've messed with time... NL @FOR@ @TOO@ @LONG!@",
+      "~The~ ~Stage...~ NL ~is~ ~set...~"
+    ]
   }
 }

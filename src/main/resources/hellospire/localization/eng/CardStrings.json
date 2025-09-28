@@ -101,7 +101,7 @@
   },
   "${modID}:AssistRouge": {
     "NAME": "Rouge the Bat",
-    "DESCRIPTION": "Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! cards. NL Gain [E] [E].",
+    "DESCRIPTION": "Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! cards. NL Gain [E].",
     "FLAVOR": "Never underestimate an agent. You'll get burned."
   },
   "${modID}:AssistShadow": {
@@ -155,8 +155,8 @@
   },
     "${modID}:BlastOff": {
       "NAME": "Blast Off",
-      "DESCRIPTION": "${modID}:Spin_Up. NL Gain [E]. NL ${modID}:If_most_left, gain 1 more.",
-      "UPGRADE_DESCRIPTION": "${modID}:Spin_Up. NL Gain [E] [E]. NL ${modID}:If_most_left, gain 1 more."
+      "DESCRIPTION": "${modID}:Spin_Up. NL Gain [E]. NL ${modID}:If_far_away, gain 1 more.",
+      "UPGRADE_DESCRIPTION": "${modID}:Spin_Up. NL Gain [E] [E]. NL ${modID}:If_far_away, gain 1 more."
     },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
@@ -265,7 +265,7 @@
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
     "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_most_right, lose 1 less. NL Every turn, gain [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the end of this turn, lose !M! Dexterity. NL Every turn, gain [E]."
+    "UPGRADE_DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_most_right, lose 1 less. NL Every turn, gain [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -378,14 +378,11 @@
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
-    "DESCRIPTION": "Deal !D! damage. Double this card's damage. When you play this card, it stays in your hand.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. For the rest of combat, increase this card's damage by half of the damage dealt."
-    ]
+    "DESCRIPTION": "Deal !D! damage. Double this card's damage. ${modID}:If_most_left, it stays in your hand after play."
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. Add a [#efc851ff]Trick to your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. NL Add 2 [#efc851ff]Tricks to your hand.",
       "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand. This stays in your hand for 1 more use.",
@@ -595,8 +592,8 @@
   },
   "${modID}:SecretRoute": {
     "NAME": "Secret Route",
-    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. ${modID}:If_most_right, draw 1 more. They cost 1 less this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. They cost 1 less this turn. NL Exhaust."
+    "DESCRIPTION": "{@@}Draw !${modID}:CustomVar_DRAW! card{!${modID}:CustomVar_DRAW!|>1=s}. NL Lower the cost of !M! card{!M!|>1=s} in your hand by 1 for this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !${modID}:CustomVar_DRAW! card{!${modID}:CustomVar_DRAW!|>1=s}. NL Lower the cost of !M! card{!M!|>1=s} in your hand by 1 for this turn. NL Exhaust."
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
@@ -738,7 +735,7 @@
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
     "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_most_left, lose 1 less. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_most_left, lose 1 less. Whenever you exhaust a card, Channel 1 Frost. Add a [#efc851ff]Trick to your hand."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",

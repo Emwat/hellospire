@@ -26,6 +26,7 @@ public class SlotMachinePull extends BaseCard {
 
     public SlotMachinePull() {
         super(ID, info);
+        setDisplayRarity(CardRarity.RARE);
 
         this.returnToHand = true;
     }

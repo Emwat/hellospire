@@ -28,6 +28,7 @@ import hellospire.character.Sonic;
 // import hellospire.ui.FlagDropDown;
 import hellospire.character.SonicStartTalkingHelper;
 import hellospire.events.*;
+import hellospire.multiplayer.Skindexer;
 import hellospire.util.*;
 import hellospire.character.SonicTipTracker;
 import hellospire.potions.BasePotion;
@@ -106,7 +107,7 @@ public class SonicMod implements
             SpireAnniversary5Mod.subscribe(new PackLoader());
         }
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")){
-            // Skindexer.register();
+            Skindexer.register();
         }
     }
 
@@ -483,7 +484,6 @@ public class SonicMod implements
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(SecretRoute.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
 
         // BaseMod.removeCard(SpinningNeedleAttack.ID, Sonic.Meta.CARD_COLOR);

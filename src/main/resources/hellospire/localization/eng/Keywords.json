@@ -90,10 +90,11 @@
   },
   {
     "ID": "wordMostLeft",
-    "PROPER_NAME": "If Most Left",
+    "PROPER_NAME": "If Far Away",
     "NAMES": [
       "if most left",
-      "if_most_left"
+      "if_most_left",
+      "if_far_away"
     ],
     "DESCRIPTION": "If this card is at the very left of your hand, activate the extra effect. Ignore #yRings for this condition."
   },
@@ -108,10 +109,11 @@
   },
   {
     "ID": "wordMostRight",
-    "PROPER_NAME": "If Most Right",
+    "PROPER_NAME": "If Up Close",
     "NAMES": [
       "if most right",
-      "if_most_right"
+      "if_most_right",
+      "if_up_close"
     ],
     "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect. Ignore #yRings for this condition."
   },

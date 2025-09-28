@@ -24,9 +24,9 @@ public class MissionTextures {
 
     static public void updateIconZ(AbstractPower __instance, int amount, int S, int A, int B) {
         if (false) {}
-        else if (amount <= B) { __instance.img = textureRankS; __instance.region48 = atlasRankS; }
-        else if (amount <= A) { __instance.img = textureRankA; __instance.region48 = atlasRankA; }
-        else if (amount <= S) { __instance.img = textureRankB; __instance.region48 = atlasRankB; }
-        else { __instance.img = textureRankC; __instance.region48 =  atlasRankC; }
+        else if (amount <= B) { __instance.img = textureRankC; __instance.region48 = atlasRankC; }
+        else if (amount <= A) { __instance.img = textureRankB; __instance.region48 = atlasRankB; }
+        else if (amount <= S) { __instance.img = textureRankA; __instance.region48 = atlasRankA; }
+        else { __instance.img = textureRankS; __instance.region48 =  atlasRankS; }
     }
 }

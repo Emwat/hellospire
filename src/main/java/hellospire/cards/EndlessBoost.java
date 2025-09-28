@@ -29,7 +29,7 @@ public class EndlessBoost extends BaseCard {
     public EndlessBoost() {
         super(ID, info);
 
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
@@ -41,7 +41,7 @@ public class EndlessBoost extends BaseCard {
 //                SoundLibrary.NeverUnderestimate
 //        ))));
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.NeverUnderestimate));
-        if (!this.upgraded && CheckIfRightCard(this, p.hand)) {
+        if (CheckIfRightCard(this, p.hand)) {
             magicOutput -= 1;
         }
         if (magicOutput > 0){
@@ -50,16 +50,16 @@ public class EndlessBoost extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new BerserkPower(p, 1)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(UPG_MAGIC);
-            this.setInnate(true);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-        }
-        super.upgrade();
-    }
+    // public void upgrade() {
+    //     if (!this.upgraded) {
+    //         this.upgradeName();
+    //         this.upgradeMagicNumber(UPG_MAGIC);
+    //         this.setInnate(true);
+    //         this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+    //         this.initializeDescription();
+    //     }
+    //     super.upgrade();
+    // }
 
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

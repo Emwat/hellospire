@@ -49,6 +49,11 @@
       "Piping: Exhaust and add a copy to your hand."
     ]
   },
+  "${modID}:SecretRouteMessage": {
+    "TEXT": [
+      "Secret Route: Lower its cost for this turn."
+    ]
+  },
   "${modID}:ShortcutMessage": {
     "TEXT": [
       "Shortcut: Lower its cost for this turn."

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import hellospire.SonicMod;
 
 public class ActivateLeftMostPassiveOrbAction extends AbstractGameAction {
@@ -28,7 +29,7 @@ public class ActivateLeftMostPassiveOrbAction extends AbstractGameAction {
         for (int i = p.orbs.size() - 1; i >= 0; i--) {
             AbstractOrb orb = p.orbs.get(i);
             // SonicMod.logger.info(orb.name + " is orb number " + i);
-            if (!orb.name.equals("Orb Slot")){
+            if (!(orb instanceof EmptyOrbSlot)){
                 leftMostOrb = orb;
                 break;
             }

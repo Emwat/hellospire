@@ -60,7 +60,6 @@ public class HotRod extends BaseCard {
         addToBot(new GainBlockAction(p, block));
         if (ticker == 0) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
-            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Hehe));
         }
     }
 
