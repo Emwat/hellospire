@@ -60,6 +60,13 @@ public class AssistJet extends BaseCard {
                 false, false, pickableCards, cards -> {
             for (AbstractCard c : cards) {
                 addToBot(new RandomizeCostAction(c));
+                addToBot(new ModFastAction(() -> {
+                    if (c.costForTurn == 3) {
+                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.JetSneeze));
+                    } else if (c.costForTurn == 0) {
+                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.JetWhat));
+                    }
+                }));
             }
         }));
 

@@ -24,7 +24,7 @@ public class RandomizeCostAction extends AbstractGameAction {
             return;
         }
 
-        int newCost = AbstractDungeon.cardRandomRng.random(0, 3);
+        int newCost = AbstractDungeon.cardRandomRng.random(3);
         if (card.hasTag(SonicTags.SPIN_UP)) {
             newCost -= 1;
             BaseCard.setCostForCombat(card, Math.max(newCost, 0));

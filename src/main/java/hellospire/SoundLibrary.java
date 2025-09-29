@@ -95,6 +95,8 @@ public class SoundLibrary {
     static public final String Cream = makeID("ogg_cream");
     static public final String Espio = makeID("ogg_espio");
     static public final String Jet = makeID("ogg_jet");
+    static public final String JetSneeze = makeID("ogg_jet_sneeze");
+    static public final String JetWhat = makeID("ogg_jet_what");
     static public final String Knuckles = makeID("ogg_knux");
     public static final String Sticks = makeID("ogg_sticks");;
     public static final String Shadow = makeID("ogg_shadow");;

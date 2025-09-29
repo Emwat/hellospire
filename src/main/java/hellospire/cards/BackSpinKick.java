@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.green.Eviscerate;
+import com.megacrit.cardcrawl.cards.green.MasterfulStab;
 import com.megacrit.cardcrawl.cards.red.BloodForBlood;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -27,6 +28,7 @@ public class BackSpinKick extends BaseCard {
 
     // Eviscerate 7(9) * 3
     // Blood For Blood 18
+    // MasterfulStab 12(16)
     private static final int DAMAGE = 16;
     private static final int UPG_DAMAGE = 4;
 

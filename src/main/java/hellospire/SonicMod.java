@@ -582,6 +582,8 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.CuteCouple, audioEngPath("sa1_0509_Cute_Couples.ogg"));
         BaseMod.addAudio(SoundLibrary.Espio, audioEngPath("sh_espio_letsgo.ogg"));
         BaseMod.addAudio(SoundLibrary.Jet, audioEngPath("sri_jet_nowayimgonnalose.ogg"));
+        BaseMod.addAudio(SoundLibrary.JetSneeze, audioEngPath("sri_jet_achoo.ogg"));
+        BaseMod.addAudio(SoundLibrary.JetWhat, audioEngPath("sri_jet_what.ogg"));
         BaseMod.addAudio(SoundLibrary.Knuckles, audioEngPath("sh_knux_gotit.ogg"));
         BaseMod.addAudio(SoundLibrary.Rouge, audioEngPath("sh_rouge_illtakeitfromhere.ogg"));
         BaseMod.addAudio(SoundLibrary.Shadow, audioEngPath("sh_shadow_illtakeitfromhere.ogg"));

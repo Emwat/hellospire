@@ -1,6 +1,7 @@
 package hellospire;
 
 import basemod.EasyConfigPanel;
+import com.evacipated.cardcrawl.modthespire.Loader;
 
 public class MyModConfig extends EasyConfigPanel {
     public static boolean enableBoss2Music = true;
@@ -14,7 +15,7 @@ public class MyModConfig extends EasyConfigPanel {
     public static boolean enableThreeOrbs = false;
     public static boolean enableSound = true;
     public static boolean enableVoice = true;
-    public static int voiceFrequency = 10;
+    public static int voiceFrequency = Loader.isModLoaded("spireTogether") ? 5 : 10;
     public static int optionStarterRelic = 0;
 
 //    public enum Voice {

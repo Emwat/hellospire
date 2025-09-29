@@ -41,6 +41,9 @@ public class DriftAction extends AbstractGameAction {
 
     public void update() {
         int effect = EnergyPanel.totalCount;
+        int orbsPlayed = 0;
+        boolean used = false;
+
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
         }
@@ -54,23 +57,19 @@ public class DriftAction extends AbstractGameAction {
 
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
-                addToBot(new ModFastAction(() -> {
-                    int orbsPlayed = 0;
-                    for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-                        orb.onStartOfTurn();
-                        orb.onEndOfTurn();
-                        if (!(orb instanceof EmptyOrbSlot)) {
-                            orbsPlayed++;
-                        }
+                for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+                    orb.onStartOfTurn();
+                    orb.onEndOfTurn();
+                    if (!(orb instanceof EmptyOrbSlot)) {
+                        orbsPlayed++;
                     }
-                    boolean used = false;
+                }
+            }
 
-                    if (!used && MyModConfig.enableTextPopUps) {
-                        AbstractDungeon.effectList.add(new TextAboveCreatureEffect(this.x, this.y, orbsPlayed + " Orbs played!", GradualColor(orbsPlayed)));
-                        msgsPlayed++;
-                        used = true;
-                    }
-                }));
+            if (!used && MyModConfig.enableTextPopUps) {
+                AbstractDungeon.effectList.add(new TextAboveCreatureEffect(this.x, this.y, orbsPlayed + " Orbs played!", GradualColor(orbsPlayed)));
+                msgsPlayed++;
+                used = true;
             }
 
             if (!this.freeToPlayOnce) {

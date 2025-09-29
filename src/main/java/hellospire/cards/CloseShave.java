@@ -24,7 +24,7 @@ public class CloseShave extends BaseCard {
             0
     );
 
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 5;
     private static final int MAGIC = 20;
     private static final int UPG_MAGIC = 10;
     // private int blockDeductions = 0;

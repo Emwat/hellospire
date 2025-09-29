@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.SoundLibrary;
 import hellospire.actions.ModFastAction;
 import hellospire.cards.Ricochet;
@@ -42,7 +43,7 @@ public class RicochetPower extends BasePower {
         // super.onPlayCard(card, m);
 
 
-        boolean isVigorAttack = card.type == AbstractCard.CardType.ATTACK && owner.hasPower("Vigor");
+        boolean isVigorAttack = card.type == AbstractCard.CardType.ATTACK && owner.hasPower(VigorPower.POWER_ID);
         int countRicochets = 0;
         ArrayList<AbstractCard> ricochets = new ArrayList<>();
         int currentHandSize = player.hand.size();

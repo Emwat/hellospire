@@ -34,7 +34,7 @@
       "crest of fire",
       "crest_of_fire"
     ],
-    "DESCRIPTION": "If Fatal, upgrade all Crest of Fire cards in your deck permanently. Crest of Fire cards can be upgraded any number of times. NL NL After upgrading more than 7 times, take 1 damage per upgrade. For example, Fire Somersault+10 will hurt you for 3 damage."
+    "DESCRIPTION": "If #yFatal, upgrade all #rCrest #rof #rFire cards in your deck permanently. #rCrest #rof #rFire cards can be upgraded any number of times. NL NL After upgrading more than #b7 times, take #r1 damage per upgrade. For example, #yFire #yTackle+10 will hurt you for #r3 damage."
   },
   {
     "ID": "wordDizzy",
@@ -51,7 +51,7 @@
       "flame barrier",
       "flame_barrier"
     ],
-    "DESCRIPTION": "When you are attacked this turn, deal X damage to the attacker."
+    "DESCRIPTION": "When you are attacked this turn, deal #bX damage to the attacker."
   },
   {
     "ID": "wordFriend",
@@ -68,7 +68,7 @@
       "hot rod",
       "hot_rod"
     ],
-    "DESCRIPTION": "If you haven't played any cards, gain 5(6) Block. NL If you have played 1 card, gain 7(8) Block. NL If you have played 2 cards, gain 10(12) Block AND deal 6(8) damage. NL If you have played 2+ cards, gain 3(4) Block."
+    "DESCRIPTION": "If you haven't played any cards, gain 5(6) Block. NL If you have played #b1 card, gain 7(8) Block. NL If you have played #b2 cards, gain #b10(12) Block AND deal #b6(8) damage. NL If you have played #b2+ cards, gain #b3(4) Block."
   },
   {
     "ID": "wordMagicHandsKW",
@@ -132,7 +132,7 @@
     "NAMES": [
       "lsd"
     ],
-    "DESCRIPTION": "After you play this card, Rings will heal you for 1 HP instead of giving you Temporary HP for the rest of the turn."
+    "DESCRIPTION": "After you play this card, #yRings will heal you for 1 HP instead of giving you Temporary HP for the rest of the turn."
   },
   {
     "ID": "wordSpinUp",
@@ -150,7 +150,7 @@
       "ring",
       "rings"
     ],
-    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. Rings cannot be upgraded."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. [#efc851ff]Rings cannot be upgraded."
   },
   {
     "ID": "wordTrick",

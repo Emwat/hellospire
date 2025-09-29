@@ -681,7 +681,7 @@
     "NAME": "Taunt",
     "DESCRIPTION": "Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn.",
     "EXTENDED_DESCRIPTION": [
-      "Draw 1 Card. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn.",
+      "Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn.",
       "Exit your stance. NL Gain !M! Temporary Dexterity. NL Apply !M! Vulnerable. NL This costs 1 less for each Attack played this turn."
     ]
   },

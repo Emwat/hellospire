@@ -51,7 +51,7 @@ public class Windmill extends BaseCard {
                 addToBot(new RandomizeCostAction(c));
                 addToBot(new ModFastAction( () -> {
                         int difference = Math.abs(c.costForTurn - oldCost);
-                        if (difference >= 3) {
+                        if (difference >= 3 && c.costForTurn == 0) {
                             addToBot(SoundLibrary.VoiceAction(SoundLibrary.PerfectBingo));
                         } else if (c.costForTurn == 0) {
                             addToBot(SoundLibrary.VoiceAction(SoundLibrary.Bingo));
