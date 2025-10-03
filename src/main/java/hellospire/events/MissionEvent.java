@@ -66,6 +66,7 @@ public class MissionEvent extends PhasedEvent {
         registerPhase("01_ScoreAttack", new CombatPhase(Transient.ID).addRewards(false, (room) -> {}));
         registerPhase("02_TimeAttack", new CombatPhase("TimeAttackLaga").addRewards(false, (room) -> {}));
 
+
         transitionKey("start0");
     }
 

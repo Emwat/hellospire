@@ -133,7 +133,6 @@ public class ModLagavulin extends AbstractMonster {
             case 5:
                 ++this.idleCount;
                 if (this.idleCount >= 3) {
-                    logger.info("idle happened");
                     this.isOutTriggered = true;
                     AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "OPEN"));
                     AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, (byte)3, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base));

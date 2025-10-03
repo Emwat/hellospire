@@ -35,17 +35,9 @@ public class SonicConsoleTip extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
-        // tokens[0] == sonictip
-        // tokens[1] == check | see | unsee
-        // SonicMod.logger.info("depth : " + depth);
-        // for (String t : tokens) {
-        //     SonicMod.logger.info(t);
-        // }
-
         String firstToken = tokens[1];
         String specificTip = tokens.length >= 3 ? tokens[2] : null;
         boolean isSee = "see".equals(tokens[1]);
-        SonicMod.logger.info("firstToken " + firstToken);
 
         if ("check".equals(firstToken)) {
             DevConsole.log("checking...");

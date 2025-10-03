@@ -15,12 +15,11 @@ public class ReduceDebuffsAction extends AbstractGameAction {
     public ReduceDebuffsAction(AbstractCreature c, int amount) {
         this.c = c;
         this.duration = 0.5F;
-        this.amount=amount;
+        this.amount = amount;
     }
 
     public void update() {
         if (this.amount <= 0) {
-            BaseMod.logger.error("ReduceDebuffsAction called with amount <= 0. amount: " + this.amount);
             this.isDone = true;
             return;
         }
@@ -32,12 +31,10 @@ public class ReduceDebuffsAction extends AbstractGameAction {
                 // handles debuffs that don't stack (e.g. NoDrawPower from Battle Trance), since those use amount -1.
                 if (p.amount > 0) {
                     this.addToTop(new ReducePowerAction(this.c, this.c, p.ID, this.amount));
-                }
-                else if (p.amount < 0 && Math.abs(p.amount) <= this.amount) {
+                } else if (p.amount < 0 && Math.abs(p.amount) <= this.amount) {
                     this.addToTop(new RemoveSpecificPowerAction(this.c, this.c, p));
-                }
-                else {
-                    this.addToTop(new ModFastAction( () -> {
+                } else {
+                    this.addToTop(new ModFastAction(() -> {
                         p.stackPower(ReduceDebuffsAction.this.amount);
                         p.updateDescription();
                         AbstractDungeon.onModifyPower();

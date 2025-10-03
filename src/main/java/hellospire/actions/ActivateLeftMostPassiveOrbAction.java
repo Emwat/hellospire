@@ -18,17 +18,14 @@ public class ActivateLeftMostPassiveOrbAction extends AbstractGameAction {
     }
 
     public void update() {
-        // SonicMod.logger.info("Orbs.isEmpty is " + p.orbs.isEmpty());
         if (p.orbs.isEmpty()) {
             this.isDone = true;
             return;
         }
         AbstractOrb leftMostOrb = null;
-        // SonicMod.logger.info("You have " + p.orbs.size() + " orbs");
 
         for (int i = p.orbs.size() - 1; i >= 0; i--) {
             AbstractOrb orb = p.orbs.get(i);
-            // SonicMod.logger.info(orb.name + " is orb number " + i);
             if (!(orb instanceof EmptyOrbSlot)){
                 leftMostOrb = orb;
                 break;

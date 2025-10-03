@@ -33,7 +33,6 @@ public class RandomizeCostAction extends AbstractGameAction {
             card.setCostForTurn(newCost);
             card.flash();
         }
-        SonicMod.logger.info("RandomizeCostAction: oldCost (" + card.cost + ") -> new Cost (" + newCost + ")" );
 
         this.isDone = true;
     }

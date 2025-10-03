@@ -30,7 +30,6 @@ public class ModFireSomersaultEffect extends AbstractGameEffect {
         this.x = x;
         this.y = y;
         this.power = power;
-        SonicMod.logger.info("power: " + power);
         this.renderBehind = false;
     }
 

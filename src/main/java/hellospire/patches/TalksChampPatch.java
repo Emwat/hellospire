@@ -19,14 +19,6 @@ import static hellospire.SonicMod.makeID;
 public class TalksChampPatch {
     @SpirePrefixPatch
     public static void Prefix(Champ __instance) {
-        // for (String s : Champ.MOVES){
-        //     SonicMod.logger.info(s);
-        // }
-        // SonicMod.logger.info("NAME" + Champ.NAME);
-        // SonicMod.logger.info("DIALOG");
-        // for (String s : Champ.DIALOG){
-        //     SonicMod.logger.info(s);
-        // }
         if (!(AbstractDungeon.player instanceof Sonic)){
             return;
         }
@@ -38,7 +30,7 @@ public class TalksChampPatch {
         derp.add("The Exordium is the @OTHER@ way.");
 
         int randomNumber = MathUtils.random(derp.size() - 1);
-        String taunt =  (String)derp.get(randomNumber);
+        String taunt =  derp.get(randomNumber);
         float talkDuration = 5;
 
         if (randomNumber == 0) {

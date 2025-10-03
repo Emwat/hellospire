@@ -9,7 +9,14 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.Frost;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import hellospire.character.Sonic;
+import hellospire.powers.LevelUpSpeedPower;
+import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
@@ -45,12 +52,12 @@ public class BlueBomber extends BaseCard {
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
-        int ringPower = getPower(AbstractDungeon.player, "RingPower");
-        if (getPower(AbstractDungeon.player, "LevelUpSpeedPower") > 0) {
-            ringPower = ringPower * (getPower(AbstractDungeon.player, "LevelUpSpeedPower") + 1) ;
+        int ringPower = getPower(AbstractDungeon.player, RingPower.POWER_ID);
+        if (getPower(AbstractDungeon.player, LevelUpSpeedPower.POWER_ID) > 0) {
+            ringPower = ringPower * (getPower(AbstractDungeon.player, LevelUpSpeedPower.POWER_ID) + 1);
         }
 
-        this.baseDamage += (getVanillaPower(AbstractDungeon.player, "Dexterity") + ringPower) * magicNumber;
+        this.baseDamage += (getPower(AbstractDungeon.player, DexterityPower.POWER_ID) + ringPower) * magicNumber;
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;

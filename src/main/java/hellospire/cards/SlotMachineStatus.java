@@ -25,11 +25,9 @@ public class SlotMachineStatus extends BaseCard {
     );
 
     public static boolean hasAppliedDebuff = false;
-    // private static final int FRAIL_AMT = 2;
 
     public SlotMachineStatus() {
         super(ID, info);
-        // setMagic(FRAIL_AMT);
     }
 
     @Override
@@ -46,16 +44,11 @@ public class SlotMachineStatus extends BaseCard {
                     SonicMod.logger.info(c.cardID + " " + SlotMachineStatus.ID);
                     if (Objects.equals(c.cardID, SlotMachineStatus.ID)) {
                         count++;
-                        SonicMod.logger.info("substracted. count is now " + count);
                     }
                 }
                 if (count > 1) {
                     hasAppliedDebuff = true;
                     addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
-                    // addToBot(new ApplyPowerAction(
-                    //         AbstractDungeon.player,
-                    //         AbstractDungeon.player,
-                    //         new FrailPower(AbstractDungeon.player, magicNumber, false), magicNumber));
                 }
 
             }));

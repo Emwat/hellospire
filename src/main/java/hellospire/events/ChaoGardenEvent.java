@@ -694,7 +694,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         for (AbstractPlayer character : CardCrawlGame.characterManager.getAllCharacters()) {
             try {
                 CardLibrary.LibraryType libraryType = null;
-                String name = character.title.replace("the ", "");
+                String name = character.title.replace("the ", "").replace("The ", "");
                 String discussion = OtherDiscussion;
                 String drink = OtherDrink;
                 String voiceKey = "VO_MERCHANT_2A";
@@ -731,7 +731,6 @@ public class ChaoGardenEvent extends PhasedEvent {
                 }
 
                 for (CardLibrary.LibraryType library : CardLibrary.LibraryType.values()) {
-                    // SonicMod.logger.info("Library is " + library.toString() + " and cardColor is " + character.getCardColor().toString());
                     if (library.toString().equals(character.getCardColor().toString())) {
                         libraryType = library;
                         break;

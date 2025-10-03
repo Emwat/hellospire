@@ -62,7 +62,6 @@ public class Drift extends BaseCard {
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         updateDescription();
-        // SonicMod.logger.info("cre" + Settings.CREAM_COLOR.toString());
     }
 
     private void updateDescription() {

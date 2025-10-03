@@ -29,6 +29,9 @@ import hellospire.character.Sonic;
 import hellospire.character.SonicStartTalkingHelper;
 import hellospire.events.*;
 import hellospire.multiplayer.Skindexer;
+import hellospire.potions.ChaosSodaPotion;
+import hellospire.potions.PowerCorePotion;
+import hellospire.potions.SlowPotion;
 import hellospire.util.*;
 import hellospire.character.SonicTipTracker;
 import hellospire.potions.BasePotion;
@@ -437,22 +440,6 @@ public class SonicMod implements
                 .setDefaultSeen(false) // And marks them as seen in the compendium
                 .cards(); // Adds the cards
 
-
-        // BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistAmy.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistBarry.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistBig.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistBlaze.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistChip.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistCream.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistKnuckles.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistRouge.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistShadow.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistSilver.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistSticks.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(AssistTails.ID, Sonic.Meta.CARD_COLOR);
-
         BaseMod.removeCard(Gizoid.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(GizoidAmy.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(GizoidChaos.ID, Sonic.Meta.CARD_COLOR);
@@ -486,15 +473,19 @@ public class SonicMod implements
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
 
-        // BaseMod.removeCard(SpinningNeedleAttack.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(SuperSonicForm.ID, Sonic.Meta.CARD_COLOR);
-
         if (!Loader.isModLoaded("anniv5")) {
             BaseMod.removeCard(hellospire.cardsPackExclusive.Boost.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(hellospire.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(hellospire.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(hellospire.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(hellospire.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
+        }
+
+        if (Loader.isModLoaded("spireTogether")){
+            BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removePotion(ChaosSodaPotion.ID);
+            BaseMod.removePotion(PowerCorePotion.ID);
+            BaseMod.removePotion(SlowPotion.ID);
         }
     }
 
@@ -639,8 +630,6 @@ public class SonicMod implements
             return;
         }
         String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
-
-        SonicMod.logger.info("MonsterName: " + monsterName);
 
         ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
                 "Hexaghost",

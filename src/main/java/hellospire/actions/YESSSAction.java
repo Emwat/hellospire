@@ -40,9 +40,6 @@ public class YESSSAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED && this.target != null) {
-            SonicMod.logger.info("target: " + this.target);
-            SonicMod.logger.info("info: " + this.info);
-            SonicMod.logger.info("attackEffect: " + this.attackEffect);
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
             this.target.damage(this.info);
             if ((((AbstractMonster) this.target).isDying || this.target.currentHealth <= 0) &&

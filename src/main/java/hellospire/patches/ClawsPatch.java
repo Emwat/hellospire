@@ -30,13 +30,15 @@ public class ClawsPatch {
         IncreaseClawDamageForSonicClaws(instanceAmount, AbstractDungeon.player.hand);
     }
 
-    private static void IncreaseClawDamageForSonicClaws(int instanceAmount, CardGroup group){
-        for(AbstractCard c : group.group) {
-            if (c.hasTag(SonicTags.CLAW)) {
-                c.baseDamage += instanceAmount;
-                c.applyPowers();
-                if (group.type == CardGroup.CardGroupType.HAND) {
-                    c.superFlash();
+    private static void IncreaseClawDamageForSonicClaws(int instanceAmount, CardGroup group) {
+        if (!group.isEmpty()) {
+            for (AbstractCard c : group.group) {
+                if (c.hasTag(SonicTags.CLAW)) {
+                    c.baseDamage += instanceAmount;
+                    c.applyPowers();
+                    if (group.type == CardGroup.CardGroupType.HAND) {
+                        c.superFlash();
+                    }
                 }
             }
         }

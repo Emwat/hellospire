@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.cards.*;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class ExtenderPower extends BasePower {
     @Override
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
-        AbstractPower vigor = owner.getPower("Vigor");
+        AbstractPower vigor = owner.getPower(VigorPower.POWER_ID);
 
         ArrayList<AbstractCard> tmp = new ArrayList<>();
         tmp.add(c1);

@@ -42,7 +42,6 @@ public class RicochetPower extends BasePower {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         // super.onPlayCard(card, m);
 
-
         boolean isVigorAttack = card.type == AbstractCard.CardType.ATTACK && owner.hasPower(VigorPower.POWER_ID);
         int countRicochets = 0;
         ArrayList<AbstractCard> ricochets = new ArrayList<>();
@@ -51,11 +50,13 @@ public class RicochetPower extends BasePower {
         if (Ricochet.ID.equals(card.cardID)) {
             countRicochets++;
         }
-        for (AbstractCard discardedCard : this.player.discardPile.group) {
-            if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
-                countRicochets++;
-                if (isVigorAttack && ricochets.size() < BaseMod.MAX_HAND_SIZE - currentHandSize) {
-                    ricochets.add(discardedCard);
+        if (!this.player.discardPile.group.isEmpty()) {
+            for (AbstractCard discardedCard : this.player.discardPile.group) {
+                if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
+                    countRicochets++;
+                    if (isVigorAttack && ricochets.size() < BaseMod.MAX_HAND_SIZE - currentHandSize) {
+                        ricochets.add(discardedCard);
+                    }
                 }
             }
         }

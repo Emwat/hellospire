@@ -59,23 +59,10 @@ public class LightSpeedDash extends BaseCard {
 
     }
 
-//    @Override
-//    public void triggerOnOtherCardPlayed(AbstractCard c) {
-//        super.triggerOnOtherCardPlayed(c);
-//
-//        this.rawDescription = cardStrings.DESCRIPTION + String.format(" (%s Rings)", CalculateRings());
-//        initializeDescription();
-//    }
-
-
-    @Override
-    public void triggerOnEndOfPlayerTurn() {
-        // this function does not trigger.
-        // SonicMod.logger.info("You are Light Speed Dashing... " + RingPower.isLightSpeedDashing);
-        // RingPower.setIsLightSpeedDashing(false);
-        // SonicMod.logger.info("After set: You are Light Speed Dashing... " + RingPower.isLightSpeedDashing);
-
-    }
+    // @Override
+    // public void triggerOnEndOfPlayerTurn() {
+    //     // this function does not trigger.
+    // }
 
     private int CalculateRings() {
         return BaseMod.MAX_HAND_SIZE - (AbstractDungeon.player.hand.size() - 1);

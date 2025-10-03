@@ -23,7 +23,6 @@ public class SpinUpPatch {
             card.cost = newCost;
             card.costForTurn = newCost;
             card.isCostModified = false;
-            SonicMod.logger.info(String.format("%s oldCost: %s | newCost: %s", card.name, oldCost, newCost));
         }
     }
 }

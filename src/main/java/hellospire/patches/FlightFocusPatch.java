@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import hellospire.SonicMod;
 import hellospire.powers.LevelUpFlightPower;
 import hellospire.powers.RingPower;
@@ -16,7 +17,7 @@ public class FlightFocusPatch {
     public static class applyFlightPowerPatch {
         @SpirePostfixPatch
         public static void applyFlightPowerPatchThing(AbstractOrb __instance) {
-            AbstractPower focus = AbstractDungeon.player.getPower("Focus");
+            AbstractPower focus = AbstractDungeon.player.getPower(FocusPower.POWER_ID);
             AbstractPower flight = AbstractDungeon.player.getPower(LevelUpFlightPower.POWER_ID);
             AbstractPower ring = AbstractDungeon.player.getPower(RingPower.POWER_ID);
 

@@ -92,7 +92,6 @@ public class Sonic extends CustomPlayer {
         private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
 
 
-
         // This is used to color *some* images, but NOT the actual cards. For that, edit the images in the cardback folder!
         public static final Color cardColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
 
@@ -162,10 +161,21 @@ public class Sonic extends CustomPlayer {
 
     // Actual character class code below this point
 
+    private static final String skinBattle = "animation/SonicBattlePose.scml";
+    private static final String skinCaptain = "animation/captain/SonicCaptainPose.scml";
+    private static boolean isCaptain = false;
+
     public Sonic() {
         super(getNames()[0], Meta.THE_HEDGEHOG,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), // Energy Orb
-                new CustomSpriterAnimation(characterPath("animation/SonicBattlePose.scml"))); // Animation
+                new CustomSpriterAnimation(characterPath(skinBattle))); // Animation
+
+        if (this.getPrefs().getInteger("ASCENSION_LEVEL", 1) > 10 && MyModConfig.enableSkinCaptain) {
+            this.animation = new CustomSpriterAnimation(characterPath(skinCaptain));
+            isCaptain = true;
+        } else {
+            isCaptain = false;
+        }
 
         Player.PlayerListener listener = new CustomAnimationListener(this);
         getAnimation().myPlayer.addListener(listener);
@@ -434,7 +444,7 @@ public class Sonic extends CustomPlayer {
     }
 
     public void resetToIdleAnimation() {
-        playAnimation("idle");
+        playAnimation(isCaptainAndLowHP() ? "idle2" : "idle");
     }
 
     @Override
@@ -442,13 +452,13 @@ public class Sonic extends CustomPlayer {
         super.useCard(c, monster, energyOnUse);
         switch (c.type) {
             case ATTACK:
-                playAnimation("attack");
+                playAnimation(isCaptainAndLowHP() ? "attack2" : "attack");
                 break;
             case POWER:
-                playAnimation("happy");
+                playAnimation(isCaptainAndLowHP() ? "happy2" : "happy");
                 break;
             default:
-                playAnimation("idle");
+                playAnimation(isCaptainAndLowHP() ? "idle2" : "idle");
                 break;
         }
     }
@@ -459,9 +469,18 @@ public class Sonic extends CustomPlayer {
         boolean hasBlockAfterSuper = this.currentBlock > 0;
         boolean tookNoDamage = this.lastDamageTaken == 0;
         if (hadBlockBeforeSuper && (hasBlockAfterSuper || tookNoDamage)) {
-            playAnimation("happy");
+            if (isCaptainAndLowHP()) {
+                playAnimation("happy2");
+            } else {
+                playAnimation("happy");
+            }
+
         } else {
-            playAnimation("hurt");
+            if (isCaptainAndLowHP()) {
+                playAnimation("hurt2");
+            } else {
+                playAnimation("hurt");
+            }
         }
     }
 
@@ -471,6 +490,14 @@ public class Sonic extends CustomPlayer {
             playAnimation("happy");
         }
         super.heal(healAmount);
+    }
+
+    private boolean isCaptainAndLowHP(){
+        return isCaptain && isLowHP();
+    }
+
+    private boolean isLowHP(){
+        return AbstractDungeon.player.currentHealth <= 20;
     }
 
 }

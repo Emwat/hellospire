@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
 import org.apache.logging.log4j.LogManager;
@@ -73,8 +74,8 @@ public class LoopDeLoopAction extends AbstractGameAction {
             drawnCards.clear();
         }
 
-        if (AbstractDungeon.player.hasPower("No Draw")) {
-            AbstractDungeon.player.getPower("No Draw").flash();
+        if (AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
+            AbstractDungeon.player.getPower(NoDrawPower.POWER_ID).flash();
             this.endActionWithFollowUp();
         } else if (this.amount <= 0) {
             this.endActionWithFollowUp();

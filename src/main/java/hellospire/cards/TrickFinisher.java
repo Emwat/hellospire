@@ -33,7 +33,7 @@ public class TrickFinisher extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractPower vigor = p.getPower("Vigor");
+        AbstractPower vigor = p.getPower(VigorPower.POWER_ID);
         if (vigor != null && vigor.amount > 0) {
             addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vigor.amount)));
             if (vigor.amount > 12){

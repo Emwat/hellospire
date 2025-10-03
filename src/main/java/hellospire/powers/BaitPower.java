@@ -47,8 +47,6 @@ public class BaitPower extends BasePower {
 
     @Override
     public void atStartOfTurn() {
-        SonicMod.logger.info("at End of Turn");
-
         ArrayList<AbstractMonster> monsters = AbstractDungeon.getCurrRoom().monsters.monsters;
         ArrayList<AbstractMonster> attackingMonsters = getAttackingMonsters(monsters);
         if (!attackingMonsters.isEmpty()) {
@@ -58,8 +56,6 @@ public class BaitPower extends BasePower {
             intentMultiAmt = intentMultiAmt == -1 ? 1 : intentMultiAmt;
 
             attackingMonster.flipHorizontal = !attackingMonster.flipHorizontal;
-            SonicMod.logger.info("intentDamage: " + intentDamage);
-            SonicMod.logger.info("intentMultiAmt: " + intentMultiAmt);
             for (int i = 0; i < intentMultiAmt; i++) {
                 addToTop(new GainBlockAction(player, (int)(intentDamage * 0.75F)));
                 addToBot(new DamageAction(owner, new DamageInfo(owner, intentDamage)));

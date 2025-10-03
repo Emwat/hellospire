@@ -484,8 +484,8 @@
   },
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
-    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. It costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from your discard pile. They cost 0 this turn."
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. It costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. They cost 0 this turn."
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",

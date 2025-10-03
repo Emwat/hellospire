@@ -62,12 +62,10 @@ public class Skindexer implements SkindexPlayerSkinRegistrant {
 
                 this.id = id;
                 name = id; //CardCrawlGame.languagePack.getUIString(id).TEXT[0];
-                SonicMod.logger.info("SonicSkinData name is " + name);
                 this.scale = 2F;
 
                 unlockMethod = FreeUnlockMethod.methodId;
                 playerClass = Sonic.Meta.THE_HEDGEHOG.name();
-                SonicMod.logger.info("SonicSkinData playerClass name() is " + playerClass);
 
             }
         }

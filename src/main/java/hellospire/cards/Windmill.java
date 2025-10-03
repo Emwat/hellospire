@@ -49,20 +49,31 @@ public class Windmill extends BaseCard {
             for (AbstractCard c : cards) {
                 int oldCost = c.costForTurn;
                 addToBot(new RandomizeCostAction(c));
-                addToBot(new ModFastAction( () -> {
-                        int difference = Math.abs(c.costForTurn - oldCost);
-                        if (difference >= 3 && c.costForTurn == 0) {
-                            addToBot(SoundLibrary.VoiceAction(SoundLibrary.PerfectBingo));
-                        } else if (c.costForTurn == 0) {
-                            addToBot(SoundLibrary.VoiceAction(SoundLibrary.Bingo));
+                addToBot(new ModFastAction(() -> {
+                    int difference = Math.abs(c.costForTurn - oldCost);
+                    if (difference >= 3 && c.costForTurn == 0) {
+                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.PerfectBingo));
+                    } else if (c.costForTurn == 0) {
+                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.Bingo));
+                        if (p instanceof Sonic) {
+                            addToBot(new ModFastAction(() -> {
+                                ((Sonic) p).playAnimation("happy");
+                            }));
                         }
+                    } else if (c.costForTurn == 3 || (oldCost == 2 && c.costForTurn == 2)) {
+                        if (p instanceof Sonic) {
+                            addToBot(new ModFastAction(() -> {
+                                ((Sonic) p).playAnimation("hurt");
+                            }));
+                        }
+                    }
                 }));
             }
         }));
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new Windmill();
     }
 }

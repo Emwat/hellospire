@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.YESSSAction;
@@ -50,10 +52,9 @@ public class FalconPunch extends BaseCard {
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
 
-        AbstractCreature p = AbstractDungeon.player;
         if (this.upgraded &&
-                getVanillaPower(p, "Strength") >= 7 &&
-                getVanillaPower(p, "Dexterity") >= 7) {
+                getPower(AbstractDungeon.player, StrengthPower.POWER_ID) >= 7 &&
+                getPower(AbstractDungeon.player, DexterityPower.POWER_ID) >= 7) {
                     loadCardImage(SonicMod.imagePath("cards/attack/FalconPunchSuper.png"));
         }
     }

@@ -22,11 +22,6 @@ public class HeavyIncrementAction extends AbstractGameAction {
         }
 
         for (AbstractCard c : GetAllInBattleInstances.get(this.card.uuid)) {
-            SonicMod.logger.info(c.cardID + String.format(" %s %s %s %s %s %s",
-                    "cost: ", c.cost,
-                    "|costForTurn: ", c.costForTurn,
-                    "|chargeCost", c.chargeCost));
-//            c.cost = c.costForTurn + 1;
             if (c.freeToPlay()) {
                 BaseCard.setCostForCombat(c, 1);
             } else {

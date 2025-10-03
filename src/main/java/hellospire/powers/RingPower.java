@@ -9,10 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.actions.ModFastAction;
-import hellospire.cards.BaseCard;
 
 import java.util.Objects;
 
@@ -69,14 +67,12 @@ public class RingPower extends BasePower {
         float outputBlock;
         float tempAmount = (float) this.amount;
         int amountSpeed = ModGetPowerAmount(LevelUpSpeedPower.POWER_ID) * this.amount;
-        // SonicMod.logger.info("amountSpeed: " + amountSpeed);
 
         outputBlock = blockAmount + tempAmount + amountSpeed;
 
         if (outputBlock < 0.0F) {
             outputBlock = 0.0F;
         }
-        //  BaseMod.logger.info(String.format("blockAmount %s | amount %s | var2 %s", blockAmount, amount, outputBlock));
         return outputBlock;
     }
 
@@ -138,10 +134,10 @@ public class RingPower extends BasePower {
     @Override
     public void onVictory() {
         setIsLightSpeedDashing(false);
+        // addToBot(new VFXAction(new RunForwardEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY)));
+        // AbstractDungeon.player.useJumpAnimation();
         super.onVictory();
     }
-
-
 
     @Override
     public int onHeal(int healAmount) {
@@ -154,24 +150,7 @@ public class RingPower extends BasePower {
             if (AbstractDungeon.player.discardPile.isEmpty()) {
                 return;
             }
-            // AbstractCard lastCardPlayed = null;
-            // boolean lastCardPlayedIsBoost = false;
-
             // Prevents Boost from returning itself to hand
-            // if (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() >= 2) {
-            //     lastCardPlayed = ((AbstractCard) AbstractDungeon.actionManager.cardsPlayedThisCombat.get(
-            //             AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 2));
-            //     lastCardPlayedIsBoost = lastCardPlayed.cardID.equals(hellospire.cards.Boost.ID) || lastCardPlayed.cardID.equals(hellospire.cardsPackExclusive.Boost.ID);
-            // }
-            //
-            // if (!lastCardPlayedIsBoost) {
-            //     for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group) {
-            //         if (Objects.equals(discardedCard.cardID, hellospire.cardsPackExclusive.Boost.ID)) {
-            //             addToBot(new DiscardToHandAction(discardedCard));
-            //         }
-            //     }
-            // }
-            SonicMod.logger.info("DiscardBoostsToHand isPlayingBoost : " + isPlayingBoost);
             if (!isPlayingBoost) {
                 for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group) {
                     if (Objects.equals(discardedCard.cardID, hellospire.cardsPackExclusive.Boost.ID)) {

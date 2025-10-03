@@ -185,7 +185,7 @@ public class RougeEvent extends PhasedEvent {
         ArrayList<AbstractCard> output = new ArrayList<>();
 
         for (int i = 0; i < masterDeck.size() - 1; i++) {
-            AbstractCard card = (AbstractCard)masterDeck.get(i);
+            AbstractCard card = masterDeck.get(i);
             if (card.rarity == cardRarity && !card.hasTag(SonicTags.DO_NOT_THROW)) {
                 output.add(card);
             }
@@ -199,7 +199,6 @@ public class RougeEvent extends PhasedEvent {
         ArrayList<AbstractCard> uncommonCards = getCardsOfRarity(AbstractCard.CardRarity.UNCOMMON);
         ArrayList<AbstractCard> rareCards = getCardsOfRarity(AbstractCard.CardRarity.RARE);
 
-        SonicMod.logger.info("~~~ Uncommon Cards: " + uncommonCards.size());
         if (!uncommonCards.isEmpty()) {
             wantedCard = uncommonCards.get(AbstractDungeon.miscRng.random(0, uncommonCards.size() - 1));
             amountOfAssists = 2;

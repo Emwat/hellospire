@@ -70,7 +70,6 @@ public class StampRelic extends BaseRelic implements ClickableRelic, CustomBottl
     @Override
     public void onEquip() {
         card = AbstractDungeon.player.masterDeck.group.get(AbstractDungeon.player.masterDeck.group.size() - 1);
-        SonicMod.logger.info("StampRelic card is " + card.cardID);
     }
 
     @Override

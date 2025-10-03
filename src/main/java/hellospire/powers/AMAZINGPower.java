@@ -33,13 +33,10 @@ public class AMAZINGPower extends BasePower {
 
     public AMAZINGPower(AbstractCreature owner, int damage) {
         super(POWER_ID, TYPE, TURN_BASED, owner, damage);
-//        BaseMod.logger.info("1 AMAZINGPower : this.damage : " + this.damage + " : damage " + damage + " : amount " + amount);
-        // must use this conditional, b/c I don't want to overwrite the stackAmount in stackPower()
-        if(!owner.hasPower(this.ID)) {
+        if (!owner.hasPower(this.ID)) {
             this.amount = CARD_AMT;
         }
         this.damage = damage;
-//        BaseMod.logger.info("2 AMAZINGPower : this.damage : " + this.damage + " : damage " + damage + " : amount " + amount);
         this.updateDescription();
 
     }
@@ -54,26 +51,22 @@ public class AMAZINGPower extends BasePower {
     }
 
     public void stackPower(int stackAmount) {
-        BaseMod.logger.info("AMAZINGPower : stackAmount : " + stackAmount);
         this.fontScale = 8.0F;
         this.damage += stackAmount;
         this.updateDescription();
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type != AbstractCard.CardType.ATTACK){
+        if (card.type != AbstractCard.CardType.ATTACK) {
             return;
         }
         --this.amount;
 
-//        if (this.amount == 2){
-//            addToBot(SoundLibrary.PlayVoice(SoundLibrary.Amazing3));
-//        }
-        if (this.amount == 2){
+        if (this.amount == 2) {
             addToTop(new ModTextInCenterAction("Great!", Color.WHITE.cpy()));
         }
 
-        if (this.amount == 1){
+        if (this.amount == 1) {
             addToTop(new ModTextInCenterAction("OUTSTANDING!", Color.PINK.cpy()));
             if (MyModConfig.enableVoice && MyModConfig.voiceFrequency == 10) {
                 addToBot(SoundLibrary.VoiceAction(SoundLibrary.Amazing2));

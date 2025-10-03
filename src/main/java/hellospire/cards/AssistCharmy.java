@@ -32,7 +32,7 @@ public class AssistCharmy extends BaseCard {
     private static final int UPG_MAGIC = 1;
     private static final String KEYWORD_DIZZY = "CustomVar_DIZZY";
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(244, 200, 135);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(228, 121, 56);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(0, 0, 0);
 
     public AssistCharmy() {
         super(ID, info);

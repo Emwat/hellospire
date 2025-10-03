@@ -39,10 +39,6 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         }
 
         setDamage(DAMAGE, UPG_DAMAGE);
-
-        SonicMod.logger.info("| this.upgraded: " + this.upgraded);
-        SonicMod.logger.info("| this.isBranchUpgrade(): " + this.isBranchUpgrade());
-        SonicMod.logger.info("| returnToHand: " + returnToHand);
     }
 
     @Override
@@ -51,7 +47,6 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
 
         AbstractCard trick = new Trick();
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        // SonicMod.logger.info("Cond1: " + (this.upgraded && !this.isBranchUpgrade()) + " | Cond2: " +  (plays >= maxPlays) + " | plays: " + plays);
 
         if (this.upgraded && !this.isBranchUpgrade()) {
             addToBot(new MakeTempCardInHandAction(trick, 1, true));

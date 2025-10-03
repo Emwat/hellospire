@@ -730,16 +730,8 @@ public abstract class BaseCard extends CustomCard {
         }
     }
 
-    public int getVanillaPower(AbstractCreature owner, String targetID) {
-        AbstractPower power = owner.getPower(targetID);
-        if (power != null) {
-            return power.amount;
-        }
-        return 0;
-    }
-
     public int getPower(AbstractPlayer p, String targetID) {
-        AbstractPower power = p.getPower(makeID(targetID));
+        AbstractPower power = p.getPower(targetID);
         if (power != null) {
             return power.amount;
         }

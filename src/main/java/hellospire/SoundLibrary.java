@@ -180,7 +180,6 @@ public class SoundLibrary {
 
     private static String GetRandomClip(ArrayList<String> sounds) {
         int generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
-        SonicMod.logger.info("(0) GetRandomClip randomNumber: " + randomNumber);
 
         if (sounds.size() < 2) {
             randomNumber = generatedRandomNumber;
@@ -196,7 +195,6 @@ public class SoundLibrary {
             }
             randomNumber = generatedRandomNumber;
         }
-        SonicMod.logger.info("(1) GetRandomClip generatedRandomNumber: " + generatedRandomNumber);
 
         return sounds.get(randomNumber);
     }
@@ -206,7 +204,6 @@ public class SoundLibrary {
     }
 
     public static boolean isRandomlyTrue(){
-        int maxVoiceFrequency = 10;
         try {
             return AbstractDungeon.miscRng.random(0, 10) - MyModConfig.voiceFrequency <= 0;
         } catch (NullPointerException nullPointerException) {

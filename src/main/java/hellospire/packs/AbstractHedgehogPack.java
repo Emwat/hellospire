@@ -32,7 +32,6 @@ public abstract class AbstractHedgehogPack extends AbstractCardPack {
     }
 
     public String getHatPath() {
-        SonicMod.logger.info(makeImagePath("hats/" + packID.replace(SonicMod.modID + ":", "") + ".png"));
         return makeImagePath("hats/" + packID.replace(SonicMod.modID + ":", "") + "Hat.png");
     }
 }

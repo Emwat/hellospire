@@ -26,7 +26,7 @@ public class TopKick extends BaseCard {
 
     private static final int DAMAGE = 7;
     private static final int UPG_DAMAGE = 1;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 5;
     private static final int UPG_MAGIC = 2;
 
     public TopKick() {
