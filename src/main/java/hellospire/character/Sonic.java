@@ -3,21 +3,16 @@ package hellospire.character;
 import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Player;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -29,7 +24,6 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import hellospire.*;
 import hellospire.cards.BouncePad;
 import hellospire.cards.Defend;
@@ -38,12 +32,12 @@ import hellospire.cards.Strike;
 import hellospire.relics.BlueQuillRelic;
 import hellospire.relics.ChaoThreeRelic;
 import hellospire.relics.ClassicModeRelic;
-import hellospire.util.TextureLoader;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static hellospire.SonicMod.*;
+import static hellospire.SonicMod.characterPath;
 
 public class Sonic extends CustomPlayer {
     // Stats
@@ -54,7 +48,7 @@ public class Sonic extends CustomPlayer {
     public static final int ORB_SLOTS = 1;
 
     // Strings
-    private static final String ID = makeID("TheHedgehog"); // This should match whatever you have in the CharacterStrings.json file
+    public static final String ID = makeID("TheHedgehog"); // This should match whatever you have in the CharacterStrings.json file
 
     public static String[] getNames() {
         return CardCrawlGame.languagePack.getCharacterString(ID).NAMES;
@@ -90,7 +84,6 @@ public class Sonic extends CustomPlayer {
         private static final String ENERGY_ORB = characterPath("cardback/energy_orb.png");
         private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
         private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
-
 
         // This is used to color *some* images, but NOT the actual cards. For that, edit the images in the cardback folder!
         public static final Color cardColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
@@ -161,20 +154,20 @@ public class Sonic extends CustomPlayer {
 
     // Actual character class code below this point
 
-    private static final String skinBattle = "animation/SonicBattlePose.scml";
-    private static final String skinCaptain = "animation/captain/SonicCaptainPose.scml";
-    private static boolean isCaptain = false;
+    private static final String skinBattlePath = characterPath("animation/SonicBattlePose.scml");
+    private static final String skinCaptainPath = characterPath("animation/captain/SonicCaptainPose.scml");
+    public static ModSkinDictionary.ModSkin currentModSkin;
 
     public Sonic() {
         super(getNames()[0], Meta.THE_HEDGEHOG,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), // Energy Orb
-                new CustomSpriterAnimation(characterPath(skinBattle))); // Animation
+                new CustomSpriterAnimation(skinBattlePath)); // Animation
 
         if (this.getPrefs().getInteger("ASCENSION_LEVEL", 1) > 10 && MyModConfig.enableSkinCaptain) {
-            this.animation = new CustomSpriterAnimation(characterPath(skinCaptain));
-            isCaptain = true;
+            this.animation = new CustomSpriterAnimation(skinCaptainPath);
+            currentModSkin = ModSkinDictionary.getModSkin(makeID("skinCaptainSonic"));
         } else {
-            isCaptain = false;
+            currentModSkin = ModSkinDictionary.getModSkin(makeID("skinBase"));
         }
 
         Player.PlayerListener listener = new CustomAnimationListener(this);
@@ -196,8 +189,10 @@ public class Sonic extends CustomPlayer {
     public String currentSkin;
     public String defaultSkin;
 
-    public void setupAnimation(String folder) {
-        currentSkin = folder;
+    public void setupAnimation(String id) {
+        currentModSkin = ModSkinDictionary.getModSkin(id);
+        // currentSkin = folder
+        currentSkin = currentModSkin.getPath().substring(0, currentModSkin.getPath().lastIndexOf("/"));
         defaultSkin = currentSkin;
     }
 
@@ -444,7 +439,13 @@ public class Sonic extends CustomPlayer {
     }
 
     public void resetToIdleAnimation() {
-        playAnimation(isCaptainAndLowHP() ? "idle2" : "idle");
+        if (isLowHP() && currentModSkin.hasAnimation("idle3")) {
+            playAnimation("idle3");
+        } else if (isLowHP() && currentModSkin.hasAnimation("idle3")) {
+            playAnimation("idle2");
+        } else {
+            playAnimation("idle");
+        }
     }
 
     @Override
@@ -452,13 +453,13 @@ public class Sonic extends CustomPlayer {
         super.useCard(c, monster, energyOnUse);
         switch (c.type) {
             case ATTACK:
-                playAnimation(isCaptainAndLowHP() ? "attack2" : "attack");
+                playAnimation(isLowHP() && currentModSkin.hasAnimation("attack2") ? "attack2" : "attack");
                 break;
             case POWER:
-                playAnimation(isCaptainAndLowHP() ? "happy2" : "happy");
+                playAnimation(isLowHP() && currentModSkin.hasAnimation("happy2") ? "happy2" : "happy");
                 break;
             default:
-                playAnimation(isCaptainAndLowHP() ? "idle2" : "idle");
+                playAnimation(isLowHP() && currentModSkin.hasAnimation("idle2") ? "idle2" : "idle");
                 break;
         }
     }
@@ -469,14 +470,14 @@ public class Sonic extends CustomPlayer {
         boolean hasBlockAfterSuper = this.currentBlock > 0;
         boolean tookNoDamage = this.lastDamageTaken == 0;
         if (hadBlockBeforeSuper && (hasBlockAfterSuper || tookNoDamage)) {
-            if (isCaptainAndLowHP()) {
+            if (isLowHP() && currentModSkin.hasAnimation("happy2")) {
                 playAnimation("happy2");
             } else {
                 playAnimation("happy");
             }
 
         } else {
-            if (isCaptainAndLowHP()) {
+            if (isLowHP() && currentModSkin.hasAnimation("hurt2")) {
                 playAnimation("hurt2");
             } else {
                 playAnimation("hurt");
@@ -492,11 +493,7 @@ public class Sonic extends CustomPlayer {
         super.heal(healAmount);
     }
 
-    private boolean isCaptainAndLowHP(){
-        return isCaptain && isLowHP();
-    }
-
-    private boolean isLowHP(){
+    private boolean isLowHP() {
         return AbstractDungeon.player.currentHealth <= 20;
     }
 

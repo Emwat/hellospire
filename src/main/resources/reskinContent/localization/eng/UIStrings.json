@@ -1,0 +1,25 @@
+{
+  "reskinContent:ReSkin": {
+    "TEXT": [
+      "Skin",
+      "Original"
+    ]
+  },
+  "reskinContent:PortraitAnimation": {
+    "TEXT": [
+      "Portrait Type"
+    ]
+  },
+  "reskinContent:PortraitAnimationType": {
+    "TEXT": [
+      "Static",
+      "Animated",
+      "Full Effect"
+    ]
+  },
+  "reskinContent:BetaArtUnlockEffect": {
+    "TEXT": [
+      "Sonic Alternative Art Unlocked!"
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 package hellospire.potions;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.unique.DiscoveryAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
@@ -37,6 +39,14 @@ public class PowerCorePotion extends BasePotion {
     private static final Color LIQUID_COLOR = CardHelper.getColor(0, 98, 255);
     private static final Color HYBRID_COLOR = CardHelper.getColor(255, 255, 0);
     private static final Color SPOTS_COLOR = CardHelper.getColor(255, 32, 1);
+
+    // private static final Texture SPOTS_COLOR = CardHelper.getColor(255, 255, 255);
+    // TogetherInSpire needs these textures
+    private static final Texture containerImg = ImageMaster.POTION_BOTTLE_CONTAINER;
+    private static final Texture liquidImg = ImageMaster.POTION_BOTTLE_LIQUID;
+    private static final Texture hybridImg = ImageMaster.POTION_BOTTLE_HYBRID;
+    private static final Texture spotsImg = ImageMaster.POTION_BOTTLE_SPOTS;
+    private static final Texture outlineImg = ImageMaster.POTION_BOTTLE_OUTLINE;
 
     // BLUE   0, 98, 255
     // RED    255, 32, 1

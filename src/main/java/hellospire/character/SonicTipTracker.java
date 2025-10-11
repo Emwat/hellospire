@@ -9,11 +9,13 @@ import static hellospire.SonicMod.makeID;
 
 public class SonicTipTracker {
     public static final String Pg01_intro = makeID("Pg01_intro");
+    public static final String Version092 = makeID("Version092");
 
     public static HashMap<String, Boolean> tips = new HashMap<>();
 
     public static void initialize() {
         tips.put(Pg01_intro, SonicMod.sonicmodConfig.getBool(Pg01_intro));
+        tips.put(Version092, SonicMod.sonicmodConfig.getBool(Version092));
     }
 
     public static void reset(){

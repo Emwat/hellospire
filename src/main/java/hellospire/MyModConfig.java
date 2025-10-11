@@ -18,6 +18,7 @@ public class MyModConfig extends EasyConfigPanel {
     public static boolean enableVoice = true;
     public static int voiceFrequency = Loader.isModLoaded("spireTogether") ? 5 : 10;
     public static int optionStarterRelic = 0;
+    public static boolean enableCrossModIntegrations = true;
 
 //    public enum Voice {
 //        English,

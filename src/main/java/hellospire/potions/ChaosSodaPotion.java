@@ -1,6 +1,9 @@
 package hellospire.potions;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
@@ -10,13 +13,16 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.BottledMiracle;
 import com.megacrit.cardcrawl.potions.Elixir;
+import com.megacrit.cardcrawl.potions.GamblersBrew;
 import com.megacrit.cardcrawl.stances.CalmStance;
 import hellospire.cards.*;
 import hellospire.character.Sonic;
+import hellospire.util.TextureLoader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,9 +39,16 @@ public class ChaosSodaPotion extends BasePotion {
     // RED    255, 32, 1
     // YELLOW 255, 255, 0
 
+    // TogetherInSpire needs these textures
+    private static final Texture containerImg = ImageMaster.POTION_S_CONTAINER;
+    private static final Texture liquidImg = ImageMaster.POTION_S_LIQUID;
+    private static final Texture hybridImg = ImageMaster.POTION_S_HYBRID;
+    private static final Texture spotsImg = ImageMaster.POTION_S_SPOTS;
+    private static final Texture outlineImg = ImageMaster.POTION_S_OUTLINE;
 
     public ChaosSodaPotion() {
         super(ID, 1, PotionRarity.UNCOMMON, PotionSize.BOTTLE, LIQUID_COLOR, HYBRID_COLOR, SPOTS_COLOR);
+
         this.isThrown = false;
         this.labOutlineColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
         playerClass = Sonic.Meta.THE_HEDGEHOG;

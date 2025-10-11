@@ -3,6 +3,7 @@ package hellospire.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -101,6 +102,7 @@ public abstract class BaseCard extends CustomCard {
         this.magicUpgrade = 0;
 
         // SetCustomCardback();
+        ChangeCardbackBasedOnModSkin();
     }
 
     private void SetCustomCardback() {
@@ -123,6 +125,20 @@ public abstract class BaseCard extends CustomCard {
             AbstractCard.TEXT[0] = "";
             AbstractCard.TEXT[1] = "";
             AbstractCard.TEXT[2] = "";
+        }
+    }
+
+    private void ChangeCardbackBasedOnModSkin() {
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return;
+        }
+
+        if (Sonic.currentModSkin.getName().contains("Knuckles")) {
+            setBackgroundTexture(SonicMod.characterPath("cardback/knuckles/bg_attack.png"), SonicMod.characterPath("cardback/knuckles/bg_attack_p"));
+        } else if (Sonic.currentModSkin.getName().contains("Shadow")) {
+            setBackgroundTexture(SonicMod.characterPath("cardback/shadow/bg_attack.png"), SonicMod.characterPath("cardback/shadow/bg_attack_p"));
+        } else if (Sonic.currentModSkin.getName().contains("Tails")) {
+            setBackgroundTexture(SonicMod.characterPath("cardback/tails/bg_attack.png"), SonicMod.characterPath("cardback/tails/bg_attack_p"));
         }
     }
 
@@ -888,5 +904,11 @@ public abstract class BaseCard extends CustomCard {
                 this.isCostModifiedForTurn = true;
             }
         }
+    }
+
+    protected void setExhaustive(int amount) {
+        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, amount);
+        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, amount);
+        exhaust = false;
     }
 }

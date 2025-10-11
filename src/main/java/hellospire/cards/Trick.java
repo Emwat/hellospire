@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.actions.ModFastAction;
@@ -45,7 +46,7 @@ public class Trick extends BaseCard {
         setEthereal(true);
         setExhaust(true);
 
-        if (Loader.isModLoaded("PrideMod") || isTheRainbow()) {
+        if (MyModConfig.enableCrossModIntegrations && (Loader.isModLoaded("PrideMod") || isTheRainbow())) {
             loadCardImage(SonicMod.imagePath("cards/skill/TrickAlexDivato.png"));
         }
 

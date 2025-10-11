@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
@@ -68,11 +69,15 @@ public class SmoothLanding extends BaseCard {
 
     private void transitionToSmoothLanding() {
         if (this.upgraded || hasVigor()) {
-            name = "Smooth Landing";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                name = "Smooth Landing";
+            }
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding1.png"));
         } else {
-            name = "Incorrect Landing";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                name = "Incorrect Landing";
+            }
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding.png"));
         }

@@ -9,13 +9,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.MyModConfig;
 import hellospire.SonicTags;
-import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
 import hellospire.rewards.AssistReward;
 import hellospire.util.CardStats;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Assist extends BaseCard {
     public static final String ID = makeID("Assist");
@@ -62,7 +60,7 @@ public class Assist extends BaseCard {
         int randomNumber = AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1);
         AbstractCard randomCard = characterCards.get(randomNumber).makeStatEquivalentCopy();
         AbstractCard randomCard2 = characterCards.get(randomNumber).makeStatEquivalentCopy();
-        if (Loader.isModLoaded("ModAchievement") && Loader.isModLoaded("GooglyMod")){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement") && Loader.isModLoaded("GooglyMod")){
             if (!UnlockTracker.isAchievementUnlocked(makeID("GooglyEyes"))) {
                 unlockGooglyEyesAchievement();
             }

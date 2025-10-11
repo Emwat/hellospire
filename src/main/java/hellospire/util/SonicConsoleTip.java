@@ -10,6 +10,12 @@ import java.util.Map;
 
 import static hellospire.character.SonicTipTracker.tips;
 
+// valid commands:
+// sonictip check all
+// sonictip see all
+// sonictip unsee all
+//
+
 // https://github.com/daviscook477/BaseMod/wiki/Console#adding-your-own-commands
 public class SonicConsoleTip extends ConsoleCommand {
     public SonicConsoleTip() {

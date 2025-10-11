@@ -32,8 +32,6 @@ public class SonicWave extends BaseCard {
         tags.add(SonicTags.LIKE_DEFECT);
     }
 
-    /// "DESCRIPTION": "Deal !D! damage. NL Evoke all of your orbs.",
-    /// "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel !M! Lightning. NL Evoke all of your orbs."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));

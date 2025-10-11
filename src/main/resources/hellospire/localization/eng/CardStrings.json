@@ -42,7 +42,7 @@
   "${modID}:Assist": {
     "NAME": "Assist",
     "DESCRIPTION": "Add a random ${modID}:Friend Skill to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Get a random ${modID}:Friend Skill to your hand. It costs zero this turn. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Add a random ${modID}:Friend Skill to your hand. It costs zero this turn. NL Exhaust."
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
@@ -147,6 +147,18 @@
   "${modID}:Bait": {
     "NAME": "Bait",
     "DESCRIPTION": "A random enemy will attack this target and you. On the enemy's turn, gain 75% amount of block that matches the random enemy's intent."
+  },
+  "${modID}:BecauseScience": {
+    "NAME": "Because Science",
+    "DESCRIPTION": "At the start of your turn, enter a stance that lets you gain 1 Block per card played or gain 1 ${modID}:Flame_Barrier per card played."
+  },
+  "${modID}:BecauseSciencePick1": {
+    "NAME": "Fire",
+    "DESCRIPTION": "Whenever you play a card, gain 1 ${modID}:Flame_Barrier."
+  },
+  "${modID}:BecauseSciencePick2": {
+    "NAME": "Ice",
+    "DESCRIPTION": "Whenever you play a card, gain 1 Block."
   },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
@@ -484,8 +496,8 @@
   },
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
-    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. It costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. They cost 0 this turn."
+    "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. It costs 0 this turn. NL stslib:Exhaustive !stslib:ex!",
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. They cost 0 this turn. NL stslib:Exhaustive !stslib:ex!"
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",

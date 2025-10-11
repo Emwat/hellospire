@@ -9,9 +9,6 @@ Requires subscription to
 
 # Gameplay Features
 - Creating cards
-- Exhaust Synergy
-- Defect Vanilla Orbs
-- Watcher Vanilla Stances
 - Manipulating cards' energy costs
 - Voice clips, Music Patches
 - 10+ patches
@@ -22,6 +19,10 @@ Requires subscription to
 - Easy Config
 - Ending Pictures
 
+# BaseMod things
+- <kbd>~</kbd> Dev Console
+- <kbd>Shift</kbd><kbd>E</kbd> imGUI
+
 # Good wiki links
 - [How to Start Modding] (https://discord.com/channels/309399445785673728/1145803879821361293/1145803879821361293)
 - [BasicMod (getting started)] (https://github.com/Alchyr/BasicMod/wiki) - this is the base for this mod.
@@ -30,11 +31,12 @@ Requires subscription to
 - [Spreadsheet of Vanilla Characters] (https://docs.google.com/spreadsheets/d/1c5j-O1zIckvEPtI4sSI7YeG6v1EptKxRwmPV-J73tCA/edit?pli=1#gid=0 )
 - [Character Design Pitfalls] (https://discord.com/channels/309399445785673728/1146430771528220792/1146431508119306340)
 - [Packmaster Github] (https://github.com/erasels/PackmasterCharacter) - this has been code reviewed. My code has NOT been code reviewed sadface.
-- Common mod pitfalls comment by BigGucciSosa
+
 ```
+- Common mod pitfalls comment by BigGucciSosa
 - too many random card ideas that don't synergize well with each other, leading to a disjointed-feeling drafting experience
 - too much text on the cards, often indicating ideas that are too complex for the actual amount of value and fun they bring
-- Too many scattered mechanics preventing the mod from FEELING cohesive from a game design standpoint.
+- too many scattered mechanics preventing the mod from FEELING cohesive from a game design standpoint.
 - ideas that are too similar to base game mechanics, causing the character to not feel differentiated enough.
 ```
 
@@ -52,17 +54,19 @@ Requires subscription to
 - YouTube - You can double right-click a video and take snapshot. You can also press . or , to move the video by one frame.
 
 # IntelliJ shortcuts
-- Double tapping Shift : brings up a Universal Code Search Tool
-- Ctrl + Shift + F : Find All
-- Alt + Enter : Context Actions
-- Ctrl + B : Decompile/Direct to source
+- Double tapping <kbd>Shift</kbd> : brings up a Universal Code Search Tool
+- <kbd>Ctrl</kbd><kbd>Shift</kbd> + <kbd>F</kbd> : Find All
+- <kbd>Alt</kbd><kbd>Enter</kbd> : Context Actions
+- <kbd>Ctrl</kbd><kbd>B</kbd> : Decompile/Direct to source
 
 # Steam Workshop Link
 - https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473
-- Your mod won't get any stars until you have 25 ratings.
-- Steam likes to mark things with <30 ratings as 3 stars regardless of how many positive ratings you have. They're rounding it.
+- Less than 25 ratings = 0 stars
+- More than 25 ratings = 3 stars
+- More than 30 ratings = 4 stars
+- More than 200+ ratings = 5 stars
 
-# Design Process
+# My Design Process
 1) Think of an incredibly awesome attack
 2) let’s find the closest vanilla card’s description 
 3) figure out the synergy later

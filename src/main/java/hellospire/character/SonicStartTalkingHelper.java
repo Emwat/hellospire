@@ -10,6 +10,12 @@ import java.util.Arrays;
 
 public class SonicStartTalkingHelper {
     static public void Chat(AbstractRoom room) {
+
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return;
+        }
+
+
         String monsterName = room.monsters.getMonsterNames().get(0);
 
         ArrayList<String> elites = new ArrayList<>(Arrays.asList(
@@ -28,26 +34,34 @@ public class SonicStartTalkingHelper {
             switch (monsterName) {
                 case "GremlinNob":
                     if (room.monsters.monsters.size() == 1) {
-                        say(new ArrayList<>(Arrays.asList(
-                                "You're no match for me!",
-                                "Hey you. Get out of my way!"
-                        )));
+                        if (Sonic.currentModSkin.getName().contains("Sonic")) {
+                            say(new ArrayList<>(Arrays.asList(
+                                    "You're no match for me!",
+                                    "Hey you. Get out of my way!"
+                            )));
+                        }
                     } else {
-                        say("Bring it on!");
+                        if (Sonic.currentModSkin.getName().contains("Sonic")) {
+                            say("Bring it on!");
+                        }
                     }
                     break;
                 case "Lagavulin":
-                    say(new ArrayList<>(Arrays.asList(
-                            "Is that a giant egg?",
-                            "Sorry, but you have to go!"
-                    )));
+                    if (Sonic.currentModSkin.getName().contains("Sonic")) {
+                        say(new ArrayList<>(Arrays.asList(
+                                "Is that a giant egg?",
+                                "Sorry, but you have to go!"
+                        )));
+                    }
                     break;
                 case "Sentry":
-                    if ("Sentry".equals(room.monsters.getMonsterNames().get(1))){
-                        say(new ArrayList<>(Arrays.asList(
-                                "Let's rock!",
-                                "Time to party!"
-                        )));
+                    if ("Sentry".equals(room.monsters.getMonsterNames().get(1))) {
+                        if (Sonic.currentModSkin.getName().contains("Sonic")) {
+                            say(new ArrayList<>(Arrays.asList(
+                                    "Let's rock!",
+                                    "Time to party!"
+                            )));
+                        }
                     }
                     break;
             }
@@ -58,11 +72,11 @@ public class SonicStartTalkingHelper {
     static float duration = 3F;
     static float bubbleDuration = 3F;
 
-    private static void say(String text){
+    private static void say(String text) {
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, text, duration, bubbleDuration));
     }
 
-    private static void say(ArrayList<String> texts){
+    private static void say(ArrayList<String> texts) {
         String text = texts.get(AbstractDungeon.miscRng.random(0, texts.size() - 1));
 
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, text, duration, bubbleDuration));

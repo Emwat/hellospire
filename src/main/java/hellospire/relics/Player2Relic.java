@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.actions.ModFastAction;
@@ -29,7 +30,7 @@ public class Player2Relic extends BaseRelic {
     public Player2Relic() {
         super(ID, NAME, Sonic.Meta.CARD_COLOR, RARITY, SOUND);
 
-        if (Loader.isModLoaded("downfall")) {
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("downfall")) {
             img = TextureLoader.getTexture(SonicMod.imagePath("relics/Player2MetalRelic.png"));
             outlineImg = TextureLoader.getTexture(SonicMod.imagePath("relics/Player2MetalRelicOutline.png"));
         }
@@ -75,7 +76,7 @@ public class Player2Relic extends BaseRelic {
                 thisRelic.flash();
                 thisRelic.stopPulse();
                 addToTop(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
-                if (Loader.isModLoaded("downfall")) {
+                if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("downfall")) {
                     addToBot(new ModTextInCenterAction(c.name.toUpperCase() + DESCRIPTIONS[4], Color.PINK.cpy()));
                     if (!SonicMod.sawMetalRelic) {
                         addToBot(SoundLibrary.VoiceAction(SoundLibrary.MetalData));

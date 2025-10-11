@@ -8,7 +8,9 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.actions.ModFastAction;
 import hellospire.character.Sonic;
@@ -34,7 +36,7 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         super(ID, info);
         this.cardsToPreview = new Trick();
 
-        if (Loader.isModLoaded("PrideMod")) {
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("PrideMod")) {
             loadCardImage(SonicMod.imagePath("cards/attack/HomingAttackPrideMod.png"));
         }
 
@@ -77,7 +79,9 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void branchUpgrade() {
-        name = "Serial Homing Attack";
+        if (Settings.language.name().equalsIgnoreCase("eng")) {
+            name = "Serial Homing Attack";
+        }
         loadCardImage(SonicMod.imagePath("cards/attack/HomingAttackSerial.png"));
         portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/attack/HomingAttackSerial_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];

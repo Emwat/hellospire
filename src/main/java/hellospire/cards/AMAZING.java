@@ -3,6 +3,7 @@ package hellospire.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.SweepingBeam;
+import com.megacrit.cardcrawl.cards.red.Dropkick;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.character.Sonic;
@@ -25,7 +26,6 @@ public class AMAZING extends BaseCard {
     public AMAZING() {
         super(ID, info);
         setMagic(DAMAGE, UPG_DAMAGE);
-
     }
 
     @Override

@@ -1,10 +1,8 @@
 package hellospire.events;
 
-import basemod.ReflectionHacks;
 import basemod.abstracts.events.PhasedEvent;
 import basemod.abstracts.events.phases.TextPhase;
 import com.evacipated.cardcrawl.modthespire.Loader;
-import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -22,6 +20,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.QuestionCard;
 import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
 import hellospire.character.Sonic;
@@ -374,7 +373,9 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private void initializeEventVariables() {
 
-        // InitializeSonicsFriends();
+        if (AbstractDungeon.player instanceof Sonic) {
+            InitializeSonicsFriends();
+        }
         InitializeEveryone();
         Collections.shuffle(DrinkBuddies);
 
@@ -669,7 +670,7 @@ public class ChaoGardenEvent extends PhasedEvent {
             DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", KnucklesDiscussion, KnucklesDrink, SoundLibrary.Knuckles));
             DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", RougeDiscussion, RougeDrink, SoundLibrary.Rouge));
             DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", AmyDiscussion, AmyDrink, SoundLibrary.Amy));
-            if (Loader.isModLoaded("anniv5")) {
+            if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5")) {
                 DrinkBuddies.add(new DrinkingBuddy("Packmaster", PACKMASTER_RAINBOW, ThePackmaster.Enums.LIBRARY_COLOR, "Packmaster", PMDiscussion, PMDrink, "VO_MERCHANT_2A"));
             }
         }
@@ -720,14 +721,19 @@ public class ChaoGardenEvent extends PhasedEvent {
                         drink = WatcherDrink;
                         voiceKey = "SELECT_WATCHER";
                         break;
-                }
-
-                switch (name) {
-                    case "Ironclad":
-                    case "Silent":
-                    case "Defect":
-                    case "Watcher":
-                        continue;
+                    case "Packmaster":
+                        if (!MyModConfig.enableCrossModIntegrations) {
+                            continue;
+                        }
+                        discussion = PMDiscussion;
+                        drink = PMDrink;
+                        voiceKey = "VO_MERCHANT_2A";
+                        break;
+                    default:
+                        if (!MyModConfig.enableCrossModIntegrations) {
+                            continue;
+                        }
+                        break;
                 }
 
                 for (CardLibrary.LibraryType library : CardLibrary.LibraryType.values()) {

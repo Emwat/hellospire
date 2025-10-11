@@ -38,13 +38,18 @@ public class TalksTimeEaterPatch {
             if (!(AbstractDungeon.player instanceof Sonic)) {
                 return;
             }
+
+            if (!Sonic.currentModSkin.getName().contains("Sonic")) {
+                return;
+            }
+
             ArrayList<String> sonicDialog = new ArrayList<>();
             sonicDialog.add("Did I keep you waiting?");
             sonicDialog.add("Fastest Thing Alive vs The Time Eater!");
 
             ArrayList<String> rivalDialog = new ArrayList<>();
             rivalDialog.add("You've messed with time... NL @FOR@ @TOO@ @LONG!@");
-            rivalDialog.add("~The~ ~Stage...~ NL ~is~ ~set...~");
+            rivalDialog.add("~The~ ~Stage...~ NL ~is~ ~Set...~");
             int randomNumber = MathUtils.random(rivalDialog.size() - 1);
 
             if (___firstTurn[0]) {

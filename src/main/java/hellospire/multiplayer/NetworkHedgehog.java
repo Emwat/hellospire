@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.character.Sonic;
 import hellospire.util.TextureLoader;
@@ -66,6 +67,10 @@ public class NetworkHedgehog extends NetworkCharPreset {
     @SpirePatch(clz=SpireTogetherMod.class, method="RegisterModdedChars", requiredModId="spireTogether")
     public static class Register {
         public static void Postfix() {
+            if (!MyModConfig.enableCrossModIntegrations) {
+                return;
+            }
+
             SpireTogetherMod.allCharacterEntities.put(Sonic.Meta.THE_HEDGEHOG, new NetworkHedgehog());
         }
     }

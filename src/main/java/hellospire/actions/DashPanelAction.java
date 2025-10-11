@@ -1,23 +1,17 @@
 package hellospire.actions;
 
-import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
-import com.megacrit.cardcrawl.cards.green.Burst;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BurstPower;
-import com.megacrit.cardcrawl.powers.DoubleTapPower;
 import com.megacrit.cardcrawl.powers.SharpHidePower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import hellospire.SonicMod;
-import hellospire.cardmodifiers.RocketAccelModifier;
+import hellospire.MyModConfig;
 import thePackmaster.powers.boardgamepack.DicePower;
 
 public class DashPanelAction extends AbstractGameAction {
@@ -43,7 +37,7 @@ public class DashPanelAction extends AbstractGameAction {
         if (AbstractDungeon.player.hasPower(VigorPower.POWER_ID)){
             vigorWorkaround = AbstractDungeon.player.getPower(VigorPower.POWER_ID).amount;
         }
-        if (Loader.isModLoaded("anniv5") && AbstractDungeon.player.hasPower(DicePower.POWER_ID)){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5") && AbstractDungeon.player.hasPower(DicePower.POWER_ID)){
             vigorWorkaround = AbstractDungeon.player.getPower(DicePower.POWER_ID).amount;
             blockWorkaround = AbstractDungeon.player.getPower(DicePower.POWER_ID).amount;
         }

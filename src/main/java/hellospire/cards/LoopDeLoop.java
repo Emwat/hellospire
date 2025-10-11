@@ -29,7 +29,7 @@ public class LoopDeLoop extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
-        // setExhaustive2();
+        setExhaustive(4);
     }
 
     @Override
@@ -53,6 +53,7 @@ public class LoopDeLoop extends BaseCard {
             return;
         }
     }
+
 
     @Override
     public AbstractCard makeCopy() { //Optional

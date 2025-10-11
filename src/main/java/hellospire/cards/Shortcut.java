@@ -1,23 +1,17 @@
 package hellospire.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ConfusionPower;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
-import hellospire.SoundLibrary;
 import hellospire.actions.LowerCostAction;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Shortcut extends BaseCard {
     public static final String ID = makeID("Shortcut");
@@ -43,6 +37,11 @@ public class Shortcut extends BaseCard {
 
         if (IsConfusedEgg()){
             loadCardImage(SonicMod.imagePath("cards/skill/Shortcut_b.png"));
+        } else if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("test447_keycuts")) {
+            loadCardImage(SonicMod.imagePath("cards/skill/Shortcut_One.png"));
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                this.name = "One";
+            }
         }
     }
 

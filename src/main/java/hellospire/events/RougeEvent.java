@@ -58,6 +58,20 @@ public class RougeEvent extends PhasedEvent {
                         .OptionInfo(String.format("%s%s %s%s%s",
                             OPTIONS[3], goldStolen, OPTIONS[4], wantedCard.name, OPTIONS[5]))
                         .setOptionResult(this::Option01_TheftVictim))
+                .addOption(new TextPhase
+                        .OptionInfo(OPTIONS[11])
+                        .setOptionResult(this::Option02_Omochao))
+        );
+
+        registerPhase("start0R", new TextPhase(DESCRIPTIONS[8])
+                .addOption(new TextPhase
+                        .OptionInfo(String.format("%s%s%s#g%s #g%s.",
+                        OPTIONS[1], ColorWord("#r", wantedCard.name), OPTIONS[2], amountOfAssists, theAssist.name + (amountOfAssists == 1 ? "" : "s")))
+                        .setOptionResult(this::Option00_TradeForAssist))
+                .addOption(new TextPhase
+                        .OptionInfo(String.format("%s%s %s%s%s",
+                        OPTIONS[3], goldStolen, OPTIONS[4], wantedCard.name, OPTIONS[5]))
+                        .setOptionResult(this::Option01_TheftVictim))
         );
 
         registerPhase("start1", new TextPhase(DESCRIPTIONS[0])
@@ -146,6 +160,10 @@ public class RougeEvent extends PhasedEvent {
                 0, 0, 0, 0, goldStolen, 0);
 
         transitionKey("Option01_Leave");
+    }
+
+    private void Option02_Omochao(Integer i) {
+        transitionKey("start0R");
     }
 
     private void Option10_BottleUpgrade(Integer i) {

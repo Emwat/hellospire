@@ -16,7 +16,7 @@ public class SoundLibrary {
 
     static public final String Amazing1 = makeID("ogg_AMAZING");
     static public final String Amazing2 = makeID("ogg_OUTSTANDING");
-//    static public final String Amazing3 = makeID("ogg_GREAT");
+    //    static public final String Amazing3 = makeID("ogg_GREAT");
 //    static public final String Amazing4 = makeID("ogg_GOOD");
     static public final String ALLRIGHT = makeID("ogg_ALLRIGHT");
     static public final String COOL = makeID("ogg_COOL");
@@ -53,7 +53,7 @@ public class SoundLibrary {
     static public final String Attack6 = makeID("ogg_attack6");
     static public final String Attack7 = makeID("ogg_attack7");
     static public final String YESSS = makeID("ogg_YESSS");
-    
+
     static public final String SonicStyle = makeID("ogg_SonicStyle");
 
     static public final String LightningShield = makeID("ogg_LightningShield");
@@ -73,7 +73,8 @@ public class SoundLibrary {
     static public final String WhatsTheMatter = makeID("ogg_WhatsTheMatter");
     static public final String StepItUp = makeID("ogg_stepitup");
     static public final String TooSlow = makeID("ogg_tooslow");
-    static public final String NeverUnderestimate = makeID("ogg_NeverUnderestimate");;
+    static public final String NeverUnderestimate = makeID("ogg_NeverUnderestimate");
+    ;
     static public final String TheHedgehog = makeID("ogg_the_hedgehog");
 
     static public final String Shoot = makeID("ogg_Shoot");
@@ -83,12 +84,11 @@ public class SoundLibrary {
     static public final String SpeedBreak = makeID("ogg_SpeedBreak");
     static public final String TimeBreak = makeID("ogg_TimeBreak");
 
-    static public final String BossMusic = makeID("mp3_WindUpPunchGo");
-
     static public final String Amy = makeID("ogg_amy");
     static public final String Big = makeID("ogg_big");
     static public final String Blaze = makeID("ogg_blaze");
-    public static final String Chao = makeID("ogg_chao");;
+    public static final String Chao = makeID("ogg_chao");
+    ;
     static public final String Charmy = makeID("ogg_charmy");
     public static final String Chip = makeID("ogg_chip");
     static public final String CuteCouple = makeID("ogg_cutecouple");
@@ -98,10 +98,13 @@ public class SoundLibrary {
     static public final String JetSneeze = makeID("ogg_jet_sneeze");
     static public final String JetWhat = makeID("ogg_jet_what");
     static public final String Knuckles = makeID("ogg_knux");
-    public static final String Sticks = makeID("ogg_sticks");;
-    public static final String Shadow = makeID("ogg_shadow");;
+    public static final String Sticks = makeID("ogg_sticks");
+    ;
+    public static final String Shadow = makeID("ogg_shadow");
+    ;
     public static final String Silver = makeID("ogg_silver");
-    public static final String Rouge = makeID("ogg_rouge");;
+    public static final String Rouge = makeID("ogg_rouge");
+    ;
     static public final String Tails = makeID("ogg_tails");
     static public final String Vector = makeID("ogg_vector");
 
@@ -119,20 +122,24 @@ public class SoundLibrary {
     static public int randomNumber = -1;
 
 
-    static public SFXAction SoundAction(String key){
+    static public SFXAction SoundAction(String key) {
         if (MyModConfig.enableSound) {
             return new SFXAction(key);
         }
         return new SFXAction(BlankSound);
     }
 
-    static public SFXAction VoiceAction(String key){
+    static public SFXAction VoiceAction(String key) {
         if (!(AbstractDungeon.player instanceof Sonic)) {
             return new SFXAction(BlankSound);
         }
 
+        if (!Sonic.currentModSkin.getName().contains("Sonic")) {
+            return new SFXAction(BlankSound);
+        }
+
         if (MyModConfig.enableVoice) {
-            if (isRandomlyTrue()){
+            if (isRandomlyTrue()) {
                 return new SFXAction(key);
             }
         }
@@ -203,11 +210,11 @@ public class SoundLibrary {
         return new SFXAction(key);
     }
 
-    public static boolean isRandomlyTrue(){
+    public static boolean isRandomlyTrue() {
         try {
             return AbstractDungeon.miscRng.random(0, 10) - MyModConfig.voiceFrequency <= 0;
         } catch (NullPointerException nullPointerException) {
-            return (int)(Math.random() * 11) - MyModConfig.voiceFrequency <= 0;
+            return (int) (Math.random() * 11) - MyModConfig.voiceFrequency <= 0;
         }
     }
 }

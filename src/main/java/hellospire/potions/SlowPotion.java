@@ -1,6 +1,7 @@
 package hellospire.potions;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PoisonPotion;
@@ -33,6 +35,14 @@ public class SlowPotion extends BasePotion {
     // BLUE   0, 98, 255
     // RED    255, 32, 1
     // YELLOW 255, 255, 0
+
+    // TogetherInSpire needs these textures
+    private static final Texture containerImg = ImageMaster.POTION_M_CONTAINER;
+    private static final Texture liquidImg = ImageMaster.POTION_M_LIQUID;
+    private static final Texture hybridImg = ImageMaster.POTION_M_HYBRID;
+    private static final Texture spotsImg = ImageMaster.POTION_M_SPOTS;
+    private static final Texture outlineImg = ImageMaster.POTION_M_OUTLINE;
+
     public SlowPotion() {
         super(ID, 1, PotionRarity.RARE, PotionSize.M, LIQUID_COLOR, HYBRID_COLOR, null);
         this.isThrown = false;

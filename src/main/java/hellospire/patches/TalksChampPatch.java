@@ -23,6 +23,10 @@ public class TalksChampPatch {
             return;
         }
 
+        if (!Sonic.currentModSkin.getName().contains("Sonic")) {
+            return;
+        }
+
         String[] sonicReplies = CardCrawlGame.languagePack.getCharacterString(makeID("TheHedgehog")).TEXT;
 
         ArrayList<String> derp = new ArrayList<>();
@@ -39,7 +43,6 @@ public class TalksChampPatch {
             AbstractDungeon.actionManager.addToBottom(new WaitAction(3F));
             AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[6], talkDuration, talkDuration));
         } else if (randomNumber == 1) {
-
             AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[7], talkDuration, talkDuration));
             AbstractDungeon.actionManager.addToBottom(new WaitAction(3F));
             AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CHAMP_2A"));

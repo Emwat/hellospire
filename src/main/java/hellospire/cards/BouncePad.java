@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
@@ -71,7 +72,9 @@ public class BouncePad extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void branchUpgrade() {
-        name = "Serial Bounce Pad";
+        if (Settings.language.name().equalsIgnoreCase("eng")) {
+            name = "Serial Bounce Pad";
+        }
         loadCardImage(SonicMod.imagePath("cards/skill/BouncePadSerial.png"));
         portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/skill/BouncePadSerial_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];

@@ -8,25 +8,21 @@
       "This is a label"
     ]
   },
-  "${modID}:Rouge00": {
-    "TEXT": [
-      "He seems to recognize me, but he doesn't remember our last encounter. This is the fifth time I've stolen from him."
-    ]
+  "${modID}:UtilityTutorial": {
+    "LABEL": [
+      "Next",
+      "I'm Ready!",
+      "The Hedgehog Mod News",
+      "(Page {0} of {1})."
+    ],
+    "TEXT": []
   },
-  "${modID}:Tails00": {
+  "${modID}:Version092": {
+    "LABEL": [
+      "The Hedgehog Mod -- Version0.9.2 -- 10/11/2025 12:13 AM"
+    ],
     "TEXT": [
-      "#ySonic! #yIt's #yme #yTails! #yDo #yyou #yremember #me? NL NL #yHey #Sonic! #yWait #up!"
-    ]
-  },
-  "${modID}:Tails01": {
-    "TEXT": [
-      "#yThe #ySpire? #yIt #ydoesn't #ylook #ylike #Eggman #is #behind #this.",
-      "What am I going to do Sonic? You're not yourself. Amy and Knuckles are missing. And the Spireblight is slowly taking over...",
-      "No I won't let it end like this! Wait for me Sonic. I'm on my way!"
-    ]
-  },
-  "${modID}:Tails02": {
-    "TEXT": [
+      "I've come to make an announcement! NL NL If you see a card randomly glowing gold for no reason, that's not the game telling you that it's important. That's a bug. --SpireWolf25"
     ]
   }
 }

@@ -7,9 +7,11 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import hellospire.MyModConfig;
 import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
@@ -43,17 +45,19 @@ public class Ring extends BaseCard {
         tags.add(CardTags.HEALING);
         tags.add(SonicTags.RING);
 
-        if (Loader.isModLoaded("PrideMod") || isTheRainbow()) {
+        if (MyModConfig.enableCrossModIntegrations && (Loader.isModLoaded("PrideMod") || isTheRainbow())) {
             loadCardImage(SonicMod.imagePath("cards/skill/WorldRings.png"));
         }
 
         if (IsConfusedEgg()){
-            this.name = "Coin";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                this.name = "Coin";
+            }
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/Ring_b.png"));
         }
 
-        if (Loader.isModLoaded("ModAchievement")){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")){
             if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
                 unlockRingmasterAchievement();
             }

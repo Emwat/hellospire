@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
 import hellospire.SoundLibrary;
@@ -86,7 +87,9 @@ public class HotRod extends BaseCard {
 
     private void TransformCardEffects() {
         if (ticker == 2) {
-            this.name = "Hot Rod Part 1 of 3";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                this.name = "Hot Rod Part 1 of 3";
+            }
             this.initializeTitle();
             this.setDamage(0, 0);
             this.setBlock(BLOCK_WARMUP, 1);
@@ -96,7 +99,9 @@ public class HotRod extends BaseCard {
             this.initializeDescription();
             loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
         } else if (ticker == 1) {
-            this.name = "Hot Rod Part 2 of 3";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                this.name = "Hot Rod Part 2 of 3";
+            }
             this.initializeTitle();
             this.setDamage(0, 0);
             this.setBlock(BLOCK_STANDARD, 1);
@@ -106,7 +111,9 @@ public class HotRod extends BaseCard {
             this.initializeDescription();
             loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
         } else if (ticker == 0) {
-            this.name = "Hot Rod Part 3 of 3";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                this.name = "Hot Rod Part 3 of 3";
+            }
             this.initializeTitle();
             this.setDamage(DAMAGE, UPG_DAMAGE);
             this.setBlock(BLOCK_CRITICAL, UPG_BLOCK);
@@ -116,7 +123,9 @@ public class HotRod extends BaseCard {
             this.initializeDescription();
             loadCardImage(SonicMod.imagePath("cards/attack/HotRod2.png"));
         } else {
-            this.name = "Hot Rod Overloaded";
+            if (Settings.language.name().equalsIgnoreCase("eng")) {
+                this.name = "Hot Rod Overloaded";
+            }
             this.initializeTitle();
             this.setBlock(BLOCK_OVERLOADED, 1);
             this.setDamage(0, 0);

@@ -38,7 +38,7 @@ public class SecretRoute extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         setCustomVar(DRAW_KEYWORD, DRAW);
-        // setExhaustive2();
+        // setExhaustive(2);
         setExhaust(true);
     }
 
@@ -56,12 +56,6 @@ public class SecretRoute extends BaseCard {
                 addToBot(new LowerCostAction(card, 1));
             }
         }));
-    }
-
-    private void setExhaustive2() {
-        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
-        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
-        exhaust = false;
     }
 
     @Override

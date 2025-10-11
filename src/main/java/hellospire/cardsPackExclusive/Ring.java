@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import hellospire.MyModConfig;
 import hellospire.SonicTags;
 import hellospire.SoundLibrary;
 import hellospire.actions.ModFastAction;
@@ -18,7 +19,6 @@ import hellospire.cards.Boost;
 import hellospire.character.Sonic;
 import hellospire.powers.RingPower;
 import hellospire.util.CardStats;
-import thePackmaster.ThePackmaster;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -45,7 +45,7 @@ public class Ring extends BaseCard {
         tags.add(CardTags.HEALING);
         tags.add(SonicTags.RING);
 
-        if (Loader.isModLoaded("ModAchievement")){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")){
             if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
                 unlockRingmasterAchievement();
             }

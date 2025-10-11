@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import hellospire.SonicMod;
 import hellospire.character.Sonic;
@@ -69,7 +70,9 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void baseUpgrade() {
-        name = "Super Rush";
+        if (Settings.language.name().equalsIgnoreCase("eng")) {
+            name = "Super Rush";
+        }
         upgradeStatus = this.name;
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
 //        this.upgradeBaseCost(1);
@@ -78,7 +81,9 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void branchUpgrade() {
-        name = "Rush Spin";
+        if (Settings.language.name().equalsIgnoreCase("eng")) {
+            name = "Rush Spin";
+        }
         upgradeStatus = this.name;
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
 //        this.upgradeBaseCost(1);

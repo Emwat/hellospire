@@ -76,13 +76,39 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
             //             "Do you know who I am?",
             // ]
 
-            addToBot(SoundLibrary.VoiceAction(voiceLine));
-            if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                addToBot(new TalkAction(true, texts[3], duration, bubbleDuration));
-            } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                addToBot(new TalkAction(true, texts[4], duration, bubbleDuration));
-            } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                addToBot(new TalkAction(true, texts[5], duration, bubbleDuration));
+            if (Sonic.currentModSkin.getName().contains("Sonic")){
+                addToBot(SoundLibrary.VoiceAction(voiceLine));
+                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
+                    addToBot(new TalkAction(true, texts[3], duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
+                    addToBot(new TalkAction(true, texts[4], duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
+                    addToBot(new TalkAction(true, texts[5], duration, bubbleDuration));
+                }
+            } else if (Sonic.currentModSkin.getName().contains("Knuckles")) {
+                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
+                    addToBot(new TalkAction(true, "You and me. 1 v 1.", duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
+                    addToBot(new TalkAction(true, "Your funeral.", duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
+                    addToBot(new TalkAction(true, "I'll take you on!", duration, bubbleDuration));
+                }
+            } else if (Sonic.currentModSkin.getName().contains("Shadow")) {
+                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
+                    addToBot(new TalkAction(true, "You don't even stand a chance.", duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
+                    addToBot(new TalkAction(true, "Pathetic.", duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
+                    addToBot(new TalkAction(true, "There's no time for games.", duration, bubbleDuration));
+                }
+            } else if (Sonic.currentModSkin.getName().contains("Tails")) {
+                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
+                    addToBot(new TalkAction(true, "Ready for me?", duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
+                    addToBot(new TalkAction(true, "I'll show you how powerful my Cyclone is!", duration, bubbleDuration));
+                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
+                    addToBot(new TalkAction(true, "All's well that ends well.", duration, bubbleDuration));
+                }
             }
         }
 
