@@ -27,6 +27,7 @@ public class ThunderShield extends BaseCard {
         this.cardsToPreview = new Ring();
 
         setMagic(MAGIC);
+        // setCostUpgrade(2);
         tags.add(SonicTags.LIKE_DEFECT);
     }
 

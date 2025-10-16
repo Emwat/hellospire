@@ -20,8 +20,8 @@ Requires subscription to
 - Ending Pictures
 
 # BaseMod things
-- <kbd>~</kbd> Dev Console
-- <kbd>Shift</kbd><kbd>E</kbd> imGUI
+- <kbd>~</kbd> Dev Console - This key is at the upper left corner of the keyboard, next to <kbd>1</kbd> and underneath <kbd>Esc</kbd>. The dev console gives me easy access to events. I've created a few dev console commands: Resetting tutorials.
+- <kbd>Shift</kbd><kbd>E</kbd> imGUI - Easy discard, easy upgrade multiple times, easy infinite energy
 
 # Good wiki links
 - [How to Start Modding] (https://discord.com/channels/309399445785673728/1145803879821361293/1145803879821361293)
@@ -45,19 +45,33 @@ Requires subscription to
 - [StSModdingToolCardImagesCreator] (https://github.com/JohnnyBazooka89/StSModdingToolCardImagesCreator) - crops and masks card images.
 - [Loadout Mod] (https://steamcommunity.com/sharedfiles/filedetails/?id=2814267979) - there's a tab on the left side of the screen which lets you spawn any card, any relic, and any enemy.
 - [Run Resumer] (https://steamcommunity.com/sharedfiles/filedetails/?id=3127212809) - to test against the Heart after balancing cards. Also easy campfire access.
-- [Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use
+- [Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use. It helps when I need to look at which addToBot/addToTop Action is playing.
 - [Modded Spire Exporter] (https://steamcommunity.com/sharedfiles/filedetails/?id=2069872611&searchtext=exporter) - Export every card of a mod to an html file! Now I can Ctrl + F for specific descriptions in Packmaster
 - [Googly Eyes steam] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
 - [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/)
 - [Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
+- [Mega Transparent The Spire 2.0] https://steamcommunity.com/sharedfiles/filedetails/?id=3309442660 - you can see the debug log while you play.
 - Steam > Settings > Game Recording > Record in Background. Play game. Steam > Library > Slay the Spire > video is underneath POST-GAME SUMMARY. Amazing debugging tool.
-- YouTube - You can double right-click a video and take snapshot. You can also press . or , to move the video by one frame.
+- YouTube - You can double right-click a video and take snapshot.
+- YouTube - You can also press <kbd>.</kbd> or <kbd>,</kbd> to move the video by one frame.
 
 # IntelliJ shortcuts
 - Double tapping <kbd>Shift</kbd> : brings up a Universal Code Search Tool
-- <kbd>Ctrl</kbd><kbd>Shift</kbd> + <kbd>F</kbd> : Find All
+- <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd> : Find All
 - <kbd>Alt</kbd><kbd>Enter</kbd> : Context Actions
 - <kbd>Ctrl</kbd><kbd>B</kbd> : Decompile/Direct to source
+
+# Every mod character should do this
+- Before you publish, you should make sure your modID is all lowercase for Chinese compatibility.
+- Create a win screen. I'm tired of the Ironclad ending on modded characters. It's not that hard. You don't need 3 pictures. You can just use one picture. See Sonic.java.
+```java
+   @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        ArrayList<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel(endingPath("ending.png")));
+        return panels;
+    }
+```
 
 # Steam Workshop Link
 - https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473

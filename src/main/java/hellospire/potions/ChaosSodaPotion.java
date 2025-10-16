@@ -40,11 +40,11 @@ public class ChaosSodaPotion extends BasePotion {
     // YELLOW 255, 255, 0
 
     // TogetherInSpire needs these textures
-    private static final Texture containerImg = ImageMaster.POTION_S_CONTAINER;
-    private static final Texture liquidImg = ImageMaster.POTION_S_LIQUID;
-    private static final Texture hybridImg = ImageMaster.POTION_S_HYBRID;
-    private static final Texture spotsImg = ImageMaster.POTION_S_SPOTS;
-    private static final Texture outlineImg = ImageMaster.POTION_S_OUTLINE;
+    private static final Texture containerImg = ImageMaster.POTION_BOTTLE_CONTAINER;
+    private static final Texture liquidImg = ImageMaster.POTION_BOTTLE_LIQUID;
+    private static final Texture hybridImg = ImageMaster.POTION_BOTTLE_HYBRID;
+    private static final Texture spotsImg = ImageMaster.POTION_BOTTLE_SPOTS;
+    private static final Texture outlineImg = ImageMaster.POTION_BOTTLE_OUTLINE;
 
     public ChaosSodaPotion() {
         super(ID, 1, PotionRarity.UNCOMMON, PotionSize.BOTTLE, LIQUID_COLOR, HYBRID_COLOR, SPOTS_COLOR);

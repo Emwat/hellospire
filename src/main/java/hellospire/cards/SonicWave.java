@@ -23,12 +23,11 @@ public class SonicWave extends BaseCard {
     );
 
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 2;
 
     public SonicWave() {
         super(ID, info);
 
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
         tags.add(SonicTags.LIKE_DEFECT);
     }
 
@@ -43,7 +42,9 @@ public class SonicWave extends BaseCard {
                 }
             } else {
                 addToBot(new EvokeAllOrbsWithoutRemovingAction());
-                addToBot(new ExhaustSpecificCardAction(this, p.hand, true));
+                if (!this.upgraded) {
+                    addToBot(new ExhaustSpecificCardAction(this, p.hand, true));
+                }
             }
         }));
     }

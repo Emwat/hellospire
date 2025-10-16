@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import hellospire.actions.ModXFastAction;
 import hellospire.cards.Ring;
 import hellospire.character.Sonic;
 import hellospire.powers.DizzyPower;
@@ -44,5 +45,6 @@ public class PowerBrakeRelic extends BaseRelic {
                 }
             }
         }
+
     }
 }

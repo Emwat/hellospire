@@ -35,7 +35,7 @@ public class NextTurnEchoPower extends BasePower {
         addToBot(new ReducePowerAction(owner, owner, ID, amount));
         addToBot(new ApplyPowerAction(owner, owner, new EchoPower(owner, amount)));
         addToBot(new ApplyPowerAction(owner, owner, new LoseEchoPower(owner, amount)));
-//        AbstractDungeon.actionManager.addToBottom(new HeightFinisherAction());
+
     }
 
     static {

@@ -21,6 +21,12 @@
       " created cards cost one less [E] . Zero cost created cards are excluded."
     ]
   },
+  "${modID}:DevBandaidPower": {
+    "NAME": "Dev Bandaid Power",
+    "DESCRIPTIONS": [
+      "You're not supposed to see this. In events that spawn combats, sometimes the draw pile does not have cards for whatever reason. NL NL If the draw pile is empty and the discard pile is empty, attempt to re-initialize the draw pile."
+    ]
+  },
   "${modID}:DirectJumpPower": {
     "NAME": "Direct Jump",
     "DESCRIPTIONS": [
@@ -28,7 +34,7 @@
     ]
   },
   "${modID}:DizzyPower": {
-    "NAME": "Too Slow",
+    "NAME": "Dizzy",
     "DESCRIPTIONS": [
       "Target deals damage reduced by the cost of the highest card in your hand."
     ]
@@ -77,7 +83,7 @@
     "NAME": "Mission: Ring Race",
     "DESCRIPTIONS": [
       "#yExhaust #b",
-      " #ycards #yas #yfast #yas #ypossible! Doing so will immediately end the combat.",
+      " #ycards #yas #yfast #yas #ypossible! Doing so will immediately end the combat. NL ",
       "S Rank: ",
       " Turns NL A Rank: ",
       " Turns NL B Rank: ",
@@ -123,6 +129,13 @@
     "DESCRIPTIONS": [
       "Whenever you gain #yVigor, gain #b",
       " more."
+    ]
+  },
+  "${modID}:OneUpPower": {
+    "NAME": "Perfect Score",
+    "DESCRIPTIONS": [
+      "Whenever you die, gain #g",
+      " HP and #rlose #r100 #rGold."
     ]
   },
   "${modID}:RelaxPower": {

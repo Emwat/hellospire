@@ -17,6 +17,7 @@ public class LevelUpFlightPower extends BasePower {
 
     public LevelUpFlightPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        canGoNegative = true;
     }
 
     public void updateDescription() {

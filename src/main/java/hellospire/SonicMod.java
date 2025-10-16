@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.events.beyond.WindingHalls;
 import com.megacrit.cardcrawl.events.city.TheLibrary;
+import com.megacrit.cardcrawl.events.exordium.ShiningLight;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rewards.RewardSave;
@@ -32,6 +33,8 @@ import hellospire.multiplayer.Skindexer;
 // import hellospire.potions.PowerCorePotion;
 // import hellospire.potions.SlowPotion;
 // import hellospire.ui.DropDown;
+import hellospire.relics.CDFutureRelic;
+import hellospire.relics.CDPastRelic;
 import hellospire.util.*;
 import hellospire.character.SonicTipTracker;
 import hellospire.potions.BasePotion;
@@ -61,7 +64,6 @@ import java.util.*;
 
 import static basemod.BaseMod.addMonster;
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
-
 
 
 @SpireInitializer
@@ -111,7 +113,7 @@ public class SonicMod implements
         if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5")) {
             SpireAnniversary5Mod.subscribe(new PackLoader());
         }
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             Skindexer.register();
         }
     }
@@ -179,7 +181,9 @@ public class SonicMod implements
 
         loadConfig();
         ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
-        ConsoleCommand.addCommand("sonicunlock", SonicConsoleAchievement.class);
+        ConsoleCommand.addCommand("sonicunlock", SonicConsoleUnlock.class);
+        ConsoleCommand.addCommand("soniceverything", SonicConsoleEverything.class);
+        ConsoleCommand.addCommand("sonicskin", SonicConsoleSkin.class);
         ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
     }
 
@@ -213,6 +217,13 @@ public class SonicMod implements
     private void registerEvents() {
 
         if (MyModConfig.enableEventsForAllCharacters) {
+            BaseMod.addEvent(new AddEventParams.Builder(ChaoGardenEvent.ID, ChaoGardenEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .overrideEvent(TheLibrary.ID)
+                    .create()
+            );
+
             BaseMod.addEvent(new AddEventParams.Builder(GravitySwitchEvent.ID, GravitySwitchEvent.class)
                     .eventType(EventUtils.EventType.FULL_REPLACE)
                     .overrideEvent(WindingHalls.ID)
@@ -257,8 +268,21 @@ public class SonicMod implements
 
             BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
                     .dungeonID(TheCity.ID)
+                    .spawnCondition(() ->
+                            !(AbstractDungeon.player.hasRelic(CDFutureRelic.ID)))
                     .playerClass(Sonic.Meta.THE_HEDGEHOG)
                     .eventType(EventUtils.EventType.NORMAL)
+                    .create()
+            );
+
+            BaseMod.addEvent(new AddEventParams.Builder(TimeStoneEvent.ID, TimeStoneEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .spawnCondition(() ->
+                            AbstractDungeon.player instanceof Sonic &&
+                                    AbstractDungeon.player.getPrefs().getInteger("ASCENSION_LEVEL", 1) > 0)
+                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                    .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .overrideEvent(ShiningLight.ID)
                     .create()
             );
         }
@@ -368,7 +392,7 @@ public class SonicMod implements
     }
 
     private void registerKeyword(KeywordInfo info) {
-        BaseMod.addKeyword(modID.toLowerCase(), info.PROPER_NAME, info.NAMES, info.DESCRIPTION);
+        BaseMod.addKeyword(modID.toLowerCase(), info.PROPER_NAME, info.NAMES, info.DESCRIPTION, info.COLOR);
         if (!info.ID.isEmpty()) {
             keywords.put(info.ID, info);
         }
@@ -515,7 +539,7 @@ public class SonicMod implements
             BaseMod.removeCard(hellospire.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
         }
 
-        if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")){
+        if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
         }
     }
@@ -653,6 +677,15 @@ public class SonicMod implements
         if (abstractCard.type == AbstractCard.CardType.ATTACK) {
             attackCardsPlayedThisTurn++;
         }
+
+        // AbstractDungeon.actionManager.addToBottom(new ModXFastAction(() -> {
+        //     for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+        //         if (monster.hasPower(DizzyPower.POWER_ID)){
+        //             DizzyPower dizzyPower = (DizzyPower) monster.getPower(DizzyPower.POWER_ID);
+        //             dizzyPower.calculateHighestCost(abstractCard);
+        //         }
+        //     }
+        // }));
     }
 
     @Override

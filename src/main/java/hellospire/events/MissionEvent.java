@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import hellospire.SonicMod;
 import hellospire.actions.ModTextInCenterAction;
+import hellospire.powers.DevBandaidPower;
 import hellospire.powers.MissionRingRacePower;
 import hellospire.powers.MissionScoreAttackPower;
 import hellospire.powers.MissionTimeAttackPower;
@@ -75,6 +76,9 @@ public class MissionEvent extends PhasedEvent {
         transitionKey("00_RingRace");
         AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MissionRingRacePower(AbstractDungeon.player)));
+        AbstractDungeon.actionManager.addToTop(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DevBandaidPower(AbstractDungeon.player))
+        );
         AbstractDungeon.actionManager.addToTop(new ModTextInCenterAction("EXHAUST " + MissionRingRacePower.MISSION_AMOUNT + " CARDS", MissionTextColor));
         AbstractDungeon.lastCombatMetricKey = "Mission Ring Race";
 
@@ -86,6 +90,9 @@ public class MissionEvent extends PhasedEvent {
         transitionKey("01_ScoreAttack");
         AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MissionScoreAttackPower(AbstractDungeon.player)));
+        AbstractDungeon.actionManager.addToTop(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DevBandaidPower(AbstractDungeon.player))
+        );
         AbstractDungeon.actionManager.addToTop(new ModTextInCenterAction("DEAL MAXIMUM DAMAGE", MissionTextColor));
 
         AbstractDungeon.lastCombatMetricKey = "Mission Score Attack";
@@ -98,6 +105,9 @@ public class MissionEvent extends PhasedEvent {
         transitionKey("02_TimeAttack");
         AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MissionTimeAttackPower(AbstractDungeon.player)));
+        AbstractDungeon.actionManager.addToTop(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DevBandaidPower(AbstractDungeon.player))
+        );
         AbstractDungeon.actionManager.addToTop(new ModTextInCenterAction("WIN AS FAST AS YOU CAN", MissionTextColor));
         AbstractDungeon.lastCombatMetricKey = "Mission Time Attack";
     }

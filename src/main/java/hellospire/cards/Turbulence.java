@@ -46,9 +46,6 @@ public class Turbulence extends BaseCard {
         }
 
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, 1), 1));
-        if (this.upgraded) {
-            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
-        }
     }
 
     public void upgrade() {

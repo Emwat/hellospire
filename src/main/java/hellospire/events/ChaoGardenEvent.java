@@ -541,7 +541,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                 cardsObtained.add(DiscussReward.name);
 
                 StampRelic stampRelic = new StampRelic();
-                AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) Settings.WIDTH * 0.28F, (float) Settings.HEIGHT / 2.0F, stampRelic);
+                AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F, stampRelic);
                 givenRelics.add(stampRelic.name);
             }
         }

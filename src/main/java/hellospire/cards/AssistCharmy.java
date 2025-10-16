@@ -27,9 +27,8 @@ public class AssistCharmy extends BaseCard {
     );
 
     private static final int DIZZY_AMOUNT = 2;
-    private static final int UPG_DIZZY_AMOUNT = 1;
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_DIZZY_AMOUNT = 2;
+    private static final int MAGIC = 1;
     private static final String KEYWORD_DIZZY = "CustomVar_DIZZY";
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(244, 200, 135);
     private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(0, 0, 0);
@@ -37,7 +36,7 @@ public class AssistCharmy extends BaseCard {
     public AssistCharmy() {
         super(ID, info);
 
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
         setCustomVar(KEYWORD_DIZZY, DIZZY_AMOUNT, UPG_DIZZY_AMOUNT);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);

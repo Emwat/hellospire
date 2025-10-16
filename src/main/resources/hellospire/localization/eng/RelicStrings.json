@@ -30,6 +30,20 @@
       " #yShortcuts to your hand."
     ]
   },
+  "${modID}:CDFutureRelic": {
+    "NAME": "Time Warp - Future",
+    "FLAVOR": "Inflation.",
+    "DESCRIPTIONS": [
+      "At the start of combat, lose #r1 #yLevel #yUp #ySpeed. Increase your max hand size by #b3. When you create a #yRing, randomize its cost."
+    ]
+  },
+  "${modID}:CDPastRelic": {
+    "NAME": "Time Warp - Past",
+    "FLAVOR": "Golden Era.",
+    "DESCRIPTIONS": [
+      "If you take #b{0} damage, Exhaust ALL #yRings in your hand."
+    ]
+  },
   "${modID}:ChaoDefectRelic": {
     "NAME": "Chao",
     "FLAVOR": "I must be getting stronger!",

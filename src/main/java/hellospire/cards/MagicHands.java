@@ -1,5 +1,6 @@
 package hellospire.cards;
 
+import basemod.cardmods.RetainMod;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
@@ -33,16 +34,19 @@ public class MagicHands extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            addToBot(new ChangeStanceAction("Calm"));
-        }
         addToBot(new SelectCardsInHandAction(1, CardCrawlGame.languagePack.getUIString(makeID("MagicHandsMessage")).TEXT[0],
                 false, false, filter -> !filter.tags.contains(SonicTags.DO_NOT_THROW), cards -> {
             if (cards.isEmpty()) {
                 return;
             }
-            for (AbstractCard card : cards) {
-                CardModifierManager.addModifier(card, new MagicHandsModifier());
+            if (!this.upgraded) {
+                for (AbstractCard card : cards) {
+                    CardModifierManager.addModifier(card, new RetainMod());
+                }
+            } else {
+                for (AbstractCard card : cards) {
+                    CardModifierManager.addModifier(card, new MagicHandsModifier());
+                }
             }
         }));
     }

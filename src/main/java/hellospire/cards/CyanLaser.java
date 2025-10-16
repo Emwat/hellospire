@@ -45,8 +45,8 @@ public class CyanLaser extends BaseCard {
                 ++livingMonsters;
             }
         }
-        this.addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
-        this.addToBot(new VFXAction(p, new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.flipHorizontal), 0.4F));
+        addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
+        addToBot(new VFXAction(p, new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.flipHorizontal), 0.4F));
         addToBot(new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
         addToBot(new DrawCardAction(livingMonsters));
     }

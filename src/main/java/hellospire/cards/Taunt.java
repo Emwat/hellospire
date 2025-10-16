@@ -107,7 +107,7 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
                 } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
                     addToBot(new TalkAction(true, "I'll show you how powerful my Cyclone is!", duration, bubbleDuration));
                 } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                    addToBot(new TalkAction(true, "All's well that ends well.", duration, bubbleDuration));
+                    addToBot(new TalkAction(true, "Look! Ramps!", duration, bubbleDuration));
                 }
             }
         }

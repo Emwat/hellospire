@@ -173,5 +173,27 @@
       "[Decline offer] Leave.",
       "[Talk to Omochao] (Free Action)"
     ]
+  },
+  "${modID}:TimeStoneEvent": {
+    "NAME": "Time Stone",
+    "DESCRIPTIONS": [
+      "You come across some signposts. When you approach them, you find yourself almost recollecting some strange memories. You don't know why you know this information. NL NL Past. Present. Future.",
+      "The Past: Rings are more valuable. NL NL If you take {0} damage, #ryou #rlose #rALL #rthe #yRings #rin #ryour #rhand. NL NL If you have #y{1} Gold and you die, you spend the #y{2} #yGold to #grestore #g{3} #gHP. NL NL #rLose {4}. #gGain {5}.",
+      "The Present: The explosion of media. Every act sets a precedence. NL NL Get #g2 #grandom #gupgrades and #rlose #r{0} #rHP.",
+      "The Future: Inflation. Kid-friendly. Gambling is rampant. NL NL At the start of combat, you #rlose #r1 #rLevel #rUp #rSpeed. NL NL When you gain a #yRing, #rrandomize #rits #rcost. NL NL #gYour #gmax #ghand #gsize #gincreases #gby #g3. NL NL #gGain #ga #gHoming #gAttack.",
+      "You fly off into the distance. Your body starts to shimmer. Before you know it, the scenery flashes into a green enveloping light. NL NL NL ...Once upon a time.",
+      "No time like the present! When the warm light hits you, you refuse to follow it. Instead, you carve out your own path, embracing a different kind of fate.",
+      "It is inevitable. History repeats itself. But you know the truth. You know that it doesn't matter what happens or where you are, there are always opportunities."
+    ],
+    "OPTIONS": [
+      "[Go]",
+      "[Peek at the Past] #b(Free #baction)",
+      "[Peek at the Present] #b(Free #baction)",
+      "[Peek at the Future] #b(Free #baction)",
+      "[Return to Pivot] #b(Free #baction)",
+      "[Commit to Past] Accept these conditions.",
+      "[Commit to Present] Accept these conditions.",
+      "[Commit to Future] Accept these conditions."
+    ]
   }
 }

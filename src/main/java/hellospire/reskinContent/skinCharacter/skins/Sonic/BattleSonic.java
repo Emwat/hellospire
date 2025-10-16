@@ -2,15 +2,18 @@
 //
 // import com.megacrit.cardcrawl.core.CardCrawlGame;
 // import hellospire.SonicMod;
+// import hellospire.character.ModSkinDictionary;
 // import hellospire.reskinContent.skinCharacter.AbstractSkin;
 // import hellospire.util.TextureLoader;
 // import hellospire.character.Sonic;
 //
-// public class SonicBase extends AbstractSkin {
+// public class BattleSonic extends AbstractSkin {
 //
-//     public SonicBase() {
-//         this.NAME = CardCrawlGame.languagePack.getUIString("reskinContent:ReSkin").TEXT[1];
-//         this.DESCRIPTION = CardCrawlGame.languagePack.getCharacterString(Sonic.ID).TEXT[0];
+//     public BattleSonic() {
+//         // this.NAME = CardCrawlGame.languagePack.getUIString("reskinContent:ReSkin").TEXT[1];
+//         ModSkinDictionary.ModSkin modSkin = ModSkinDictionary.getModSkin(SonicMod.makeID("skinBase"));
+//         this.NAME = modSkin.getName();
+//         this.DESCRIPTION = modSkin.getDescription();
 //         // this.portraitStatic_IMG = TextureLoader.getTexture("champResources/images/charSelect/charBG.png");
 //         this.portraitStatic_IMG = TextureLoader.getTexture(SonicMod.characterPath("select/portrait.png"));
 //         this.SHOULDER1 = SonicMod.characterPath("shoulder9.png");

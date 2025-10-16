@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import hellospire.MyModConfig;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
+import hellospire.relics.CDFutureRelic;
+import hellospire.relics.CDPastRelic;
 import hellospire.rewards.AssistReward;
 import hellospire.util.CardStats;
 
@@ -40,8 +42,6 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistEspio());
         characterCards.add(new AssistJet());
         characterCards.add(new AssistKnuckles());
-        characterCards.add(new AssistRosy());
-        characterCards.add(new AssistRouge());
         characterCards.add(new AssistShadow());
         characterCards.add(new AssistSilver());
         characterCards.add(new AssistSticks());
@@ -51,6 +51,14 @@ public class Assist extends BaseCard {
         // if (this.upgraded) {
         //     characterCards.add(new Gizoid());
         // }
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CDPastRelic.ID)){
+            characterCards.add(new AssistRosy());
+            characterCards.add(new DebugMode());
+        }
+        if (AbstractDungeon.player != null && !AbstractDungeon.player.hasRelic(CDFutureRelic.ID)){
+            characterCards.add(new AssistRouge());
+        }
+
 
         setExhaust(true);
     }

@@ -17,6 +17,7 @@ public class LevelUpPowerPower extends BasePower {
 
     public LevelUpPowerPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        canGoNegative = true;
     }
 
     public void updateDescription() {

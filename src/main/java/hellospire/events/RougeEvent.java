@@ -19,11 +19,13 @@ import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.cardmodifiers.MagicHandsModifier;
 import hellospire.cards.Assist;
+import hellospire.util.GeneralUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import static hellospire.SonicMod.makeID;
+import static hellospire.util.GeneralUtils.ColorWord;
 
 public class RougeEvent extends PhasedEvent {
     public static final String ID = makeID("RougeEvent");
@@ -105,7 +107,7 @@ public class RougeEvent extends PhasedEvent {
                 .addOption(OPTIONS[0], (i)->openMap()));
 
         if (wantedCard != null) {
-            if (!isCardBottled()) {
+            if (!GeneralUtils.isCardBottled(wantedCard)) {
                 transitionKey("start0");
             } else {
                 transitionKey("start1");
@@ -224,23 +226,6 @@ public class RougeEvent extends PhasedEvent {
             wantedCard = rareCards.get(AbstractDungeon.miscRng.random(0, rareCards.size() - 1));
             amountOfAssists = 3;
         }
-    }
-
-    private String ColorWord(String prepend, String str){
-        String[] splitStr = str.split("\\s+");
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < splitStr.length; i++) {
-            if (i == 0) {
-                output.append(prepend).append(splitStr[i]);
-            } else {
-                output.append(" ").append(prepend).append(splitStr[i]);
-            }
-        }
-        return output.toString();
-    }
-
-    private boolean isCardBottled(){
-        return wantedCard.inBottleFlame || wantedCard.inBottleLightning || wantedCard.inBottleTornado;
     }
 
     private void showUpgradeShineEffect(){

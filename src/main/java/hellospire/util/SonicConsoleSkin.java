@@ -2,23 +2,24 @@ package hellospire.util;
 
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import hellospire.SonicMod;
+import hellospire.character.ModSkinDictionary;
+import hellospire.character.Sonic;
 import hellospire.character.SonicTipTracker;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-import static hellospire.SonicMod.makeID;
 import static hellospire.character.SonicTipTracker.tips;
 
 // valid commands:
-// sonicunlock BlueHedgehog:Ringmaster
+// sonicskin
 
 // https://github.com/daviscook477/BaseMod/wiki/Console#adding-your-own-commands
-public class SonicConsoleAchievement extends ConsoleCommand {
-    public SonicConsoleAchievement() {
-        maxExtraTokens = 1; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
+public class SonicConsoleSkin extends ConsoleCommand {
+    public SonicConsoleSkin() {
+        maxExtraTokens = 0; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
         minExtraTokens = 1; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
         requiresPlayer = false; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
         simpleCheck = false;
@@ -40,26 +41,31 @@ public class SonicConsoleAchievement extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
-        if (tokens.length < 2) {
-            DevConsole.log("2 Parameters required");
+        String firstToken = tokens[1];
+
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            DevConsole.log("Character must be playing as Sonic.");
             return;
         }
-        String subcommand = tokens[1];
-        UnlockTracker.unlockAchievement(subcommand);
-        DevConsole.log(subcommand + " unlocked.");
+
+        if (!ModSkinDictionary.getModAnimations().containsKey(firstToken)) {
+            DevConsole.log(firstToken + " is invalid.");
+            return;
+        }
+
+        ((Sonic)AbstractDungeon.player).setSkin(firstToken);
     }
 
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
-        // SonicMod.logger.info("tokens " + tokens.length + " | depth : " + depth);
         ArrayList<String> result = new ArrayList<>();
-        result.add(makeID("Ringmaster"));
-        result.add(makeID("VigorAbuse"));
-        result.add(makeID("GooglyEyes"));
 
         if (tokens.length == 2) {
-            complete = true;
+            result.addAll(ModSkinDictionary.getModAnimations().keySet());
         }
 
+        if (tokens.length == 3) {
+            complete = true;
+        }
         return result;
     }
 }

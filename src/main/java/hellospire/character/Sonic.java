@@ -165,9 +165,9 @@ public class Sonic extends CustomPlayer {
 
         if (this.getPrefs().getInteger("ASCENSION_LEVEL", 1) > 10 && MyModConfig.enableSkinCaptain) {
             this.animation = new CustomSpriterAnimation(skinCaptainPath);
-            currentModSkin = ModSkinDictionary.getModSkin(makeID("skinCaptainSonic"));
+            currentModSkin = ModSkinDictionary.getModSkin(ModSkinDictionary.skinCaptainSonicID);
         } else {
-            currentModSkin = ModSkinDictionary.getModSkin(makeID("skinBase"));
+            currentModSkin = ModSkinDictionary.getModSkin(ModSkinDictionary.skinBaseID);
         }
 
         Player.PlayerListener listener = new CustomAnimationListener(this);
@@ -186,6 +186,7 @@ public class Sonic extends CustomPlayer {
         dialogY = (drawY + 220.0F * Settings.scale);
     }
 
+    // region TogetherInSpire Skin handling
     public String currentSkin;
     public String defaultSkin;
 
@@ -195,6 +196,14 @@ public class Sonic extends CustomPlayer {
         currentSkin = currentModSkin.getPath().substring(0, currentModSkin.getPath().lastIndexOf("/"));
         defaultSkin = currentSkin;
     }
+    // endregion
+
+    // region Sonic Console Testing
+    public void setSkin(String id) {
+        currentModSkin = ModSkinDictionary.getModSkin(id);
+        this.animation = new CustomSpriterAnimation(currentModSkin.getPath());
+    }
+    // endregion
 
     @Override
     public ArrayList<String> getStartingDeck() {
@@ -221,11 +230,6 @@ public class Sonic extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         // IDs of starting relics. You can have multiple, but one is recommended.
-        // retVal.add(BurningBlood.ID);
-        // retVal.add(SnakeRing.ID);
-        if (MyModConfig.enableClassicMode) {
-            retVal.add(ClassicModeRelic.ID);
-        }
 
         if (MyModConfig.enableThreeOrbs) {
             retVal.add(ChaoThreeRelic.ID);
@@ -247,7 +251,6 @@ public class Sonic extends CustomPlayer {
             String relic = GetOptionRelic(AbstractDungeon.miscRng.random(0, 5));
             retVal.add(relic);
         }
-        logger.info("startingRelic " + retVal.size());
 
         return retVal;
     }
@@ -439,13 +442,7 @@ public class Sonic extends CustomPlayer {
     }
 
     public void resetToIdleAnimation() {
-        if (isLowHP() && currentModSkin.hasAnimation("idle3")) {
-            playAnimation("idle3");
-        } else if (isLowHP() && currentModSkin.hasAnimation("idle3")) {
-            playAnimation("idle2");
-        } else {
-            playAnimation("idle");
-        }
+        playAnimation(dribbleAnimation("idle3", "idle2"));
     }
 
     @Override
@@ -453,13 +450,13 @@ public class Sonic extends CustomPlayer {
         super.useCard(c, monster, energyOnUse);
         switch (c.type) {
             case ATTACK:
-                playAnimation(isLowHP() && currentModSkin.hasAnimation("attack2") ? "attack2" : "attack");
+                playAnimation(dribbleAnimation("attack2", "attack"));
                 break;
             case POWER:
-                playAnimation(isLowHP() && currentModSkin.hasAnimation("happy2") ? "happy2" : "happy");
+                playAnimation(dribbleAnimation("happy2", "happy"));
                 break;
             default:
-                playAnimation(isLowHP() && currentModSkin.hasAnimation("idle2") ? "idle2" : "idle");
+                playAnimation(dribbleAnimation("idle2", null));
                 break;
         }
     }
@@ -470,18 +467,9 @@ public class Sonic extends CustomPlayer {
         boolean hasBlockAfterSuper = this.currentBlock > 0;
         boolean tookNoDamage = this.lastDamageTaken == 0;
         if (hadBlockBeforeSuper && (hasBlockAfterSuper || tookNoDamage)) {
-            if (isLowHP() && currentModSkin.hasAnimation("happy2")) {
-                playAnimation("happy2");
-            } else {
-                playAnimation("happy");
-            }
-
+            playAnimation(dribbleAnimation("happy2", "happy"));
         } else {
-            if (isLowHP() && currentModSkin.hasAnimation("hurt2")) {
-                playAnimation("hurt2");
-            } else {
-                playAnimation("hurt");
-            }
+            playAnimation(dribbleAnimation("hurt2", "hurt"));
         }
     }
 
@@ -493,8 +481,25 @@ public class Sonic extends CustomPlayer {
         super.heal(healAmount);
     }
 
-    private boolean isLowHP() {
+    private boolean isSuperLowHP() {
         return AbstractDungeon.player.currentHealth <= 20;
     }
 
+    private boolean isLowHP() {
+        return AbstractDungeon.player.currentHealth <= 40;
+    }
+
+    private String dribbleAnimation(String wantedAnimation2, String wantedAnimation1) {
+        if (wantedAnimation2 != null && !wantedAnimation2.isEmpty())
+            if (isSuperLowHP())
+                if (currentModSkin.hasAnimation(wantedAnimation2))
+                    return wantedAnimation2;
+
+        if (wantedAnimation1 != null && !wantedAnimation1.isEmpty())
+            if (isLowHP())
+                if (currentModSkin.hasAnimation(wantedAnimation1))
+                    return wantedAnimation1;
+
+        return "idle";
+    }
 }

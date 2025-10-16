@@ -1,17 +1,21 @@
 // package hellospire.reskinContent.skinCharacter;
 //
-// import com.megacrit.cardcrawl.characters.AbstractPlayer;
 // import com.megacrit.cardcrawl.core.CardCrawlGame;
 // import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-// import hellospire.SonicMod;
 // import hellospire.character.Sonic;
-// import hellospire.reskinContent.skinCharacter.skins.Sonic.SonicBase;
+// import hellospire.reskinContent.skinCharacter.skins.Sonic.*;
 // import hellospire.reskinContent.vfx.ReskinUnlockedTextEffect;
 //
 // public class SonicSkin extends AbstractSkinCharacter {
 //     public static final String ID = CardCrawlGame.languagePack.getCharacterString(Sonic.ID).NAMES[0];
 //     public static final AbstractSkin[] SKINS = new AbstractSkin[]{
-//             new SonicBase()
+//             new BattleSonic(),
+//             new BattleSonicRed(),
+//             new BattleSonicGreen(),
+//             new CaptainSonic(),
+//             new BattleKnuckles(),
+//             new BattleShadow(),
+//             new BattleTails()
 //     };
 //
 //     public SonicSkin() {

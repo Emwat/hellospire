@@ -6,15 +6,16 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hellospire.cards.Crouch;
-import hellospire.cards.FireSomersault;
-import hellospire.cards.FireTackle;
-import hellospire.cards.VolcanoSlider;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import hellospire.cards.*;
+import hellospire.relics.CDFutureRelic;
+import hellospire.relics.PowerBrakeRelic;
 
 // valid commands:
-// s25
+// sss
 
 // https://github.com/daviscook477/BaseMod/wiki/Console#adding-your-own-commands
 public class SonicConsoleDevCustom extends ConsoleCommand {
@@ -35,6 +36,53 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
             }
         }
 
+        TopKickTest();
+        // DizzyTest();
+        // FireTest();
+    }
+
+    private void TopKickTest(){
+        AbstractCard topKick = new TopKick().makeStatEquivalentCopy();
+        AbstractCard topKick2 = new TopKick().makeStatEquivalentCopy();
+        topKick2.upgrade();
+        AbstractCard espio = new AssistEspio().makeStatEquivalentCopy();
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(topKick, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(topKick2, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(espio, 1));
+
+        AbstractRelic r = new CDFutureRelic();
+        if (!AbstractDungeon.player.hasRelic(CDFutureRelic.ID)) {
+            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
+                    Settings.WIDTH / 2.0F * Settings.scale,
+                    Settings.HEIGHT / 2.0F * Settings.scale,
+                    r);
+        }
+    }
+
+    private void DizzyTest(){
+        AbstractCard windmill = new Windmill().makeStatEquivalentCopy();
+        AbstractCard needle = new SpinningNeedleAttack().makeStatEquivalentCopy();
+        AbstractCard charmy = new AssistCharmy().makeStatEquivalentCopy();
+        // AbstractCard barry = new AssistBarry().makeStatEquivalentCopy();
+        AbstractCard sticks = new AssistSticks().makeStatEquivalentCopy();
+        AbstractCard speedbreak = new SpeedBreak().makeStatEquivalentCopy();
+
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(windmill, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(needle, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(charmy, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(sticks, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(speedbreak, 1));
+
+        AbstractRelic r = new PowerBrakeRelic();
+        if (!AbstractDungeon.player.hasRelic(PowerBrakeRelic.ID)) {
+            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
+                    Settings.WIDTH / 2.0F * Settings.scale,
+                    Settings.HEIGHT / 2.0F * Settings.scale,
+                    r);
+        }
+    }
+
+    private void FireTest(){
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
         }

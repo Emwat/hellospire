@@ -10,9 +10,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import hellospire.MyModConfig;
+import hellospire.SonicMod;
 import hellospire.SonicTags;
 import hellospire.character.Sonic;
 import hellospire.util.CardStats;
+
+import static hellospire.SonicMod.attackCardsPlayedThisTurn;
 
 public class TopKick extends BaseCard {
     public static final String ID = makeID("TopKick");
@@ -25,9 +28,9 @@ public class TopKick extends BaseCard {
     );
 
     private static final int DAMAGE = 7;
-    private static final int UPG_DAMAGE = 1;
-    private static final int MAGIC = 5;
-    private static final int UPG_MAGIC = 2;
+    private static final int UPG_DAMAGE = 2;
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
 
     public TopKick() {
         super(ID, info);
@@ -41,11 +44,26 @@ public class TopKick extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 //        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
-        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber + attackCardsPlayedThisTurn - 1)));
     }
 
+    // @Override
+    // public void calculateCardDamage(AbstractMonster m) {
+    //     int realMagicNumber = this.magicNumber;
+    //     this.magicNumber = magicNumber + attackCardsPlayedThisTurn;
+    //     super.calculateCardDamage(m);
+    //     this.magicNumber = realMagicNumber;
+    //     this.isMagicNumberModified = magicNumber != baseMagicNumber;
+    //
+    //     int realMagicNumber = this.baseMagicNumber;
+    //     this.baseMagicNumber = baseMagicNumber + attackCardsPlayedThisTurn;
+    //     super.calculateCardDamage(m);
+    //     this.baseMagicNumber = realMagicNumber;
+    //     this.isMagicNumberModified = magicNumber != baseMagicNumber;
+    // }
+
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new TopKick();
     }
 }
