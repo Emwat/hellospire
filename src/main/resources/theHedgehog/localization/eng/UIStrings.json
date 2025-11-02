@@ -1,0 +1,135 @@
+{
+  "${modID}:Example": {
+    "TEXT": [
+      "This is",
+      "an array of Strings."
+    ],
+    "EXTRA_TEXT": [
+      "This is another",
+      "array of Strings."
+    ],
+    "TEXT_DICT": {
+      "This": "Contains pairs of Strings, used to get values based on keys.",
+      "This is a key": "This is a value."
+    }
+  },
+  "${modID}:AssistMessage": {
+    "TEXT": [
+      "Lose",
+      "Get"
+    ]
+  },
+  "${modID}:AssistAmyMessage": {
+    "TEXT": [
+      "Cute Couple: Cost 0 for the rest of combat."
+    ]
+  },
+  "${modID}:AssistJetMessage": {
+    "TEXT": [
+      "Jet the Hawk: Randomize its cost for this turn."
+    ]
+  },
+  "${modID}:ChaosSodaPotionMessage": {
+    "TEXT": [
+      "Chaos Soda: Exhaust up to 1 card."
+    ]
+  },
+  "${modID}:CheckpointMessage": {
+    "TEXT": [
+      "I can only play this if I have a Ring in my hand."
+    ]
+  },
+  "${modID}:ClawsUnleashedMessage": {
+    "TEXT": [
+      "I can only play this if I have a Channeled Dark Orb."
+    ]
+  },
+  "${modID}:MagicHandsMessage": {
+    "TEXT": [
+      "Magic Hands: Retain. If the selected Card is exhausted, enter Wrath."
+    ]
+  },
+  "${modID}:PipingMessage": {
+    "TEXT": [
+      "Piping: Exhaust and add a copy to your hand."
+    ]
+  },
+  "${modID}:SecretRouteMessage": {
+    "TEXT": [
+      "Secret Route: Lower its cost for this turn."
+    ]
+  },
+  "${modID}:ShortcutMessage": {
+    "TEXT": [
+      "Shortcut: Lower its cost for this turn."
+    ]
+  },
+  "${modID}:WindmillMessage": {
+    "TEXT": [
+      "Windmill: Randomize its cost for this turn."
+    ]
+  },
+  "${modID}:modifierMagicHands": {
+    "TEXT": [
+      "${modID}:DO_NOT_THROW. "
+    ]
+  },
+  "${modID}:modifierSpinUp": {
+    "TEXT": [
+      "${modID}:Spin_Up. "
+    ]
+  },
+  "${modID}:MyModConfig": {
+    "TEXT_DICT": {
+      "enableBoss2Music": "Enable City Boss Music (Sonic Only)",
+      "enableBoss3Music": "Enable Beyond Boss Music (Sonic Only)",
+      "enableBossSpearShieldMusic": "Enable The Ending Music (Sonic Only)",
+      "enableBossHeartMusic": "Enable The Ending Boss Music (Sonic Only)",
+      "enableClassicMode": "Enable Classic Mode (When you take 2+ damage, lose ALL of your Rings).",
+      "enableEventsForAllCharacters": "Enable custom events for all characters (overwrites the next option)",
+      "enableEventsForOnlySonic": "Enable custom events for only Sonic",
+      "enableTextPopUps": "Enable text pop ups for AMAZING, tricks, and the Player 2 relic.",
+      "enableThreeOrbs": "Enable 3 Orb slots",
+      "enableSkinCaptain": "Enable Captain Skin (only available after beating Ascension 10)",
+      "enableSound": "Enable Sounds",
+      "enableVoice": "Enable Voice",
+      "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
+      "voiceFrequency": "Voice Frequency (10 = Always play voices)",
+      "optionStarterRelic": "Switch Starter Relic",
+      "enableCrossModIntegrations" : "Enable Cross Mod Integrations (idk about disabling... it's not tested yet)"
+    }
+  },
+  "${modID}:EvolveChaoOptions": {
+    "TEXT": [
+      "Evolve Chao",
+      "Requires a chao.",
+      "(Free Action) Your chao is careless. Evolve your chao.",
+      "(Free Action) Your chao is quiet. Evolve your chao.",
+      "(Free Action) Your chao is energetic. Evolve your chao.",
+      "(Free Action) Your chao is curious. Evolve your chao."
+    ]
+  },
+  "${modID}:ModExhaustAction": {
+    "TEXT": [
+      "Exhaust"
+    ]
+  },
+  "${modID}:SingleCardReward": {
+    "TEXT": [
+      "idk what im doing"
+    ]
+  },
+  "${modID}:SonicStylePack": {
+    "TEXT": [
+      "Sonic Style",
+      "Ah yeah! This is happening!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicStylePackHat": {
+    "TEXT": [
+      "Gotta go fast.",
+      "Sonic Hat"
+    ]
+  }
+}
