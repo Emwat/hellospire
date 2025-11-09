@@ -84,9 +84,9 @@ public class Sonic extends CustomPlayer {
         private static final String BG_SKILL_P = characterPath("cardback/bg_skill_p.png");
         private static final String BG_POWER = characterPath("cardback/bg_power.png");
         private static final String BG_POWER_P = characterPath("cardback/bg_power_p.png");
-        private static final String ENERGY_ORB = characterPath("cardback/energy_orb.png");
+        public static final String ENERGY_ORB = characterPath("cardback/energy_orb.png");
         private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
-        private static final String SMALL_ORB = characterPath("cardback/small_orb.png");
+        public static final String SMALL_ORB = characterPath("cardback/small_orb.png");
 
         // This is used to color *some* images, but NOT the actual cards. For that, edit the images in the cardback folder!
         public static final Color cardColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
@@ -413,6 +413,7 @@ public class Sonic extends CustomPlayer {
 
     static boolean glow_fade = false;
     static float update_timer = 0;
+
     @Override
     public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
         if (!glow_fade) {
@@ -516,15 +517,16 @@ public class Sonic extends CustomPlayer {
     }
 
     public String dribbleAnimation(String wantedAnimation2, String wantedAnimation1) {
-        if (wantedAnimation2 != null && !wantedAnimation2.isEmpty())
-            if (isSuperLowHP())
-                if (currentModSkin.hasAnimation(wantedAnimation2))
-                    return wantedAnimation2;
+        if (wantedAnimation2 != null && isSuperLowHP() && currentModSkin.hasAnimation(wantedAnimation2))
+            return wantedAnimation2;
 
-        if (wantedAnimation1 != null && !wantedAnimation1.isEmpty())
-            if (isLowHP())
-                if (currentModSkin.hasAnimation(wantedAnimation1))
-                    return wantedAnimation1;
+        if (wantedAnimation1 != null && isLowHP() && currentModSkin.hasAnimation(wantedAnimation1))
+            return wantedAnimation1;
+
+        if (wantedAnimation1 != null &&
+                currentModSkin.hasAnimation(wantedAnimation1) &&
+                ("attack".equals(wantedAnimation1)) || "happy".equals(wantedAnimation1))
+            return wantedAnimation1;
 
         return "idle";
     }

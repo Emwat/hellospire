@@ -46,8 +46,7 @@ public class DeathScreenTextPatch {
                 list.add("Got a hundred thousand pounds sitting on my back.");
             } else {
                 list.add("This is not happening.");
-                list.add("It's not your day.");
-                list.add("E Rank");
+                list.add("E Rank. It's not your day.");
                 list.add("Better luck next time.");
                 list.add("*Hits car* Pause. Restart. *Hits car again* -City E.");
                 list.add("You can hear a heartbeat pulsing very loudly.");
@@ -63,7 +62,9 @@ public class DeathScreenTextPatch {
                 list.add("*wants to cry but doesn't* -Cream");
                 list.add("Focus your spirit! -Espio");
                 list.add("Farewell! Sonic the hedgehog! -Eggman");
+                list.add("This is an exception and not the status quo. -Knuckles");
                 list.add("Unworthy! -Knuckles");
+                list.add("Oh no. -Knuckles");
                 list.add("Hmph! So YOU'RE supposed to be the fastest thing alive? -Jet");
                 list.add("The dirt suits you so well! -Jet");
                 list.add("I guess he was just a regular hedgehog after all. -Shadow");

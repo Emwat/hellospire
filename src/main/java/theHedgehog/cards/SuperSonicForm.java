@@ -1,12 +1,23 @@
 package theHedgehog.cards;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.stances.CalmStance;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
+import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.SuperSonicPower;
 import theHedgehog.util.CardStats;
@@ -35,8 +46,10 @@ public class SuperSonicForm extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.effectsQueue.add(new BorderLongFlashEffect(Color.GOLD));
+        // AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.SonicStyle));
-//        addToBot(new GainEnergyAction(magicNumber));
+        // addToBot(new GainEnergyAction(magicNumber));
         addToBot(new ApplyPowerAction(p, p, new SuperSonicPower(p)));
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
@@ -45,13 +58,6 @@ public class SuperSonicForm extends BaseCard {
         if (this.upgraded) {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
             addToBot(new ApplyPowerAction(p, p, new BiasPower(p, 1), 1));
-        }
-        if (p instanceof Sonic) {
-            addToBot(new ModFastAction(() -> {
-                if (Sonic.currentModSkin.hasAnimation("super")) {
-                    ((Sonic) p).playAnimation("super");
-                }
-            }));
         }
 
 //        addToBot(new ApplyPowerAction(p, p, new SuperSonicPower(p)));

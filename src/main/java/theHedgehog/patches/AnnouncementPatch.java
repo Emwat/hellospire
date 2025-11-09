@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
 import theHedgehog.character.SonicTipTracker;
+import theHedgehog.util.ModEggmanAnnounceFtue;
 import theHedgehog.util.ModMultiPageFtue;
 import theHedgehog.util.TextureLoader;
 
@@ -24,11 +25,14 @@ public class AnnouncementPatch {
             return;
         }
 
+        ArrayList<String> announcements = new ArrayList<>();
         if (!(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version092)) {
-            AbstractDungeon.ftue = new ModMultiPageFtue(SonicTipTracker.Version092, new ArrayList<>(Arrays.asList(new Texture[]{
-                    TextureLoader.getTexture(SonicMod.imagePath("events/EggmanAnnounce.png"))
-            })));
+            announcements.add(SonicTipTracker.Version092);
             SonicTipTracker.neverShowAgain(SonicTipTracker.Version092);
+        }
+
+        if (!announcements.isEmpty()) {
+            AbstractDungeon.ftue = new ModEggmanAnnounceFtue(announcements);
         }
 
     }

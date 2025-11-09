@@ -10,6 +10,7 @@ import theHedgehog.SonicMod;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
+import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.ThePackmaster;
 
 public class BouncePad extends BaseCard {
@@ -38,10 +39,18 @@ public class BouncePad extends BaseCard {
     public BouncePad() {
         super(ID, info);
         this.cardsToPreview = new theHedgehog.cardsPackExclusive.Ring();
-        setBackgroundTexture(SonicMod.characterPath("cardback/bg_skill.png"), SonicMod.characterPath("cardback/bg_skill_p"));
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);
+
+        // if (Loader.isModLoaded("anniv5") && SpireAnniversary5Mod.oneFrameMode) {
+        //     ApplyOneFrameModeSetting();
+        // } else {
+        //     setBackgroundTexture(SonicMod.characterPath("cardback/bg_skill.png"), SonicMod.characterPath("cardback/bg_skill_p"));
+        //     setOrbTexture(SonicMod.characterPath("cardback/small_orb.png"), SonicMod.characterPath("cardback/energy_orb.png"));
+        //     // setOrbTexture(Sonic.Meta.SMALL_ORB, Sonic.Meta.ENERGY_ORB);
+        // }
+
     }
 
     @Override

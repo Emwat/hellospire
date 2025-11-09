@@ -1,12 +1,16 @@
 package theHedgehog.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.Trip;
+import com.megacrit.cardcrawl.cards.green.Terror;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,6 +21,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.combat.EmptyStanceEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SoundLibrary;
+import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -52,6 +57,27 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         float duration = 3f;
         float bubbleDuration = 3f;
+
+        // TogetherInSpire
+        if (this.target != CardTarget.ENEMY && m == null) {
+            int countMonsters = 0;
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (!mo.isDeadOrEscaped()) {
+                    countMonsters++;
+                }
+            }
+            if (countMonsters == 1) {
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (!mo.isDeadOrEscaped()) {
+                        m = mo;
+                        break;
+                    }
+                }
+            } else {
+                addToBot(new MakeTempCardInHandAction(new Trip().makeStatEquivalentCopy(), 1));
+                this.purgeOnUse = true;
+            }
+        }
 
         if (!(AbstractDungeon.player instanceof Sonic)) {
             addToBot(new TalkAction(true, texts[8], 2f, 2f));

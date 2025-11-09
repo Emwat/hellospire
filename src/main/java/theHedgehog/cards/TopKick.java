@@ -40,24 +40,15 @@ public class TopKick extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-//        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
-        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber + attackCardsPlayedThisTurn - 1)));
+        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
     }
 
-    // @Override
-    // public void calculateCardDamage(AbstractMonster m) {
-    //     int realMagicNumber = this.magicNumber;
-    //     this.magicNumber = magicNumber + attackCardsPlayedThisTurn;
-    //     super.calculateCardDamage(m);
-    //     this.magicNumber = realMagicNumber;
-    //     this.isMagicNumberModified = magicNumber != baseMagicNumber;
-    //
-    //     int realMagicNumber = this.baseMagicNumber;
-    //     this.baseMagicNumber = baseMagicNumber + attackCardsPlayedThisTurn;
-    //     super.calculateCardDamage(m);
-    //     this.baseMagicNumber = realMagicNumber;
-    //     this.isMagicNumberModified = magicNumber != baseMagicNumber;
-    // }
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        magicNumber = baseMagicNumber + attackCardsPlayedThisTurn;
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+    }
 
     @Override
     public AbstractCard makeCopy() { // Optional

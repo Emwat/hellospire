@@ -9,11 +9,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicMod;
+import theHedgehog.SonicTags;
 import theHedgehog.actions.BoostAction;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.RingPower;
 import theHedgehog.util.CardStats;
+import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.ThePackmaster;
 
 public class Boost extends BaseCard {
@@ -41,9 +43,18 @@ public class Boost extends BaseCard {
         super(ID, info);
         // this.cardsToPreview = new hellospire.cardsPackExclusive.Ring();
         this.isMultiDamage = true;
-        setBackgroundTexture(SonicMod.characterPath("cardback/bg_attack.png"), SonicMod.characterPath("cardback/bg_attack_p"));
 
         setDamage(DAMAGE, UPG_DAMAGE);
+
+        tags.add(SonicTags.ERA_MODERN);
+
+        // if (Loader.isModLoaded("anniv5") && SpireAnniversary5Mod.oneFrameMode) {
+        //     ApplyOneFrameModeSetting();
+        // } else {
+        //     setBackgroundTexture(SonicMod.characterPath("cardback/bg_attack.png"), SonicMod.characterPath("cardback/bg_attack_p"));
+        //     setOrbTexture(SonicMod.characterPath("cardback/small_orb.png"), SonicMod.characterPath("cardback/energy_orb.png"));
+        //     // setOrbTexture(Sonic.Meta.SMALL_ORB, Sonic.Meta.ENERGY_ORB);
+        // }
     }
 
     // public static final String ID =  SonicMod.makeID("PackBoost");

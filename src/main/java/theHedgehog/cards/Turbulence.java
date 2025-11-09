@@ -20,7 +20,7 @@ public class Turbulence extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.SELF,
-            2
+            1
     );
 
     private static final int MAGIC = 2;

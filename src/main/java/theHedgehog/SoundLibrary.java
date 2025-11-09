@@ -59,6 +59,7 @@ public class SoundLibrary {
     static public final String LightningShield = makeID("ogg_LightningShield");
     static public final String StarPost = makeID("ogg_StarPost");
     static public final String DropDash = makeID("ogg_DropDash");
+    static public final String Roll = makeID("ogg_Roll");
     static public final String BlankSound = makeID("BlankSound");
 
     static public final String OmochaoPerfectLanding = makeID("ogg_OmochaoPerfectLanding");
@@ -74,8 +75,8 @@ public class SoundLibrary {
     static public final String StepItUp = makeID("ogg_stepitup");
     static public final String TooSlow = makeID("ogg_tooslow");
     static public final String NeverUnderestimate = makeID("ogg_NeverUnderestimate");
-    ;
-    static public final String TheHedgehog = makeID("ogg_the_hedgehog");
+
+    static public final String ImSonic = makeID("ogg_ImSonicTheHedgehog");
 
     static public final String Shoot = makeID("ogg_Shoot");
     static public final String Nooo = makeID("ogg_Nooo");
@@ -88,7 +89,7 @@ public class SoundLibrary {
     static public final String Big = makeID("ogg_big");
     static public final String Blaze = makeID("ogg_blaze");
     public static final String Chao = makeID("ogg_chao");
-    ;
+
     static public final String Charmy = makeID("ogg_charmy");
     public static final String Chip = makeID("ogg_chip");
     static public final String CuteCouple = makeID("ogg_cutecouple");
@@ -99,12 +100,12 @@ public class SoundLibrary {
     static public final String JetWhat = makeID("ogg_jet_what");
     static public final String Knuckles = makeID("ogg_knux");
     public static final String Sticks = makeID("ogg_sticks");
-    ;
+
     public static final String Shadow = makeID("ogg_shadow");
-    ;
+
     public static final String Silver = makeID("ogg_silver");
     public static final String Rouge = makeID("ogg_rouge");
-    ;
+
     static public final String Tails = makeID("ogg_tails");
     static public final String Vector = makeID("ogg_vector");
 

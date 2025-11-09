@@ -12,6 +12,7 @@ import theHedgehog.SonicMod;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
+import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.ThePackmaster;
 
 public class HomingAttack extends BaseCard {
@@ -41,7 +42,15 @@ public class HomingAttack extends BaseCard {
         this.cardsToPreview = new theHedgehog.cardsPackExclusive.Trick();
 
         setDamage(DAMAGE, UPG_DAMAGE);
-        setBackgroundTexture(SonicMod.characterPath("cardback/bg_attack.png"), SonicMod.characterPath("cardback/bg_attack_p"));
+
+        // if (Loader.isModLoaded("anniv5") && SpireAnniversary5Mod.oneFrameMode) {
+        //     ApplyOneFrameModeSetting();
+        // } else {
+        //     setBackgroundTexture(SonicMod.characterPath("cardback/bg_attack.png"), SonicMod.characterPath("cardback/bg_attack_p"));
+        //     setOrbTexture(SonicMod.characterPath("cardback/small_orb.png"), SonicMod.characterPath("cardback/energy_orb.png"));
+        //     // setOrbTexture(Sonic.Meta.SMALL_ORB, Sonic.Meta.ENERGY_ORB);
+        // }
+
         // PersistFields.setBaseValue(this, PERSIST);
     }
 

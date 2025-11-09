@@ -55,8 +55,6 @@ public class BackSpinKick extends BaseCard {
         this.applyPowers();
     }
 
-
-
     public void onMoveToDiscard() {
         this.rawDescription = cardStrings.DESCRIPTION;
         this.initializeDescription();

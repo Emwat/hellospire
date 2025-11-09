@@ -1,11 +1,18 @@
 package theHedgehog.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.Transient;
+import com.megacrit.cardcrawl.powers.FadingPower;
+import com.megacrit.cardcrawl.powers.ShiftingPower;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import theHedgehog.SonicMod;
+import theHedgehog.actions.ModTextInCenterAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.util.MissionTextures;
 
 import static theHedgehog.SonicMod.makeID;
@@ -26,7 +33,7 @@ public class MissionScoreAttackPower extends BasePower {
     public static final int RANK_S_SCORE = 400;
     public static final int RANK_A_SCORE = 300;
     public static final int RANK_B_SCORE = 200;
-
+    public static boolean hasSetFading = false;
 
     public MissionScoreAttackPower(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, 0);
@@ -57,7 +64,27 @@ public class MissionScoreAttackPower extends BasePower {
         super.atStartOfTurnPostDraw();
         this.flash();
         MissionTextures.updateIconZ(this, amount, RANK_S_SCORE, RANK_A_SCORE, RANK_B_SCORE);
+        DoubleCheckTransient();
+    }
 
+    private void DoubleCheckTransient(){
+        addToBot(new ModXFastAction(() -> {
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
+                if (Transient.ID.equals(mo.name)) {
+                    if (!mo.hasPower(ShiftingPower.POWER_ID)) {
+                        SonicMod.logger.info("Activating DoubleCheckTransient!! - Shifting");
+                        addToBot(new ApplyPowerAction(mo, mo, new ShiftingPower(mo)));
+                        if (!hasSetFading && !mo.hasPower(FadingPower.POWER_ID)) {
+                            SonicMod.logger.info("Activating DoubleCheckTransient!! - Fading");
+                            addToBot(new ApplyPowerAction(mo, mo, new FadingPower(mo, AbstractDungeon.ascensionLevel >= 17 ? 6 : 5)));
+                            addToBot(new ModXFastAction(() -> {
+                                hasSetFading = true;
+                            }));
+                        }
+                    }
+                }
+            }
+        }));
     }
 
     public void addDamage(int damage) {

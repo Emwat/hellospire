@@ -96,7 +96,7 @@
       "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
       "voiceFrequency": "Voice Frequency (10 = Always play voices)",
       "optionStarterRelic": "Switch Starter Relic",
-      "enableCrossModIntegrations" : "Enable Cross Mod Integrations (idk about disabling... it's not tested yet)"
+      "enableCrossModIntegrations" : "Enable Cross-Mod Effects (Default: True)"
     }
   },
   "${modID}:EvolveChaoOptions": {

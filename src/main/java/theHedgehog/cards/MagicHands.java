@@ -39,12 +39,10 @@ public class MagicHands extends BaseCard {
             if (cards.isEmpty()) {
                 return;
             }
-            if (!this.upgraded) {
-                for (AbstractCard card : cards) {
+            for (AbstractCard card : cards) {
+                if (!this.upgraded) {
                     CardModifierManager.addModifier(card, new RetainMod());
-                }
-            } else {
-                for (AbstractCard card : cards) {
+                } else {
                     CardModifierManager.addModifier(card, new MagicHandsModifier());
                 }
             }
@@ -52,7 +50,7 @@ public class MagicHands extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new MagicHands();
     }
 }

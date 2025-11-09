@@ -1,4 +1,4 @@
-package theHedgehog.util;
+package theHedgehog.console;
 
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;

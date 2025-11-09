@@ -27,7 +27,7 @@ import java.util.Objects;
 public class Ring extends BaseCard {
     public static final String ID = makeID("PackRing");
     private static final CardStats info = new CardStats(
-            Sonic.Meta.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,

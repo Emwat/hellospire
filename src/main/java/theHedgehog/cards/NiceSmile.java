@@ -3,7 +3,9 @@ package theHedgehog.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.NiceSmilePower;
 import theHedgehog.util.CardStats;
@@ -24,6 +26,11 @@ public class NiceSmile extends BaseCard {
     public NiceSmile() {
         super(ID, info);
         setMagic(MAGIC, UPG_MAGIC);
+
+        if (Settings.MUSIC_VOLUME <= 0.1F || IsConfusedEgg()) {
+            loadCardImage(SonicMod.imagePath("cards/power/NiceSmile_b.png"));
+            ModSetPortrait(SonicMod.imagePath("cards/power/NiceSmile_b_p.png"));
+        }
     }
 
     @Override
@@ -32,7 +39,7 @@ public class NiceSmile extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new NiceSmile();
     }
 }

@@ -82,15 +82,15 @@ public class SonicStartTalkingHelper {
                 //         )));
                 //     }
                 //     break;
-                case "SlimeBoss":
-                    if (Sonic.currentModSkin.getName().contains("Sonic")) {
-                        say(new ArrayList<>(Arrays.asList(
-                                "Aw yeah! This could be fun!",
-                                "Aw yeah! This could be fun!",
-                                "(Thunder, Rain, and Lightning!!)"
-                        )));
-                    }
-                    break;
+                // case "SlimeBoss":
+                //     if (Sonic.currentModSkin.getName().contains("Sonic")) {
+                //         say(new ArrayList<>(Arrays.asList(
+                //                 "Aw yeah! This could be fun!",
+                //                 "Aw yeah! This could be fun!",
+                //                 "(Thunder, Rain, and Lightning!!)"
+                //         )));
+                //     }
+                //     break;
                 // case "SlaverBoss":
                 //     if (Sonic.currentModSkin.getName().contains("Sonic")) {
                 //         say(new ArrayList<>(Arrays.asList(

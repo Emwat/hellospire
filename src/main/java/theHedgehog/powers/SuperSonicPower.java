@@ -1,6 +1,7 @@
 package theHedgehog.powers;
 
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
+import theHedgehog.effects.SuperSonicAura;
 
 import static theHedgehog.SonicMod.makeID;
 
@@ -22,8 +26,18 @@ public class SuperSonicPower extends BasePower {
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
 
+    protected Color c;
+    protected float angle;
+    protected float particleTimer;
+    protected float particleTimer2;
+    private SuperSonicAura VFX;
+
     public SuperSonicPower(AbstractCreature owner) {
         super(POWER_ID, TYPE, TURN_BASED, owner, -1);
+
+        this.c = Color.WHITE.cpy();
+        this.particleTimer = 0.0F;
+        this.particleTimer2 = 0.0F;
     }
 
     public void updateDescription() {
@@ -36,6 +50,24 @@ public class SuperSonicPower extends BasePower {
     //     this.addToBot(new VFXAction(new LightningEffect(this.owner.hb.cX, this.owner.hb.cY)));
     //     this.addToBot(new LoseHPAction(this.owner, this.owner, 99999));
     // }
+
+
+    public void onInitialApplication() {
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractDungeon.effectsQueue.add(new SmokePuffEffect(p.hb.cX, p.hb.cY));
+        if (!(p instanceof Sonic)) {
+            return;
+        }
+
+        addToBot(new ModXFastAction(() -> {
+            if (Sonic.currentModSkin.hasAnimation("super")) {
+                ((Sonic) p).playAnimation("super");
+            }
+        }));
+
+        VFX = new SuperSonicAura(p);
+        addToBot(new VFXAction(VFX));
+    }
 
     public void onVictory() {
         AbstractPlayer p = AbstractDungeon.player;
@@ -61,6 +93,39 @@ public class SuperSonicPower extends BasePower {
         // return new Color[] {Color.GOLD.cpy()};
         // return new Color[] {Color.YELLOW};
     }
+
+    // public void render(SpriteBatch sb) {
+    //     if (this.img != null) {
+    //         sb.setColor(this.c);
+    //         sb.setBlendFunction(770, 1);
+    //         sb.draw(this.img,
+    //                 AbstractDungeon.player.drawX - 256.0F + AbstractDungeon.player.animX,
+    //                 AbstractDungeon.player.drawY - 256.0F + AbstractDungeon.player.animY + AbstractDungeon.player.hb_h / 2.0F,
+    //                 256.0F, 256.0F, 512.0F, 512.0F,
+    //                 Settings.scale, Settings.scale, -this.angle, 0, 0, 512, 512, false, false);
+    //         sb.setBlendFunction(770, 771);
+    //     }
+    // }
+    //
+    // public void update() {
+    //     this.updateAnimation();
+    // }
+    //
+    // public void updateAnimation() {
+    //     if (!Settings.DISABLE_EFFECTS) {
+    //         this.particleTimer -= Gdx.graphics.getDeltaTime();
+    //         if (this.particleTimer < 0.0F) {
+    //             this.particleTimer = 0.04F;
+    //             AbstractDungeon.effectsQueue.add(new CalmParticleEffect());
+    //         }
+    //     }
+    //
+    //     this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+    //     if (this.particleTimer2 < 0.0F) {
+    //         this.particleTimer2 = MathUtils.random(0.45F, 0.55F);
+    //         AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Calm"));
+    //     }
+    // }
 
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

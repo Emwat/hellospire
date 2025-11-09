@@ -20,7 +20,7 @@ public class OneUpPower extends BasePower implements OnPlayerDeathPower {
     public static final String POWER_ID = makeID("OneUpPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
-    public static final int reviveAmount = 90;
+    public static final int reviveAmount = 50;
 
     private static final PowerStrings powerStrings;
     public static final String NAME;
@@ -45,9 +45,12 @@ public class OneUpPower extends BasePower implements OnPlayerDeathPower {
     }
 
     public void trigger(AbstractPlayer abstractPlayer) {
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         AbstractDungeon.actionManager.addToTop(new ModXFastAction(() -> {
             AbstractDungeon.player.loseGold(reviveCost);
+            this.amount -= 1;
+            if (this.amount <= 0) {
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            }
         }));
         AbstractDungeon.actionManager.addToTop(new HealAction(abstractPlayer, abstractPlayer, ReviveAmount()));
         AbstractDungeon.actionManager.addToTop(new VFXAction(this.owner, new IntenseZoomEffect(this.owner.hb.cX, this.owner.hb.cY, true), 0.05F, true));

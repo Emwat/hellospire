@@ -68,7 +68,8 @@ Requires subscription to
 - `this.retain = true;` only retains for one turn. See `setSelfRetain(true);` for retaining a card every turn.
 - `modifyCostForCombat(amt)` is a counter-intuitive name for a function. Amt is not the new cost. Amt increments it.
 - PowerStrings.json requires `[E]` to have spaces around it. For example: `[E] [E] .`
-- TogetherInSpire potions require additional code. See my ChaosSodaPotion.
+- TogetherInSpire v6.4.0 has a thing. If your card is a skill that applies Vulnerable, the card.target will end up being SELF and m is null.
+- TogetherInSpire v6.4.0 potions require additional code. See below or see my ChaosSodaPotion.
 ```
 // TogetherInSpire needs these textures
     private static final Texture containerImg = ImageMaster.POTION_BOTTLE_CONTAINER;
@@ -76,7 +77,8 @@ Requires subscription to
     private static final Texture hybridImg = ImageMaster.POTION_BOTTLE_HYBRID;
     private static final Texture spotsImg = ImageMaster.POTION_BOTTLE_SPOTS;
     private static final Texture outlineImg = ImageMaster.POTION_BOTTLE_OUTLINE;
-- ```
+```
+- TogetherInSpire v6.4.20 mod phasedEvents w/ combats have reports of not working.
 - I'm sure there's more! But idr rn.
 
 # IntelliJ shortcuts

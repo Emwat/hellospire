@@ -1,4 +1,4 @@
-package theHedgehog.util;
+package theHedgehog.console;
 
 import basemod.devcommands.ConsoleCommand;
 import com.badlogic.gdx.math.MathUtils;

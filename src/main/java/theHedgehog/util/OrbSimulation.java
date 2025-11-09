@@ -61,9 +61,11 @@ public class OrbSimulation {
 
     public int GetPassiveLightningDamage() {
         int output = 0;
-        for (AbstractOrb orb : Orbs) {
-            if (orb instanceof Lightning) {
-                output += orb.passiveAmount + incomingFocus;
+        if (AbstractDungeon.player.maxOrbs > 0 ){
+            for (AbstractOrb orb : Orbs) {
+                if (orb instanceof Lightning) {
+                    output += orb.passiveAmount + incomingFocus;
+                }
             }
         }
         return output;

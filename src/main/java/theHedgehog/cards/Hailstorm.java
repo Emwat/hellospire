@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theHedgehog.SonicTags;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -28,6 +29,8 @@ public class Hailstorm extends BaseCard {
         super(ID, info);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(SonicTags.ERA_ADVENTURE);
+
     }
 
     @Override

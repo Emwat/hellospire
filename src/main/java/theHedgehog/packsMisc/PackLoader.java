@@ -1,4 +1,4 @@
-package theHedgehog.util;
+package theHedgehog.packsMisc;
 
 import basemod.AutoAdd;
 
@@ -15,7 +15,7 @@ public class PackLoader implements EditPacksSubscriber {
         SpireAnniversary5Mod.allowCardClass(BaseCard.class);
         SpireAnniversary5Mod.allowCardColor(Sonic.Meta.CARD_COLOR);
         new AutoAdd(SonicMod.modID)
-                .packageFilter("hellospire.packs")
+                .packageFilter("theHedgehog.packs")
                 .any(AbstractHedgehogPack.class, (info, pack) -> SpireAnniversary5Mod.declarePack(pack));
     }
 }

@@ -3,20 +3,20 @@
     "CARD_COLOR": "HEDGEHOG_BLUE25",
     "TITLE": "Mods on top of mods",
     "DESCRIPTION": "Play Assist with the Googly Eyes mod.",
-    "IMAGE": "hellospire/images/achievement/GooglyEyes.png",
+    "IMAGE": "theHedgehog/images/achievement/GooglyEyes.png",
     "HIDDEN": false
   }, "${modID}:Ringmaster": {
     "CARD_COLOR": "HEDGEHOG_BLUE25",
     "TITLE": "Ringmaster",
     "DESCRIPTION": "Have 20 Rings in one combat.",
-    "IMAGE": "hellospire/images/achievement/Ringmaster.png",
+    "IMAGE": "theHedgehog/images/achievement/Ringmaster.png",
     "HIDDEN": false
   },
   "${modID}:VigorAbuse": {
     "CARD_COLOR": "HEDGEHOG_BLUE25",
     "TITLE": "GOT YOUR LIMIT",
     "DESCRIPTION": "Have 100+ Vigor.",
-    "IMAGE": "hellospire/images/achievement/Limit.png",
+    "IMAGE": "theHedgehog/images/achievement/Limit.png",
     "HIDDEN": false
   }
 }

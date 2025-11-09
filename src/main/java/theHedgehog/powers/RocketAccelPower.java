@@ -1,6 +1,7 @@
 package theHedgehog.powers;
 
 import basemod.helpers.CardModifierManager;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +14,7 @@ import theHedgehog.cardmodifiers.RocketAccelModifier;
 
 import static theHedgehog.SonicMod.makeID;
 
-public class RocketAccelPower extends BasePower {
+public class RocketAccelPower extends BasePower implements NonStackablePower {
     public static final String POWER_ID = makeID("RocketAccelPower");
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
@@ -57,12 +58,11 @@ public class RocketAccelPower extends BasePower {
         return type == DamageInfo.DamageType.NORMAL ? damage + (float) this.amount2 : damage;
     }
 
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        amount++;
-        amount2 += stackAmount;
-    }
+    // @Override
+    // public void stackPower(int stackAmount) {
+    //     super.stackPower(stackAmount);
+    //     amount += stackAmount;
+    // }
 
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

@@ -3,6 +3,7 @@ package theHedgehog.cards;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import spireTogether.monsters.CharacterEntity;
 import spireTogether.network.objects.items.NetworkCard;
@@ -54,11 +56,13 @@ public class Trick extends BaseCard {
         setEthereal(true);
         setExhaust(true);
 
+        boolean isBetaStrike = UnlockTracker.betaCardPref.getBoolean(SonicMod.makeID("Strike"), false);
+        boolean isBetaDefend = UnlockTracker.betaCardPref.getBoolean(SonicMod.makeID("Defend"), false);
         if (MyModConfig.enableCrossModIntegrations && (Loader.isModLoaded("PrideMod") || isTheRainbow())) {
             loadCardImage(SonicMod.imagePath("cards/skill/TrickAlexDivato.png"));
         }
 
-        if (IsConfusedEgg()) {
+        if ((isBetaStrike && isBetaDefend) || IsConfusedEgg()) {
             loadCardImage(SonicMod.imagePath("cards/skill/Trick_b.png"));
         }
     }
@@ -71,8 +75,7 @@ public class Trick extends BaseCard {
             }));
             return;
         }
-        // addToBot(new ModAnimateHopAction(p));
-        addToBot(TrickNameAction(p));
+        addToBot(new AnimateHopAction(p));
         addToBot(new ModFastAction(() -> TricksPlayed++));
         addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.ALLRIGHT,
@@ -84,24 +87,6 @@ public class Trick extends BaseCard {
         addToBot(new GainEnergyAction(REFUND));
     }
 
-    private AbstractGameAction TrickNameAction(AbstractPlayer p) {
-        int randomNumber1 = AbstractDungeon.miscRng.random(0, TrickNames1.length - 1);
-        int randomNumber2 = AbstractDungeon.miscRng.random(0, 2);
-        int randomNumber3 = AbstractDungeon.miscRng.random(0, TrickNames2.length - 1);
-        Color textColor = new Color(0f / 255f, 255f, 228f / 255f, 1f);
-        if (TricksPlayed == 0) {
-            firstTrickNumber = randomNumber1;
-            return new ModTextInCenterAction(TrickNames1[randomNumber1], textColor);
-        } else if (TricksPlayed == 1) {
-            if (randomNumber2 == 2) {
-                return new ModTextInCenterAction(TrickNames2[randomNumber3], textColor);
-            } else {
-                int otherNumber = firstTrickNumber == 0 ? 1 : 0;
-                return new ModTextInCenterAction(TrickNames1[otherNumber], textColor);
-            }
-        }
-        return new ModTextInCenterAction(TrickNames2[randomNumber3], textColor);
-    }
 
     @Override
     public AbstractCard makeCopy() { // Optional

@@ -1,4 +1,4 @@
-package theHedgehog.packsPatches;
+package theHedgehog.packsMisc;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.Loader;

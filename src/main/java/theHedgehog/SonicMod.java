@@ -30,10 +30,12 @@ import theHedgehog.cards.*;
 import theHedgehog.character.ModSkinDictionary;
 import theHedgehog.character.Sonic;
 import theHedgehog.character.SonicStartTalkingHelper;
+import theHedgehog.console.*;
 import theHedgehog.effects.ModMindblastEffect;
 import theHedgehog.effects.SuperFinisherEffect;
 import theHedgehog.events.*;
 import theHedgehog.multiplayer.Skindexer;
+import theHedgehog.packsMisc.PackLoader;
 import theHedgehog.relics.CDFutureRelic;
 import theHedgehog.util.*;
 import theHedgehog.character.SonicTipTracker;
@@ -230,12 +232,14 @@ public class SonicMod implements
                     .create()
             );
 
-            BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
-                    .dungeonID(TheBeyond.ID)
-                    .eventType(EventUtils.EventType.NORMAL)
-                    .endsWithRewardsUI(true)
-                    .create()
-            );
+            if (!Loader.isModLoaded("spireTogether")) {
+                BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
+                        .dungeonID(TheBeyond.ID)
+                        .eventType(EventUtils.EventType.NORMAL)
+                        .endsWithRewardsUI(true)
+                        .create()
+                );
+            }
 
             BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
                     .dungeonID(TheCity.ID)
@@ -258,13 +262,15 @@ public class SonicMod implements
                     .create()
             );
 
-            BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
-                    .dungeonID(TheBeyond.ID)
-                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
-                    .eventType(EventUtils.EventType.NORMAL)
-                    .endsWithRewardsUI(true)
-                    .create()
-            );
+            if (!Loader.isModLoaded("spireTogether")) {
+                BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
+                        .dungeonID(TheBeyond.ID)
+                        .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                        .eventType(EventUtils.EventType.NORMAL)
+                        .endsWithRewardsUI(true)
+                        .create()
+                );
+            }
 
             BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
                     .dungeonID(TheCity.ID)
@@ -521,6 +527,7 @@ public class SonicMod implements
         BaseMod.removeCard(BouncePadPick1.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BouncePadPick2.ID, Sonic.Meta.CARD_COLOR);
 
+        BaseMod.removeCard(BecauseScience.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BecauseSciencePick1.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BecauseSciencePick2.ID, Sonic.Meta.CARD_COLOR);
 
@@ -535,9 +542,9 @@ public class SonicMod implements
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Boost.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
         }
+        BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
 
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
@@ -564,7 +571,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.NeverUnderestimate, audioEngPath("sh_Never_Underestimate_Sonic_Speed.ogg"));
         BaseMod.addAudio(SoundLibrary.Bingo, audioEngPath("sh_bingo.ogg"));
         BaseMod.addAudio(SoundLibrary.PerfectBingo, audioEngPath("sh_Perfect_Bingo.ogg"));
-        BaseMod.addAudio(SoundLibrary.TheHedgehog, audioEngPath("sa2_im_sonic_the_hedgehog.ogg"));
+        BaseMod.addAudio(SoundLibrary.ImSonic, audioEngPath("sa2_im_sonic_the_hedgehog.ogg"));
 
         BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("sc_01_AMAZING.ogg"));
         BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("sc_02_OUTSTANDING.ogg"));
@@ -594,6 +601,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.SonicStyle, audioEngPath("ult_super_sonic_style.ogg"));
 
         BaseMod.addAudio(SoundLibrary.DropDash, audioPath("DropDash.ogg"));
+        BaseMod.addAudio(SoundLibrary.Roll, audioPath("Roll.ogg"));
         BaseMod.addAudio(SoundLibrary.LightningShield, audioPath("LightningShield.ogg"));
         BaseMod.addAudio(SoundLibrary.StarPost, audioPath("StarPost.ogg"));
 
@@ -676,26 +684,7 @@ public class SonicMod implements
     public void receiveCardUsed(AbstractCard abstractCard) {
         if (abstractCard.type == AbstractCard.CardType.ATTACK) {
             attackCardsPlayedThisTurn++;
-            if (AbstractDungeon.player instanceof Sonic && (
-                    abstractCard.damage >= 100 ||
-                            (abstractCard.cardID.equals(Whirlwind.ID) && abstractCard.damage * 3 >= 100) ||
-                            (abstractCard.cardID.equals(DoubleAirKick.ID) && abstractCard.damage * 2 >= 100))
-            ) {
-                final float MINDBLAST_H = 146.0F;
-                final float TOPBAR_H = Settings.HEIGHT - (Settings.isMobile ? 164.0F * Settings.scale : 128.0F * Settings.scale) + (MINDBLAST_H / 2);
-                AbstractDungeon.actionManager.addToTop(new ModWaitAction(2f));
-                AbstractDungeon.actionManager.addToTop(new VFXAction(new SuperFinisherEffect(
-                    abstractCard.hasTag(SonicTags.ERA_CLASSIC) ? SonicTags.ERA_CLASSIC :
-                    abstractCard.hasTag(SonicTags.ERA_ADVENTURE) ? SonicTags.ERA_ADVENTURE :
-                    abstractCard.hasTag(SonicTags.ERA_MODERN) ? SonicTags.ERA_MODERN :
-                    SonicTags.ERA_ADVENTURE
-                )));
-                AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, TOPBAR_H, false)));
-                AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, 0, false, true)));
-                AbstractDungeon.actionManager.addToTop(SoundLibrary.AlwaysPlayVoiceAction(SoundLibrary.BlastAway));
-                AbstractDungeon.actionManager.addToTop(SoundLibrary.AlwaysPlayVoiceAction(SoundLibrary.BlastAway));
-
-            }
+            PlaySuperFinisher(abstractCard);
         }
 
         // AbstractDungeon.actionManager.addToBottom(new ModXFastAction(() -> {
@@ -706,6 +695,31 @@ public class SonicMod implements
         //         }
         //     }
         // }));
+    }
+
+    private void PlaySuperFinisher(AbstractCard abstractCard) {
+        if (AbstractDungeon.player instanceof Sonic && (
+                abstractCard.hasTag(SonicTags.ERA_CLASSIC) ||
+                        abstractCard.hasTag(SonicTags.ERA_ADVENTURE) ||
+                        abstractCard.hasTag(SonicTags.ERA_MODERN)) &&
+                (abstractCard.damage >= 100 ||
+                        (abstractCard.cardID.equals(Whirlwind.ID) && abstractCard.damage * 3 >= 100) ||
+                        (abstractCard.cardID.equals(DoubleAirKick.ID) && abstractCard.damage * 2 >= 100))
+        ) {
+            SonicMod.logger.info("Sonic Super Finisher: " + abstractCard.name + " (" + abstractCard.damage + ")");
+            final float MINDBLAST_H = 146.0F;
+            final float TOPBAR_H = Settings.HEIGHT - (Settings.isMobile ? 164.0F * Settings.scale : 128.0F * Settings.scale) + (MINDBLAST_H / 2);
+            AbstractDungeon.actionManager.addToTop(new ModWaitAction(2f));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new SuperFinisherEffect(
+                    abstractCard.hasTag(SonicTags.ERA_CLASSIC) ? SonicTags.ERA_CLASSIC :
+                            abstractCard.hasTag(SonicTags.ERA_ADVENTURE) ? SonicTags.ERA_ADVENTURE :
+                                    abstractCard.hasTag(SonicTags.ERA_MODERN) ? SonicTags.ERA_MODERN :
+                                            SonicTags.ERA_ADVENTURE
+            )));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, TOPBAR_H, false)));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, 0, false, true)));
+            AbstractDungeon.actionManager.addToTop(SoundLibrary.AlwaysPlayVoiceAction(SoundLibrary.BlastAway));
+        }
     }
 
     @Override

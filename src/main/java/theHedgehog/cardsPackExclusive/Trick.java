@@ -13,7 +13,7 @@ import theHedgehog.util.CardStats;
 public class Trick extends BaseCard {
     public static final String ID = makeID("PackTrick");
     private static final CardStats info = new CardStats(
-            Sonic.Meta.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,

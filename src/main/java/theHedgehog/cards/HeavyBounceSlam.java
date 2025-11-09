@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import theHedgehog.SonicMod;
+import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
@@ -40,6 +41,7 @@ public class HeavyBounceSlam extends BaseCard {
 
         setDamage(DAMAGE, UPG_DAMAGE);
         CardModifierManager.addModifier(this, new SpinUpModifier());
+        tags.add(SonicTags.ERA_CLASSIC);
     }
 
     @Override
@@ -51,18 +53,17 @@ public class HeavyBounceSlam extends BaseCard {
             addToBot(new WaitAction(0.8F));
         }
 
-        // addToBot(new HeavyIncrementAction(this);
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
                 damage < 11 ? AbstractGameAction.AttackEffect.BLUNT_LIGHT : AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         addToBot(new ModifyDamageAction(this.uuid, this.baseDamage));
-        if (!Loader.isModLoaded("PrideMod")){
+        if (!Loader.isModLoaded("PrideMod")) {
             addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
                     timesPlayed++;
-                    if (timesPlayed == 1){
+                    if (timesPlayed == 1) {
                         loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
-                    } else if (timesPlayed == 2){
+                    } else if (timesPlayed == 2) {
                         loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam2.png"));
                     } else {
                         loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam.png"));
@@ -105,7 +106,7 @@ public class HeavyBounceSlam extends BaseCard {
 //    }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new HeavyBounceSlam();
     }
 }

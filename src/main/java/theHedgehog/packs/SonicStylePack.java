@@ -11,7 +11,8 @@ public class SonicStylePack extends AbstractHedgehogPack {
     public static final String ID = makeID("SonicStylePack");
 
     public SonicStylePack() {
-        super(ID, RocketAccel.ID, new AbstractCardPack.PackSummary(2, 2, 3, 4, 2));
+        super(ID, RocketAccel.ID, new AbstractCardPack.PackSummary(2, 2, 3, 4, 2,
+                PackSummary.Tags.Exhaust, PackSummary.Tags.Tokens));
     }
 
     public ArrayList<String> getCards() {

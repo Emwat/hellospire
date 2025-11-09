@@ -100,9 +100,10 @@
   },
   {
     "ID": "wordMostLeft",
-    "PROPER_NAME": "If Far Away",
+    "PROPER_NAME": "If Leftmost",
     "NAMES": [
-      "if most left",
+      "if leftmost",
+      "if_leftmost",
       "if_most_left",
       "if_far_away"
     ],
@@ -113,16 +114,18 @@
     "PROPER_NAME": "If Most Left Or Right",
     "NAMES": [
       "if most left or right",
-      "if_most_left_or_right"
+      "if_most_left_or_right",
+      "if_leftmost_or_rightmost"
     ],
     "DESCRIPTION": "If this card is at the very left or right of your hand, activate the extra effect. Ignore #yRings for this condition."
   },
   {
     "ID": "wordMostRight",
-    "PROPER_NAME": "If Up Close",
+    "PROPER_NAME": "If Rightmost",
     "NAMES": [
       "if most right",
       "if_most_right",
+      "if_rightmost",
       "if_up_close"
     ],
     "DESCRIPTION": "If this card is at the very right of your hand, activate the extra effect. Ignore #yRings for this condition."
@@ -151,7 +154,7 @@
       "spin up",
       "spin_up"
     ],
-    "DESCRIPTION": "When you play this card, increase its cost by #b1. Any modifications to cost persist for the rest of combat. If randomized, lower the randomized cost by #b1.",
+    "DESCRIPTION": "When you play this card, #rincrease #rits #rcost #rby #r1. Any modifications to cost persist for the rest of combat. If randomized, lower the randomized cost by #b1.",
     "COLOR": "ff6563"
   },
   {

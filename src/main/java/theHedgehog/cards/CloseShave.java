@@ -34,10 +34,10 @@ public class CloseShave extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int outputBlock = block;
-        if (p.currentHealth < magicNumber) {
-            outputBlock *= 2;
-        }
         addToBot(new GainBlockAction(p, outputBlock));
+        if (p.currentHealth < magicNumber) {
+            addToBot(new GainBlockAction(p, outputBlock));
+        }
         addToBot(new ModifyBlockAction(this.uuid, -1));
     }
 

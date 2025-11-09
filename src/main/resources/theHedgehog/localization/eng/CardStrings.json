@@ -178,7 +178,7 @@
   },
   "${modID}:BlueBomber": {
     "NAME": "Blue Bomber",
-    "DESCRIPTION": "Deal !D! damage. NL Dexterity and [#efc851ff]Rings affect this card !M! times."
+    "DESCRIPTION": "Deal !D! damage. NL Dexterity and [#efc851ff]Rings affect this card's damage !M! times."
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
@@ -277,8 +277,8 @@
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_most_right, lose 1 less. NL Every turn, gain [E].",
-    "UPGRADE_DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_most_right, lose 1 less. NL Every turn, gain [E]."
+    "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_rightmost, lose 1 less. NL Every turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_rightmost, lose 1 less. NL Every turn, gain [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -391,7 +391,7 @@
   },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
-    "DESCRIPTION": "Deal !D! damage. Double this card's damage. ${modID}:If_most_left, it stays in your hand after play."
+    "DESCRIPTION": "Deal !D! damage. Double this card's damage. ${modID}:If_leftmost, it stays in your hand after play."
   },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
@@ -404,7 +404,7 @@
   },
   "${modID}:HorseKick": {
     "NAME": "Horse Kick",
-    "DESCRIPTION": "Deal !D! damage. ${modID}:If_most_right, deal double damage."
+    "DESCRIPTION": "Deal !D! damage. ${modID}:If_rightmost, deal double damage."
   },
   "${modID}:HotRod": {
     "NAME": "Hot Rod",
@@ -498,7 +498,12 @@
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
     "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. It costs 0 this turn. NL stslib:Exhaustive !stslib:ex!.",
-    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. They cost 0 this turn. NL stslib:Exhaustive !stslib:ex!."
+    "UPGRADE_DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s} from the top of your discard pile. They cost 0 this turn. NL stslib:Exhaustive !stslib:ex!.",
+    "EXTENDED_DESCRIPTION": [
+      "Draw ",
+      " and ",
+      ". It costs 0 this turn. NL stslib:Exhaustive !stslib:ex!."
+    ]
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
@@ -587,13 +592,13 @@
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. ${modID}:If_most_left, activate the passive effect of your leftmost Orb. Add [#efc851ff]Quick [#efc851ff]Step to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_most_left, activate the passive effect of your leftmost Orb. Add [#efc851ff]Quick [#efc851ff]Step+ to your hand. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, activate the passive effect of your leftmost Orb. Add [#efc851ff]Quick [#efc851ff]Step to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, activate the passive effect of your leftmost Orb. Add [#efc851ff]Quick [#efc851ff]Step+ to your hand. Exhaust."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
-    "DESCRIPTION": "Gain !B! Block. ${modID}:If_most_right, activate the passive effect of your rightmost Orb. Add [#efc851ff]Quick [#efc851ff]Air to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_most_right, activate the passive effect of your rightmost Orb. Add [#efc851ff]Quick [#efc851ff]Air+ to your hand. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, activate the passive effect of your rightmost Orb. Add [#efc851ff]Quick [#efc851ff]Air to your hand. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, activate the passive effect of your rightmost Orb. Add [#efc851ff]Quick [#efc851ff]Air+ to your hand. Exhaust."
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
@@ -748,8 +753,8 @@
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_most_left, lose 1 less. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_most_left, lose 1 less. Whenever you exhaust a card, Channel 1 Frost."
+    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, lose 1 less. Whenever you exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, lose 1 less. Whenever you exhaust a card, Channel 1 Frost."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",

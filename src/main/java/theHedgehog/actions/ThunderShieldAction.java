@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.relics.Inserter;
 import theHedgehog.SonicTags;
 
 public class ThunderShieldAction extends AbstractGameAction {
@@ -31,12 +32,14 @@ public class ThunderShieldAction extends AbstractGameAction {
             }
         }
 
-        for (AbstractOrb orb : p.orbs) {
-            if (orb instanceof Lightning) {
-                for (int i = 0; i < rings; i++) {
-                    for (int j = 0; j < amount; j++) {
-                        orb.onStartOfTurn();
-                        orb.onEndOfTurn();
+        if (p.maxOrbs > 0) {
+            for (AbstractOrb orb : p.orbs) {
+                if (orb instanceof Lightning) {
+                    for (int i = 0; i < rings; i++) {
+                        for (int j = 0; j < amount; j++) {
+                            orb.onStartOfTurn();
+                            orb.onEndOfTurn();
+                        }
                     }
                 }
             }

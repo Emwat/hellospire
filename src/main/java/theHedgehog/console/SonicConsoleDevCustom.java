@@ -1,14 +1,13 @@
-package theHedgehog.util;
+package theHedgehog.console;
 
 import basemod.devcommands.ConsoleCommand;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theHedgehog.cards.*;
 import theHedgehog.relics.CDFutureRelic;
@@ -36,9 +35,32 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
             }
         }
 
-        TopKickTest();
+        LoopDeLoopTest();
+        // LightSpeedAttackTest();
+        // TopKickTest();
         // DizzyTest();
         // FireTest();
+    }
+
+    private void LoopDeLoopTest()
+    {
+        AbstractCard loop1 = new LoopDeLoop().makeStatEquivalentCopy();
+        AbstractCard loop2 = new LoopDeLoop().makeStatEquivalentCopy();
+        loop2.upgrade();
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(loop1, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(loop2, 1));
+    }
+
+    private void LightSpeedAttackTest()
+    {
+        AbstractCard lsa = new LightSpeedAttack().makeStatEquivalentCopy();
+        AbstractCard ring = new Ring();
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, 2, false)));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(ring.makeStatEquivalentCopy(), 4, false, true));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(ring.makeStatEquivalentCopy(), 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(ring.makeStatEquivalentCopy(), 4));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(lsa, 1));
     }
 
     private void TopKickTest(){

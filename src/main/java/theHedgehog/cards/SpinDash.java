@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.FreeAttackPower;
 import theHedgehog.SonicTags;
+import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -35,6 +36,7 @@ public class SpinDash extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(SoundLibrary.SoundAction(SoundLibrary.Roll));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         addToBot(new ApplyPowerAction(p, p, new FreeAttackPower(p, 1), 1));
     }

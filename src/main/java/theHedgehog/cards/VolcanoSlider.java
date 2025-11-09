@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.SearingBlow;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.SearingBlowEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.CrestOfFireAction;
@@ -24,7 +26,7 @@ import theHedgehog.util.TextureLoader;
 
 import java.util.ArrayList;
 
-public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
+public class VolcanoSlider extends BaseCard implements CrestOfFireCard {
     public static final String ID = makeID("VolcanoSlider");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -56,7 +58,7 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
         tags.add(SonicTags.LIKE_IRONCLAD);
         tags.add(SonicTags.ERA_ADVENTURE);
 
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(FireSoulRelic.ID)){
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(FireSoulRelic.ID)) {
             FireSoulRelicAmount = AbstractDungeon.player.getRelic(FireSoulRelic.ID).counter;
         }
     }
@@ -64,12 +66,12 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (Settings.FAST_MODE) {
-            addToBot(new VFXAction(p, new ModVolcanoSliderEffect(p.hb.cX, p.hb.cY, m.hb.cX, (int)(damage / DAMAGE)), 0.1F));
+            addToBot(new VFXAction(p, new ModVolcanoSliderEffect(p.hb.cX, p.hb.cY, m.hb.cX, damage / DAMAGE), 0.1F));
         } else {
-            addToBot(new VFXAction(p, new ModVolcanoSliderEffect(p.hb.cX, p.hb.cY, m.hb.cX, (int)(damage / DAMAGE)), 0.5F));
+            addToBot(new VFXAction(p, new ModVolcanoSliderEffect(p.hb.cX, p.hb.cY, m.hb.cX, damage / DAMAGE), 0.5F));
         }
 
-        if (this.timesUpgraded > CREST_OF_FIRE_MARK){
+        if (this.timesUpgraded > CREST_OF_FIRE_MARK) {
             int self_damage = timesUpgraded - CREST_OF_FIRE_MARK;
             addToBot(new DamageAction(p, new DamageInfo(p, self_damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
         }
@@ -78,7 +80,9 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
             addToBot(new ExhaustSpecificCardAction(c, p.hand, true));
         }
 
-//        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        if (m != null) {
+            addToBot(new VFXAction(new SearingBlowEffect(m.hb.cX, m.hb.cY, damage / DAMAGE), 0.2F));
+        }
         addToBot(new CrestOfFireAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), p, this));
     }
 
@@ -121,7 +125,7 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard{
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new VolcanoSlider(this.timesUpgraded);
     }
 

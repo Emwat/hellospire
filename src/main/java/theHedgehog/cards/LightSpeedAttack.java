@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
+import theHedgehog.actions.LightSpeedAttackAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -41,8 +42,9 @@ public class LightSpeedAttack extends BaseCard {
             addToBot(SoundLibrary.VoiceAction(SoundLibrary.BlastAway));
         }
         if (hits > 0) {
+            addToBot(SoundLibrary.SoundAction(SoundLibrary.BlueTornado));
             for (int i = 0; i < hits; i++) {
-                addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
+                addToBot(new LightSpeedAttackAction(this));
             }
         }
     }
