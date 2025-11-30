@@ -8,7 +8,6 @@ import thePackmaster.packs.PackPreviewCard;
 import static thePackmaster.SpireAnniversary5Mod.makeCardPath;
 import static thePackmaster.SpireAnniversary5Mod.makeImagePath;
 
-
 public abstract class AbstractHedgehogPack extends AbstractCardPack {
     private String previewArtCardID;
 

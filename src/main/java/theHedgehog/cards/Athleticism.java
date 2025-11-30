@@ -18,7 +18,7 @@ public class Athleticism extends BaseCard {
             1
     );
 
-    private static final int EXHAUSTED = 2;
+    private static final int EXHAUSTED = 3;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 

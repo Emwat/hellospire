@@ -1,6 +1,7 @@
 package theHedgehog.console;
 
 import basemod.devcommands.ConsoleCommand;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,8 +11,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theHedgehog.cards.*;
+import theHedgehog.cardsTails.IQ200Attack;
+import theHedgehog.cardsTails.IQ300Attack;
+import theHedgehog.cardsTails.IQ400Attack;
+import theHedgehog.cardsTails.MagicHook;
 import theHedgehog.relics.CDFutureRelic;
 import theHedgehog.relics.PowerBrakeRelic;
+
+import java.util.ArrayList;
 
 // valid commands:
 // sss
@@ -35,15 +42,34 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
             }
         }
 
-        LoopDeLoopTest();
+        TailsTest();
+        // HomingAttackBranchTest();
+        // LoopDeLoopTest();
         // LightSpeedAttackTest();
         // TopKickTest();
         // DizzyTest();
         // FireTest();
     }
 
-    private void LoopDeLoopTest()
-    {
+    private void TailsTest() {
+        ArrayList<AbstractCard> cards = new ArrayList<>();
+        cards.add(new TopKick().makeStatEquivalentCopy());
+        cards.add(new IQ200Attack().makeStatEquivalentCopy());
+        cards.add(new IQ300Attack().makeStatEquivalentCopy());
+        cards.add(new IQ400Attack().makeStatEquivalentCopy());
+        cards.add(new MagicHook().makeStatEquivalentCopy());
+        for (AbstractCard c : cards) {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, 1));
+        }
+    }
+
+    private void HomingAttackBranchTest() {
+        AbstractCard homing = new HomingAttack().makeStatEquivalentCopy();
+        ((BranchingUpgradesCard) homing).doBranchUpgrade();
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(homing, 1));
+    }
+
+    private void LoopDeLoopTest() {
         AbstractCard loop1 = new LoopDeLoop().makeStatEquivalentCopy();
         AbstractCard loop2 = new LoopDeLoop().makeStatEquivalentCopy();
         loop2.upgrade();
@@ -51,8 +77,7 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(loop2, 1));
     }
 
-    private void LightSpeedAttackTest()
-    {
+    private void LightSpeedAttackTest() {
         AbstractCard lsa = new LightSpeedAttack().makeStatEquivalentCopy();
         AbstractCard ring = new Ring();
         AbstractPlayer p = AbstractDungeon.player;
@@ -63,7 +88,7 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(lsa, 1));
     }
 
-    private void TopKickTest(){
+    private void TopKickTest() {
         AbstractCard topKick = new TopKick().makeStatEquivalentCopy();
         AbstractCard topKick2 = new TopKick().makeStatEquivalentCopy();
         topKick2.upgrade();
@@ -81,7 +106,7 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         }
     }
 
-    private void DizzyTest(){
+    private void DizzyTest() {
         AbstractCard windmill = new Windmill().makeStatEquivalentCopy();
         AbstractCard needle = new SpinningNeedleAttack().makeStatEquivalentCopy();
         AbstractCard charmy = new AssistCharmy().makeStatEquivalentCopy();
@@ -104,7 +129,7 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         }
     }
 
-    private void FireTest(){
+    private void FireTest() {
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
         }

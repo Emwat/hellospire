@@ -23,6 +23,7 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
             CardTarget.ENEMY,
             1
     );
+    private static String[] NAMES;
 
     private static final int DAMAGE = 1;
     private static final int UPGRADED_DAMAGE = 1;
@@ -71,23 +72,17 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void baseUpgrade() {
-        if (Settings.language.name().equalsIgnoreCase("eng")) {
-            name = "Super Rush";
-        }
+        this.name = NAMES[0];
         upgradeStatus = this.name;
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
-//        this.upgradeBaseCost(1);
         loadCardImage(SonicMod.imagePath("cards/attack/SuperRush.png"));
         this.initializeDescription();
     }
 
     public void branchUpgrade() {
-        if (Settings.language.name().equalsIgnoreCase("eng")) {
-            name = "Rush Spin";
-        }
+        this.name = NAMES[1];
         upgradeStatus = this.name;
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
-//        this.upgradeBaseCost(1);
         loadCardImage(SonicMod.imagePath("cards/attack/RushSpin.png"));
         this.initializeDescription();
     }
@@ -96,5 +91,9 @@ public class PunchRush extends BaseCard implements BranchingUpgradesCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new PunchRush();
+    }
+
+    static {
+        NAMES = SonicMod.modLocalizedStrings.getExtraCardString(ID).NAMES;
     }
 }

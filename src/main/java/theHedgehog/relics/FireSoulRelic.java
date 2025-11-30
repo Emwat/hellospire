@@ -32,7 +32,7 @@ public class FireSoulRelic extends BaseRelic implements CustomSavable<Integer> {
     @Override
     public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
         super.onUseCard(targetCard, useCardAction);
-        if (targetCard.hasTag(SonicTags.CREST_OF_FIRE)){
+        if (targetCard.hasTag(SonicTags.CREST_OF_FIRE) || targetCard.hasTag(AbstractCard.CardTags.STRIKE)){
             addToTop(new GainBlockAction(AbstractDungeon.player, counter));
         }
     }

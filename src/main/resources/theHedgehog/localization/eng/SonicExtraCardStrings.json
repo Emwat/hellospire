@@ -1,0 +1,37 @@
+{
+  "${modID}:BouncePad": {
+    "NAMES": [
+      "Serial Bounce Pad"
+    ]
+  },
+  "${modID}:HomingAttack": {
+    "NAMES": [
+      "Serial Homing Attack"
+    ]
+  },
+  "${modID}:HotRod": {
+    "NAMES": [
+      "Hot Rod Part 1 of 3",
+      "Hot Rod Part 2 of 3",
+      "Hot Rod Part 3 of 3",
+      "Hot Rod Overloaded"
+    ]
+  },
+  "${modID}:PunchRush": {
+    "NAMES": [
+      "Super Rush",
+      "Rush Spin"
+    ]
+  },
+  "${modID}:SmoothLanding": {
+    "NAMES": [
+      "Incorrect Landing",
+      "Smooth Landing"
+    ]
+  },
+  "${modID}:Shortcut": {
+    "NAMES": [
+      "One"
+    ]
+  }
+}

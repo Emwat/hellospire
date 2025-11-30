@@ -26,6 +26,7 @@ public class Shortcut extends BaseCard {
             CardTarget.SELF, // The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
             0 // The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
+    private static String[] NAMES;
 
     // These will be used in the constructor. Technically you can just use the values directly,
     // but constants at the top of the file are easy to adjust.
@@ -47,10 +48,7 @@ public class Shortcut extends BaseCard {
         } else if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("test447_keycuts")) {
             loadCardImage(SonicMod.imagePath("cards/skill/Shortcut_One.png"));
             ModSetPortrait(SonicMod.imagePath("cards/skill/Shortcut_One_p.png"));
-
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                this.name = "One";
-            }
+            this.name = NAMES[0];
         }
     }
 
@@ -72,5 +70,9 @@ public class Shortcut extends BaseCard {
     @Override
     public AbstractCard makeCopy() { // Optional
         return new Shortcut();
+    }
+
+    static {
+        NAMES = SonicMod.modLocalizedStrings.getExtraCardString(ID).NAMES;
     }
 }

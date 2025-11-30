@@ -2,10 +2,10 @@ package theHedgehog.events;
 
 import basemod.abstracts.events.PhasedEvent;
 import basemod.abstracts.events.phases.TextPhase;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.green.DeadlyPoison;
 import com.megacrit.cardcrawl.characters.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,13 +20,11 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.QuestionCard;
 import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
-import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
 import theHedgehog.potions.ChaosSodaPotion;
 import theHedgehog.relics.*;
-import thePackmaster.ThePackmaster;
+import theHedgehog.strings.SonicChaoGardenStrings;
 
 import java.util.*;
 import java.util.List;
@@ -35,43 +33,51 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static theHedgehog.SonicMod.makeID;
-import static thePackmaster.ThePackmaster.Enums.PACKMASTER_RAINBOW;
 
 public class ChaoGardenEvent extends PhasedEvent {
 
     private class DrinkingBuddy {
         public String Name;
         public int NumberOfDrinks = 0;
+        public String OptionColor;
         public AbstractCard.CardColor Color;
         public CardLibrary.LibraryType CardLibrary;
         public String Character;
         public String DiscussionText;
         public String DrinkText;
-        public String VoiceKey;
+        public String DrinkSoundKey;
 
-        private DrinkingBuddy(String buddy, AbstractCard.CardColor color, CardLibrary.LibraryType cardLibrary, String characterName, String discussionText, String drinkText, String voiceKey) {
+        private DrinkingBuddy(String buddy, AbstractCard.CardColor color, CardLibrary.LibraryType cardLibrary, String characterName) {
             this.Name = buddy;
             this.Color = color;
             this.CardLibrary = cardLibrary;
             this.Character = characterName;
-            this.DiscussionText = discussionText;
-            this.DrinkText = drinkText;
-            this.VoiceKey = voiceKey;
+
+            SonicChaoGardenStrings chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID(buddy));
+            if (chaoGardens == null) {
+                chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID("Default"));
+            }
+
+            this.DiscussionText = chaoGardens.TALK;
+
+            this.OptionColor = chaoGardens.OPTIONCOLOR == null ? "" : chaoGardens.OPTIONCOLOR;
+            if (chaoGardens.DRINKCOLOR == null) {
+                this.DrinkText = chaoGardens.DRINK;
+            } else {
+                this.DrinkText = theHedgehog.util.GeneralUtils.ColorWord(chaoGardens.DRINKCOLOR, chaoGardens.DRINK);
+            }
+            this.DrinkSoundKey = chaoGardens.DRINKSOUND;
         }
 
         private String OptBuddy() {
-            String characterColor = (
-                    this.Character.equals("Ironclad") ? "#r" :
-                            this.Character.equals("Silent") ? "#g" :
-                                    this.Character.equals("Defect") ? "#b" :
-                                            "");
+            String capitalizedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
 
             return String.format("%s%s%s%s %s%s",
                     OptPartnerA,
-                    this.Name,
+                    capitalizedName,
                     OptPartnerB,
                     numberOfNewChoices,
-                    characterColor + this.Character,
+                    this.OptionColor + this.Character,
                     OptPartnerC);
 
         }
@@ -81,7 +87,6 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     // region Strings Description
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
-    private static final EventStrings discussionStrings = CardCrawlGame.languagePack.getEventString(makeID("ChaoGardenEventDiscussions"));
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
@@ -104,29 +109,6 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String DesKidnapA = DESCRIPTIONS[16];
     private static final String DesKidnapB = DESCRIPTIONS[17];
     private static final String DesAfterGettingChao = DESCRIPTIONS[18];
-    // endregion
-
-    // region Discussion and Drink
-    private static final String AmyDiscussion = discussionStrings.DESCRIPTIONS[0];
-    private static final String AmyDrink = discussionStrings.DESCRIPTIONS[1];
-    private static final String DefectDiscussion = discussionStrings.DESCRIPTIONS[2];
-    private static final String DefectDrink = discussionStrings.DESCRIPTIONS[3];
-    private static final String IroncladDiscussion = discussionStrings.DESCRIPTIONS[4];
-    private static final String IroncladDrink = discussionStrings.DESCRIPTIONS[5];
-    private static final String KnucklesDiscussion = discussionStrings.DESCRIPTIONS[6];
-    private static final String KnucklesDrink = discussionStrings.DESCRIPTIONS[7];
-    private static final String RougeDiscussion = discussionStrings.DESCRIPTIONS[8];
-    private static final String RougeDrink = discussionStrings.DESCRIPTIONS[9];
-    private static final String SilentDiscussion = discussionStrings.DESCRIPTIONS[10];
-    private static final String SilentDrink = discussionStrings.DESCRIPTIONS[11];
-    private static final String TailsDiscussion = discussionStrings.DESCRIPTIONS[12];
-    private static final String TailsDrink = discussionStrings.DESCRIPTIONS[13];
-    private static final String WatcherDiscussion = discussionStrings.DESCRIPTIONS[14];
-    private static final String WatcherDrink = discussionStrings.DESCRIPTIONS[15];
-    private static final String PMDiscussion = discussionStrings.DESCRIPTIONS[16];
-    private static final String PMDrink = discussionStrings.DESCRIPTIONS[17];
-    private static final String OtherDiscussion = discussionStrings.DESCRIPTIONS[18];
-    private static final String OtherDrink = discussionStrings.DESCRIPTIONS[19];
     // endregion
 
     // region Options
@@ -368,7 +350,10 @@ public class ChaoGardenEvent extends PhasedEvent {
     }
 
     private String OptNeedDrink(int buddyIndex) {
-        return OptYouNeedDrinkA + DrinkBuddies.get(buddyIndex).Name + OptYouNeedDrinkB;
+
+        String capitalizedName = DrinkBuddies.get(buddyIndex).Name.substring(0, 1).toUpperCase() + DrinkBuddies.get(buddyIndex).Name.substring(1);
+
+        return OptYouNeedDrinkA + capitalizedName + OptYouNeedDrinkB;
     }
 
     private void initializeEventVariables() {
@@ -386,12 +371,12 @@ public class ChaoGardenEvent extends PhasedEvent {
         // Heal 30% (example: 21 hp from someone w/ 71 Max HP)
 
         if (AbstractDungeon.ascensionLevel >= 15) {
-            ChaosSodaTrayCost = 49;
+            ChaosSodaTrayCost = 99;
             ChaosSodaCost = 39;
             healPercentage = 10;
             hpLoss = 7;
         } else {
-            ChaosSodaTrayCost = 39;
+            ChaosSodaTrayCost = 79;
             ChaosSodaCost = 29;
             healPercentage = 16;
             hpLoss = 5;
@@ -485,10 +470,12 @@ public class ChaoGardenEvent extends PhasedEvent {
         thisGuy.NumberOfDrinks += 1;
         FollowUp = thisGuy.DrinkText + " NL NL ";
 
-        try {
-            CardCrawlGame.sound.play(thisGuy.VoiceKey);
-        } catch (Exception ex) {
-            SonicMod.logger.error("Option020_GiveDrinkToBuddy {} {} voice not found.", thisGuy.Name, thisGuy.VoiceKey);
+        if (!"".equals(thisGuy.DrinkSoundKey)){
+            try {
+                CardCrawlGame.sound.play(thisGuy.DrinkSoundKey);
+            } catch (Exception ex) {
+                SonicMod.logger.error("Option020_GiveDrinkToBuddy {} {} voice not found.", thisGuy.Name, thisGuy.DrinkSoundKey);
+            }
         }
 
         transitionKey(phase01_table);
@@ -664,81 +651,26 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private void InitializeSonicsFriends() {
         if (AbstractDungeon.player instanceof Sonic) {
-            DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect", TailsDiscussion, TailsDrink, SoundLibrary.Tails));
-            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", KnucklesDiscussion, KnucklesDrink, SoundLibrary.Knuckles));
-            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", RougeDiscussion, RougeDrink, SoundLibrary.Rouge));
-            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", AmyDiscussion, AmyDrink, SoundLibrary.Amy));
-            if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5")) {
-                DrinkBuddies.add(new DrinkingBuddy("Packmaster", PACKMASTER_RAINBOW, ThePackmaster.Enums.LIBRARY_COLOR, "Packmaster", PMDiscussion, PMDrink, "VO_MERCHANT_2A"));
-            }
-        }
-    }
-
-    private void InitializeVanilla() {
-        if (!(AbstractDungeon.player instanceof Ironclad)) {
-            DrinkBuddies.add(new DrinkingBuddy("Ironclad", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad", IroncladDiscussion, IroncladDrink, "VO_IRONCLAD_1A"));
-        }
-        if (!(AbstractDungeon.player instanceof TheSilent)) {
-            DrinkBuddies.add(new DrinkingBuddy("The Silent", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent", SilentDiscussion, SilentDrink, "VO_SILENT_1A"));
-        }
-        if (!(AbstractDungeon.player instanceof Defect)) {
-            DrinkBuddies.add(new DrinkingBuddy("Defect", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect", DefectDiscussion, DefectDrink, "ATTACK_DEFECT_BEAM"));
-        }
-        if (!(AbstractDungeon.player instanceof Watcher)) {
-            DrinkBuddies.add(new DrinkingBuddy("Watcher", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher", WatcherDiscussion, WatcherDrink, "SELECT_WATCHER"));
+            DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect"));
+            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad"));
+            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent"));
+            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher"));
         }
     }
 
     private void InitializeEveryone() {
         int counter = 0;
         int limit = 70;
+
         for (AbstractPlayer character : CardCrawlGame.characterManager.getAllCharacters()) {
             try {
                 if (counter >= limit) {
                     break;
                 }
                 CardLibrary.LibraryType libraryType = null;
-                String name = character.title.replace("the ", "").replace("The ", "");
-                String discussion = OtherDiscussion;
-                String drink = OtherDrink;
-                String voiceKey = "VO_MERCHANT_2A";
+                String name = character.title;
 
-                switch (name) {
-                    case "Ironclad":
-                        discussion = IroncladDiscussion;
-                        drink = IroncladDrink;
-                        voiceKey = "VO_IRONCLAD_1A";
-                        break;
-                    case "Silent":
-                        discussion = SilentDiscussion;
-                        drink = SilentDrink;
-                        voiceKey = "VO_SILENT_1A";
-                        break;
-                    case "Defect":
-                        discussion = DefectDiscussion;
-                        drink = DefectDrink;
-                        voiceKey = "ATTACK_DEFECT_BEAM";
-                        break;
-                    case "Watcher":
-                        discussion = WatcherDiscussion;
-                        drink = WatcherDrink;
-                        voiceKey = "SELECT_WATCHER";
-                        break;
-                    case "Packmaster":
-                        if (!MyModConfig.enableCrossModIntegrations) {
-                            continue;
-                        }
-                        discussion = PMDiscussion;
-                        drink = PMDrink;
-                        voiceKey = "VO_MERCHANT_2A";
-                        break;
-                    default:
-                        if (!MyModConfig.enableCrossModIntegrations) {
-                            continue;
-                        }
-                        break;
-                }
-
+                SonicMod.logger.info("name: " + name);
                 for (CardLibrary.LibraryType library : CardLibrary.LibraryType.values()) {
                     if (library.toString().equals(character.getCardColor().toString())) {
                         libraryType = library;
@@ -754,7 +686,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                         name,
                         character.getCardColor(),
                         libraryType,
-                        name, discussion, drink, voiceKey));
+                        name));
                 counter++;
             } catch (Exception ex) {
                 SonicMod.logger.info("Could not make " + character.name + " into a drinking buddy.");

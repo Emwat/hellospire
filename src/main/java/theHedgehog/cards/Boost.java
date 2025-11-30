@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.BoostAction;
+// import theHedgehog.actions.RushdownAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -36,6 +37,7 @@ public class Boost extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Boost));
         addToBot(new BoostAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        // addToBot(new RushdownAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL));
     }
 
     @Override

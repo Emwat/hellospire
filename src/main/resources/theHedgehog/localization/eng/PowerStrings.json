@@ -125,6 +125,12 @@
       " turns."
     ]
   },
+  "${modID}:ModPersistPower": {
+    "NAME": "Persist",
+    "DESCRIPTIONS": [
+      "Put the next card you play in your hand."
+    ]
+  },
   "${modID}:NextTurnEchoPower": {
     "NAME": "Blue Blur",
     "DESCRIPTIONS": [
@@ -204,9 +210,9 @@
     "NAME": "Thunder Shield",
     "DESCRIPTIONS": [
       "After your orbs activate their end-of-turn passive effects, add #b",
-      " #yRing ",
-      " #yRings ",
-      " to your hand. #yRings will then trigger Lightning #b",
+      " #yRing",
+      " #yRings",
+      " to your hand. Each #yRing will then trigger Lightning #b",
       " time.",
       " times."
     ]

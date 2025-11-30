@@ -1,9 +1,12 @@
 package theHedgehog.cards;
 
+import basemod.BaseMod;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
@@ -36,6 +39,15 @@ public class Crouch extends BaseCard {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Jump));
         addToBot(new DrawCardAction(magicNumber));
         addToBot(new ExhaustAction(magicNumber, false, false, false));
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (AbstractDungeon.player.hand.size() + magicNumber - 1 > BaseMod.MAX_HAND_SIZE + 1) {
+            this.glowColor = Color.RED.cpy();
+        }
     }
 
     @Override

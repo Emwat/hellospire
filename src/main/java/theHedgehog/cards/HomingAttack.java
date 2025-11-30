@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCar
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -17,6 +18,7 @@ import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 import theHedgehog.util.TextureLoader;
@@ -30,6 +32,7 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
             CardTarget.ENEMY,
             1
     );
+    private static String[] NAMES;
 
     private static final int DAMAGE = 8;
     private int plays = 0;
@@ -49,7 +52,12 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.returnToHand = this.upgraded && this.isBranchUpgrade() && plays < maxPlays;
+        this.returnToHand = this.upgraded && this.isBranchUpgrade() && plays < maxPlays && !isBranchMaxedHandSize();
+        if (this.upgraded && this.isBranchUpgrade() && isBranchMaxedHandSize()) {
+            addToBot(new ModXFastAction(() -> {
+                AbstractDungeon.player.createHandIsFullDialog();
+            }));
+        }
 
         AbstractCard trick = new Trick();
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
@@ -82,17 +90,15 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void branchUpgrade() {
-        if (Settings.language.name().equalsIgnoreCase("eng")) {
-            name = "Serial Homing Attack";
-        }
+        name = NAMES[0];
         loadCardImage(SonicMod.imagePath("cards/attack/HomingAttackSerial.png"));
         portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/attack/HomingAttackSerial_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
         this.initializeDescription();
     }
 
-    private void updatePlays(){
-        if (upgraded && this.isBranchUpgrade()){
+    private void updatePlays() {
+        if (upgraded && this.isBranchUpgrade()) {
             if (plays < maxPlays) {
                 this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
             } else {
@@ -107,14 +113,10 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         super.onMoveToDiscard();
         addToBot(new ModFastAction(() -> {
             plays = 0;
-            updatePlays();;
+            updatePlays();
+            ;
         }));
     }
-
-    //    "EXTENDED_DESCRIPTION": [
-//            "Deal !D! damage. NL Add a Ring and 2 Tricks to your hand."
-//            "Deal !D! damage. NL Add 2 Rings and a Trick to your hand.",
-//            ]
 
     @Override
     public void triggerOnGlowCheck() {
@@ -123,10 +125,23 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         if (AbstractDungeon.player.hand.size() + magicNumber > BaseMod.MAX_HAND_SIZE + 1) {
             this.glowColor = Color.RED.cpy();
         }
+
+        if (isBranchMaxedHandSize()) {
+            this.glowColor = Color.RED.cpy();
+        }
+    }
+
+    private boolean isBranchMaxedHandSize() {
+        return this.upgraded && this.isBranchUpgrade() &&
+                AbstractDungeon.player.hand.size() + 2 > BaseMod.MAX_HAND_SIZE + 1;
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new HomingAttack();
+    }
+
+    static {
+        NAMES = SonicMod.modLocalizedStrings.getExtraCardString(ID).NAMES;
     }
 }

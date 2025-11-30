@@ -56,7 +56,7 @@
       "[Get a tray] #yPay #y",
       " #yGold. Shuffle #g",
       " choices for each color to the Discussion.",
-      "[LOCKED] You need a Chaos Soda. The ",
+      "[LOCKED] You need a Chaos Soda. ",
       " is sitting here.",
       "[Give #rChaos #rSoda to ",
       "] Add #b",
@@ -78,34 +78,6 @@
       "[LOCKED] You already have a chao.",
       "[Apologize]",
       "[Thank him and go back to the main area] #gGain #ga #gchao."
-    ]
-  },
-  "${modID}:ChaoGardenEventDiscussions": {
-    "NAME": "Chao Garden Discussions",
-    "DESCRIPTIONS": [
-      "Amy infiltrated Prison Island to break Sonic out of jail.",
-      "Amy: \"Thanks Sonic! Cheers!!\"",
-      "If the attack is fatal on anything but Darklings, Defect's Echo Form will persist for the next card. ",
-      "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
-      "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1.",
-      "The Ironclad prefers ~The~ ~BlOOD~ ~of~ ~HIS~ ~ENEMIES~, but this is a kid-friendly zone.",
-      "In his debut, Knuckles sucker punched Super Sonic so hard, Sonic lost his Super form and the Chaos Emeralds.",
-      "Knuckles: \"Grape flavored. Just how I like it!\"",
-      "Rouge has her own casino.",
-      "Rouge: \"Thanks Handsome. Now, let's talk Business.\"",
-      "Alchemize can generate Regen and Blood Potion. It cannot generate Fruit Juice.",
-      "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
-      "Tails has a Mega Buster.",
-      "Tails: \"Thanks Sonic! It's nice to slow down for a change.\"",
-      "Meditate + Establishment = Free cards.",
-      "She already had some tea set aside, but she takes it and thanks you anyway.",
-      "To Rummage... or not to Rummage?",
-      "The Packmaster smiles and is eager to talk about their collection.",
-      "The character takes the soda and hands you a note. \"Thank you.\" This is your handwriting. What is going on?",
-      "The character seems pleased."
-    ],
-    "OPTIONS": [
-      "[Leave]"
     ]
   },
   "${modID}:GravitySwitchEvent": {
@@ -153,7 +125,7 @@
       "You spot a beautiful woman sitting atop a streetlamp. She glides down to your level. NL NL \"You look like you could use some help. We can't have our hero unable to give the doctor a good fight.\"",
       "\"I'll see you around, Big Blue.\" She flies off into the city.",
       "\"I guess I'll have to find my own. Flying solo is our style anyway.\" NL She flies off into the city. NL NL When you check your belongings, you instinctively hold a tight grip on ",
-      ", but your wallet seems lighter. #r~THIEF!~",
+      " and your wallet seems lighter. #r~THIEF!~",
       "\"Oh, it's in a bottle? Is it cursed? I guess I can't trade for it. Maybe another time then.\" With that, she disappears into the city. NL NL The bottle shines ever so brightly.",
       "\"I'll see you around, Big Blue. Don't be a stranger.\"",
       "\"Hmph. See how far you get without ~MY~ help.\"",

@@ -114,7 +114,7 @@
     "NAME": "Fire Soul",
     "FLAVOR": "Don't sweat it! Anyways, no adventure is fun if it's too easy, right?",
     "DESCRIPTIONS": [
-      "When you use a #yCrest #yof #yFire card, first gain #b",
+      "When you use a #yCrest #yof #yFire or a #yStrike card, first gain #b",
       " Block. This amount permanently increases when you enter a Rest Site."
     ]
   },
@@ -126,6 +126,35 @@
       " Temporary HP."
     ]
   },
+  "${modID}:ModBottledTornado": {
+    "NAME": "Bottled Tornado",
+    "FLAVOR": "Tails: There's no landing gear on this mode.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModIceCreamRelic": {
+    "NAME": "Sonic Ice Cream Bar",
+    "FLAVOR": "Gumball Eyes! Blue Raspberry & Cherry",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModLanternRelic": {
+    "NAME": "Blast Off",
+    "FLAVOR": "Blast Off: Press X/Square when \"GO!\" appears for a free Boost.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModTailsDoll": {
+    "NAME": "Tails Doll",
+    "FLAVOR": "Creepy.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+
   "${modID}:Player2Relic": {
     "NAME": "Player 2",
     "FLAVOR": "WHOAA MY HEADS SPINNING!!",

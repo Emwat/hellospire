@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.LSDPower;
 import theHedgehog.util.CardStats;
@@ -28,17 +29,28 @@ public class LightSpeedDash extends BaseCard {
             1
     );
 
+    private static final int MAGIC = 1;
+
     public LightSpeedDash() {
         super(ID, info);
-        this.cardsToPreview = new Ring();
-        this.setExhaust(true);
+        cardsToPreview = new Ring();
+        setMagic(MAGIC);
+        setExhaust(true);
+        setCostUpgrade(0);
         tags.add(CardTags.HEALING);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int ringsPlayed = CalculateRings();
-        addToBot(new ApplyPowerAction(p, p, new LSDPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new LSDPower(p, magicNumber)));
+        addToBot(new ModXFastAction(() -> {
+            for (AbstractCard card : p.hand.group) {
+                if (card.hasTag(SonicTags.RING)) {
+                    card.tags.add(SonicTags.RING_PLUS);
+                }
+            }
+        }));
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), ringsPlayed));
         addToBot(new ModFastAction(() -> {
             for (AbstractCard card : p.hand.group) {
@@ -65,13 +77,6 @@ public class LightSpeedDash extends BaseCard {
 
     private int CalculateRings() {
         return BaseMod.MAX_HAND_SIZE - (AbstractDungeon.player.hand.size() - 1);
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeBaseCost(0);
-        }
     }
 
     @Override

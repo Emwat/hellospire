@@ -6,15 +6,19 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import theHedgehog.MyModConfig;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.actions.ModXFastAction;
@@ -59,12 +63,16 @@ public class SuperSonicForm extends BaseCard {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, magicNumber)));
             addToBot(new ApplyPowerAction(p, p, new BiasPower(p, 1), 1));
         }
-
-//        addToBot(new ApplyPowerAction(p, p, new SuperSonicPower(p)));
+        if (MyModConfig.enableBossHeartMusic && "The Heart".equals(AbstractDungeon.lastCombatMetricKey)) {
+            addToBot(new ModXFastAction(() -> {
+                CardCrawlGame.music.justFadeOutTempBGM();
+                CardCrawlGame.music.playTempBgmInstantly("LIVE_AND_LEARN", true);
+            }));
+        }
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new SuperSonicForm();
     }
 }

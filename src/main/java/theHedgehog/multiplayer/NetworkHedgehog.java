@@ -64,10 +64,6 @@ public class NetworkHedgehog extends NetworkCharPreset {
     @SpirePatch(clz=SpireTogetherMod.class, method="RegisterModdedChars", requiredModId="spireTogether")
     public static class Register {
         public static void Postfix() {
-            if (!MyModConfig.enableCrossModIntegrations) {
-                return;
-            }
-
             SpireTogetherMod.allCharacterEntities.put(Sonic.Meta.THE_HEDGEHOG, new NetworkHedgehog());
         }
     }

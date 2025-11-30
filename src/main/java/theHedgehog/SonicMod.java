@@ -2,6 +2,7 @@ package theHedgehog;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.EasyConfigPanel;
 import basemod.abstracts.CustomUnlockBundle;
 import basemod.devcommands.ConsoleCommand;
 import basemod.eventUtil.AddEventParams;
@@ -23,13 +24,19 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.screens.DeathScreen;
+import com.megacrit.cardcrawl.screens.VictoryScreen;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.actions.ModWaitAction;
 import theHedgehog.cards.*;
-import theHedgehog.character.ModSkinDictionary;
+import theHedgehog.cardsTails.IQ200Attack;
+import theHedgehog.cardsTails.IQ300Attack;
+import theHedgehog.cardsTails.IQ400Attack;
+import theHedgehog.cardsTails.MagicHook;
+import theHedgehog.skins.ModSkinDictionary;
 import theHedgehog.character.Sonic;
-import theHedgehog.character.SonicStartTalkingHelper;
+import theHedgehog.strings.*;
 import theHedgehog.console.*;
 import theHedgehog.effects.ModMindblastEffect;
 import theHedgehog.effects.SuperFinisherEffect;
@@ -66,6 +73,7 @@ import java.util.*;
 
 import static basemod.BaseMod.addMonster;
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
+import static theHedgehog.skins.ModSkinDictionary.CONFIG_CURRENT_SKIN;
 
 
 @SpireInitializer
@@ -86,7 +94,9 @@ public class SonicMod implements
         PostInitializeSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
-    public static SpireConfig sonicmodConfig; // Used for implementing dropdown?? 05/26/2025 11:32 AM
+    public static EasyConfigPanel myModConfig; // This stores all the easy checkbox settings
+    public static SpireConfig sonicmodConfig; // This stores all the tutorial, current Skin, and unlockable things
+    public static ModLocalizedStrings modLocalizedStrings;
 
     static {
         loadModInfo();
@@ -110,9 +120,23 @@ public class SonicMod implements
     public SonicMod() {
         BaseMod.subscribe(this); // This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
-        ModSkinDictionary.initializeModSkins();
 
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5")) {
+        // Properties sonicmodDefaultSettings = new Properties();
+        // sonicmodDefaultSettings.put(CONFIG_CURRENT_SKIN, skinBaseID);
+        // sonicmodDefaultSettings.setProperty(ConfigField.INDEX.id, String.valueOf(0));
+        // sonicmodDefaultSettings.setProperty(ConfigField.BOSS_MUSIC.id, String.valueOf(0));
+        // sonicmodDefaultSettings.setProperty(ConfigField.SONIC_EVENTS.id, String.valueOf(0));
+        // try
+        // {
+        //     sonicmodConfig = new SpireConfig(modID, "SonicModConfig", sonicmodDefaultSettings);
+        // }
+        // catch (IOException e)
+        // {
+        //     logger.error("Sonic Mod config initialisation failed:");
+        //     e.printStackTrace();
+        // }
+
+        if (MyModConfig.enableCrossModIntegrations && MyModConfig.enableSonicStylePack && Loader.isModLoaded("anniv5")) {
             SpireAnniversary5Mod.subscribe(new PackLoader());
         }
         if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
@@ -120,28 +144,11 @@ public class SonicMod implements
         }
     }
 
+    // private ModPanel settingsPanel;
+
     @Override
     public void receivePostInitialize() {
-        Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
-
-        // ModPanel settingsPanel = new ModPanel();
-        // settingsPanel.addUIElement(new DropDown(new ArrayList<String>() {{
-        //    add("Enable for All Characters");
-        //    add("Enable for Only Sonic");
-        //    add("Disable");
-        // }}, 455 * Settings.xScale, 763 * Settings.yScale, settingsPanel,
-        //        new Label(FontHelper.buttonLabelFont, "Flag: ", 400 * Settings.xScale, 750 * Settings.yScale, 0, 1, Color.WHITE),
-        //        dropdown -> {
-        //            sonicmodConfig.setString(ConfigField.FLAG.id, dropdown.selection);
-        //            saveConfig();
-        //        },
-        //        index -> {
-        //            sonicmodConfig.setInt(ConfigField.INDEX.id, index);
-        //            saveConfig();
-        //        }));
-        // saveConfig();
-
-        BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, new MyModConfig());
+        initConfig();
 
         CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo() {
             @Override
@@ -182,11 +189,54 @@ public class SonicMod implements
         registerEvents();
 
         loadConfig();
+        ModSkinDictionary.initializeModSkins();
+        // ModSkinDictionary.initializeModSkinsUnlockables();
+
         ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
         ConsoleCommand.addCommand("sonicunlock", SonicConsoleUnlock.class);
         ConsoleCommand.addCommand("soniceverything", SonicConsoleEverything.class);
         ConsoleCommand.addCommand("sonicskin", SonicConsoleSkin.class);
         ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
+    }
+
+    private void initConfig(){
+        Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
+        //
+        // ArrayList<String> characterOptions = new ArrayList<String>() {{
+        //     add("Enable for Only Sonic");
+        //     add("Enable for All Characters");
+        //     add("Disable");
+        // }};
+        // settingsPanel = new ModPanel();
+        // settingsPanel.addUIElement(new DropDown(characterOptions,
+        //         620 * Settings.xScale, 770 * Settings.yScale, settingsPanel,
+        //         new Label(FontHelper.buttonLabelFont, "Boss Music: ",
+        //                 500 * Settings.xScale, 750 * Settings.yScale, 0, 1, Color.WHITE),
+        //         dropdown -> {
+        //             sonicmodConfig.setString(ConfigField.BOSS_MUSIC.id, dropdown.selection);
+        //             saveConfig();
+        //         },
+        //         index -> {
+        //             sonicmodConfig.setInt(ConfigField.INDEX.id, index);
+        //             saveConfig();
+        //         }));
+        // settingsPanel.addUIElement(new DropDown(characterOptions,
+        //         620 * Settings.xScale, 590 * Settings.yScale, settingsPanel,
+        //         new Label(FontHelper.buttonLabelFont, "Sonic Events: ",
+        //                 500 * Settings.xScale, 570 * Settings.yScale, 0, 1, Color.WHITE),
+        //         dropdown -> {
+        //             sonicmodConfig.setString(ConfigField.SONIC_EVENTS.id, dropdown.selection);
+        //             saveConfig();
+        //         },
+        //         index -> {
+        //             sonicmodConfig.setInt(ConfigField.INDEX.id, index);
+        //             saveConfig();
+        //         }));
+        // saveConfig();
+        //
+        // BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, settingsPanel);
+        myModConfig = new MyModConfig();
+        BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, myModConfig);
     }
 
     // /// Used for DropDown
@@ -204,11 +254,14 @@ public class SonicMod implements
     //     if (sonicmodConfig == null) return 0;
     //     return sonicmodConfig.getInt(ConfigField.INDEX.id);
     // }
-    //
+
     // /// Used for DropDown
     // public enum ConfigField
     // {
-    //     INDEX("Index");
+    //     INDEX("Index"),
+    //     // LANGUAGE("Language"),
+    //     BOSS_MUSIC("Boss_Music"),
+    //     SONIC_EVENTS("Sonic_Events");
     //     final String id;
     //     ConfigField(String val)
     //     {
@@ -265,6 +318,7 @@ public class SonicMod implements
             if (!Loader.isModLoaded("spireTogether")) {
                 BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
                         .dungeonID(TheBeyond.ID)
+                        .spawnCondition(() -> !Loader.isModLoaded("spireTogether"))
                         .playerClass(Sonic.Meta.THE_HEDGEHOG)
                         .eventType(EventUtils.EventType.NORMAL)
                         .endsWithRewardsUI(true)
@@ -337,6 +391,7 @@ public class SonicMod implements
             The same process is used to load keywords slightly below.
         */
         loadLocalization(defaultLanguage); // no exception catching for default localization; you better have at least one that works.
+        modLocalizedStrings = new ModLocalizedStrings();
         if (!defaultLanguage.equals(getLangString())) {
             try {
                 loadLocalization(getLangString());
@@ -370,7 +425,17 @@ public class SonicMod implements
         BaseMod.loadCustomStringsFile(MonsterStrings.class,
                 localizationPath(lang, "MonsterStrings.json"));
         BaseMod.loadCustomStringsFile(TutorialStrings.class,
-                localizationPath(lang, "Tutorials.json"));
+                localizationPath(lang, "TutorialStrings.json"));
+        // BaseMod.loadCustomStringsFile(ScoreBonusStrings.class,
+        //         localizationPath(lang, "ScoreBonusStrings.json"));
+
+        //11/21/2025 12:06 AM i dont get it
+        // BaseMod.loadCustomStringsFile(SonicChaoGardenStrings.class,
+        //         localizationPath(lang, "SonicChaoGardenStrings.json"));
+        // BaseMod.loadCustomStringsFile(SonicExtraCardStrings.class,
+        //         localizationPath(lang, "SonicExtraCardStrings.json"));
+        // BaseMod.loadCustomStringsFile(SonicTalkStrings.class,
+        //         localizationPath(lang, "SonicTalkStrings.json"));
     }
 
     @Override
@@ -439,6 +504,10 @@ public class SonicMod implements
 
     public static String vfxPath(String file) {
         return resourcesFolder + "/images/vfx/" + file;
+    }
+
+    public static String resourcesPath() {
+        return resourcesFolder;
     }
 
     /**
@@ -521,6 +590,10 @@ public class SonicMod implements
         BaseMod.removeCard(LevelUpFlightPick.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(LevelUpPowerPick.ID, Sonic.Meta.CARD_COLOR);
 
+        BaseMod.removeCard(LevelUp1.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(LevelUp2.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(LevelUp3.ID, Sonic.Meta.CARD_COLOR);
+
         BaseMod.removeCard(RelaxPick1.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(RelaxPick2.ID, Sonic.Meta.CARD_COLOR);
 
@@ -537,14 +610,35 @@ public class SonicMod implements
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(SpeedUp.ID, Sonic.Meta.CARD_COLOR);
+
+        BaseMod.removeCard(IQ200Attack.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(IQ300Attack.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(IQ400Attack.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(MagicHook.ID, Sonic.Meta.CARD_COLOR);
 
         if (!Loader.isModLoaded("anniv5")) {
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Boost.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
         }
         BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
+
+        // this code does not seem to work. 11/29/2025 08:46 AM
+        // if (!MyModConfig.enableCrestOfFire) {
+        //     BaseMod.removeCard(FireTackle.ID, Sonic.Meta.CARD_COLOR);
+        //     BaseMod.removeCard(FireSomersault.ID, Sonic.Meta.CARD_COLOR);
+        //     BaseMod.removeCard(VolcanoSlider.ID, Sonic.Meta.CARD_COLOR);
+        // }
+        //
+        // if (!MyModConfig.enableStanceSwitching) {
+        //     BaseMod.removeCard(MagicHands.ID, Sonic.Meta.CARD_COLOR);
+        //     BaseMod.removeCard(Relax.ID, Sonic.Meta.CARD_COLOR);
+        //     BaseMod.removeCard(SlotMachineGame.ID, Sonic.Meta.CARD_COLOR);
+        // }
 
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
@@ -825,7 +919,9 @@ public class SonicMod implements
         // info.Name = The Hedgehog
         String configName = "sonicmod";
         try {
-            sonicmodConfig = new SpireConfig(configName, configName + ".config");
+            Properties sonicmodDefaultSettings = new Properties();
+            sonicmodDefaultSettings.put(CONFIG_CURRENT_SKIN, ModSkinDictionary.skinBaseID);
+            sonicmodConfig = new SpireConfig(configName, configName + ".config", sonicmodDefaultSettings);
             sonicmodConfig.load();
             SonicTipTracker.initialize();
         } catch (Exception ex) {
@@ -836,7 +932,7 @@ public class SonicMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if (SoundLibrary.isRandomlyTrue()) {
-            SonicStartTalkingHelper.Chat(abstractRoom);
+            SonicTalkEncounters.Chat(abstractRoom);
         }
     }
 
@@ -849,5 +945,6 @@ public class SonicMod implements
     //     }
     //     BrokenSpaceZone.shaderTimer += Gdx.graphics.getDeltaTime();
     // }
+
 
 }

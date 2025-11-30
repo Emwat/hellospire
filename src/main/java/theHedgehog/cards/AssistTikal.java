@@ -23,7 +23,7 @@ public class AssistTikal extends BaseCard {
     private static final int BLOCK = 10;
     private static final int UPG_BLOCK = 3;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(255, 218, 128);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(253, 117, 3);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(153, 205, 51);
 
     public AssistTikal() {
         super(ID, info);

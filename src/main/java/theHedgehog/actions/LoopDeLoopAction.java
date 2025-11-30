@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
@@ -124,6 +125,7 @@ public class LoopDeLoopAction extends AbstractGameAction {
                                 topCard.costForTurn = 0;
                                 topCard.isCostModifiedForTurn = true;
                             }
+
                             drawnCards.add(topCard);
                             drawFromDiscard();
                             AbstractDungeon.player.hand.refreshHandLayout();

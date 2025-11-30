@@ -3,7 +3,7 @@ package theHedgehog.console;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import theHedgehog.character.ModSkinDictionary;
+import theHedgehog.skins.ModSkinDictionary;
 import theHedgehog.character.Sonic;
 
 import java.util.ArrayList;

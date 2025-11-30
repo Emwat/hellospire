@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -25,6 +26,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theHedgehog.*;
 import theHedgehog.cards.BouncePad;
@@ -35,12 +37,15 @@ import theHedgehog.effects.VictoryGlow;
 import theHedgehog.effects.VictoryStarEffect;
 import theHedgehog.relics.BlueQuillRelic;
 import theHedgehog.relics.ChaoThreeRelic;
+import theHedgehog.relics.ClassicModeRelic;
+import theHedgehog.skins.ModSkinDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static theHedgehog.SonicMod.*;
 import static theHedgehog.SonicMod.characterPath;
+import static theHedgehog.skins.ModSkinDictionary.CONFIG_CURRENT_SKIN;
 
 public class Sonic extends CustomPlayer {
     // Stats
@@ -78,15 +83,27 @@ public class Sonic extends CustomPlayer {
         private static final String CHAR_SELECT_PORTRAIT = characterPath("select/portrait.png");
 
         // Character card images
-        private static final String BG_ATTACK = characterPath("cardback/bg_attack.png");
-        private static final String BG_ATTACK_P = characterPath("cardback/bg_attack_p.png");
-        private static final String BG_SKILL = characterPath("cardback/bg_skill.png");
-        private static final String BG_SKILL_P = characterPath("cardback/bg_skill_p.png");
-        private static final String BG_POWER = characterPath("cardback/bg_power.png");
-        private static final String BG_POWER_P = characterPath("cardback/bg_power_p.png");
-        public static final String ENERGY_ORB = characterPath("cardback/energy_orb.png");
-        private static final String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
-        public static final String SMALL_ORB = characterPath("cardback/small_orb.png");
+        private static String BG_ATTACK = characterPath("cardback/bg_attack.png");
+        private static String BG_ATTACK_P = characterPath("cardback/bg_attack_p.png");
+        private static String BG_SKILL = characterPath("cardback/bg_skill.png");
+        private static String BG_SKILL_P = characterPath("cardback/bg_skill_p.png");
+        private static String BG_POWER = characterPath("cardback/bg_power.png");
+        private static String BG_POWER_P = characterPath("cardback/bg_power_p.png");
+        public static String ENERGY_ORB = characterPath("cardback/energy_orb.png");
+        private static String ENERGY_ORB_P = characterPath("cardback/energy_orb_p.png");
+        public static String SMALL_ORB = characterPath("cardback/small_orb.png");
+
+        public static void setCharacterCardImages(String bgAttack, String bgAttackP, String bgSkill, String bgSkillP, String bgPower, String bgPowerP, String energyOrb, String energyOrbP, String smallOrb) {
+            BG_ATTACK = bgAttack;
+            BG_ATTACK_P = bgAttackP;
+            BG_SKILL = bgSkill;
+            BG_SKILL_P = bgSkillP;
+            BG_POWER = bgPower;
+            BG_POWER_P = bgPowerP;
+            ENERGY_ORB = energyOrb;
+            ENERGY_ORB_P = energyOrbP;
+            SMALL_ORB = smallOrb;
+        }
 
         // This is used to color *some* images, but NOT the actual cards. For that, edit the images in the cardback folder!
         public static final Color cardColor = new Color(35f / 255f, 119f / 255f, 183f / 255f, 1f);
@@ -126,9 +143,9 @@ public class Sonic extends CustomPlayer {
 
 
     // In-game images
-    private static final String SHOULDER_1 = characterPath("shoulder1.png"); // Shoulder 1 and 2 are used at rest sites.
-    private static final String SHOULDER_2 = characterPath("shoulder2.png");
-    private static final String CORPSE = characterPath("corpse.png"); // Corpse is when you die.
+    private static String SHOULDER_1 = characterPath("shoulder1.png"); // Shoulder 1 and 2 are used at rest sites.
+    private static String SHOULDER_2 = characterPath("shoulder2.png");
+    private static String CORPSE = characterPath("corpse.png"); // Corpse is when you die.
 
     // Textures used for the energy orb
     private static final String[] orbTextures = {
@@ -158,23 +175,12 @@ public class Sonic extends CustomPlayer {
     // Actual character class code below this point
 
     private static final String skinBattlePath = characterPath("animation/SonicBattlePose.scml");
-    private static final String skinCaptainPath = characterPath("animation/captain/SonicCaptainPose.scml");
     public static ModSkinDictionary.ModSkin currentModSkin;
 
     public Sonic() {
         super(getNames()[0], Meta.THE_HEDGEHOG,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), // Energy Orb
                 new CustomSpriterAnimation(skinBattlePath)); // Animation
-
-        if (this.getPrefs().getInteger("ASCENSION_LEVEL", 1) > 10 && MyModConfig.enableSkinCaptain) {
-            this.animation = new CustomSpriterAnimation(skinCaptainPath);
-            currentModSkin = ModSkinDictionary.getModSkin(ModSkinDictionary.skinCaptainSonicID);
-        } else {
-            currentModSkin = ModSkinDictionary.getModSkin(ModSkinDictionary.skinBaseID);
-        }
-
-        Player.PlayerListener listener = new CustomAnimationListener(this);
-        getAnimation().myPlayer.addListener(listener);
 
         initializeClass(null,
                 SHOULDER_2,
@@ -184,6 +190,10 @@ public class Sonic extends CustomPlayer {
                 20.0F, -20.0F, 200.0F, 250.0F, // Character hitbox. x y position, then width and height.
                 new EnergyManager(ENERGY_PER_TURN));
 
+        if (sonicmodConfig != null){
+            setSkin(sonicmodConfig.getString(CONFIG_CURRENT_SKIN));
+        }
+
         // Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
@@ -192,21 +202,55 @@ public class Sonic extends CustomPlayer {
     // region TogetherInSpire Skin handling
     public String currentSkin;
     public String defaultSkin;
+    Player.PlayerListener listener;
 
     public void setupAnimation(String id) {
         currentModSkin = ModSkinDictionary.getModSkin(id);
         // currentSkin = folder
-        currentSkin = currentModSkin.getPath().substring(0, currentModSkin.getPath().lastIndexOf("/"));
+        currentSkin = currentModSkin.getAnimationPath().substring(0, currentModSkin.getAnimationPath().lastIndexOf("/"));
         defaultSkin = currentSkin;
+        setSkin(id);
     }
     // endregion
 
-    // region Sonic Console Testing
     public void setSkin(String id) {
         currentModSkin = ModSkinDictionary.getModSkin(id);
-        this.animation = new CustomSpriterAnimation(currentModSkin.getPath());
+        if (currentModSkin == null) {
+            this.animation = new CustomSpriterAnimation(ModSkinDictionary.defaultAnimationPath);
+        } else {
+            if (Gdx.files.internal(currentModSkin.getAnimationPath()).exists()){
+                this.animation = new CustomSpriterAnimation(currentModSkin.getAnimationPath());
+            } else {
+                this.animation = new CustomSpriterAnimation(ModSkinDictionary.getBaseSkin().getAnimationPath());
+            }
+            SHOULDER_1 = PathOrDefault("/shoulder1.png");
+            SHOULDER_2 = PathOrDefault("/shoulder2.png");
+            CORPSE = PathOrDefault("/corpse.png");
+            Meta.setCharacterCardImages(
+                    PathOrDefault("cardback/bg_attack.png"),
+                    PathOrDefault("cardback/bg_attack_p.png"),
+                    PathOrDefault("cardback/bg_skill.png"),
+                    PathOrDefault("cardback/bg_skill_p.png"),
+                    PathOrDefault("cardback/bg_power.png"),
+                    PathOrDefault("cardback/bg_power_p.png"),
+                    PathOrDefault("cardback/energy_orb.png"),
+                    PathOrDefault("cardback/energy_orb_p.png"),
+                    PathOrDefault("cardback/small_orb.png")
+            );
+
+        }
+
+        if (listener == null) {
+            listener = new CustomAnimationListener(this);
+            getAnimation().myPlayer.addListener(listener);
+        }
     }
-    // endregion
+
+    private String PathOrDefault(String file) {
+        return Gdx.files.internal(currentModSkin.getCharacterPath() + file).exists() ?
+                currentModSkin.getCharacterPath() + file :
+                ModSkinDictionary.getBaseSkin().getCharacterPath() + file;
+    }
 
     @Override
     public ArrayList<String> getStartingDeck() {
@@ -236,6 +280,9 @@ public class Sonic extends CustomPlayer {
 
         if (MyModConfig.enableThreeOrbs) {
             retVal.add(ChaoThreeRelic.ID);
+        }
+        if (MyModConfig.enableClassicMode) {
+            retVal.add(ClassicModeRelic.ID);
         }
 
         if (MyModConfig.optionStarterRelic == 0) {
@@ -392,15 +439,25 @@ public class Sonic extends CustomPlayer {
 
     @Override
     public Texture getCutsceneBg() {
+
+        if (isAmy() || isKnuckles() || isShadow()) {
+            return ImageMaster.loadImage("images/scenes/redBg.jpg");
+        }
+
         return ImageMaster.loadImage("images/scenes/blueBg.jpg");
     }
 
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(endingPath("ending1.png"), SoundLibrary.Boost));
-        panels.add(new CutscenePanel(endingPath("ending2.png")));
-        panels.add(new CutscenePanel(endingPath("ending3.png")));
+
+        if (isSonic()) {
+            panels.add(new CutscenePanel(endingPath("ending1.png"), SoundLibrary.Boost));
+            panels.add(new CutscenePanel(endingPath("ending2.png")));
+            panels.add(new CutscenePanel(endingPath("ending3.png")));
+        } else {
+            panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending1.png"));
+        }
         return panels;
     }
 
@@ -525,9 +582,33 @@ public class Sonic extends CustomPlayer {
 
         if (wantedAnimation1 != null &&
                 currentModSkin.hasAnimation(wantedAnimation1) &&
-                ("attack".equals(wantedAnimation1)) || "happy".equals(wantedAnimation1))
+                ("attack".equals(wantedAnimation1) || "happy".equals(wantedAnimation1)))
             return wantedAnimation1;
 
         return "idle";
+    }
+
+    public static boolean isAmy() {
+        return currentModSkin.getContact().equals("Amy");
+    }
+
+    public static boolean isKnuckles() {
+        return currentModSkin.getContact().equals("Knuckles");
+    }
+
+    public static boolean isShadow() {
+        return currentModSkin.getContact().equals("Shadow");
+    }
+
+    public static boolean isSonic() {
+        return currentModSkin.getContact().equals("Sonic");
+    }
+
+    public static boolean isTails() {
+        return currentModSkin.getContact().equals("Tails");
+    }
+
+    public TextureAtlas getAtlas() {
+        return atlas;
     }
 }

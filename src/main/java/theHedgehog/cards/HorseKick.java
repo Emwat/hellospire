@@ -26,7 +26,7 @@ public class HorseKick extends BaseCard {
     );
 
     private static final int DAMAGE = 14;
-    private static final int UPG_DAMAGE = 2;
+    private static final int UPG_DAMAGE = 3;
 
     public HorseKick() {
         super(ID, info);

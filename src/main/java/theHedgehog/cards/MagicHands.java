@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.stances.CalmStance;
+import theHedgehog.MyModConfig;
 import theHedgehog.SonicTags;
 import theHedgehog.cardmodifiers.MagicHandsModifier;
+import theHedgehog.cardmodifiers.ModRetainModifier;
 import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -33,20 +35,23 @@ public class MagicHands extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));
-        addToBot(new SelectCardsInHandAction(1, CardCrawlGame.languagePack.getUIString(makeID("MagicHandsMessage")).TEXT[0],
-                false, false, filter -> !filter.tags.contains(SonicTags.DO_NOT_THROW), cards -> {
-            if (cards.isEmpty()) {
-                return;
-            }
-            for (AbstractCard card : cards) {
-                if (!this.upgraded) {
-                    CardModifierManager.addModifier(card, new RetainMod());
-                } else {
-                    CardModifierManager.addModifier(card, new MagicHandsModifier());
-                }
-            }
-        }));
+        addToBot(new SelectCardsInHandAction(1, CardCrawlGame.languagePack.getUIString(
+                makeID("MagicHandsMessage")).TEXT[!this.upgraded ? 0 : 1],
+                false, false,
+                filter -> {
+                    boolean doNotThrowCards = !filter.tags.contains(SonicTags.DO_NOT_THROW);
+                    boolean allowRings = !filter.tags.contains(SonicTags.RING);
+                    if (this.upgraded) allowRings = true;
+                    return doNotThrowCards && allowRings;
+                },
+                cards -> {
+                    if (cards.isEmpty()) {
+                        return;
+                    }
+                    for (AbstractCard card : cards) {
+                        CardModifierManager.addModifier(card, new MagicHandsModifier());
+                    }
+                }));
     }
 
     @Override

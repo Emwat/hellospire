@@ -21,6 +21,10 @@ public class AudioBossMusicPatch {
             return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/JoinUs4HappyTime.mp3")));
         }
 
+        if ("LIVE_AND_LEARN".equals(key)) {
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/LiveAndLearn.ogg")));
+        }
+
         return SpireReturn.Continue();
     }
 
@@ -43,6 +47,10 @@ public class AudioBossMusicPatch {
 
         if (MyModConfig.enableSound && "STS_BossVictoryStinger_3_v3_MUSIC.ogg".equals(key)) {
             return MainMusic.newMusic(SonicMod.audioPath("music/ActClear.mp3"));
+        }
+
+        if (MyModConfig.enableBoss1Music && "BOSS_BOTTOM".equals(key)) {
+            return MainMusic.newMusic(SonicMod.audioPath("music/Egg_Hawk.ogg"));
         }
 
         if (MyModConfig.enableBoss2Music && "BOSS_CITY".equals(key)) {

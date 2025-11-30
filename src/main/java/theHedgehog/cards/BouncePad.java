@@ -7,13 +7,17 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicMod;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
+import theHedgehog.strings.SonicExtraCardStrings;
+import theHedgehog.strings.SonicTalkStrings;
 import theHedgehog.util.CardStats;
 import theHedgehog.util.TextureLoader;
 
@@ -26,6 +30,8 @@ public class BouncePad extends BaseCard implements BranchingUpgradesCard {
             CardTarget.SELF,
             1
     );
+
+    private static String[] NAMES;
 
     private static final int BLOCK = 7;
     private static final int UPG_BLOCK = 2;
@@ -44,7 +50,12 @@ public class BouncePad extends BaseCard implements BranchingUpgradesCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.returnToHand = this.upgraded && this.isBranchUpgrade() && plays < maxPlays;
+        this.returnToHand = this.upgraded && this.isBranchUpgrade() && plays < maxPlays && !isBranchMaxedHandSize();
+        if (this.upgraded && this.isBranchUpgrade() && isBranchMaxedHandSize()) {
+            addToBot(new ModXFastAction(() -> {
+                AbstractDungeon.player.createHandIsFullDialog();
+            }));
+        }
 
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Spring));
         addToBot(new GainBlockAction(p, block));
@@ -75,9 +86,7 @@ public class BouncePad extends BaseCard implements BranchingUpgradesCard {
     }
 
     public void branchUpgrade() {
-        if (Settings.language.name().equalsIgnoreCase("eng")) {
-            name = "Serial Bounce Pad";
-        }
+        name = NAMES[0];
         loadCardImage(SonicMod.imagePath("cards/skill/BouncePadSerial.png"));
         portraitImg = TextureLoader.getTexture(SonicMod.imagePath("cards/skill/BouncePadSerial_p.png"));
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
@@ -113,8 +122,17 @@ public class BouncePad extends BaseCard implements BranchingUpgradesCard {
         }
     }
 
+    private boolean isBranchMaxedHandSize(){
+        return this.upgraded && this.isBranchUpgrade() &&
+                AbstractDungeon.player.hand.size() + 2 > BaseMod.MAX_HAND_SIZE + 1;
+    }
+
     @Override
     public AbstractCard makeCopy() { // Optional
         return new BouncePad();
+    }
+
+    static {
+        NAMES = SonicMod.modLocalizedStrings.getExtraCardString(ID).NAMES;
     }
 }

@@ -10,12 +10,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.LSDPower;
 import theHedgehog.powers.RingPower;
@@ -50,7 +53,7 @@ public class Ring extends BaseCard {
             loadCardImage(SonicMod.imagePath("cards/skill/WorldRings.png"));
         }
 
-        if (IsConfusedEgg()){
+        if (IsConfusedEgg()) {
             if (Settings.language.name().equalsIgnoreCase("eng")) {
                 this.name = "Coin";
             }
@@ -58,18 +61,28 @@ public class Ring extends BaseCard {
             loadCardImage(SonicMod.imagePath("cards/skill/Ring_b.png"));
         }
 
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")) {
             if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
                 unlockRingmasterAchievement();
             }
         }
     }
 
+    @Override
+    public void triggerOnExhaust() {
+        super.triggerOnExhaust();
+        atbApplyFocus();
+    }
+
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Ring));
 
         if (p.hasPower(LSDPower.POWER_ID)) {
-            addToBot(new HealAction(p, p, 1));
+            if (this.hasTag(SonicTags.RING_PLUS)) {
+                addToBot(new HealAction(p, p, getPower(p, LSDPower.POWER_ID) * 3));
+            } else {
+                addToBot(new HealAction(p, p, getPower(p, LSDPower.POWER_ID)));
+            }
         } else {
             addToBot(new AddTemporaryHPAction(p, p, magicNumber));
         }
@@ -77,14 +90,14 @@ public class Ring extends BaseCard {
         addToBot(new ModFastAction(() -> ReturnBoostToHand(p)));
     }
 
-    private void ReturnBoostToHand(AbstractPlayer p){
+    private void ReturnBoostToHand(AbstractPlayer p) {
         if (!p.discardPile.isEmpty()) {
             for (AbstractCard card : p.discardPile.group) {
                 if (Objects.equals(card.cardID, Boost.ID)) {
                     addToBot(new DiscardToHandAction(card));
                 }
             }
-        };
+        }
     }
 
     @Override
@@ -101,10 +114,22 @@ public class Ring extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { // Optional
+        atbApplyFocus();
         return new Ring();
     }
 
-    private void unlockRingmasterAchievement(){
+    private void atbApplyFocus(){
+        addToBot(new ModXFastAction(() -> {
+            if (AbstractDungeon.player != null && AbstractDungeon.player.hasOrb()){
+                for (AbstractOrb orb : AbstractDungeon.player.orbs) {
+                    if (!(orb instanceof EmptyOrbSlot))
+                        orb.applyFocus();
+                }
+            }
+        }));
+    }
+
+    private void unlockRingmasterAchievement() {
         if (AbstractDungeon.player == null) {
             return;
         }
@@ -118,7 +143,7 @@ public class Ring extends BaseCard {
         }
     }
 
-    private int countRings(ArrayList<AbstractCard> group){
+    private int countRings(ArrayList<AbstractCard> group) {
         int count = 0;
         for (AbstractCard c : group) {
             if (c.cardID.equals(this.cardID)) {

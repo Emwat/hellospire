@@ -4,12 +4,10 @@
     "DESCRIPTION": "Description. NL Second line.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
-      "You can put more text in here.",
-      "If you need to use it for stuff.",
-      "Blizzard is a good example for this.",
       "{@@}Draw !M! card{!M!|>1=s}",
       "${modID}:Ring.",
       "stslib:Exhaustive !stslib:ex!",
+      "NL stslib:Persist !stslib:persist!",
       "[#012345]insertBlackWordHere[]",
       "fff6e2ff cream",
       "87ceebff blue",
@@ -20,7 +18,9 @@
       "ff6563ff red",
       "ffa500ff orange",
       "[E] is energy",
-      "Attack and Skill start w/ uppercase."
+      "ALL is typically capitalized.",
+      "Attack, Skill, Evoke, Exhaust, Block, Focus are title case.",
+      "[#efc851ff]Shiv -- when refering to other cards, make yellow text."
     ],
     "FLAVOR": "SpireWolf25 says Hello."
   },
@@ -82,7 +82,7 @@
   },
   "${modID}:AssistEspio": {
     "NAME": "Espio the Chameleon",
-    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more.",
+    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! [#efc851ff]Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more.",
     "FLAVOR": "Behold! Ninja power!"
   },
   "${modID}:AssistKnuckles": {
@@ -163,7 +163,7 @@
   },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
-    "DESCRIPTION": "Each turn, your first !M! created cards cost [E] less. Zero cost cards are excluded.",
+    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded.",
     "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded."
   },
     "${modID}:BlastOff": {
@@ -213,6 +213,11 @@
     "NAME": "Checkpoint",
     "DESCRIPTION": "Can only be played if you have a [#efc851ff]Ring in your hand. Shuffle [#efc851ff]Super [#efc851ff]Sonic [#efc851ff]Form into your draw pile. Exhaust.",
     "UPGRADE_DESCRIPTION": "Can only be played if you have a [#efc851ff]Ring in your hand. Shuffle [#efc851ff]Super [#efc851ff]Sonic [#efc851ff]Form+ into your draw pile. Exhaust."
+  },
+  "${modID}:ChuChuBomb": {
+    "NAME": "ChuChuBomb",
+    "DESCRIPTION": "This card's target change every time you play a card. Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": ""
   },
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
@@ -307,7 +312,7 @@
   },
   "${modID}:FireSomersault": {
     "NAME": "Fire Somersault",
-    "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. If exhausted, add another Fire Somersault to your hand. It does !M! additional damage."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. If Exhausted, add another [#efc851ff]Fire [#efc851ff]Somersault to your hand. It does !M! additional damage."
   },
   "${modID}:FireTackle": {
     "NAME": "Fire Tackle",
@@ -436,10 +441,22 @@
     "NAME": "Insta Shield",
     "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${modID}:Flame_Barrier."
   },
+  "${modID}:IQ200Attack": {
+    "NAME": "IQ200 Attack",
+    "DESCRIPTION": "Deal !D! damage. NL At the end of your turn, Retain 1 card."
+  },
+  "${modID}:IQ300Attack": {
+    "NAME": "IQ300 Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Put the next card you play into your hand."
+  },
+  "${modID}:IQ400Attack": {
+    "NAME": "IQ400 Attack",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Choose a card. Transform a random card in your hand into that card."
+  },
   "${modID}:LevelUp": {
     "NAME": "Level Up",
-    "DESCRIPTION": "This card's effects change based on the last card you played this combat. NL See ${modID}:Level_Up.",
-    "UPGRADE_DESCRIPTION": "{@@}Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand. This card's effects change based on the last card you played this combat. NL See ${modID}:Level_Up.",
+    "DESCRIPTION": "This card's effects change based on the last card you played this combat.",
+    "UPGRADE_DESCRIPTION": "{@@}Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand. This card's effects change based on the last card you played this combat.",
     "EXTENDED_DESCRIPTION": [
       "{@@}Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand. ",
       "For each [#efc851ff]Ring in your hand, increase damage dealt from cards by 1.",
@@ -449,6 +466,18 @@
       "Level Up Flight",
       "Level Up Power"
     ]
+  },
+  "${modID}:LevelUp1": {
+    "NAME": "Skill/Other",
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Block gained from cards by 1."
+  },
+  "${modID}:LevelUp2": {
+    "NAME": "Power",
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase damage gained from cards by 1."
+  },
+  "${modID}:LevelUp3": {
+    "NAME": "Attack",
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Focus by 1."
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",
@@ -485,7 +514,7 @@
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
-    "DESCRIPTION": "Deal !D! damage to a random enemy for ${modID}:ALL [#efc851ff]Rings in combat.",
+    "DESCRIPTION": "Deal !D! damage to a random enemy for every Ring created this combat.",
     "EXTENDED_DESCRIPTION": [
       " NL (",
       " Hits)"
@@ -502,13 +531,20 @@
     "EXTENDED_DESCRIPTION": [
       "Draw ",
       " and ",
-      ". It costs 0 this turn. NL stslib:Exhaustive !stslib:ex!."
+      ". It costs 0 this turn. NL stslib:Exhaustive !stslib:ex!.",
+      ". They cost 0 this turn. NL stslib:Exhaustive !stslib:ex!.",
+      ". [#ff6563ff]You [#ff6563ff]are [#ff6563ff]confused. NL stslib:Exhaustive !stslib:ex!."
     ]
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
-    "DESCRIPTION": "Enter Calm. NL Choose a card in your hand. It gains Retain.",
-    "UPGRADE_DESCRIPTION": "Enter Calm. NL Choose a card in your hand. It gains Retain and when it exhausts, enter Wrath."
+    "DESCRIPTION": "Choose a [#efc851ff]Non-Ring card in your hand. It gains Retain and when it Exhausts, enter Wrath.",
+    "UPGRADE_DESCRIPTION": "Choose a card in your hand. It gains Retain and when it Exhausts, enter Wrath."
+  },
+  "${modID}:MagicHook": {
+    "NAME": "Magic Hook",
+    "DESCRIPTION": "Draw an Attack that costs 2+. It costs 1 less this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw an Attack that costs 2+. It costs 1 less this turn."
   },
   "${modID}:MeteorKick": {
     "NAME": "Meteor Kick",
@@ -530,6 +566,11 @@
   "${modID}:PackBouncePad": {
     "NAME": "Bounce Pad",
     "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand."
+  },
+  "${modID}:PackBlastProcessing": {
+    "NAME": "Blast Processing",
+    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded."
   },
   "${modID}:PackHomingAttack": {
     "NAME": "Homing Attack",
@@ -642,7 +683,7 @@
     "DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, discard this."
   },
   "${modID}:SmoothLanding": {
-    "NAME": "Smooth Landing",
+    "NAME": "Incorrect Landing",
     "DESCRIPTION": "{@@}Channel 2 Frost. NL If you have Vigor, draw !M! additional card{!M!|>1=s} next turn.",
     "UPGRADE_DESCRIPTION": "{@@}Channel 2 Frost. NL Draw !M! additional card{!M!|>1=s} next turn."
   },

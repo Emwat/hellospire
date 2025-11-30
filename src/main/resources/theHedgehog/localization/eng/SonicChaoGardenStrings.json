@@ -1,0 +1,74 @@
+{
+  "${modID}:Default": {
+    "OPTIONCOLOR": "",
+    "DRINK": "The character takes the soda and hands you a note. \"Thank you.\" This is your handwriting. What is going on?",
+    "TALK": "The character seems pleased.",
+    "DRINKSOUND": ""
+  },
+  "${modID}:Amy": {
+    "OPTIONCOLOR": "#r",
+    "DRINK": "Amy: \"Thanks Sonic! Cheers!!\"",
+    "DRINKCOLOR": "[#FF96C8]",
+    "DRINKSOUND": "",
+    "TALK": "Amy infiltrated Prison Island to break Sonic out of jail."
+  },
+  "${modID}:the Defect": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
+    "DRINKCOLOR": "#b",
+    "DRINKSOUND": "ATTACK_DEFECT_BEAM",
+    "TALK": "If you have Echo Form and if your echoed attack is fatal (on everything except Darklings), you keep the echo ability for another card."
+  },
+  "${modID}:the Ironclad": {
+    "OPTIONCOLOR": "#r",
+    "DRINK": "The Ironclad prefers ~The~ ~BlOOD~ ~of~ ~HIS~ ~ENEMIES~, but this is a kid-friendly zone.",
+    "DRINKCOLOR": "#r",
+    "DRINKSOUND": "ATTACK_IRON_1",
+    "TALK": "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1."
+  },
+  "${modID}:Knuckles": {
+    "OPTIONCOLOR": "#r",
+    "DRINK": "Knuckles: \"Grape flavored. Just how I like it!\"",
+    "DRINKCOLOR": "[#FF1400]",
+    "DRINKSOUND": "",
+    "TALK": "In his debut, Knuckles sucker punched Super Sonic so hard, Sonic lost his Super form and the Chaos Emeralds."
+  },
+  "${modID}:the Packmaster": {
+    "DRINK": "The Packmaster smiles and is eager to talk about their collection.",
+    "DRINKCOLOR": "[#C1A584]",
+    "DRINKSOUND": "VO_MERCHANT_2A",
+    "TALK": "To Rummage... or not to Rummage?"
+  },
+  "${modID}:Rouge": {
+    "DRINK": "Rouge: \"Thanks Handsome. Now, let's talk Business.\"",
+    "DRINKCOLOR": "[#DF98C0]",
+    "DRINKSOUND": "",
+    "TALK": "Rouge has her own casino."
+  },
+  "${modID}:Silent": {
+    "OPTIONCOLOR": "#g",
+    "DRINK": "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
+    "DRINKCOLOR": "#g",
+    "DRINKSOUND": "POWER_POISON",
+    "TALK": "Alchemize can generate Regen and Blood Potion. It cannot generate Fruit Juice."
+  },
+  "${modID}:the Hedgehog": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "\"Thanks!\"",
+    "DRINKCOLOR": "#b",
+    "DRINKSOUND": "${modID}:ogg_YES",
+    "TALK": "What am I doing?"
+  },
+  "${modID}:Tails": {
+    "OPTIONCOLOR": "#y",
+    "DRINK": "Tails: \"Thanks Sonic! It's nice to slow down for a change.\"",
+    "DRINKCOLOR": "[#F0B400]",
+    "DRINKSOUND": "",
+    "TALK": "Tails has a Mega Buster."
+  },
+  "${modID}:the Watcher": {
+    "DRINK": "She already had some tea set aside, but she takes it and thanks you anyway.",
+    "TALK": "Meditate + Establishment = Free cards.",
+    "DRINKSOUND": "SELECT_WATCHER"
+  }
+}

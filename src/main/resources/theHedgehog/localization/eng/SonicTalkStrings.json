@@ -1,0 +1,98 @@
+{
+  "${modID}:3 Sentries": {
+    "DIALOG": [
+      "Let's rock!",
+      "Time to party!"
+    ]
+  },
+  "${modID}:Champ": {
+    "DIALOG": [
+      "I'm a hedgehog! ~HEDGE~ ~HOG!~",
+      "I don't suppose you're going to let me by."
+    ],
+    "DIALOG2": [
+      "What is a @LOUSE@ doing here?",
+      "The Exordium is the @OTHER@ way."
+    ]
+  },
+  "${modID}:Donu and Deca": {
+    "DIALOG": [
+      "I'm a hedgehog! ~HEDGE~ ~HOG!~",
+      "I don't suppose you're going to let me by."
+    ],
+    "DIALOG2": [
+      "What is a @LOUSE@ doing here?",
+      "The Exordium is the @OTHER@ way."
+    ]
+  },
+  "${modID}:Slime Boss": {
+    "DIALOG": [
+      "Aw yeah! This could be fun!"
+    ]
+  },
+  "${modID}:Time Eater": {
+    "DIALOG": [
+      "Sorry to keep you waiting.",
+      "You're actually the second Time Eater I've had to fight.",
+      "Are you friends with the Giant Head?"
+    ],
+    "DIALOG2": [
+      "You've messed with time... NL @FOR@ @TOO@ @LONG!@",
+      "~The~ ~Stage...~ NL ~is~ ~Set...~",
+      "Yes..."
+    ]
+  },
+  "${modID}:Gremlin Nob": {
+    "DIALOG": [
+      "You're no match for me!",
+      "Ha! You look just like this knucklehead I know.",
+      "Hey you. Get out of my way!"
+    ]
+  },
+  "${modID}:Lagavulin": {
+    "DIALOG": [
+      "Is that a giant egg?",
+      "Sorry, but you have to go!"
+    ]
+  },
+  "${modID}:TauntAmy": {
+    "DIALOG": [
+      "You filthy trash! What do you think you're doing?",
+      "You want some more?",
+      "Will you come get me, Sonic?"
+    ]
+  },
+  "${modID}:TauntDefault": {
+    "DIALOG": [
+      "CA-CAW!!"
+    ]
+  },
+  "${modID}:TauntKnuckles": {
+    "DIALOG": [
+      "We'll settle this in a fair fight.",
+      "Your funeral.",
+      "I'll take you on!"
+    ]
+  },
+  "${modID}:TauntShadow": {
+    "DIALOG": [
+      "You don't even stand a chance.",
+      "Pathetic.",
+      "There's no time for games."
+    ]
+  },
+  "${modID}:TauntSonic": {
+    "DIALOG": [
+      "~Catch~ ~me~ ~if~ ~you~ ~can!~",
+      "Come on! Step it up!",
+      "@YOU'RE@ @TOO@ @SLOW!@"
+    ]
+  },
+  "${modID}:TauntTails": {
+    "DIALOG": [
+      "Ready for me?",
+      "You want some more?",
+      "Look! Ramps!"
+    ]
+  }
+}

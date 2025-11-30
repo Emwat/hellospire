@@ -47,14 +47,6 @@ public class Turbulence extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new TurbulencePower(p, 1), 1));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.cardsToPreview = new Trick();
-        }
-        super.upgrade();
-    }
-
-
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 

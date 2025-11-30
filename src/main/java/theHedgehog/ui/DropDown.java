@@ -1,4 +1,4 @@
-// package hellospire.ui;
+// package theHedgehog.ui;
 //
 // import basemod.IUIElement;
 // import basemod.ModPanel;
@@ -11,7 +11,7 @@
 // import com.megacrit.cardcrawl.localization.UIStrings;
 // import com.megacrit.cardcrawl.screens.options.DropdownMenu;
 // import com.megacrit.cardcrawl.screens.options.DropdownMenuListener;
-// import hellospire.SonicMod;
+// import theHedgehog.SonicMod;
 //
 // import java.util.ArrayList;
 // import java.util.List;
@@ -20,7 +20,7 @@
 //
 // public class DropDown implements DropdownMenuListener, IUIElement
 // {
-//    static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(SonicMod.UIStringIDs.FLAG_EXPLANATION.ID);
+//    // static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(SonicMod..FLAG_EXPLANATION.ID);
 //    private Consumer<Integer> integerConsumer;
 //    private DropdownMenu dropdownMenu;
 //    private Label label;

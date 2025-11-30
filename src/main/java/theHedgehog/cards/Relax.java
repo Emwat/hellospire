@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.stances.WrathStance;
+import theHedgehog.MyModConfig;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.character.Sonic;

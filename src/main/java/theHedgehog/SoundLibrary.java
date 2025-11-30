@@ -135,7 +135,7 @@ public class SoundLibrary {
             return new SFXAction(BlankSound);
         }
 
-        if (!Sonic.currentModSkin.getName().contains("Sonic")) {
+        if (!Sonic.isSonic()) {
             return new SFXAction(BlankSound);
         }
 
@@ -162,6 +162,10 @@ public class SoundLibrary {
         }
 
         if (!(AbstractDungeon.player instanceof Sonic)) {
+            return new SFXAction(BlankSound);
+        }
+
+        if (!Sonic.isSonic()) {
             return new SFXAction(BlankSound);
         }
 

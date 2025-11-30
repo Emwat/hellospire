@@ -1,10 +1,13 @@
 package theHedgehog.cards;
 
+import basemod.BaseMod;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.actions.LowerCostAction;
 import theHedgehog.character.Sonic;
@@ -49,6 +52,15 @@ public class SecretRoute extends BaseCard {
                 addToBot(new LowerCostAction(card, 1));
             }
         }));
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (AbstractDungeon.player.hand.size() + customVar(DRAW_KEYWORD) > BaseMod.MAX_HAND_SIZE + 1) {
+            this.glowColor = Color.RED.cpy();
+        }
     }
 
     @Override

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.CrestOfFireAction;

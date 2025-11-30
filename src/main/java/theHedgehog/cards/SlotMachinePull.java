@@ -41,6 +41,11 @@ public class SlotMachinePull extends BaseCard {
     }
 
     @Override
+    public boolean canUpgrade() {
+        return false;
+    }
+
+    @Override
     public void atTurnStart() {
         this.returnToHand = true;
         super.atTurnStart();

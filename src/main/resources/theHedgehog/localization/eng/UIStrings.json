@@ -44,9 +44,20 @@
       "I can only play this if I have a Channeled Dark Orb."
     ]
   },
+  "${modID}:IQ200Message": {
+    "TEXT": [
+      "IQ200 Attack: Retain a card."
+    ]
+  },
+  "${modID}:IQ400Message": {
+    "TEXT": [
+      "IQ400 Attack: Choose a card. Transform a random card in your hand into that card."
+    ]
+  },
   "${modID}:MagicHandsMessage": {
     "TEXT": [
-      "Magic Hands: Retain. If the selected Card is exhausted, enter Wrath."
+      "Magic Hands: Choose a Non-Ring card. It gains Retain and if the Retained card is Exhausted, enter Wrath.",
+      "Magic Hands+: Choose a card. It gains Retain and if the Retained card is Exhausted, enter Wrath."
     ]
   },
   "${modID}:PipingMessage": {
@@ -71,7 +82,14 @@
   },
   "${modID}:modifierMagicHands": {
     "TEXT": [
-      "${modID}:DO_NOT_THROW. "
+      "${modID}:DO_NOT_THROW. ",
+      "${modID}:DO_NOT_THROW. NL "
+    ]
+  },
+  "${modID}:modifierRetain": {
+    "TEXT": [
+      "Retain. ",
+      "Retain. NL "
     ]
   },
   "${modID}:modifierSpinUp": {
@@ -81,14 +99,15 @@
   },
   "${modID}:MyModConfig": {
     "TEXT_DICT": {
-      "enableBoss2Music": "Enable City Boss Music (Sonic Only)",
-      "enableBoss3Music": "Enable Beyond Boss Music (Sonic Only)",
-      "enableBossSpearShieldMusic": "Enable The Ending Music (Sonic Only)",
-      "enableBossHeartMusic": "Enable The Ending Boss Music (Sonic Only)",
+      "enableBoss1Music": "Enable Act I Boss Music (Sonic Only)",
+      "enableBoss2Music": "Enable Act II Boss Music (Sonic Only)",
+      "enableBoss3Music": "Enable Act III Boss Music (Sonic Only)",
+      "enableBossSpearShieldMusic": "Enable Act IV Music (Sonic Only)",
+      "enableBossHeartMusic": "Enable Act IV Boss Music (Sonic Only)",
       "enableClassicMode": "Enable Classic Mode (When you take 2+ damage, lose ALL of your Rings).",
       "enableEventsForAllCharacters": "Enable custom events for all characters (overwrites the next option)",
       "enableEventsForOnlySonic": "Enable custom events for only Sonic",
-      "enableTextPopUps": "Enable text pop ups for AMAZING, tricks, and the Player 2 relic.",
+      "enableTextPopUps": "Enable text pop ups for AMAZING and the Player 2 relic.",
       "enableThreeOrbs": "Enable 3 Orb slots",
       "enableSkinCaptain": "Enable Captain Skin (only available after beating Ascension 10)",
       "enableSound": "Enable Sounds",
@@ -96,7 +115,10 @@
       "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
       "voiceFrequency": "Voice Frequency (10 = Always play voices)",
       "optionStarterRelic": "Switch Starter Relic",
-      "enableCrossModIntegrations" : "Enable Cross-Mod Effects (Default: True)"
+      "enableCrossModIntegrations" : "Enable Cross-Mod Effects (Default: True)",
+      "enableSonicStylePack": "Enable Sonic Style Pack (trashed idea)",
+      "enableCrestOfFire": "Enable Crest of Fire cards (if unlocked)",
+      "enableStanceSwitching": "Enable Stance Switching cards (if unlocked)"
     }
   },
   "${modID}:EvolveChaoOptions": {
@@ -130,6 +152,23 @@
     "TEXT": [
       "Gotta go fast.",
       "Sonic Hat"
+    ]
+  },
+  "${modID}:SkinSystemUI": {
+    "TEXT": [
+      "Skins"
+    ]
+  },
+  "${modID}:PackMainMenuUI": {
+    "TEXT": [
+      "Custom Draft Mode",
+      "Turn this on to choose how your Packs are determined.",
+      "Random",
+      "Choice of ",
+      "Pack Filtering Menu",
+      "Skin Menu",
+      "",
+      "None"
     ]
   }
 }

@@ -16,9 +16,10 @@ import static theHedgehog.SonicMod.makeID;
 
 // https://github.com/daviscook477/BaseMod/wiki/CardModifiers
 public class MagicHandsModifier extends AbstractCardModifier {
-
-    private final static String magicHandsKeyword = CardCrawlGame.languagePack.getUIString(makeID("modifierMagicHands")).TEXT[0];
-    private final Texture doNotThrowIcon = TextureLoader.getTexture(SonicMod.imagePath("ui/hold.png"));
+    public static String ID = makeID("modifierMagicHands");
+    private final static String magicHandsKeyword = CardCrawlGame.languagePack.getUIString(ID).TEXT[0];
+    private final static String magicHandsKeywordNL = CardCrawlGame.languagePack.getUIString(ID).TEXT[1];
+    private final static Texture doNotThrowIcon = TextureLoader.getTexture(SonicMod.imagePath("ui/hold.png"));
 
     public MagicHandsModifier() {
 
@@ -26,7 +27,9 @@ public class MagicHandsModifier extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        card.selfRetain = true;
+        if (!card.isEthereal) {
+            card.selfRetain = true;
+        }
         card.tags.add(SonicTags.DO_NOT_THROW);
     }
 
@@ -41,7 +44,7 @@ public class MagicHandsModifier extends AbstractCardModifier {
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
         if (rawDescription.length() < 75) {
-            return magicHandsKeyword + "NL " + rawDescription;
+            return magicHandsKeywordNL + rawDescription;
         }
         return magicHandsKeyword + rawDescription;
     }
@@ -56,11 +59,15 @@ public class MagicHandsModifier extends AbstractCardModifier {
         return new MagicHandsModifier();
     }
 
-    Color purpleBorder = CardHelper.getColor(239, 103, 246);
+    static Color purpleBorder = CardHelper.getColor(239, 103, 246);
 
     @Override
     public Color getGlow(AbstractCard card) {
         return purpleBorder;
     }
 
+    @Override
+    public String identifier(AbstractCard card) {
+        return ID;
+    }
 }

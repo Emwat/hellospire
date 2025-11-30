@@ -28,7 +28,7 @@ public class LSDPower extends BasePower {
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new FocusPower(this.owner, -this.amount), -this.amount));
+        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new LSDPower(this.owner, -this.amount), -this.amount));
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 

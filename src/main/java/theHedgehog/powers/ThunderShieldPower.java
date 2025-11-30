@@ -27,9 +27,9 @@ public class ThunderShieldPower extends BasePower {
         // String calculation = " NL NL Expected Total Orb Dmg: " + calculateOrbDamage();
 
         if (amount == 1) {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
+            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
         } else {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
+            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[5];
         }
 
         // 0 "At the end of your turn and after your orbs activate their passives, Gain #b",

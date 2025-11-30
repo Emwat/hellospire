@@ -3,10 +3,7 @@ package theHedgehog.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -19,7 +16,6 @@ import theHedgehog.SonicTags;
 import theHedgehog.character.Sonic;
 import theHedgehog.relics.AirBoostShoesRelic;
 import theHedgehog.util.CardStats;
-import theHedgehog.util.TextureLoader;
 import theHedgehog.util.TriFunction;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,7 +24,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import thePackmaster.SpireAnniversary5Mod;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -139,16 +134,16 @@ public abstract class BaseCard extends CustomCard {
 
         if (this.type == CardType.ATTACK) {
             setBackgroundTexture(
-                    Sonic.currentModSkin.getCardbackPath() + "/bg_attack.png",
-                    Sonic.currentModSkin.getCardbackPath() + "/bg_attack_p.png");
+                    Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_attack.png",
+                    Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_attack_p.png");
         } else if (this.type == CardType.SKILL){
             setBackgroundTexture(
-                    Sonic.currentModSkin.getCardbackPath() + "/bg_skill.png",
-                    Sonic.currentModSkin.getCardbackPath() + "/bg_skill_p.png");
+                    Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_skill.png",
+                    Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_skill_p.png");
         } else if (this.type == CardType.POWER){
             setBackgroundTexture(
-                    Sonic.currentModSkin.getCardbackPath() + "/bg_power.png",
-                    Sonic.currentModSkin.getCardbackPath() + "/bg_power_p.png");
+                    Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_power.png",
+                    Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_power_p.png");
         }
     }
 
@@ -971,5 +966,22 @@ public abstract class BaseCard extends CustomCard {
             default:
                 return "skill";
         }
+    }
+
+    public AbstractMonster getLastMonsterOrNull(){
+        int countMonsters = 0;
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!mo.isDeadOrEscaped()) {
+                countMonsters++;
+            }
+        }
+        if (countMonsters == 1) {
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (!mo.isDeadOrEscaped()) {
+                    return mo;
+                }
+            }
+        }
+        return null;
     }
 }

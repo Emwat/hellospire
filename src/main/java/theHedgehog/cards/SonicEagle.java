@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.WildStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -22,14 +23,14 @@ public class SonicEagle extends BaseCard {
     );
 
     private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 4;
     private static final int MAGIC = 4;
-    private static final int UPG_MAGIC = 4;
+    private static final int UPG_MAGIC = 5;
 
+    // WildStrike 12(17)
     public SonicEagle() {
         super(ID, info);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_DEFECT);
         tags.add(SonicTags.ERA_ADVENTURE);

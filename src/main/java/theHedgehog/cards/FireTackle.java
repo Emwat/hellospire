@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
+import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.CrestOfFireAction;

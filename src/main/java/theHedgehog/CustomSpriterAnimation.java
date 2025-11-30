@@ -53,8 +53,9 @@ public class CustomSpriterAnimation extends SpriterAnimation {
             this.myPlayer.update();
         }
 
+        // PLS_TEST: 11/23/2025 09:36 AM
         AbstractPlayer player = AbstractDungeon.player;
-        if (player != null) {
+        if (true) {
             this.myPlayer.setPosition(new Point(x, y));
             this.drawer.draw(this.myPlayer);
             if (drawBones) {

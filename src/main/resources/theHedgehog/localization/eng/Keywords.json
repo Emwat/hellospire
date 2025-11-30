@@ -145,7 +145,7 @@
     "NAMES": [
       "lsd"
     ],
-    "DESCRIPTION": "#yRings heal you for 1 HP instead of giving you Temporary HP for the rest of the turn."
+    "DESCRIPTION": "This turn, #yRings #gheal #g1 #gHP instead of giving you Temporary HP. If #yRings were already in your hand, they #gheal #g3 #gHP."
   },
   {
     "ID": "wordSpinUp",

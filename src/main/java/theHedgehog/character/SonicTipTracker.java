@@ -10,12 +10,14 @@ import static theHedgehog.SonicMod.makeID;
 public class SonicTipTracker {
     public static final String Pg01_intro = makeID("Pg01_intro");
     public static final String Version092 = makeID("Version092");
+    public static final String HasUnlockedCaptainSonic = makeID("HasUnlockedCaptainSonic");
 
     public static HashMap<String, Boolean> tips = new HashMap<>();
 
     public static void initialize() {
         tips.put(Pg01_intro, SonicMod.sonicmodConfig.getBool(Pg01_intro));
         tips.put(Version092, SonicMod.sonicmodConfig.getBool(Version092));
+        tips.put(HasUnlockedCaptainSonic, SonicMod.sonicmodConfig.getBool(HasUnlockedCaptainSonic));
     }
 
     public static void reset(){

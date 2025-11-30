@@ -25,6 +25,7 @@ public class HotRod extends BaseCard {
             CardTarget.SELF,
             1
     );
+    private static String[] NAMES;
 
     public static final int BLOCK_WARMUP = 5;
     public static final int BLOCK_STANDARD = 7;
@@ -88,9 +89,7 @@ public class HotRod extends BaseCard {
 
     private void TransformCardEffects() {
         if (ticker == 2) {
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                this.name = "Hot Rod Part 1 of 3";
-            }
+            this.name = NAMES[0];
             this.initializeTitle();
             this.setDamage(0, 0);
             this.setBlock(BLOCK_WARMUP, 1);
@@ -100,9 +99,7 @@ public class HotRod extends BaseCard {
             this.initializeDescription();
             loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
         } else if (ticker == 1) {
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                this.name = "Hot Rod Part 2 of 3";
-            }
+            this.name = NAMES[1];
             this.initializeTitle();
             this.setDamage(0, 0);
             this.setBlock(BLOCK_STANDARD, 1);
@@ -112,9 +109,7 @@ public class HotRod extends BaseCard {
             this.initializeDescription();
             loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
         } else if (ticker == 0) {
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                this.name = "Hot Rod Part 3 of 3";
-            }
+            this.name = NAMES[2];
             this.initializeTitle();
             this.setDamage(DAMAGE, UPG_DAMAGE);
             this.setBlock(BLOCK_CRITICAL, UPG_BLOCK);
@@ -124,9 +119,7 @@ public class HotRod extends BaseCard {
             this.initializeDescription();
             loadCardImage(SonicMod.imagePath("cards/attack/HotRod2.png"));
         } else {
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                this.name = "Hot Rod Overloaded";
-            }
+            this.name = NAMES[3];
             this.initializeTitle();
             this.setBlock(BLOCK_OVERLOADED, 1);
             this.setDamage(0, 0);
@@ -169,5 +162,9 @@ public class HotRod extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new HotRod();
+    }
+
+    static {
+        NAMES = SonicMod.modLocalizedStrings.getExtraCardString(ID).NAMES;
     }
 }

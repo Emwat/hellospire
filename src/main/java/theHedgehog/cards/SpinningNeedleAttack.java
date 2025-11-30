@@ -52,14 +52,6 @@ public class SpinningNeedleAttack extends BaseCard {
         }));
     }
 
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += magicNumber * SonicMod.attackCardsPlayedThisTurn;
-        super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }
-
     @Override
     public AbstractCard makeCopy() { // Optional
         return new SpinningNeedleAttack();

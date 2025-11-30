@@ -46,8 +46,8 @@ Requires subscription to
 - [Run Resumer] (https://steamcommunity.com/sharedfiles/filedetails/?id=3127212809) - to test against the Heart after balancing cards. Also easy campfire access.
 - [Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use. It helps when I need to look at which addToBot/addToTop Action is playing.
 - [Modded Spire Exporter] (https://steamcommunity.com/sharedfiles/filedetails/?id=2069872611&searchtext=exporter) - Export every card of a mod to an html file! Now I can Ctrl + F for specific descriptions in Packmaster
-- [Googly Eyes steam] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
-- [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/)
+- [Googly Eyes steam] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Adds Replay value 
+- [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
 - [Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
 - [Mega Transparent The Spire 2.0] https://steamcommunity.com/sharedfiles/filedetails/?id=3309442660 - you can see the debug log while you play.
 - Steam > Settings > Game Recording > Record in Background. Play game. Steam > Library > Slay the Spire > video is underneath POST-GAME SUMMARY. Amazing debugging tool.
@@ -88,7 +88,7 @@ Requires subscription to
 - <kbd>Ctrl</kbd><kbd>B</kbd> : Decompile/Direct to source
 
 # Every mod character should do this
-- Before you publish, you should make sure your modID is all lowercase for Chinese compatibility.
+- Before you publish, you should make sure your modID is all lowercase for Chinese compatibility. If after publish, you might end up deleting everyone's save file of your character.
 - Create a win screen. I'm tired of the Ironclad ending on modded characters. It's not that hard. You don't need 3 pictures. You can just use one picture. See Sonic.java.
 ```java
    @Override
@@ -115,5 +115,9 @@ People don't like single-use keywords and at the time "If most Left/Right" was o
 
 # Known mod conflicts
 - Lights Out + Bundle of Energy
+- ModTheSpire++ + Texture Replacer
+- ModTheSpire++ + Loadout
+- Run Resumer + DownFall
 - Run Resumer + Act Like It
+
 

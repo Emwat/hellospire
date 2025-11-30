@@ -24,6 +24,7 @@ import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
+import theHedgehog.strings.ModLocalizedStrings;
 import theHedgehog.util.CardStats;
 import theHedgehog.util.TextureLoader;
 
@@ -44,7 +45,7 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC_BASE = 2;
     private static final int UPG_MAGIC_BRANCH = 1;
-    private final String[] texts = CardCrawlGame.languagePack.getCharacterString(makeID("TheHedgehog")).TEXT;
+    // private static final String[] texts = CardCrawlGame.languagePack.getCharacterString(makeID("TheHedgehog")).TEXT;
 
     ///    "DESCRIPTION": "Apply 2 Vulnerable. NL Gain 2 Temporary Dexterity."
     public Taunt() {
@@ -60,107 +61,19 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
 
         // TogetherInSpire
         if (this.target != CardTarget.ENEMY && m == null) {
-            int countMonsters = 0;
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (!mo.isDeadOrEscaped()) {
-                    countMonsters++;
-                }
-            }
-            if (countMonsters == 1) {
-                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (!mo.isDeadOrEscaped()) {
-                        m = mo;
-                        break;
-                    }
-                }
-            } else {
+            m = getLastMonsterOrNull();
+            if (m == null) {
                 addToBot(new MakeTempCardInHandAction(new Trip().makeStatEquivalentCopy(), 1));
                 this.purgeOnUse = true;
             }
         }
 
         if (!(AbstractDungeon.player instanceof Sonic)) {
-            addToBot(new TalkAction(true, texts[8], 2f, 2f));
+            addToBot(new TalkAction(true,
+                    SonicMod.modLocalizedStrings.getTalkString(makeID("TauntDefault")).DIALOG[0],
+                    duration, bubbleDuration));
         } else {
-            Sonic s = (Sonic)p;
-
-            String voiceLine = SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
-                    SoundLibrary.CatchMeIfYouCan,
-                    SoundLibrary.StepItUp,
-                    SoundLibrary.TooSlow
-            )));
-
-            // "TEXT": [
-            //     "A free spirited hedgehog that hates evil. NL (You can change the voice frequency in Main Menu > Mods > The Hedgehog > Config)",
-            //     "You charge your spin dash.",
-            //             "Navigating an unlit street, ",
-            //             "Catch me if you can!",
-            //             "Come on! Step it up!",
-            //             "You're too slow!",
-            //             "I'm a HEDGEHOG!",
-            //             "Do you know who I am?",
-            // ]
-
-            if (Sonic.currentModSkin.getName().contains("Sonic")){
-                addToBot(SoundLibrary.VoiceAction(voiceLine));
-                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                    addToBot(new TalkAction(true, texts[3], duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                    addToBot(new TalkAction(true, texts[4], duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                    addToBot(new TalkAction(true, texts[5], duration, bubbleDuration));
-                }
-            } else if (Sonic.currentModSkin.getName().contains("Amy")) {
-                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                    addToBot(new ModXFastAction(() -> {
-                        s.playAnimation(s.dribbleAnimation("attack2", "attack"));
-                    }));
-                    addToBot(new TalkAction(true, "You filthy trash! What do you think you're doing?", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                    addToBot(new ModXFastAction(() -> {
-                        s.playAnimation(s.dribbleAnimation("attack2", "attack"));
-                    }));
-                    addToBot(new TalkAction(true, "You want some more?", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                    addToBot(new ModXFastAction(() -> {
-                        s.playAnimation(s.dribbleAnimation("happy2", "happy"));
-                    }));
-                    addToBot(new TalkAction(true, "Will you come get me, Sonic?", duration, bubbleDuration));
-                }
-            } else if (Sonic.currentModSkin.getName().contains("Knuckles")) {
-                addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
-                }));
-                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                    addToBot(new TalkAction(true, "You and me. 1 v 1.", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                    addToBot(new TalkAction(true, "Your funeral.", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                    addToBot(new TalkAction(true, "I'll take you on!", duration, bubbleDuration));
-                }
-            } else if (Sonic.currentModSkin.getName().contains("Shadow")) {
-                addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("idle3", "idle2"));
-                }));
-                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                    addToBot(new TalkAction(true, "You don't even stand a chance.", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                    addToBot(new TalkAction(true, "Pathetic.", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                    addToBot(new TalkAction(true, "There's no time for games.", duration, bubbleDuration));
-                }
-            } else if (Sonic.currentModSkin.getName().contains("Tails")) {
-                addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("idle3", "idle3"));
-                }));
-                if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
-                    addToBot(new TalkAction(true, "Ready for me?", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
-                    addToBot(new TalkAction(true, "I'll show you how powerful my Cyclone is!", duration, bubbleDuration));
-                } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
-                    addToBot(new TalkAction(true, "Look! Ramps!", duration, bubbleDuration));
-                }
-            }
+            addTalkAction(p, duration, bubbleDuration);
         }
 
         if (this.upgraded && this.isBranchUpgrade()) {
@@ -170,6 +83,52 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
+    }
+
+    private void addTalkAction(AbstractPlayer p, float duration, float bubbleDuration) {
+        Sonic s = (Sonic) p;
+
+        String voiceLine = SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                SoundLibrary.CatchMeIfYouCan,
+                SoundLibrary.StepItUp,
+                SoundLibrary.TooSlow
+        )));
+        String[] texts = SonicMod.modLocalizedStrings.getTalkString(makeID("Taunt" + Sonic.currentModSkin.getContact())).DIALOG;
+        addToBot(SoundLibrary.VoiceAction(voiceLine));
+        if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
+            if (Sonic.isAmy()) {
+                addToBot(new ModXFastAction(() -> {
+                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
+                }));
+            } else if (Sonic.isKnuckles()) {
+                addToBot(new ModXFastAction(() -> {
+                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
+                }));
+            } else if (Sonic.isShadow()) {
+                addToBot(new ModXFastAction(() -> {
+                    s.playAnimation(s.dribbleAnimation("idle3", "idle2"));
+                }));
+            } else if (Sonic.isTails()) {
+                addToBot(new ModXFastAction(() -> {
+                    s.playAnimation(s.dribbleAnimation("idle3", "idle3"));
+                }));
+            }
+            addToBot(new TalkAction(true, texts[0], duration, bubbleDuration));
+        } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
+            if (Sonic.currentModSkin.getName().contains("Amy")) {
+                addToBot(new ModXFastAction(() -> {
+                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
+                }));
+            }
+            addToBot(new TalkAction(true, texts[1], duration, bubbleDuration));
+        } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
+            if (Sonic.currentModSkin.getName().contains("Amy")) {
+                addToBot(new ModXFastAction(() -> {
+                    s.playAnimation(s.dribbleAnimation("happy2", "happy"));
+                }));
+            }
+            addToBot(new TalkAction(true, texts[2], duration, bubbleDuration));
+        }
     }
 
     @Override
@@ -211,7 +170,7 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new Taunt();
     }
 }

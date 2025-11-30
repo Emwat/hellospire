@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import theHedgehog.character.ModSkinDictionary;
+import theHedgehog.skins.ModSkinDictionary;
 import theHedgehog.character.Sonic;
 import skindex.itemtypes.CustomizableItem;
 import skindex.registering.SkindexPlayerSkinRegistrant;
@@ -54,7 +54,7 @@ public class Skindexer implements SkindexPlayerSkinRegistrant {
             public SonicSkinData(String id) {
                 ModSkinDictionary.ModSkin modSkin = ModSkinDictionary.getModSkin(id);
 
-                this.scmlUrl = modSkin.getPath();
+                this.scmlUrl = modSkin.getAnimationPath();
                 this.id = id;
                 this.name = modSkin.getName(); //CardCrawlGame.languagePack.getUIString(id).TEXT[0];
                 this.scale = 2F;

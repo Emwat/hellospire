@@ -49,20 +49,8 @@ public class BlueTornado extends BaseCard implements BranchingUpgradesCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // TogetherInSpire
         if (this.target != CardTarget.ENEMY && m == null) {
-            int countMonsters = 0;
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (!mo.isDeadOrEscaped()) {
-                    countMonsters++;
-                }
-            }
-            if (countMonsters == 1) {
-                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (!mo.isDeadOrEscaped()) {
-                        m = mo;
-                        break;
-                    }
-                }
-            } else {
+            m = getLastMonsterOrNull();
+            if (m == null) {
                 AbstractCard c = new Terror();
                 c.upgrade();
                 addToBot(new MakeTempCardInHandAction(c.makeStatEquivalentCopy(), 1));

@@ -24,21 +24,16 @@ public class ThunderShieldAction extends AbstractGameAction {
     }
 
     public void update() {
-        int rings = 0;
-
-        for (AbstractCard cardInHand : p.hand.group) {
-            if (cardInHand.hasTag(SonicTags.RING)) {
-                rings++;
-            }
-        }
-
         if (p.maxOrbs > 0) {
             for (AbstractOrb orb : p.orbs) {
                 if (orb instanceof Lightning) {
-                    for (int i = 0; i < rings; i++) {
-                        for (int j = 0; j < amount; j++) {
-                            orb.onStartOfTurn();
-                            orb.onEndOfTurn();
+                    for (AbstractCard cardInHand : p.hand.group) {
+                        if (cardInHand.hasTag(SonicTags.RING)) {
+                            for (int j = 0; j < amount; j++) {
+                                orb.onStartOfTurn();
+                                orb.onEndOfTurn();
+                                addToBot(new ModXFastAction(cardInHand::flash));
+                            }
                         }
                     }
                 }

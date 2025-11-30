@@ -23,12 +23,15 @@ public class SmoothLanding extends BaseCard {
             CardTarget.SELF,
             1
     );
+    private static String[] NAMES;
 
     private static final int MAGIC = 2;
 
     public SmoothLanding() {
         super(ID, info);
+
         setMagic(MAGIC);
+        transitionToSmoothLanding();
     }
 
     @Override
@@ -69,15 +72,11 @@ public class SmoothLanding extends BaseCard {
 
     private void transitionToSmoothLanding() {
         if (this.upgraded || hasVigor()) {
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                name = "Smooth Landing";
-            }
+            this.name = NAMES[1];
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding1.png"));
         } else {
-            if (Settings.language.name().equalsIgnoreCase("eng")) {
-                name = "Incorrect Landing";
-            }
+            this.name = NAMES[0];
             initializeTitle();
             loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding.png"));
         }
@@ -86,7 +85,9 @@ public class SmoothLanding extends BaseCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            transitionToSmoothLanding();
+            this.name = NAMES[1];
+            initializeTitle();
+            loadCardImage(SonicMod.imagePath("cards/skill/SmoothLanding1.png"));
         }
         super.upgrade();
     }
@@ -94,5 +95,9 @@ public class SmoothLanding extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new SmoothLanding();
+    }
+
+    static {
+        NAMES = SonicMod.modLocalizedStrings.getExtraCardString(ID).NAMES;
     }
 }

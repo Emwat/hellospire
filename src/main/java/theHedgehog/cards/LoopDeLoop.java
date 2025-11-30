@@ -1,10 +1,12 @@
 package theHedgehog.cards;
 
+import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theHedgehog.actions.LoopDeLoopAction;
@@ -57,6 +59,10 @@ public class LoopDeLoop extends BaseCard {
             return;
         }
 
+        if (AbstractDungeon.player.hand.size() + magicNumber > BaseMod.MAX_HAND_SIZE + 1){
+            this.glowColor = Color.RED.cpy();
+        }
+
         if (AbstractDungeon.player.discardPile.isEmpty() || AbstractDungeon.player.hasPower(NoDrawPower.POWER_ID)) {
             this.glowColor = Color.RED.cpy();
             return;
@@ -81,24 +87,41 @@ public class LoopDeLoop extends BaseCard {
         AbstractCard thisCard = this;
         addToBot(new ModFastAction(() -> {
             int discardPileSize = AbstractDungeon.player.discardPile.size();
+            boolean hasConfused = AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID);
 
             if (forceBasicDescription || discardPileSize == 0) {
                 thisCard.rawDescription = !this.upgraded ? cardStrings.DESCRIPTION : cardStrings.UPGRADE_DESCRIPTION;
             } else if (!this.upgraded || discardPileSize == 1) {
                 AbstractCard discardCard = AbstractDungeon.player.discardPile.getNCardFromTop(0);
-                thisCard.rawDescription = String.format("%s%s%s",
-                        cardStrings.EXTENDED_DESCRIPTION[0],
-                        ColorWord("[#efc851ff]", discardCard.name),
-                        cardStrings.EXTENDED_DESCRIPTION[2]);
+                if (!hasConfused) {
+                    thisCard.rawDescription = String.format("%s%s%s",
+                            cardStrings.EXTENDED_DESCRIPTION[0],
+                            ColorWord("[#efc851ff]", discardCard.name),
+                            cardStrings.EXTENDED_DESCRIPTION[2]);
+                } else {
+                    thisCard.rawDescription = String.format("%s%s%s",
+                            cardStrings.EXTENDED_DESCRIPTION[0],
+                            ColorWord("[#efc851ff]", discardCard.name),
+                            cardStrings.EXTENDED_DESCRIPTION[4]);
+                }
             } else if (this.upgraded && discardPileSize >= 2){
                 AbstractCard discardCard1 = AbstractDungeon.player.discardPile.getNCardFromTop(0);
                 AbstractCard discardCard2 = AbstractDungeon.player.discardPile.getNCardFromTop(1);
-                thisCard.rawDescription = String.format("%s%s%s%s%s",
-                        cardStrings.EXTENDED_DESCRIPTION[0],
-                        ColorWord("[#efc851ff]", discardCard1.name),
-                        cardStrings.EXTENDED_DESCRIPTION[1],
-                        ColorWord("[#efc851ff]", discardCard2.name),
-                        cardStrings.EXTENDED_DESCRIPTION[2]);
+                if (!hasConfused) {
+                    thisCard.rawDescription = String.format("%s%s%s%s%s",
+                            cardStrings.EXTENDED_DESCRIPTION[0],
+                            ColorWord("[#efc851ff]", discardCard1.name),
+                            cardStrings.EXTENDED_DESCRIPTION[1],
+                            ColorWord("[#efc851ff]", discardCard2.name),
+                            cardStrings.EXTENDED_DESCRIPTION[3]);
+                } else {
+                    thisCard.rawDescription = String.format("%s%s%s%s%s",
+                            cardStrings.EXTENDED_DESCRIPTION[0],
+                            ColorWord("[#efc851ff]", discardCard1.name),
+                            cardStrings.EXTENDED_DESCRIPTION[1],
+                            ColorWord("[#efc851ff]", discardCard2.name),
+                            cardStrings.EXTENDED_DESCRIPTION[4]);
+                }
             }
 
             initializeDescription();

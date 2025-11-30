@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.LevelUpFlightPower;
 import theHedgehog.powers.LevelUpPowerPower;
@@ -31,28 +33,35 @@ public class LevelUp extends BaseCard {
     private static final int MAGIC = 0;
     private static final int UPG_MAGIC = 1;
 
-    private static CardType LastTypeCardPlayed;
+    private static CardType LastTypePlayed;
+    private Ring preview0 = new Ring(); // Warming Up
+    private LevelUp1 preview1 = new LevelUp1(); // Speed
+    private LevelUp2 preview2 = new LevelUp2(); // Flight
+    private LevelUp3 preview3 = new LevelUp3(); // Power
 
     public LevelUp() {
         super(ID, info);
         this.cardsToPreview = new Ring();
+        MultiCardPreview.add(this, preview0, preview1, preview2, preview3);
 
         setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_DEFECT);
+        UpdateLastCardPlayed();
+        UpdateCardImageAndText();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.LevelUp));
-        if (magicNumber > 0){
+        if (magicNumber > 0) {
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
         }
 
-        if (LastTypeCardPlayed == CardType.ATTACK) {
+        if (LastTypePlayed == CardType.ATTACK) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpPowerPower(p, 1)));
-        } else if (LastTypeCardPlayed == CardType.SKILL) {
+        } else if (LastTypePlayed == CardType.SKILL) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, 1)));
-        } else if (LastTypeCardPlayed == CardType.POWER) {
+        } else if (LastTypePlayed == CardType.POWER) {
             addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, 1)));
         } else {
             // addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), magicNumber));
@@ -74,13 +83,13 @@ public class LevelUp extends BaseCard {
     }
 
     private void UpdateCardImageAndText() {
-        if (LastTypeCardPlayed == CardType.ATTACK) {
+        if (LastTypePlayed == CardType.ATTACK) {
             loadCardImage(LevelUpPath("LevelUpPower.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
-        } else if (LastTypeCardPlayed == CardType.SKILL) {
+        } else if (LastTypePlayed == CardType.SKILL) {
             loadCardImage(LevelUpPath("LevelUpSpeed.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
-        } else if (LastTypeCardPlayed == CardType.POWER) {
+        } else if (LastTypePlayed == CardType.POWER) {
             loadCardImage(LevelUpPath("LevelUpFlight.png"));
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[3];
         } else {
@@ -100,20 +109,20 @@ public class LevelUp extends BaseCard {
     //         "For each Ring in your hand, gain !M! Temporary Focus at the start of your turn."
 
     private String LevelUpPath(String filename) {
-        return imagePath("cards/skill/" + filename);
+        return imagePath("cards/power/" + filename);
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new LevelUp();
     }
 
     private void UpdateLastCardPlayed() {
         if (AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
-            LastTypeCardPlayed = null;
+            LastTypePlayed = null;
             return;
         }
-        LastTypeCardPlayed = ((AbstractCard) AbstractDungeon.actionManager.cardsPlayedThisCombat.get(
+        LastTypePlayed = (AbstractDungeon.actionManager.cardsPlayedThisCombat.get(
                 AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1)).type;
     }
 
