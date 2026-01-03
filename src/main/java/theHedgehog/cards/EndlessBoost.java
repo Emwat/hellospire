@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BerserkPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
@@ -45,7 +46,7 @@ public class EndlessBoost extends BaseCard {
             magicOutput -= 1;
         }
         if (magicOutput > 0){
-            addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicOutput), magicOutput));
+            addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, -magicOutput), -magicOutput));
         }
         addToBot(new ApplyPowerAction(p, p, new BerserkPower(p, 1)));
     }

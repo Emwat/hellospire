@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
@@ -34,6 +35,10 @@ public class SonicBoom extends BaseCard implements BranchingUpgradesCard {
         setMagic(0);
         tags.add(SonicTags.LIKE_IRONCLAD);
         setEthereal(true);
+
+        if (IsConfusedEgg()) {
+            loadCardImage(SonicMod.imagePath("cards/skill/SonicBoom_b.png"));
+        }
     }
 
     @Override

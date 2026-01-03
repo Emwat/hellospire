@@ -24,6 +24,12 @@ public class LevelUpSpeedPower extends BasePower {
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
+    @Override
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+    }
+
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;

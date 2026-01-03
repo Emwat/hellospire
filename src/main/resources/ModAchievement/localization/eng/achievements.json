@@ -5,10 +5,11 @@
     "DESCRIPTION": "Play Assist with the Googly Eyes mod.",
     "IMAGE": "theHedgehog/images/achievement/GooglyEyes.png",
     "HIDDEN": false
-  }, "${modID}:Ringmaster": {
+  },
+  "${modID}:Ringmaster": {
     "CARD_COLOR": "HEDGEHOG_BLUE25",
     "TITLE": "Ringmaster",
-    "DESCRIPTION": "Have 20 Rings in one combat.",
+    "DESCRIPTION": "Create 20 Rings in one combat.",
     "IMAGE": "theHedgehog/images/achievement/Ringmaster.png",
     "HIDDEN": false
   },

@@ -42,7 +42,7 @@ public class WindUpPunch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.Attack5Go));
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1 ));
     }

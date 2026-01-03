@@ -34,15 +34,22 @@ public class SlotMachinePull extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(1));
-        if (p.hand.group.size() >= BaseMod.MAX_HAND_SIZE){
+        if (p.hand.group.size() >= BaseMod.MAX_HAND_SIZE) {
+            if (!this.upgraded) {
+                this.setExhaust(true);
+            }
             this.returnToHand = false;
-//            addToBot(new DiscardSpecificCardAction(this));
+
+            // addToBot(new DiscardSpecificCardAction(this));
         }
     }
 
     @Override
-    public boolean canUpgrade() {
-        return false;
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.setExhaust(false);
+        }
+        super.upgrade();
     }
 
     @Override
@@ -55,7 +62,11 @@ public class SlotMachinePull extends BaseCard {
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         super.triggerOnOtherCardPlayed(c);
 
-        addToBot(new DiscardSpecificCardAction(this));
+        if (!this.upgraded) {
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+        } else {
+            addToBot(new DiscardSpecificCardAction(this));
+        }
     }
 
     @Override
@@ -68,7 +79,7 @@ public class SlotMachinePull extends BaseCard {
         this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
     }
 
-    private void ExhaustALLEggmanCards(){
+    private void ExhaustALLEggmanCards() {
         ExhaustCurses(AbstractDungeon.player.hand);
         ExhaustCurses(AbstractDungeon.player.drawPile);
         ExhaustCurses(AbstractDungeon.player.discardPile);
@@ -83,7 +94,7 @@ public class SlotMachinePull extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new SlotMachinePull();
     }
 }

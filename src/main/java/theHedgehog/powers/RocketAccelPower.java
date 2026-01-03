@@ -27,6 +27,7 @@ public class RocketAccelPower extends BasePower implements NonStackablePower {
     public RocketAccelPower(AbstractCreature owner, int amount, int magicNumber) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
         amount2 = magicNumber;
+        updateDescription();
     }
 
     public void updateDescription() {

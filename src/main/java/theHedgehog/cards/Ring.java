@@ -27,6 +27,8 @@ import theHedgehog.util.CardStats;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import static theHedgehog.util.GeneralUtils.isIndeedWithoutADoubtInCombat;
+
 public class Ring extends BaseCard {
     public static final String ID = makeID("Ring");
     private static final CardStats info = new CardStats(
@@ -118,15 +120,15 @@ public class Ring extends BaseCard {
         return new Ring();
     }
 
-    private void atbApplyFocus(){
-        addToBot(new ModXFastAction(() -> {
-            if (AbstractDungeon.player != null && AbstractDungeon.player.hasOrb()){
+    private void atbApplyFocus() {
+        if (isIndeedWithoutADoubtInCombat()) {
+            addToBot(new ModXFastAction(() -> {
                 for (AbstractOrb orb : AbstractDungeon.player.orbs) {
                     if (!(orb instanceof EmptyOrbSlot))
                         orb.applyFocus();
                 }
-            }
-        }));
+            }));
+        }
     }
 
     private void unlockRingmasterAchievement() {

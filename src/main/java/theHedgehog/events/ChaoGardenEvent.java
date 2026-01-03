@@ -1,5 +1,6 @@
 package theHedgehog.events;
 
+import basemod.DevConsole;
 import basemod.abstracts.events.PhasedEvent;
 import basemod.abstracts.events.phases.TextPhase;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -22,6 +23,7 @@ import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
+import theHedgehog.console.SonicConsoleDebugString;
 import theHedgehog.potions.ChaosSodaPotion;
 import theHedgehog.relics.*;
 import theHedgehog.strings.SonicChaoGardenStrings;
@@ -35,7 +37,6 @@ import java.util.stream.Collectors;
 import static theHedgehog.SonicMod.makeID;
 
 public class ChaoGardenEvent extends PhasedEvent {
-
     private class DrinkingBuddy {
         public String Name;
         public int NumberOfDrinks = 0;
@@ -53,7 +54,16 @@ public class ChaoGardenEvent extends PhasedEvent {
             this.CardLibrary = cardLibrary;
             this.Character = characterName;
 
-            SonicChaoGardenStrings chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID(buddy));
+            String buddyKey = SonicMod.chaoGardenEventHelperExternal.makeID(buddy);
+            SonicMod.logger.info("buddy: " + buddy + " - buddyKey " + buddyKey);
+
+            SonicChaoGardenStrings chaoGardens = SonicMod.chaoGardenEventHelperExternal.GetSonicChaoGardenString(buddyKey);
+            if (chaoGardens == null) {
+                chaoGardens = SonicMod.chaoGardenEventHelperExternal.GetSonicChaoGardenString(buddy);
+            }
+            if (chaoGardens == null) {
+                chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID(buddy));
+            }
             if (chaoGardens == null) {
                 chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID("Default"));
             }
@@ -70,15 +80,34 @@ public class ChaoGardenEvent extends PhasedEvent {
         }
 
         private String OptBuddy() {
-            String capitalizedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
+            String[] friends = new String[] {
+                    "Tails", "Knuckles", "Amy", "Rouge"
+            };
+            if (Arrays.stream(friends).anyMatch(s -> s.equals(this.Name))) {
+                String capitalizedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
+
+                return String.format("%s%s%s%s %s %s%s",
+                        OptPartnerA,
+                        capitalizedName,
+                        OptPartnerB,
+                        numberOfNewChoices,
+                        theHedgehog.util.GeneralUtils.ColorWord(this.OptionColor, this.Character),
+                        OptPartnerC,
+                        OptPartnerD);
+            }
+
+
+            String formattedName = theHedgehog.util.GeneralUtils.ColorWord(
+                    this.OptionColor,
+                    this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1));
 
             return String.format("%s%s%s%s %s%s",
-                    OptPartnerA,
-                    capitalizedName,
-                    OptPartnerB,
-                    numberOfNewChoices,
-                    this.OptionColor + this.Character,
-                    OptPartnerC);
+                    OptPartnerA, // [Give Chaos Soda to
+                    formattedName, // The Silent
+                    OptPartnerB, //] Add
+                    numberOfNewChoices, // 5
+                    OptPartnerC, // choices
+                    OptPartnerD); // to the discussion
 
         }
     }
@@ -129,23 +158,24 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String OptPartnerA = OPTIONS[14];
     private static final String OptPartnerB = OPTIONS[15];
     private static final String OptPartnerC = OPTIONS[16];
-    private static final String OptWatchShowA = OPTIONS[17];
-    private static final String OptWatchShowB = OPTIONS[18];
-    private static final String OptWatchShowC = OPTIONS[19];
-    private static final String OptDiscussA = OPTIONS[20];
-    private static final String OptDiscussB = OPTIONS[21];
-    private static final String OptDiscussC = OPTIONS[22];
-    private static final String OptDiscussLocked = OPTIONS[23];
-    private static final String OptHugStart = OPTIONS[24];
-    private static final String OptChao1 = OPTIONS[25];
-    private static final String OptChao2 = OPTIONS[26];
-    private static final String OptChao3 = OPTIONS[27];
-    private static final String OptYouNeedChao = OPTIONS[28];
-    private static final String OptChao5A = OPTIONS[29];
-    private static final String OptChao5B = OPTIONS[30];
-    private static final String OptYouAlrHaveChao = OPTIONS[31];
-    private static final String OptChao5C = OPTIONS[32];
-    private static final String OptThankYouForChao = OPTIONS[33];
+    private static final String OptPartnerD = OPTIONS[17];
+    private static final String OptWatchShowA = OPTIONS[18];
+    private static final String OptWatchShowB = OPTIONS[19];
+    private static final String OptWatchShowC = OPTIONS[20];
+    private static final String OptDiscussA = OPTIONS[21];
+    private static final String OptDiscussB = OPTIONS[22];
+    private static final String OptDiscussC = OPTIONS[23];
+    private static final String OptDiscussLocked = OPTIONS[24];
+    private static final String OptHugStart = OPTIONS[25];
+    private static final String OptChao1 = OPTIONS[26];
+    private static final String OptChao2 = OPTIONS[27];
+    private static final String OptChao3 = OPTIONS[28];
+    private static final String OptYouNeedChao = OPTIONS[29];
+    private static final String OptChao5A = OPTIONS[30];
+    private static final String OptChao5B = OPTIONS[31];
+    private static final String OptYouAlrHaveChao = OPTIONS[32];
+    private static final String OptChao5C = OPTIONS[33];
+    private static final String OptThankYouForChao = OPTIONS[34];
     // endregion
 
     private static final String IMG = SonicMod.imagePath("events/ChaoGardenReveal.png");
@@ -364,6 +394,10 @@ public class ChaoGardenEvent extends PhasedEvent {
         InitializeEveryone();
         Collections.shuffle(DrinkBuddies);
 
+        if (!SonicMod.modDebugString.isEmpty()){
+            MoveSpecificDrinkBuddyToTop();
+        }
+
         // Library
         // Choose 1 of 20 cards to add to your deck
         // Heal 33(20%) of your Max HP
@@ -385,6 +419,23 @@ public class ChaoGardenEvent extends PhasedEvent {
         actions = maxActions;
 
         healAmt = (int) (AbstractDungeon.player.maxHealth * (healPercentage * 0.01F));
+    }
+
+    private void MoveSpecificDrinkBuddyToTop(){
+        int targetIndex = -1;
+
+        for (int i = 0; i < DrinkBuddies.size(); i++) {
+            if (SonicMod.modDebugString.equalsIgnoreCase(DrinkBuddies.get(i).Name)) {
+                targetIndex = i;
+                break;
+            }
+        }
+
+        if (targetIndex != -1) {
+            Collections.swap(DrinkBuddies, 0, targetIndex);
+        } else {
+            DevConsole.log(SonicMod.modDebugString + " is not found.");
+        }
     }
 
     private TextPhase GenerateTextPhaseWithActionAndImage(String textBody, String imgUrl) {
@@ -578,7 +629,7 @@ public class ChaoGardenEvent extends PhasedEvent {
     private void Option031_KidnapChaoPage1(Integer i) {
         actions -= actionCostForKidnappingChao;
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.MED, false);
-        AbstractDungeon.player.damage(new DamageInfo((AbstractCreature) null, this.hpLoss));
+        AbstractDungeon.player.damage(new DamageInfo(null, this.hpLoss));
         damageTaken += this.hpLoss;
         transitionKey(phase030_theKidnapping);
     }
@@ -670,7 +721,6 @@ public class ChaoGardenEvent extends PhasedEvent {
                 CardLibrary.LibraryType libraryType = null;
                 String name = character.title;
 
-                SonicMod.logger.info("name: " + name);
                 for (CardLibrary.LibraryType library : CardLibrary.LibraryType.values()) {
                     if (library.toString().equals(character.getCardColor().toString())) {
                         libraryType = library;

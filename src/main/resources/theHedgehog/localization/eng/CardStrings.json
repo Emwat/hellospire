@@ -18,9 +18,10 @@
       "ff6563ff red",
       "ffa500ff orange",
       "[E] is energy",
-      "ALL is typically capitalized.",
+      "ALL is typically capitalized. Apotheosis includes Exhausted pile. Perfect Strike does not.",
       "Attack, Skill, Evoke, Exhaust, Block, Focus are title case.",
-      "[#efc851ff]Shiv -- when refering to other cards, make yellow text."
+      "[#efc851ff]Shiv -- when refering to other cards, make yellow text.",
+      "Orb slot does not capitalize slot."
     ],
     "FLAVOR": "SpireWolf25 says Hello."
   },
@@ -43,7 +44,7 @@
   "${modID}:Assist": {
     "NAME": "Assist",
     "DESCRIPTION": "Add a random ${modID}:Friend Skill to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a random ${modID}:Friend Skill to your hand. It costs zero this turn. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Add a random ${modID}:Friend Skill to your hand. It costs 0 this turn. NL Exhaust."
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
@@ -107,8 +108,7 @@
   },
   "${modID}:AssistShadow": {
     "NAME": "Shadow",
-    "DESCRIPTION": "Ethereal. NL Gain 1 Intangible. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Intangible. NL Exhaust.",
+    "DESCRIPTION": "Take an extra turn after this one. NL End your turn. NL Exhaust.",
     "FLAVOR": "Witness the Ultimate Power."
   },
   "${modID}:AssistSilver": {
@@ -123,8 +123,7 @@
   },
   "${modID}:AssistTails": {
     "NAME": "Unbreakable Bond",
-    "DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Plasma. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Orb slot. NL Channel 1 Lightning. NL Channel 1 Plasma. NL Exhaust.",
+    "DESCRIPTION": "{@@}Gain !M! Orb slot{!M!|>1=s}. NL Channel 1 Lightning. NL Channel 1 Plasma. NL Exhaust.",
     "FLAVOR": "It has the same wavelength and properties, but it's less powerful than the real one."
   },
   "${modID}:AssistTikal": {
@@ -134,7 +133,7 @@
   },
   "${modID}:AssistVector": {
     "NAME": "Vector the Crocodile",
-    "DESCRIPTION": "{@@}Gain !M! Vigor. NL Put a card from your discard pile on top of your draw pile.",
+    "DESCRIPTION": "Gain !B! Block. NL ALL Cost 2+ Attacks gain ${modID}:DO_NOT_THROW.",
     "FLAVOR": "All a part of being a good detective."
   },
   "${modID}:Athleticism": {
@@ -163,8 +162,8 @@
   },
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
-    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded.",
-    "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded."
+    "DESCRIPTION": "Each turn, your first !M! created cards cost 1 less [E].",
+    "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost 1 less [E]."
   },
     "${modID}:BlastOff": {
       "NAME": "Blast Off",
@@ -173,8 +172,8 @@
     },
   "${modID}:BlueBlur": {
     "NAME": "Blue Blur",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn, your first card will play twice. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, your first card will play twice."
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, gain Temporary ${modID}:Echo_Form. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, gain Temporary ${modID}:Echo_Form."
   },
   "${modID}:BlueBomber": {
     "NAME": "Blue Bomber",
@@ -278,12 +277,12 @@
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
-    "DESCRIPTION": "Gain !B! Block. If you exhausted a card this turn, gain [E] [E]."
+    "DESCRIPTION": "Gain !B! Block. If you Exhausted a card this turn, gain [E] [E]."
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
-    "DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_rightmost, lose 1 less. NL Every turn, gain [E].",
-    "UPGRADE_DESCRIPTION": "At the end of this turn, lose !M! Dexterity. ${modID}:If_rightmost, lose 1 less. NL Every turn, gain [E]."
+    "DESCRIPTION": "Lose !M! Dexterity. ${modID}:If_rightmost, lose 1 less. NL At the start of your turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Lose !M! Dexterity. ${modID}:If_rightmost, lose 1 less. NL At the start of your turn, gain [E]."
   },
   "${modID}:Enerbeam": {
     "NAME": "Enerbeam",
@@ -387,7 +386,7 @@
   },
   "${modID}:Hailstorm": {
     "NAME": "Hailstorm",
-    "DESCRIPTION": "Deal !D! damage 1 time. This hits an additional time for each time you've drawn this card.",
+    "DESCRIPTION": "Deal !D! damage 0 times. This hits an additional time for each time you've drawn this card.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage ",
       " time. This hits an additional time for each time you've drawn this card.",
@@ -473,11 +472,11 @@
   },
   "${modID}:LevelUp2": {
     "NAME": "Power",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase damage gained from cards by 1."
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Focus by 1."
   },
   "${modID}:LevelUp3": {
     "NAME": "Attack",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Focus by 1."
+    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase damage gained from cards by 1."
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",
@@ -522,7 +521,7 @@
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
-    "DESCRIPTION": "Gain ${modID}:LSD. Add a [#efc851ff]Ring to your hand until your hand is full. Play ALL [#efc851ff]Rings in your hand. Exhaust."
+    "DESCRIPTION": "Exhaust ALL [#efc851ff]Rings in your hand and heal !M! HP for each one Exhausted. NL Exhaust."
   },
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
@@ -548,7 +547,8 @@
   },
   "${modID}:MeteorKick": {
     "NAME": "Meteor Kick",
-    "DESCRIPTION": "Deal !D! damage. If the enemy has Vulnerable, deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. If the enemy has Vulnerable, deal !M! additional damage.",
+    "PERFECTED_STRIKE": "Deal 6 damage. Deals 2 additional damage for ALL your cards containing \"Strike\""
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
@@ -569,8 +569,8 @@
   },
   "${modID}:PackBlastProcessing": {
     "NAME": "Blast Processing",
-    "DESCRIPTION": "Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, your first !M! created cards cost one less [E]. Zero cost cards are excluded."
+    "DESCRIPTION": "Each turn, your first !M! created cards cost 1 less [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, your first !M! created cards cost 1 less [E]."
   },
   "${modID}:PackHomingAttack": {
     "NAME": "Homing Attack",
@@ -613,11 +613,11 @@
   },
   "${modID}:RelaxPick1": {
     "NAME": "Relax",
-    "DESCRIPTION": "Stay Calm. Shuffle [#efc851ff]Relax+ into your draw pile."
+    "DESCRIPTION": "Stay Calm."
   },
   "${modID}:RelaxPick2": {
     "NAME": "DON'T BLINK",
-    "DESCRIPTION": "Enter Wrath. Shuffle [#efc851ff]Relax+ into your draw pile."
+    "DESCRIPTION": "Enter Wrath."
   },
   "${modID}:Ricochet": {
     "NAME": "Ricochet",
@@ -680,7 +680,8 @@
   },
   "${modID}:SlotMachinePull": {
     "NAME": "Slot Machine Pull",
-    "DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, discard this."
+    "DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, Exhaust this.",
+    "UPGRADE_DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, discard this."
   },
   "${modID}:SmoothLanding": {
     "NAME": "Incorrect Landing",

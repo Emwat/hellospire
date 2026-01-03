@@ -1,6 +1,5 @@
 package theHedgehog.cards;
 
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -10,9 +9,7 @@ import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Trip;
-import com.megacrit.cardcrawl.cards.green.Terror;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -21,10 +18,8 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.combat.EmptyStanceEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SoundLibrary;
-import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
-import theHedgehog.strings.ModLocalizedStrings;
 import theHedgehog.util.CardStats;
 import theHedgehog.util.TextureLoader;
 
@@ -98,33 +93,33 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
         if (Objects.equals(voiceLine, SoundLibrary.CatchMeIfYouCan)) {
             if (Sonic.isAmy()) {
                 addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
+                    s.playAnimation("attack2", "attack");
                 }));
             } else if (Sonic.isKnuckles()) {
                 addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
+                    s.playAnimation("attack2", "attack");
                 }));
             } else if (Sonic.isShadow()) {
                 addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("idle3", "idle2"));
+                    s.playAnimation("idle3", "idle2");
                 }));
             } else if (Sonic.isTails()) {
                 addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("idle3", "idle3"));
+                    s.playAnimation("idle3", "idle3");
                 }));
             }
             addToBot(new TalkAction(true, texts[0], duration, bubbleDuration));
         } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
             if (Sonic.currentModSkin.getName().contains("Amy")) {
                 addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("attack2", "attack"));
+                    s.playAnimation("attack2", "attack");
                 }));
             }
             addToBot(new TalkAction(true, texts[1], duration, bubbleDuration));
         } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
             if (Sonic.currentModSkin.getName().contains("Amy")) {
                 addToBot(new ModXFastAction(() -> {
-                    s.playAnimation(s.dribbleAnimation("happy2", "happy"));
+                    s.playAnimation("happy2", "happy");
                 }));
             }
             addToBot(new TalkAction(true, texts[2], duration, bubbleDuration));
@@ -160,13 +155,13 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
 
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        ApplyNewCost(null);
+        ReduceCostForTurnByAttacksPlayed(null);
     }
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         super.triggerOnOtherCardPlayed(c);
-        ApplyNewCost(c);
+        ReduceCostForTurnByAttacksPlayed(c);
     }
 
     @Override

@@ -1,6 +1,12 @@
 package theHedgehog.util;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+
+import java.util.HashMap;
 
 public class GeneralUtils {
     public static String arrToString(Object[] arr) {
@@ -36,5 +42,33 @@ public class GeneralUtils {
 
     public static boolean isCardBottled(AbstractCard wantedCard) {
         return wantedCard.inBottleFlame || wantedCard.inBottleLightning || wantedCard.inBottleTornado;
+    }
+
+    public static boolean isIndeedWithoutADoubtInCombat() {
+        return (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null && (AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT);
+    }
+
+    public static Color IdentifyWordColor(String word) {
+        // All Colors
+        // HashMap<String, Color> COLOR_MAP = new HashMap<>();
+        // COLOR_MAP.put("r", Settings.RED_TEXT_COLOR.cpy());
+        // COLOR_MAP.put("g", Settings.GREEN_TEXT_COLOR.cpy());
+        // COLOR_MAP.put("b", Settings.BLUE_TEXT_COLOR.cpy());
+        // COLOR_MAP.put("p", Settings.PURPLE_COLOR.cpy());
+        // COLOR_MAP.put("y", Settings.GOLD_COLOR.cpy());
+        //
+        // if (word.length() > 2 && word.startsWith("#")) {
+        //     String key = String.valueOf(word.charAt(1));
+        //     if (COLOR_MAP.containsKey(key)) {
+        //         return COLOR_MAP.get(key);
+        //     }
+        // }
+
+        // [] based colour keys
+        if (word.length() > 10 && word.startsWith("[")) {
+            return Color.valueOf(word.substring(1,10));
+        }
+
+        return null;
     }
 }

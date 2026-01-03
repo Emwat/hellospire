@@ -919,7 +919,7 @@ public abstract class BaseCard extends CustomCard {
                 AbstractDungeon.player.hasPower(ConfusionPower.POWER_ID);
     }
 
-    public void ApplyNewCost(AbstractCard card) {
+    public void ReduceCostForTurnByAttacksPlayed(AbstractCard card) {
         int currentCost = this.costForTurn;
         int isAttack = 0;
         if (card != null && card.type == CardType.ATTACK) {

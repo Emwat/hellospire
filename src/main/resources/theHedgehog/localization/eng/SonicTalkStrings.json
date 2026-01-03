@@ -15,19 +15,10 @@
       "The Exordium is the @OTHER@ way."
     ]
   },
-  "${modID}:Donu and Deca": {
-    "DIALOG": [
-      "I'm a hedgehog! ~HEDGE~ ~HOG!~",
-      "I don't suppose you're going to let me by."
-    ],
-    "DIALOG2": [
-      "What is a @LOUSE@ doing here?",
-      "The Exordium is the @OTHER@ way."
-    ]
-  },
   "${modID}:Slime Boss": {
     "DIALOG": [
-      "Aw yeah! This could be fun!"
+      "Aw yeah! This could be fun!",
+      "Chaos! Could this be the same beast?"
     ]
   },
   "${modID}:Time Eater": {

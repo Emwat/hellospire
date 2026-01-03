@@ -97,6 +97,8 @@ public class SonicMod implements
     public static EasyConfigPanel myModConfig; // This stores all the easy checkbox settings
     public static SpireConfig sonicmodConfig; // This stores all the tutorial, current Skin, and unlockable things
     public static ModLocalizedStrings modLocalizedStrings;
+    public static ChaoGardenEventHelperExternal chaoGardenEventHelperExternal;
+    public static String modDebugString = "";
 
     static {
         loadModInfo();
@@ -121,30 +123,13 @@ public class SonicMod implements
         BaseMod.subscribe(this); // This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
 
-        // Properties sonicmodDefaultSettings = new Properties();
-        // sonicmodDefaultSettings.put(CONFIG_CURRENT_SKIN, skinBaseID);
-        // sonicmodDefaultSettings.setProperty(ConfigField.INDEX.id, String.valueOf(0));
-        // sonicmodDefaultSettings.setProperty(ConfigField.BOSS_MUSIC.id, String.valueOf(0));
-        // sonicmodDefaultSettings.setProperty(ConfigField.SONIC_EVENTS.id, String.valueOf(0));
-        // try
-        // {
-        //     sonicmodConfig = new SpireConfig(modID, "SonicModConfig", sonicmodDefaultSettings);
-        // }
-        // catch (IOException e)
-        // {
-        //     logger.error("Sonic Mod config initialisation failed:");
-        //     e.printStackTrace();
-        // }
-
-        if (MyModConfig.enableCrossModIntegrations && MyModConfig.enableSonicStylePack && Loader.isModLoaded("anniv5")) {
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5")) {
             SpireAnniversary5Mod.subscribe(new PackLoader());
         }
         if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             Skindexer.register();
         }
     }
-
-    // private ModPanel settingsPanel;
 
     @Override
     public void receivePostInitialize() {
@@ -190,84 +175,21 @@ public class SonicMod implements
 
         loadConfig();
         ModSkinDictionary.initializeModSkins();
-        // ModSkinDictionary.initializeModSkinsUnlockables();
 
         ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
         ConsoleCommand.addCommand("sonicunlock", SonicConsoleUnlock.class);
         ConsoleCommand.addCommand("soniceverything", SonicConsoleEverything.class);
         ConsoleCommand.addCommand("sonicskin", SonicConsoleSkin.class);
         ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
+        ConsoleCommand.addCommand("chaog", SonicConsoleDebugString.class);
+        ConsoleCommand.addCommand("chaossoda", SonicConsoleChaosSoda.class);
     }
 
     private void initConfig(){
         Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
-        //
-        // ArrayList<String> characterOptions = new ArrayList<String>() {{
-        //     add("Enable for Only Sonic");
-        //     add("Enable for All Characters");
-        //     add("Disable");
-        // }};
-        // settingsPanel = new ModPanel();
-        // settingsPanel.addUIElement(new DropDown(characterOptions,
-        //         620 * Settings.xScale, 770 * Settings.yScale, settingsPanel,
-        //         new Label(FontHelper.buttonLabelFont, "Boss Music: ",
-        //                 500 * Settings.xScale, 750 * Settings.yScale, 0, 1, Color.WHITE),
-        //         dropdown -> {
-        //             sonicmodConfig.setString(ConfigField.BOSS_MUSIC.id, dropdown.selection);
-        //             saveConfig();
-        //         },
-        //         index -> {
-        //             sonicmodConfig.setInt(ConfigField.INDEX.id, index);
-        //             saveConfig();
-        //         }));
-        // settingsPanel.addUIElement(new DropDown(characterOptions,
-        //         620 * Settings.xScale, 590 * Settings.yScale, settingsPanel,
-        //         new Label(FontHelper.buttonLabelFont, "Sonic Events: ",
-        //                 500 * Settings.xScale, 570 * Settings.yScale, 0, 1, Color.WHITE),
-        //         dropdown -> {
-        //             sonicmodConfig.setString(ConfigField.SONIC_EVENTS.id, dropdown.selection);
-        //             saveConfig();
-        //         },
-        //         index -> {
-        //             sonicmodConfig.setInt(ConfigField.INDEX.id, index);
-        //             saveConfig();
-        //         }));
-        // saveConfig();
-        //
-        // BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, settingsPanel);
         myModConfig = new MyModConfig();
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, myModConfig);
     }
-
-    // /// Used for DropDown
-    // private void saveConfig() {
-    //     try {
-    //         sonicmodConfig.save();
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
-    //
-    // /// Used for DropDown
-    // public static int getIndex()
-    // {
-    //     if (sonicmodConfig == null) return 0;
-    //     return sonicmodConfig.getInt(ConfigField.INDEX.id);
-    // }
-
-    // /// Used for DropDown
-    // public enum ConfigField
-    // {
-    //     INDEX("Index"),
-    //     // LANGUAGE("Language"),
-    //     BOSS_MUSIC("Boss_Music"),
-    //     SONIC_EVENTS("Sonic_Events");
-    //     final String id;
-    //     ConfigField(String val)
-    //     {
-    //         this.id = val;
-    //     }
-    // }
 
     private void registerEvents() {
 
@@ -297,6 +219,17 @@ public class SonicMod implements
             BaseMod.addEvent(new AddEventParams.Builder(RougeEvent.ID, RougeEvent.class)
                     .dungeonID(TheCity.ID)
                     .eventType(EventUtils.EventType.NORMAL)
+                    .create()
+            );
+
+            BaseMod.addEvent(new AddEventParams.Builder(TimeStoneEvent.ID, TimeStoneEvent.class)
+                    .dungeonID(TheCity.ID)
+                    .spawnCondition(() ->
+                            AbstractDungeon.player instanceof Sonic &&
+                                    AbstractDungeon.player.getPrefs().getInteger("ASCENSION_LEVEL", 1) > 0)
+                    .playerClass(Sonic.Meta.THE_HEDGEHOG)
+                    .eventType(EventUtils.EventType.FULL_REPLACE)
+                    .overrideEvent(ShiningLight.ID)
                     .create()
             );
         } else if (MyModConfig.enableEventsForOnlySonic) {
@@ -392,6 +325,7 @@ public class SonicMod implements
         */
         loadLocalization(defaultLanguage); // no exception catching for default localization; you better have at least one that works.
         modLocalizedStrings = new ModLocalizedStrings();
+        chaoGardenEventHelperExternal = new ChaoGardenEventHelperExternal();
         if (!defaultLanguage.equals(getLangString())) {
             try {
                 loadLocalization(getLangString());
@@ -629,9 +563,9 @@ public class SonicMod implements
 
         // this code does not seem to work. 11/29/2025 08:46 AM
         // if (!MyModConfig.enableCrestOfFire) {
-        //     BaseMod.removeCard(FireTackle.ID, Sonic.Meta.CARD_COLOR);
-        //     BaseMod.removeCard(FireSomersault.ID, Sonic.Meta.CARD_COLOR);
-        //     BaseMod.removeCard(VolcanoSlider.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(FireTackle.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(FireSomersault.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(VolcanoSlider.ID, Sonic.Meta.CARD_COLOR);
         // }
         //
         // if (!MyModConfig.enableStanceSwitching) {

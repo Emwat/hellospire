@@ -34,14 +34,13 @@ public class LevelUp extends BaseCard {
     private static final int UPG_MAGIC = 1;
 
     private static CardType LastTypePlayed;
-    private Ring preview0 = new Ring(); // Warming Up
-    private LevelUp1 preview1 = new LevelUp1(); // Speed
-    private LevelUp2 preview2 = new LevelUp2(); // Flight
-    private LevelUp3 preview3 = new LevelUp3(); // Power
+    private final Ring preview0 = new Ring(); // Warming Up
+    private final LevelUp1 preview1 = new LevelUp1(); // Speed
+    private final LevelUp2 preview2 = new LevelUp2(); // Flight
+    private final LevelUp3 preview3 = new LevelUp3(); // Power
 
     public LevelUp() {
         super(ID, info);
-        this.cardsToPreview = new Ring();
         MultiCardPreview.add(this, preview0, preview1, preview2, preview3);
 
         setMagic(MAGIC, UPG_MAGIC);
@@ -54,7 +53,7 @@ public class LevelUp extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.LevelUp));
         if (magicNumber > 0) {
-            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), magicNumber));
+            addToBot(new MakeTempCardInHandAction(preview0.makeStatEquivalentCopy(), magicNumber));
         }
 
         if (LastTypePlayed == CardType.ATTACK) {

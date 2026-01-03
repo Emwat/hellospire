@@ -70,6 +70,7 @@ Requires subscription to
 - PowerStrings.json requires `[E]` to have spaces around it. For example: `[E] [E] .`
 - TogetherInSpire v6.4.0 has a thing. If your card is a skill that applies Vulnerable, the card.target will end up being SELF and m is null.
 - TogetherInSpire v6.4.0 potions require additional code. See below or see my ChaosSodaPotion.
+- `isIndeedWithoutADoubtInCombat()` is apparently necessary b/c some cards crash the game in the compendium.
 ```
 // TogetherInSpire needs these textures
     private static final Texture containerImg = ImageMaster.POTION_BOTTLE_CONTAINER;
@@ -88,7 +89,8 @@ Requires subscription to
 - <kbd>Ctrl</kbd><kbd>B</kbd> : Decompile/Direct to source
 
 # Every mod character should do this
-- Before you publish, you should make sure your modID is all lowercase for Chinese compatibility. If after publish, you might end up deleting everyone's save file of your character.
+- Before you publish, you should make sure your modID is all lowercase for Chinese compatibility. If you change the modid after publish, you might end up deleting everyone's save file of your character.
+- People like to know more about a mod before they subscribe. Add pictures. Add info. Add "English" as a tag.
 - Create a win screen. I'm tired of the Ironclad ending on modded characters. It's not that hard. You don't need 3 pictures. You can just use one picture. See Sonic.java.
 ```java
    @Override
@@ -106,12 +108,24 @@ Requires subscription to
 - More than 30 ratings = 4 stars
 - More than 200 ratings = 5 stars
 
+- The first chart with the yellow line has two numbers when you hover over said yellow line: Days and Total Subscriptions.
+- The second chart with all of the lines demonstrate that people are typically more active on the weekend.
+
+# How to farm downvotes
+- ai art
+- character mod that adds global content
+- enemies that are too hard
+- not having zhs translation (Chinese Simplified)
+- low quality
+- gay flags and gay
+- a very minor basegame mechanic change
+
 # My review of my mod
-I think people are leaning towards okay/meh with my mod, because I very heavily leaned towards a vanilla character. There's no crazy new mechanic. There's no vfx. It doesn't add anything new to Slay the Spire.
+I think people are leaning towards okay/meh with my mod, because I very heavily leaned towards a boring character. There's no crazy new mechanic. There's no vfx. It doesn't add anything new to Slay the Spire.
 
 I designed Sonic to be that way, b/c 1) it's my first mod and 2) It's loyal to his character. In the Sonic Advance series, ALL of his friends have an extra ability, but Sonic is very vanilla except for the fact that he can go Super Sonic for the ending.
 
-People don't like single-use keywords and at the time "If most Left/Right" was only for Quick Air/Quick Step. Well, I decided to apply it to the rare cards. The problem with it is I never remember which cards are lefties and righties now. The idea is that LEFT symbolized for being far away from your enemy and RIGHT symbolized up close and personal. I don't think that flavor carried well enough and I didn't add cards that help activate their effects.
+People don't like single-use keywords and at the time "If most Left/Right" was only for Quick Air/Quick Step. Well, I decided to apply it to the rare cards. The problem with it is I never remember which cards are lefties and righties now. One idea is that LEFT symbolized for being far away from your enemy and RIGHT symbolized up close and personal. I don't think that flavor carried well enough and I didn't add cards that help activate their effects.
 
 # Known mod conflicts
 - Lights Out + Bundle of Energy

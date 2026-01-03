@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -7,9 +8,11 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicMod;
+import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -38,24 +41,30 @@ public class AssistEspio extends BaseCard {
         setMagic(MAGIC);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.Espio));
         addToBot(new GainBlockAction(p, block));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.magicNumber));
-        if (SonicMod.attackCardsPlayedThisTurn == 0) {
-            addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
-        }
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.magicNumber + GetExtraShiv()));
     }
 
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (SonicMod.attackCardsPlayedThisTurn == 0) {
+        if (GetExtraShiv() == 1) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+
+        if (AbstractDungeon.player.hand.size() + magicNumber + GetExtraShiv() > BaseMod.MAX_HAND_SIZE + 1) {
+            this.glowColor = Color.RED.cpy();
+        }
+    }
+
+    private int GetExtraShiv(){
+        return SonicMod.attackCardsPlayedThisTurn == 0 ? 1 : 0;
     }
 
     @Override

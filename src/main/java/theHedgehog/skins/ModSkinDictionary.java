@@ -156,25 +156,26 @@ public class ModSkinDictionary {
                 "idle", "idle2", "happy", "happy2", "hurt", "hurt2", "attack", "attack2", "super");
         // }
 
-        registerCharacter(skinBattleAmyID, "Battle Amy", Contact.Amy, newCharacterPath("characterAmy/animation/battleAmy.scml"),
-                newCharacterPath("characterAmy"),
-                "L, Let's not use the hammer.",
-                "idle", "happy", "hurt", "attack");
+        registerCharacter(skinBattleTailsID, "Battle Tails", Contact.Tails, newCharacterPath("characterTails/animation/battleTails.scml"),
+                newCharacterPath("characterTails"),
+                "Long time no see!",
+                "idle", "idle2", "idle3");
 
         registerCharacter(skinBattleKnucklesID, "Battle Knuckles", Contact.Knuckles, newCharacterPath("characterKnuckles/animation/battleKnuckles.scml"),
                 newCharacterPath("characterKnuckles"),
                 "Do I look like I need your power?",
                 "idle", "idle2", "idle3", "attack");
 
+        registerCharacter(skinBattleAmyID, "Battle Amy", Contact.Amy, newCharacterPath("characterAmy/animation/battleAmy.scml"),
+                newCharacterPath("characterAmy"),
+                "L, Let's not use the hammer.",
+                "idle", "happy", "hurt", "attack");
+
         registerCharacter(skinBattleShadowID, "Battle Shadow", Contact.Shadow, newCharacterPath("characterShadow/animation/battleShadow.scml"),
                 newCharacterPath("characterShadow"),
                 "The military has mistaken me for the likes of you!",
                 "idle", "idle2", "idle3");
 
-        registerCharacter(skinBattleTailsID, "Battle Tails", Contact.Tails, newCharacterPath("characterTails/animation/battleTails.scml"),
-                newCharacterPath("characterTails"),
-                "Long time no see!",
-                "idle", "idle2", "idle3");
     }
 
     static public void initializeModSkinsUnlockables() {

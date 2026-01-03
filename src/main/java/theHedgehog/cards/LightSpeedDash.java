@@ -2,8 +2,9 @@ package theHedgehog.cards;
 
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,6 +15,7 @@ import theHedgehog.actions.ModFastAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.LSDPower;
+import theHedgehog.powers.RingPower;
 import theHedgehog.util.CardStats;
 
 import java.util.ArrayList;
@@ -26,39 +28,32 @@ public class LightSpeedDash extends BaseCard {
             CardType.SKILL,
             CardRarity.RARE,
             CardTarget.SELF,
-            1
+            0
     );
 
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 3;
+    private static final int UPG_MAGIC = 1;
 
     public LightSpeedDash() {
         super(ID, info);
         cardsToPreview = new Ring();
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
-        setCostUpgrade(0);
         tags.add(CardTags.HEALING);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int ringsPlayed = CalculateRings();
-        addToBot(new ApplyPowerAction(p, p, new LSDPower(p, magicNumber)));
-        addToBot(new ModXFastAction(() -> {
-            for (AbstractCard card : p.hand.group) {
-                if (card.hasTag(SonicTags.RING)) {
-                    card.tags.add(SonicTags.RING_PLUS);
-                }
-            }
-        }));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), ringsPlayed));
+        int ringsToCreate = CalculateRingsToCreate();
+        // addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), ringsToCreate));
         addToBot(new ModFastAction(() -> {
             for (AbstractCard card : p.hand.group) {
                 if (card.hasTag(SonicTags.RING)) {
-                    addToBot(new NewQueueCardAction(card, modGetRandomMonster(), true, true));
+                    addToBot(new ExhaustSpecificCardAction(card, p.hand, true));
+                    addToBot(new HealAction(p, p, magicNumber));
                 }
             }
-            if (ringsPlayed > 6) {
+            if (ringsToCreate > 6) {
                 addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                         SoundLibrary.FeelingGood,
                         SoundLibrary.Hehe,
@@ -66,6 +61,11 @@ public class LightSpeedDash extends BaseCard {
                         SoundLibrary.SmallYes
                 ))));
             }
+            addToBot(new ModXFastAction(() -> {
+                RingPower ringPower = (RingPower) p.getPower(RingPower.POWER_ID);
+                if (ringPower != null)
+                    ringPower.CalculateNumberOfRings();
+            }));
         }));
 
     }
@@ -75,7 +75,7 @@ public class LightSpeedDash extends BaseCard {
     //     // this function does not trigger.
     // }
 
-    private int CalculateRings() {
+    private int CalculateRingsToCreate() {
         return BaseMod.MAX_HAND_SIZE - (AbstractDungeon.player.hand.size() - 1);
     }
 

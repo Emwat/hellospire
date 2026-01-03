@@ -21,7 +21,7 @@ public class Skindexer implements SkindexPlayerSkinRegistrant {
     }
 
     public List<PlayerSkin> getDefaultPlayerSkinsToRegister() {
-        return Arrays.asList(new SonicSkin(makeID("skinBase")));
+        return Arrays.asList(new SonicSkin(ModSkinDictionary.skinBaseID));
     }
 
     public List<PlayerSkin> getPlayerSkinsToRegister() {

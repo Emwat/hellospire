@@ -54,6 +54,15 @@
     "DESCRIPTION": "Target deals damage reduced by the cost of the highest card in your hand."
   },
   {
+    "ID": "wordEchoForm",
+    "PROPER_NAME": "Echo Form",
+    "NAMES": [
+      "echo form",
+      "echo_form"
+    ],
+    "DESCRIPTION": "The first card you play each turn is played twice."
+  },
+  {
     "ID": "wordFlameBarrier",
     "PROPER_NAME": "Flame Barrier",
     "NAMES": [
@@ -86,7 +95,7 @@
       "do not throw",
       "do_not_throw"
     ],
-    "DESCRIPTION": "This card has Retain. If this card gets exhausted, enter Wrath.",
+    "DESCRIPTION": "Retain. If Exhausted, enter Wrath.",
     "COLOR": "EF67F6"
   },
   {

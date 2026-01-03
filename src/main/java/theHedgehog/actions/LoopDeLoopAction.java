@@ -182,7 +182,7 @@ public class LoopDeLoopAction extends AbstractGameAction {
     public void drawFromDiscard() {
         AbstractPlayer thisPlayer = AbstractDungeon.player;
 
-        if (thisPlayer.hand.size() == 10) {
+        if (thisPlayer.hand.size() >= BaseMod.MAX_HAND_SIZE) {
             thisPlayer.createHandIsFullDialog();
         } else {
             CardCrawlGame.sound.playAV("CARD_DRAW_8", -0.12F, 0.25F);

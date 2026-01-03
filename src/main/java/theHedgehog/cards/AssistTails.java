@@ -24,11 +24,14 @@ public class AssistTails extends BaseCard {
             2
     );
 
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC = 1;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(217, 196, 138);
     private static final Color FLAVOR_TEXT_COLOR = Color.YELLOW.cpy();
 
     public AssistTails() {
         super(ID, info);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
@@ -37,10 +40,8 @@ public class AssistTails extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.Tails));
-        addToBot(new IncreaseMaxOrbAction(1));
-        if (this.upgraded) {
-            addToBot(new ChannelAction(new Lightning()));
-        }
+        addToBot(new IncreaseMaxOrbAction(magicNumber));
+        addToBot(new ChannelAction(new Lightning()));
         addToBot(new ChannelAction(new Plasma()));
     }
 

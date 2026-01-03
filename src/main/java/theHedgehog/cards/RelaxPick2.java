@@ -37,7 +37,6 @@ public class RelaxPick2 extends BaseCard {
 
         // addToBot(new ApplyPowerAction(p, p, new RelaxPower(p, 1), 1));
         addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
-        addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
     }
 
     @Override

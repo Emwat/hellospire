@@ -175,8 +175,8 @@
     "NAME": "Rocket Accel",
     "DESCRIPTIONS": [
       "Your next #b",
-      " Attack deals ",
-      " Attacks deal ",
+      " Attack deals #b",
+      " Attacks deal #b",
       " damage now and for the rest of combat."
     ]
   },
@@ -190,7 +190,7 @@
   "${modID}:SonicBoomPower": {
     "NAME": "Sonic Boom",
     "DESCRIPTIONS": [
-      "At the end of your turn, deal damage equal to your block AND damage modifiers."
+      "At the end of your turn, deal damage equal to your Block AND damage modifiers."
     ]
   },
   "${modID}:SpeedHurtPower": {

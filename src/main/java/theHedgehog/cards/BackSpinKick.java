@@ -41,13 +41,13 @@ public class BackSpinKick extends BaseCard {
 
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        ApplyNewCost(null);
+        ReduceCostForTurnByAttacksPlayed(null);
     }
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         super.triggerOnOtherCardPlayed(c);
-        ApplyNewCost(c);
+        ReduceCostForTurnByAttacksPlayed(c);
     }
 
     public void atTurnStart() {

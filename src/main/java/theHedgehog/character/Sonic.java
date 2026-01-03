@@ -507,8 +507,12 @@ public class Sonic extends CustomPlayer {
         return (CustomSpriterAnimation) this.animation;
     }
 
+    public void playAnimation(String wantedAnimation2, String wantedAnimation1) {
+        playAnimation(dribbleAnimation(wantedAnimation2, wantedAnimation1), false);
+    }
+
     public void playAnimation(String name) {
-        playAnimation(name, false);
+        playAnimation(dribbleAnimation(name, null), false);
     }
 
     public void playAnimation(String name, boolean overrideSuperSonic) {
@@ -526,7 +530,7 @@ public class Sonic extends CustomPlayer {
     }
 
     public void resetToIdleAnimation() {
-        playAnimation(dribbleAnimation("idle3", "idle2"));
+        playAnimation("idle3", "idle2");
     }
 
     @Override
@@ -534,13 +538,13 @@ public class Sonic extends CustomPlayer {
         super.useCard(c, monster, energyOnUse);
         switch (c.type) {
             case ATTACK:
-                playAnimation(dribbleAnimation("attack2", "attack"));
+                playAnimation("attack2", "attack");
                 break;
             case POWER:
-                playAnimation(dribbleAnimation("happy2", "happy"));
+                playAnimation("happy2", "happy");
                 break;
             default:
-                playAnimation(dribbleAnimation("idle2", null));
+                playAnimation("idle2", null);
                 break;
         }
     }
@@ -551,16 +555,16 @@ public class Sonic extends CustomPlayer {
         boolean hasBlockAfterSuper = this.currentBlock > 0;
         boolean tookNoDamage = this.lastDamageTaken == 0;
         if (hadBlockBeforeSuper && (hasBlockAfterSuper || tookNoDamage)) {
-            playAnimation(dribbleAnimation("happy2", "happy"));
+            playAnimation("happy2", "happy");
         } else {
-            playAnimation(dribbleAnimation("hurt2", "hurt"));
+            playAnimation("hurt2", "hurt");
         }
     }
 
     @Override
     public void heal(int healAmount) {
         if (healAmount > 0) {
-            playAnimation(dribbleAnimation("happy2", "happy"));
+            playAnimation("happy2", "happy");
         }
         super.heal(healAmount);
     }

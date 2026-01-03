@@ -19,90 +19,7 @@ public class ModLocalizedStrings {
     public ModLocalizedStrings() {
         long startTime = System.currentTimeMillis();
         Gson gson = new Gson();
-        String lang;
-        switch (Settings.language) {
-            case ENG:
-                lang = "eng";
-                break;
-            case DUT:
-                lang = "dut";
-                break;
-            case EPO:
-                lang = "epo";
-                break;
-            case PTB:
-                lang = "ptb";
-                break;
-            case ZHS:
-                lang = "zhs";
-                break;
-            case ZHT:
-                lang = "zht";
-                break;
-            case FIN:
-                lang = "fin";
-                break;
-            case FRA:
-                lang = "fra";
-                break;
-            case DEU:
-                lang = "deu";
-                break;
-            case GRE:
-                lang = "gre";
-                break;
-            case IND:
-                lang = "ind";
-                break;
-            case ITA:
-                lang = "ita";
-                break;
-            case JPN:
-                if (Settings.isConsoleBuild) {
-                    lang = "jpn";
-                } else {
-                    lang = "jpn2";
-                }
-                break;
-            case KOR:
-                lang = "kor";
-                break;
-            case NOR:
-                lang = "nor";
-                break;
-            case POL:
-                lang = "pol";
-                break;
-            case RUS:
-                lang = "rus";
-                break;
-            case SPA:
-                lang = "spa";
-                break;
-            case SRP:
-                lang = "srp";
-                break;
-            case SRB:
-                lang = "srb";
-                break;
-            case THA:
-                lang = "tha";
-                break;
-            case TUR:
-                lang = "tur";
-                break;
-            case UKR:
-                lang = "ukr";
-                break;
-            case VIE:
-                lang = "vie";
-                break;
-            case WWW:
-                lang = "www";
-                break;
-            default:
-                lang = "www";
-        }
+        String lang = langFolder();
 
         sonicChaoGardens = gson.fromJson(
                 loadJson(SonicMod.localizationPath(lang, "SonicChaoGardenStrings.json")),
@@ -135,5 +52,13 @@ public class ModLocalizedStrings {
 
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
+    }
+
+    public static String langFolder(){
+        if (Settings.language == Settings.GameLanguage.JPN) {
+            return Settings.isConsoleBuild ? "jpn" : "jpn2";
+        }
+
+        return Settings.language.toString().toLowerCase();
     }
 }

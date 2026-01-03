@@ -6,12 +6,15 @@
     ],
     "EXTRA_TEXT": [
       "This is another",
-      "array of Strings."
-    ],
-    "TEXT_DICT": {
-      "This": "Contains pairs of Strings, used to get values based on keys.",
-      "This is a key": "This is a value."
-    }
+      "array of Strings.",
+      "---TABLE OF CONTENTS:---",
+      "Cards Messages",
+      "Modifiers",
+      "Config",
+      "Chao Option",
+      "Death Messages",
+      "PackmasterUI"
+    ]
   },
   "${modID}:AssistMessage": {
     "TEXT": [
@@ -114,7 +117,7 @@
       "enableVoice": "Enable Voice",
       "enableKicksForStrikeDummy": "Allow Kicks to be Strikes for Strike Dummy",
       "voiceFrequency": "Voice Frequency (10 = Always play voices)",
-      "optionStarterRelic": "Switch Starter Relic",
+      "optionStarterRelic": "Switch Starter Relic (1 = Burning Blood)",
       "enableCrossModIntegrations" : "Enable Cross-Mod Effects (Default: True)",
       "enableSonicStylePack": "Enable Sonic Style Pack (trashed idea)",
       "enableCrestOfFire": "Enable Crest of Fire cards (if unlocked)",
@@ -134,6 +137,107 @@
   "${modID}:ModExhaustAction": {
     "TEXT": [
       "Exhaust"
+    ]
+  },
+  "${modID}:DeathScreenSonic": {
+    "TEXT": [
+      "This is not happening.",
+      "E Rank. It's not your day.",
+      "Better luck next time.",
+      "*Hits car* Pause. Restart. *Hits car again* -City Escape",
+      "You can hear a heartbeat pulsing very loudly.",
+      "Are you sure you don't need my help? It looks like you could use it. -Amy",
+      "Don't give up Sonic! -Amy",
+      "Someone murdered my darling Sonic! -Amy",
+      "What would Sonic do? ...No, he wouldn't do that. Let me try again. -Barry",
+      "Want to go fishing? -Big",
+      "You don't just lose. You lose epicly! -Chaos Sonic",
+      "Ooh! I bet I could do it. Let me try! Let me try! -Charmy",
+      "Sonic, you must live. -Chip",
+      "You don't belong here! -Cultist",
+      "Focus your spirit! -Espio",
+      "Farewell! Sonic the hedgehog! -Eggman",
+      "Well, there's always next season. -Eggman (Sonic Boom Season 2)",
+      "Skill issue. -Gremlin Nob",
+      "This is an exception and not the status quo. -Knuckles",
+      "You are unskilled. Untrained. UNWORTHY! -Knuckles",
+      "Oh no. -Knuckles",
+      "Hmph! So YOU'RE supposed to be the fastest thing alive? -Jet",
+      "The dirt suits you so well! -Jet",
+      "Thanks for the money, hehe. -Looter",
+      "I guess he was just a regular hedgehog after all. -Shadow",
+      "You're not even good enough to be my fake. -Shadow",
+      "Your adventuring days are coming to an end. -Shadow",
+      "It's no use! -Silver",
+      "How could someone like YOU cause the destruction of our world? -Silver",
+      "Sonic!!! -Tails"
+    ]
+  },
+  "${modID}:DeathScreenTails": {
+    "TEXT": [
+      "E Rank. I gotta do better next time.",
+      "When all alone in my chair, I just go about wishing.",
+      "I wanna be strong.",
+      "I wanna fly high.",
+      "Gotta keep going.",
+      "Somebody will be waiting for me so I've got to fly higher.",
+      "I will believe in myself. This is the only start for me.",
+      "It's never as hard as it seems.",
+      "Tails keeps us flying high to stay above trouble.",
+      "What goes up must come down. Yet my feet don't touch the ground.",
+      "Seeing the world spinning upside down. A mighty crash without a sound.",
+      "I never imagined anyone would enter the race with such a piece of junk! -Wave"
+    ]
+  },
+  "${modID}:DeathScreenKnuckles": {
+    "TEXT": [
+      "E Rank. I have to try harder.",
+      "You let Eggman dupe you... Again! -Sonic from Sonic Advance 2",
+      "You should think twice before you open your mouth again. -Sonic from Sonic Pinball Party",
+      "To lose to a mere apprentice... I have been disgraced!",
+      "Come on! Knock it off, Sonic, Knuckles! -Tails from Sonic Battle",
+      "He's a tough guy, but he isn't very bright. -Cream from Sonic Rush",
+      "Hey dimwit! Wait a minute! -Amy from Sonic Rush",
+      "You fell right into my trap, Knuckles! -Eggman from Sonic Battle",
+      "Come on, Knuckles! Is that all you got?! -Emerl to trapped Knuckles",
+      "It's a secret, but my partner got tricked by Eggman again! -Emerl",
+      "Unlike Sonic, I don't chuckle.",
+      "I'd rather flex my muscles.",
+      "Time for a Knuckles sandwich.",
+      "Yo, what happened? My Emeralds' gone!",
+      "I ain't gonna let it get to me. I'm just gonna creep.",
+      "I'm walking through valleys, crying pumpkin in the alley.",
+      "It probably seems crazy, crazy, a graveyard theory.",
+      "Death Chamber... Death Chamber... Death Chamberrr...",
+      "Rats.",
+      "And Knuckles by our side. Makes things a safer ride."
+    ]
+  },
+  "${modID}:DeathScreenShadow": {
+    "reminder:": "Base Game has 21-ish Death Messages",
+    "TEXT": [
+      "I promise you... REVENGE.",
+      "Throw it all away!",
+      "You live an endless life forever!",
+      "You have to face it again and again!",
+      "We all danced in fire.",
+      "Trapped in this machine.",
+      "As the Eggman watches.",
+      "A tragic mystery.",
+      "A shadow of myself. Just who am I?",
+      "Walk into my mystery.",
+      "Capture you or set you free.",
+      "Do you remember me?",
+      "Somewhere in chaos we'll all find ourselves.",
+      "This destruction is the only tale we tell.",
+      "White is black and black is white.",
+      "Right is wrong and wrong is right.",
+      "One step forward, two steps back.",
+      "Somewhere in between.",
+      "Well we're almost dead.",
+      "Only through trial do we find the strength we need.",
+      "Heroes rise again.",
+      "Got a hundred thousand pounds sitting on my back."
     ]
   },
   "${modID}:SingleCardReward": {
