@@ -39,47 +39,39 @@ public class GrindRail extends BaseCard {
         }
     }
 
-
-
-    @Override
-    public void hover() {
-        super.hover();
-        if (isPlayerHandNull()) {
-            return;
-        }
-        if (this.upgraded) {
-            return;
-        }
-        if (AbstractDungeon.isPlayerInDungeon()) {
-            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
-            if (!neighbors.isEmpty()) {
-                for (AbstractCard q : neighbors) {
-                    q.glowColor = Color.GOLD.cpy();
-                    q.beginGlowing();
-                }
-            }
-        }
-    }
-
-    @Override
-    public void unhover() {
-        super.unhover();
-        if (isPlayerHandNull()) {
-            return;
-        }
-        if (this.upgraded) {
-            return;
-        }
-        if (AbstractDungeon.isPlayerInDungeon()) {
-            ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
-            if (!neighbors.isEmpty()) {
-                for (AbstractCard q : neighbors) {
-                    q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-                    q.triggerOnGlowCheck();
-                }
-            }
-        }
-    }
+    // @Override
+    // public void hover() {
+    //     super.hover();
+    //     if (isPlayerHandNull()) {
+    //         return;
+    //     }
+    //     if (AbstractDungeon.isPlayerInDungeon()) {
+    //         ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
+    //         if (!neighbors.isEmpty()) {
+    //             for (AbstractCard q : neighbors) {
+    //                 q.glowColor = Color.GOLD.cpy();
+    //                 q.beginGlowing();
+    //             }
+    //         }
+    //     }
+    // }
+    //
+    // @Override
+    // public void unhover() {
+    //     super.unhover();
+    //     if (isPlayerHandNull()) {
+    //         return;
+    //     }
+    //     if (AbstractDungeon.isPlayerInDungeon()) {
+    //         ArrayList<AbstractCard> neighbors = getNeighbors(AbstractDungeon.player.hand, false);
+    //         if (!neighbors.isEmpty()) {
+    //             for (AbstractCard q : neighbors) {
+    //                 q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    //                 q.triggerOnGlowCheck();
+    //             }
+    //         }
+    //     }
+    // }
 
     @Override
     public AbstractCard makeCopy() { // Optional

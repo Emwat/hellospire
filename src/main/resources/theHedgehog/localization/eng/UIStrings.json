@@ -199,8 +199,8 @@
       "He's a tough guy, but he isn't very bright. -Cream from Sonic Rush",
       "Hey dimwit! Wait a minute! -Amy from Sonic Rush",
       "You fell right into my trap, Knuckles! -Eggman from Sonic Battle",
-      "Come on, Knuckles! Is that all you got?! -Emerl to trapped Knuckles",
-      "It's a secret, but my partner got tricked by Eggman again! -Emerl",
+      "It's a secret, but my partner got tricked by Eggman again! -Emerl from Sonic Battle",
+      "Forget the red mutt. Let's go Storm! -Wave from Sonic Riders",
       "Unlike Sonic, I don't chuckle.",
       "I'd rather flex my muscles.",
       "Time for a Knuckles sandwich.",
@@ -238,6 +238,18 @@
       "Only through trial do we find the strength we need.",
       "Heroes rise again.",
       "Got a hundred thousand pounds sitting on my back."
+    ]
+  },
+  "${modID}:DeathScreenAmy": {
+    "TEXT": [
+      "I miss the good old days. -Sonic Adventure",
+      "But now he's gone. And there's nothing left to do. -Sonic Adventure",
+      "Sonic!",
+      "You're not Sonic! Who are you? -Sonic Adventure 2",
+      "He must've gotten cold feet! -Sonic Battle",
+      "SONIC, LETS GO ON OUR HONEYMOOOON~! -Sonic Heroes",
+      "I can't believe he did that just so he could get away. -Cream from Sonic Heroes",
+      "I just completely mistook you for someone else! -Sonic Unleashed"
     ]
   },
   "${modID}:SingleCardReward": {

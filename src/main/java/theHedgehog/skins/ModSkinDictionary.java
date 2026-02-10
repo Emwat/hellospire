@@ -166,16 +166,15 @@ public class ModSkinDictionary {
                 "Do I look like I need your power?",
                 "idle", "idle2", "idle3", "attack");
 
-        registerCharacter(skinBattleAmyID, "Battle Amy", Contact.Amy, newCharacterPath("characterAmy/animation/battleAmy.scml"),
-                newCharacterPath("characterAmy"),
-                "L, Let's not use the hammer.",
-                "idle", "happy", "hurt", "attack");
-
         registerCharacter(skinBattleShadowID, "Battle Shadow", Contact.Shadow, newCharacterPath("characterShadow/animation/battleShadow.scml"),
                 newCharacterPath("characterShadow"),
                 "The military has mistaken me for the likes of you!",
                 "idle", "idle2", "idle3");
 
+        registerCharacter(skinBattleAmyID, "Battle Amy", Contact.Amy, newCharacterPath("characterAmy/animation/battleAmy.scml"),
+                newCharacterPath("characterAmy"),
+                "L, Let's not use the hammer.",
+                "idle", "happy", "hurt", "attack");
     }
 
     static public void initializeModSkinsUnlockables() {
@@ -183,7 +182,6 @@ public class ModSkinDictionary {
     }
 
     private static String newCharacterPath(String folder) {
-        SonicMod.logger.info(SonicMod.imagePath(folder));
         return SonicMod.imagePath(folder);
     }
 

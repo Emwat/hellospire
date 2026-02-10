@@ -75,30 +75,6 @@ public class MainMenuUIPatch {
             CharSelectInfo c = ReflectionHacks.getPrivate(obj, CharacterOption.class, "charInfo");
 
             if (c != null && c.player.chosenClass.equals(Sonic.Meta.THE_HEDGEHOG) && obj.selected) {
-                // Render toggle button
-                // packDraftToggle.move(CHECKBOX_X, CHECKBOX_Y);
-                // packDraftToggle.render(sb);
-                //
-                // sb.setColor(Color.WHITE);
-                // float checkScale = Settings.scale * 0.8f;
-                // sb.draw(ImageMaster.CHECKBOX, packDraftToggle.cX - 32f, packDraftToggle.cY - 32f, 32.0f, 32.0f, 64.0f, 64.0f, checkScale, checkScale, 0.0f, 0, 0, 64, 64, false, false);
-                // if (customDraft) {
-                //     sb.draw(ImageMaster.TICK, packDraftToggle.cX - 32f, packDraftToggle.cY - 32f, 32.0f, 32.0f, 64.0f, 64.0f, checkScale, checkScale, 0.0f, 0, 0, 64, 64, false, false);
-                // }
-                // FontHelper.renderSmartText(sb, FontHelper.tipHeaderFont, uiStrings.TEXT[0], packDraftToggle.cX + 25f * Settings.scale, packDraftToggle.cY + FontHelper.getHeight(FontHelper.tipHeaderFont) * 0.5f, Settings.BLUE_TEXT_COLOR);
-
-                // If toggle button is checked, render the dropdowns, too
-                // if (customDraft) {
-                //     for (int i = dropdowns.size() - 1; i >= 0; i--) {
-                //         dropdowns.get(i).render(sb, DROPDOWN_X, DROPDOWNS_START_Y - (DROPDOWNS_SPACING * i));
-                //     }
-                // }
-
-                // if (filterMenu.isOpen) {
-                //     filterMenu.render(sb);
-                // }
-                // openFilterMenuButton.render(sb);
-
                 if (hatMenu.isOpen) {
                     hatMenu.render(sb);
                 }
@@ -154,13 +130,7 @@ public class MainMenuUIPatch {
                             packDraftToggle.clicked = false;
                         }
                     }
-                } else {
                 }
-
-                // openFilterMenuButton.update();
-                // if (filterMenu.isOpen) {
-                //     filterMenu.update();
-                // }
 
                 openHatMenuButton.update();
                 if (hatMenu.isOpen) {

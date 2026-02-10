@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
+import theHedgehog.character.Sonic;
 import theHedgehog.util.TextureLoader;
 
 public class SuperFinisherEffect extends AbstractGameEffect {
@@ -25,18 +26,49 @@ public class SuperFinisherEffect extends AbstractGameEffect {
 
         // TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("powers/powers.atlas"));
         blackScreen = TextureLoader.getTexture(SonicMod.characterPath("overkill/black.png"));
-        if (tag == SonicTags.ERA_CLASSIC) {
-            texture = TextureLoader.getTexture(SonicMod.characterPath("overkill/classic.png"));
-            textureWidth = 540;
-            textureHeight = 768;
-        } else if (tag == SonicTags.ERA_ADVENTURE) {
-            texture = TextureLoader.getTexture(SonicMod.characterPath("overkill/adventure.png"));
-            textureWidth = 616;
-            textureHeight = 768;
-        } else if (tag == SonicTags.ERA_MODERN) {
-            texture = TextureLoader.getTexture(SonicMod.characterPath("overkill/modern.png"));
-            textureWidth = 631;
-            textureHeight = 768;
+
+        if (Sonic.isKnuckles()) {
+            if (tag == SonicTags.ERA_CLASSIC) {
+                texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/classic.png");
+                textureWidth = 558;
+                textureHeight = 768;
+            } else if (tag == SonicTags.ERA_ADVENTURE) {
+                texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/adventure.png");
+                textureWidth = 836;
+                textureHeight = 768;
+            } else if (tag == SonicTags.ERA_MODERN) {
+                texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/modern.png");
+                textureWidth = 588;
+                textureHeight = 768;
+            }
+        } else if (Sonic.isShadow()) {
+            if (tag == SonicTags.ERA_CLASSIC) {
+                texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/classic.png");
+                textureWidth = 479;
+                textureHeight = 768;
+            } else if (tag == SonicTags.ERA_ADVENTURE) {
+                texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/adventure.png");
+                textureWidth = 479;
+                textureHeight = 768;
+            } else if (tag == SonicTags.ERA_MODERN) {
+                texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/modern.png");
+                textureWidth = 858;
+                textureHeight = 768;
+            }
+        } else {
+            if (tag == SonicTags.ERA_CLASSIC) {
+                texture = TextureLoader.getTexture(SonicMod.characterPath("overkill/classic.png"));
+                textureWidth = 540;
+                textureHeight = 768;
+            } else if (tag == SonicTags.ERA_ADVENTURE) {
+                texture = TextureLoader.getTexture(SonicMod.characterPath("overkill/adventure.png"));
+                textureWidth = 616;
+                textureHeight = 768;
+            } else if (tag == SonicTags.ERA_MODERN) {
+                texture = TextureLoader.getTexture(SonicMod.characterPath("overkill/modern.png"));
+                textureWidth = 631;
+                textureHeight = 768;
+            }
         }
         // textureWidth = (float) texture.getWidth();
         // textureHeight = (float) texture.getHeight();

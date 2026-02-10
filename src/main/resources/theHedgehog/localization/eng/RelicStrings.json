@@ -11,7 +11,7 @@
     "NAME": "Air Boost Shoes",
     "FLAVOR": "Shoes as light as a feather. They let you accelerate even in midair.",
     "DESCRIPTIONS": [
-      "#yIf #ymost #yleft #yor #yright effects are free."
+      "#yIf #yleftmost and #yrightmost effects will always activate."
     ]
   },
   "${modID}:BlueQuillRelic": {

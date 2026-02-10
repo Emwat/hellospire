@@ -2,11 +2,8 @@ package theHedgehog.util;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-
-import java.util.HashMap;
 
 public class GeneralUtils {
     public static String arrToString(Object[] arr) {
@@ -70,5 +67,9 @@ public class GeneralUtils {
         }
 
         return null;
+    }
+
+    public static String CapitalizeFirstLetter(String s){
+        return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
 }

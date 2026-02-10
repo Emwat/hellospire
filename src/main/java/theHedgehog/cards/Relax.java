@@ -32,6 +32,7 @@ public class Relax extends BaseCard {
     public Relax() {
         super(ID, info);
         tags.add(SonicTags.LIKE_WATCHER);
+        setCostUpgrade(0);
     }
 
     @Override
@@ -45,74 +46,12 @@ public class Relax extends BaseCard {
         addToBot(new ChangeStanceAction(CalmStance.STANCE_ID));
         addToBot(new MakeTempCardInDrawPileAction(copy, 1, true, true));
 
-        if (!this.upgraded) {
-            if (WrathCondition(p)) {
-                addToBot(new ChangeStanceAction(WrathStance.STANCE_ID));
-            }
-        } else {
-            ArrayList<AbstractCard> picks = new ArrayList<>(Arrays.asList(
-                    new RelaxPick1(),
-                    new RelaxPick2()
-            ));
-            if (this.upgraded) {
-                for (AbstractCard pick : picks) {
-                    pick.upgrade();
-                }
-            }
+        ArrayList<AbstractCard> picks = new ArrayList<>(Arrays.asList(
+                new RelaxPick1(),
+                new RelaxPick2()
+        ));
 
-            addToBot(new ChooseOneAction(picks));
-        }
-
-    }
-
-    public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
-        if (this.upgraded) {
-            return;
-        }
-
-        if (isPlayerHandNull()) {
-            return;
-        }
-
-        if (WrathCondition(AbstractDungeon.player)) {
-            this.glowColor = Color.RED.cpy();
-        }
-    }
-
-    @Override
-    public void triggerWhenDrawn() {
-        if (this.upgraded) {
-            return;
-        }
-        addToBot(new ModFastAction( () -> {
-                if (WrathCondition(AbstractDungeon.player)) {
-                    loadCardImage(imageSkillPath("RelaxPick2.png"));
-                } else {
-                    loadCardImage(imageSkillPath("Relax.png"));
-                }
-            })
-        );
-    }
-
-    @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) {
-        if (!this.upgraded) {
-            addToBot(new ModFastAction(() -> {
-                if (WrathCondition(AbstractDungeon.player)) {
-                    loadCardImage(imageSkillPath("RelaxPick2.png"));
-                } else {
-                    loadCardImage(imageSkillPath("Relax.png"));
-                }
-            }));
-        }
-
-        super.triggerOnOtherCardPlayed(c);
-    }
-
-    private boolean WrathCondition(AbstractPlayer p) {
-        return CheckIfLeftCard(this, p.hand) || CheckIfRightCard(this, p.hand);
+        addToBot(new ChooseOneAction(picks));
     }
 
     @Override

@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.cardmodifiers.MagicHandsModifier;
+import theHedgehog.cardmodifiers.RougeFlavorModifier;
 import theHedgehog.cards.Assist;
 import theHedgehog.util.GeneralUtils;
 
@@ -40,6 +41,7 @@ public class RougeEvent extends PhasedEvent {
     private int decreaseMaxHPAmt;
 
     private static final String IMG = SonicMod.imagePath("events/SonicXRouge.png");
+    private static final String IMG_W_OMOCHAO = SonicMod.imagePath("events/SonicXRouge.png");
 
     // [#c29eb5] does not seem to be working in EventStrings.json
     public RougeEvent() {
@@ -137,6 +139,8 @@ public class RougeEvent extends PhasedEvent {
             AbstractCard c = theAssist.makeStatEquivalentCopy();
             cardsObtained.add(c.name);
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+            CardModifierManager.addModifier(c, new RougeFlavorModifier());
+            CardModifierManager.addModifier(c, new RougeFlavorModifier());
         }
 
         logMetric(ID, "Trade For Assist",

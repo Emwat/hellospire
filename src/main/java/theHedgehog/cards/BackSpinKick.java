@@ -32,6 +32,7 @@ public class BackSpinKick extends BaseCard {
         setDamage(DAMAGE, UPG_DAMAGE);
         tags.add(SonicTags.KICK);
         tags.add(SonicTags.LIKE_SILENT);
+        tags.add(SonicTags.ERA_MODERN);
     }
 
     /// Deal !D! damage. This costs 1 less for each attack played.

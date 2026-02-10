@@ -24,8 +24,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.screens.DeathScreen;
-import com.megacrit.cardcrawl.screens.VictoryScreen;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.actions.ModWaitAction;
@@ -34,6 +32,7 @@ import theHedgehog.cardsTails.IQ200Attack;
 import theHedgehog.cardsTails.IQ300Attack;
 import theHedgehog.cardsTails.IQ400Attack;
 import theHedgehog.cardsTails.MagicHook;
+import theHedgehog.relics.*;
 import theHedgehog.skins.ModSkinDictionary;
 import theHedgehog.character.Sonic;
 import theHedgehog.strings.*;
@@ -43,11 +42,9 @@ import theHedgehog.effects.SuperFinisherEffect;
 import theHedgehog.events.*;
 import theHedgehog.multiplayer.Skindexer;
 import theHedgehog.packsMisc.PackLoader;
-import theHedgehog.relics.CDFutureRelic;
 import theHedgehog.util.*;
 import theHedgehog.character.SonicTipTracker;
 import theHedgehog.potions.BasePotion;
-import theHedgehog.relics.BaseRelic;
 import theHedgehog.rewards.AssistReward;
 import theHedgehog.rewards.RewardTypePatch;
 import com.badlogic.gdx.Files;
@@ -176,8 +173,10 @@ public class SonicMod implements
         loadConfig();
         ModSkinDictionary.initializeModSkins();
 
-        ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
+        ConsoleCommand.addCommand("sonicach0", SonicConsoleAch0.class);
+        ConsoleCommand.addCommand("sonicach1", SonicConsoleAch1.class);
         ConsoleCommand.addCommand("sonicunlock", SonicConsoleUnlock.class);
+        ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
         ConsoleCommand.addCommand("soniceverything", SonicConsoleEverything.class);
         ConsoleCommand.addCommand("sonicskin", SonicConsoleSkin.class);
         ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
@@ -541,11 +540,13 @@ public class SonicMod implements
         BaseMod.removeCard(Acceleration.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Bait.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(BlueBomber.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Enerbeam.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SpeedUp.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(IQ200Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(IQ300Attack.ID, Sonic.Meta.CARD_COLOR);
@@ -557,22 +558,9 @@ public class SonicMod implements
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
         }
-        BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
-
-        // this code does not seem to work. 11/29/2025 08:46 AM
-        // if (!MyModConfig.enableCrestOfFire) {
-        BaseMod.removeCard(FireTackle.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(FireSomersault.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(VolcanoSlider.ID, Sonic.Meta.CARD_COLOR);
-        // }
-        //
-        // if (!MyModConfig.enableStanceSwitching) {
-        //     BaseMod.removeCard(MagicHands.ID, Sonic.Meta.CARD_COLOR);
-        //     BaseMod.removeCard(Relax.ID, Sonic.Meta.CARD_COLOR);
-        //     BaseMod.removeCard(SlotMachineGame.ID, Sonic.Meta.CARD_COLOR);
-        // }
 
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
@@ -603,8 +591,8 @@ public class SonicMod implements
 
         BaseMod.addAudio(SoundLibrary.Amazing1, audioEngPath("sc_01_AMAZING.ogg"));
         BaseMod.addAudio(SoundLibrary.Amazing2, audioEngPath("sc_02_OUTSTANDING.ogg"));
-//        BaseMod.addAudio(SoundLibrary.Amazing3, audioEngPath("03_GREAT.ogg"));
-//        BaseMod.addAudio(SoundLibrary.Amazing4, audioEngPath("04_GOOD.ogg"));
+        // BaseMod.addAudio(SoundLibrary.Amazing3, audioEngPath("03_GREAT.ogg"));
+        // BaseMod.addAudio(SoundLibrary.Amazing4, audioEngPath("04_GOOD.ogg"));
 
         BaseMod.addAudio(SoundLibrary.QuickAir1, audioEngPath("su_01_V_SNC_000_b.ogg"));
         BaseMod.addAudio(SoundLibrary.QuickAir2, audioEngPath("su_01_V_SNC_001_a.ogg"));
@@ -746,7 +734,9 @@ public class SonicMod implements
             )));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, TOPBAR_H, false)));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, 0, false, true)));
-            AbstractDungeon.actionManager.addToTop(SoundLibrary.AlwaysPlayVoiceAction(SoundLibrary.BlastAway));
+            if (Sonic.isSonic()){
+                AbstractDungeon.actionManager.addToTop(SoundLibrary.AlwaysPlayVoiceAction(SoundLibrary.BlastAway));
+            }
         }
     }
 
@@ -755,6 +745,11 @@ public class SonicMod implements
         if (!(AbstractDungeon.player instanceof Sonic)) {
             return;
         }
+        playVictoryQuote(abstractRoom);
+
+    }
+
+    private void playVictoryQuote(AbstractRoom abstractRoom){
         String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
 
         ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
@@ -830,6 +825,15 @@ public class SonicMod implements
         // UnlockTracker.markCardAsSeen(AssistTails.ID);
         // UnlockTracker.markCardAsSeen(AssistTikal.ID);
 
+        UnlockTracker.addCard(SonicWave.ID);
+        UnlockTracker.addCard(SmoothLanding.ID);
+        UnlockTracker.addCard(Drift.ID);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
+                SonicWave.ID,
+                SmoothLanding.ID,
+                Drift.ID), Sonic.Meta.THE_HEDGEHOG, 1);
+
         UnlockTracker.addCard(FireTackle.ID);
         UnlockTracker.addCard(FireSomersault.ID);
         UnlockTracker.addCard(VolcanoSlider.ID);
@@ -837,7 +841,7 @@ public class SonicMod implements
         BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
                 FireTackle.ID,
                 FireSomersault.ID,
-                VolcanoSlider.ID), Sonic.Meta.THE_HEDGEHOG, 0);
+                VolcanoSlider.ID), Sonic.Meta.THE_HEDGEHOG, 2);
 
         UnlockTracker.addCard(MagicHands.ID);
         UnlockTracker.addCard(Relax.ID);
@@ -846,7 +850,17 @@ public class SonicMod implements
         BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
                 MagicHands.ID,
                 Relax.ID,
-                SlotMachineGame.ID), Sonic.Meta.THE_HEDGEHOG, 1);
+                SlotMachineGame.ID), Sonic.Meta.THE_HEDGEHOG, 3);
+
+        UnlockTracker.addRelic(PowerBrakeRelic.ID);
+        UnlockTracker.addRelic(GoldenGloveRelic.ID);
+        UnlockTracker.addRelic(Player2Relic.ID);
+
+        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
+                PowerBrakeRelic.ID,
+                GoldenGloveRelic.ID,
+                Player2Relic.ID
+                ), Sonic.Meta.THE_HEDGEHOG, 4);
     }
 
     private void loadConfig() {

@@ -218,6 +218,14 @@
     "DESCRIPTION": "This card's target change every time you play a card. Deal !D! damage.",
     "UPGRADE_DESCRIPTION": ""
   },
+  "${modID}:ColorlessBandageUp": {
+    "NAME": "Chili Dog",
+    "DESCRIPTION": "You're not supposed to see this."
+  },
+  "${modID}:ColorlessShiv": {
+    "NAME": "Kunai",
+    "DESCRIPTION": "You're not supposed to see this."
+  },
   "${modID}:ClawsUnleashed": {
     "NAME": "Claws Unleashed",
     "DESCRIPTION": "Can only be played if you have a channeled Dark Orb. NL Deal !D! damage.",
@@ -574,8 +582,8 @@
   },
   "${modID}:PackHomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Add a Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a Trick+ to your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a [#efc851ff]Trick+ to your hand.",
     "IGNORE_ME": "stslib:Persist !stslib:persist!"
   },
   "${modID}:PackRing": {
@@ -608,15 +616,14 @@
   },
   "${modID}:Relax": {
     "NAME": "Relax",
-    "DESCRIPTION": "Enter Calm. Shuffle [#efc851ff]Relax into your draw pile. ${modID}:If_most_left_or_right, enter Wrath.",
-    "UPGRADE_DESCRIPTION": "Enter Calm. Shuffle [#efc851ff]Relax+ into your draw pile. Choose between staying Calm or entering Wrath."
+    "DESCRIPTION": "Enter Calm. Shuffle [#efc851ff]Relax into your draw pile. Choose between staying Calm and entering Wrath."
   },
   "${modID}:RelaxPick1": {
     "NAME": "Relax",
     "DESCRIPTION": "Stay Calm."
   },
   "${modID}:RelaxPick2": {
-    "NAME": "DON'T BLINK",
+    "NAME": "Crash out",
     "DESCRIPTION": "Enter Wrath."
   },
   "${modID}:Ricochet": {

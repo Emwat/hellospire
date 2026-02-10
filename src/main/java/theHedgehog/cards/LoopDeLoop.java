@@ -55,10 +55,6 @@ public class LoopDeLoop extends BaseCard {
             return;
         }
 
-        if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
-            return;
-        }
-
         if (AbstractDungeon.player.hand.size() + magicNumber > BaseMod.MAX_HAND_SIZE + 1){
             this.glowColor = Color.RED.cpy();
         }

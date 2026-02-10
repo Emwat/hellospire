@@ -42,23 +42,13 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistEspio());
         characterCards.add(new AssistJet());
         characterCards.add(new AssistKnuckles());
+        characterCards.add(new AssistRouge());
         characterCards.add(new AssistShadow());
         characterCards.add(new AssistSilver());
         characterCards.add(new AssistSticks());
         characterCards.add(new AssistTails());
         characterCards.add(new AssistTikal());
         characterCards.add(new AssistVector());
-        // if (this.upgraded) {
-        //     characterCards.add(new Gizoid());
-        // }
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(CDPastRelic.ID)){
-            characterCards.add(new AssistRosy());
-            characterCards.add(new DebugMode());
-        }
-        if (AbstractDungeon.player != null && !AbstractDungeon.player.hasRelic(CDFutureRelic.ID)){
-            characterCards.add(new AssistRouge());
-        }
-
 
         setExhaust(true);
     }

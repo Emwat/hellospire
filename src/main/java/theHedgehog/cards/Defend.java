@@ -12,6 +12,8 @@ import theHedgehog.character.Sonic;
 import theHedgehog.multiplayer.ModMultiplayerHelper;
 import theHedgehog.util.CardStats;
 
+import static theHedgehog.multiplayer.ModMultiplayerHelper.IsCharacterEntity;
+
 public class Defend extends BaseCard {
     public static final String ID = makeID("Defend");
     private static final CardStats info = new CardStats(
@@ -40,11 +42,11 @@ public class Defend extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (ModMultiplayerHelper.HasHelpYourBro(m)) {
+        if (ModMultiplayerHelper.HasHelpYourBro() && IsCharacterEntity(m)) {
             m.addBlock(block);
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
             return;
-        } else if (ModMultiplayerHelper.HasSpireTogether(m) && this.upgraded) {
+        } else if (ModMultiplayerHelper.HasSpireTogether() && IsCharacterEntity(m) && this.upgraded) {
             m.addBlock(block);
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
             return;

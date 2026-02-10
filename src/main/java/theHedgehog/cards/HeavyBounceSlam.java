@@ -87,6 +87,7 @@ public class HeavyBounceSlam extends BaseCard {
         }
 
         if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            this.glowColor = Color.WHITE.cpy();
             return;
         }
 

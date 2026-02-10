@@ -18,18 +18,18 @@
   },
   "${modID}:Version092": {
     "LABEL": [
-      "The Hedgehog Mod -- Version0.9.2 -- 10/11/2025 12:13 AM"
+      "The Hedgehog v0.9.2 -- October 11, 2025"
     ],
     "TEXT": [
       "I've come to make an announcement! NL NL If you see a card randomly glowing #ygold for no reason, that's not the game telling you that it's important. That's a #rbug. --SpireWolf25"
     ]
   },
-  "${modID}:Version095": {
+  "${modID}:Version098": {
     "LABEL": [
-      "The Hedgehog Mod -- Version0.9.5 -- unknown time"
+      "The Hedgehog v0.9.8 -- February 2, 2026"
     ],
     "TEXT": [
-      "This is placeholder news to test consecutive news."
+      "Together In Spire Feature: If you drag a Defend+ to a teammate's nameplate, you can give them block! Very few mods support this feature. NL NL (You cannot click and click. You must drag and drop card to apply.)"
     ]
   }
 }

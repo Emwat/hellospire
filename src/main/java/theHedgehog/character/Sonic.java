@@ -439,7 +439,6 @@ public class Sonic extends CustomPlayer {
 
     @Override
     public Texture getCutsceneBg() {
-
         if (isAmy() || isKnuckles() || isShadow()) {
             return ImageMaster.loadImage("images/scenes/redBg.jpg");
         }
@@ -455,6 +454,10 @@ public class Sonic extends CustomPlayer {
             panels.add(new CutscenePanel(endingPath("ending1.png"), SoundLibrary.Boost));
             panels.add(new CutscenePanel(endingPath("ending2.png")));
             panels.add(new CutscenePanel(endingPath("ending3.png")));
+        } else if (isKnuckles()){
+            panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending1.png"));
+            panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending2.png"));
+            panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending3.png"));
         } else {
             panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending1.png"));
         }

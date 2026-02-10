@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -70,6 +71,7 @@ public class EndlessBoost extends BaseCard {
         }
 
         if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            this.glowColor = Color.WHITE.cpy();
             return;
         }
 

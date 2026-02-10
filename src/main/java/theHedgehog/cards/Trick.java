@@ -9,9 +9,11 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import spireTogether.monsters.CharacterEntity;
@@ -30,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static theHedgehog.multiplayer.ModMultiplayerHelper.GiveCardToTeammate;
+import static theHedgehog.multiplayer.ModMultiplayerHelper.IsCharacterEntity;
 
 public class Trick extends BaseCard {
     public static final String ID = makeID("Trick");
@@ -69,13 +72,16 @@ public class Trick extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (ModMultiplayerHelper.HasHelpYourBro(m)) {
+        if (ModMultiplayerHelper.HasSpireTogether() && IsCharacterEntity(m)) {
             addToBot(new ModXFastAction(() -> {
                 GiveCardToTeammate(m, this);
             }));
             return;
         }
-        addToBot(new AnimateHopAction(p));
+
+        if (!Settings.FAST_MODE) {
+            addToBot(new AnimateHopAction(p));
+        }
         addToBot(new ModFastAction(() -> TricksPlayed++));
         addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.ALLRIGHT,

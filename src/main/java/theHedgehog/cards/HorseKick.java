@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -83,6 +84,7 @@ public class HorseKick extends BaseCard {
         }
 
         if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            this.glowColor = Color.WHITE.cpy();
             return;
         }
 

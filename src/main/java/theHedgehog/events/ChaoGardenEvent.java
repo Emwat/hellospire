@@ -6,9 +6,7 @@ import basemod.abstracts.events.phases.TextPhase;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.green.DeadlyPoison;
 import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -23,7 +21,6 @@ import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
-import theHedgehog.console.SonicConsoleDebugString;
 import theHedgehog.potions.ChaosSodaPotion;
 import theHedgehog.relics.*;
 import theHedgehog.strings.SonicChaoGardenStrings;
@@ -35,6 +32,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static theHedgehog.SonicMod.makeID;
+import static theHedgehog.util.GeneralUtils.CapitalizeFirstLetter;
 
 public class ChaoGardenEvent extends PhasedEvent {
     private class DrinkingBuddy {
@@ -84,7 +82,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                     "Tails", "Knuckles", "Amy", "Rouge"
             };
             if (Arrays.stream(friends).anyMatch(s -> s.equals(this.Name))) {
-                String capitalizedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
+                String capitalizedName = CapitalizeFirstLetter(this.Name);
 
                 return String.format("%s%s%s%s %s %s%s",
                         OptPartnerA,

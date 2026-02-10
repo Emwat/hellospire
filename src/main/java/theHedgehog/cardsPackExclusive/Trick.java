@@ -6,9 +6,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
+import theHedgehog.multiplayer.ModMultiplayerHelper;
 import theHedgehog.util.CardStats;
+
+import static theHedgehog.multiplayer.ModMultiplayerHelper.GiveCardToTeammate;
+import static theHedgehog.multiplayer.ModMultiplayerHelper.IsCharacterEntity;
 
 public class Trick extends BaseCard {
     public static final String ID = makeID("PackTrick");
@@ -34,6 +39,12 @@ public class Trick extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (ModMultiplayerHelper.HasSpireTogether() && IsCharacterEntity(m)) {
+            addToBot(new ModXFastAction(() -> {
+                GiveCardToTeammate(m, this);
+            }));
+            return;
+        }
         addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
         addToBot(new GainEnergyAction(REFUND));
     }

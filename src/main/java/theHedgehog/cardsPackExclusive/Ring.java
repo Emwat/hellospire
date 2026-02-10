@@ -35,7 +35,7 @@ public class Ring extends BaseCard {
     );
 
     private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 1;
+    private static final int UPG_MAGIC = 3;
 
     public Ring() {
         super(ID, info);
@@ -79,11 +79,6 @@ public class Ring extends BaseCard {
         AbstractPlayer p = AbstractDungeon.player;
         addToTop(new ApplyPowerAction(p, p, new RingPower(p, 1)));
         super.triggerWhenCopied();
-    }
-
-    @Override
-    public boolean canUpgrade() {
-        return false;
     }
 
     @Override

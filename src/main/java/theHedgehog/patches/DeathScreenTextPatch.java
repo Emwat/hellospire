@@ -19,6 +19,7 @@ public class DeathScreenTextPatch {
     private static final String[] DeathScreenTails = CardCrawlGame.languagePack.getUIString(makeID("DeathScreenTails")).TEXT;
     private static final String[] DeathScreenKnuckles = CardCrawlGame.languagePack.getUIString(makeID("DeathScreenKnuckles")).TEXT;
     private static final String[] DeathScreenShadow = CardCrawlGame.languagePack.getUIString(makeID("DeathScreenShadow")).TEXT;
+    private static final String[] DeathScreenAmy = CardCrawlGame.languagePack.getUIString(makeID("DeathScreenAmy")).TEXT;
 
     @SpirePatch(clz = DeathScreen.class, method = "getDeathText")
     public static class changeDeathTextMessagePatch {
@@ -35,6 +36,8 @@ public class DeathScreenTextPatch {
                 return SpireReturn.Return(DeathScreenKnuckles[MathUtils.random(DeathScreenKnuckles.length - 1)]);
             } else if (Sonic.isShadow()) {
                 return SpireReturn.Return(DeathScreenShadow[MathUtils.random(DeathScreenShadow.length - 1)]);
+            } else if (Sonic.isAmy()) {
+                return SpireReturn.Return(DeathScreenAmy[MathUtils.random(DeathScreenAmy.length - 1)]);
             } else {
                 return SpireReturn.Return(DeathScreenSonic[MathUtils.random(DeathScreenSonic.length - 1)]);
             }

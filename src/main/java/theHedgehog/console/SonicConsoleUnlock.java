@@ -3,19 +3,20 @@ package theHedgehog.console;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import theHedgehog.character.Sonic;
 
 import java.util.ArrayList;
 
 import static theHedgehog.SonicMod.makeID;
 
 // valid commands:
-// sonicunlock BlueHedgehog:Ringmaster
+// sonicunlock
 
 // https://github.com/daviscook477/BaseMod/wiki/Console#adding-your-own-commands
 public class SonicConsoleUnlock extends ConsoleCommand {
     public SonicConsoleUnlock() {
-        maxExtraTokens = 2; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
-        minExtraTokens = 2; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
+        maxExtraTokens = 1; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
+        minExtraTokens = 0; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
         requiresPlayer = false; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
         simpleCheck = false;
         /**
@@ -36,33 +37,24 @@ public class SonicConsoleUnlock extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
-        if (tokens.length < 3) {
-            DevConsole.log("3 Parameters required");
-            return;
+
+        String subcommand = tokens.length > 1 ? tokens[1] : "";
+
+        if (subcommand.isEmpty() || subcommand.equals("check")){
+            DevConsole.log("UnlockLevel: " + UnlockTracker.getUnlockLevel(Sonic.Meta.THE_HEDGEHOG));
+            DevConsole.log("CurrentProgress: " + UnlockTracker.getCurrentProgress(Sonic.Meta.THE_HEDGEHOG));
+        } else if (subcommand.equals("reset")) {
+            UnlockTracker.resetUnlockProgress(Sonic.Meta.THE_HEDGEHOG);
+            DevConsole.log(subcommand + " unlock progress reset.");
         }
-        String subcommand = tokens[1];
-        String password = tokens[2];
-        if (!("emerl".equals(password))) {
-            DevConsole.log("Invalid password.");
-            return;
-        }
-        UnlockTracker.unlockAchievement(subcommand);
-        DevConsole.log(subcommand + " unlocked.");
+
     }
 
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
         // SonicMod.logger.info("tokens " + tokens.length + " | depth : " + depth);
         ArrayList<String> result = new ArrayList<>();
-        result.add(makeID("Ringmaster"));
-        result.add(makeID("VigorAbuse"));
-        result.add(makeID("GooglyEyes"));
-
-        if (tokens.length == 2) {
-            result.add("pwd");
-        }
-        if (tokens.length == 3) {
-            complete = true;
-        }
+        result.add("check");
+        result.add("reset");
 
         return result;
     }

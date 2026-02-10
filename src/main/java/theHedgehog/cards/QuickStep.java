@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -71,6 +72,7 @@ public class QuickStep extends BaseCard {
         }
 
         if (AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            this.glowColor = Color.WHITE.cpy();
             return;
         }
 

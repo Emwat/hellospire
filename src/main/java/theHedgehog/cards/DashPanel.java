@@ -63,41 +63,41 @@ public class DashPanel extends BaseCard {
         return new DashPanel();
     }
 
-    @Override
-    public void hover() {
-        super.hover();
-        if (isPlayerHandNull()) {
-            return;
-        }
-        if (AbstractDungeon.isPlayerInDungeon()) {
-            ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
-            if (cards.isEmpty()) {
-                return;
-            }
-            for (AbstractCard q : cards) {
-                q.glowColor = Color.GOLD.cpy();
-                q.beginGlowing();
-            }
-        }
-    }
-
-    @Override
-    public void unhover() {
-        super.unhover();
-        if (isPlayerHandNull()) {
-            return;
-        }
-        if (AbstractDungeon.isPlayerInDungeon()) {
-            ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
-            if (cards.isEmpty()) {
-                return;
-            }
-            for (AbstractCard q : cards) {
-                q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
-                q.triggerOnGlowCheck();
-            }
-        }
-    }
+    // @Override
+    // public void hover() {
+    //     super.hover();
+    //     if (isPlayerHandNull()) {
+    //         return;
+    //     }
+    //     if (AbstractDungeon.isPlayerInDungeon()) {
+    //         ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
+    //         if (cards.isEmpty()) {
+    //             return;
+    //         }
+    //         for (AbstractCard q : cards) {
+    //             q.glowColor = Color.GOLD.cpy();
+    //             q.beginGlowing();
+    //         }
+    //     }
+    // }
+    //
+    // @Override
+    // public void unhover() {
+    //     super.unhover();
+    //     if (isPlayerHandNull()) {
+    //         return;
+    //     }
+    //     if (AbstractDungeon.isPlayerInDungeon()) {
+    //         ArrayList<AbstractCard> cards = getCardsToTheRight(AbstractDungeon.player.hand.group);
+    //         if (cards.isEmpty()) {
+    //             return;
+    //         }
+    //         for (AbstractCard q : cards) {
+    //             q.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR;
+    //             q.triggerOnGlowCheck();
+    //         }
+    //     }
+    // }
 
     private ArrayList<AbstractCard> getCardsToTheRight(ArrayList<AbstractCard> hand) {
         ArrayList<AbstractCard> cardsToTheRight = new ArrayList<>();

@@ -17,7 +17,7 @@ public class SoundLibrary {
     static public final String Amazing1 = makeID("ogg_AMAZING");
     static public final String Amazing2 = makeID("ogg_OUTSTANDING");
     //    static public final String Amazing3 = makeID("ogg_GREAT");
-//    static public final String Amazing4 = makeID("ogg_GOOD");
+    //    static public final String Amazing4 = makeID("ogg_GOOD");
     static public final String ALLRIGHT = makeID("ogg_ALLRIGHT");
     static public final String COOL = makeID("ogg_COOL");
     static public final String OK = makeID("ogg_OK");
