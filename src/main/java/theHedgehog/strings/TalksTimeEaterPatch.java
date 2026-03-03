@@ -7,9 +7,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.beyond.TimeEater;
+import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
 
-import java.util.ArrayList;
+import static theHedgehog.SonicMod.makeID;
 
 
 public class TalksTimeEaterPatch {
@@ -34,20 +35,16 @@ public class TalksTimeEaterPatch {
                 return;
             }
 
-            ArrayList<String> sonicDialog = new ArrayList<>();
-            sonicDialog.add("Did I keep you waiting?");
-            sonicDialog.add("Fastest Thing Alive vs The Time Eater!");
-
-            ArrayList<String> rivalDialog = new ArrayList<>();
-            rivalDialog.add("You've messed with time... NL @FOR@ @TOO@ @LONG!@");
-            rivalDialog.add("~The~ ~Stage...~ NL ~is~ ~Set...~");
-            int randomNumber = MathUtils.random(rivalDialog.size() - 1);
+            SonicTalkStrings dialogues = SonicMod.modLocalizedStrings.getTalkString(makeID("Time Eater"));
+            String[] sonicReplies = dialogues.DIALOG;
+            String[] timeEaterSays = dialogues.DIALOG_0;
+            int randomNumber = MathUtils.random(sonicReplies.length - 1);
 
             if (___firstTurn[0]) {
                 // String[] dialog = TimeEaterExtraDialog.extraDialog.get(__instance);
 
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(__instance, rivalDialog.get(randomNumber), talkDuration, talkDuration));
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicDialog.get(randomNumber), talkDuration, talkDuration));
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(__instance, timeEaterSays[randomNumber], talkDuration, talkDuration));
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[randomNumber], talkDuration, talkDuration));
                 ___firstTurn[0] = false;
             }
 

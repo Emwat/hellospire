@@ -11,6 +11,7 @@ public class MyModConfig extends EasyConfigPanel {
     public static boolean enableBoss3Music = true;
     public static boolean enableBossSpearShieldMusic = true;
     public static boolean enableBossHeartMusic = true;
+    public static boolean enableStatusCardArt = true;
     public static boolean enableClassicMode = false;
     public static boolean enableEventsForAllCharacters = false;
     public static boolean enableEventsForOnlySonic = true;
@@ -21,6 +22,7 @@ public class MyModConfig extends EasyConfigPanel {
     public static int voiceFrequency = Loader.isModLoaded("spireTogether") ? 5 : 10;
     public static int optionStarterRelic = 0;
     public static boolean enableCrossModIntegrations = true;
+    public static boolean unlockEverything = false;
 
 //    public enum Voice {
 //        English,

@@ -35,7 +35,7 @@ public class ClawsUnleashed extends BaseCard implements BranchingUpgradesCard {
 
     private static final int DAMAGE = 14;
     private static final int BASE_UPG_DAMAGE = 4;
-    private static final int BRANCH_UPG_DAMAGE = 0;
+    private static final int BRANCH_UPG_DAMAGE = 1;
     private final String playerErrorMessage =  CardCrawlGame.languagePack.getUIString(makeID("ClawsUnleashedMessage")).TEXT[0];
 
     public ClawsUnleashed() {

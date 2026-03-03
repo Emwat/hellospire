@@ -1,28 +1,19 @@
 package theHedgehog.cards;
 
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.Loader;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.AnimateHopAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import com.megacrit.cardcrawl.stances.CalmStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import spireTogether.monsters.CharacterEntity;
-import spireTogether.network.objects.items.NetworkCard;
 import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
-import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.multiplayer.ModMultiplayerHelper;
@@ -46,7 +37,7 @@ public class Trick extends BaseCard {
 
     private static final int MAGIC = 4;
     private static final int UPG_MAGIC = 2;
-    private static final int REFUND = 1;
+    private static final int ENERGY_GAIN = 1;
     private static final String[] TrickNames1 = new String[]{"indy", "melon"};
     private static final String[] TrickNames2 = new String[]{"blue scorpion", "blue sky", "double mouse", "method", "mute", "nose grab", "tweak", "twister", "japan", "jessy"};
     public static int TricksPlayed = 0;
@@ -90,7 +81,7 @@ public class Trick extends BaseCard {
                 SoundLibrary.YES
         ))));
         addToBot(new ApplyPowerAction(p, p, new VigorPower(p, magicNumber)));
-        addToBot(new GainEnergyAction(REFUND));
+        addToBot(new GainEnergyAction(ENERGY_GAIN));
     }
 
 

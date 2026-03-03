@@ -94,6 +94,13 @@
       "+ damage, exhaust ALL of your #yRings."
     ]
   },
+  "${modID}:CrystalRingRelic": {
+    "NAME": "Crystal Ring",
+    "FLAVOR": "THE TRAIN HEADED FOR THE MYSTIC RUINS WILL BE DEPARTING SOON.",
+    "DESCRIPTIONS": [
+      "At the start of combat, shuffle a #yCrystal #yRing into your Draw Pile."
+    ]
+  },
   "${modID}:EmblemRelic": {
     "NAME": "Emblem",
     "FLAVOR": "Time to crack that Eggman wide open. Yeah, let's party!",

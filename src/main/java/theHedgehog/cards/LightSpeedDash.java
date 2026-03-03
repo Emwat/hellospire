@@ -31,8 +31,8 @@ public class LightSpeedDash extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC = 1;
+    private static final int MAGIC = 9;
+    private static final int UPG_MAGIC = 3;
 
     public LightSpeedDash() {
         super(ID, info);
@@ -50,24 +50,16 @@ public class LightSpeedDash extends BaseCard {
             for (AbstractCard card : p.hand.group) {
                 if (card.hasTag(SonicTags.RING)) {
                     addToBot(new ExhaustSpecificCardAction(card, p.hand, true));
-                    addToBot(new HealAction(p, p, magicNumber));
                 }
             }
-            if (ringsToCreate > 6) {
-                addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
-                        SoundLibrary.FeelingGood,
-                        SoundLibrary.Hehe,
-                        SoundLibrary.SmallYahoo,
-                        SoundLibrary.SmallYes
-                ))));
-            }
+
             addToBot(new ModXFastAction(() -> {
                 RingPower ringPower = (RingPower) p.getPower(RingPower.POWER_ID);
                 if (ringPower != null)
                     ringPower.CalculateNumberOfRings();
             }));
         }));
-
+        addToBot(new HealAction(p, p, magicNumber));
     }
 
     // @Override

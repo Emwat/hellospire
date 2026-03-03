@@ -2,6 +2,7 @@ package theHedgehog.cards;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,6 +30,7 @@ public class Turbulence extends BaseCard {
 
     public Turbulence() {
         super(ID, info);
+        this.cardsToPreview = new Trick();
 
         setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_IRONCLAD);
@@ -39,7 +41,8 @@ public class Turbulence extends BaseCard {
         int magicOutput = magicNumber;
         if (CheckIfLeftCard(this, p.hand)) {
             addToBot(SoundLibrary.VoiceAction(SoundLibrary.OmochaoTurbulence));
-            magicOutput -= 1;
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1, true));
+            // magicOutput -= 1;
         }
         if (magicOutput > 0) {
             addToBot(new ApplyPowerAction(p, p, new FocusPower(p, -magicOutput), -magicOutput));

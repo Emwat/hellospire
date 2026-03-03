@@ -114,7 +114,6 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         addToBot(new ModFastAction(() -> {
             plays = 0;
             updatePlays();
-            ;
         }));
     }
 
@@ -122,7 +121,12 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (AbstractDungeon.player.hand.size() + magicNumber > BaseMod.MAX_HAND_SIZE + 1) {
+        int tricks = 1;
+        if (this.upgraded && !this.isBranchUpgrade()){
+            tricks++;
+        }
+
+        if (AbstractDungeon.player.hand.size() + tricks > BaseMod.MAX_HAND_SIZE + 1) {
             this.glowColor = Color.RED.cpy();
         }
 

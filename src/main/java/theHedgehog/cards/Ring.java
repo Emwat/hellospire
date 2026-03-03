@@ -71,6 +71,13 @@ public class Ring extends BaseCard {
     }
 
     @Override
+    public void triggerWhenDrawn() {
+        super.triggerWhenDrawn();
+        AbstractPlayer p = AbstractDungeon.player;
+        addToTop(new ApplyPowerAction(p, p, new RingPower(p, 1)));
+    }
+
+    @Override
     public void triggerOnExhaust() {
         super.triggerOnExhaust();
         atbApplyFocus();

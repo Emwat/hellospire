@@ -79,6 +79,7 @@ public class HeavyBounceSlam extends BaseCard {
         }
     }
 
+    @Override
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 

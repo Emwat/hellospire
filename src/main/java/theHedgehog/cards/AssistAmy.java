@@ -4,12 +4,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.Forethought;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -26,13 +28,15 @@ public class AssistAmy extends BaseCard {
             1
     );
 
+    private static final int MAGIC = 2;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(224, 156, 180);
     private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(181, 0, 0    );
 
     public AssistAmy() {
         super(ID, info);
+        setMagic(MAGIC);
         setExhaust(true);
-        setMagic(1);
+        setCostUpgrade(0);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
@@ -43,25 +47,16 @@ public class AssistAmy extends BaseCard {
                 SoundLibrary.Amy,
                 SoundLibrary.CuteCouple
         ))));
-        addToBot(new SelectCardsInHandAction(
-                CardCrawlGame.languagePack.getUIString(makeID("AssistAmyMessage")).TEXT[0], cards -> {
-            if (cards.isEmpty()) {
+        addToBot(new ModXFastAction(() -> {
+            if (p.drawPile.isEmpty()) {
                 return;
             }
-            for (AbstractCard pickedCard : cards) {
-                addToBot(new ModFastAction(() -> {
-                    pickedCard.modifyCostForCombat(-99);
-                }));
+            for (int i = 0; i < magicNumber; i++) {
+                AbstractCard topCard = p.drawPile.getNCardFromTop(i);
+                topCard.freeToPlayOnce = true;
+                // topCard.modifyCostForCombat(-99);
             }
         }));
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            this.setCostUpgrade(0);
-        }
-
-        super.upgrade();
     }
 
     @Override

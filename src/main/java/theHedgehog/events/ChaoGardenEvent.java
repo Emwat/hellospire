@@ -32,7 +32,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static theHedgehog.SonicMod.makeID;
-import static theHedgehog.util.GeneralUtils.CapitalizeFirstLetter;
+import static theHedgehog.util.GeneralUtils.*;
 
 public class ChaoGardenEvent extends PhasedEvent {
     private class DrinkingBuddy {
@@ -53,7 +53,7 @@ public class ChaoGardenEvent extends PhasedEvent {
             this.Character = characterName;
 
             String buddyKey = SonicMod.chaoGardenEventHelperExternal.makeID(buddy);
-            SonicMod.logger.info("buddy: " + buddy + " - buddyKey " + buddyKey);
+            // SonicMod.logger.info("buddy: " + buddy + " - buddyKey " + buddyKey);
 
             SonicChaoGardenStrings chaoGardens = SonicMod.chaoGardenEventHelperExternal.GetSonicChaoGardenString(buddyKey);
             if (chaoGardens == null) {
@@ -72,7 +72,7 @@ public class ChaoGardenEvent extends PhasedEvent {
             if (chaoGardens.DRINKCOLOR == null) {
                 this.DrinkText = chaoGardens.DRINK;
             } else {
-                this.DrinkText = theHedgehog.util.GeneralUtils.ColorWord(chaoGardens.DRINKCOLOR, chaoGardens.DRINK);
+                this.DrinkText = ColorWord(chaoGardens.DRINKCOLOR, chaoGardens.DRINK);
             }
             this.DrinkSoundKey = chaoGardens.DRINKSOUND;
         }
@@ -86,25 +86,27 @@ public class ChaoGardenEvent extends PhasedEvent {
 
                 return String.format("%s%s%s%s %s %s%s",
                         OptPartnerA,
-                        capitalizedName,
+                        ColorWord(this.OptionColor, capitalizedName),
                         OptPartnerB,
-                        numberOfNewChoices,
-                        theHedgehog.util.GeneralUtils.ColorWord(this.OptionColor, this.Character),
+                        ColorWord(this.OptionColor, String.valueOf(numberOfNewChoices)),
+                        ColorWord(this.OptionColor, this.Character),
                         OptPartnerC,
                         OptPartnerD);
             }
 
+            String formattedName = this.Name;
 
-            String formattedName = theHedgehog.util.GeneralUtils.ColorWord(
-                    this.OptionColor,
-                    this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1));
+            if (!this.Name.startsWith("the ")){
+                formattedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
+            }
+            formattedName = ColorWord(this.OptionColor, formattedName);;
 
             return String.format("%s%s%s%s %s%s",
                     OptPartnerA, // [Give Chaos Soda to
                     formattedName, // The Silent
                     OptPartnerB, //] Add
-                    numberOfNewChoices, // 5
-                    OptPartnerC, // choices
+                    ColorWord(this.OptionColor, String.valueOf(numberOfNewChoices)), // 5
+                    ColorWord(this.OptionColor, OptPartnerC), // choices
                     OptPartnerD); // to the discussion
 
         }
@@ -386,10 +388,14 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private void initializeEventVariables() {
 
-        if (AbstractDungeon.player instanceof Sonic) {
-            InitializeSonicsFriends();
+        if (SonicMod.modDebugString.equals("sonicsfriends")){
+            InitializeSonicsFriendsDebug();
+        } else {
+            if (AbstractDungeon.player instanceof Sonic) {
+                InitializeSonicsFriends();
+            }
+            InitializeEveryone();
         }
-        InitializeEveryone();
         Collections.shuffle(DrinkBuddies);
 
         if (!SonicMod.modDebugString.isEmpty()){
@@ -401,20 +407,31 @@ public class ChaoGardenEvent extends PhasedEvent {
         // Heal 33(20%) of your Max HP
         // Campfires
         // Heal 30% (example: 21 hp from someone w/ 71 Max HP)
+        actions = maxActions;
 
         if (AbstractDungeon.ascensionLevel >= 15) {
             ChaosSodaTrayCost = 99;
             ChaosSodaCost = 39;
             healPercentage = 10;
             hpLoss = 7;
-        } else {
+        } else if (AbstractDungeon.ascensionLevel >= 0) {
             ChaosSodaTrayCost = 79;
             ChaosSodaCost = 29;
             healPercentage = 16;
             hpLoss = 5;
+        } else if (AbstractDungeon.ascensionLevel >= -10) {
+            ChaosSodaTrayCost = 49;
+            ChaosSodaCost = 19;
+            healPercentage = 16;
+            hpLoss = 3;
+            actions += 1;
+        } else {
+            ChaosSodaTrayCost = 29;
+            ChaosSodaCost = 9;
+            healPercentage = 16;
+            hpLoss = 1;
+            actions += 2;
         }
-
-        actions = maxActions;
 
         healAmt = (int) (AbstractDungeon.player.maxHealth * (healPercentage * 0.01F));
     }
@@ -701,6 +718,14 @@ public class ChaoGardenEvent extends PhasedEvent {
     private void InitializeSonicsFriends() {
         if (AbstractDungeon.player instanceof Sonic) {
             DrinkBuddies.add(new DrinkingBuddy("Tails", AbstractCard.CardColor.BLUE, CardLibrary.LibraryType.BLUE, "Defect"));
+            DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad"));
+            DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent"));
+            DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher"));
+        }
+    }
+
+    private void InitializeSonicsFriendsDebug() {
+        if (AbstractDungeon.player instanceof Sonic) {
             DrinkBuddies.add(new DrinkingBuddy("Knuckles", AbstractCard.CardColor.RED, CardLibrary.LibraryType.RED, "Ironclad"));
             DrinkBuddies.add(new DrinkingBuddy("Rouge", AbstractCard.CardColor.GREEN, CardLibrary.LibraryType.GREEN, "Silent"));
             DrinkBuddies.add(new DrinkingBuddy("Amy", AbstractCard.CardColor.PURPLE, CardLibrary.LibraryType.PURPLE, "Watcher"));

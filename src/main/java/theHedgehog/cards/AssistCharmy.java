@@ -21,11 +21,11 @@ public class AssistCharmy extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.ENEMY,
-            1
+            0
     );
 
-    private static final int DIZZY_AMOUNT = 2;
-    private static final int UPG_DIZZY_AMOUNT = 2;
+    private static final int DIZZY_AMOUNT = 3;
+    private static final int UPG_DIZZY_AMOUNT = 3;
     private static final int MAGIC = 1;
     private static final String KEYWORD_DIZZY = "CustomVar_DIZZY";
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(244, 200, 135);

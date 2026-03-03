@@ -50,11 +50,16 @@ public class RougeFlavorModifier extends AbstractCardModifier {
                 "[#ff6563ff]", "[#fff6e2ff]", "[#efc851ff]", "[#87ceebff]"
         ));
         final String starter = "9138682208680565125232538";
-        final String cardsss = "2221113231111211222321221";
+        final String color = "2221113231111211222321221";
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < starter.length(); i++) {
-            stringBuilder.append(textColors.get(AbstractDungeon.miscRng.random(textColors.size() - 1)));
-            stringBuilder.append(starterCards.get(Character.getNumericValue(cardsss.charAt(i)) - 1).charAt(Character.getNumericValue(starter.charAt(i))));
+            int j = AbstractDungeon.miscRng.random(0, 3);
+            if (j == 0) {
+                stringBuilder.append("_");
+            } else {
+                stringBuilder.append(textColors.get(AbstractDungeon.miscRng.random(textColors.size() - 1)));
+                stringBuilder.append(starterCards.get(Character.getNumericValue(color.charAt(i)) - 1).charAt(Character.getNumericValue(starter.charAt(i))));
+            }
         }
 
         return stringBuilder.toString();

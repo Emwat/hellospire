@@ -3,7 +3,6 @@ package theHedgehog;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.EasyConfigPanel;
-import basemod.abstracts.CustomUnlockBundle;
 import basemod.devcommands.ConsoleCommand;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
@@ -24,7 +23,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.actions.ModWaitAction;
 import theHedgehog.cards.*;
@@ -71,6 +69,8 @@ import java.util.*;
 import static basemod.BaseMod.addMonster;
 import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 import static theHedgehog.skins.ModSkinDictionary.CONFIG_CURRENT_SKIN;
+import static theHedgehog.util.UnlockUtil.registerUnlockCardBundle;
+import static theHedgehog.util.UnlockUtil.registerUnlockRelicBundle;
 
 
 @SpireInitializer
@@ -96,6 +96,7 @@ public class SonicMod implements
     public static ModLocalizedStrings modLocalizedStrings;
     public static ChaoGardenEventHelperExternal chaoGardenEventHelperExternal;
     public static String modDebugString = "";
+    // public static AssistReward hoverRewardWorkaround;
 
     static {
         loadModInfo();
@@ -177,7 +178,7 @@ public class SonicMod implements
         ConsoleCommand.addCommand("sonicach1", SonicConsoleAch1.class);
         ConsoleCommand.addCommand("sonicunlock", SonicConsoleUnlock.class);
         ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
-        ConsoleCommand.addCommand("soniceverything", SonicConsoleEverything.class);
+        ConsoleCommand.addCommand("sonicdeck", SonicConsoleDeck.class);
         ConsoleCommand.addCommand("sonicskin", SonicConsoleSkin.class);
         ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
         ConsoleCommand.addCommand("chaog", SonicConsoleDebugString.class);
@@ -538,13 +539,16 @@ public class SonicMod implements
         BaseMod.removeCard(BecauseSciencePick2.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(Acceleration.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Bait.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlueBomber.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(BlueBlur.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Enerbeam.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(SonicWind.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SpeedUp.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
 
@@ -825,42 +829,12 @@ public class SonicMod implements
         // UnlockTracker.markCardAsSeen(AssistTails.ID);
         // UnlockTracker.markCardAsSeen(AssistTikal.ID);
 
-        UnlockTracker.addCard(SonicWave.ID);
-        UnlockTracker.addCard(SmoothLanding.ID);
-        UnlockTracker.addCard(Drift.ID);
 
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
-                SonicWave.ID,
-                SmoothLanding.ID,
-                Drift.ID), Sonic.Meta.THE_HEDGEHOG, 1);
-
-        UnlockTracker.addCard(FireTackle.ID);
-        UnlockTracker.addCard(FireSomersault.ID);
-        UnlockTracker.addCard(VolcanoSlider.ID);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
-                FireTackle.ID,
-                FireSomersault.ID,
-                VolcanoSlider.ID), Sonic.Meta.THE_HEDGEHOG, 2);
-
-        UnlockTracker.addCard(MagicHands.ID);
-        UnlockTracker.addCard(Relax.ID);
-        UnlockTracker.addCard(SlotMachineGame.ID);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.CARD,
-                MagicHands.ID,
-                Relax.ID,
-                SlotMachineGame.ID), Sonic.Meta.THE_HEDGEHOG, 3);
-
-        UnlockTracker.addRelic(PowerBrakeRelic.ID);
-        UnlockTracker.addRelic(GoldenGloveRelic.ID);
-        UnlockTracker.addRelic(Player2Relic.ID);
-
-        BaseMod.addUnlockBundle(new CustomUnlockBundle(AbstractUnlock.UnlockType.RELIC,
-                PowerBrakeRelic.ID,
-                GoldenGloveRelic.ID,
-                Player2Relic.ID
-                ), Sonic.Meta.THE_HEDGEHOG, 4);
+        registerUnlockCardBundle(Sonic.Meta.THE_HEDGEHOG, 0, SonicWave.ID, SmoothLanding.ID, Drift.ID);
+        registerUnlockRelicBundle(Sonic.Meta.THE_HEDGEHOG, 1, CrystalRingRelic.ID, BlueQuillPlusRelic.ID, RingEnergyBonusRelic.ID);
+        registerUnlockCardBundle(Sonic.Meta.THE_HEDGEHOG, 2, FireTackle.ID, FireSomersault.ID, VolcanoSlider.ID);
+        registerUnlockRelicBundle(Sonic.Meta.THE_HEDGEHOG, 3, PowerBrakeRelic.ID, GoldenGloveRelic.ID, Player2Relic.ID);
+        registerUnlockCardBundle(Sonic.Meta.THE_HEDGEHOG, 4, MagicHands.ID, Relax.ID, SlotMachineGame.ID);
     }
 
     private void loadConfig() {

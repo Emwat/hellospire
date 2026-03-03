@@ -4,10 +4,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.MachineLearning;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theHedgehog.actions.AssistTikalAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -22,21 +24,24 @@ public class AssistTikal extends BaseCard {
     );
     private static final int BLOCK = 10;
     private static final int UPG_BLOCK = 3;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 1;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(255, 218, 128);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(153, 205, 51);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(7, 193, 20);
 
     public AssistTikal() {
         super(ID, info);
-        setBlock(BLOCK, UPG_BLOCK);
-        setInnate(true);
+        // setBlock(BLOCK, UPG_BLOCK);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
+        setInnate(false, true);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
+        addToBot(new AssistTikalAction(magicNumber, true));
     }
 
     public void triggerOnGlowCheck() {

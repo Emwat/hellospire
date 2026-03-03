@@ -44,7 +44,7 @@ public class SuperFinisherEffect extends AbstractGameEffect {
         } else if (Sonic.isShadow()) {
             if (tag == SonicTags.ERA_CLASSIC) {
                 texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/classic.png");
-                textureWidth = 479;
+                textureWidth = 611;
                 textureHeight = 768;
             } else if (tag == SonicTags.ERA_ADVENTURE) {
                 texture = TextureLoader.getTexture(Sonic.currentModSkin.getCharacterPath() + "/overkill/adventure.png");

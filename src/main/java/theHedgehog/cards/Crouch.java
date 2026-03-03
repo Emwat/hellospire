@@ -45,7 +45,7 @@ public class Crouch extends BaseCard {
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (AbstractDungeon.player.hand.size() + magicNumber - 1 > BaseMod.MAX_HAND_SIZE + 1) {
+        if (AbstractDungeon.player.hand.size() + magicNumber > BaseMod.MAX_HAND_SIZE + 1) {
             this.glowColor = Color.RED.cpy();
         }
     }

@@ -32,6 +32,18 @@
       "Jet the Hawk: Randomize its cost for this turn."
     ]
   },
+  "${modID}:AssistTikalMessage": {
+    "TEXT": [
+      "Tikal the Echidna: Choose up to 1 Attack to Exhaust.",
+      "Tikal the Echidna: Choose up to ",
+      " Attacks to Exhaust."
+    ]
+  },
+  "${modID}:BlueTornadoMessage": {
+    "TEXT": [
+      "Blue Tornado: Choose up to 1 card and flip its cost for the rest of combat."
+    ]
+  },
   "${modID}:ChaosSodaPotionMessage": {
     "TEXT": [
       "Chaos Soda: Exhaust up to 1 card."
@@ -85,8 +97,8 @@
   },
   "${modID}:modifierMagicHands": {
     "TEXT": [
-      "${modID}:DO_NOT_THROW. ",
-      "${modID}:DO_NOT_THROW. NL "
+      "${modID}:PRECIOUS. ",
+      "${modID}:PRECIOUS. NL "
     ]
   },
   "${modID}:modifierRetain": {
@@ -107,6 +119,7 @@
       "enableBoss3Music": "Enable Act III Boss Music (Sonic Only)",
       "enableBossSpearShieldMusic": "Enable Act IV Music (Sonic Only)",
       "enableBossHeartMusic": "Enable Act IV Boss Music (Sonic Only)",
+      "enableStatusCardArt": "Enable Status Card Art (Sonic Only)",
       "enableClassicMode": "Enable Classic Mode (When you take 2+ damage, lose ALL of your Rings).",
       "enableEventsForAllCharacters": "Enable custom events for all characters (overwrites the next option)",
       "enableEventsForOnlySonic": "Enable custom events for only Sonic",
@@ -121,7 +134,8 @@
       "enableCrossModIntegrations" : "Enable Cross-Mod Effects (Default: True)",
       "enableSonicStylePack": "Enable Sonic Style Pack (trashed idea)",
       "enableCrestOfFire": "Enable Crest of Fire cards (if unlocked)",
-      "enableStanceSwitching": "Enable Stance Switching cards (if unlocked)"
+      "enableStanceSwitching": "Enable Stance Switching cards (if unlocked)",
+      "unlockEverything": "Unlock Everything"
     }
   },
   "${modID}:EvolveChaoOptions": {

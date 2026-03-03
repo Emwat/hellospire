@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
@@ -37,10 +36,10 @@ public class HotRod extends BaseCard {
     public static final int UPG_BLOCK = 2;
 
     private static final int END_TICKER = 2;
-    private HotRod0 preview0 = new HotRod0(); //Warming Up
-    private HotRod1 preview1 = new HotRod1(); //Standard
-    private HotRod2 preview2 = new HotRod2(); //Critical
-    private HotRod3 preview3 = new HotRod3(); //Overloaded
+    private HotRod1 preview1 = new HotRod1(); //Warming Up
+    private HotRod2 preview2 = new HotRod2(); //Standard
+    private HotRod3 preview3 = new HotRod3(); //Critical
+    private HotRodOverloaded previewOof = new HotRodOverloaded(); //Overloaded
     // ticker should NOT be static. If static, it will apply across all copies of HotRod in your deck.
     // For instance, you have 1 HotRod in your hand. If you draw another HotRod, the second HotRod will have the same ticker
     // as the one in your hand.
@@ -49,7 +48,7 @@ public class HotRod extends BaseCard {
     public HotRod() {
         super(ID, info);
 
-        MultiCardPreview.add(this, preview0, preview1, preview2, preview3);
+        MultiCardPreview.add(this, preview1, preview2, preview3, previewOof);
 
         setDamage(0, 0);
         setBlock(BLOCK_WARMUP, 1);
@@ -107,7 +106,7 @@ public class HotRod extends BaseCard {
             this.target = CardTarget.SELF;
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
             this.initializeDescription();
-            loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
+            loadCardImage(SonicMod.imagePath("cards/skill/HotRod2.png"));
         } else if (ticker == 0) {
             this.name = NAMES[2];
             this.initializeTitle();
@@ -117,7 +116,7 @@ public class HotRod extends BaseCard {
             this.target = CardTarget.ENEMY;
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[2];
             this.initializeDescription();
-            loadCardImage(SonicMod.imagePath("cards/attack/HotRod2.png"));
+            loadCardImage(SonicMod.imagePath("cards/attack/HotRod3.png"));
         } else {
             this.name = NAMES[3];
             this.initializeTitle();

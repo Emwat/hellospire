@@ -36,6 +36,15 @@
     "DESCRIPTION": "#yALL, in this case, refers to Draw, Discard, Hand, and Exhaust Piles. NL NL #yPerfected #yStrike and Hermit's #yGrudge do NOT look at the Exhaust pile."
   },
   {
+    "ID": "wordCenter",
+    "PROPER_NAME": "If Center",
+    "NAMES": [
+      "if center",
+      "if_center"
+    ],
+    "DESCRIPTION": "If this card is at the Center of your hand, activate the extra effect. Ignore #yRings for this condition."
+  },
+  {
     "ID": "wordCrestOfFire",
     "PROPER_NAME": "Crest of Fire",
     "NAMES": [
@@ -72,6 +81,14 @@
     "DESCRIPTION": "When you are attacked this turn, deal #bX damage to the attacker."
   },
   {
+    "ID": "wordFlip",
+    "PROPER_NAME": "Flip",
+    "NAMES": [
+      "flip"
+    ],
+    "DESCRIPTION": "Cost 3+ -> Cost 0 NL Cost 2 -> Cost 1 NL Cost 1 -> Cost 2 NL Cost 0 -> Cost 3"
+  },
+  {
     "ID": "wordFriend",
     "PROPER_NAME": "Friend",
     "NAMES": [
@@ -90,10 +107,11 @@
   },
   {
     "ID": "wordMagicHandsKW",
-    "PROPER_NAME": "Do Not Throw",
+    "PROPER_NAME": "Precious",
     "NAMES": [
       "do not throw",
-      "do_not_throw"
+      "do_not_throw",
+      "precious"
     ],
     "DESCRIPTION": "Retain. If Exhausted, enter Wrath.",
     "COLOR": "EF67F6"
@@ -173,7 +191,7 @@
       "ring",
       "rings"
     ],
-    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1. [#efc851ff]Rings cannot be upgraded."
+    "DESCRIPTION": "While this is in your hand, increase Block gained from cards by #b1."
   },
   {
     "ID": "wordTrick",

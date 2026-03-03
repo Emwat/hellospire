@@ -28,8 +28,8 @@ public class AssistJet extends BaseCard {
 
     private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
-    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(121, 181, 161);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(0, 0, 0);
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(7, 226, 26);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(3, 104, 18);
 
     public AssistJet() {
         super(ID, info);

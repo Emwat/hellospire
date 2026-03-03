@@ -5,6 +5,7 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
@@ -136,11 +137,11 @@ public abstract class BaseCard extends CustomCard {
             setBackgroundTexture(
                     Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_attack.png",
                     Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_attack_p.png");
-        } else if (this.type == CardType.SKILL){
+        } else if (this.type == CardType.SKILL) {
             setBackgroundTexture(
                     Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_skill.png",
                     Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_skill_p.png");
-        } else if (this.type == CardType.POWER){
+        } else if (this.type == CardType.POWER) {
             setBackgroundTexture(
                     Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_power.png",
                     Sonic.currentModSkin.getCharacterPath() + "/cardback/bg_power_p.png");
@@ -859,6 +860,31 @@ public abstract class BaseCard extends CustomCard {
         return true;
     }
 
+    public boolean CheckIfCenterCard(AbstractCard thisCard, CardGroup hand) {
+        double handPosition = -99;
+        double handSize = 0;
+
+        if (hand.isEmpty()) {
+            return true;
+        }
+
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(AirBoostShoesRelic.ID)) {
+            return true;
+        }
+
+        for (AbstractCard handCard : hand.group) {
+            if (handCard == thisCard) {
+                handPosition = handSize + 0.5;
+            }
+            if (!handCard.hasTag(SonicTags.RING)) {
+                handSize++;
+            }
+        }
+        double relative = Math.abs(handPosition - handSize / 2);
+
+        return relative < 1;
+    }
+
     public boolean HasChanneledOrb() {
         if (AbstractDungeon.player.orbs.isEmpty()) {
             return false;
@@ -942,18 +968,18 @@ public abstract class BaseCard extends CustomCard {
         exhaust = false;
     }
 
-    public void ModSetPortrait(String path){
+    public void ModSetPortrait(String path) {
         // this.portrait = new TextureAtlas.AtlasRegion(TextureLoader.getTexture(path), 0, 0, 500, 380);
     }
 
-    public void ApplyOneFrameModeSetting(){
-            setBackgroundTexture(
-                    "anniv5Resources/images/512/coreset/" + getTypeName() + ".png",
-                    "anniv5Resources/images/1024/coreset/" + getTypeName() + ".png");
-            setOrbTexture(
-                    "anniv5Resources/images/512/energy.png",
-                    "anniv5Resources/images/1024/energy.png"
-            );
+    public void ApplyOneFrameModeSetting() {
+        setBackgroundTexture(
+                "anniv5Resources/images/512/coreset/" + getTypeName() + ".png",
+                "anniv5Resources/images/1024/coreset/" + getTypeName() + ".png");
+        setOrbTexture(
+                "anniv5Resources/images/512/energy.png",
+                "anniv5Resources/images/1024/energy.png"
+        );
 
     }
 
@@ -968,7 +994,7 @@ public abstract class BaseCard extends CustomCard {
         }
     }
 
-    public AbstractMonster getLastMonsterOrNull(){
+    public AbstractMonster getLastMonsterOrNull() {
         int countMonsters = 0;
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!mo.isDeadOrEscaped()) {

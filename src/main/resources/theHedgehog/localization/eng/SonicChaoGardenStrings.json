@@ -12,7 +12,7 @@
     "DRINKSOUND": "ATTACK_IRON_1",
     "TALK": "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1."
   },
-  "Silent": {
+  "the Silent": {
     "OPTIONCOLOR": "#g",
     "DRINK": "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
     "DRINKCOLOR": "#g",
@@ -33,12 +33,12 @@
   },
   "${modID}:the Ironclad": {
     "OPTIONCOLOR": "#r",
-    "DRINK": "The Ironclad prefers ~The~ ~BLOOD~ ~of~ ~HIS~ ~ENEMIES~, but this is a kid-friendly zone.",
+    "DRINK": "Something is... off about this character. You catch a glimpse of blood under his mask when he takes the drink.",
     "DRINKCOLOR": "#r",
     "DRINKSOUND": "ATTACK_IRON_1",
-    "TALK": "Sonic's Direct Jump gives you a Ring every time you play a Skill. Corruption makes Rings free to play. This combo gives infinite Temporary HP."
+    "TALK": "This guy looks like trouble. Better watch your step around him."
   },
-  "${modID}:Silent": {
+  "${modID}:the Silent": {
     "OPTIONCOLOR": "#g",
     "DRINK": "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
     "DRINKCOLOR": "#g",
@@ -57,12 +57,19 @@
     "DRINKSOUND": "SELECT_WATCHER",
     "TALK": "There sure are a lot of adventurers that use Vigor."
   },
+  "the Hedgehog": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "\"Long time no see!\" The blue hedgehog beams a smile at you before taking a gulp of the Chaos Soda.",
+    "DRINKCOLOR": "[#2377B7]",
+    "DRINKSOUND": "${modID}:ogg_YES",
+    "TALK": "\"Careful? Where's the fun in that?\""
+  },
   "${modID}:the Hedgehog": {
     "OPTIONCOLOR": "#b",
-    "DRINK": "\"Thanks!\"",
-    "DRINKCOLOR": "#b",
+    "DRINK": "\"Thanks!\" The two of you clank your glasses together and drink in an uncanny, synchronized fashion.",
+    "DRINKCOLOR": "[#2377B7]",
     "DRINKSOUND": "${modID}:ogg_YES",
-    "TALK": "I wonder how Donut Lord is doing."
+    "TALK": "Got ourselves a situation, stuck in a new location, NL Without any explanation, no time for relaxation!"
   },
   "${modID}:Tails": {
     "OPTIONCOLOR": "#y",
@@ -79,13 +86,14 @@
     "TALK": "In his debut, Knuckles sucker punched Super Sonic so hard, Sonic lost his Super form and the Chaos Emeralds."
   },
   "${modID}:Amy": {
-    "OPTIONCOLOR": "[f3acd2ff]",
+    "OPTIONCOLOR": "[#f3acd2]",
     "DRINK": "Amy: \"Thanks Sonic! Cheers!!\"",
     "DRINKCOLOR": "[#FF96C8]",
     "DRINKSOUND": "",
     "TALK": "Amy infiltrated Prison Island to break Sonic out of jail."
   },
   "${modID}:Rouge": {
+    "OPTIONCOLOR": "[#f3acd2]",
     "DRINK": "Rouge: \"Thanks Handsome. Now, let's talk Business.\"",
     "DRINKCOLOR": "[#DF98C0]",
     "DRINKSOUND": "",

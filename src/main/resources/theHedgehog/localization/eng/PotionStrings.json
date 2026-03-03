@@ -26,8 +26,8 @@
   "${modID}:PowerCorePotion": {
     "NAME": "Power Core",
     "DESCRIPTIONS": [
-      "Add a #yRing to your hand and choose between #yLevel #yUp #ySpeed, #yFlight, and #yPower.",
-      "Add a #yRing to your hand and choose between #yLevel #yUp #ySpeed, #yFlight, and #yPower. Repeat."
+      "Add a Cost 0 #yRing to your hand and choose between #yLevel #yUp #ySpeed, #yFlight, and #yPower.",
+      "Add a Cost 0 #yRing to your hand and choose between #yLevel #yUp #ySpeed, #yFlight, and #yPower. Repeat."
     ]
   },
   "${modID}:SlowPotion": {

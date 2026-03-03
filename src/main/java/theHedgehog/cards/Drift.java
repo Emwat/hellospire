@@ -1,6 +1,7 @@
 package theHedgehog.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.variables.RefundVariable;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,7 +34,6 @@ public class Drift extends BaseCard {
         RefundVariable.setBaseValue(this, 1);
     }
 
-    /// "DESCRIPTION": "Activate the passive effects of your orbs X times."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.upgraded) {
@@ -41,6 +41,7 @@ public class Drift extends BaseCard {
         } else {
             addToBot(new DriftAction(p, magicNumber, this.freeToPlayOnce, this.energyOnUse));
         }
+        // addToBot(new GainEnergyAction(ENERGY_GAIN));
     }
 
     @Override

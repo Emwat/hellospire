@@ -7,9 +7,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.*;
+import com.megacrit.cardcrawl.cards.status.*;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.TextureLoader;
@@ -24,12 +26,12 @@ public class ChiliDogPatch {
             return true;
         }
 
-        return !(AbstractDungeon.player instanceof Sonic);
         // return false;
+        return AbstractDungeon.player instanceof Sonic;
     }
 
     private static void ModPatch(AbstractCard __instance, Texture cardImg, String cardName){
-        if (playerIsSonic()) {
+        if (!playerIsSonic()) {
             return;
         }
 
@@ -39,8 +41,19 @@ public class ChiliDogPatch {
     }
 
     private static void ModPatch(AbstractCard __instance, Texture cardImg){
-        if (playerIsSonic()) {
+        if (!playerIsSonic()) {
             return;
+        }
+
+        if (!MyModConfig.enableStatusCardArt) {
+            if (__instance instanceof Burn ||
+                    __instance instanceof Dazed ||
+                    __instance instanceof Slimed ||
+                    __instance instanceof Wound ||
+                    __instance instanceof VoidCard
+            ) {
+                return;
+            }
         }
 
         __instance.portrait = new TextureAtlas.AtlasRegion(cardImg, 0, 0, cardImg.getWidth(), cardImg.getHeight());
@@ -67,6 +80,16 @@ public class ChiliDogPatch {
         }
     }
 
+    @SpirePatch(clz = Bite.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Bite {
+        @SpirePostfixPatch
+        public static void postfix(Bite __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Bite.png"))
+            );
+        }
+    }
+
     @SpirePatch(clz = BandageUp.class, method = SpirePatch.CONSTRUCTOR)
     public static class applySonicFlavorPatch_BandageUp {
         @SpirePostfixPatch
@@ -84,6 +107,15 @@ public class ChiliDogPatch {
         public static void postfix(Blind __instance) {
             ModPatch(__instance,
                     TextureLoader.getTexture(SonicMod.imagePath(folder + "Blind.png")));
+        }
+    }
+
+    @SpirePatch(clz = Burn.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Burn {
+        @SpirePostfixPatch
+        public static void postfix(Burn __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Burn.png")));
         }
     }
 
@@ -107,12 +139,32 @@ public class ChiliDogPatch {
         }
     }
 
+    @SpirePatch(clz = Dazed.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Dazed {
+        @SpirePostfixPatch
+        public static void postfix(Dazed __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder +"Dazed.png")));
+        }
+    }
+
     @SpirePatch(clz = DeepBreath.class, method = SpirePatch.CONSTRUCTOR)
     public static class applySonicFlavorPatch_DeepBreath {
         @SpirePostfixPatch
         public static void postfix(DeepBreath __instance) {
             ModPatch(__instance,
                     TextureLoader.getTexture(SonicMod.imagePath(folder + "DeepBreath.png")));
+        }
+    }
+
+    @SpirePatch(clz = Discovery.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Discovery {
+        @SpirePostfixPatch
+        public static void postfix(Discovery __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Discovery.png"))
+            );
+
         }
     }
 
@@ -127,12 +179,45 @@ public class ChiliDogPatch {
         }
     }
 
+    @SpirePatch(clz = Enlightenment.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Enlightenment {
+        @SpirePostfixPatch
+        public static void postfix(Enlightenment __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Enlightenment.png"))
+            );
+
+        }
+    }
+
+    @SpirePatch(clz = Finesse.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Finesse {
+        @SpirePostfixPatch
+        public static void postfix(Finesse __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Finesse.png"))
+            );
+
+        }
+    }
+
     @SpirePatch(clz = FlashOfSteel.class, method = SpirePatch.CONSTRUCTOR)
     public static class applySonicFlavorPatch_FlashOfSteel {
         @SpirePostfixPatch
         public static void postfix(FlashOfSteel __instance) {
             ModPatch(__instance,
                     TextureLoader.getTexture(SonicMod.imagePath(folder + "FlashOfSteel.png")));
+        }
+    }
+
+    @SpirePatch(clz = Forethought.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Forethought {
+        @SpirePostfixPatch
+        public static void postfix(Forethought __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Forethought.png"))
+            );
+
         }
     }
 
@@ -154,6 +239,24 @@ public class ChiliDogPatch {
         }
     }
 
+    @SpirePatch(clz = JackOfAllTrades.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_JackOfAllTrades {
+        @SpirePostfixPatch
+        public static void postfix(JackOfAllTrades __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "JackOfAllTrades.png")));
+        }
+    }
+
+    @SpirePatch(clz = Madness.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Madness {
+        @SpirePostfixPatch
+        public static void postfix(Madness __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Madness.png")));
+        }
+    }
+
     @SpirePatch(clz = Impatience.class, method = SpirePatch.CONSTRUCTOR)
     public static class applySonicFlavorPatch_Impatience {
         @SpirePostfixPatch
@@ -162,6 +265,16 @@ public class ChiliDogPatch {
                     TextureLoader.getTexture(SonicMod.imagePath("cards/skill/AssistRosy.png")),
                     CardCrawlGame.languagePack.getCardStrings(makeID("AssistRosy")).NAME
                     );
+        }
+    }
+
+    @SpirePatch(clz = Magnetism.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Magnetism {
+        @SpirePostfixPatch
+        public static void postfix(Magnetism __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Magnetism.png"))
+            );
         }
     }
 
@@ -202,6 +315,51 @@ public class ChiliDogPatch {
         }
     }
 
+    @SpirePatch(clz = Panacea.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Panacea {
+        @SpirePostfixPatch
+        public static void postfix(Panacea __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Panacea.png")));
+        }
+    }
+
+    @SpirePatch(clz = Panache.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Panache {
+        @SpirePostfixPatch
+        public static void postfix(Panache __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Panache.png")));
+        }
+    }
+
+    @SpirePatch(clz = PanicButton.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_PanicButton {
+        @SpirePostfixPatch
+        public static void postfix(PanicButton __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "PanicButton.png")));
+        }
+    }
+
+    @SpirePatch(clz = Purity.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Purity {
+        @SpirePostfixPatch
+        public static void postfix(Purity __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Purity.png")));
+        }
+    }
+
+    @SpirePatch(clz = SadisticNature.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_SadisticNature {
+        @SpirePostfixPatch
+        public static void postfix(SadisticNature __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "SadisticNature.png")));
+        }
+    }
+
     @SpirePatch(clz = SecretTechnique.class, method = SpirePatch.CONSTRUCTOR)
     public static class applySonicFlavorPatch_SecretTechnique {
         @SpirePostfixPatch
@@ -211,7 +369,6 @@ public class ChiliDogPatch {
             );
         }
     }
-
 
     @SpirePatch(clz = SecretWeapon.class, method = SpirePatch.CONSTRUCTOR)
     public static class applySonicFlavorPatch_SecretWeapon {
@@ -229,8 +386,30 @@ public class ChiliDogPatch {
         @SpirePostfixPatch
         public static void postfix(Shiv __instance) {
             ModPatch(__instance,
-                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Shiv.png")),
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Kunai.png")),
                     CardCrawlGame.languagePack.getCardStrings(makeID("ColorlessShiv")).NAME
+            );
+
+        }
+    }
+
+    @SpirePatch(clz = Slimed.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Slimed {
+        @SpirePostfixPatch
+        public static void postfix(Slimed __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Slimed.png"))
+            );
+
+        }
+    }
+
+    @SpirePatch(clz = SwiftStrike.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_SwiftStrike {
+        @SpirePostfixPatch
+        public static void postfix(SwiftStrike __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "SwiftStrike.png"))
             );
 
         }
@@ -244,6 +423,15 @@ public class ChiliDogPatch {
                     TextureLoader.getTexture(SonicMod.imagePath(folder + "TheBomb.png"))
             );
 
+        }
+    }
+
+    @SpirePatch(clz = ThinkingAhead.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_ThinkingAhead {
+        @SpirePostfixPatch
+        public static void postfix(ThinkingAhead __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "ThinkingAhead.png")));
         }
     }
 
@@ -277,6 +465,24 @@ public class ChiliDogPatch {
         }
     }
 
+    @SpirePatch(clz = Wound.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_Wound {
+        @SpirePostfixPatch
+        public static void postfix(Wound __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Wound.png"))
+            );
+        }
+    }
+
+    @SpirePatch(clz = VoidCard.class, method = SpirePatch.CONSTRUCTOR)
+    public static class applySonicFlavorPatch_VoidCard {
+        @SpirePostfixPatch
+        public static void postfix(VoidCard __instance) {
+            ModPatch(__instance,
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Void.png")));
+        }
+    }
 
 
 }

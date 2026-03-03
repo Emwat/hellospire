@@ -52,6 +52,7 @@ public class DizzySpin extends BaseCard {
             if (!mo.isDeadOrEscaped()) {
                 addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
                 addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
+                addToBot(new ApplyPowerAction(mo, p, new DizzyPower(mo, 1)));
             }
         }
 

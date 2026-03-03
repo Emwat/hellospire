@@ -10,7 +10,7 @@
       "I'm a hedgehog! ~HEDGE~ ~HOG!~",
       "I don't suppose you're going to let me by."
     ],
-    "DIALOG2": [
+    "DIALOG_0": [
       "What is a @LOUSE@ doing here?",
       "The Exordium is the @OTHER@ way."
     ]
@@ -27,7 +27,7 @@
       "You're actually the second Time Eater I've had to fight.",
       "Are you friends with the Giant Head?"
     ],
-    "DIALOG2": [
+    "DIALOG_0": [
       "You've messed with time... NL @FOR@ @TOO@ @LONG!@",
       "~The~ ~Stage...~ NL ~is~ ~Set...~",
       "Yes..."
@@ -38,6 +38,13 @@
       "You're no match for me!",
       "Ha! You look just like this knucklehead I know.",
       "Hey you. Get out of my way!"
+    ]
+  },
+  "${modID}:Gremlin Leader": {
+    "DIALOG": [
+      "Bring it on!",
+      "No sweat!",
+      "Don't hold anything back!"
     ]
   },
   "${modID}:Lagavulin": {
@@ -61,7 +68,7 @@
   "${modID}:TauntKnuckles": {
     "DIALOG": [
       "We'll settle this in a fair fight.",
-      "Your funeral.",
+      "Stay away from MY Emerald!",
       "I'll take you on!"
     ]
   },

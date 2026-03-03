@@ -22,7 +22,7 @@ public class HotRod1 extends BaseCard {
     public HotRod1() {
         super(ID, info);
 
-        setBlock(HotRod.BLOCK_STANDARD, 1);
+        setBlock(HotRod.BLOCK_WARMUP, 1);
         loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
     }
 

@@ -17,7 +17,7 @@ public class SonicEagle extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.SPECIAL,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
             1
     );

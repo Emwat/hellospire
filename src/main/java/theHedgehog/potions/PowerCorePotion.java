@@ -2,6 +2,7 @@ package theHedgehog.potions;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,11 +12,11 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import theHedgehog.cards.LevelUpFlightPick;
-import theHedgehog.cards.LevelUpPowerPick;
-import theHedgehog.cards.LevelUpSpeedPick;
-import theHedgehog.cards.Ring;
+import theHedgehog.cards.*;
 import theHedgehog.character.Sonic;
+import theHedgehog.powers.LevelUpFlightPower;
+import theHedgehog.powers.LevelUpPowerPower;
+import theHedgehog.powers.LevelUpSpeedPower;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,10 +58,16 @@ public class PowerCorePotion extends BasePotion {
 
     @Override
     public void use(AbstractCreature abstractCreature) {
+        AbstractCard ring = new Ring().makeStatEquivalentCopy();
+        BaseCard.setCostForCombat(ring, 0);
         for (int i = 0; i < potency; i++) {
-            addToBot(new MakeTempCardInHandAction(new Ring().makeStatEquivalentCopy(), 1));
+            addToBot(new MakeTempCardInHandAction(ring, 1));
             InputHelper.moveCursorToNeutralPosition();
-            addToBot(new ChooseOneAction(new ArrayList<AbstractCard>(Arrays.asList(
+            // AbstractCreature p = AbstractDungeon.player;
+            // addToBot(new ApplyPowerAction(p, p, new LevelUpSpeedPower(p, 1), 1));
+            // addToBot(new ApplyPowerAction(p, p, new LevelUpFlightPower(p, 1), 1));
+            // addToBot(new ApplyPowerAction(p, p, new LevelUpPowerPower(p, 1), 1));
+            addToBot(new ChooseOneAction(new ArrayList<>(Arrays.asList(
                     new LevelUpSpeedPick(),
                     new LevelUpFlightPick(),
                     new LevelUpPowerPick()

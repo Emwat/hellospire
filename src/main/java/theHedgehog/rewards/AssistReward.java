@@ -2,11 +2,15 @@ package theHedgehog.rewards;
 
 import basemod.abstracts.CustomReward;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.patches.CustomCardReward;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
@@ -189,7 +193,7 @@ public class AssistReward extends CustomReward {
     //     FontHelper.renderSmartText(sb, FontHelper.cardDescFont_N, TEXT[1], REWARD_X_POS, this.y - FontHelper.getHeight(FontHelper.cardDescFont_N, text, Settings.scale) - 6f * Settings.scale, 1000.0f * Settings.scale, 0.0f, TIP_COL);
     //
     //     if (hb.hovered || hb.justHovered) {
-    //         SpireAnniversary6Mod.hoverRewardWorkaround = this;
+    //         SonicMod.hoverRewardWorkaround = this;
     //     }
     //
     //     hb.render(sb);

@@ -6,12 +6,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.city.Champ;
+import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
-
-import java.util.ArrayList;
 
 import static theHedgehog.SonicMod.makeID;
 
@@ -23,27 +21,26 @@ public class TalksChampPatch {
             return;
         }
 
-        if (!Sonic.currentModSkin.getName().contains("Sonic")) {
+        if (!Sonic.isSonic()) {
             return;
         }
 
-        String[] sonicReplies = CardCrawlGame.languagePack.getCharacterString(makeID("TheHedgehog")).TEXT;
 
-        ArrayList<String> derp = new ArrayList<>();
-        derp.add("What is a @LOUSE@ doing here?");
-        derp.add("The Exordium is the @OTHER@ way.");
+        SonicTalkStrings champDialog = SonicMod.modLocalizedStrings.getTalkString(makeID("Champ"));
+        String[] sonicReplies = champDialog.DIALOG;
+        String[] champSays = champDialog.DIALOG_0;
 
-        int randomNumber = MathUtils.random(derp.size() - 1);
-        String taunt =  derp.get(randomNumber);
+        int randomNumber = MathUtils.random(champSays.length - 1);
+        String taunt = champSays[randomNumber];
         float talkDuration = 5;
 
         if (randomNumber == 0) {
             AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CHAMP_2A"));
             AbstractDungeon.actionManager.addToBottom(new TalkAction(__instance, taunt, talkDuration, talkDuration));
             AbstractDungeon.actionManager.addToBottom(new WaitAction(3F));
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[6], talkDuration, talkDuration));
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[randomNumber], talkDuration, talkDuration));
         } else if (randomNumber == 1) {
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[7], talkDuration, talkDuration));
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true, sonicReplies[randomNumber], talkDuration, talkDuration));
             AbstractDungeon.actionManager.addToBottom(new WaitAction(3F));
             AbstractDungeon.actionManager.addToBottom(new SFXAction("VO_CHAMP_2A"));
             AbstractDungeon.actionManager.addToBottom(new TalkAction(__instance, taunt, talkDuration, talkDuration));

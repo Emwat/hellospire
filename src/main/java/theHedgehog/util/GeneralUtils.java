@@ -72,4 +72,39 @@ public class GeneralUtils {
     public static String CapitalizeFirstLetter(String s){
         return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
+
+    /// tests if a string is a color
+    /// expected parameter is f3acd2; no brackets or hashtags
+    public static boolean isNumeric(String cadena) {
+        if (cadena.length() == 0 ||
+                (cadena.charAt(0) != '-' && Character.digit(cadena.charAt(0), 16) == -1))
+            return false;
+        if (cadena.length() == 1 && cadena.charAt(0) == '-')
+            return false;
+
+        for (int i = 1; i < cadena.length(); i++)
+            if (Character.digit(cadena.charAt(i), 16) == -1)
+                return false;
+        return true;
+    }
+
+    /// expected parameter is something like [#f3acd2]
+    public static Color getColorOrDefault(String word) {
+        // [#f3acd2]
+        if (word.length() >= 9 && word.startsWith("[#") && word.charAt(8) == ']') {
+            String hex = word.substring(2, 8);
+            if (isNumeric(hex)) {
+                return Color.valueOf(word.substring(1, 9));
+            }
+        }
+
+        // [f3acd2ff]
+        if (word.length() >= 10 && word.charAt(0) == '[' && word.charAt(9) == ']') {
+            // Need to be careful of words like [Continue]
+            if (isNumeric(word.substring(1, 9)))
+                return Color.valueOf(word.substring(1, 9));
+        }
+
+        return null;
+    }
 }

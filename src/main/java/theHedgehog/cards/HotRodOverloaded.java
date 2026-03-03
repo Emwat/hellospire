@@ -8,8 +8,8 @@ import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
-public class HotRod0 extends BaseCard {
-    public static final String ID = makeID("HotRod0");
+public class HotRodOverloaded extends BaseCard {
+    public static final String ID = makeID("HotRodOverloaded");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
@@ -18,12 +18,11 @@ public class HotRod0 extends BaseCard {
             1
     );
 
-
-    public HotRod0() {
+    public HotRodOverloaded() {
         super(ID, info);
 
-        setBlock(HotRod.BLOCK_WARMUP, 1);
-        loadCardImage(SonicMod.imagePath("cards/skill/HotRod.png"));
+        setBlock(HotRod.BLOCK_OVERLOADED, 1);
+        loadCardImage(SonicMod.imagePath("cards/skill/HotRodOverloaded.png"));
     }
 
     @Override
@@ -33,6 +32,6 @@ public class HotRod0 extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { //Optional
-        return new HotRod0();
+        return new HotRodOverloaded();
     }
 }

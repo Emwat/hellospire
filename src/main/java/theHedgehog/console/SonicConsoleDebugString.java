@@ -31,8 +31,13 @@ public class SonicConsoleDebugString extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
-        if (tokens[1].equals("check")) {
+        if (tokens.length == 1) {
+            DevConsole.log("This command requires a parameter");
+        } else if (tokens[1].equals("check")) {
             DevConsole.log("SonicMod.modDebugString is \"" + SonicMod.modDebugString + "\"");
+        } else if (tokens[1].equals("clear")) {
+            SonicMod.modDebugString = "";
+            DevConsole.log("SonicMod.modDebugString is now \"" + SonicMod.modDebugString + "\"");
         } else {
             SonicMod.modDebugString = ConcatTokens(tokens);
             DevConsole.log("SonicMod.modDebugString is now \"" + SonicMod.modDebugString + "\"");
@@ -45,12 +50,14 @@ public class SonicConsoleDebugString extends ConsoleCommand {
         String input = ConcatTokens(tokens);
 
         result.add("check");
+        result.add("clear");
         result.add("the Ironclad");
         result.add("the Silent");
         result.add("the Defect");
         result.add("the Watcher");
+        result.add("sonicsfriends");
 
-        if (tokens.length > 1 && tokens[1].equals("check")) {
+        if (tokens.length > 1 && (tokens[1].equals("check") || tokens[1].equals("clear"))) {
             complete = true;
             return result;
         }

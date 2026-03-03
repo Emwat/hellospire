@@ -42,6 +42,7 @@ public class AssistSticks extends BaseCard {
         for (AbstractCard card : cardGroup.group) {
             if (card.hasTag(CardTags.STARTER_STRIKE) || card.hasTag(CardTags.STARTER_DEFEND)) {
                 BaseCard.setCostForCombat(card, 0);
+                card.isCostModifiedForTurn = true;
                 if (!card.hasTag(SonicTags.SPIN_UP)) {
                     CardModifierManager.addModifier(card, new SpinUpModifier());
                 }

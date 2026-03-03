@@ -31,9 +31,9 @@ public class AssistVector extends BaseCard {
     );
 
     private static final int BLOCK = 22;
-    private static final int UPG_BLOCK = 27;
+    private static final int UPG_BLOCK = 5;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(113, 163, 90);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(78, 113, 63);
+    private static final Color FLAVOR_TEXT_COLOR = Color.BLACK.cpy();
 
     public AssistVector() {
         super(ID, info);

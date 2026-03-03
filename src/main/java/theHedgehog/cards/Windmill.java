@@ -28,7 +28,7 @@ public class Windmill extends BaseCard {
     );
 
     // Anger 6 Damage
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 9;
     private static final int UPG_DAMAGE = 3;
 
     public Windmill() {

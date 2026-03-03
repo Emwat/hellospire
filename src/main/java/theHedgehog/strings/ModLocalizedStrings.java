@@ -19,7 +19,7 @@ public class ModLocalizedStrings {
     public ModLocalizedStrings() {
         long startTime = System.currentTimeMillis();
         Gson gson = new Gson();
-        String lang = langFolder();
+        String lang = "eng";
 
         sonicChaoGardens = gson.fromJson(
                 loadJson(SonicMod.localizationPath(lang, "SonicChaoGardenStrings.json")),

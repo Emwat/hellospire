@@ -18,7 +18,7 @@
       "ff6563ff red",
       "ffa500ff orange",
       "[E] is energy",
-      "ALL is typically capitalized. Apotheosis includes Exhausted pile. Perfect Strike does not.",
+      "ALL is typically capitalized. Apotheosis includes Exhausted pile. Perfected Strike does not.",
       "Attack, Skill, Evoke, Exhaust, Block, Focus are title case.",
       "[#efc851ff]Shiv -- when refering to other cards, make yellow text.",
       "Orb slot does not capitalize slot."
@@ -48,7 +48,7 @@
   },
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
-    "DESCRIPTION": "Choose a card in your hand. It costs 0 for the rest of combat. NL Exhaust.",
+    "DESCRIPTION": "{@@}The top !M! card{!M!|>1=s} of your draw pile cost 0 until played. NL Exhaust.",
     "FLAVOR": "Have no fear! Amy Rose is here!"
   },
   "${modID}:AssistBarry": {
@@ -86,15 +86,20 @@
     "DESCRIPTION": "{@@}Gain !B! Block. Add !M! [#efc851ff]Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more.",
     "FLAVOR": "Behold! Ninja power!"
   },
+  "${modID}:AssistJet": {
+    "NAME": "Jet the Hawk",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Frost. NL Randomize a card's cost in your hand for this turn.",
+    "FLAVOR": "Don't disappoint me, Sonic the Hedgehog! NL NL -Art by Yui Karasuno"
+  },
   "${modID}:AssistKnuckles": {
     "NAME": "Fighting Buddies",
     "DESCRIPTION": "Gain !${modID}:CustomVar_STR! Temporary Strength. Whenever you play an Attack this turn, gain !M! Block.",
     "FLAVOR": "Do I look like I need YOUR power?"
   },
-  "${modID}:AssistJet": {
-    "NAME": "Jet the Hawk",
-    "DESCRIPTION": "Gain !M! Frost. NL Randomize a card's cost in your hand for this turn.",
-    "FLAVOR": "Don't disappoint me, Sonic the Hedgehog! NL NL -Art by Yui Karasuno"
+  "${modID}:AssistLilac": {
+    "NAME": "Sash Lilac",
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Draw !M! card{!M!|>1=s}. NL Draw !M! additional card{!M!|>1=s} next turn.",
+    "FLAVOR": "I don't care how dangerous it is! It's gonna take a lot more than robots and aliens to slow a dragon down!"
   },
   "${modID}:AssistRosy": {
     "NAME": "Believe in Yourself",
@@ -103,7 +108,7 @@
   },
   "${modID}:AssistRouge": {
     "NAME": "Rouge the Bat",
-    "DESCRIPTION": "Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! cards. NL Gain [E].",
+    "DESCRIPTION": "{@@}Gain !${modID}:CustomVar_DEX! Temporary Dexterity. NL Discard !M! card{!M!|>1=s}. NL Gain [E].",
     "FLAVOR": "Never underestimate an agent. You'll get burned."
   },
   "${modID}:AssistShadow": {
@@ -113,7 +118,7 @@
   },
   "${modID}:AssistSilver": {
     "NAME": "Silver",
-    "DESCRIPTION": "Scry !${modID}:CustomVar_SCRY!. NL ALL enemies lose !M! Strength next turn for one turn. NL Exhaust.",
+    "DESCRIPTION": "Scry !${modID}:CustomVar_SCRY!. NL ALL enemies lose !M! Strength next turn for 1 turn. NL Exhaust.",
     "FLAVOR": "Don't you DARE turn your back on me!"
   },
   "${modID}:AssistSticks": {
@@ -128,12 +133,13 @@
   },
   "${modID}:AssistTikal": {
     "NAME": "Tikal the Echidna",
-    "DESCRIPTION": "Innate. NL Gain !B! Block. NL If the enemy intends to attack, this card will glow. NL Exhaust.",
+    "DESCRIPTION": "{@@}Exhaust up to !M! Attack{!M!|>1=s} in your draw pile. NL If an enemy intends to attack, this card will glow. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Innate. NL Exhaust up to !M! Attack{!M!|>1=s} in your draw pile. NL If an enemy intends to attack, this card will glow. NL Exhaust.",
     "FLAVOR": "The servers are the seven chaos. Chaos is power, power enriched by the heart."
   },
   "${modID}:AssistVector": {
     "NAME": "Vector the Crocodile",
-    "DESCRIPTION": "Gain !B! Block. NL ALL Cost 2+ Attacks gain ${modID}:DO_NOT_THROW.",
+    "DESCRIPTION": "Gain !B! Block. NL ALL Cost 2+ Attacks gain ${modID}:PRECIOUS.",
     "FLAVOR": "All a part of being a good detective."
   },
   "${modID}:Athleticism": {
@@ -163,7 +169,7 @@
   "${modID}:BlastProcessing": {
     "NAME": "Blast Processing",
     "DESCRIPTION": "Each turn, your first !M! created cards cost 1 less [E].",
-    "UPGRADE_DESCRIPTION": "Innate. Each turn, your first !M! created cards cost 1 less [E]."
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, your first !M! created cards cost 1 less [E]."
   },
     "${modID}:BlastOff": {
       "NAME": "Blast Off",
@@ -181,10 +187,11 @@
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Exhaust.",
+    "DESCRIPTION": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL Choose up to 1 card in your hand and ${modID}:flip its cost for the rest of combat.",
     "EXTENDED_DESCRIPTION": [
       "Apply !M! Vulnerable. NL Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy. NL Exhaust.",
-      "Apply !M! Vulnerable. NL Add a [#efc851ff]Trick to your hand. NL Exhaust."
+      "Apply !M! Vulnerable. NL Add a [#efc851ff]Trick to your hand. NL Exhaust.",
+      "Blue T. Failsafe"
     ]
   },
   "${modID}:Boost": {
@@ -242,6 +249,10 @@
     "NAME": "Jump",
     "DESCRIPTION": "{@@}Draw !M! card{!M!|>1=s}. NL Exhaust !M! card{!M!|>1=s}."
   },
+  "${modID}:CrystalRing": {
+    "NAME": "Crystal Ring",
+    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL When you draw this, draw another card. NL Gain !M! Vigor."
+  },
   "${modID}:CyanLaser": {
     "NAME": "Cyan Laser",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. Draw a card for each enemy hit."
@@ -263,8 +274,8 @@
   },
   "${modID}:DizzySpin": {
     "NAME": "Dizzy Spin",
-    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply ${modID}:Dizzy to ALL enemies twice.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply ${modID}:Dizzy to ALL enemies twice."
+    "DESCRIPTION": "Randomize the cost of ALL cards in your hand for this turn. Apply ${modID}:Dizzy to ALL enemies 3 times.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Randomize the cost of ALL cards in your hand for this turn. Apply ${modID}:Dizzy to ALL enemies 3 times."
   },
   "${modID}:DoubleAirKick": {
     "NAME": "Double Air Kick",
@@ -299,7 +310,7 @@
   "${modID}:Extender": {
     "NAME": "Mid-Air Trick Action",
     "DESCRIPTION": "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or [E] [E].",
-    "UPGRADE_DESCRIPTION": "Innate. If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or [E] [E]."
+    "UPGRADE_DESCRIPTION": "Innate. NL If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or [E] [E]."
   },
   "${modID}:Extender1": {
     "NAME": "Hop Jump",
@@ -332,7 +343,7 @@
   },
   "${modID}:FootSweep": {
     "NAME": "Foot Sweep",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL ${modID}:If_center, target ALL enemies."
   },
   "${modID}:Gizoid": {
     "NAME": "Gizoid",
@@ -428,19 +439,19 @@
       "Overloaded. NL Gain !B! Block."
     ]
   },
-  "${modID}:HotRod0": {
+  "${modID}:HotRod1": {
     "NAME": "Hot Rod Part 1 of 3",
     "DESCRIPTION": "Warming up. NL Gain !B! Block."
   },
-  "${modID}:HotRod1": {
+  "${modID}:HotRod2": {
     "NAME": "Hot Rod Part 2 of 3",
     "DESCRIPTION": "Standard. NL Gain !B! Block."
   },
-  "${modID}:HotRod2": {
+  "${modID}:HotRod3": {
     "NAME": "Hot Rod Part 3 of 3",
     "DESCRIPTION": "Critical! NL Gain !B! Block. NL Deal !D! damage."
   },
-  "${modID}:HotRod3": {
+  "${modID}:HotRodOverloaded": {
     "NAME": "Hot Rod Overloaded",
     "DESCRIPTION": "Overloaded. NL Gain !B! Block."
   },
@@ -529,7 +540,7 @@
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
-    "DESCRIPTION": "Exhaust ALL [#efc851ff]Rings in your hand and heal !M! HP for each one Exhausted. NL Exhaust."
+    "DESCRIPTION": "Exhaust ALL [#efc851ff]Rings in your hand. NL Heal !M! HP. NL Exhaust."
   },
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
@@ -555,7 +566,7 @@
   },
   "${modID}:MeteorKick": {
     "NAME": "Meteor Kick",
-    "DESCRIPTION": "Deal !D! damage. If the enemy has Vulnerable, deal !M! additional damage.",
+    "DESCRIPTION": "Deal !D! damage. If you have a Cost 3+ card in your hand, deal !M! additional damage.",
     "PERFECTED_STRIKE": "Deal 6 damage. Deals 2 additional damage for ALL your cards containing \"Strike\""
   },
   "${modID}:Momentum": {
@@ -604,7 +615,7 @@
   },
   "${modID}:PowerRing": {
     "NAME": "Power Ring",
-    "DESCRIPTION": "When you create a card, create one more."
+    "DESCRIPTION": "When you create a card, create 1 more."
   },
   "${modID}:PunchRush": {
     "NAME": "Punch Rush",
@@ -679,7 +690,7 @@
   },
   "${modID}:SlotMachineStatus": {
     "NAME": "Slot Machine Eggman",
-    "DESCRIPTION": "If you have two of these cards in your hand, immediately enter Wrath."
+    "DESCRIPTION": "If you have 2 of these cards in your hand, immediately enter Wrath."
   },
   "${modID}:SlotMachineGame": {
     "NAME": "Slot Machine Game",
@@ -687,8 +698,8 @@
   },
   "${modID}:SlotMachinePull": {
     "NAME": "Slot Machine Pull",
-    "DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, Exhaust this.",
-    "UPGRADE_DESCRIPTION": "Draw one card. This remains in your hand. If you play another card or your hand is full, discard this."
+    "DESCRIPTION": "Draw 1 card. This remains in your hand. If you play another card or your hand is full, Exhaust this.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. This remains in your hand. If you play another card or your hand is full, discard this."
   },
   "${modID}:SmoothLanding": {
     "NAME": "Incorrect Landing",
@@ -802,8 +813,8 @@
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, lose 1 less. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, lose 1 less. Whenever you exhaust a card, Channel 1 Frost."
+    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851ff]Trick to your hand. Whenever you exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851ff]Trick to your hand. Whenever you exhaust a card, Channel 1 Frost."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
