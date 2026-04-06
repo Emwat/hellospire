@@ -9,6 +9,10 @@ public class MissionTextures {
     static Texture textureRankA = TextureLoader.getPowerTexture("MissionAPower");
     static Texture textureRankB = TextureLoader.getPowerTexture("MissionBPower");
     static Texture textureRankC = TextureLoader.getPowerTexture("MissionCPower");
+    public static Texture textureRankS_large = TextureLoader.getHiDefPowerTexture("MissionSPower");
+    public static Texture textureRankA_large = TextureLoader.getHiDefPowerTexture("MissionAPower");
+    public static Texture textureRankB_large = TextureLoader.getHiDefPowerTexture("MissionBPower");
+    public static Texture textureRankC_large = TextureLoader.getHiDefPowerTexture("MissionCPower");
     static TextureAtlas.AtlasRegion atlasRankS = new TextureAtlas.AtlasRegion(textureRankS, 0, 0, textureRankS.getWidth(), textureRankS.getHeight());
     static TextureAtlas.AtlasRegion atlasRankA = new TextureAtlas.AtlasRegion(textureRankA, 0, 0, textureRankA.getWidth(), textureRankA.getHeight());
     static TextureAtlas.AtlasRegion atlasRankB = new TextureAtlas.AtlasRegion(textureRankB, 0, 0, textureRankB.getWidth(), textureRankB.getHeight());

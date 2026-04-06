@@ -78,31 +78,20 @@ public class BlueTornado extends BaseCard {
                 false, true, pickableCards, cards -> {
             for (AbstractCard c : cards) {
                 addToBot(new ModXFastAction(() -> {
-                    if (c.isCostModifiedForTurn) {
-                        int newCost = 0;
-                        if (c.costForTurn >= 3) {
-                            newCost = 0;
-                        } else if (c.costForTurn == 2) {
-                            newCost = 1;
-                        } else if (c.costForTurn == 1) {
-                            newCost = 2;
-                        } else if (c.costForTurn == 0) {
-                            newCost = 3;
-                        }
-                        BaseCard.setCostForCombat(c, newCost);
-                    } else {
-                        int newCost = 0;
-                        if (c.cost >= 3) {
-                            newCost = 0;
-                        } else if (c.cost == 2) {
-                            newCost = 1;
-                        } else if (c.cost == 1) {
-                            newCost = 2;
-                        } else if (c.cost == 0) {
-                            newCost = 3;
-                        }
-                        BaseCard.setCostForCombat(c, newCost);
+                    int newCost = 0;
+                    if (c.costForTurn == 2) {
+                        newCost = 1;
+                    } else if (c.costForTurn == 1) {
+                        newCost = 2;
+                    } else if (c.costForTurn == 0) {
+                        newCost = 3;
                     }
+
+                    if (newCost > 0 && c.hasTag(SonicTags.SPIN_UP)) {
+                        newCost -= 1;
+                    }
+                    c.setCostForTurn(newCost);
+                    // BaseCard.setCostForCombat(c, newCost);
                     c.isCostModifiedForTurn = true;
                 }));
             }
@@ -110,7 +99,7 @@ public class BlueTornado extends BaseCard {
 
     }
 
-    private AbstractCard GenerateFailSafe(){
+    private AbstractCard GenerateFailSafe() {
         AbstractCard c = new Uppercut().makeStatEquivalentCopy();
         BaseCard.setCostForCombat(c, 0);
         c.baseDamage = 0;

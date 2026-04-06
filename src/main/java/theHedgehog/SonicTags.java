@@ -11,6 +11,7 @@ public class SonicTags
     @SpireEnum public static AbstractCard.CardTags RING;
     @SpireEnum public static AbstractCard.CardTags RING_PLUS;
     @SpireEnum public static AbstractCard.CardTags KICK;
+    @SpireEnum public static AbstractCard.CardTags RIGHTMOST;
     @SpireEnum public static AbstractCard.CardTags LIKE_IRONCLAD;
     @SpireEnum public static AbstractCard.CardTags LIKE_SILENT;
     @SpireEnum public static AbstractCard.CardTags LIKE_DEFECT;

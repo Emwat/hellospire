@@ -56,7 +56,7 @@
   "${modID}:TauntAmy": {
     "DIALOG": [
       "You filthy trash! What do you think you're doing?",
-      "You want some more?",
+      "If it's about a date, it'll halfta wait!",
       "Will you come get me, Sonic?"
     ]
   },
@@ -91,6 +91,16 @@
       "Ready for me?",
       "You want some more?",
       "Look! Ramps!"
+    ]
+  },
+  "${modID}:TiSRainbowRingFlavor": {
+    "DIALOG": [
+      "When you play the Trick, you should say something like \"All right!\", \"Not bad!\", or \"Okay!\" all together!"
+    ]
+  },
+  "${modID}:TiSRocketAccel": {
+    "DIALOG": [
+      "#bG #yO #r!"
     ]
   }
 }

@@ -22,6 +22,7 @@ public class GizoidSonic extends BaseCard {
     private static final int DAMAGE = 12;
     private static final int UPG_DAMAGE = 4;
 
+
     public GizoidSonic() {
         super(ID, info);
         this.cardsToPreview = new SonicFlare();
@@ -36,7 +37,7 @@ public class GizoidSonic extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!m2.isDeadOrEscaped()) {
-                addToBot(new UnblockedVigorAction(m2, new DamageInfo(p, damage, this.damageTypeForTurn)));
+                addToBot(new UnblockedVigorAction(m2, new DamageInfo(p, damage, this.damageTypeForTurn), 0.5F));
             }
         }
     }

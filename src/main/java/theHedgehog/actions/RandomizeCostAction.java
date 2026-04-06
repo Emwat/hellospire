@@ -9,11 +9,13 @@ import theHedgehog.cards.BaseCard;
 
 public class RandomizeCostAction extends AbstractGameAction {
     private AbstractCard card;
+    private int newCost = -1;
 
-    public RandomizeCostAction(AbstractCard card) {
+    public RandomizeCostAction(AbstractCard card, int newCost) {
         this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FASTER;
+        this.newCost = newCost;
     }
 
     public void update() {
@@ -22,9 +24,10 @@ public class RandomizeCostAction extends AbstractGameAction {
             return;
         }
 
-        int newCost = AbstractDungeon.cardRandomRng.random(3);
         if (card.hasTag(SonicTags.SPIN_UP)) {
-            newCost -= 1;
+            if (newCost > 0) {
+                newCost -= 1;
+            }
             BaseCard.setCostForCombat(card, Math.max(newCost, 0));
             card.flash();
         } else {

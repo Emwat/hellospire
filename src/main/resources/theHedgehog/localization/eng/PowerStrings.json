@@ -10,8 +10,8 @@
     "DESCRIPTIONS": [
       "Every time you play ",
       " Attack card in a single turn, deal #b",
-      " damage to ALL enemies. ",
-      " Attack cards in a single turn, deal #b"
+      " Attack cards in a single turn, deal #b",
+      " damage to ALL enemies."
     ]
   },
   "${modID}:BlastProcessingPower": {
@@ -43,6 +43,18 @@
     "NAME": "Mid Air Trick Actions",
     "DESCRIPTIONS": [
       "If you have #yVigor at the start of your turn, choose to gain 2 Orb slots, 2 additional cards, or [E] [E] . Repeat for each stack of this power."
+    ]
+  },
+  "${modID}:FalconPunchRarePower": {
+    "NAME": "S Falcon Punch Setup",
+    "DESCRIPTIONS": [
+      "Next turn, add #yS #yFalcon #yPunch to your hand."
+    ]
+  },
+  "${modID}:FlagPolePower": {
+    "NAME": "Skydiving",
+    "DESCRIPTIONS": [
+      "This turn, playing #yRings will Channel 1 Frost."
     ]
   },
   "${modID}:LevelUpFlightPower": {
@@ -131,6 +143,12 @@
       "Put the next card you play in your hand."
     ]
   },
+  "${modID}:MomentumPower": {
+    "NAME": "Momentum",
+    "DESCRIPTIONS": [
+      "Whenever you play a Cost 2+ card, draw {0} card{1}"
+    ]
+  },
   "${modID}:NextTurnEchoPower": {
     "NAME": "Blue Blur",
     "DESCRIPTIONS": [
@@ -204,6 +222,15 @@
     "DESCRIPTIONS": [
       "Behold the power of the Chaos Emeralds!",
       "You MUST play your Rings to gain Intangible. DIE EVERY TURN."
+    ]
+  },
+  "${modID}:TeaserRarePower": {
+    "NAME": "Moon Medal",
+    "DESCRIPTIONS": [
+      "The next ",
+      " Common Attack",
+      " Common Attacks",
+      " you draw will transform into a random Werehog attack."
     ]
   },
   "${modID}:ThunderShieldPower": {

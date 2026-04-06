@@ -57,8 +57,8 @@ public class Assist extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int randomNumber = AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1);
-        AbstractCard randomCard = characterCards.get(randomNumber).makeStatEquivalentCopy();
-        AbstractCard randomCard2 = characterCards.get(randomNumber).makeStatEquivalentCopy();
+        AbstractCard randomCard = characterCards.get(randomNumber).makeCopy();
+        AbstractCard randomCard2 = characterCards.get(randomNumber).makeCopy();
         if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement") && Loader.isModLoaded("GooglyMod")){
             if (!UnlockTracker.isAchievementUnlocked(makeID("GooglyEyes"))) {
                 unlockGooglyEyesAchievement();

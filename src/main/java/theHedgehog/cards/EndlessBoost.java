@@ -33,6 +33,7 @@ public class EndlessBoost extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_IRONCLAD);
+        tags.add(SonicTags.RIGHTMOST);
     }
 
     @Override
@@ -43,7 +44,7 @@ public class EndlessBoost extends BaseCard {
 //                SoundLibrary.NeverUnderestimate
 //        ))));
         addToBot(SoundLibrary.VoiceAction(SoundLibrary.NeverUnderestimate));
-        if (CheckIfRightCard(this, p.hand)) {
+        if (this.forceConditionEffect || CheckIfRightCard(this, p.hand)) {
             magicOutput -= 1;
         }
         if (magicOutput > 0){

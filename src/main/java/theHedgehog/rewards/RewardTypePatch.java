@@ -7,4 +7,6 @@ import com.megacrit.cardcrawl.rewards.RewardItem;
 public class RewardTypePatch {
     @SpireEnum
     public static RewardItem.RewardType ASSIST_LOCKIN;
+    @SpireEnum
+    public static RewardItem.RewardType MISSION_REWARD;
 }

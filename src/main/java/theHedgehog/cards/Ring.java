@@ -32,7 +32,7 @@ import static theHedgehog.util.GeneralUtils.isIndeedWithoutADoubtInCombat;
 public class Ring extends BaseCard {
     public static final String ID = makeID("Ring");
     private static final CardStats info = new CardStats(
-            Sonic.Meta.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
@@ -86,15 +86,7 @@ public class Ring extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.SoundAction(SoundLibrary.Ring));
 
-        if (p.hasPower(LSDPower.POWER_ID)) {
-            if (this.hasTag(SonicTags.RING_PLUS)) {
-                addToBot(new HealAction(p, p, getPower(p, LSDPower.POWER_ID) * 3));
-            } else {
-                addToBot(new HealAction(p, p, getPower(p, LSDPower.POWER_ID)));
-            }
-        } else {
-            addToBot(new AddTemporaryHPAction(p, p, magicNumber));
-        }
+        addToBot(new AddTemporaryHPAction(p, p, magicNumber));
 
         addToBot(new ModFastAction(() -> ReturnBoostToHand(p)));
     }
@@ -102,7 +94,7 @@ public class Ring extends BaseCard {
     private void ReturnBoostToHand(AbstractPlayer p) {
         if (!p.discardPile.isEmpty()) {
             for (AbstractCard card : p.discardPile.group) {
-                if (Objects.equals(card.cardID, Boost.ID)) {
+                if (card instanceof Boost || card instanceof BoostRare) {
                     addToBot(new DiscardToHandAction(card));
                 }
             }

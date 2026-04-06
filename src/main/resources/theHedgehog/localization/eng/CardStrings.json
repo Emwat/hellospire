@@ -4,6 +4,7 @@
     "DESCRIPTION": "Description. NL Second line.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
+      "This card shouldn't be encountered in a run. NL If you're reading this, you've probably encountered a bug. NL Please report this to a mod dev.",
       "{@@}Draw !M! card{!M!|>1=s}",
       "${modID}:Ring.",
       "stslib:Exhaustive !stslib:ex!",
@@ -20,13 +21,17 @@
       "[E] is energy",
       "ALL is typically capitalized. Apotheosis includes Exhausted pile. Perfected Strike does not.",
       "Attack, Skill, Evoke, Exhaust, Block, Focus are title case.",
-      "[#efc851ff]Shiv -- when refering to other cards, make yellow text.",
+      "[#efc851]Shiv -- when refering to other cards, make yellow text.",
       "Orb slot does not capitalize slot."
     ],
     "FLAVOR": "SpireWolf25 says Hello."
   },
   "${modID}:Strike": {
     "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:StrikeRare": {
+    "NAME": "S Strike",
     "DESCRIPTION": "Deal !D! damage."
   },
   "${modID}:Defend": {
@@ -49,7 +54,11 @@
   "${modID}:AssistAmy": {
     "NAME": "Cute Couple",
     "DESCRIPTION": "{@@}The top !M! card{!M!|>1=s} of your draw pile cost 0 until played. NL Exhaust.",
-    "FLAVOR": "Have no fear! Amy Rose is here!"
+    "FLAVOR": "Have no fear! Amy Rose is here!",
+    "EXTENDED_DESCRIPTION": [
+      "Omochao says",
+      "[#ffeda7]Forethought, [#ffeda7]Setup, and this card [#ff6563]does [#ff6563]NOT [#ff6563]work with Snecko Eye."
+    ]
   },
   "${modID}:AssistBarry": {
     "NAME": "Barry the Quokka",
@@ -83,13 +92,17 @@
   },
   "${modID}:AssistEspio": {
     "NAME": "Espio the Chameleon",
-    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! [#efc851ff]Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more.",
+    "DESCRIPTION": "{@@}Gain !B! Block. Add !M! [#efc851]Shiv{!M!|>1=s} to your hand. If you have not played any Attacks this turn, add 1 more.",
     "FLAVOR": "Behold! Ninja power!"
   },
   "${modID}:AssistJet": {
     "NAME": "Jet the Hawk",
     "DESCRIPTION": "Ethereal. NL Gain !M! Frost. NL Randomize a card's cost in your hand for this turn.",
-    "FLAVOR": "Don't disappoint me, Sonic the Hedgehog! NL NL -Art by Yui Karasuno"
+    "FLAVOR": "Don't disappoint me, Sonic the Hedgehog! NL NL -Art by Yui Karasuno",
+    "EXTENDED_DESCRIPTION": [
+      "Ethereal. NL Gain !M! Frost. NL Change a card's cost to ",
+      " for this turn."
+    ]
   },
   "${modID}:AssistKnuckles": {
     "NAME": "Fighting Buddies",
@@ -133,8 +146,8 @@
   },
   "${modID}:AssistTikal": {
     "NAME": "Tikal the Echidna",
-    "DESCRIPTION": "{@@}Exhaust up to !M! Attack{!M!|>1=s} in your draw pile. NL If an enemy intends to attack, this card will glow. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "{@@}Innate. NL Exhaust up to !M! Attack{!M!|>1=s} in your draw pile. NL If an enemy intends to attack, this card will glow. NL Exhaust.",
+    "DESCRIPTION": "{@@}Exhaust up to !M! Attack{!M!|>1=s} in your draw pile. NL Gain !${modID}:CustomVar_ORB! Orb slot{!${modID}:CustomVar_ORB!|>1=s}. NL If an enemy intends to attack, this card will glow. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "{@@}Innate. NL Exhaust up to !M! Attack{!M!|>1=s} in your draw pile. NL Gain !${modID}:CustomVar_ORB! Orb slot{!${modID}:CustomVar_ORB!|>1=s}. NL If an enemy intends to attack, this card will glow. NL Exhaust.",
     "FLAVOR": "The servers are the seven chaos. Chaos is power, power enriched by the heart."
   },
   "${modID}:AssistVector": {
@@ -148,6 +161,10 @@
   },
   "${modID}:BackSpinKick": {
     "NAME": "Back Spin Kick",
+    "DESCRIPTION": "Deal !D! damage. This costs 1 less for each Attack played this turn."
+  },
+  "${modID}:BackSpinKickRare": {
+    "NAME": "S Back Spin Kick",
     "DESCRIPTION": "Deal !D! damage. This costs 1 less for each Attack played this turn."
   },
   "${modID}:Bait": {
@@ -187,38 +204,50 @@
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
-    "DESCRIPTION": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL Choose up to 1 card in your hand and ${modID}:flip its cost for the rest of combat.",
+    "DESCRIPTION": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL Choose up to 1 card in your hand and ${modID}:flip its cost for this turn.",
     "EXTENDED_DESCRIPTION": [
-      "Apply !M! Vulnerable. NL Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy. NL Exhaust.",
-      "Apply !M! Vulnerable. NL Add a [#efc851ff]Trick to your hand. NL Exhaust.",
+      "Apply !M! Vulnerable. NL Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy.",
+      "Apply !M! Vulnerable. NL Add a [#efc851]Trick to your hand.",
       "Blue T. Failsafe"
     ]
   },
   "${modID}:Boost": {
     "NAME": "Boost",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. When you play a [#efc851ff]Ring, return this card from the discard pile to your hand."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. When you play a [#efc851]Ring, return this card from the discard pile to your hand."
+  },
+  "${modID}:BoostRare": {
+    "NAME": "S Boost",
+    "DESCRIPTION": "{@@}Deal !D! damage to ALL enemies. NL Draw !M! card{!M!|>1=s}. NL When you play a [#efc851]Ring, return this card from the discard pile to your hand."
   },
   "${modID}:BouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand.",
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851]Ring{!M!|>1=s} to your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !B! Block. NL Add 2 [#efc851ff]Rings to your hand.",
+      "Gain !B! Block. NL Add 2 [#efc851]Rings to your hand.",
       "Gain !B! Block. NL Add a [#efc851ff]Ring to your hand. This stays in your hand for 1 more use.",
       "Gain !B! Block. NL Add a [#efc851ff]Ring to your hand."
     ]
   },
   "${modID}:BouncePadPick1": {
     "NAME": "Get Ring",
-    "DESCRIPTION": "{@@}Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand."
+    "DESCRIPTION": "{@@}Add !M! [#efc851]Ring{!M!|>1=s} to your hand."
   },
   "${modID}:BouncePadPick2": {
     "NAME": "Get Trick",
-    "DESCRIPTION": "{@@}Add !M! [#efc851ff]Trick{!M!|>1=s} to your hand."
+    "DESCRIPTION": "{@@}Add !M! [#efc851]Trick{!M!|>1=s} to your hand."
+  },
+  "${modID}:Bumper": {
+    "NAME": "Bumper",
+    "DESCRIPTION": "Retain. NL Gain !B! Block."
+  },
+  "${modID}:ChaosEmeraldAttack": {
+    "NAME": "Chaos Emerald",
+    "DESCRIPTION": "On draw, Exhaust this and add the previewed card into your hand."
   },
   "${modID}:Checkpoint": {
     "NAME": "Checkpoint",
-    "DESCRIPTION": "Can only be played if you have a [#efc851ff]Ring in your hand. Shuffle [#efc851ff]Super [#efc851ff]Sonic [#efc851ff]Form into your draw pile. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Can only be played if you have a [#efc851ff]Ring in your hand. Shuffle [#efc851ff]Super [#efc851ff]Sonic [#efc851ff]Form+ into your draw pile. Exhaust."
+    "DESCRIPTION": "Can only be played if you have a [#efc851]Ring in your hand. Shuffle [#efc851]Super [#efc851]Sonic [#efc851]Form into your draw pile. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Can only be played if you have a [#efc851]Ring in your hand. Shuffle [#efc851]Super [#efc851]Sonic [#efc851]Form+ into your draw pile. Exhaust."
   },
   "${modID}:ChuChuBomb": {
     "NAME": "ChuChuBomb",
@@ -257,6 +286,10 @@
     "NAME": "Cyan Laser",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. Draw a card for each enemy hit."
   },
+  "${modID}:CyanLaserRare": {
+    "NAME": "S Cyan Laser",
+    "DESCRIPTION": "{@@}Deal !D! damage to ALL enemies. NL Draw !M! card{!M!|>1=s}."
+  },
   "${modID}:DashPanel": {
     "NAME": "Dash Panel",
     "DESCRIPTION": "Play !M! cards to the right of this card."
@@ -267,9 +300,9 @@
   },
   "${modID}:DirectJump": {
     "NAME": "Direct Jump",
-    "DESCRIPTION": "When you play a Skill this turn, add a [#efc851ff]Ring to your hand. NL Exhaust.",
+    "DESCRIPTION": "When you play a Skill this turn, add a [#efc851]Ring to your hand. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "When you play a Skill this turn, add a [#efc851ff]Ring to your hand."
+      "When you play a Skill this turn, add a [#efc851]Ring to your hand."
     ]
   },
   "${modID}:DizzySpin": {
@@ -281,16 +314,20 @@
     "NAME": "Double Air Kick",
     "DESCRIPTION": "Deal !D! damage twice."
   },
+  "${modID}:DoubleAirKickRare": {
+    "NAME": "S Double Air Kick",
+    "DESCRIPTION": "Deal !D! damage twice."
+  },
   "${modID}:Dreamweaver": {
     "NAME": "Dreamweaver",
     "DESCRIPTION": ""
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "Activate the passive effects of your Orbs !M!X times. NL stslib:Refund !stslib:refund!.",
-    "UPGRADE_DESCRIPTION": "Activate the passive effects of your Orbs !M!(X + 1) times. NL stslib:Refund !stslib:refund!.",
+    "DESCRIPTION": "${modID}:Rev ALL Orbs !M!X times. NL stslib:Refund !stslib:refund!.",
+    "UPGRADE_DESCRIPTION": "${modID}:Rev ALL Orbs !M!(X + 1) times. NL stslib:Refund !stslib:refund!.",
     "EXTENDED_DESCRIPTION": [
-      "Activate the passive effects of your Orbs [#7fff00ff]",
+      "${modID}:Rev ALL Orbs [#7fff00]",
       "[] times. NL stslib:Refund !stslib:refund!."
     ]
   },
@@ -328,21 +365,41 @@
     "NAME": "Falcon Punch",
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Exhaust 1 card."
   },
+  "${modID}:FalconPunchRare": {
+    "NAME": "S Falcon Punch Setup",
+    "DESCRIPTION": "{@@}Exhaust !M! card{!M!|>1=s}. NL Next turn, draw !M! additional card{!M!|>1=s} and add [#efc851]S [#efc851]Falcon [#efc851]Punch to your hand."
+  },
+  "${modID}:FalconPunchRare2": {
+    "NAME": "S Falcon Punch",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL This deals double damage. NL Exhaust."
+  },
   "${modID}:FireSomersault": {
     "NAME": "Fire Somersault",
-    "DESCRIPTION": "${modID}:Crest_of_Fire. Deal !D! damage. If Exhausted, add another [#efc851ff]Fire [#efc851ff]Somersault to your hand. It does !M! additional damage."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL If Exhausted, add [#efc851]Fire [#efc851]Somersault to your hand with !M! additional damage."
+  },
+  "${modID}:FireSomersaultRare": {
+    "NAME": "S Fire Somersault",
+    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL If Exhausted, add [#efc851]Fire [#efc851]Somersault to your hand with !M! additional damage."
   },
   "${modID}:FireTackle": {
     "NAME": "Fire Tackle",
     "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL Gain !M! ${modID}:Flame_Barrier."
   },
+  "${modID}:FireTackleRare": {
+    "NAME": "S Fire Tackle",
+    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL Gain !M! ${modID}:Flame_Barrier."
+  },
   "${modID}:FlagPole": {
-    "NAME": "Triangle Dive",
-    "DESCRIPTION": "Channel a Frost for each [#efc851ff]Ring in your hand.",
-    "UPGRADE_DESCRIPTION": "Add a [#efc851ff]Ring to your hand. Channel a Frost for each [#efc851ff]Ring in your hand."
+    "NAME": "Sky Dive",
+    "DESCRIPTION": "This turn, ALL [#efc851]Rings in your hand cost 0 and Channel a Frost when played.",
+    "UPGRADE_DESCRIPTION": "Add a [#efc851]Ring to your hand. NL This turn, ALL [#efc851]Rings in your hand cost 0 and Channel a Frost when played."
   },
   "${modID}:FootSweep": {
     "NAME": "Foot Sweep",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL ${modID}:If_center, target ALL enemies."
+  },
+  "${modID}:FootSweepRare": {
+    "NAME": "S Foot Sweep",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL ${modID}:If_center, target ALL enemies."
   },
   "${modID}:Gizoid": {
@@ -412,22 +469,39 @@
       " times. This hits an additional time for each time you've drawn this card."
     ]
   },
+  "${modID}:HailstormRare": {
+    "NAME": "S Hailstorm",
+    "DESCRIPTION": "Deal !D! damage 0 times. This hits an additional time for each time you've drawn this card.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage ",
+      " time. This hits an additional time for each time you've drawn this card.",
+      " times. This hits an additional time for each time you've drawn this card."
+    ]
+  },
   "${modID}:HeavyBounceSlam": {
     "NAME": "Heavy Bounce Slam",
     "DESCRIPTION": "Deal !D! damage. Double this card's damage. ${modID}:If_leftmost, it stays in your hand after play."
   },
+  "${modID}:HeavyBounceSlamRare": {
+    "NAME": "S Heavy Bounce Slam",
+    "DESCRIPTION": "Deal !D! damage. Double this card's damage. ${modID}:If_leftmost, it stays in your hand after play."
+  },
   "${modID}:HomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851]Trick to your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. NL Add 2 [#efc851ff]Tricks to your hand.",
-      "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand. This stays in your hand for 1 more use.",
-      "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand."
+      "Deal !D! damage. NL Add 2 [#efc851]Tricks to your hand.",
+      "Deal !D! damage. NL Add a [#efc851]Trick to your hand. This stays in your hand for 1 more use.",
+      "Deal !D! damage. NL Add a [#efc851]Trick to your hand."
     ]
   },
   "${modID}:HorseKick": {
     "NAME": "Horse Kick",
     "DESCRIPTION": "Deal !D! damage. ${modID}:If_rightmost, deal double damage."
+  },
+  "${modID}:HorseKickRare": {
+    "NAME": "S Horse Kick",
+    "DESCRIPTION": "Deal !D! damage. ${modID}:If_rightmost, deal triple damage."
   },
   "${modID}:HotRod": {
     "NAME": "Hot Rod",
@@ -455,9 +529,28 @@
     "NAME": "Hot Rod Overloaded",
     "DESCRIPTION": "Overloaded. NL Gain !B! Block."
   },
+  "${modID}:HotRodRare": {
+    "NAME": "S Hot Rod",
+    "DESCRIPTION": "After this card is drawn, this card's effects change based on how many cards you've played this turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Warming up. NL Gain !B! Block.",
+      "Standard. NL Gain !B! Block.",
+      "Critical! NL Gain !B! Block. NL Deal !D! damage.",
+      "Overloaded. NL Gain !B! Block."
+    ]
+  },
   "${modID}:InstaShield": {
     "NAME": "Insta Shield",
-    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! ${modID}:Flame_Barrier."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL ${modID}:Rev."
+  },
+  "${modID}:InstaShieldRare": {
+    "NAME": "S Insta Shield",
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Deal !D! damage. NL ${modID}:Rev. NL This stays in your hand for !${modID}:CustomVar_PERSIST! more use{!${modID}:CustomVar_PERSIST!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Gain !B! Block. NL Deal !D! damage. NL ${modID}:Rev.",
+      " NL This stays in your hand for {X} more use.",
+      " NL This stays in your hand for {X} more uses."
+    ]
   },
   "${modID}:IQ200Attack": {
     "NAME": "IQ200 Attack",
@@ -474,12 +567,12 @@
   "${modID}:LevelUp": {
     "NAME": "Level Up",
     "DESCRIPTION": "This card's effects change based on the last card you played this combat.",
-    "UPGRADE_DESCRIPTION": "{@@}Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand. This card's effects change based on the last card you played this combat.",
+    "UPGRADE_DESCRIPTION": "{@@}Add !M! [#efc851]Ring{!M!|>1=s} to your hand. NL This card's effects change based on the last card you played this combat.",
     "EXTENDED_DESCRIPTION": [
-      "{@@}Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand. ",
-      "For each [#efc851ff]Ring in your hand, increase damage dealt from cards by 1.",
-      "For each [#efc851ff]Ring in your hand, increase Block gained from cards by 1.",
-      "For each [#efc851ff]Ring in your hand, increase Focus by 1.",
+      "{@@}Add !M! [#efc851]Ring{!M!|>1=s} to your hand. ",
+      "For each [#efc851]Ring in your hand, increase damage dealt from cards by 1.",
+      "For each [#efc851]Ring in your hand, increase Block gained from cards by 1.",
+      "For each [#efc851]Ring in your hand, increase Focus by 1.",
       "Level Up Speed",
       "Level Up Flight",
       "Level Up Power"
@@ -487,48 +580,48 @@
   },
   "${modID}:LevelUp1": {
     "NAME": "Skill/Other",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Block gained from cards by 1."
+    "DESCRIPTION": "For each [#efc851]Ring in your hand, increase Block gained from cards by 1."
   },
   "${modID}:LevelUp2": {
     "NAME": "Power",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Focus by 1."
+    "DESCRIPTION": "For each [#efc851]Ring in your hand, increase Focus by 1."
   },
   "${modID}:LevelUp3": {
     "NAME": "Attack",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase damage gained from cards by 1."
+    "DESCRIPTION": "For each [#efc851]Ring in your hand, increase damage dealt by cards by 1."
   },
   "${modID}:LevelUpSpeed": {
     "NAME": "LevelUpSpeed",
     "EXTENDED_DESCRIPTION": [
-      "For each [#efc851ff]Ring in your hand, you have ",
+      "For each [#efc851]Ring in your hand, you have ",
       " extra Dexterity."
     ]
   },
   "${modID}:LevelUpFlight": {
     "NAME": "LevelUpFlight",
     "EXTENDED_DESCRIPTION": [
-      "For each [#efc851ff]Ring in your hand, you have ",
+      "For each [#efc851]Ring in your hand, you have ",
       " Temporary Focus."
     ]
   },
   "${modID}:LevelUpPower": {
     "NAME": "LevelUpPower",
     "EXTENDED_DESCRIPTION": [
-      "For each [#efc851ff]Ring in your hand, you have ",
+      "For each [#efc851]Ring in your hand, you have ",
       " extra Strength."
     ]
   },
   "${modID}:LevelUpSpeedPick": {
     "NAME": "Level Up Speed",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Block gained from cards by 1."
+    "DESCRIPTION": "For each [#efc851]Ring in your hand, increase Block gained from cards by 1."
   },
   "${modID}:LevelUpFlightPick": {
     "NAME": "Level Up Flight",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase Focus by 1."
+    "DESCRIPTION": "For each [#efc851]Ring in your hand, increase Focus by 1."
   },
   "${modID}:LevelUpPowerPick": {
     "NAME": "Level Up Power",
-    "DESCRIPTION": "For each [#efc851ff]Ring in your hand, increase damage dealt from cards by 1."
+    "DESCRIPTION": "For each [#efc851]Ring in your hand, increase damage dealt from cards by 1."
   },
   "${modID}:LightSpeedAttack": {
     "NAME": "Light Speed Attack",
@@ -540,7 +633,7 @@
   },
   "${modID}:LightSpeedDash": {
     "NAME": "Light Speed Dash",
-    "DESCRIPTION": "Exhaust ALL [#efc851ff]Rings in your hand. NL Heal !M! HP. NL Exhaust."
+    "DESCRIPTION": "Exhaust ALL [#efc851]Rings in your hand. NL Heal !M! HP. NL Exhaust."
   },
   "${modID}:LoopDeLoop": {
     "NAME": "Loop De Loop",
@@ -551,12 +644,14 @@
       " and ",
       ". It costs 0 this turn. NL stslib:Exhaustive !stslib:ex!.",
       ". They cost 0 this turn. NL stslib:Exhaustive !stslib:ex!.",
-      ". [#ff6563ff]You [#ff6563ff]are [#ff6563ff]confused. NL stslib:Exhaustive !stslib:ex!."
+      ". [#ff6563]You [#ff6563]are [#ff6563]confused. NL stslib:Exhaustive !stslib:ex!.",
+      "Omochao says",
+      "Snecko Eye will [#ff6563]randomize these cards."
     ]
   },
   "${modID}:MagicHands": {
     "NAME": "Magic Hands",
-    "DESCRIPTION": "Choose a [#efc851ff]Non-Ring card in your hand. It gains Retain and when it Exhausts, enter Wrath.",
+    "DESCRIPTION": "Choose a [#efc851]Non-Ring card in your hand. It gains Retain and when it Exhausts, enter Wrath.",
     "UPGRADE_DESCRIPTION": "Choose a card in your hand. It gains Retain and when it Exhausts, enter Wrath."
   },
   "${modID}:MagicHook": {
@@ -569,10 +664,14 @@
     "DESCRIPTION": "Deal !D! damage. If you have a Cost 3+ card in your hand, deal !M! additional damage.",
     "PERFECTED_STRIKE": "Deal 6 damage. Deals 2 additional damage for ALL your cards containing \"Strike\""
   },
+  "${modID}:MeteorKickRare": {
+    "NAME": "S Meteor Kick",
+    "DESCRIPTION": "Deal !D! damage. If you have a Cost 3+ card in your hand, deal !M! additional damage.",
+    "PERFECTED_STRIKE": "Deal 6 damage. Deals 2 additional damage for ALL your cards containing \"Strike\""
+  },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Gain Vigor for every card in your Exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Gain Vigor for every card in your Exhaust pile and every card in your hand."
+    "DESCRIPTION": "When you play a Cost 2+ card, draw a card."
   },
   "${modID}:NiceSmile": {
     "NAME": "Perfect Score",
@@ -584,7 +683,7 @@
   },
   "${modID}:PackBouncePad": {
     "NAME": "Bounce Pad",
-    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Ring{!M!|>1=s} to your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851]Ring{!M!|>1=s} to your hand."
   },
   "${modID}:PackBlastProcessing": {
     "NAME": "Blast Processing",
@@ -593,8 +692,8 @@
   },
   "${modID}:PackHomingAttack": {
     "NAME": "Homing Attack",
-    "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851ff]Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a [#efc851ff]Trick+ to your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851]Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add a [#efc851]Trick+ to your hand.",
     "IGNORE_ME": "stslib:Persist !stslib:persist!"
   },
   "${modID}:PackRing": {
@@ -627,7 +726,7 @@
   },
   "${modID}:Relax": {
     "NAME": "Relax",
-    "DESCRIPTION": "Enter Calm. Shuffle [#efc851ff]Relax into your draw pile. Choose between staying Calm and entering Wrath."
+    "DESCRIPTION": "Enter Calm. NL Shuffle [#efc851]Relax into your draw pile. NL Choose to enter Wrath."
   },
   "${modID}:RelaxPick1": {
     "NAME": "Relax",
@@ -641,31 +740,43 @@
     "NAME": "Ricochet",
     "DESCRIPTION": "Deal !D! damage. When you use Vigor, return this from the discard pile to your hand."
   },
+  "${modID}:RicochetRare": {
+    "NAME": "S Ricochet",
+    "DESCRIPTION": "Deal !D! damage. When you use Vigor, return this from the discard pile to your hand."
+  },
   "${modID}:Ring": {
     "NAME": "Ring",
     "DESCRIPTION": "Retain. NL ${modID}:Ring. NL Gain !M! Temporary_HP. NL Exhaust."
   },
   "${modID}:RocketAccel": {
     "NAME": "Rocket Accel",
-    "DESCRIPTION": "Deal !D! damage. NL Your next 2 Attacks deal !M! additional damage now and for the rest of combat."
+    "DESCRIPTION": "Deal !D! damage. NL Your next 2 Attacks deal !M! additional damage now and for the rest of combat.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL You and your allies' next Attack deal !M! additional damage now and for the rest of combat."
+    ]
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, activate the passive effect of your leftmost Orb. Add [#efc851ff]Quick [#efc851ff]Step to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, activate the passive effect of your leftmost Orb. Add [#efc851ff]Quick [#efc851ff]Step+ to your hand. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, ${modID}:rev your leftmost Orb. Add [#efc851]Quick [#efc851]Step to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, ${modID}:rev your leftmost Orb. Add [#efc851]Quick [#efc851]Step+ to your hand. NL Exhaust."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
-    "DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, activate the passive effect of your rightmost Orb. Add [#efc851ff]Quick [#efc851ff]Air to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, activate the passive effect of your rightmost Orb. Add [#efc851ff]Quick [#efc851ff]Air+ to your hand. Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, ${modID}:rev. Add [#efc851]Quick [#efc851]Air to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, ${modID}:rev. Add [#efc851]Quick [#efc851]Air+ to your hand. NL Exhaust."
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
-    "DESCRIPTION": "Add !M! [#efc851ff]Tricks to your hand."
+    "DESCRIPTION": "Add !M! [#efc851]Tricks to your hand."
   },
   "${modID}:ScissorKick": {
     "NAME": "Scissor Kick",
     "DESCRIPTION": "Deal !D! damage. NL Deal an additional !M! damage for each card in your hand."
+  },
+  "${modID}:ScissorKickRare": {
+    "NAME": "S Scissor Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Deal an additional !M! damage for each card in your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deal an additional !M! damage for each card in your hand."
   },
   "${modID}:SecretRoute": {
     "NAME": "Secret Route",
@@ -674,7 +785,7 @@
   },
   "${modID}:SkyRing": {
     "NAME": "Sky Ring",
-    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851ff]Trick{!M!|>1=s} to your hand."
+    "DESCRIPTION": "{@@}Gain !B! Block. NL Add !M! [#efc851]Trick{!M!|>1=s} to your hand."
   },
   "${modID}:Shield": {
     "NAME": "Shield",
@@ -694,7 +805,7 @@
   },
   "${modID}:SlotMachineGame": {
     "NAME": "Slot Machine Game",
-    "DESCRIPTION": "Add [#efc851ff]Slot [#efc851ff]Machine [#efc851ff]Pull to your hand. Shuffle !M! [#efc851ff]Slot [#efc851ff]Machine [#efc851ff]Eggman into the draw pile. Exhaust."
+    "DESCRIPTION": "Add [#efc851]Slot [#efc851]Machine [#efc851]Pull to your hand. Shuffle !M! [#efc851]Slot [#efc851]Machine [#efc851]Eggman into the draw pile. Exhaust."
   },
   "${modID}:SlotMachinePull": {
     "NAME": "Slot Machine Pull",
@@ -703,12 +814,25 @@
   },
   "${modID}:SmoothLanding": {
     "NAME": "Incorrect Landing",
-    "DESCRIPTION": "{@@}Channel 2 Frost. NL If you have Vigor, draw !M! additional card{!M!|>1=s} next turn.",
-    "UPGRADE_DESCRIPTION": "{@@}Channel 2 Frost. NL Draw !M! additional card{!M!|>1=s} next turn."
+    "DESCRIPTION": "{@@}Channel 1 Frost. NL If you have Vigor, draw !M! additional card{!M!|>1=s} next turn. Otherwise draw 1 card{!M!|>1=s} now.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Channel 1 Frost. NL If you have Vigor, ",
+      " draw !M! additional card{!M!|>1=s} next turn. ",
+      " NL ",
+      " Otherwise draw !M! card{!M!|>1=s} now."
+    ]
   },
   "${modID}:SonicBoom": {
     "NAME": "Sonic Boom",
-    "DESCRIPTION": "Ethereal. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
+    "DESCRIPTION": "Ethereal. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
+    "EXTENDED_DESCRIPTION": [
+      "Ethereal. Gain !B! Block. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
+      "Ethereal. Gain !M! Vigor. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
+    ]
+  },
+  "${modID}:SonicBoomRare": {
+    "NAME": "S Sonic Boom",
+    "DESCRIPTION": "Ethereal. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
     "EXTENDED_DESCRIPTION": [
       "Ethereal. Gain !B! Block. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
       "Ethereal. Gain !M! Vigor. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
@@ -718,12 +842,31 @@
     "NAME": "Sonic Eagle",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, deal !M! additional damage."
   },
+  "${modID}:SonicEagleRare": {
+    "NAME": "S Sonic Eagle",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, gain [E] and draw 1 card."
+  },
   "${modID}:SonicFlare": {
     "NAME": "Sonic Flare",
     "DESCRIPTION": "Deal !D! damage. NL Gain Vigor by half of the unblocked damage dealt."
   },
+  "${modID}:SonicFlareRare": {
+    "NAME": "S Sonic Flare",
+    "DESCRIPTION": "Deal !D! damage. NL Gain Vigor equal to unblocked damage dealt."
+  },
   "${modID}:SonicWave": {
     "NAME": "Sonic Wave",
+    "DESCRIPTION": "If you have any empty Orb slots, Channel !M! Lightning. Otherwise Evoke ALL Orbs twice and Exhaust.",
+    "UPGRADE_DESCRIPTION": "If you have any empty Orb slots, Channel !M! Lightning. Otherwise Evoke ALL Orbs twice.",
+    "EXTENDED_DESCRIPTION": [
+      "If you have any empty Orb slots, Channel !M! Lightning.",
+      " NL ",
+      " Otherwise Evoke ALL Orbs twice and Exhaust.",
+      " Otherwise Evoke ALL Orbs twice."
+    ]
+  },
+  "${modID}:SonicWaveRare": {
+    "NAME": "S Sonic Wave",
     "DESCRIPTION": "If you have any empty Orb slots, Channel !M! Lightning. Otherwise Evoke ALL Orbs twice and Exhaust.",
     "UPGRADE_DESCRIPTION": "If you have any empty Orb slots, Channel !M! Lightning. Otherwise Evoke ALL Orbs twice."
   },
@@ -734,7 +877,7 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "Exhaust ALL [#efc851ff]Rings in your hand. For each [#efc851ff]Ring exhausted, add a [#efc851ff]Trick to your hand."
+    "DESCRIPTION": "Exhaust ALL [#efc851]Rings in your hand. For each [#efc851]Ring exhausted, add a [#efc851]Trick to your hand."
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
@@ -744,17 +887,34 @@
     "NAME": "Spin Dash",
     "DESCRIPTION": "Deal !D! damage. The next Attack you play costs 0."
   },
+  "${modID}:SpinDashRare": {
+    "NAME": "S Spin Dash",
+    "DESCRIPTION": "Deal !D! damage. The next Attack you play costs 0."
+  },
   "${modID}:SpinningNeedleAttack": {
     "NAME": "Spinning Needle Atk",
     "DESCRIPTION": "{@@}Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost.",
-    "UPGRADE_DESCRIPTION": "{@@}Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost !M! time{!M!|>1=s}."
+    "UPGRADE_DESCRIPTION": "{@@}Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost !M! time{!M!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. Draw 1 card and change its cost to ",
+      " for this turn."
+    ]
+  },
+  "${modID}:SpinningNeedleAttackRare": {
+    "NAME": "S Spinning Needle Atk",
+    "DESCRIPTION": "{@@}Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost.",
+    "UPGRADE_DESCRIPTION": "{@@}Draw 1 card and randomize its cost for this turn. Deal !D! damage. This deals additional damage equal to the randomized cost !M! time{!M!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. Draw 1 card and change its cost to ",
+      " for this turn."
+    ]
   },
   "${modID}:SuperSonicForm": {
     "NAME": "Super Sonic Form",
     "DESCRIPTION": "Gain !M! Strength and Dexterity. NL At start of turn, lose 1 Dexterity.",
     "UPGRADE_DESCRIPTION": "Gain !M! Strength, Dexterity, and Focus. NL At start of turn, lose 1 Dexterity and Focus.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !M! Strength. NL Gain !M! Focus. You MUST play your [#efc851ff]Rings to gain Intangible. DIE EVERY TURN."
+      "Gain !M! Strength. NL Gain !M! Focus. You MUST play your [#efc851]Rings to gain Intangible. DIE EVERY TURN."
     ]
   },
   "${modID}:Taunt": {
@@ -767,20 +927,52 @@
   },
   "${modID}:Teaser": {
     "NAME": "Teaser",
-    "DESCRIPTION": "Channel !M! Dark. NL Shuffle [#efc851ff]Claws [#efc851ff]Unleashed into your draw pile.",
-    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle [#efc851ff]Claws [#efc851ff]Unleashed+ into your draw pile.",
+    "DESCRIPTION": "Channel !M! Dark. NL Shuffle [#efc851]Claws [#efc851]Unleashed into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Channel !M! Dark. NL Shuffle [#efc851]Claws [#efc851]Unleashed+ into your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      "Channel !M! Dark. NL Shuffle [#efc851ff]Claws [#efc851ff]Unleashed+ into your draw pile.",
-      "Channel !M! Dark. NL Shuffle [#efc851ff]Claws [#efc851ff]Unleashed* into your draw pile."
+      "Channel !M! Dark. NL Shuffle [#efc851]Claws [#efc851]Unleashed+ into your draw pile.",
+      "Channel !M! Dark. NL Shuffle [#efc851]Claws [#efc851]Unleashed* into your draw pile."
     ]
+  },
+  "${modID}:TeaserRare": {
+    "NAME": "S Teaser",
+    "DESCRIPTION": "{@@}Channel !${modID}:CustomVar_DARK! Dark. NL Exhaust the next !M! Common Attack{!M!|>1=s} you draw and add a Werehog Card to your hand."
+  },
+  "${modID}:TeaserRareAttack1": {
+    "NAME": "Sho-Hog-Ken",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Lock-On. NL Apply !M! Weak."
+  },
+  "${modID}:TeaserRareAttack1Multi": {
+    "NAME": "Wild Whirl",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times."
+  },
+  "${modID}:TeaserRareAttack2": {
+    "NAME": "Were-Hammer",
+    "DESCRIPTION": "Deal !D! damage. NL This deals additional damage equal to your rightmost Dark."
+  },
+  "${modID}:TeaserRareAttack3": {
+    "NAME": "Unleashed Wild Combo",
+    "DESCRIPTION": "This card shouldn't be encountered in a run. NL If you're reading this, you've probably encountered a bug. NL Please report this to a mod dev."
+  },
+  "${modID}:TiSRainbowRing": {
+    "NAME": "Rainbow Ring",
+    "DESCRIPTION": "You and your allies add a [#efc851]Trick to your hands."
+  },
+  "${modID}:TiSRocketAccel": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTION": "Deal !D! damage. NL You and your allies' next Attack deal !M! additional damage now and for the rest of combat."
   },
   "${modID}:TopKick": {
     "NAME": "Top Kick",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! Vigor. This gains additional Vigor for each Attack played this turn."
   },
+  "${modID}:TopKickRare": {
+    "NAME": "S Top Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Vigor. This gains additional Vigor for each Attack played this turn."
+  },
   "${modID}:ThunderShield": {
     "NAME": "Thunder Shield",
-    "DESCRIPTION": "Channel !M! Lightning. At end of turn, gain 1 [#efc851ff]Ring. Lightning Orbs trigger an additional time for each [#efc851ff]Ring in your hand."
+    "DESCRIPTION": "Channel !M! Lightning. At end of turn, gain 1 [#efc851]Ring. Lightning Orbs ${modID}:rev an additional time for each [#efc851]Ring in your hand."
   },
   "${modID}:Trick": {
     "NAME": "Trick",
@@ -793,40 +985,49 @@
   },
   "${modID}:Trickster": {
     "NAME": "Trickster",
-    "DESCRIPTION": "At the start of your turn, add a [#efc851ff]Trick to your hand.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a [#efc851ff]Trick to your hand."
+    "DESCRIPTION": "At the start of your turn, add a [#efc851]Trick to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a [#efc851]Trick to your hand."
   },
   "${modID}:TripleKick": {
     "NAME": "Triple Kick",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851ff]Part [#efc851ff]2 to your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851ff]Part [#efc851ff]2+ to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part [#efc851]2 to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part [#efc851]2+ to your hand."
   },
   "${modID}:TripleKick2": {
     "NAME": "Triple Kick Part 2",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851ff]Part [#efc851ff]3 to your hand. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851ff]Part [#efc851ff]3+ to your hand. Exhaust."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part [#efc851]3 to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part [#efc851]3+ to your hand. NL Exhaust."
   },
   "${modID}:TripleKick3": {
     "NAME": "Triple Kick Part 3",
-    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. Exhaust."
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Exhaust."
+  },
+  "${modID}:TripleKickRare": {
+    "NAME": "S Triple Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part [#efc851]2 to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part [#efc851]2+ to your hand."
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851ff]Trick to your hand. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851ff]Trick to your hand. Whenever you exhaust a card, Channel 1 Frost."
+    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851]Trick to your hand. Whenever you exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851]Trick to your hand. Whenever you exhaust a card, Channel 1 Frost."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a [#efc851ff]Ring to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a [#efc851]Ring to your hand."
+  },
+  "${modID}:UpDraftRare": {
+    "NAME": "S Up Draft",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a [#efc851]Ring to your hand. NL Channel 1 Frost."
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",
-    "DESCRIPTION": "${modID}:Crest_of_Fire. Exhaust ALL to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Exhaust ALL to the left of this card. Deal !D! damage. Deals !M! additional damage for each card exhausted."
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
-    "DESCRIPTION": "Gain !B! Block X times. NL Add X [#efc851ff]Rings to your hand."
+    "DESCRIPTION": "Gain !B! Block X times. NL Add X [#efc851]Rings to your hand."
   },
   "${modID}:Whirlwind": {
     "NAME": "Whirlwind",
@@ -834,10 +1035,27 @@
   },
   "${modID}:WindUpPunch": {
     "NAME": "Wind Up Punch",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a [#efc851ff]Trick to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a [#efc851]Trick to your hand."
+  },
+  "${modID}:WindUpPunchRare": {
+    "NAME": "S Wind Up Punch",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a [#efc851]Trick to your hand."
   },
   "${modID}:Windmill": {
     "NAME": "Windmill",
-    "DESCRIPTION": "Deal !D! damage. NL Randomize a card's cost in your hand for this turn."
+    "DESCRIPTION": "Deal !D! damage. NL Randomize a card's cost in your hand for this turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL Change a card's cost to ",
+      " for this turn."
+    ]
+  },
+  "${modID}:WindmillRare": {
+    "NAME": "S Windmill",
+    "DESCRIPTION": "{@@}Deal !D! damage. NL Randomize a card's cost in your hand for this turn. NL This stays in your hand for !M! more use{!M!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL Change a card's cost to ",
+      " for this turn.",
+      "{@@} NL This stays in your hand for !M! more use{!M!|>1=s}."
+    ]
   }
 }

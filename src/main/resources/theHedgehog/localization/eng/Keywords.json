@@ -175,13 +175,21 @@
     "DESCRIPTION": "This turn, #yRings #gheal #g1 #gHP instead of giving you Temporary HP. If #yRings were already in your hand, they #gheal #g3 #gHP."
   },
   {
+    "ID": "wordRev",
+    "PROPER_NAME": "Rev",
+    "NAMES": [
+      "rev"
+    ],
+    "DESCRIPTION": "Alias for \"triggering the passive effect of an orb.\" Unless explicitly specified, probably refers to the rightmost Orb slot."
+  },
+  {
     "ID": "wordSpinUp",
     "PROPER_NAME": "Spin Up",
     "NAMES": [
       "spin up",
       "spin_up"
     ],
-    "DESCRIPTION": "When you play this card, #rincrease #rits #rcost #rby #r1. Any modifications to cost persist for the rest of combat. If randomized, lower the randomized cost by #b1.",
+    "DESCRIPTION": "When you play this card, #rincrease #rits #rcost #rby #r1. Any modifications to cost #bpersist for the rest of combat. If randomized, #glower #gthe #grandomized #gcost by #b1.",
     "COLOR": "ff6563"
   },
   {

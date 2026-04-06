@@ -1,5 +1,7 @@
 package theHedgehog.cards;
 
+import basemod.abstracts.AbstractCardModifier;
+import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -40,6 +42,10 @@ public class Piping extends BaseCard {
             }
             for (AbstractCard card : cards){
                 AbstractCard newCopy = card.makeStatEquivalentCopy();
+                // this code does nothing.
+                // for (AbstractCardModifier mod : CardModifierManager.modifiers(card)) {
+                //     CardModifierManager.addModifier(newCopy, mod);
+                // }
                 addToBot(new ExhaustSpecificCardAction(card, p.hand, true));
                 addToBot(new MakeTempCardInHandAction(newCopy, 1, true));
             }

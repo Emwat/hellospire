@@ -43,7 +43,7 @@ public class MagicHandsModifier extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (rawDescription.length() < 75) {
+        if (rawDescription.length() < 100) {
             return magicHandsKeywordNL + rawDescription;
         }
         return magicHandsKeyword + rawDescription;

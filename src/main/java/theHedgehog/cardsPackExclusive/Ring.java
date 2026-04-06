@@ -16,6 +16,7 @@ import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.cards.Boost;
+import theHedgehog.cards.BoostRare;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.LSDPower;
 import theHedgehog.powers.RingPower;
@@ -46,7 +47,7 @@ public class Ring extends BaseCard {
         tags.add(CardTags.HEALING);
         tags.add(SonicTags.RING);
 
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")){
+        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")) {
             if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
                 unlockRingmasterAchievement();
             }
@@ -64,14 +65,15 @@ public class Ring extends BaseCard {
         addToBot(new ModFastAction(() -> ReturnBoostToHand(p)));
     }
 
-    private void ReturnBoostToHand(AbstractPlayer p){
+    private void ReturnBoostToHand(AbstractPlayer p) {
         if (!p.discardPile.isEmpty()) {
             for (AbstractCard card : p.discardPile.group) {
-                if (Objects.equals(card.cardID, Boost.ID)) {
+                if (card instanceof Boost || card instanceof BoostRare) {
                     addToBot(new DiscardToHandAction(card));
                 }
             }
-        };
+        }
+        ;
     }
 
     @Override
@@ -86,7 +88,7 @@ public class Ring extends BaseCard {
         return new Ring();
     }
 
-    private void unlockRingmasterAchievement(){
+    private void unlockRingmasterAchievement() {
         if (AbstractDungeon.player == null) {
             return;
         }
@@ -100,7 +102,7 @@ public class Ring extends BaseCard {
         }
     }
 
-    private int countRings(ArrayList<AbstractCard> group){
+    private int countRings(ArrayList<AbstractCard> group) {
         int count = 0;
         for (AbstractCard c : group) {
             if (c.cardID.equals(this.cardID)) {

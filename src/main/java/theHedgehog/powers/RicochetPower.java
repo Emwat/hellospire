@@ -49,7 +49,7 @@ public class RicochetPower extends BasePower {
         }
         if (!this.player.discardPile.group.isEmpty()) {
             for (AbstractCard discardedCard : this.player.discardPile.group) {
-                if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
+                if (discardedCard instanceof Ricochet) {
                     countRicochets++;
                     if (isVigorAttack && ricochets.size() < BaseMod.MAX_HAND_SIZE - currentHandSize) {
                         ricochets.add(discardedCard);
@@ -77,7 +77,7 @@ public class RicochetPower extends BasePower {
             int countRicochets = 0;
 
             for (AbstractCard discardedCard : player.discardPile.group) {
-                if (Objects.equals(discardedCard.cardID, Ricochet.ID)) {
+                if (discardedCard instanceof Ricochet) {
                     countRicochets++;
                 }
             }

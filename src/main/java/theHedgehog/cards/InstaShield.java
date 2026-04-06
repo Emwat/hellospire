@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlameBarrierPower;
 import theHedgehog.SonicTags;
+import theHedgehog.actions.ActivatePassiveOrbAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -23,20 +24,19 @@ public class InstaShield extends BaseCard {
             0
     );
 
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 4;
     private static final int UPG_DAMAGE = 1;
-    private static final int BLOCK = 2;
+    private static final int BLOCK = 3;
     private static final int UPG_BLOCK = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int UPG_MAGIC = 1;
 
-    /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker. My wife was here and I didn't notice."
     public InstaShield() {
         super(ID, info);
 
         setBlock(BLOCK, UPG_BLOCK);
         setDamage(DAMAGE, UPG_DAMAGE);
-        setMagic(MAGIC, UPG_MAGIC);
+        // setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_WATCHER);
         tags.add(SonicTags.ERA_CLASSIC);
     }
@@ -45,7 +45,8 @@ public class InstaShield extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+        // addToBot(new ApplyPowerAction(p, p, new FlameBarrierPower(p, magicNumber)));
+        addToBot(new ActivatePassiveOrbAction(p));
     }
 
     @Override

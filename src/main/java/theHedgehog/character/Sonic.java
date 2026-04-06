@@ -26,7 +26,6 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.screens.DeathScreen;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theHedgehog.*;
 import theHedgehog.cards.BouncePad;
@@ -38,6 +37,7 @@ import theHedgehog.effects.VictoryStarEffect;
 import theHedgehog.relics.BlueQuillRelic;
 import theHedgehog.relics.ChaoThreeRelic;
 import theHedgehog.relics.ClassicModeRelic;
+import theHedgehog.relics.LimiterRingRelic;
 import theHedgehog.skins.ModSkinDictionary;
 
 import java.util.ArrayList;
@@ -278,13 +278,7 @@ public class Sonic extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         // IDs of starting relics. You can have multiple, but one is recommended.
 
-        if (MyModConfig.enableThreeOrbs) {
-            retVal.add(ChaoThreeRelic.ID);
-        }
-        if (MyModConfig.enableClassicMode) {
-            retVal.add(ClassicModeRelic.ID);
-        }
-
+        // Starter relic needs to be first, b/c Neow is coded to take first relic on boss swap.
         if (MyModConfig.optionStarterRelic == 0) {
             retVal.add(BlueQuillRelic.ID);
         } else if (MyModConfig.optionStarterRelic == 1) {
@@ -300,6 +294,18 @@ public class Sonic extends CustomPlayer {
         } else if (MyModConfig.optionStarterRelic == 6) {
             String relic = GetOptionRelic(AbstractDungeon.miscRng.random(0, 5));
             retVal.add(relic);
+        }
+
+        if (MyModConfig.enableThreeOrbs) {
+            retVal.add(ChaoThreeRelic.ID);
+        }
+        if (MyModConfig.enableClassicMode) {
+            retVal.add(ClassicModeRelic.ID);
+        }
+        if (MyModConfig.limiterRing > 0) {
+            for (int i = 0; i < MyModConfig.limiterRing; i++) {
+                retVal.add(LimiterRingRelic.ID);
+            }
         }
 
         return retVal;

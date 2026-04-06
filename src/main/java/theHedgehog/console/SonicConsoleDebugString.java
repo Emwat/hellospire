@@ -35,6 +35,10 @@ public class SonicConsoleDebugString extends ConsoleCommand {
             DevConsole.log("This command requires a parameter");
         } else if (tokens[1].equals("check")) {
             DevConsole.log("SonicMod.modDebugString is \"" + SonicMod.modDebugString + "\"");
+            for (AbstractPlayer character : CardCrawlGame.characterManager.getAllCharacters()) {
+                if (!CardCrawlGame.playerName.equals(character.name))
+                    SonicMod.logger.info(character.name);
+            }
         } else if (tokens[1].equals("clear")) {
             SonicMod.modDebugString = "";
             DevConsole.log("SonicMod.modDebugString is now \"" + SonicMod.modDebugString + "\"");

@@ -9,8 +9,10 @@ import com.megacrit.cardcrawl.orbs.Lightning;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.EvokeAllOrbsWithoutRemovingAction;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
+import theHedgehog.util.GeneralUtils;
 
 public class SonicWave extends BaseCard {
     public static final String ID = makeID("SonicWave");
@@ -41,16 +43,52 @@ public class SonicWave extends BaseCard {
                     addToBot(new ChannelAction(new Lightning()));
                 }
             } else {
-                addToBot(new EvokeAllOrbsWithoutRemovingAction());
                 if (!this.upgraded) {
-                    addToBot(new ExhaustSpecificCardAction(this, p.hand, true));
+                    addToBot(new ModXFastAction(() -> {
+                        this.setExhaust(true);
+                    }));
                 }
+                addToBot(new EvokeAllOrbsWithoutRemovingAction());
             }
         }));
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public void applyPowers() {
+        transitionToFullBar();
+        super.applyPowers();
+    }
+
+    // "EXTENDED_DESCRIPTION": [
+    //         "If you have any empty Orb slots, Channel !M! Lightning.",
+    //         " NL ",
+    //         " Otherwise Evoke ALL Orbs twice and Exhaust.",
+    //         " Otherwise Evoke ALL Orbs twice."
+    //         ]
+
+    private void transitionToFullBar() {
+        if (!GeneralUtils.isIndeedWithoutADoubtInCombat()) {
+            return;
+        }
+        int y = !this.upgraded ? 2 : 3;
+        if (HasEmptyOrbSlots()) {
+            this.rawDescription = String.format("%s%s%s",
+                    cardStrings.EXTENDED_DESCRIPTION[0],
+                    cardStrings.EXTENDED_DESCRIPTION[1],
+                    GeneralUtils.ColorWord("[#808080]", cardStrings.EXTENDED_DESCRIPTION[y])
+            );
+        } else {
+            this.rawDescription = String.format("%s%s%s",
+                    GeneralUtils.ColorWord("[#808080]", cardStrings.EXTENDED_DESCRIPTION[0]),
+                    cardStrings.EXTENDED_DESCRIPTION[1],
+                    cardStrings.EXTENDED_DESCRIPTION[y]
+            );
+        }
+        this.initializeDescription();
+    }
+
+    @Override
+    public AbstractCard makeCopy() { // Optional
         return new SonicWave();
     }
 }

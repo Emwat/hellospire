@@ -14,13 +14,15 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 public class UnblockedVigorAction extends AbstractGameAction{
     private DamageInfo info;
+    private float multiplier;
 
-    public UnblockedVigorAction(AbstractCreature target, DamageInfo info){
+    public UnblockedVigorAction(AbstractCreature target, DamageInfo info, float multiplier){
         this.info = info;
         setValues(target, info);
         this.actionType = ActionType.DAMAGE;
         this.startDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startDuration;
+        this.multiplier = multiplier;
     }
 
     public void update(){
@@ -32,7 +34,7 @@ public class UnblockedVigorAction extends AbstractGameAction{
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY, false));
                 this.target.damage(this.info);
                 if (this.target.lastDamageTaken > 0) {
-                    this.addToTop(new ApplyPowerAction(this.source, this.source, new VigorPower(this.source, (int)(this.target.lastDamageTaken * 0.5F))));
+                    this.addToTop(new ApplyPowerAction(this.source, this.source, new VigorPower(this.source, (int)(this.target.lastDamageTaken * multiplier))));
                     if (this.target.hb != null) {
                         this.addToTop(new VFXAction(new WallopEffect(this.target.lastDamageTaken, this.target.hb.cX, this.target.hb.cY)));
                     }

@@ -40,6 +40,8 @@ public class ClawsUnleashed extends BaseCard implements BranchingUpgradesCard {
 
     public ClawsUnleashed() {
         super(ID, info);
+        setBackgroundTexture(SonicMod.characterPath("cardback/werehog/bg_attack.png"),
+                SonicMod.characterPath("cardback/werehog/bg_attack_p.png"));
 
         setDamage(DAMAGE, BASE_UPG_DAMAGE);
         tags.add(SonicTags.CLAW);

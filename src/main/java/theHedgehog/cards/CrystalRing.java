@@ -88,7 +88,7 @@ public class CrystalRing extends BaseCard {
     private void ReturnBoostToHand(AbstractPlayer p) {
         if (!p.discardPile.isEmpty()) {
             for (AbstractCard card : p.discardPile.group) {
-                if (Objects.equals(card.cardID, Boost.ID)) {
+                if (card instanceof Boost || card instanceof BoostRare) {
                     addToBot(new DiscardToHandAction(card));
                 }
             }

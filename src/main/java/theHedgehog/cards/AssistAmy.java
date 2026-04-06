@@ -1,7 +1,9 @@
 package theHedgehog.cards;
 
+import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Forethought;
@@ -17,8 +19,9 @@ import theHedgehog.util.CardStats;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class AssistAmy extends BaseCard {
+public class AssistAmy extends BaseCard implements OnObtainCard {
     public static final String ID = makeID("AssistAmy");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -42,6 +45,13 @@ public class AssistAmy extends BaseCard {
     }
 
     @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        List<TooltipInfo> output = new ArrayList<TooltipInfo>();
+        output.add(new TooltipInfo(cardStrings.EXTENDED_DESCRIPTION[0], cardStrings.EXTENDED_DESCRIPTION[1]));
+        return output;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(SoundLibrary.RandomVoiceAction(new ArrayList<>(Arrays.asList(
                 SoundLibrary.Amy,
@@ -62,5 +72,10 @@ public class AssistAmy extends BaseCard {
     @Override
     public AbstractCard makeCopy() { // Optional
         return new AssistAmy();
+    }
+
+    @Override
+    public void onObtainCard() {
+        removeAssistCard(this.upgraded);
     }
 }

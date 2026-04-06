@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ActivatePassiveOrbAction;
 import theHedgehog.character.Sonic;
@@ -36,6 +37,7 @@ public class QuickStep extends BaseCard {
 
         setBlock(BLOCK, UPG_BLOCK);
         setExhaust(true);
+        tags.add(SonicTags.RIGHTMOST);
     }
 
     @Override
@@ -46,7 +48,7 @@ public class QuickStep extends BaseCard {
                 SoundLibrary.QuickAir3
         ))));
         addToBot(new GainBlockAction(p, block));
-        if (CheckIfRightCard(this, p.hand)) {
+        if (this.forceConditionEffect || CheckIfRightCard(this, p.hand)) {
             // addToBot(new DrawCardAction(p, 1));
             // addToBot(new ChannelAction(new Lightning()));
             addToBot(new ActivatePassiveOrbAction(p));

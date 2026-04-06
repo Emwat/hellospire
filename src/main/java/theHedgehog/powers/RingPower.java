@@ -116,7 +116,7 @@ public class RingPower extends BasePower {
             // Prevents Boost from returning itself to hand
             if (!isPlayingBoost) {
                 for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group) {
-                    if (Objects.equals(discardedCard.cardID, theHedgehog.cardsPackExclusive.Boost.ID)) {
+                    if (discardedCard instanceof theHedgehog.cardsPackExclusive.Boost) {
                         addToBot(new DiscardToHandAction(discardedCard));
                     }
                 }

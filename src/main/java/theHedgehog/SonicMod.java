@@ -9,6 +9,7 @@ import basemod.eventUtil.EventUtils;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,6 +32,7 @@ import theHedgehog.cardsTails.IQ300Attack;
 import theHedgehog.cardsTails.IQ400Attack;
 import theHedgehog.cardsTails.MagicHook;
 import theHedgehog.relics.*;
+import theHedgehog.rewards.MissionReward;
 import theHedgehog.skins.ModSkinDictionary;
 import theHedgehog.character.Sonic;
 import theHedgehog.strings.*;
@@ -96,7 +98,6 @@ public class SonicMod implements
     public static ModLocalizedStrings modLocalizedStrings;
     public static ChaoGardenEventHelperExternal chaoGardenEventHelperExternal;
     public static String modDebugString = "";
-    // public static AssistReward hoverRewardWorkaround;
 
     static {
         loadModInfo();
@@ -167,6 +168,16 @@ public class SonicMod implements
                 });
 
 
+        BaseMod.registerCustomReward(
+                RewardTypePatch.MISSION_REWARD,
+                (rewardSave) -> { // this handles what to do when this quest type is loaded.
+                    return new MissionReward(rewardSave.amount);
+                },
+                (customReward) -> { // this handles what to do when this quest type is saved.
+                    return new RewardSave(customReward.type.toString(), null, ((MissionReward) customReward).amount, 0);
+                });
+
+
         registerPotions();
         registerMonsters();
         registerEvents();
@@ -183,9 +194,21 @@ public class SonicMod implements
         ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
         ConsoleCommand.addCommand("chaog", SonicConsoleDebugString.class);
         ConsoleCommand.addCommand("chaossoda", SonicConsoleChaosSoda.class);
+        ConsoleCommand.addCommand("sonicseeall", SonicConsoleMarkAllSeen.class);
     }
 
-    private void initConfig(){
+    // //Due to reward scrolling's orthographic camera and render order of rewards, the card needs to be rendered outside of the render method
+    // public static AssistReward hoverRewardWorkaround;
+    // @Override
+    // public void receivePostRender(SpriteBatch sb) {
+    //     if(hoverRewardWorkaround != null) {
+    //         hoverRewardWorkaround.renderCardOnHover(sb);
+    //         hoverRewardWorkaround = null;
+    //     }
+    //     BrokenSpaceZone.shaderTimer += Gdx.graphics.getDeltaTime();
+    // }
+
+    private void initConfig() {
         Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
         myModConfig = new MyModConfig();
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, myModConfig);
@@ -210,6 +233,7 @@ public class SonicMod implements
             if (!Loader.isModLoaded("spireTogether")) {
                 BaseMod.addEvent(new AddEventParams.Builder(MissionEvent.ID, MissionEvent.class)
                         .dungeonID(TheBeyond.ID)
+                        .bonusCondition(() -> AbstractDungeon.floorNum % 50 >= 40)
                         .eventType(EventUtils.EventType.NORMAL)
                         .endsWithRewardsUI(true)
                         .create()
@@ -363,7 +387,7 @@ public class SonicMod implements
         // BaseMod.loadCustomStringsFile(ScoreBonusStrings.class,
         //         localizationPath(lang, "ScoreBonusStrings.json"));
 
-        //11/21/2025 12:06 AM i dont get it
+        // 11/21/2025 12:06 AM i dont get it
         // BaseMod.loadCustomStringsFile(SonicChaoGardenStrings.class,
         //         localizationPath(lang, "SonicChaoGardenStrings.json"));
         // BaseMod.loadCustomStringsFile(SonicExtraCardStrings.class,
@@ -544,31 +568,89 @@ public class SonicMod implements
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlueBomber.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlueBlur.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(CloseShave.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Enerbeam.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SonicWind.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(ScissorKick.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SpeedUp.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(IQ200Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(IQ300Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(IQ400Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(MagicHook.ID, Sonic.Meta.CARD_COLOR);
+        //
+        // BaseMod.removeCard(BackSpinKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(BoostRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(FalconPunchRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(InstaShieldRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(ScissorKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(StrikeRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SonicEagleRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(TeaserRare.ID, Sonic.Meta.CARD_COLOR);
+
+        // BaseMod.removeCard(CyanLaserRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(DoubleAirKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(FireSomersaultRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(FootSweepRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(HotRodRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(HorseKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(MeteorKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(RicochetRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SonicFlareRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SonicWaveRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SpinDashRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SpinningNeedleAttackRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(TopKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(TripleKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(UpDraftRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(WindmillRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(WindUpPunchRare.ID, Sonic.Meta.CARD_COLOR);
 
         if (!Loader.isModLoaded("anniv5")) {
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Boost.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
         }
 
+        // HelpTestChaosEmeraldAttack();
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
+            // BaseMod.removeCard(theHedgehog.cards.RocketAccel.ID, Sonic.Meta.CARD_COLOR);
+        } else {
+            BaseMod.removeCard(theHedgehog.cardsTiS.RainbowRing.ID, Sonic.Meta.CARD_COLOR);
+            // BaseMod.removeCard(theHedgehog.cardsTiS.RocketAccel.ID, Sonic.Meta.CARD_COLOR);
         }
+    }
+
+    private void HelpTestChaosEmeraldAttack() {
+        // You'll need at least 3 common, uncommon, and rare cards to avoid card rewards freezing/crashing the game,
+        // and two attacks, two skills, and one power for shops to not crash.
+        // If you pick up question card you'd need 4 of each rarity.
+        // Until you fill out the card pool, expect crashes during testing.
+        // You can use Prismatic Shard as the starting relic if you want to avoid dealing with this right away.
+        // BaseMod.removeCard(BlastProcessing.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Checkpoint.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(EndlessBoost.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(LightSpeedAttack.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(LightSpeedDash.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(LoopDeLoop.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Extender.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(RocketAccel.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SecretRoute.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Shield.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SpeedBreak.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(ThunderShield.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(TrickFinisher.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Turbulence.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(VolcanoSlider.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Whirlwind.ID, Sonic.Meta.CARD_COLOR);
+
     }
 
     @Override
@@ -738,7 +820,7 @@ public class SonicMod implements
             )));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, TOPBAR_H, false)));
             AbstractDungeon.actionManager.addToTop(new VFXAction(new ModMindblastEffect(0, 0, false, true)));
-            if (Sonic.isSonic()){
+            if (Sonic.isSonic()) {
                 AbstractDungeon.actionManager.addToTop(SoundLibrary.AlwaysPlayVoiceAction(SoundLibrary.BlastAway));
             }
         }
@@ -749,13 +831,13 @@ public class SonicMod implements
         if (!(AbstractDungeon.player instanceof Sonic)) {
             return;
         }
-        playVictoryQuote(abstractRoom);
-
+        if (isBossRoom(abstractRoom) && MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
+            playVictoryQuote(abstractRoom);
+        }
     }
 
-    private void playVictoryQuote(AbstractRoom abstractRoom){
+    private boolean isBossRoom(AbstractRoom abstractRoom) {
         String monsterName = abstractRoom.monsters.getMonsterNames().get(0);
-
         ArrayList<String> bosses = new ArrayList<>(Arrays.asList(
                 "Hexaghost",
                 "SlimeBoss",
@@ -770,13 +852,15 @@ public class SonicMod implements
                 "TimeEater"
         ));
 
-        if (bosses.contains(monsterName) && MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
-            CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
-                    SoundLibrary.SonicsTheName,
-                    SoundLibrary.TooEasy,
-                    SoundLibrary.HeyWeShould
-            ))));
-        }
+        return bosses.contains(monsterName);
+    }
+
+    private void playVictoryQuote(AbstractRoom abstractRoom) {
+        CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
+                SoundLibrary.SonicsTheName,
+                SoundLibrary.TooEasy,
+                SoundLibrary.HeyWeShould
+        ))));
     }
 
     @Override
@@ -791,7 +875,6 @@ public class SonicMod implements
                             SoundLibrary.LongLiveTheEggmanEmpire
                     ))));
                 }
-
             }
         }
     }

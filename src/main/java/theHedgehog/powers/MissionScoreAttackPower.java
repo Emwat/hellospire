@@ -11,8 +11,10 @@ import com.megacrit.cardcrawl.powers.FadingPower;
 import com.megacrit.cardcrawl.powers.ShiftingPower;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import theHedgehog.SonicMod;
+import theHedgehog.actions.ModFastAction;
 import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.actions.ModXFastAction;
+import theHedgehog.rewards.MissionReward;
 import theHedgehog.util.MissionTextures;
 
 import static theHedgehog.SonicMod.makeID;
@@ -92,14 +94,24 @@ public class MissionScoreAttackPower extends BasePower {
     }
 
     public void onVictory() {
+        // addToTop(new ModFastAction(() -> {
+        //     // CardCrawlGame.music.justFadeOutTempBGM();
+        //     CardCrawlGame.music.playTempBgmInstantly("BOSS_VICTORY_STINGER", true);
+        //     // CardCrawlGame.sound.play("BOSS_VICTORY_STINGER");
+        // }));
+        // AbstractDungeon.scene.fadeInAmbiance();
+        // music.silenceTempBgmInstantly();
+        // music.silenceBGMInstantly();
+        // AbstractMonster.playBossStinger();
+        CardCrawlGame.music.playTempBgmInstantly("STS_BossVictoryStinger_3_v3_MUSIC.ogg", false);
         if (amount >= RANK_S_SCORE) {
-            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(RANK_S_REWARD));
+            AbstractDungeon.getCurrRoom().rewards.add(new MissionReward(RANK_S_REWARD));
         } else if (amount >= RANK_A_SCORE) {
-            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(RANK_A_REWARD));
+            AbstractDungeon.getCurrRoom().rewards.add(new MissionReward(RANK_A_REWARD));
         } else if (amount >= RANK_B_SCORE) {
-            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(RANK_B_REWARD));
+            AbstractDungeon.getCurrRoom().rewards.add(new MissionReward(RANK_B_REWARD));
         } else {
-            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(RANK_C_REWARD));
+            AbstractDungeon.getCurrRoom().rewards.add(new MissionReward(RANK_C_REWARD));
         }
     }
 

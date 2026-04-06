@@ -1,6 +1,7 @@
 package theHedgehog.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
@@ -12,7 +13,7 @@ import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
-public class AssistBig extends BaseCard {
+public class AssistBig extends BaseCard implements OnObtainCard {
     public static final String ID = makeID("AssistBig");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -49,5 +50,10 @@ public class AssistBig extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new AssistBig();
+    }
+
+    @Override
+    public void onObtainCard() {
+        removeAssistCard(this.upgraded);
     }
 }

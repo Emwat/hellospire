@@ -9,7 +9,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import theHedgehog.SonicMod;
 import theHedgehog.actions.ModXFastAction;
 
 import static theHedgehog.SonicMod.makeID;
@@ -34,13 +36,30 @@ public class DizzyPower extends BasePower {
         this.description = String.format("%s NL NL Card: Cost %s %s", DESCRIPTIONS[0], highestCost, highestCostCardName);
     }
 
+    // The enemies are SUPPOSED to calculate Player's Post Draw cards, but it just never happens.
+
     // @Override
     // public void atStartOfTurn() {
     //     addToBot(new ModXFastAction(() -> { calculateHighestCost(false);}));
     // }
 
+    // @Override
+    // public void atStartOfTurnPostDraw() {
+    //     super.atStartOfTurnPostDraw();
+    //     // atbSetCostAndNameAndClearIfZero();
+    //     addToTop(new ModXFastAction(() -> {
+    //         SonicMod.logger.info("atStartOfTurnPostDraw owner" + owner.name);
+    //         calculateHighestCost(false);
+    //         // ForceMonsterApplyPowers();
+    //     }));
+    // }
+
     @Override
     public void atEndOfRound() {
+        atbSetCostAndNameAndClearIfZero();
+    }
+
+    private void atbSetCostAndNameAndClearIfZero(){
         addToBot(new ModXFastAction(() -> {
             setCostAndName(0, "(no card)");
         }));
@@ -84,8 +103,21 @@ public class DizzyPower extends BasePower {
         addToBot(new ModXFastAction(() -> calculateHighestCost(card)));
     }
 
+    // @Override
+    // public float atDamageGive(float damage, DamageInfo.DamageType type) {
+    //     if (type == DamageInfo.DamageType.NORMAL) {
+    //         calculateHighestCost(false);
+    //         if (damage - highestCost < 0) {
+    //             return 0;
+    //         }
+    //         return damage - highestCost;
+    //     } else {
+    //         return damage;
+    //     }
+    // }
+
     @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
         if (type == DamageInfo.DamageType.NORMAL) {
             calculateHighestCost(false);
             if (damage - highestCost < 0) {
@@ -96,19 +128,6 @@ public class DizzyPower extends BasePower {
             return damage;
         }
     }
-
-    // @Override
-    // public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
-    //     float damageOutput = damage;
-    //     if (type == DamageInfo.DamageType.NORMAL) {
-    //         calculateHighestCost();
-    //         if (damageOutput - highestCost < 0) {
-    //             damageOutput = 0;
-    //         }
-    //         damageOutput -= highestCost;
-    //     }
-    //     return super.atDamageFinalGive(damageOutput, type);
-    // }
 
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -127,9 +146,8 @@ public class DizzyPower extends BasePower {
                 highestCost = energy;
                 highestCostCardName = playedCard.name;
             }
-        } else if (playedCard.cost > highestCost) {
-            setCostAndName(playedCard.cost, playedCard.name);
-        } else if (playedCard.costForTurn > highestCost) {
+        }
+        if (playedCard.costForTurn > highestCost) {
             setCostAndName(playedCard.costForTurn, playedCard.name);
         }
 
@@ -151,8 +169,6 @@ public class DizzyPower extends BasePower {
                 if (energy > highestCost) {
                     setCostAndName(highestCost, card.name);
                 }
-            } else if (card.cost > highestCost) {
-                setCostAndName(card.cost, card.name);
             } else if (card.costForTurn > highestCost) {
                 setCostAndName(card.costForTurn, card.name);
             }
@@ -161,8 +177,17 @@ public class DizzyPower extends BasePower {
         if (oldCost != highestCost || hasChange) {
             updateDescription();
             this.flash();
+
             if (owner instanceof AbstractMonster) {
                 ((AbstractMonster)owner).applyPowers();
+            }
+        }
+    }
+
+    private void ForceMonsterApplyPowers(){
+        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+            if (!mo.isDeadOrEscaped()) {
+                mo.applyPowers();
             }
         }
     }

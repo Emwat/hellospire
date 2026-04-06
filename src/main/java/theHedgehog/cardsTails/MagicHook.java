@@ -37,6 +37,7 @@ public class MagicHook extends BaseCard {
         setCostUpgrade(0);
     }
 
+    /// Draw an Attack that costs 2+. It costs 1 less this turn. NL Exhaust.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ModXFastAction(()->{
@@ -46,7 +47,7 @@ public class MagicHook extends BaseCard {
 
             for (int i = 0; i < p.drawPile.size(); i++) {
                 AbstractCard c = p.drawPile.group.get(i);
-                if (c.cost >= 2) {
+                if (c.costForTurn >= 2) {
                     AbstractDungeon.player.hand.addToHand(c);
                     c.unfadeOut();
                     c.unhover();

@@ -16,12 +16,12 @@ public class ScissorKick extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.RARE,
+            CardRarity.SPECIAL,
             CardTarget.ENEMY,
             1
     );
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 4;
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
 

@@ -51,7 +51,7 @@ public class BoostAction extends AbstractGameAction {
                 this.damage = DamageInfo.createDamageMatrix(this.baseDamage);
             }
 
-            for(int i = 0; i < temp; ++i) {
+            for (int i = 0; i < temp; ++i) {
                 if (!AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isDying &&
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(i).currentHealth > 0 &&
                         !AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isEscaping) {
@@ -69,13 +69,13 @@ public class BoostAction extends AbstractGameAction {
 
         this.tickDuration();
         if (this.isDone) {
-            for(AbstractPower p : AbstractDungeon.player.powers) {
+            for (AbstractPower p : AbstractDungeon.player.powers) {
                 p.onDamageAllEnemies(this.damage);
             }
 
             int temp = AbstractDungeon.getCurrRoom().monsters.monsters.size();
 
-            for(int i = 0; i < temp; ++i) {
+            for (int i = 0; i < temp; ++i) {
                 if (!AbstractDungeon.getCurrRoom().monsters.monsters.get(i).isDeadOrEscaped()) {
                     if (this.attackEffect == AttackEffect.POISON) {
                         AbstractDungeon.getCurrRoom().monsters.monsters.get(i).tint.color.set(Color.CHARTREUSE);

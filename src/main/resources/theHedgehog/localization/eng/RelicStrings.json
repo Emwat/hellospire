@@ -119,7 +119,7 @@
   },
   "${modID}:FireSoulRelic": {
     "NAME": "Fire Soul",
-    "FLAVOR": "Don't sweat it! Anyways, no adventure is fun if it's too easy, right?",
+    "FLAVOR": "WOW! The wisdom of Sinbad of the Seven Seas! The adventurer of adventurers!",
     "DESCRIPTIONS": [
       "When you use a #yCrest #yof #yFire or a #yStrike card, first gain #b",
       " Block. This amount permanently increases when you enter a Rest Site."
@@ -193,6 +193,13 @@
     "FLAVOR": "Aw yeah! This is happening!",
     "DESCRIPTIONS": [
       "Your #yRings persist between each combat. If you take #b3+ damage, exhaust ALL of your #yRings."
+    ]
+  },
+  "${modID}:LimiterRingRelic": {
+    "NAME": "Limiter Ring",
+    "FLAVOR": "Don't sweat it! Anyways, no adventure is fun if it's too easy, right?",
+    "DESCRIPTIONS": [
+      "When you play a #yTrick, #rgain #r1 #rless #yVigor."
     ]
   },
   "${modID}:StampRelic": {

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import spireTogether.SpireTogetherMod;
 import spireTogether.monsters.CharacterEntity;
 import spireTogether.network.P2P.P2PManager;
+import spireTogether.network.P2P.P2PPlayer;
 import spireTogether.network.objects.items.NetworkCard;
 import theHedgehog.MyModConfig;
 
@@ -31,12 +32,29 @@ public class ModMultiplayerHelper {
     }
 
     public static void GiveCardToTeammate(AbstractMonster m, AbstractCard card) {
+        GiveCardToTeammate(m, card, true);
+    }
+
+    public static void GiveCardToTeammate(AbstractMonster m, AbstractCard card, boolean cardPurgesOnUse) {
         AbstractCard tmp = card.makeStatEquivalentCopy();
         tmp.costForTurn = 0;
         tmp.name = (P2PManager.GetSelf()).username + " " + CapitalizeFirstLetter(tmp.type.toString());
 
-        tmp.purgeOnUse = true;
-        tmp.rawDescription += " NL Purge.";
+        if (cardPurgesOnUse) {
+            tmp.purgeOnUse = true;
+            tmp.rawDescription += " NL Purge.";
+        }
         ((CharacterEntity) m).addCard(NetworkCard.Generate(tmp), CardGroup.CardGroupType.HAND);
+    }
+
+    public static void GiveCardToTeammate(P2PPlayer e, AbstractCard card, boolean cardPurgesOnUse) {
+        AbstractCard tmp = card.makeStatEquivalentCopy();
+        tmp.costForTurn = 0;
+        tmp.name = (P2PManager.GetSelf()).username + " " + CapitalizeFirstLetter(tmp.type.toString());
+
+        if (cardPurgesOnUse) {
+            tmp.purgeOnUse = true;
+            tmp.rawDescription += " NL Purge.";
+        }
     }
 }

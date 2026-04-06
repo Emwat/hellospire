@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theHedgehog.SonicTags;
 import theHedgehog.character.Sonic;
 import theHedgehog.relics.AirBoostShoesRelic;
@@ -61,7 +62,7 @@ public class MeteorKick extends BaseCard {
     }
 
     private boolean HasHeavyCard() {
-        if (this.cost >= heavyCost || this.costForTurn >= heavyCost) {
+        if (this.costForTurn >= heavyCost) {
             return true;
         }
 
@@ -76,7 +77,11 @@ public class MeteorKick extends BaseCard {
 
         for (int i = 0; i < hand.size(); i++) {
             AbstractCard handCard = hand.group.get(i);
-            if (handCard.cost >= heavyCost) {
+            if (handCard.costForTurn >= heavyCost) {
+                return true;
+            }
+            int energy = EnergyPanel.totalCount;
+            if (handCard.cost == -1 && energy >= heavyCost) {
                 return true;
             }
         }

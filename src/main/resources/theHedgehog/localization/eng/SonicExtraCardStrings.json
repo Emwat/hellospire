@@ -17,6 +17,14 @@
       "Hot Rod Overloaded"
     ]
   },
+  "${modID}:HotRodRare": {
+    "NAMES": [
+      "Hot Rod S Part 1 of 3",
+      "Hot Rod S Part 2 of 3",
+      "Hot Rod S Part 3 of 3",
+      "Hot Rod S Overloaded"
+    ]
+  },
   "${modID}:PunchRush": {
     "NAMES": [
       "Super Rush",

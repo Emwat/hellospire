@@ -1,6 +1,5 @@
 package theHedgehog.actions;
 
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,9 +9,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.SharpHidePower;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import theHedgehog.MyModConfig;
-import thePackmaster.powers.boardgamepack.DicePower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
+import theHedgehog.SonicTags;
+import theHedgehog.cards.BaseCard;
+import theHedgehog.util.GeneralUtils;
 
 public class DashPanelAction extends AbstractGameAction {
 
@@ -34,13 +34,9 @@ public class DashPanelAction extends AbstractGameAction {
         this.card = card;
         this.action = new UseCardAction(card, target);
         this.energyOnUse = energyOnUse;
-        if (AbstractDungeon.player.hasPower(VigorPower.POWER_ID)){
-            vigorWorkaround = AbstractDungeon.player.getPower(VigorPower.POWER_ID).amount;
-        }
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5") && AbstractDungeon.player.hasPower(DicePower.POWER_ID)){
-            vigorWorkaround = AbstractDungeon.player.getPower(DicePower.POWER_ID).amount;
-            blockWorkaround = AbstractDungeon.player.getPower(DicePower.POWER_ID).amount;
-        }
+
+        vigorWorkaround = (int)GeneralUtils.getVigorAndMoreAmount(card.baseDamage);
+        blockWorkaround = (int)GeneralUtils.getBlockAndMoreAmount(card.baseBlock);
     }
 
     private AbstractMonster modGetRandomMonster() {
@@ -66,12 +62,21 @@ public class DashPanelAction extends AbstractGameAction {
             if (tmp.type == AbstractCard.CardType.ATTACK && vigorWorkaround > 0) {
                 tmp.baseDamage += vigorWorkaround;
             }
-            if (tmp.baseBlock > 0 && blockWorkaround > 0){
+            if (tmp.baseBlock > 0 && blockWorkaround > 0) {
                 tmp.baseBlock += blockWorkaround;
             }
 
+            if (card instanceof BaseCard && card.hasTag(SonicTags.RIGHTMOST)) {
+                BaseCard thisHorseKick = ((BaseCard) tmp);
+                if (thisHorseKick.CheckIfRightCard(card, AbstractDungeon.player.hand)) {
+                    thisHorseKick.forceConditionEffect = true;
+                }
+            }
+
+            // For some reason, if DashPanel has an attack, it counts as two attacks.
+            // So if you're Dash Paneling two attacks, Pen Nib registers four attacks
             if (m != null) {
-                if (m.hasPower(SharpHidePower.POWER_ID)){
+                if (m.hasPower(SharpHidePower.POWER_ID)) {
                     AbstractDungeon.player.addBlock(m.getPower(SharpHidePower.POWER_ID).amount);
                 }
                 tmp.calculateCardDamage(m);

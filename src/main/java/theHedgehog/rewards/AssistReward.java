@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
@@ -24,7 +25,7 @@ import static theHedgehog.SonicMod.makeID;
 
 public class AssistReward extends CustomReward {
     public static final String ID = makeID("AssistReward");
-    private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("AssistMessage")).TEXT;
+    private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("RewardAssistMessage")).TEXT;
 //    private static final Texture ICON = new Texture(Gdx.files.internal("[pathtotexturefile]"));
 
     // TEXT is [
@@ -40,8 +41,8 @@ public class AssistReward extends CustomReward {
     private static final Color TIP_COL = Color.WHITE.cpy();
     private static final float XOFFSET = 25f * Settings.scale;
     protected static final float REWARD_X_POS = Settings.WIDTH * 0.434F;
-    public AbstractCard card;
-    protected AbstractCard renderCard;
+    // public AbstractCard card;
+    // protected AbstractCard renderCard;
 
     public static AssistReward Constructor2(String type, String id, int amount, int bonusGold) {
         AbstractCard assist = new Assist();
@@ -105,11 +106,12 @@ public class AssistReward extends CustomReward {
 
     public AssistReward(AbstractCard assist, UUID uuid, AbstractCard transformedAssist, boolean isAssistUpgraded) {
         super(ImageMaster.REWARD_CARD_NORMAL,
-                String.format("%s %s. %s %s.",
+                String.format("%s%s%s%s%s",
                         TEXT[0],
                         assist == null ? "ERROR" : assist.name,
                         TEXT[1],
-                        transformedAssist == null ? "ERROR" : transformedAssist.name)
+                        transformedAssist == null ? "ERROR" : transformedAssist.name,
+                        TEXT[2])
                 , RewardTypePatch.ASSIST_LOCKIN);
         this.assist = assist;
         this.uuid = uuid;
@@ -124,27 +126,25 @@ public class AssistReward extends CustomReward {
             }
         }
 
-        card = transformedAssist;
-        renderCard = transformedAssist.makeStatEquivalentCopy();
+        // card = transformedAssist;
+        this.cards.add(transformedAssist);
+        // renderCard = transformedAssist.makeStatEquivalentCopy();
     }
 
     @Override
     public boolean claimReward() {
-        ArrayList<AbstractCard> masterDeck = AbstractDungeon.player.masterDeck.group;
-
-        for (int i = masterDeck.size() - 1; i >= 0; --i) {
-            AbstractCard card = masterDeck.get(i);
-            if (card.uuid == this.uuid) {
-                AbstractDungeon.player.masterDeck.removeCard(card);
-                break;
-            }
+        if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD) {
+            AbstractDungeon.cardRewardScreen.open(this.cards, this, TEXT[3]);
+            AbstractDungeon.previousScreen = AbstractDungeon.CurrentScreen.COMBAT_REWARD;
         }
+        return false;
+    }
 
+    public void gainAssistCard(){
         AbstractDungeon.effectList.add(
                 new ShowCardAndObtainEffect(transformedAssist.makeStatEquivalentCopy(),
                         (float) Settings.WIDTH / 2.0F,
                         (float) Settings.HEIGHT / 2.0F));
-        return true;
     }
 
     @Override

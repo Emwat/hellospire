@@ -1,6 +1,7 @@
 package theHedgehog.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
@@ -14,7 +15,7 @@ import theHedgehog.character.Sonic;
 import theHedgehog.powers.DizzyPower;
 import theHedgehog.util.CardStats;
 
-public class AssistCharmy extends BaseCard {
+public class AssistCharmy extends BaseCard implements OnObtainCard {
     public static final String ID = makeID("AssistCharmy");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -52,5 +53,10 @@ public class AssistCharmy extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new AssistCharmy();
+    }
+
+    @Override
+    public void onObtainCard() {
+        removeAssistCard(this.upgraded);
     }
 }

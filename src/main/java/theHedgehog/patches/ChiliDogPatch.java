@@ -23,10 +23,10 @@ public class ChiliDogPatch {
 
     private static boolean playerIsSonic(){
         if (Loader.isModLoaded("GooglyMod")) {
-            return true;
+            return false;
         }
 
-        // return false;
+        // return true;
         return AbstractDungeon.player instanceof Sonic;
     }
 

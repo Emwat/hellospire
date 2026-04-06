@@ -55,18 +55,35 @@ public class ChaoGardenEvent extends PhasedEvent {
             String buddyKey = SonicMod.chaoGardenEventHelperExternal.makeID(buddy);
             // SonicMod.logger.info("buddy: " + buddy + " - buddyKey " + buddyKey);
 
+
+            LogAttempt("Attempting " + buddyKey);
             SonicChaoGardenStrings chaoGardens = SonicMod.chaoGardenEventHelperExternal.GetSonicChaoGardenString(buddyKey);
             if (chaoGardens == null) {
+                LogAttempt("Attempting " + buddy);
                 chaoGardens = SonicMod.chaoGardenEventHelperExternal.GetSonicChaoGardenString(buddy);
             }
             if (chaoGardens == null) {
-                chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID(buddy));
+                if (!(AbstractDungeon.player instanceof Sonic)) {
+                    LogAttempt("Attempting " + buddy);
+                    chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(buddy);
+                } else {
+                    LogAttempt("Attempting " + SonicMod.makeID(buddy));
+                    chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID(buddy));
+                }
+
             }
+
             if (chaoGardens == null) {
+                LogAttempt("Fail. Resorting to Default.");
                 chaoGardens = SonicMod.modLocalizedStrings.getChaoGardenString(SonicMod.makeID("Default"));
             }
 
             this.DiscussionText = chaoGardens.TALK;
+
+            if (this.Name.equals("the Snecko")) {
+                int newCost = AbstractDungeon.cardRandomRng.random(3);
+                this.DiscussionText = chaoGardens.TALK.replace("{x}", String.valueOf(newCost));
+            }
 
             this.OptionColor = chaoGardens.OPTIONCOLOR == null ? "" : chaoGardens.OPTIONCOLOR;
             if (chaoGardens.DRINKCOLOR == null) {
@@ -78,7 +95,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         }
 
         private String OptBuddy() {
-            String[] friends = new String[] {
+            String[] friends = new String[]{
                     "Tails", "Knuckles", "Amy", "Rouge"
             };
             if (Arrays.stream(friends).anyMatch(s -> s.equals(this.Name))) {
@@ -96,10 +113,11 @@ public class ChaoGardenEvent extends PhasedEvent {
 
             String formattedName = this.Name;
 
-            if (!this.Name.startsWith("the ")){
+            if (!this.Name.startsWith("the ")) {
                 formattedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
             }
-            formattedName = ColorWord(this.OptionColor, formattedName);;
+            formattedName = ColorWord(this.OptionColor, formattedName);
+            ;
 
             return String.format("%s%s%s%s %s%s",
                     OptPartnerA, // [Give Chaos Soda to
@@ -280,7 +298,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         registerPhase(phase01_table, GenerateTextPhaseWithActionAndImage(DesSitDown, IMGTable)
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(0).OptBuddy())
-                        .enabledCondition(() -> CountSodas() > 0, OptNeedDrink(0) )
+                        .enabledCondition(() -> CountSodas() > 0, OptNeedDrink(0))
                         .setOptionResult((i) -> Option010_GiveDrinkToBuddy(DrinkBuddies.get(0).Name, i)))
                 .addOption(new TextPhase
                         .OptionInfo(DrinkBuddies.get(1).OptBuddy())
@@ -388,7 +406,7 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private void initializeEventVariables() {
 
-        if (SonicMod.modDebugString.equals("sonicsfriends")){
+        if (SonicMod.modDebugString.equals("sonicsfriends")) {
             InitializeSonicsFriendsDebug();
         } else {
             if (AbstractDungeon.player instanceof Sonic) {
@@ -398,7 +416,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         }
         Collections.shuffle(DrinkBuddies);
 
-        if (!SonicMod.modDebugString.isEmpty()){
+        if (!SonicMod.modDebugString.isEmpty()) {
             MoveSpecificDrinkBuddyToTop();
         }
 
@@ -436,7 +454,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         healAmt = (int) (AbstractDungeon.player.maxHealth * (healPercentage * 0.01F));
     }
 
-    private void MoveSpecificDrinkBuddyToTop(){
+    private void MoveSpecificDrinkBuddyToTop() {
         int targetIndex = -1;
 
         for (int i = 0; i < DrinkBuddies.size(); i++) {
@@ -536,7 +554,7 @@ public class ChaoGardenEvent extends PhasedEvent {
         thisGuy.NumberOfDrinks += 1;
         FollowUp = thisGuy.DrinkText + " NL NL ";
 
-        if (!"".equals(thisGuy.DrinkSoundKey)){
+        if (!"".equals(thisGuy.DrinkSoundKey)) {
             try {
                 CardCrawlGame.sound.play(thisGuy.DrinkSoundKey);
             } catch (Exception ex) {
@@ -550,6 +568,7 @@ public class ChaoGardenEvent extends PhasedEvent {
     Supplier<CardGroup> DiscussSupplier = () -> {
         CardGroup discussCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         int extraCardChoice = AbstractDungeon.player.hasRelic(QuestionCard.ID) ? 1 : 0;
+        int failSafeCap = 50;
         if (!DrinkBuddies.isEmpty()) {
             for (DrinkingBuddy drinkBuddy : DrinkBuddies) {
                 int drinkBuddyCardChoices = drinkBuddy.NumberOfDrinks * (numberOfNewChoices + extraCardChoice);
@@ -557,17 +576,37 @@ public class ChaoGardenEvent extends PhasedEvent {
 
                 for (int j = 0; j < drinkBuddyCardChoices; j++) {
                     AbstractCard card = list.get(AbstractDungeon.miscRng.random(0, list.size() - 1));
-                    boolean containsDupe = true;
+                    boolean containsDupeOrSpecialCard = true;
+                    int failSafeCounter = 0;
 
-                    while (containsDupe) {
-                        containsDupe = false;
+                    while (containsDupeOrSpecialCard) {
+                        containsDupeOrSpecialCard = false;
 
-                        for (AbstractCard discussCard : discussCards.group) {
-                            if (discussCard.cardID.equals(card.cardID)) {
-                                containsDupe = true;
-                                card = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
-                                break;
+                        if (card.rarity == AbstractCard.CardRarity.SPECIAL) {
+                            containsDupeOrSpecialCard = true;
+                            LogAttempt("containsDupeOrSpecialCard SPECIAL " + failSafeCounter + card.cardID);
+                        } else if (card.rawDescription.contains("should") || card.rawDescription.contains("report")) {
+                            containsDupeOrSpecialCard = true;
+                            LogAttempt("containsDupeOrSpecialCard should/report" + failSafeCounter + card.cardID);
+                        } else {
+                            for (AbstractCard discussCard : discussCards.group) {
+                                if (discussCard.cardID.equals(card.cardID)) {
+                                    containsDupeOrSpecialCard = true;
+                                    LogAttempt("containsDupeOrSpecialCard already in discussion " + failSafeCounter + card.cardID);
+                                    // card = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
+                                    break;
+                                }
                             }
+                        }
+                        // com.megacrit.cardcrawl.events.city.TheLibrary
+
+                        if (containsDupeOrSpecialCard) {
+                            card = list.get(AbstractDungeon.miscRng.random(0, list.size() - 1));
+                        }
+
+                        failSafeCounter++;
+                        if (failSafeCounter > failSafeCap) {
+                            containsDupeOrSpecialCard = false;
                         }
                     }
 
@@ -764,6 +803,12 @@ public class ChaoGardenEvent extends PhasedEvent {
             } catch (Exception ex) {
                 SonicMod.logger.info("Could not make " + character.name + " into a drinking buddy.");
             }
+        }
+    }
+
+    private void LogAttempt(String s) {
+        if (!SonicMod.modDebugString.isEmpty()) {
+            SonicMod.logger.info(s);
         }
     }
 

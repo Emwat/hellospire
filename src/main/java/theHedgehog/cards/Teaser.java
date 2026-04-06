@@ -1,11 +1,14 @@
 package theHedgehog.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.defect.EvokeSpecificOrbAction;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Dark;
 import theHedgehog.SonicTags;
 import theHedgehog.character.Sonic;
@@ -66,6 +69,18 @@ public class Teaser extends BaseCard implements BranchingUpgradesCard {
 
         addToBot(new ChannelAction(new Dark()));
         addToBot(new MakeTempCardInDrawPileAction(createdCard, 1, true, true, false));
+    }
+
+    private void atbEvokeRightmostDark(AbstractPlayer p){
+        if (p.hasOrb()) {
+            for (AbstractOrb orb : p.orbs){
+                if (orb instanceof Dark) {
+                    addToBot(new EvokeSpecificOrbAction(orb));
+                    break;
+                }
+            }
+        }
+
     }
 
     @Override

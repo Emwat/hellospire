@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
+import theHedgehog.character.Sonic;
 import theHedgehog.effects.ChaoEvolveEffect;
 import theHedgehog.relics.*;
 import theHedgehog.util.TextureLoader;
@@ -65,6 +66,14 @@ public class EvolveChaoOption extends AbstractCampfireOption {
     }
 
     private AbstractCard.CardTags GetMostTagged() {
+        if (AbstractDungeon.player instanceof Sonic) {
+            return GetMostTaggedCards();
+        } else {
+            return GetMostCardTypes();
+        }
+    }
+
+    private AbstractCard.CardTags GetMostTaggedCards(){
         int countIronclad = countTagsInMasterDeck(SonicTags.LIKE_IRONCLAD);
         int countSilent = countTagsInMasterDeck(SonicTags.LIKE_SILENT);
         int countDefect = countTagsInMasterDeck(SonicTags.LIKE_DEFECT);
@@ -95,6 +104,36 @@ public class EvolveChaoOption extends AbstractCampfireOption {
         return count;
     }
 
+    private AbstractCard.CardTags GetMostCardTypes() {
+        int countATK = 0;
+        int countSKL = 0;
+        int countPWR = 0;
+        int countMISC = 0;
+        for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
+            if (card.type == AbstractCard.CardType.ATTACK) { countATK++; }
+            else if (card.type == AbstractCard.CardType.SKILL) { countSKL++; }
+            else if (card.type == AbstractCard.CardType.POWER) { countPWR++; }
+            else { countMISC++; }
+        }
+
+        countATK = (int)(countATK * 1.3);
+        countPWR = countPWR * 4;
+        countMISC = countMISC * 13;
+        int[] counts = {countATK, countSKL, countPWR, countMISC};
+        int maxCount = counts[0];
+
+        for (int i = 1; i < counts.length; i++) {
+            if (counts[i] > maxCount) {
+                maxCount = counts[i];
+            }
+        }
+
+        if (maxCount == countATK) { return SonicTags.LIKE_IRONCLAD; }
+        else if (maxCount == countSKL) { return SonicTags.LIKE_SILENT; }
+        else if (maxCount == countPWR) { return SonicTags.LIKE_DEFECT; }
+        else if (maxCount == countMISC) { return SonicTags.LIKE_WATCHER; }
+        return SonicTags.LIKE_DEFECT;
+    }
 
     public void EnableOrDisableButton() {
         // "Evolve Chao",

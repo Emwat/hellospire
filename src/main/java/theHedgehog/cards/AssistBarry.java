@@ -1,6 +1,7 @@
 package theHedgehog.cards;
 
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
-public class AssistBarry extends BaseCard {
+public class AssistBarry extends BaseCard implements OnObtainCard {
     public static final String ID = makeID("AssistBarry");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -49,5 +50,10 @@ public class AssistBarry extends BaseCard {
         ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
         ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
         exhaust = false;
+    }
+
+    @Override
+    public void onObtainCard() {
+        removeAssistCard(this.upgraded);
     }
 }

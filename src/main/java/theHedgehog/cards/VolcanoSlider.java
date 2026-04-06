@@ -156,7 +156,7 @@ public class VolcanoSlider extends BaseCard implements CrestOfFireCard {
         if (this.timesUpgraded > 7 + FireSoulRelicAmount) {
             ExtraIcons.icon(fireIcon)
                     .text(String.valueOf(timesUpgraded - 7 - FireSoulRelicAmount))
-                    .textColor(Color.ORANGE.cpy())
+                    .textColor(new Color(1, 0.63F, 0, this.transparency))
                     .textOffsetY(-30f)
                     .drawColor(new Color(1, 1, 1, this.transparency))
                     .render(this);

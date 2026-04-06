@@ -1,5 +1,7 @@
 package theHedgehog.cards;
 
+import basemod.BaseMod;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -56,6 +58,15 @@ public class DizzySpin extends BaseCard {
             }
         }
 
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (this.upgraded && AbstractDungeon.player.hand.size() + 2 > BaseMod.MAX_HAND_SIZE + 1) {
+            this.glowColor = Color.RED.cpy();
+        }
     }
 
     @Override

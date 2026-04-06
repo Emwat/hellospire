@@ -3,14 +3,17 @@ package theHedgehog.powers;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.colorless.Panache;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import theHedgehog.MyModConfig;
 import theHedgehog.SoundLibrary;
 import theHedgehog.effects.AMAZINGEffect;
@@ -23,6 +26,7 @@ public class AMAZINGPower extends BasePower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
     public static final int CARD_AMT = 3;
+    // private int baseDamage;
     private int damage;
     // amount is attack cards played counter
 
@@ -35,18 +39,19 @@ public class AMAZINGPower extends BasePower {
         if (!owner.hasPower(this.ID)) {
             this.amount = CARD_AMT;
         }
+        // this.baseDamage = damage;
         this.damage = damage;
         this.updateDescription();
-
     }
 
+          // "Every time you play ",
+          //         " Attack card in a single turn, deal #b",
+          //         " Attack cards in a single turn, deal #b",
+          //         " damage to ALL enemies and gain ",
+          //         " Strength."
     public void updateDescription() {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.damage + DESCRIPTIONS[2];
-        } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[3] + this.damage + DESCRIPTIONS[2];
-        }
-
+        int s = this.amount == 1 ? 1 : 2;
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[s] + this.damage + DESCRIPTIONS[3];
     }
 
     public void stackPower(int stackAmount) {
@@ -85,15 +90,23 @@ public class AMAZINGPower extends BasePower {
             }
             this.amount = CARD_AMT;
             // this.addToBot(new VFXAction());
-            this.addToBot(new DamageAllEnemiesAction(
+            addToBot(new DamageAllEnemiesAction(
                     AbstractDungeon.player,
                     DamageInfo.createDamageMatrix(this.damage, true),
                     DamageInfo.DamageType.THORNS,
                     AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            // addToBot(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, getStrengthGain())));
         }
 
         this.updateDescription();
     }
+
+    // private int getStrengthGain(){
+    //     if (this.baseDamage == 0) {
+    //         return 1;
+    //     }
+    //     return this.damage/this.baseDamage;
+    // }
 
     public void atStartOfTurn() {
         this.amount = CARD_AMT;

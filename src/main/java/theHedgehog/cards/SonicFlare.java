@@ -37,7 +37,7 @@ public class SonicFlare extends BaseCard {
 //        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 //        addToBot(new MakeTempCardInHandAction(new Trick(), 1,true));
 //        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, (int)(damage * 0.5F))));
-        addToBot(new UnblockedVigorAction(m, new DamageInfo(p, damage, this.damageTypeForTurn)));
+        addToBot(new UnblockedVigorAction(m, new DamageInfo(p, damage, this.damageTypeForTurn), 0.5F));
     }
 
     @Override

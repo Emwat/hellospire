@@ -1,19 +1,26 @@
 package theHedgehog.cards;
 
 import basemod.BaseMod;
+import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.NoDrawPower;
+import com.megacrit.cardcrawl.relics.SneckoEye;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import theHedgehog.actions.LoopDeLoopAction;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.relics.AirBoostShoesRelic;
 import theHedgehog.util.CardStats;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static theHedgehog.util.GeneralUtils.ColorWord;
 
@@ -29,12 +36,21 @@ public class LoopDeLoop extends BaseCard {
 
     private static final int MAGIC = 1;
     private static final int UPG_MAGIC = 1;
+    private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(50, 50, 255);
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(0, 0, 0);
 
     public LoopDeLoop() {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
         setExhaustive(4);
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        List<TooltipInfo> output = new ArrayList<TooltipInfo>();
+        output.add(new TooltipInfo(cardStrings.EXTENDED_DESCRIPTION[5], cardStrings.EXTENDED_DESCRIPTION[6]));
+        return output;
     }
 
     @Override

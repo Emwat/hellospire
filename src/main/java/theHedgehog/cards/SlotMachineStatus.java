@@ -41,7 +41,7 @@ public class SlotMachineStatus extends BaseCard {
                 int count = 0;
                 for (AbstractCard c : AbstractDungeon.player.hand.group) {
                     SonicMod.logger.info(c.cardID + " " + SlotMachineStatus.ID);
-                    if (Objects.equals(c.cardID, SlotMachineStatus.ID)) {
+                    if (c instanceof SlotMachineStatus) {
                         count++;
                     }
                 }

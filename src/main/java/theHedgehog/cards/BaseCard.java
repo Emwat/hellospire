@@ -5,7 +5,6 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.curses.Pain;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
@@ -68,6 +67,7 @@ public abstract class BaseCard extends CustomCard {
     protected boolean upgInnate = false;
     protected boolean baseRetain = false;
     protected boolean upgRetain = false;
+    public boolean forceConditionEffect = false;
 
     final protected Map<String, LocalVarInfo> cardVariables = new HashMap<>();
 
@@ -806,8 +806,13 @@ public abstract class BaseCard extends CustomCard {
         if (card.cost == -1 || card.cost == -2) {
             return;
         }
+        int oldCost = card.cost;
         card.cost = newCost;
         card.costForTurn = newCost;
+
+        if (oldCost != newCost) {
+            card.isCostModifiedForTurn = true;
+        }
     }
 
     public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
@@ -1010,4 +1015,31 @@ public abstract class BaseCard extends CustomCard {
         }
         return null;
     }
+
+    public void SetChaosEmeraldCardback() {
+        if (this.type == CardType.ATTACK) {
+            setBackgroundTexture(
+                    SonicMod.characterPath("cardback/chaosemerald/bg_attack.png"),
+                    SonicMod.characterPath("cardback/chaosemerald/bg_attack_p.png")
+            );
+        } else if (this.type == CardType.SKILL) {
+            setBackgroundTexture(
+                    SonicMod.characterPath("cardback/chaosemerald/bg_skill.png"),
+                    SonicMod.characterPath("cardback/chaosemerald/bg_skill_p.png")
+            );
+        }
+    }
+
+    public void removeAssistCard(boolean isAssistUpgraded) {
+        ArrayList<AbstractCard> masterDeck = AbstractDungeon.player.masterDeck.group;
+
+        for (int i = masterDeck.size() - 1; i >= 0; --i) {
+            AbstractCard card = masterDeck.get(i);
+            if (card instanceof Assist && card.upgraded == isAssistUpgraded) {
+                AbstractDungeon.player.masterDeck.removeCard(card);
+                break;
+            }
+        }
+    }
+
 }

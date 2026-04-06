@@ -1,6 +1,7 @@
 package theHedgehog.cards;
 
 import basemod.helpers.CardModifierManager;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +13,7 @@ import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
-public class AssistSticks extends BaseCard {
+public class AssistSticks extends BaseCard implements OnObtainCard {
     public static final String ID = makeID("AssistSticks");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -56,5 +57,10 @@ public class AssistSticks extends BaseCard {
     @Override
     public AbstractCard makeCopy() { // Optional
         return new AssistSticks();
+    }
+
+    @Override
+    public void onObtainCard() {
+        removeAssistCard(this.upgraded);
     }
 }

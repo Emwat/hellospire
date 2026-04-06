@@ -16,12 +16,6 @@
       "PackmasterUI"
     ]
   },
-  "${modID}:AssistMessage": {
-    "TEXT": [
-      "Lose",
-      "Get"
-    ]
-  },
   "${modID}:AssistAmyMessage": {
     "TEXT": [
       "Cute Couple: Cost 0 for the rest of combat."
@@ -41,7 +35,7 @@
   },
   "${modID}:BlueTornadoMessage": {
     "TEXT": [
-      "Blue Tornado: Choose up to 1 card and flip its cost for the rest of combat."
+      "Blue Tornado: Choose up to 1 card and flip its cost this turn."
     ]
   },
   "${modID}:ChaosSodaPotionMessage": {
@@ -135,6 +129,7 @@
       "enableSonicStylePack": "Enable Sonic Style Pack (trashed idea)",
       "enableCrestOfFire": "Enable Crest of Fire cards (if unlocked)",
       "enableStanceSwitching": "Enable Stance Switching cards (if unlocked)",
+      "limiterRing": "Add Limiter Ring (When you play a Trick, gain 1 less Vigor).",
       "unlockEverything": "Unlock Everything"
     }
   },
@@ -299,6 +294,20 @@
       "Skin Menu",
       "",
       "None"
+    ]
+  },
+  "${modID}:RewardAssistMessage": {
+    "TEXT": [
+      "Lose ",
+      ". Get ",
+      ".",
+      "Lock in Assist."
+    ]
+  },
+  "${modID}:RewardMissionMessage": {
+    "TEXT": [
+      "Gain ",
+      " gold."
     ]
   }
 }

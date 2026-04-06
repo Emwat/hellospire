@@ -2,6 +2,7 @@ package theHedgehog.cards;
 
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -20,7 +21,7 @@ import theHedgehog.cardmodifiers.MagicHandsModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
-public class AssistVector extends BaseCard {
+public class AssistVector extends BaseCard implements OnObtainCard {
     public static final String ID = makeID("AssistVector");
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
@@ -81,5 +82,10 @@ public class AssistVector extends BaseCard {
     @Override
     public AbstractCard makeCopy() { // Optional
         return new AssistVector();
+    }
+
+    @Override
+    public void onObtainCard() {
+        removeAssistCard(this.upgraded);
     }
 }

@@ -57,6 +57,7 @@ Requires subscription to
 - YouTube - You can double right-click a video and take snapshot.
 - YouTube - You can press <kbd>.</kbd> or <kbd>,</kbd> to move the video by one frame.
 - You can edit `AppData\Local\ModTheSpire\mod_lists.json` to re-organize MTS profiles
+- [Red for attack, blue for block] (https://www.reddit.com/r/slaythespire/comments/1rtdpxv/blocks_cards_look_like_attack_cards_card_visual/) I never noticed this. lolwut.
 
 # General Coding Tips for beginners
 - Learn some basics. You don't need a full course. What is a method? What is method overloading?
@@ -70,6 +71,7 @@ Requires subscription to
 - If an attack targets ALL enemies, you need this `this.isMultiDamage = true;`.
 - `this.retain = true;` only retains for one turn. See `setSelfRetain(true);` for retaining a card every turn.
 - `modifyCostForCombat(amt)` is a counter-intuitive name for a function. Amt is not the new cost. Amt increments it.
+- Overriding the `upgrade` function in BasicMod can lose functionality. If you're going to do so, you can include the `super()` at the end of the upgrade function.
 - PowerStrings.json requires `[E]` to have spaces around it. For example: `[E] [E] .`
 - TogetherInSpire v6.4.0 has a thing. If your card is a skill that applies Vulnerable, the card.target will end up being SELF and m is null.
 - TogetherInSpire v6.4.0 potions require additional code. See below or see my ChaosSodaPotion.
@@ -104,6 +106,11 @@ Requires subscription to
 - <kbd>Alt</kbd><kbd>Enter</kbd> : Context Actions
 - <kbd>Ctrl</kbd><kbd>B</kbd> : Decompile/Direct to source
 
+# Testing cards
+The Loadout mod is great. I've used it a ton in the beginning, but now I mostly use console commands.
+- See [BaseMod/wiki #Registering your command] (https://github.com/daviscook477/BaseMod/wiki/Console#registering-your-command)
+- Take a look at my src/main/java/theHedgehog/console/SonicConsoleDevCustom.java and feel free to copy any code there.
+
 # Every mod character should do this
 - Before you publish, you should make sure your modID is all lowercase for Chinese compatibility. If you change the modid after publish, you might end up deleting everyone's save file of your character.
 - People like to know more about a mod before they subscribe. Add a small preview compendium. Add info about the mechanics. Add "English" as a tag.
@@ -135,13 +142,6 @@ Requires subscription to
 - low quality
 - gay flags and gay
 - a very minor basegame mechanic change
-
-# My review of my mod
-I think people are leaning towards okay/meh with my mod, because I very heavily leaned towards a boring character. There's no crazy new mechanic. There's no vfx. It doesn't add anything new to Slay the Spire.
-
-I designed Sonic to be that way, b/c 1) it's my first mod and 2) It's loyal to his character. In the Sonic Advance series, ALL of his friends have an extra ability, but Sonic is very vanilla except for the fact that he can go Super Sonic for the ending.
-
-People don't like single-use keywords and at the time "If most Left/Right" was only for Quick Air/Quick Step. Well, I decided to apply it to the rare cards. The problem with it is I never remember which cards are lefties and righties now. One idea is that LEFT symbolized for being far away from your enemy and RIGHT symbolized up close and personal.
 
 # Known mod conflicts
 - Lights Out & Bundle of Energy

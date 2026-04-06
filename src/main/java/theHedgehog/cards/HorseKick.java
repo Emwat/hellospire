@@ -5,16 +5,14 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.purple.Indignation;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import com.megacrit.cardcrawl.stances.WrathStance;
 import theHedgehog.SonicTags;
 import theHedgehog.character.Sonic;
 import theHedgehog.relics.AirBoostShoesRelic;
 import theHedgehog.util.CardStats;
+import theHedgehog.util.GeneralUtils;
 
 public class HorseKick extends BaseCard {
     public static final String ID = makeID("HorseKick");
@@ -28,6 +26,7 @@ public class HorseKick extends BaseCard {
 
     private static final int DAMAGE = 14;
     private static final int UPG_DAMAGE = 3;
+    private static final int HORSE_KICK_MULTIPLIER = 2;
 
     public HorseKick() {
         super(ID, info);
@@ -35,11 +34,12 @@ public class HorseKick extends BaseCard {
         setDamage(DAMAGE, UPG_DAMAGE);
         tags.add(SonicTags.KICK);
         tags.add(SonicTags.ERA_CLASSIC);
+        tags.add(SonicTags.RIGHTMOST);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     // Does not work for hologram
@@ -67,9 +67,10 @@ public class HorseKick extends BaseCard {
 
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
-        int vigor = getPower(AbstractDungeon.player, VigorPower.POWER_ID);
-        if (CheckIfRightCard(this, AbstractDungeon.player.hand)) {
-            this.baseDamage = ((this.baseDamage + vigor) * 2) - vigor;
+        // int vigorAndMore = GeneralUtils.getVigorAndMoreAmount2(this.baseDamage);
+        int vigorAndMore = (int)GeneralUtils.getVigorAndMoreAmount(this.baseDamage);
+        if (this.forceConditionEffect || CheckIfRightCard(this, AbstractDungeon.player.hand)) {
+            this.baseDamage = ((this.baseDamage + vigorAndMore) * HORSE_KICK_MULTIPLIER) - vigorAndMore;
         }
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
@@ -94,7 +95,7 @@ public class HorseKick extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new HorseKick();
     }
 }

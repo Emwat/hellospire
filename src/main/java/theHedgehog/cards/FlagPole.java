@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,7 +9,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
+import theHedgehog.powers.FlagPolePower;
 import theHedgehog.util.CardStats;
 
 public class FlagPole extends BaseCard {
@@ -25,23 +28,34 @@ public class FlagPole extends BaseCard {
         super(ID, info);
         this.cardsToPreview = new Ring();
 
+        // setExhaust(true, false);
         tags.add(SonicTags.LIKE_IRONCLAD);
     }
 
-    /// "Add a Ring to your hand. Channel a Frost for each Ring in your hand."
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ApplyPowerAction(p, p, new FlagPolePower(p, 1)));
         if (this.upgraded) {
-            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeCopy(), magicNumber));
         }
-        addToBot(new ModFastAction(() -> {
-            p.updatePowers();
+        addToBot(new ModXFastAction(() -> {
+            if (p.hand.isEmpty()) {
+                return;
+            }
             for (AbstractCard card : p.hand.group) {
-                if (card.cardID.equals(cardsToPreview.cardID)) {
-                    addToBot(new ChannelAction(new Frost()));
+                if (card.hasTag(SonicTags.RING)) {
+                    card.setCostForTurn(-9);
                 }
             }
         }));
+        // addToBot(new ModFastAction(() -> {
+        //     p.updatePowers();
+        //     for (AbstractCard card : p.hand.group) {
+        //         if (card.hasTag(SonicTags.RING)) {
+        //             addToBot(new ChannelAction(new Frost()));
+        //         }
+        //     }
+        // }));
     }
 
     @Override

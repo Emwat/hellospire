@@ -2,8 +2,13 @@ package theHedgehog.util;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.stances.WrathStance;
+
+import java.lang.reflect.Field;
 
 public class GeneralUtils {
     public static String arrToString(Object[] arr) {
@@ -107,4 +112,78 @@ public class GeneralUtils {
 
         return null;
     }
+
+    public static boolean doesObjectContainField(Object object, String fieldName) {
+        Class<?> objectClass = object.getClass();
+        for (Field field : objectClass.getFields()) {
+            if (field.getName().equals(fieldName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // I'm not sure why this doesn't work. I use Flex (2) + Horsekick (14) and its damage blew up to 60
+    public static float getVigorAndMoreAmount(int baseDamage){
+        float vigorAndMore = 0;
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            vigorAndMore += power.atDamageGive(baseDamage, DamageInfo.DamageType.NORMAL);
+            vigorAndMore -= baseDamage;
+        }
+        return vigorAndMore;
+    }
+
+    public static float getBlockAndMoreAmount(int blockAmount){
+        float blockAndMore = 0;
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            blockAndMore += power.modifyBlock(blockAmount);
+            blockAndMore -= blockAmount;
+        }
+        return blockAndMore;
+    }
+
+    // Developed to take advantage of Strength, Vigor, and Rocket Accel
+    public static int getVigorAndMoreAmount2(int baseDamage){
+        int vigorAndMore = 0;
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power.atDamageGive(baseDamage, DamageInfo.DamageType.NORMAL) == baseDamage + power.amount) {
+                vigorAndMore += power.amount;
+            } else if (GeneralUtils.doesObjectContainField(power, "amount2")) {
+                try {
+                    Class<?> someClass = power.getClass();
+                    Field field = someClass.getField("amount2");
+                    int value = (int)field.get(power);
+                    if (power.atDamageGive(baseDamage, DamageInfo.DamageType.NORMAL) >= baseDamage + value){
+                        vigorAndMore += value;
+                    }
+                } catch (NoSuchFieldException | IllegalAccessException e) {
+
+                }
+            }
+        }
+        return vigorAndMore;
+    }
+
+    public static int getBlockAndMoreAmount2(int blockAmount){
+        int blockAndMore = 0;
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power.modifyBlock(blockAmount) == blockAmount + power.amount) {
+                blockAndMore += power.amount;
+            } else if (GeneralUtils.doesObjectContainField(power, "amount2")) {
+                try {
+                    Class<?> someClass = power.getClass();
+                    Field field = someClass.getField("amount2");
+                    int value = (int)field.get(power);
+                    if (power.modifyBlock(blockAmount) >= blockAmount + value){
+                        blockAndMore += value;
+                    }
+                } catch (NoSuchFieldException | IllegalAccessException e) {
+
+                }
+            }
+        }
+        return blockAndMore;
+    }
+
+
 }

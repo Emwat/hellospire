@@ -7,8 +7,10 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
@@ -17,6 +19,7 @@ import theHedgehog.actions.ModFastAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.multiplayer.ModMultiplayerHelper;
+import theHedgehog.relics.LimiterRingRelic;
 import theHedgehog.util.CardStats;
 
 import java.util.ArrayList;
@@ -24,11 +27,12 @@ import java.util.Arrays;
 
 import static theHedgehog.multiplayer.ModMultiplayerHelper.GiveCardToTeammate;
 import static theHedgehog.multiplayer.ModMultiplayerHelper.IsCharacterEntity;
+import static theHedgehog.util.GeneralUtils.isIndeedWithoutADoubtInCombat;
 
 public class Trick extends BaseCard {
     public static final String ID = makeID("Trick");
     private static final CardStats info = new CardStats(
-            Sonic.Meta.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.SELF,
@@ -45,7 +49,16 @@ public class Trick extends BaseCard {
 
     public Trick() {
         super(ID, info);
-        setMagic(MAGIC, UPG_MAGIC);
+
+        int limiter = 0;
+        if (isIndeedWithoutADoubtInCombat() && AbstractDungeon.player.hasRelic(LimiterRingRelic.ID)) {
+            for (AbstractRelic relic : AbstractDungeon.player.relics) {
+                if (relic instanceof LimiterRingRelic) {
+                    limiter++;
+                }
+            }
+        }
+        setMagic(MAGIC - limiter, UPG_MAGIC);
 
         setEthereal(true);
         setExhaust(true);

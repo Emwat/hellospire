@@ -20,10 +20,13 @@ public class AMAZING extends BaseCard {
 
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 4;
+    // private static final int STRENGTH_AMT = 1;
+    // private static final String KEYWORD_STRENGTH = "CustomVar_STRENGTH";
 
     public AMAZING() {
         super(ID, info);
         setMagic(DAMAGE, UPG_DAMAGE);
+        // setCustomVar(KEYWORD_STRENGTH, STRENGTH_AMT);
     }
 
     @Override

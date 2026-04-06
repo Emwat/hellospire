@@ -12,31 +12,19 @@
     "DRINKSOUND": "ATTACK_IRON_1",
     "TALK": "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1."
   },
-  "the Silent": {
-    "OPTIONCOLOR": "#g",
-    "DRINK": "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
-    "DRINKCOLOR": "#g",
-    "DRINKSOUND": "POWER_POISON",
-    "TALK": "Alchemize can generate Regen and Blood Potion. It cannot generate Fruit Juice."
-  },
-  "the Defect": {
-    "OPTIONCOLOR": "#b",
-    "DRINK": "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
-    "DRINKCOLOR": "#b",
-    "DRINKSOUND": "ATTACK_DEFECT_BEAM",
-    "TALK": "If you have Echo Form and if your echoed attack is fatal (on everything except Darklings), you keep the echo ability for another card."
-  },
-  "the Watcher": {
-    "DRINK": "She already had some tea set aside, but she takes it and thanks you anyway.",
-    "TALK": "Meditate + Establishment = Free cards.",
-    "DRINKSOUND": "SELECT_WATCHER"
-  },
   "${modID}:the Ironclad": {
     "OPTIONCOLOR": "#r",
     "DRINK": "Something is... off about this character. You catch a glimpse of blood under his mask when he takes the drink.",
     "DRINKCOLOR": "#r",
     "DRINKSOUND": "ATTACK_IRON_1",
     "TALK": "This guy looks like trouble. Better watch your step around him."
+  },
+  "the Silent": {
+    "OPTIONCOLOR": "#g",
+    "DRINK": "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
+    "DRINKCOLOR": "#g",
+    "DRINKSOUND": "POWER_POISON",
+    "TALK": "Alchemize can generate Regen and Blood Potion. It cannot generate Fruit Juice. Maybe that's why the Silent has such a low Max HP."
   },
   "${modID}:the Silent": {
     "OPTIONCOLOR": "#g",
@@ -45,12 +33,24 @@
     "DRINKSOUND": "POWER_POISON",
     "TALK": "Sonic and Silent are both themed around Skills. In fact, Blade Dance inspired Sonic's first custom card: Ramp Jump (Add 3 Tricks to your hand). "
   },
+  "the Defect": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
+    "DRINKCOLOR": "#b",
+    "DRINKSOUND": "ATTACK_DEFECT_BEAM",
+    "TALK": "If you have Echo Form and if your echoed attack is fatal (on everything except Darklings), you keep the echo ability for another card."
+  },
   "${modID}:the Defect": {
     "OPTIONCOLOR": "#b",
     "DRINK": "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
     "DRINKCOLOR": "#b",
     "DRINKSOUND": "ATTACK_DEFECT_BEAM",
     "TALK": "The chao here really like Defect."
+  },
+  "the Watcher": {
+    "DRINK": "She already had some tea set aside, but she takes it and thanks you anyway.",
+    "TALK": "Meditate + Establishment = Free cards.",
+    "DRINKSOUND": "SELECT_WATCHER"
   },
   "${modID}:the Watcher": {
     "DRINK": "She already had some tea set aside, but she takes it and thanks you anyway.",
@@ -75,29 +75,173 @@
     "OPTIONCOLOR": "#y",
     "DRINK": "Tails: \"Thanks Sonic! It's nice to slow down for a change.\"",
     "DRINKCOLOR": "[#F0B400]",
-    "DRINKSOUND": "",
     "TALK": "Tails has a Mega Buster."
   },
   "${modID}:Knuckles": {
     "OPTIONCOLOR": "#r",
     "DRINK": "Knuckles: \"Grape flavored. Just how I like it!\"",
     "DRINKCOLOR": "[#FF1400]",
-    "DRINKSOUND": "",
     "TALK": "In his debut, Knuckles sucker punched Super Sonic so hard, Sonic lost his Super form and the Chaos Emeralds."
   },
   "${modID}:Amy": {
     "OPTIONCOLOR": "[#f3acd2]",
     "DRINK": "Amy: \"Thanks Sonic! Cheers!!\"",
     "DRINKCOLOR": "[#FF96C8]",
-    "DRINKSOUND": "",
     "TALK": "Amy infiltrated Prison Island to break Sonic out of jail."
   },
   "${modID}:Rouge": {
     "OPTIONCOLOR": "[#f3acd2]",
     "DRINK": "Rouge: \"Thanks Handsome. Now, let's talk Business.\"",
     "DRINKCOLOR": "[#DF98C0]",
-    "DRINKSOUND": "",
     "TALK": "Rouge has her own casino."
+  },
+  "the Abyssal": {
+    "DRINK": "Arr, I'll take that grog, ye generous soul! May yer sails stay full and yer cup never run dry!",
+    "TALK": "Ahh, that hit the spot! A fine draught indeed-- ye've got the makings of a true shipmate, ye do!"
+  },
+  "${modID}:the Abyssal": {
+    "DRINK": "Yarr, I'll not be refusin' such fine spirits-- pour it here, matey, and may the tides favor ye!",
+    "TALK": "By the seven seas, that be a mighty fine swig! I'd sail twice 'round the world for another o' that! NL NL You are 100% sure that Chaos Soda is alcohol free."
+  },
+  "The Animator": {
+    "DRINK": "All According to Keikaku. (Translater's Note: Keikaku means plan)",
+    "TALK": "Lelouch vi Britannia commands you! Live!"
+  },
+  "${modID}:The Animator": {
+    "DRINK": "Truck-kun?",
+    "TALK": "He won't die even if you killed him!"
+  },
+  "the Astrologer": {
+    "DRINK": "\"I'll have whatever the cards predict for me tonight.\"",
+    "TALK": "In daylight's blaze, destiny is spun. NL In moonlight's hush, the hidden shall be undone."
+  },
+  "${modID}:the Astrologer": {
+    "DRINK": "\"(A drink from a blue hedgehog? Well, okay.) Thank you.\"",
+    "TALK": "The final card says you have a date with the devil. Tread lightly."
+  },
+  "the Automaton": {
+    "DRINK": "You offer it a drink, but there is no response. Its crossed arms and headless state is quite unnerving.",
+    "TALK": "Wait a minute. If the Automaton has no head... where is that hyperbeam coming from?"
+  },
+  "${modID}:the Automaton": {
+    "DRINK": "A bronze Sentry seized the soda. Clearly, the value of the soda speaks for itself.",
+    "TALK": "You can barely recognize Spheric Guardian in Defect's Melter's card art."
+  },
+  "the Awakened One": {
+    "DRINK": "\"CAAW CAW CAAAAAAWW!!\" You chant too. Why not?",
+    "TALK": "\"CAAW CAW CAAAAAAWW!!\" The whole place is chanting! What madness."
+  },
+  "${modID}:the Awakened One": {
+    "DRINK": "This is garbage. The Cultist Potion is better! It's perfect in every way!",
+    "TALK": "You open your mouth to talk, but the Awakened One keeps dazing you with praise of the Spire. It's exhausting."
+  },
+  "the Blackbeard": {
+    "DRINK": "Well now... a gift, is it? Either ye're bold... or foolish. No matter-- I'll take it. To dark tides and darker fortunes!",
+    "TALK": "Blackbeard be here 'cause the wind carried whispers o' rum and plunder to me ears, and I'll follow such sweet talk to the world's end. Speak me name loud enough, and ye'll find I ain't never far- just waitin' in the dark between the waves."
+  },
+  "${modID}:the Blackbeard": {
+    "DRINK": "Ye've nerve, I'l grant ye that. Very well- I'll drink. But keep one eye open, friend... I've been known to toast a man one breath and rob him the next.",
+    "TALK": "Blackbeard be here 'cause fate's tide dragged me to her shores, and I never turn me back on a chance for gold or grog. Call me name upon the wind, and I'll answer-- whether ye be ready... or not."
+  },
+  "the Bogwarden": {
+    "DRINK": "You scoot the Chaos Soda across the table. It sits there, very still for a moment and then it vanishes.",
+    "TALK": "Beware the Spire. There are traps around every corner."
+  },
+  "${modID}:the Bogwarden": {
+    "DRINK": "Very well, I accept. Let this cup remind you that the Fog watches, and my rituals never sleep.",
+    "TALK": "\"Run along, little hedgehog.\""
+  },
+  "the Champ": {
+    "DRINK": "The champ is not here. You hold your drink high. The gang looks at you. \"Tonight, I am taking the Champ's belt!\"",
+    "TALK": "Your memories blur. You are holding the belt in the coliseum. The crowd cheers thunderously all around you. And you still continued to climb the Spire. NL NL That's right. The Spire awaits."
+  },
+  "${modID}:the Champ": {
+    "DRINK": "The Black Knight's image burns through your head. \"It seems your impersonation of a knight has improved somewhat.\"",
+    "TALK": "Question all that's known. NL Legends blurred and torn. NL NL You have a Spire to climb."
+  },
+  "the Collector": {
+    "DRINK": "\"How... quaint. A mortal offering.\"",
+    "TALK": "You glance at one of the torchheads behind the Collector. It looks familiar. NL NL It's not the thief you bumped into earlier... right?"
+  },
+  "${modID}:the Collector": {
+    "DRINK": "\"Your soul is yours to keep... for now.\"",
+    "TALK": "The Gremlin Leader and the Collector are female."
+  },
+  "the Conducto": {
+    "DRINK": "\"Much obliged, dear fellow. One must keep the boilers warm, even when one is made of snow!\" Takes a sip, gears whirring.",
+    "TALK": "Torquing the bolt with the wrench is very addicting."
+  },
+  "${modID}:the Conducto": {
+    "DRINK": "\"Your kindness shall not go unrecorded in my brass-bound chronicles. I accept-- with great enthusiasm and minimal leakage!\"",
+    "TALK": "\"FIVE GOLDEN RINGS~!\" You and the Conductor clink drinks. What a jolly good night."
+  },
+  "the Diva": {
+    "DRINK": "\"Eh? For me? Thank you so much!\" She takes a sip. \"Mmm~ that's really good! It gives me energy to keep singing!\"",
+    "TALK": "Miku's birthday is on August 31st, 2007. She's canonically 16 years old though."
+  },
+  "${modID}:the Diva": {
+    "DRINK": "Thank you Sonikku! I'll do my best today too!",
+    "TALK": "The piano breaks out in an intense mood. It keeps repeating the notes and it feels very repressed. The song is Rolling Girl!"
+  },
+  "the Gatherer": {
+    "DRINK": "You have my thanks--few think to offer a drink to someone who smells of moss and mortar.",
+    "TALK": "Careful, though-- travel with me long enough, and you'll start seeing the world the way I do: Every leaf a remedy, every root a secret waiting to be steeped."
+  },
+  "${modID}:the Gatherer": {
+    "DRINK": "Ah, so the wind ~can~ carry gifts. You have my thanks. Wait here, I'll trade you something useful.",
+    "TALK": "She reminds you of a little green woodpecker that has a penchant for bombs."
+  },
+  "the Guardian": {
+    "DRINK": "Its guard is down for now. Let's drink!",
+    "TALK": "Mission... Protect... NL NL The Spire holds many secrets."
+  },
+  "${modID}:the Guardian": {
+    "DRINK": "\"Who invited this hard-shelled, spiky ball?\" Everyone looks in the Guardian and Sonic's direction.",
+    "TALK": "Ironclad's Whirlwind. Guardian's Whirlwind. Sonic's Whirlwind. Who has the best Whirlwind?"
+  },
+  "the Hermit": {
+    "DRINK": "\"Keep your gun clean and your aim cleaner.\"",
+    "TALK": "\"I don't start trouble. I just finish it.\""
+  },
+  "${modID}:the Hermit": {
+    "DRINK": "\"Much obliged. Don't see that every day.\"",
+    "TALK": "\"The draw decides more than words ever could.\""
+  },
+  "the Hexaghost": {
+    "DRINK": "Six seals will spell your fate. Nothing remains from hate.",
+    "TALK": "Fires blaze bright, then quickly fade. NL Life itself a fleeting shade. NL NL Ashes drift where embers die. NL Moments burn, then vanish by."
+  },
+  "The Hierophant": {
+    "DRINK": "A generous offering. I aceept, not for thirst, but for what it may become. Even the purest path is paved with choices-- so let us drink, and see whether you walk in grace... or yield to desire.",
+    "TALK": "Walk boldly; others will follow."
+  },
+  "${modID}:The Hierophant": {
+    "DRINK": "Ah, a drink from one so swift. I accept, and may this union of haste and benevolence strengthen us both.",
+    "TALK": "\"Even the swiftest hero must pause, for kindness can shape a heart faster than any feet.\""
+  },
+  "the Hog": {
+    "DRINK": "\"I'll take it on the rocks... @And@ @on@ @the@ @chopping@ @block!@\"",
+    "TALK": "Mud, mayhem, and meat cleavers!"
+  },
+  "${modID}:the Hog": {
+    "DRINK": "\"Pour it... @before@ @I@ @carve@ @it@ @myself!@\"",
+    "TALK": "The hogs have hunger... @for@ @havoc!@"
+  },
+  "the Nine-Tailed": {
+    "DRINK": "Here's to never giving up! Gotta keep my energy up if I'm gonna become Hokage!",
+    "TALK": "Team Seven... Move out!"
+  },
+  "${modID}:the Nine-Tailed": {
+    "DRINK": "Cheers! Believe it- I'll drink this and be ready for the next mission in no time!",
+    "TALK": "When I was little, people thought I was doing a Naruto run. I was really running like Sonic, Haha. -Redacted"
+  },
+  "The Ordinary Magician": {
+    "DRINK": "Heh... now this is what I call magical fuel! Let's light up Gensokyo!",
+    "TALK": "Marisa twirls her broom and laughs. \"Heh, I like a guy who can swing a sword like that- think you can keep up with some magic?\""
+  },
+  "${modID}:The Ordinary Magician": {
+    "DRINK": "Sweet and strong... just like my magic! Time to stir up some trouble.",
+    "TALK": "\"So, you really zip around the world that fast? Show me a trick or two!\""
   },
   "the Packmaster": {
     "DRINK": "The Packmaster smiles and is eager to talk about their collection.",
@@ -109,6 +253,106 @@
     "DRINK": "The Packmaster smiles and is eager to talk about their collection.",
     "DRINKCOLOR": "[#C1A584]",
     "DRINKSOUND": "VO_MERCHANT_2A",
-    "TALK": "I'm a huge fan of the Packmaster. -SpireWolf25"
+    "TALK": "I have a Sonic hat! Check it out!"
+  },
+  "the Pilot": {
+    "DRINK": "Processing anomaly: a kindness in motion. Accepted.",
+    "TALK": "Iteration never sleeps."
+  },
+  "${modID}:the Pilot": {
+    "DRINK": "Data: beverage delivered successfully. Gratitude registered.",
+    "TALK": "Parts replace, purpose persists."
+  },
+  "the Prismatic": {
+    "DRINK": "The liquid dances like light through crystal.",
+    "TALK": "The whole is greater than the sum of its parts."
+  },
+  "${modID}:the Prismatic": {
+    "DRINK": "Its warmth refracts well within me.",
+    "TALK": "The world is your oyster."
+  },
+  "the Professor": {
+    "DRINK": "Ah, an excellent solution- just what I needed to raise my spirits. I'll run a thorough taste analysis!",
+    "TALK": "Every mistake is a footnote."
+  },
+  "${modID}:the Professor": {
+    "DRINK": "Fascinating! The chemical composition of this potion is... delightful. I have to document it for research purposes.",
+    "TALK": "Curiosity is the best lab partner."
+  },
+  "${modID}:the Rainbow": {
+    "DRINK": "#rIt's #bso #gbeautiful...",
+    "TALK": "If you right-click on the Rainbow during combat, it will change avatars."
+  },
+  "the Runner": {
+    "DRINK": "Temporary upgrade, I suppose.",
+    "TALK": "Wires hum louder than souls here."
+  },
+  "${modID}:the Runner": {
+    "DRINK": "You move like a glitch in the system. I'll take it-- maybe it'll remind me I'm more than circuits and scrap.",
+    "TALK": "Skyscrapers leak neon like tears."
+  },
+  "the Senshi": {
+    "DRINK": "\"Hehe, thanks! I'll make sure to drink it carefully... don't want to spill!\"",
+    "TALK": "Fighting evil by moonlight! NL Winning love by daylight!"
+  },
+  "${modID}:the Senshi": {
+    "DRINK": "\"Wow! Thank you! I'll drink this and keep fighting evil with all my heart!\"",
+    "TALK": "When you fight the boss, you have to say \"In the name of the moon, I will punish you!\""
+  },
+  "the Shadow Siren": {
+    "DRINK": "Oh! Um... you didn't have to... but I really appreciate it.",
+    "TALK": "She may hide in the shadows, but her courage steals the spotlight."
+  },
+  "${modID}:the Shadow Siren": {
+    "DRINK": "Hehe... this is kinda nice... thank you, Sonic.",
+    "TALK": "\"He's just... really kind. He always belives in me, even when I don't...\" NL NL \"Yeah, he's got that hero thing down. Big heart.\""
+  },
+  "The Shaman": {
+    "DRINK": "Your generosity will not go unnoticed. May the spirits guide your path.",
+    "TALK": "Call upon the ancestors and they shall answer."
+  },
+  "${modID}:The Shaman": {
+    "DRINK": "The spirits whisper of your swiftness and your generosity. I accept this offering with gratitude, friend.",
+    "TALK": "May the spirits guide your path."
+  },
+  "the Slime Boss": {
+    "DRINK": "Tiny bubbles fizzle inside its green substance.",
+    "TALK": "The ooze runs this town."
+  },
+  "${modID}:the Slime Boss": {
+    "DRINK": "You can see the can floating inside the slime.",
+    "TALK": "Don't slip up in my city."
+  },
+  "the Snecko": {
+    "DRINK": "Make it count.",
+    "TALK": "You rolled a #g{x}."
+  },
+  "${modID}:the Snecko": {
+    "DRINK": "One is all.",
+    "TALK": "Compromise does not exist."
+  },
+  "the Tactician": {
+    "DRINK": "Thank you. Even on the road, small comforts make a world of difference.",
+    "TALK": "The strongest weapons are forged in trust."
+  },
+  "${modID}:the Tactician": {
+    "DRINK": "Your swiftness is impressive, but so is your thoughtfulness. Very well, I shall drink.",
+    "TALK": "Destiny is a blade we wield ourselves."
+  },
+  "the Unchained": {
+    "DRINK": "A cursed aura emanates from beneath the mask.",
+    "TALK": "Life's chains are lessons in disguise."
+  },
+  "${modID}:the Unchained": {
+    "DRINK": "You can hear the chains clanking together as the prince takes the soda.",
+    "TALK": "Bound in steel, unbound in power."
+  },
+  "the Vacant": {
+    "DRINK": "But the chalice remains empty.",
+    "TALK": "Cards are spilling out of your draw pile. One of them ricochets to your hand. It reads \"Forever.\""
+  },
+  "${modID}:the Vacant": {
+    "DRINK": "You stare at the void. It stares back at you.",
+    "TALK": "Cards are spilling out of your draw pile. One of them ricochets to your hand. It reads \"Sonic.\""
   }
 }
