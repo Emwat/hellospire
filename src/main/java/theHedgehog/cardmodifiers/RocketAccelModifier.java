@@ -11,10 +11,6 @@ import theHedgehog.cards.BaseCard;
 public class RocketAccelModifier extends AbstractCardModifier {
     private int additionalDamage;
 
-    public RocketAccelModifier() {
-        new RocketAccelModifier(0);
-    }
-
     public RocketAccelModifier(int additionalDamage) {
         this.additionalDamage = additionalDamage;
     }
@@ -40,6 +36,6 @@ public class RocketAccelModifier extends AbstractCardModifier {
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new RocketAccelModifier();
+        return new RocketAccelModifier(this.additionalDamage);
     }
 }

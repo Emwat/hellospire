@@ -44,7 +44,7 @@ public class CrystalRing extends BaseCard {
     );
 
     private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 2;
+    private static final int UPG_MAGIC = 4;
     private static final int BLOCK = 3;
     private static final int UPG_BLOCK = 3;
 

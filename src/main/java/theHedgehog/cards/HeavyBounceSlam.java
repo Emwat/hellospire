@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.relics.AirBoostShoesRelic;
@@ -34,7 +35,7 @@ public class HeavyBounceSlam extends BaseCard {
 
     private static final int DAMAGE = 10;
     private static final int UPG_DAMAGE = 2;
-    private static int timesPlayed = 0;
+    private int timesPlayed = 0;
 
     public HeavyBounceSlam() {
         super(ID, info);
@@ -56,26 +57,23 @@ public class HeavyBounceSlam extends BaseCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),
                 damage < 11 ? AbstractGameAction.AttackEffect.BLUNT_LIGHT : AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         addToBot(new ModifyDamageAction(this.uuid, this.baseDamage));
+        atbChangePicture();
+    }
+
+    private void atbChangePicture() {
         if (!Loader.isModLoaded("PrideMod")) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    timesPlayed++;
-                    if (timesPlayed == 1) {
-                        loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
-                    } else if (timesPlayed == 2) {
-                        loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam2.png"));
-                    } else {
-                        loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam.png"));
-                    }
-
-                    if (damage > 30) {
-                        addToBot(SoundLibrary.VoiceAction(SoundLibrary.SmallAllRight));
-                    }
-
-                    this.isDone = true;
+            addToBot(new ModXFastAction(() -> {
+                timesPlayed++;
+                if (timesPlayed % 2 == 0) {
+                    loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam.png"));
+                } else {
+                    loadCardImage(SonicMod.imagePath("cards/attack/HeavyBounceSlam1.png"));
                 }
-            });
+
+                if (damage > 30) {
+                    addToBot(SoundLibrary.VoiceAction(SoundLibrary.SmallAllRight));
+                }
+            }));
         }
     }
 

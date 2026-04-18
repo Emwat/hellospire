@@ -29,6 +29,7 @@ public class AssistKnuckles extends BaseCard implements OnObtainCard {
     private static final int UPG_MAGIC = 2;
     private final String KEYWORD_STR = "CustomVar_STR";
     private static final int STR_AMT = 2;
+    private static final int UPG_STR_AMT = 1;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(218, 170, 142);
     private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(230, 34, 56);
 
@@ -36,7 +37,7 @@ public class AssistKnuckles extends BaseCard implements OnObtainCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setMagic(MAGIC, UPG_MAGIC);
-        setCustomVar(KEYWORD_STR, STR_AMT);
+        setCustomVar(KEYWORD_STR, STR_AMT, UPG_STR_AMT);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this, FLAVOR_BOX_COLOR);
         FlavorText.AbstractCardFlavorFields.textColor.set(this, FLAVOR_TEXT_COLOR);
     }

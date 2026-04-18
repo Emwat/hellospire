@@ -2,6 +2,7 @@ package theHedgehog.packsMisc;
 
 import basemod.AutoAdd;
 
+import com.evacipated.cardcrawl.modthespire.Loader;
 import theHedgehog.SonicMod;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
@@ -17,5 +18,10 @@ public class PackLoader implements EditPacksSubscriber {
         new AutoAdd(SonicMod.modID)
                 .packageFilter("theHedgehog.packs")
                 .any(AbstractHedgehogPack.class, (info, pack) -> SpireAnniversary5Mod.declarePack(pack));
+        // if (Loader.isModLoaded("soniclowhealthmusic")) {
+        //     new AutoAdd(SonicMod.modID)
+        //             .packageFilter("theHedgehog.packsB")
+        //             .any(AbstractHedgehogPack.class, (info, pack) -> SpireAnniversary5Mod.declarePack(pack));
+        // }
     }
 }

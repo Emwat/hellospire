@@ -8,7 +8,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theHedgehog.SonicTags;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.actions.RandomizeCostAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.DizzyPower;
 import theHedgehog.util.CardStats;
@@ -44,9 +46,8 @@ public class DizzySpin extends BaseCard {
         }
         addToBot(new ModFastAction(() -> {
             for (AbstractCard card : AbstractDungeon.player.hand.group) {
-                int newCost = AbstractDungeon.cardRandomRng.random(3);
-                card.setCostForTurn(newCost);
-                card.isCostModifiedForTurn = true;
+                int randomizedCost = AbstractDungeon.cardRandomRng.random(3);
+                addToBot(new RandomizeCostAction(card, randomizedCost));
             }
         }));
 

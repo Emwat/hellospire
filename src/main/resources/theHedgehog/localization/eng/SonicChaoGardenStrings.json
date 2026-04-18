@@ -1,9 +1,7 @@
 {
   "${modID}:Default": {
-    "OPTIONCOLOR": "",
     "DRINK": "The character takes the soda and hands you a note. \"Thank you.\" This is your handwriting. What is going on?",
-    "TALK": "The character seems pleased.",
-    "DRINKSOUND": ""
+    "TALK": "The character seems pleased."
   },
   "the Ironclad": {
     "OPTIONCOLOR": "#r",
@@ -31,7 +29,7 @@
     "DRINK": "\"...\" The Silent takes out a small sack of powder and sprinkles some into the soda. It bubbles and changes color.",
     "DRINKCOLOR": "#g",
     "DRINKSOUND": "POWER_POISON",
-    "TALK": "Sonic and Silent are both themed around Skills. In fact, Blade Dance inspired Sonic's first custom card: Ramp Jump (Add 3 Tricks to your hand). "
+    "TALK": "Sonic and Silent are both themed around Skills. In fact, Blade Dance inspired Sonic's first card: Ramp Jump (Add 3 Tricks to your hand). "
   },
   "the Defect": {
     "OPTIONCOLOR": "#b",
@@ -116,7 +114,7 @@
     "TALK": "In daylight's blaze, destiny is spun. NL In moonlight's hush, the hidden shall be undone."
   },
   "${modID}:the Astrologer": {
-    "DRINK": "\"(A drink from a blue hedgehog? Well, okay.) Thank you.\"",
+    "DRINK": "(A drink from a blue hedgehog? Well, okay.) \"Thank you.\"",
     "TALK": "The final card says you have a date with the devil. Tread lightly."
   },
   "the Automaton": {
@@ -185,7 +183,7 @@
   },
   "the Gatherer": {
     "DRINK": "You have my thanks--few think to offer a drink to someone who smells of moss and mortar.",
-    "TALK": "Careful, though-- travel with me long enough, and you'll start seeing the world the way I do: Every leaf a remedy, every root a secret waiting to be steeped."
+    "TALK": "Every leaf a remedy, every root a secret waiting to be steeped."
   },
   "${modID}:the Gatherer": {
     "DRINK": "Ah, so the wind ~can~ carry gifts. You have my thanks. Wait here, I'll trade you something useful.",
@@ -220,11 +218,11 @@
     "TALK": "\"Even the swiftest hero must pause, for kindness can shape a heart faster than any feet.\""
   },
   "the Hog": {
-    "DRINK": "\"I'll take it on the rocks... @And@ @on@ @the@ @chopping@ @block!@\"",
+    "DRINK": "\"I'll take it on the rocks... @And@ @on@ @the@ @chopping@ @block!\"@",
     "TALK": "Mud, mayhem, and meat cleavers!"
   },
   "${modID}:the Hog": {
-    "DRINK": "\"Pour it... @before@ @I@ @carve@ @it@ @myself!@\"",
+    "DRINK": "\"Pour it... @before@ @I@ @carve@ @it@ @myself!\"@",
     "TALK": "The hogs have hunger... @for@ @havoc!@"
   },
   "the Nine-Tailed": {
@@ -305,7 +303,7 @@
   },
   "${modID}:the Shadow Siren": {
     "DRINK": "Hehe... this is kinda nice... thank you, Sonic.",
-    "TALK": "\"He's just... really kind. He always belives in me, even when I don't...\" NL NL \"Yeah, he's got that hero thing down. Big heart.\""
+    "TALK": "\"He's just... really kind. He always believes in me, even when I don't...\" NL NL \"Yeah, he's got that hero thing down. Big heart.\""
   },
   "The Shaman": {
     "DRINK": "Your generosity will not go unnoticed. May the spirits guide your path.",
@@ -349,10 +347,10 @@
   },
   "the Vacant": {
     "DRINK": "But the chalice remains empty.",
-    "TALK": "Cards are spilling out of your draw pile. One of them ricochets to your hand. It reads \"Forever.\""
+    "TALK": "Cards are spilling out of your draw pile. One of them ricochets to your hand. It reads #b\"Forever.\""
   },
   "${modID}:the Vacant": {
     "DRINK": "You stare at the void. It stares back at you.",
-    "TALK": "Cards are spilling out of your draw pile. One of them ricochets to your hand. It reads \"Sonic.\""
+    "TALK": "Cards are spilling out of your draw pile. One of them ricochets to your hand. It reads #b\"Free.\""
   }
 }

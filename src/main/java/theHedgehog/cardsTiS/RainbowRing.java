@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -34,25 +35,19 @@ public class RainbowRing extends BaseCard {
     private static final CardStats info = new CardStats(
             Sonic.Meta.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.UNCOMMON,
+            CardRarity.SPECIAL,
             CardTarget.SELF,
             1
     );
 
-    // Bludgeon does 32/42
-    private static final int DAMAGE = 20;
-    private static final int UPG_DAMAGE = 4;
-    private static final int MAGIC = 8;
-    private static final int UPG_MAGIC = 4;
     private static final String FLAVOR_TEXT = SonicMod.modLocalizedStrings.getTalkString(makeID("TiSRainbowRingFlavor")).DIALOG[0];
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(0, 0, 0);
     private static final Color FLAVOR_TEXT_COLOR = Color.WHITE.cpy();
 
     public RainbowRing() {
         super(ID, info);
-        this.damage = this.baseDamage = DAMAGE;
-        this.magicNumber = this.baseMagicNumber = MAGIC;
         this.cardsToPreview = new Trick().makeCopy();
+        setCostUpgrade(0);
 
         FlavorText.AbstractCardFlavorFields.flavor.set(this.cardsToPreview, FLAVOR_TEXT);
         FlavorText.AbstractCardFlavorFields.boxColor.set(this.cardsToPreview, FLAVOR_BOX_COLOR);
@@ -60,17 +55,8 @@ public class RainbowRing extends BaseCard {
     }
 
     @Override
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(UPG_DAMAGE);
-            upgradeMagicNumber(UPG_MAGIC);
-            initializeDescription();
-        }
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainEnergyAction(1));
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeCopy()));
 
         for (P2PPlayer e : SpireHelp.Multiplayer.Players.GetPlayers(true, true)){

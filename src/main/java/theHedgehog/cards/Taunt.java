@@ -109,13 +109,23 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
                 }));
             }
             addToBot(new TalkAction(true, texts[0], duration, bubbleDuration));
+            // You filthy trash! What do you think you're doing?
+            // We'll settle this in a fair fight.
+            // You don't even stand a chance.
+            // ~Catch~ ~me~ ~if~ ~you~ ~can!~
+            // Ready for me?
         } else if (Objects.equals(voiceLine, SoundLibrary.StepItUp)) {
             if (Sonic.currentModSkin.getName().contains("Amy")) {
-                addToBot(new ModXFastAction(() -> {
-                    s.playAnimation("attack2", "attack");
-                }));
+                // addToBot(new ModXFastAction(() -> {
+                //     s.playAnimation("attack2", "attack");
+                // }));
             }
             addToBot(new TalkAction(true, texts[1], duration, bubbleDuration));
+            // Stay away from MY Emerald!
+            // If it's about a date, it'll halfta wait!
+            // Pathetic.
+            // Come on! Step it up!
+            // You want some more?
         } else if (Objects.equals(voiceLine, SoundLibrary.TooSlow)) {
             if (Sonic.currentModSkin.getName().contains("Amy")) {
                 addToBot(new ModXFastAction(() -> {
@@ -123,6 +133,11 @@ public class Taunt extends BaseCard implements BranchingUpgradesCard {
                 }));
             }
             addToBot(new TalkAction(true, texts[2], duration, bubbleDuration));
+            // Will you come get me, Sonic?
+            // I'll take you on!
+            // There's no time for games.
+            // @YOU'RE@ @TOO@ @SLOW!@
+            // All's well that ends well!
         }
     }
 

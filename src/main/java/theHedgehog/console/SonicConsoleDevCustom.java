@@ -4,6 +4,7 @@ import basemod.devcommands.ConsoleCommand;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.actions.unique.SetupAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Blind;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.cards.*;
 import theHedgehog.cardsTails.IQ200Attack;
 import theHedgehog.cardsTails.IQ300Attack;
@@ -52,7 +54,8 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
                 atbExhaustEntireHand();
             }
         } else {
-            atb(new GainEnergyAction(4));
+            atb(new LoseEnergyAction(9));
+            atb(new GainEnergyAction(5));
 
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                 if (!mo.isDeadOrEscaped()) {
@@ -60,7 +63,8 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
                 }
             }
 
-            DoesPipingCarryRocketAccel();
+            DoesAssistAmyWork();
+            // DoesPipingCarryRocketAccel();
             // SneckoEyeChaosEmerald();
             // ChaosEmeraldCards();
             // DebuffCards();
@@ -75,8 +79,28 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         }
     }
 
+    private void DoesAssistAmyWork() {
+        atbExhaustEntireHand();
+        atb(new MakeTempCardInHandAction(new AssistAmy(), 1));
+        atb(new ModXFastAction(() -> {
+            for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+                atb(new ExhaustSpecificCardAction(card, AbstractDungeon.player.drawPile, true));
+            }
+        }));
+        atb(new MakeTempCardInHandAction(new Relax(), 1));
+        atb(new MakeTempCardInHandAction(new Relax(), 1));
+        atb(new MakeTempCardInHandAction(new Relax(), 1));
+        atb(new MakeTempCardInHandAction(new Slide(), 1));
+        AbstractCard rouge = new AssistRouge();
+        rouge.upgrade();
+        atb(new MakeTempCardInHandAction(rouge, 1));
+        atb(new MakeTempCardInHandAction(new AssistBig(), 1));
+        atb(new MakeTempCardInHandAction(new WallJump(), 1));
+    }
+
     private void DoesPipingCarryRocketAccel() {
         atbExhaustEntireHand();
+        atb(new MakeTempCardInHandAction(new HeavyBounceSlam(), 1));
         atb(new MakeTempCardInHandAction(new Piping(), 1));
         atb(new MakeTempCardInHandAction(new RocketAccel(), 1));
         atb(new MakeTempCardInHandAction(new Boost(), 1));

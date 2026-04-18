@@ -27,7 +27,7 @@ public class SonicEagleRare extends BaseCard {
             1
     );
 
-    private static final int DAMAGE = 11;
+    private static final int DAMAGE = 14;
     private static final int UPG_DAMAGE = 5;
 
     // WildStrike 12(17)

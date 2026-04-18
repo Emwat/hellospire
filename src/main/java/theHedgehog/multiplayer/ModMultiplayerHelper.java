@@ -10,7 +10,9 @@ import spireTogether.monsters.CharacterEntity;
 import spireTogether.network.P2P.P2PManager;
 import spireTogether.network.P2P.P2PPlayer;
 import spireTogether.network.objects.items.NetworkCard;
+import spireTogether.util.SpireHelp;
 import theHedgehog.MyModConfig;
+import theHedgehog.actions.ModXFastAction;
 
 import static theHedgehog.util.GeneralUtils.CapitalizeFirstLetter;
 
@@ -56,5 +58,13 @@ public class ModMultiplayerHelper {
             tmp.purgeOnUse = true;
             tmp.rawDescription += " NL Purge.";
         }
+    }
+
+    public static int CountTeammates(){
+        int output = 0;
+        for (P2PPlayer e : SpireHelp.Multiplayer.Players.GetPlayers(true, true)) {
+            output++;
+        }
+        return output;
     }
 }

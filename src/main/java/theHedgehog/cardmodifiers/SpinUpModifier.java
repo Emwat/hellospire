@@ -38,10 +38,7 @@ public class SpinUpModifier extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (rawDescription.length() < 100) {
-            return spinUpKeyword + "NL " + rawDescription;
-        }
-        return spinUpKeyword + rawDescription;
+        return spinUpKeyword + "NL " + rawDescription;
     }
 
 

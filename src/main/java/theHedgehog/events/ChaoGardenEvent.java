@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.QuestionCard;
 import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
 import theHedgehog.potions.ChaosSodaPotion;
@@ -53,8 +54,6 @@ public class ChaoGardenEvent extends PhasedEvent {
             this.Character = characterName;
 
             String buddyKey = SonicMod.chaoGardenEventHelperExternal.makeID(buddy);
-            // SonicMod.logger.info("buddy: " + buddy + " - buddyKey " + buddyKey);
-
 
             LogAttempt("Attempting " + buddyKey);
             SonicChaoGardenStrings chaoGardens = SonicMod.chaoGardenEventHelperExternal.GetSonicChaoGardenString(buddyKey);
@@ -247,7 +246,9 @@ public class ChaoGardenEvent extends PhasedEvent {
     public ChaoGardenEvent() {
         super(ID, NAME, IMG);
         initializeEventVariables();
-        CardCrawlGame.music.playTempBgmInstantly("CHAO_GARDEN", true);
+        if (!MyModConfig.enableBoss2Music) {
+            CardCrawlGame.music.playTempBgmInstantly("CHAO_GARDEN", true);
+        }
 
         // region phase start
         registerPhase(phase0_start, new TextPhase(DesWelcome)
@@ -427,6 +428,25 @@ public class ChaoGardenEvent extends PhasedEvent {
         // Heal 30% (example: 21 hp from someone w/ 71 Max HP)
         actions = maxActions;
 
+        // Merchant Stuff
+        // Common: 45 - 55 Gold
+        // Uncommon: 68 - 82 Gold
+        // Rare: 135 - 165 Gold
+        //
+        // Colorless Uncommon: 81 - 99 Gold
+        // Colorless Rare: 162 - 198 Gold
+        //
+        // Relic Common: 143 - 157 Gold
+        // Relic Uncommon: 238 - 262 Gold
+        // Relic Rare: 285 - 315 Gold
+        // Relic Shop: 143 - 157 Gold
+        //
+        // Potion Common: 48 - 52 Gold
+        // Potion Uncommon: 72 - 78 Gold
+        // Potion Rare: 95 - 105 Gold
+
+        // com.megacrit.cardcrawl.events.shrines.WomanInBlue
+        // 1/2/3 pot = 20/30/40
         if (AbstractDungeon.ascensionLevel >= 15) {
             ChaosSodaTrayCost = 99;
             ChaosSodaCost = 39;
@@ -449,6 +469,21 @@ public class ChaoGardenEvent extends PhasedEvent {
             healPercentage = 16;
             hpLoss = 1;
             actions += 2;
+        }
+
+        if (AbstractDungeon.player.hasRelic(CDPastRelic.ID)) {
+            ChaosSodaTrayCost = Math.max(3, ChaosSodaTrayCost - 10);
+            ChaosSodaCost = Math.max(1, ChaosSodaCost - 10);
+        }
+
+        if (AbstractDungeon.player.hasRelic(CDFutureRelic.ID)) {
+            ChaosSodaTrayCost += 10;
+            ChaosSodaCost += 10;
+        }
+
+        if (AbstractDungeon.ascensionLevel >= 50) {
+            ChaosSodaTrayCost += 10;
+            ChaosSodaCost += 10;
         }
 
         healAmt = (int) (AbstractDungeon.player.maxHealth * (healPercentage * 0.01F));

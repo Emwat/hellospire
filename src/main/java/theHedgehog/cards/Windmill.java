@@ -51,6 +51,16 @@ public class Windmill extends BaseCard {
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
+        atbInitRandomizedCost();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        atbSetDescriptionToDefault();
+    }
+
+    private void atbInitRandomizedCost() {
         addToBot(new ModXFastAction(() -> {
             if (randomizedCost == -1) {
                 randomizedCost = AbstractDungeon.cardRandomRng.random(3);
@@ -62,9 +72,7 @@ public class Windmill extends BaseCard {
         }));
     }
 
-    @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
+    private void atbSetDescriptionToDefault() {
         addToBot(new ModXFastAction(() -> {
             randomizedCost = -1;
             this.rawDescription = cardStrings.DESCRIPTION;

@@ -57,7 +57,6 @@ Requires subscription to
 - YouTube - You can double right-click a video and take snapshot.
 - YouTube - You can press <kbd>.</kbd> or <kbd>,</kbd> to move the video by one frame.
 - You can edit `AppData\Local\ModTheSpire\mod_lists.json` to re-organize MTS profiles
-- [Red for attack, blue for block] (https://www.reddit.com/r/slaythespire/comments/1rtdpxv/blocks_cards_look_like_attack_cards_card_visual/) I never noticed this. lolwut.
 
 # General Coding Tips for beginners
 - Learn some basics. You don't need a full course. What is a method? What is method overloading?
@@ -123,6 +122,14 @@ The Loadout mod is great. I've used it a ton in the beginning, but now I mostly 
         return panels;
     }
 ```
+- Change out Bash for the Gremlin match and keep in the `getStartCardForEvent()`
+
+# Base Game things
+- [Red for attack, blue for block] (https://www.reddit.com/r/slaythespire/comments/1rtdpxv/blocks_cards_look_like_attack_cards_card_visual/)
+- Silent has two extra starter cards so that you need exactly two turns for a complete shuffle
+- Defect has Lightning in its starter relic and its starter deck. So if you have a secondary resource, do consider having it in your starter relic and starter deck.
+- Every character has their three character unique potions and relics.
+- Card Texts split up NLs appropriately. I was a bit hesitant on having NLs on cards w/ too much text but it does make a lot of things easier to read.
 
 # Steam Workshop Link
 - https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473

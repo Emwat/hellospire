@@ -11,6 +11,7 @@ public class RandomizeCostAction extends AbstractGameAction {
     private AbstractCard card;
     private int newCost = -1;
 
+    // Assumes card is in hand. Card will flash.
     public RandomizeCostAction(AbstractCard card, int newCost) {
         this.card = card;
         this.actionType = ActionType.CARD_MANIPULATION;

@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.evacipated.cardcrawl.mod.stslib.patches.FlavorText;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Forethought;
+import com.megacrit.cardcrawl.cards.green.Setup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -33,7 +34,7 @@ public class AssistAmy extends BaseCard implements OnObtainCard {
 
     private static final int MAGIC = 2;
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(224, 156, 180);
-    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(181, 0, 0    );
+    private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(181, 0, 0);
 
     public AssistAmy() {
         super(ID, info);
@@ -62,8 +63,12 @@ public class AssistAmy extends BaseCard implements OnObtainCard {
                 return;
             }
             for (int i = 0; i < magicNumber; i++) {
-                AbstractCard topCard = p.drawPile.getNCardFromTop(i);
-                topCard.freeToPlayOnce = true;
+                if (p.drawPile.size() > i) {
+                    AbstractCard topCard = p.drawPile.getNCardFromTop(i);
+                    if (topCard.cost > 0) {
+                        topCard.freeToPlayOnce = true;
+                    }
+                }
                 // topCard.modifyCostForCombat(-99);
             }
         }));

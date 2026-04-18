@@ -576,6 +576,8 @@ public class SonicMod implements
         BaseMod.removeCard(SonicWind.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(ScissorKick.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SpeedUp.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(TeaserRareAttack3.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(TopKick.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(IQ200Attack.ID, Sonic.Meta.CARD_COLOR);
@@ -616,14 +618,16 @@ public class SonicMod implements
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
             BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPackExclusive.LevelUp.ID, Sonic.Meta.CARD_COLOR);
         }
+
+        BaseMod.removeCard(theHedgehog.cardsTiS.RainbowRing.ID, Sonic.Meta.CARD_COLOR);
 
         // HelpTestChaosEmeraldAttack();
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
             BaseMod.removeCard(Ricochet.ID, Sonic.Meta.CARD_COLOR);
             // BaseMod.removeCard(theHedgehog.cards.RocketAccel.ID, Sonic.Meta.CARD_COLOR);
         } else {
-            BaseMod.removeCard(theHedgehog.cardsTiS.RainbowRing.ID, Sonic.Meta.CARD_COLOR);
             // BaseMod.removeCard(theHedgehog.cardsTiS.RocketAccel.ID, Sonic.Meta.CARD_COLOR);
         }
     }

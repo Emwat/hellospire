@@ -37,7 +37,7 @@ public class Boost extends BaseCard {
             );
 
     private static final int DAMAGE = 4;
-    private static final int UPG_DAMAGE = 2;
+    private static final int UPG_DAMAGE = 3;
 
     public Boost() {
         super(ID, info);

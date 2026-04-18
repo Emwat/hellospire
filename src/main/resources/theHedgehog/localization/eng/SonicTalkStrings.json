@@ -5,6 +5,12 @@
       "Time to party!"
     ]
   },
+  "${modID}:Awakened One": {
+    "DIALOG": [
+      "You don't look so tough.",
+      "You actually thought you could defeat me by transforming into a monster?"
+    ]
+  },
   "${modID}:Champ": {
     "DIALOG": [
       "I'm a hedgehog! ~HEDGE~ ~HOG!~",
@@ -23,13 +29,13 @@
   },
   "${modID}:Time Eater": {
     "DIALOG": [
-      "Sorry to keep you waiting.",
+      "Let's finish this.",
       "You're actually the second Time Eater I've had to fight.",
       "Are you friends with the Giant Head?"
     ],
     "DIALOG_0": [
-      "You've messed with time... NL @FOR@ @TOO@ @LONG!@",
-      "~The~ ~Stage...~ NL ~is~ ~Set...~",
+      "Return to dust...",
+      "The Stage... NL ~is~ ~Set...~",
       "Yes..."
     ]
   },
@@ -90,7 +96,7 @@
     "DIALOG": [
       "Ready for me?",
       "You want some more?",
-      "Look! Ramps!"
+      "All's well that ends well!"
     ]
   },
   "${modID}:TiSRainbowRingFlavor": {
@@ -100,7 +106,7 @@
   },
   "${modID}:TiSRocketAccel": {
     "DIALOG": [
-      "#bG #yO #r!"
+      "[#2377B7]G [#2377B7]O [#2377B7]!"
     ]
   }
 }

@@ -15,6 +15,7 @@ import theHedgehog.powers.LevelUpFlightPower;
 import theHedgehog.powers.LevelUpPowerPower;
 import theHedgehog.powers.LevelUpSpeedPower;
 import theHedgehog.util.CardStats;
+import theHedgehog.util.GeneralUtils;
 
 import static theHedgehog.SonicMod.imagePath;
 
@@ -29,7 +30,7 @@ public class LevelUp extends BaseCard {
     );
 
     // NOTE: wordLevelUp
-    // If you update this, please also update Keywords.json wordLevelUp
+    // If you update this, please also update Keywords.json wordLevelUp and cardsPackExclusive\LevelUp
     private static final int MAGIC = 0;
     private static final int UPG_MAGIC = 1;
 
@@ -45,8 +46,10 @@ public class LevelUp extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         tags.add(SonicTags.LIKE_DEFECT);
-        UpdateLastCardPlayed();
-        UpdateCardImageAndText();
+        if (GeneralUtils.isIndeedWithoutADoubtInCombat()) {
+            UpdateLastCardPlayed();
+            UpdateCardImageAndText();
+        }
     }
 
     @Override
