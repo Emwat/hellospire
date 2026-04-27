@@ -185,7 +185,7 @@
     "FLAVOR": "Wow, where does somebody put all those gold rings?",
     "DESCRIPTIONS": [
       "For every #b",
-      " #yRings at the start of your turn, gain 1 [E] ."
+      " #yRings in your hand at the start of your turn, gain 1 [E] ."
     ]
   },
   "${modID}:RingKeeperRelic": {

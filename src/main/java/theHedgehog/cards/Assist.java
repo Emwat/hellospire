@@ -52,6 +52,7 @@ public class Assist extends BaseCard {
         characterCards.add(new AssistVector());
 
         setExhaust(true);
+        tags.add(SonicTags.LIKE_SILENT);
     }
 
     @Override
@@ -68,6 +69,7 @@ public class Assist extends BaseCard {
         if (this.upgraded) {
             randomCard.setCostForTurn(-99);
             randomCard.isCostModifiedForTurn = true;
+            randomCard.tags.add(SonicTags.UPG_ASSIST);
         }
 
         addToBot(new MakeTempCardInHandAction(randomCard, true));

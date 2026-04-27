@@ -1,33 +1,22 @@
-package theHedgehog.cardsPackExclusive;
+package theHedgehog.cardsPack;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Dualcast;
-import com.megacrit.cardcrawl.cards.red.DualWield;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
-import theHedgehog.actions.ModXFastAction;
 import theHedgehog.cards.*;
 import theHedgehog.cards.Ring;
 import theHedgehog.character.Sonic;
-import theHedgehog.multiplayer.ModMultiplayerHelper;
 import theHedgehog.powers.LevelUpFlightPower;
-import theHedgehog.powers.LevelUpPowerPower;
 import theHedgehog.powers.LevelUpSpeedPower;
 import theHedgehog.util.CardStats;
 import thePackmaster.ThePackmaster;
 
-import static theHedgehog.SonicMod.imagePath;
 import static theHedgehog.multiplayer.ModMultiplayerHelper.GiveCardToTeammate;
-import static theHedgehog.multiplayer.ModMultiplayerHelper.IsCharacterEntity;
 
 public class LevelUp extends BaseCard {
     public static final String ID = makeID("PackLevelUp");
@@ -69,6 +58,6 @@ public class LevelUp extends BaseCard {
 
     @Override
     public AbstractCard makeCopy() { // Optional
-        return new theHedgehog.cards.LevelUp();
+        return new LevelUp();
     }
 }

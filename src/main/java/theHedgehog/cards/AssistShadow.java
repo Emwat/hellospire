@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
+import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -55,6 +56,6 @@ public class AssistShadow extends BaseCard implements OnObtainCard {
 
     @Override
     public void onObtainCard() {
-        removeAssistCard(this.upgraded);
+        removeAssistCard(this.hasTag(SonicTags.UPG_ASSIST));
     }
 }

@@ -2,6 +2,7 @@ package theHedgehog.cards;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -58,7 +59,8 @@ public class QuickStep extends BaseCard {
             leftCard.upgrade();
         }
 
-        addToBot(new MakeTempCardInHandAction(leftCard, 1));
+        addToBot(new MakeTempCardInDiscardAction(leftCard, 1));
+        // addToBot(new MakeTempCardInHandAction(leftCard, 1));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package theHedgehog.packs;
+package theHedgehog.packsA;
 
 import theHedgehog.cards.*;
 import thePackmaster.packs.AbstractCardPack;
@@ -11,7 +11,7 @@ public class SonicStylePack extends AbstractHedgehogPack {
     public static final String ID = makeID("SonicStylePack");
 
     public SonicStylePack() {
-        super(ID, RocketAccel.ID, new AbstractCardPack.PackSummary(2, 2, 4, 3, 2,
+        super(ID, RocketAccel.ID, new AbstractCardPack.PackSummary(2, 4, 4, 3, 2,
                 PackSummary.Tags.Tokens));
     }
 
@@ -20,11 +20,11 @@ public class SonicStylePack extends AbstractHedgehogPack {
 
         // 3 Commons, 4 Uncommons, 3 Rares
         // cards.add(.ID);
-        cards.add(theHedgehog.cardsPackExclusive.Boost.ID);
-        cards.add(theHedgehog.cardsPackExclusive.BouncePad.ID);
-        cards.add(theHedgehog.cardsPackExclusive.HomingAttack.ID);
-        cards.add(DropDash.ID);
+        cards.add(theHedgehog.cardsPack.Boost.ID);
+        cards.add(theHedgehog.cardsPack.HomingAttack.ID);
+        cards.add(theHedgehog.cardsPack.DropDash.ID);
 
+        cards.add(theHedgehog.cardsPack.BouncePad.ID);
         cards.add(BackSpinKick.ID);
         cards.add(GrindRail.ID);
         // cards.add(DashPanel.ID);

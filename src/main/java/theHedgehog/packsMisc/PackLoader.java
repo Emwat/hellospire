@@ -6,7 +6,7 @@ import com.evacipated.cardcrawl.modthespire.Loader;
 import theHedgehog.SonicMod;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
-import theHedgehog.packs.AbstractHedgehogPack;
+import theHedgehog.packsA.AbstractHedgehogPack;
 import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.interfaces.EditPacksSubscriber;
 
@@ -16,7 +16,7 @@ public class PackLoader implements EditPacksSubscriber {
         SpireAnniversary5Mod.allowCardClass(BaseCard.class);
         SpireAnniversary5Mod.allowCardColor(Sonic.Meta.CARD_COLOR);
         new AutoAdd(SonicMod.modID)
-                .packageFilter("theHedgehog.packs")
+                .packageFilter("theHedgehog.packsA")
                 .any(AbstractHedgehogPack.class, (info, pack) -> SpireAnniversary5Mod.declarePack(pack));
         // if (Loader.isModLoaded("soniclowhealthmusic")) {
         //     new AutoAdd(SonicMod.modID)

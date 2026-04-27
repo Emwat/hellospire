@@ -74,7 +74,6 @@ Requires subscription to
 - PowerStrings.json requires `[E]` to have spaces around it. For example: `[E] [E] .`
 - TogetherInSpire v6.4.0 has a thing. If your card is a skill that applies Vulnerable, the card.target will end up being SELF and m is null.
 - TogetherInSpire v6.4.0 potions require additional code. See below or see my ChaosSodaPotion.
-- `isIndeedWithoutADoubtInCombat()` is apparently necessary b/c some cards crash the game in the compendium.
 ```
 // TogetherInSpire needs these textures
     private static final Texture containerImg = ImageMaster.POTION_BOTTLE_CONTAINER;
@@ -84,6 +83,7 @@ Requires subscription to
     private static final Texture outlineImg = ImageMaster.POTION_BOTTLE_OUTLINE;
 ```
 - TogetherInSpire v6.4.20 mod phasedEvents w/ combats have reports of not working.
+- `isIndeedWithoutADoubtInCombat()` is apparently necessary b/c some cards crash the game in the compendium.
 - Custom events need a patch to see its name in the run history. [GetEventNamePatch] (https://github.com/erasels/PackmasterCharacter/blob/main/src/main/java/thePackmaster/patches/GetEventNamePatch.java
 - Unlocking cards needs the AutoAdd to setDefaultSeen(false)
 ```Java
@@ -123,6 +123,7 @@ The Loadout mod is great. I've used it a ton in the beginning, but now I mostly 
     }
 ```
 - Change out Bash for the Gremlin match and keep in the `getStartCardForEvent()`
+- Update the version number
 
 # Base Game things
 - [Red for attack, blue for block] (https://www.reddit.com/r/slaythespire/comments/1rtdpxv/blocks_cards_look_like_attack_cards_card_visual/)

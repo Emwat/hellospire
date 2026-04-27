@@ -31,7 +31,7 @@ public class LightSpeedDash extends BaseCard {
             0
     );
 
-    private static final int MAGIC = 9;
+    private static final int MAGIC = 7;
     private static final int UPG_MAGIC = 3;
 
     public LightSpeedDash() {

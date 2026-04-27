@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
+import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.util.ExtraIcons;
 import theHedgehog.util.TextureLoader;
 
@@ -19,6 +20,7 @@ public class MagicHandsModifier extends AbstractCardModifier {
     public static String ID = makeID("modifierMagicHands");
     private final static String magicHandsKeyword = CardCrawlGame.languagePack.getUIString(ID).TEXT[0];
     private final static String magicHandsKeywordNL = CardCrawlGame.languagePack.getUIString(ID).TEXT[1];
+    private final static String magicHandsNotification = CardCrawlGame.languagePack.getUIString(ID).TEXT[2];
     private final static Texture doNotThrowIcon = TextureLoader.getTexture(SonicMod.imagePath("ui/hold.png"));
 
     public MagicHandsModifier() {
@@ -43,15 +45,13 @@ public class MagicHandsModifier extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (rawDescription.length() < 100) {
-            return magicHandsKeywordNL + rawDescription;
-        }
-        return magicHandsKeyword + rawDescription;
+        return magicHandsKeywordNL + rawDescription;
     }
 
     @Override
     public void onExhausted(AbstractCard card) {
         addToBot(new ChangeStanceAction("Wrath"));
+        addToBot(new ModTextInCenterAction(magicHandsNotification.replace("{X}", card.name.toUpperCase()), Color.RED.cpy()));
     }
 
     @Override

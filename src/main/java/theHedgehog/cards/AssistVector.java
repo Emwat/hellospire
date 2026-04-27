@@ -86,6 +86,6 @@ public class AssistVector extends BaseCard implements OnObtainCard {
 
     @Override
     public void onObtainCard() {
-        removeAssistCard(this.upgraded);
+        removeAssistCard(this.hasTag(SonicTags.UPG_ASSIST));
     }
 }

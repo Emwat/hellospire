@@ -9,7 +9,6 @@ import basemod.eventUtil.EventUtils;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -26,6 +25,7 @@ import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.actions.ModWaitAction;
+import theHedgehog.actions.ModXFastAction;
 import theHedgehog.cards.*;
 import theHedgehog.cardsTails.IQ200Attack;
 import theHedgehog.cardsTails.IQ300Attack;
@@ -64,6 +64,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 import thePackmaster.SpireAnniversary5Mod;
+import thePackmaster.ThePackmaster;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -86,6 +87,7 @@ public class SonicMod implements
         OnCardUseSubscriber,
         OnStartBattleSubscriber,
         OnPlayerTurnStartSubscriber,
+        PostDrawSubscriber,
         PostExhaustSubscriber,
         PostBattleSubscriber,
         PostDeathSubscriber,
@@ -563,16 +565,18 @@ public class SonicMod implements
         BaseMod.removeCard(BecauseSciencePick2.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(Acceleration.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(Athleticism.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(AssistRosy.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Bait.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlastOff.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlueBomber.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(BlueBlur.ID, Sonic.Meta.CARD_COLOR);
-        BaseMod.removeCard(CloseShave.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(CloseShave.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(DebugMode.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(Enerbeam.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(PunchRush.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SkyRing.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(SonicEagle.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SonicWind.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(ScissorKick.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(SpeedUp.ID, Sonic.Meta.CARD_COLOR);
@@ -606,19 +610,29 @@ public class SonicMod implements
         // BaseMod.removeCard(SonicWaveRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SpinDashRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SpinningNeedleAttackRare.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(StrikeRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(TopKickRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(TripleKickRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(UpDraftRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(WindmillRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(WindUpPunchRare.ID, Sonic.Meta.CARD_COLOR);
 
+        BaseMod.removeCard(theHedgehog.cardsPack.LevelUp.ID, Sonic.Meta.CARD_COLOR);
+
         if (!Loader.isModLoaded("anniv5")) {
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Boost.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.BouncePad.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Ring.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.Trick.ID, Sonic.Meta.CARD_COLOR);
-            BaseMod.removeCard(theHedgehog.cardsPackExclusive.LevelUp.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.Boost.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.BouncePad.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.HomingAttack.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.DropDash.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.Ring.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.Trick.ID, Sonic.Meta.CARD_COLOR);
+            BaseMod.removeCard(theHedgehog.cardsPack.LevelUp.ID, Sonic.Meta.CARD_COLOR);
+        } else {
+
+        }
+
+        if (!Loader.isModLoaded("soniclowhealthmusic")) {
+            BaseMod.removeCard(theHedgehog.cardsPack.LevelUp.ID, Sonic.Meta.CARD_COLOR);
         }
 
         BaseMod.removeCard(theHedgehog.cardsTiS.RainbowRing.ID, Sonic.Meta.CARD_COLOR);
@@ -765,6 +779,7 @@ public class SonicMod implements
     }
 
     public static int attackCardsPlayedThisTurn = 0;
+    public static int cardsDrawnThisTurn = 0;
     public static int cardsExhaustedThisTurn = 0;
     public static boolean sawMetalRelic = false;
     public static final int RANK_S_REWARD = 100;
@@ -773,8 +788,17 @@ public class SonicMod implements
     public static final int RANK_C_REWARD = 20;
 
     @Override
+    public void receivePostDraw(AbstractCard abstractCard) {
+        AbstractDungeon.actionManager.addToTurnStart(new ModXFastAction(() -> {
+            cardsDrawnThisTurn++;
+        }));
+    }
+
+    @Override
     public void receivePostExhaust(AbstractCard abstractCard) {
-        cardsExhaustedThisTurn++;
+        AbstractDungeon.actionManager.addToBottom(new ModXFastAction(() -> {
+            cardsExhaustedThisTurn++;
+        }));
     }
 
     @Override
@@ -784,6 +808,9 @@ public class SonicMod implements
         Trick.TricksPlayed = 0;
         Trick.firstTrickNumber = 0;
         SlotMachineStatus.hasAppliedDebuff = false;
+        AbstractDungeon.actionManager.addToTurnStart(new ModXFastAction(() -> {
+            cardsDrawnThisTurn = 0;
+        }));
     }
 
     @Override

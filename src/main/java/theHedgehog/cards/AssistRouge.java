@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
+import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -59,6 +60,6 @@ public class AssistRouge extends BaseCard implements OnObtainCard {
 
     @Override
     public void onObtainCard() {
-        removeAssistCard(this.upgraded);
+        removeAssistCard(this.hasTag(SonicTags.UPG_ASSIST));
     }
 }

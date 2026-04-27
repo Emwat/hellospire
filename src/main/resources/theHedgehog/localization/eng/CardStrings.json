@@ -18,6 +18,7 @@
       "ee82eeff purple",
       "ff6563ff red",
       "ffa500ff orange",
+      "[#808080] gray",
       "[E] is energy",
       "ALL is typically capitalized. Apotheosis includes Exhausted pile. Perfected Strike does not.",
       "Attack, Skill, Evoke, Exhaust, Block, Focus are title case.",
@@ -139,7 +140,7 @@
   },
   "${modID}:AssistSticks": {
     "NAME": "Sticks the Badger",
-    "DESCRIPTION": "All Starter Strikes and Defends cost 0 and gain ${modID}:Spin_Up.",
+    "DESCRIPTION": "All Starter Strikes and Defends gain ${modID}:Spin_Up and gain [E]  when played.",
     "FLAVOR": "Blast Processing technology? Those are just phoney-baloney buzz words to fool the simple minded!"
   },
   "${modID}:AssistTails": {
@@ -207,7 +208,8 @@
   },
   "${modID}:BlueTornado": {
     "NAME": "Blue Tornado",
-    "DESCRIPTION": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL Choose up to 1 card in your hand and ${modID}:flip its cost for this turn.",
+    "DESCRIPTION": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL ${modID}:Flip the cost of a card in your hand for this turn.",
+    "DESCRIPTION_IDEA_2": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL ${modID}:Flip the cost of ALL cards in your hand for this turn.",
     "EXTENDED_DESCRIPTION": [
       "Apply !M! Vulnerable. NL Apply !${modID}:CustomVar_DIZZY! ${modID}:Dizzy.",
       "Apply !M! Vulnerable. NL Add a [#efc851]Trick[] to your hand.",
@@ -275,7 +277,8 @@
   },
   "${modID}:CloseShave": {
     "NAME": "Close Shave",
-    "DESCRIPTION": "Gain !B! Block. If you have less than !M! HP, gain it again. Decrease this card's Block by 1 this combat."
+    "DESCRIPTION": "Gain !B! Block. NL If you have !M! or less cards in your hand, gain !B! Block.",
+    "DESCRIPTION_IDEA_2": "Gain !B! Block. NL If you don't have any [#efc851]Rings[], gain !B! Block."
   },
   "${modID}:Crouch": {
     "NAME": "Jump",
@@ -336,7 +339,7 @@
   },
   "${modID}:DropDash": {
     "NAME": "Drop Dash",
-    "DESCRIPTION": "Gain !B! Block. If you Exhausted a card this turn, gain [E] [E]."
+    "DESCRIPTION": "Gain !B! Block. NL If you drawn a card this turn, gain [E] [E]."
   },
   "${modID}:EndlessBoost": {
     "NAME": "Endless Boost",
@@ -349,8 +352,8 @@
   },
   "${modID}:Extender": {
     "NAME": "Mid-Air Trick Action",
-    "DESCRIPTION": "If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or [E] [E].",
-    "UPGRADE_DESCRIPTION": "Innate. NL If you have Vigor at the start of your turn, choose to gain 2 Orb slots, draw 2 cards, or [E] [E]."
+    "DESCRIPTION": "If you have Vigor at the start of your turn, choose to NL gain 2 Orb slots, NL draw 2 cards, NL or gain [E] [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL If you have Vigor at the start of your turn, choose to NL gain 2 Orb slots, NL draw 2 cards, NL or gain [E] [E]."
   },
   "${modID}:Extender1": {
     "NAME": "Hop Jump",
@@ -461,7 +464,7 @@
   },
   "${modID}:GrindRail": {
     "NAME": "Grind Rail",
-    "DESCRIPTION": "Lowers the cost of adjacent cards by !M! for this turn."
+    "DESCRIPTION": "Lower the cost of adjacent cards by !M! for this turn."
   },
   "${modID}:Hailstorm": {
     "NAME": "Hailstorm",
@@ -500,20 +503,20 @@
   },
   "${modID}:HorseKick": {
     "NAME": "Horse Kick",
-    "DESCRIPTION": "Deal !D! damage. ${modID}:If_rightmost, deal double damage."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:If_rightmost, deal double damage."
   },
   "${modID}:HorseKickRare": {
     "NAME": "S Horse Kick",
-    "DESCRIPTION": "Deal !D! damage. ${modID}:If_rightmost, deal triple damage."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:If_rightmost, deal triple damage."
   },
   "${modID}:HotRod": {
     "NAME": "Hot Rod",
     "DESCRIPTION": "After this card is drawn, this card's effects change based on how many cards you've played this turn.",
     "EXTENDED_DESCRIPTION": [
       "Warming up. NL Gain !B! Block.",
-      "Standard. NL Gain !B! Block.",
-      "Critical! NL Gain !B! Block. NL Deal !D! damage.",
-      "Overloaded. NL Gain !B! Block."
+      "[#efc851]Standard.[] NL Gain !B! Block.",
+      "[#ff6563]Critical![] NL Gain !B! Block. NL Deal !D! damage.",
+      "[#808080]Overloaded.[] NL Gain !B! Block."
     ]
   },
   "${modID}:HotRod1": {
@@ -522,15 +525,15 @@
   },
   "${modID}:HotRod2": {
     "NAME": "Hot Rod Part 2 of 3",
-    "DESCRIPTION": "Standard. NL Gain !B! Block."
+    "DESCRIPTION": "[#efc851]Standard[]. NL Gain !B! Block."
   },
   "${modID}:HotRod3": {
     "NAME": "Hot Rod Part 3 of 3",
-    "DESCRIPTION": "Critical! NL Gain !B! Block. NL Deal !D! damage."
+    "DESCRIPTION": "[#ff6563]Critical![] NL Gain !B! Block. NL Deal !D! damage."
   },
   "${modID}:HotRodOverloaded": {
     "NAME": "Hot Rod Overloaded",
-    "DESCRIPTION": "Overloaded. NL Gain !B! Block."
+    "DESCRIPTION": "[#808080]Overloaded.[] NL Gain !B! Block."
   },
   "${modID}:HotRodRare": {
     "NAME": "S Hot Rod",
@@ -696,6 +699,10 @@
     "DESCRIPTION": "Each turn, your first !M! created cards cost 1 less [E].",
     "UPGRADE_DESCRIPTION": "Innate. NL Each turn, your first !M! created cards cost 1 less [E]."
   },
+  "${modID}:PackDropDash": {
+    "NAME": "Drop Dash",
+    "DESCRIPTION": "Gain !B! Block. If you Exhausted a card this turn, gain [E] [E]."
+  },
   "${modID}:PackHomingAttack": {
     "NAME": "Homing Attack",
     "DESCRIPTION": "Deal !D! damage. NL Add a [#efc851]Trick[] to your hand.",
@@ -708,7 +715,7 @@
   },
   "${modID}:PackRing": {
     "NAME": "Ring",
-    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL Gain !M! Temporary_HP. NL Exhaust."
+    "DESCRIPTION": "Retain. NL ${modID}:Ring. NL When you take unblocked damage, Exhaust this card. NL Gain !M! Temporary_HP. NL Exhaust."
   },
   "${modID}:PackTrick": {
     "NAME": "Trick",
@@ -772,8 +779,8 @@
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
-    "DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, ${modID}:rev. NL Add [#efc851]Quick[] [#efc851]Air[] to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, ${modID}:rev. NL Add [#efc851]Quick[] [#efc851]Air+[] to your hand. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, ${modID}:rev. NL Add [#efc851]Quick[] [#efc851]Air[] to the discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_rightmost, ${modID}:rev. NL Add [#efc851]Quick[] [#efc851]Air+[] to the discard pile. NL Exhaust."
   },
   "${modID}:RampJump": {
     "NAME": "Ramp Jump",
@@ -839,16 +846,16 @@
     "NAME": "Sonic Boom",
     "DESCRIPTION": "Ethereal. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
     "EXTENDED_DESCRIPTION": [
-      "Ethereal. Gain !B! Block. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
-      "Ethereal. Gain !M! Vigor. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
+      "Ethereal. NL Gain !B! Block. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
+      "Ethereal. NL Gain !M! Vigor. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
     ]
   },
   "${modID}:SonicBoomRare": {
     "NAME": "S Sonic Boom",
     "DESCRIPTION": "Ethereal. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
     "EXTENDED_DESCRIPTION": [
-      "Ethereal. Gain !B! Block. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
-      "Ethereal. Gain !M! Vigor. At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
+      "Ethereal. NL Gain !B! Block. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers.",
+      "Ethereal. NL Gain !M! Vigor. NL At the end of your turn, deal damage to ALL enemies equal to your Block and damage modifiers."
     ]
   },
   "${modID}:SonicEagle": {
@@ -890,7 +897,7 @@
   },
   "${modID}:SpeedUp": {
     "NAME": "Speed Up",
-    "DESCRIPTION": "Exhaust ALL [#efc851]Rings[] in your hand. For each [#efc851]Ring[] exhausted, add a [#efc851]Trick[] to your hand."
+    "DESCRIPTION": "Exhaust ALL [#efc851]Rings[] in your hand. For each [#efc851]Ring[] Exhausted, add a [#efc851]Trick[] to your hand."
   },
   "${modID}:SpeedBreak": {
     "NAME": "Speed Break",
@@ -1009,7 +1016,7 @@
   "${modID}:TripleKick2": {
     "NAME": "Triple Kick Part 2",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part[] [#efc851]3[] to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Ethereal. Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part[] [#efc851]3+[] to your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Gain !M! Temporary Strength. NL Add [#efc851]Part[] [#efc851]3+[] to your hand. NL Exhaust."
   },
   "${modID}:TripleKick3": {
     "NAME": "Triple Kick Part 3",
@@ -1023,8 +1030,8 @@
   },
   "${modID}:Turbulence": {
     "NAME": "Turbulence",
-    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851]Trick[] to your hand. Whenever you exhaust a card, Channel 1 Frost.",
-    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851]Trick[] to your hand. Whenever you exhaust a card, Channel 1 Frost."
+    "DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851]Trick[] to your hand. Whenever you Exhaust a card, Channel 1 Frost.",
+    "UPGRADE_DESCRIPTION": "Lose !M! Focus. NL ${modID}:If_leftmost, add a [#efc851]Trick[] to your hand. Whenever you Exhaust a card, Channel 1 Frost."
   },
   "${modID}:UpDraft": {
     "NAME": "Up Draft",
@@ -1036,7 +1043,7 @@
   },
   "${modID}:VolcanoSlider": {
     "NAME": "Volcano Slider",
-    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL Exhaust ALL to the left. NL This deals !M! additional damage per card exhausted."
+    "DESCRIPTION": "${modID}:Crest_of_Fire. NL Deal !D! damage. NL Exhaust ALL to the left. NL This deals !M! additional damage per card Exhausted."
   },
   "${modID}:WallJump": {
     "NAME": "Wall Jump",
@@ -1048,7 +1055,8 @@
   },
   "${modID}:WindUpPunch": {
     "NAME": "Wind Up Punch",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a [#efc851]Trick[] to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Add a [#efc851]Trick[] to your hand.",
+    "DESCRIPTION_IDEA_2": "Deal !D! damage. NL Apply !M! Vulnerable. NL If you have Vigor, this deals !${modID}:CustomVar_DAMAGE! additional damage."
   },
   "${modID}:WindUpPunchRare": {
     "NAME": "S Wind Up Punch",

@@ -202,7 +202,7 @@ public class TimeStoneEvent extends PhasedEvent {
     private void Option020_Future_Commit(Integer i) {
         AbstractCard homingAttack = new HomingAttack();
         if (Loader.isModLoaded("anniv5") && AbstractDungeon.player instanceof ThePackmaster) {
-            homingAttack = new theHedgehog.cardsPackExclusive.HomingAttack();
+            homingAttack = new theHedgehog.cardsPack.HomingAttack();
         }
 
         AbstractRelic r = new CDFutureRelic();

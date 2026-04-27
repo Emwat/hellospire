@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Frost;
 import theHedgehog.SonicMod;
+import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.actions.ModXFastAction;
@@ -117,6 +118,6 @@ public class AssistJet extends BaseCard implements OnObtainCard {
 
     @Override
     public void onObtainCard() {
-        removeAssistCard(this.upgraded);
+        removeAssistCard(this.hasTag(SonicTags.UPG_ASSIST));
     }
 }

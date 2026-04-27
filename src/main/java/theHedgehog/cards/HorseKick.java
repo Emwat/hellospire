@@ -65,6 +65,7 @@ public class HorseKick extends BaseCard {
     //     };
     // }
 
+    @Override
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
         // int vigorAndMore = GeneralUtils.getVigorAndMoreAmount2(this.baseDamage);

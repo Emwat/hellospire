@@ -1,4 +1,4 @@
-package theHedgehog.cardsPackExclusive;
+package theHedgehog.cardsPack;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -8,29 +8,19 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theHedgehog.SonicMod;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
-import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.ThePackmaster;
 
 public class HomingAttack extends BaseCard {
     public static final String ID = makeID("PackHomingAttack");
+    private static final CardType cardtype = CardType.ATTACK;
+    private static final CardTarget cardTarget = CardTarget.ENEMY;
+    private static final int cost = 1;
     private static final CardStats info = Loader.isModLoaded("anniv5") ?
-            new CardStats(
-            ThePackmaster.Enums.PACKMASTER_RAINBOW,
-            CardType.ATTACK,
-            CardRarity.COMMON,
-            CardTarget.ENEMY,
-            1
-    ) : new CardStats(
-            Sonic.Meta.CARD_COLOR,
-            CardType.ATTACK,
-            CardRarity.SPECIAL,
-            CardTarget.ENEMY,
-            1
-    );
+            new CardStats(ThePackmaster.Enums.PACKMASTER_RAINBOW, cardtype, CardRarity.COMMON, cardTarget, cost) :
+            new CardStats(Sonic.Meta.CARD_COLOR, cardtype, CardRarity.SPECIAL, cardTarget, cost);
 
     private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 1;
@@ -39,7 +29,7 @@ public class HomingAttack extends BaseCard {
 
     public HomingAttack() {
         super(ID, info);
-        this.cardsToPreview = new theHedgehog.cardsPackExclusive.Trick();
+        this.cardsToPreview = new theHedgehog.cardsPack.Trick();
 
         setDamage(DAMAGE, UPG_DAMAGE);
 

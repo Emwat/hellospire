@@ -1,4 +1,4 @@
-package theHedgehog.packs;
+package theHedgehog.packsA;
 
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import theHedgehog.SonicMod;

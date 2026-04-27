@@ -130,7 +130,7 @@
       "\"Oh, it's in a bottle? Is it cursed? I guess I can't trade for it. Maybe another time then.\" With that, she disappears into the city. NL NL The bottle shines ever so brightly.",
       "\"I'll see you around, Big Blue. Don't be a stranger.\"",
       "\"Hmph. See how far you get without ~MY~ help.\"",
-      "\"Hello there! I'm Omochao!\" NL NL Assist is a Cost #b0 card that adds a random Friend #ySkill to your hand. It #yexhausts. At the end of combat, you can choose to keep the Skill. NL NL Cards with #yDO #yNOT #yTHROW will retain, but if you exhaust it, you will enter Wrath."
+      "#bHello #bthere! #bI'm #bOmochao! NL NL Assist is a Cost #b0 card that adds a random Friend #ySkill to your hand. It #yexhausts. At the end of combat, you can choose to keep the Skill. NL NL #rPRECIOUS Cards will retain, but if you exhaust it, you will enter #rWrath!"
     ],
     "OPTIONS": [
       "[Leave]",
@@ -138,13 +138,13 @@
       ". #gGain ",
       "[Decline trade] #yPay #y",
       "#yGold. ",
-      " gains #bDO #bNOT #bTHROW.",
+      " gains #rPRECIOUS.",
       "[Discuss] ",
       "[Accept offer] #gHeal #g",
       " #gHP. #rLose #r",
       "#rMax #rHP.",
       "[Decline offer] Leave.",
-      "[Talk to Omochao] (Free Action)"
+      "[Talk to Omochao] #b(Free #bAction)"
     ]
   },
   "${modID}:TimeStoneEvent": {

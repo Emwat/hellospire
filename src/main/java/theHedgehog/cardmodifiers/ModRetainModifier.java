@@ -16,10 +16,7 @@ public class ModRetainModifier extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        if (rawDescription.length() < 75) {
-            return retainKeywordNL + rawDescription;
-        }
-        return retainKeyword + rawDescription;
+        return retainKeywordNL + rawDescription;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package theHedgehog.cards;
 
+import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
 import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
+import theHedgehog.cardmodifiers.GainEnergyModifier;
 import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
@@ -26,6 +28,7 @@ public class AssistSticks extends BaseCard implements OnObtainCard {
     public AssistSticks() {
         super(ID, info);
         setCostUpgrade(0);
+        CardModifierManager.addModifier(this, new SpinUpModifier());
     }
 
     @Override
@@ -42,11 +45,15 @@ public class AssistSticks extends BaseCard implements OnObtainCard {
     private void modifyStrikesAndDefends(CardGroup cardGroup) {
         for (AbstractCard card : cardGroup.group) {
             if (card.hasTag(CardTags.STARTER_STRIKE) || card.hasTag(CardTags.STARTER_DEFEND)) {
-                BaseCard.setCostForCombat(card, 0);
-                card.isCostModifiedForTurn = true;
+                // BaseCard.setCostForCombat(card, 0);
+                // card.isCostModifiedForTurn = true;
                 if (!card.hasTag(SonicTags.SPIN_UP)) {
                     CardModifierManager.addModifier(card, new SpinUpModifier());
                 }
+                // for(AbstractCardModifier modifier : CardModifierManager.modifiers(card)) {
+                //
+                // }
+                CardModifierManager.addModifier(card, new GainEnergyModifier(1));
                 if (cardGroup.type == CardGroup.CardGroupType.HAND) {
                     card.flash();
                 }
@@ -61,6 +68,6 @@ public class AssistSticks extends BaseCard implements OnObtainCard {
 
     @Override
     public void onObtainCard() {
-        removeAssistCard(this.upgraded);
+        removeAssistCard(this.hasTag(SonicTags.UPG_ASSIST));
     }
 }

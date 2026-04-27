@@ -1,4 +1,4 @@
-package theHedgehog.cardsPackExclusive;
+package theHedgehog.cardsPack;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -6,30 +6,19 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theHedgehog.SonicMod;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
-import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.ThePackmaster;
 
 public class BouncePad extends BaseCard {
     public static final String ID = makeID("PackBouncePad");
+    private static final CardType cardtype = CardType.SKILL;
+    private static final CardTarget cardTarget = CardTarget.SELF;
+    private static final int cost = 1;
     private static final CardStats info = Loader.isModLoaded("anniv5") ?
-            new CardStats(
-            ThePackmaster.Enums.PACKMASTER_RAINBOW,
-            CardType.SKILL,
-            CardRarity.COMMON,
-            CardTarget.SELF,
-            1
-    ) :
-            new CardStats(
-                    Sonic.Meta.CARD_COLOR,
-                    CardType.SKILL,
-                    CardRarity.SPECIAL,
-                    CardTarget.SELF,
-                    1
-            );
+            new CardStats(ThePackmaster.Enums.PACKMASTER_RAINBOW, cardtype, CardRarity.UNCOMMON, cardTarget, cost) :
+            new CardStats(Sonic.Meta.CARD_COLOR, cardtype, CardRarity.SPECIAL, cardTarget, cost);
 
     private static final int BLOCK = 7;
     private static final int UPG_BLOCK = 2;
@@ -38,7 +27,7 @@ public class BouncePad extends BaseCard {
 
     public BouncePad() {
         super(ID, info);
-        this.cardsToPreview = new theHedgehog.cardsPackExclusive.Ring();
+        this.cardsToPreview = new theHedgehog.cardsPack.Ring();
 
         setBlock(BLOCK, UPG_BLOCK);
         setMagic(MAGIC, UPG_MAGIC);

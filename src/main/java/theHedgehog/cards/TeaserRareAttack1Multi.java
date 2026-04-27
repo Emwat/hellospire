@@ -33,6 +33,7 @@ public class TeaserRareAttack1Multi extends BaseCard {
 
     // SwordBoomerang does 5 damage 3(4) hits
     private static final int DAMAGE = 2;
+    private static final int UPG_DAMAGE = 1;
     private static final int MAGIC = 5;
     private static final int UPG_MAGIC = 1;
 
@@ -41,8 +42,8 @@ public class TeaserRareAttack1Multi extends BaseCard {
         setBackgroundTexture(SonicMod.characterPath("cardback/werehog/bg_attack.png"),
                 SonicMod.characterPath("cardback/werehog/bg_attack_p.png"));
 
-        setDamage(DAMAGE);
-        setMagic(MAGIC, UPG_MAGIC);
+        setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC);
         tags.add(SonicTags.CLAW);
         tags.add(SonicTags.ERA_MODERN);
     }

@@ -79,6 +79,15 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         }
     }
 
+    public ArrayList<String> extraOptions(String[] tokens, int depth) {
+        ArrayList<String> result = new ArrayList<>();
+
+        result.add("exhausthand");
+
+        return result;
+    }
+
+
     private void DoesAssistAmyWork() {
         atbExhaustEntireHand();
         atb(new MakeTempCardInHandAction(new AssistAmy(), 1));

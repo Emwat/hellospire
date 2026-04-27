@@ -1,7 +1,9 @@
 package theHedgehog.powers;
 
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,9 +12,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theHedgehog.SonicTags;
+import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
-
-import java.util.Objects;
+import theHedgehog.relics.CDPastRelic;
+import theHedgehog.relics.ClassicModeRelic;
 
 import static theHedgehog.SonicMod.makeID;
 
@@ -38,6 +41,7 @@ public class RingPower extends BasePower {
     // 4) Get Dazed.
     // 5) Draw a Ring.
     // 6) Discard a Ring.
+    // 7) Play Crystal Ring.
 
     public void updateDescription() {
         int amountSpeed = ModGetPowerAmount(LevelUpSpeedPower.POWER_ID);
@@ -71,13 +75,13 @@ public class RingPower extends BasePower {
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         addToTop(new ModFastAction(()-> {
-            isPlayingBoost = card.cardID.equals(theHedgehog.cardsPackExclusive.Boost.ID);
+            isPlayingBoost = card.cardID.equals(theHedgehog.cardsPack.Boost.ID);
         }));
     }
 
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        AbstractDungeon.actionManager.addToBottom(new ModFastAction(this::CalculateNumberOfRings));
+        addToBot(new ModFastAction(this::CalculateNumberOfRings));
         // ThousandCutsPower does not have this super method.
         // super.onAfterCardPlayed(usedCard);
     }
@@ -85,7 +89,7 @@ public class RingPower extends BasePower {
     @Override
     public void onCardDraw(AbstractCard card) {
         if (card.hasTag(SonicTags.RING)) {
-            AbstractDungeon.actionManager.addToBottom(new ModFastAction(this::CalculateNumberOfRings));
+            addToBot(new ModFastAction(this::CalculateNumberOfRings));
         }
     }
 
@@ -108,6 +112,35 @@ public class RingPower extends BasePower {
         return super.onHeal(healAmount);
     }
 
+    @Override
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if (info.type != DamageInfo.DamageType.THORNS &&
+                info.type != DamageInfo.DamageType.HP_LOSS &&
+                info.owner != null &&
+                info.owner != this.owner &&
+                damageAmount > 0) {
+            CardGroup hand = AbstractDungeon.player.hand;
+            if (!hand.isEmpty()) {
+                boolean hasExhausted = false;
+                for (AbstractCard card : hand.group){
+                    if (card instanceof theHedgehog.cardsPack.Ring) {
+                        addToBot(new ExhaustSpecificCardAction(card, hand));
+                        hasExhausted = true;
+                    }
+                }
+                if (hasExhausted) {
+                    this.flash();
+                    addToBot(new ModFastAction(this::CalculateNumberOfRings));
+                    if (!(AbstractDungeon.player.hasRelic(ClassicModeRelic.ID) || AbstractDungeon.player.hasRelic(CDPastRelic.ID))) {
+                        addToBot(SoundLibrary.SoundAction(SoundLibrary.LoseRings));
+                    }
+                }
+            }
+        }
+
+        return super.onAttacked(info, damageAmount);
+    }
+
     public void DiscardBoostsToHand() {
         addToBot(new ModFastAction(() -> {
             if (AbstractDungeon.player.discardPile.isEmpty()) {
@@ -116,7 +149,7 @@ public class RingPower extends BasePower {
             // Prevents Boost from returning itself to hand
             if (!isPlayingBoost) {
                 for (AbstractCard discardedCard : AbstractDungeon.player.discardPile.group) {
-                    if (discardedCard instanceof theHedgehog.cardsPackExclusive.Boost) {
+                    if (discardedCard instanceof theHedgehog.cardsPack.Boost) {
                         addToBot(new DiscardToHandAction(discardedCard));
                     }
                 }

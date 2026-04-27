@@ -26,6 +26,7 @@ import theHedgehog.actions.ModTextInCenterAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.actions.RandomizeCostAction;
 import theHedgehog.cardmodifiers.ModRetainModifier;
+import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.DizzyPower;
 import theHedgehog.util.CardStats;
@@ -52,7 +53,9 @@ public class BlueTornado extends BaseCard {
 
         setMagic(MAGIC, UPG_MAGIC);
         // setCustomVar(DIZZY_KEYWORD, DIZZY, UPG_DIZZY);
+        CardModifierManager.addModifier(this, new SpinUpModifier());
         tags.add(SonicTags.LIKE_SILENT);
+        // setExhaust(true);
     }
 
     @Override
@@ -72,31 +75,43 @@ public class BlueTornado extends BaseCard {
 
         addToBot(new ApplyPowerAction(m, p, new DizzyPower(m, magicNumber), magicNumber));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
+        // addToBot(new ModXFastAction(() -> {
+        //     if (p.hand.isEmpty()) {
+        //         return;
+        //     }
+        //     for (AbstractCard c : p.hand.group) {
+        //         flipCost(c);
+        //     }
+        // }));
         addToBot(new SelectCardsInHandAction(
                 1,
                 CardCrawlGame.languagePack.getUIString(makeID("BlueTornadoMessage")).TEXT[0],
-                false, true, pickableCards, cards -> {
+                false, false, pickableCards, cards -> {
             for (AbstractCard c : cards) {
                 addToBot(new ModXFastAction(() -> {
-                    int newCost = 0;
-                    if (c.costForTurn == 2) {
-                        newCost = 1;
-                    } else if (c.costForTurn == 1) {
-                        newCost = 2;
-                    } else if (c.costForTurn == 0) {
-                        newCost = 3;
-                    }
-
-                    if (newCost > 0 && c.hasTag(SonicTags.SPIN_UP)) {
-                        newCost -= 1;
-                    }
-                    c.setCostForTurn(newCost);
-                    // BaseCard.setCostForCombat(c, newCost);
-                    c.isCostModifiedForTurn = true;
+                    flipCost(c);
                 }));
             }
         }));
 
+    }
+
+    private void flipCost(AbstractCard c) {
+        int newCost = 0;
+        if (c.costForTurn == 2) {
+            newCost = 1;
+        } else if (c.costForTurn == 1) {
+            newCost = 2;
+        } else if (c.costForTurn == 0) {
+            newCost = 3;
+        }
+
+        if (c.hasTag(SonicTags.SPIN_UP)) {
+            BaseCard.setCostForCombat(c, newCost);
+        } else {
+            c.setCostForTurn(newCost);
+            c.isCostModifiedForTurn = true;
+        }
     }
 
     private AbstractCard GenerateFailSafe() {

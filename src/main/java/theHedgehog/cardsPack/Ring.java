@@ -1,4 +1,4 @@
-package theHedgehog.cardsPackExclusive;
+package theHedgehog.cardsPack;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -17,13 +17,11 @@ import theHedgehog.actions.ModFastAction;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.cards.Boost;
 import theHedgehog.cards.BoostRare;
-import theHedgehog.character.Sonic;
 import theHedgehog.powers.LSDPower;
 import theHedgehog.powers.RingPower;
 import theHedgehog.util.CardStats;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Ring extends BaseCard {
     public static final String ID = makeID("PackRing");
@@ -73,7 +71,6 @@ public class Ring extends BaseCard {
                 }
             }
         }
-        ;
     }
 
     @Override

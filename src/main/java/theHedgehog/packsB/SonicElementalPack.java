@@ -1,7 +1,7 @@
 // package theHedgehog.packsB;
 //
 // import theHedgehog.cards.*;
-// import theHedgehog.packs.AbstractHedgehogPack;
+// import theHedgehog.packsA.AbstractHedgehogPack;
 //
 // import java.util.ArrayList;
 //
@@ -11,7 +11,7 @@
 //     public static final String ID = makeID("SonicElementalPack");
 //
 //     public SonicElementalPack() {
-//         super(ID, ThunderShield.ID, new PackSummary(1, 1, 1, 1, 2,
+//         super(ID, ThunderShield.ID, new PackSummary(3, 3, 1, 1, 3,
 //                 PackSummary.Tags.Orbs));
 //     }
 //
@@ -30,7 +30,7 @@
 //
 //         cards.add(ThunderShield.ID);
 //         cards.add(Turbulence.ID);
-//         cards.add(theHedgehog.cardsPackExclusive.LevelUp.ID);
+//         cards.add(theHedgehog.cardsPack.LevelUp.ID);
 //
 //         return cards;
 //     }

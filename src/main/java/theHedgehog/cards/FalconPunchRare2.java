@@ -31,7 +31,7 @@ public class FalconPunchRare2 extends BaseCard {
     );
 
     private static final int DAMAGE = 7;
-    private static final int UPG_DAMAGE = 5;
+    private static final int UPG_DAMAGE = 2;
     private static final int DOUBLE_DAMAGE_MULTIPLIER = 2;
 
     /// "DESCRIPTION": "Deal !D! damage. NL When you are attacked this turn, deal !M! damage to the attacker."

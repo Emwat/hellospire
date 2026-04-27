@@ -1,4 +1,4 @@
-package theHedgehog.cardsPackExclusive;
+package theHedgehog.cardsPack;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -8,14 +8,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.actions.BoostAction;
 import theHedgehog.cards.BaseCard;
 import theHedgehog.character.Sonic;
 import theHedgehog.powers.RingPower;
 import theHedgehog.util.CardStats;
-import thePackmaster.SpireAnniversary5Mod;
 import thePackmaster.ThePackmaster;
 
 public class Boost extends BaseCard {

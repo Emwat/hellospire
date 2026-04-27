@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import theHedgehog.SonicMod;
+import theHedgehog.SonicTags;
 import theHedgehog.cardmodifiers.SpinUpModifier;
 import theHedgehog.character.Sonic;
 import theHedgehog.multiplayer.ModMultiplayerHelper;
@@ -36,6 +37,7 @@ public class Bumper extends BaseCard {
         setBlock(BLOCK, UPG_BLOCK);
         setSelfRetain(true);
         CardModifierManager.addModifier(this, new SpinUpModifier());
+        tags.add(SonicTags.LIKE_WATCHER);
     }
 
     @Override

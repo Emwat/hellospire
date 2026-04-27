@@ -16,7 +16,7 @@ import java.util.Objects;
 public class SlotMachineStatus extends BaseCard {
     public static final String ID = makeID("SlotMachineStatus");
     private static final CardStats info = new CardStats(
-            Sonic.Meta.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.STATUS,
             CardRarity.SPECIAL,
             CardTarget.NONE,

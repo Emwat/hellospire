@@ -45,7 +45,7 @@ public class CDFutureRelic extends BaseRelic implements OnCreateCardInterface {
 
     @Override
     public void onCreateCard(AbstractCard card) {
-        if (card.cardID.equals(Ring.ID) || card.cardID.equals(theHedgehog.cardsPackExclusive.Ring.ID)) {
+        if (card.cardID.equals(Ring.ID) || card.cardID.equals(theHedgehog.cardsPack.Ring.ID)) {
             addToBot(new ModXFastAction(() -> {
                 int newCost = AbstractDungeon.cardRandomRng.random(3);
                 if (card.cost != newCost) {

@@ -41,7 +41,7 @@ public class RougeEvent extends PhasedEvent {
     private int decreaseMaxHPAmt;
 
     private static final String IMG = SonicMod.imagePath("events/SonicXRouge.png");
-    private static final String IMG_W_OMOCHAO = SonicMod.imagePath("events/SonicXRouge.png");
+    private static final String IMG_W_OMOCHAO = SonicMod.imagePath("events/SonicXRougeXOmochao.png");
 
     // [#c29eb5] does not seem to be working in EventStrings.json
     public RougeEvent() {
@@ -52,18 +52,18 @@ public class RougeEvent extends PhasedEvent {
         registerPhase("start0", new TextPhase(DESCRIPTIONS[0])
                 .addOption(new TextPhase
                         .OptionInfo(String.format("%s%s%s#g%s #g%s.",
-                            OPTIONS[1], ColorWord("#r", wantedCard.name), OPTIONS[2], amountOfAssists, theAssist.name))
+                        OPTIONS[1], ColorWord("#r", wantedCard.name), OPTIONS[2], amountOfAssists, theAssist.name))
                         .setOptionResult(this::Option00_TradeForAssist))
                 .addOption(new TextPhase
                         .OptionInfo(String.format("%s%s %s%s%s",
-                            OPTIONS[3], goldStolen, OPTIONS[4], wantedCard.name, OPTIONS[5]))
+                        OPTIONS[3], goldStolen, OPTIONS[4], wantedCard.name, OPTIONS[5]))
                         .setOptionResult(this::Option01_TheftVictim))
                 .addOption(new TextPhase
                         .OptionInfo(OPTIONS[11])
                         .setOptionResult(this::Option02_Omochao))
         );
 
-        registerPhase("start0R", new TextPhase(DESCRIPTIONS[8])
+        registerPhase("start0R", GenerateTextPhaseWithActionAndImage(DESCRIPTIONS[8], IMG_W_OMOCHAO)
                 .addOption(new TextPhase
                         .OptionInfo(String.format("%s%s%s#g%s #g%s.",
                         OPTIONS[1], ColorWord("#r", wantedCard.name), OPTIONS[2], amountOfAssists, theAssist.name + (amountOfAssists == 1 ? "" : "s")))
@@ -90,19 +90,19 @@ public class RougeEvent extends PhasedEvent {
         );
 
         registerPhase("Option00_Leave", new TextPhase(DESCRIPTIONS[2])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option01_Leave", new TextPhase(DESCRIPTIONS[3] + ColorWord("#b", wantedCard.name) + DESCRIPTIONS[4])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option10_Leave", new TextPhase(DESCRIPTIONS[5])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option20_Leave", new TextPhase(DESCRIPTIONS[6])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option21_Leave", new TextPhase(DESCRIPTIONS[7])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         if (wantedCard != null) {
             if (!GeneralUtils.isCardBottled(wantedCard)) {
@@ -115,17 +115,17 @@ public class RougeEvent extends PhasedEvent {
         }
     }
 
-    private void initializeEventVariables(){
+    private void initializeEventVariables() {
         if (AbstractDungeon.ascensionLevel >= 15) {
             maxGoldStolen = 40;
             goldStolen = Math.min(AbstractDungeon.player.gold, maxGoldStolen);
-            healAmt = (int)((float)AbstractDungeon.player.maxHealth * 0.20F);
-            decreaseMaxHPAmt = (int)((float)AbstractDungeon.player.maxHealth * 0.03F);
+            healAmt = (int) ((float) AbstractDungeon.player.maxHealth * 0.20F);
+            decreaseMaxHPAmt = (int) ((float) AbstractDungeon.player.maxHealth * 0.03F);
         } else {
             maxGoldStolen = 60;
             goldStolen = Math.min(AbstractDungeon.player.gold, maxGoldStolen);
-            healAmt = (int)((float)AbstractDungeon.player.maxHealth * 0.25F);
-            decreaseMaxHPAmt = (int)((float)AbstractDungeon.player.maxHealth * 0.02F);
+            healAmt = (int) ((float) AbstractDungeon.player.maxHealth * 0.25F);
+            decreaseMaxHPAmt = (int) ((float) AbstractDungeon.player.maxHealth * 0.02F);
         }
     }
 
@@ -138,7 +138,7 @@ public class RougeEvent extends PhasedEvent {
         for (int j = 0; j < amountOfAssists; j++) {
             AbstractCard c = theAssist.makeStatEquivalentCopy();
             cardsObtained.add(c.name);
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
             CardModifierManager.addModifier(c, new RougeFlavorModifier());
             CardModifierManager.addModifier(c, new RougeFlavorModifier());
         }
@@ -214,7 +214,7 @@ public class RougeEvent extends PhasedEvent {
 
     }
 
-    private void initializeWantedCardAndAmountOfAssists(){
+    private void initializeWantedCardAndAmountOfAssists() {
         // com.megacrit.cardcrawl.events.city.
         ArrayList<AbstractCard> uncommonCards = getCardsOfRarity(AbstractCard.CardRarity.UNCOMMON);
         ArrayList<AbstractCard> rareCards = getCardsOfRarity(AbstractCard.CardRarity.RARE);
@@ -228,11 +228,22 @@ public class RougeEvent extends PhasedEvent {
         }
     }
 
-    private void showUpgradeShineEffect(){
-        float x = (float)Settings.WIDTH / 2.0F;
-        float y = (float)Settings.HEIGHT / 2.0F;
+    private void showUpgradeShineEffect() {
+        float x = (float) Settings.WIDTH / 2.0F;
+        float y = (float) Settings.HEIGHT / 2.0F;
         AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(wantedCard.makeStatEquivalentCopy(), x, y));
         AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(x, y));
+    }
+
+    private TextPhase GenerateTextPhaseWithActionAndImage(String textBody, String imgUrl) {
+        return new TextPhase("you should not see this") {
+            @Override
+            public void transition(PhasedEvent event) {
+                super.transition(event);
+                imageEventText.loadImage(imgUrl);
+                event.imageEventText.updateBodyText(textBody);
+            }
+        };
     }
 
     // 08/28/2025 07:49 PM

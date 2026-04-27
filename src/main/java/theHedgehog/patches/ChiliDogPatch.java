@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.colorless.*;
 import com.megacrit.cardcrawl.cards.status.*;
 import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
@@ -21,7 +22,7 @@ import static theHedgehog.SonicMod.makeID;
 public class ChiliDogPatch {
     private static final String folder = "cards/colorless/";
 
-    private static boolean playerIsSonic(){
+    private static boolean playerIsSonic() {
         if (Loader.isModLoaded("GooglyMod")) {
             return false;
         }
@@ -30,17 +31,19 @@ public class ChiliDogPatch {
         return AbstractDungeon.player instanceof Sonic;
     }
 
-    private static void ModPatch(AbstractCard __instance, Texture cardImg, String cardName){
+    private static void ModPatch(AbstractCard __instance, Texture cardImg, String cardName) {
         if (!playerIsSonic()) {
             return;
         }
 
-        __instance.name = cardName;
-        __instance.originalName = cardName;
+        if (Settings.language == Settings.GameLanguage.ENG) {
+            __instance.name = cardName;
+            __instance.originalName = cardName;
+        }
         ModPatch(__instance, cardImg);
     }
 
-    private static void ModPatch(AbstractCard __instance, Texture cardImg){
+    private static void ModPatch(AbstractCard __instance, Texture cardImg) {
         if (!playerIsSonic()) {
             return;
         }
@@ -135,7 +138,7 @@ public class ChiliDogPatch {
             ModPatch(__instance,
                     TextureLoader.getTexture(SonicMod.imagePath("cards/skill/Enerbeam.png")),
                     CardCrawlGame.languagePack.getCardStrings(makeID("Enerbeam")).NAME
-                    );
+            );
         }
     }
 
@@ -144,7 +147,7 @@ public class ChiliDogPatch {
         @SpirePostfixPatch
         public static void postfix(Dazed __instance) {
             ModPatch(__instance,
-                    TextureLoader.getTexture(SonicMod.imagePath(folder +"Dazed.png")));
+                    TextureLoader.getTexture(SonicMod.imagePath(folder + "Dazed.png")));
         }
     }
 
@@ -264,7 +267,7 @@ public class ChiliDogPatch {
             ModPatch(__instance,
                     TextureLoader.getTexture(SonicMod.imagePath("cards/skill/AssistRosy.png")),
                     CardCrawlGame.languagePack.getCardStrings(makeID("AssistRosy")).NAME
-                    );
+            );
         }
     }
 

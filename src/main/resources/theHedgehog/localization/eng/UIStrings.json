@@ -35,7 +35,7 @@
   },
   "${modID}:BlueTornadoMessage": {
     "TEXT": [
-      "Blue Tornado: Choose up to 1 card and flip its cost this turn."
+      "Blue Tornado: Flip a card's cost this turn."
     ]
   },
   "${modID}:ChaosSodaPotionMessage": {
@@ -65,8 +65,8 @@
   },
   "${modID}:MagicHandsMessage": {
     "TEXT": [
-      "Magic Hands: Choose a Non-Ring card. It gains Retain and if the Retained card is Exhausted, enter Wrath.",
-      "Magic Hands+: Choose a card. It gains Retain and if the Retained card is Exhausted, enter Wrath."
+      "Magic Hands: It gains Retain and if the Retained card is Exhausted, enter Wrath.",
+      "Magic Hands+: It gains Retain and if the Retained card is Exhausted, enter Wrath."
     ]
   },
   "${modID}:PipingMessage": {
@@ -89,10 +89,16 @@
       "Windmill: Randomize its cost for this turn."
     ]
   },
+  "${modID}:modifierGainEnergy": {
+    "TEXT": [
+      " NL Gain {X}."
+    ]
+  },
   "${modID}:modifierMagicHands": {
     "TEXT": [
       "${modID}:PRECIOUS. ",
-      "${modID}:PRECIOUS. NL "
+      "${modID}:PRECIOUS. NL ",
+      "MY PRECIOUS {X}!!"
     ]
   },
   "${modID}:modifierRetain": {
@@ -118,7 +124,7 @@
       "enableEventsForAllCharacters": "Enable custom events for all characters (overwrites the next option)",
       "enableEventsForOnlySonic": "Enable custom events for only Sonic",
       "enableTextPopUps": "Enable text pop ups for AMAZING and the Player 2 relic.",
-      "enableThreeOrbs": "Enable 3 Orb slots",
+      "enableThreeOrbs": "Enable Three Chao relic (Gives Sonic 3 Orb slots instead of 1)",
       "enableSkinCaptain": "Enable Captain Skin (only available after beating Ascension 10)",
       "enableSound": "Enable Sounds",
       "enableVoice": "Enable Voice",
@@ -273,10 +279,36 @@
       "SpireWolf25"
     ]
   },
+  "${modID}:SonicDizzySpinPack": {
+    "TEXT": [
+      "Sonic Dizzy Spin",
+      "What goes up, must come down! Yet my feet don't touch the ground!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicElementalPack": {
+    "TEXT": [
+      "Sonic Elemental",
+      "Sonic, why do you have Orbs??",
+      "SpireWolf25"
+    ]
+  },
   "${modID}:SonicStylePackHat": {
     "TEXT": [
       "Gotta go fast.",
       "Sonic Hat"
+    ]
+  },
+  "${modID}:SonicDizzySpinPackHat": {
+    "TEXT": [
+      "Up and Down and All Around!",
+      "Sonic Dizzy Spin Hat"
+    ]
+  },
+  "${modID}:SonicElementalPackHat": {
+    "TEXT": [
+      "Press B button to do everything",
+      "Sonic Elemental Hat"
     ]
   },
   "${modID}:SkinSystemUI": {

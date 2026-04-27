@@ -43,7 +43,7 @@ public class LoopDeLoop extends BaseCard {
         super(ID, info);
 
         setMagic(MAGIC, UPG_MAGIC);
-        setExhaustive(4);
+        setExhaustive(2);
     }
 
     @Override

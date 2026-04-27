@@ -813,6 +813,10 @@ public abstract class BaseCard extends CustomCard {
         if (oldCost != newCost) {
             card.isCostModifiedForTurn = true;
         }
+
+        if (card.hasTag(SonicTags.SPIN_UP)) {
+            card.isCostModifiedForTurn = false;
+        }
     }
 
     public boolean CheckIfLeftCard(AbstractCard card, CardGroup hand) {
