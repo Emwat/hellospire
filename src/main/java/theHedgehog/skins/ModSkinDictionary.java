@@ -13,22 +13,22 @@ import theHedgehog.character.SonicTipTracker;
 
 import java.util.*;
 
-import static theHedgehog.SonicMod.characterPath;
-import static theHedgehog.SonicMod.sonicmodConfig;
+import static theHedgehog.SonicMod.*;
 
 public class ModSkinDictionary {
     private static ModSkinDictionary instance;
     private static final Map<String, ModSkin> modAnimations = new LinkedHashMap<>();
 
     static public final String skinBaseID = SonicMod.makeID("skinBase");
-    static public final String skinBattleSonicBlueID = SonicMod.makeID("skinBattleSonicBlue");
     static public final String skinBattleSonicRedID = SonicMod.makeID("skinBattleSonicRed");
     static public final String skinBattleSonicGreenID = SonicMod.makeID("skinBattleSonicGreen");
+    static public final String skinBattleSonicBlueID = SonicMod.makeID("skinBattleSonicBlue");
     static public final String skinCaptainSonicID = SonicMod.makeID("skinCaptainSonic");
-    static public final String skinBattleAmyID = SonicMod.makeID("skinBattleAmy");
+    static public final String skinBattleTailsID = SonicMod.makeID("skinBattleTails");
     static public final String skinBattleKnucklesID = SonicMod.makeID("skinBattleKnuckles");
     static public final String skinBattleShadowID = SonicMod.makeID("skinBattleShadow");
-    static public final String skinBattleTailsID = SonicMod.makeID("skinBattleTails");
+    static public final String skinBattleAmyID = SonicMod.makeID("skinBattleAmy");
+
     public static final String CONFIG_CURRENT_SKIN = "SonicCurrentSkinID";
     public static final String defaultAnimationPath = characterPath("animation/SonicBattlePose.scml");
 
@@ -126,22 +126,22 @@ public class ModSkinDictionary {
     static public void initializeModSkins() {
         registerCharacter(skinBaseID, "Battle Sonic", Contact.Sonic, defaultAnimationPath,
                 newCharacterPath("character"),
-                "Time to party!",
-                "idle", "happy", "hurt", "attack", "super");
-
-        registerCharacter(skinBattleSonicBlueID, "Battle Sonic Blue", Contact.Sonic, characterPath("animation/blue/SonicBattlePose.scml"),
-                newCharacterPath("character"),
-                "Blue Raspberry",
-                "idle", "happy", "hurt", "attack", "super");
-
-        registerCharacter(skinBattleSonicGreenID, "Battle Sonic Green", Contact.Sonic, characterPath("animation/green/SonicBattlePose.scml"),
-                newCharacterPath("character"),
-                "Gumball Eyes",
+                GetSkinDescription(skinBaseID),
                 "idle", "happy", "hurt", "attack", "super");
 
         registerCharacter(skinBattleSonicRedID, "Battle Sonic Red", Contact.Sonic, characterPath("animation/red/SonicBattlePose.scml"),
                 newCharacterPath("character"),
-                "Cherry",
+                GetSkinDescription(skinBattleSonicRedID),
+                "idle", "happy", "hurt", "attack", "super");
+
+        registerCharacter(skinBattleSonicGreenID, "Battle Sonic Green", Contact.Sonic, characterPath("animation/green/SonicBattlePose.scml"),
+                newCharacterPath("character"),
+                GetSkinDescription(skinBattleSonicGreenID),
+                "idle", "happy", "hurt", "attack", "super");
+
+        registerCharacter(skinBattleSonicBlueID, "Battle Sonic Blue", Contact.Sonic, characterPath("animation/blue/SonicBattlePose.scml"),
+                newCharacterPath("character"),
+                GetSkinDescription(skinBattleSonicBlueID),
                 "idle", "happy", "hurt", "attack", "super");
 
         // if (!SonicTipTracker.tips.get(SonicTipTracker.HasUnlockedCaptainSonic)) {
@@ -152,33 +152,37 @@ public class ModSkinDictionary {
         // } else {
         registerCharacter(skinCaptainSonicID, "Captain Sonic", Contact.Sonic, newCharacterPath("characterSonicCaptain/animation/SonicCaptainPose.scml"),
                 newCharacterPath("characterSonicCaptain"),
-                "See, I'm one of those 'leap before you think' kinda guys.",
+                GetSkinDescription(skinCaptainSonicID),
                 "idle", "idle2", "happy", "happy2", "hurt", "hurt2", "attack", "attack2", "super");
         // }
 
         registerCharacter(skinBattleTailsID, "Battle Tails", Contact.Tails, newCharacterPath("characterTails/animation/battleTails.scml"),
                 newCharacterPath("characterTails"),
-                "Long time no see!",
+                GetSkinDescription(skinBattleTailsID),
                 "idle", "idle2", "idle3");
 
         registerCharacter(skinBattleKnucklesID, "Battle Knuckles", Contact.Knuckles, newCharacterPath("characterKnuckles/animation/battleKnuckles.scml"),
                 newCharacterPath("characterKnuckles"),
-                "Do I look like I need your power?",
+                GetSkinDescription(skinBattleKnucklesID),
                 "idle", "idle2", "idle3", "attack");
 
         registerCharacter(skinBattleShadowID, "Battle Shadow", Contact.Shadow, newCharacterPath("characterShadow/animation/battleShadow.scml"),
                 newCharacterPath("characterShadow"),
-                "The military has mistaken me for the likes of you!",
+                GetSkinDescription(skinBattleShadowID),
                 "idle", "idle2", "idle3");
 
         registerCharacter(skinBattleAmyID, "Battle Amy", Contact.Amy, newCharacterPath("characterAmy/animation/battleAmy.scml"),
                 newCharacterPath("characterAmy"),
-                "L, Let's not use the hammer.",
+                GetSkinDescription(skinBattleAmyID),
                 "idle", "happy", "hurt", "attack");
     }
 
     static public void initializeModSkinsUnlockables() {
 
+    }
+
+    static private String GetSkinDescription(String id){
+        return CardCrawlGame.languagePack.getUIString(id).TEXT[0];
     }
 
     private static String newCharacterPath(String folder) {

@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
 import theHedgehog.cardmodifiers.SpinUpModifier;
+import theHedgehog.cards.BaseCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,26 +45,26 @@ public class GravitySwitchEvent extends PhasedEvent {
     // [Press On] Become Cursed - Writhe. Heals 25% (20%) of max HP.
     // [Retrace Your Steps] Lose 5% of Max HP.
 
-          // "[Leave]",
-          //         "[Pull the switch] #b5 random cards will cost #b1 less and gain #ySpin #yUp. Lose #r",
-          //         " #rmax #rHP.",
-          //         "[Jump down] Become #rCursed - #rWrithe. #gHeal #g",
-          //         " #gHP.",
-          //         "[Use Speed Run Strat] Lose #r",
-          //         " #rMax #rHP."
+    // "[Leave]",
+    //         "[Pull the switch] #b5 random cards will cost #b1 less and gain #ySpin #yUp. Lose #r",
+    //         " #rmax #rHP.",
+    //         "[Jump down] Become #rCursed - #rWrithe. #gHeal #g",
+    //         " #gHP.",
+    //         "[Use Speed Run Strat] Lose #r",
+    //         " #rMax #rHP."
 
     public GravitySwitchEvent() {
         super(ID, NAME, IMG);
 
         if (AbstractDungeon.ascensionLevel >= 15) {
-            this.hpAmt = MathUtils.round((float)AbstractDungeon.player.maxHealth * 0.18F);
-            this.healAmt = MathUtils.round((float)AbstractDungeon.player.maxHealth * 0.2F);
+            this.hpAmt = MathUtils.round((float) AbstractDungeon.player.maxHealth * 0.18F);
+            this.healAmt = MathUtils.round((float) AbstractDungeon.player.maxHealth * 0.2F);
         } else {
-            this.hpAmt = MathUtils.round((float)AbstractDungeon.player.maxHealth * 0.125F);
-            this.healAmt = MathUtils.round((float)AbstractDungeon.player.maxHealth * 0.25F);
+            this.hpAmt = MathUtils.round((float) AbstractDungeon.player.maxHealth * 0.125F);
+            this.healAmt = MathUtils.round((float) AbstractDungeon.player.maxHealth * 0.25F);
         }
 
-        this.maxHPAmt = MathUtils.round((float)AbstractDungeon.player.maxHealth * 0.05F);
+        this.maxHPAmt = MathUtils.round((float) AbstractDungeon.player.maxHealth * 0.05F);
 
         registerPhase("start", new TextPhase(DESCRIPTIONS[0])
                 .addOption(new TextPhase.OptionInfo(OPTIONS[1] + numberOfModifiers + OPTIONS[2] + this.hpAmt + OPTIONS[3]).setOptionResult(this::Option1_PullSwitch))
@@ -73,16 +74,16 @@ public class GravitySwitchEvent extends PhasedEvent {
         );
 
         registerPhase("Option11_Leave", new TextPhase(DESCRIPTIONS[1])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option21_Leave", new TextPhase(DESCRIPTIONS[2])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option31_Leave", new TextPhase(DESCRIPTIONS[3])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         registerPhase("Option41_Leave", new TextPhase(DESCRIPTIONS[4])
-                .addOption(OPTIONS[0], (i)->openMap()));
+                .addOption(OPTIONS[0], (i) -> openMap()));
 
         transitionKey("start");
     }
@@ -111,22 +112,32 @@ public class GravitySwitchEvent extends PhasedEvent {
             if (tries >= maxTries) {
                 break;
             }
-            randomCard.modifyCostForCombat(-1);
+
+
+            ApplyLowerCost(randomCard);
             if (!randomCard.hasTag(SonicTags.SPIN_UP)) {
                 CardModifierManager.addModifier(randomCard, new SpinUpModifier());
             }
             loggedCards.add(randomCard.name);
             float x = MathUtils.random(0.1F, 0.9F) * (float) Settings.WIDTH;
-            float y = MathUtils.random(0.2F, 0.8F) * (float)Settings.HEIGHT;
+            float y = MathUtils.random(0.2F, 0.8F) * (float) Settings.HEIGHT;
             AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(randomCard.makeStatEquivalentCopy(), x, y));
             AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(x, y));
             j++;
         }
-        AbstractDungeon.player.damage(new DamageInfo((AbstractCreature)null, this.hpAmt));
+        AbstractDungeon.player.damage(new DamageInfo((AbstractCreature) null, this.hpAmt));
         logMetric(ID, "Embrace Spin Up",
-                (List)null, (List)null, (List)null, loggedCards, (List)null, (List)null, (List)null, this.hpAmt, 0, 0, 0, 0, 0);
+                (List) null, (List) null, (List) null, loggedCards, (List) null, (List) null, (List) null, this.hpAmt, 0, 0, 0, 0, 0);
 
         transitionKey("Option11_Leave");
+    }
+
+    private void ApplyLowerCost(AbstractCard card) {
+        if (card.cost > 0) {
+            int newCost = card.cost - 1;
+            card.cost = newCost;
+            card.costForTurn = newCost;
+        }
     }
 
     private void Option2_EmbraceMadness(Integer i) {
@@ -134,18 +145,18 @@ public class GravitySwitchEvent extends PhasedEvent {
         cards.add("Madness");
         cards.add("Madness");
         logMetric(ID, "Embrace Madness",
-                cards, (List)null, (List)null, (List)null, (List)null, (List)null, (List)null, this.hpAmt, 0, 0, 0, 0, 0);
+                cards, (List) null, (List) null, (List) null, (List) null, (List) null, (List) null, this.hpAmt, 0, 0, 0, 0, 0);
         CardCrawlGame.sound.play("ATTACK_MAGIC_SLOW_1");
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Madness(), (float)Settings.WIDTH / 2.0F - 350.0F * Settings.xScale, (float)Settings.HEIGHT / 2.0F));
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Madness(), (float)Settings.WIDTH / 2.0F + 350.0F * Settings.xScale, (float)Settings.HEIGHT / 2.0F));
-        AbstractDungeon.player.damage(new DamageInfo((AbstractCreature)null, this.hpAmt));
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Madness(), (float) Settings.WIDTH / 2.0F - 350.0F * Settings.xScale, (float) Settings.HEIGHT / 2.0F));
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new Madness(), (float) Settings.WIDTH / 2.0F + 350.0F * Settings.xScale, (float) Settings.HEIGHT / 2.0F));
+        AbstractDungeon.player.damage(new DamageInfo((AbstractCreature) null, this.hpAmt));
         transitionKey("Option21_Leave");
     }
 
     private void Option3_JumpDown(Integer i) {
         AbstractDungeon.player.heal(this.healAmt);
         AbstractCard c = new Writhe();
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float)Settings.WIDTH / 2.0F + 10.0F * Settings.xScale, (float)Settings.HEIGHT / 2.0F));
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F + 10.0F * Settings.xScale, (float) Settings.HEIGHT / 2.0F));
         logMetricObtainCardAndHeal(ID, "Writhe", c, this.healAmt);
         transitionKey("Option31_Leave");
     }

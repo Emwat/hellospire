@@ -6,17 +6,31 @@
     "IMAGE": "theHedgehog/images/achievement/GooglyEyes.png",
     "HIDDEN": false
   },
-  "${modID}:Ringmaster": {
+  "${modID}:KingOfRings": {
     "CARD_COLOR": "HEDGEHOG_BLUE25",
-    "TITLE": "Ringmaster",
-    "DESCRIPTION": "Create 20 Rings in one combat.",
-    "IMAGE": "theHedgehog/images/achievement/Ringmaster.png",
+    "TITLE": "King of Rings",
+    "DESCRIPTION": "Win a run with the Past relic or Classic Mode.",
+    "IMAGE": "theHedgehog/images/achievement/KingOfRings.png",
+    "HIDDEN": false
+  },
+  "${modID}:SonicAllStars": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "Sonic All Stars",
+    "DESCRIPTION": "Win a run with one of the Sonic packs on Packmaster.",
+    "IMAGE": "theHedgehog/images/achievement/SonicAllStars.png",
+    "HIDDEN": false
+  },
+  "${modID}:SuperSonic": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "Wishes are Eternal",
+    "DESCRIPTION": "Play Super Sonic against the Heart.",
+    "IMAGE": "theHedgehog/images/achievement/SuperSonic.png",
     "HIDDEN": false
   },
   "${modID}:VigorAbuse": {
     "CARD_COLOR": "HEDGEHOG_BLUE25",
     "TITLE": "GOT YOUR LIMIT",
-    "DESCRIPTION": "Have 100+ Vigor.",
+    "DESCRIPTION": "Deal 100+ damage.",
     "IMAGE": "theHedgehog/images/achievement/Limit.png",
     "HIDDEN": false
   }

@@ -31,5 +31,13 @@
     "TEXT": [
       "Together In Spire Feature: If you drag a Defend+ to a teammate's nameplate, you can give them block! Very few mods support this feature. NL NL (You cannot click and click. You must drag and drop card to apply.)"
     ]
+  },
+  "${modID}:Version103": {
+    "LABEL": [
+      "The Hedgehog v1.0.3 -- May 14, 2026"
+    ],
+    "TEXT": [
+      "Hi there! I made a silly mistake and used capital letters in a certain place in my mod so now it doesn't mesh well when you play it in Chinese. NL NL So I have released the Chinese version of this mod as its own distinct mod in the Steam Workshop. Look for \"刺猬\" to find it."
+    ]
   }
 }

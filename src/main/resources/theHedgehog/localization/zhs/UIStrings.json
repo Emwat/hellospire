@@ -1,0 +1,387 @@
+{
+  "${modID}:Example": {
+    "TEXT": [
+      "This is",
+      "an array of Strings."
+    ],
+    "EXTRA_TEXT": [
+      "idk what im doing."
+    ]
+  },
+  "${modID}:AssistAmyMessage": {
+    "TEXT": [
+      "天生一对：在本场战斗的剩余时间内，耗能变为 0。"
+    ]
+  },
+  "${modID}:AssistJetMessage": {
+    "TEXT": [
+      "鹰类杰特：在本回合内，随机化其耗能。"
+    ]
+  },
+  "${modID}:AssistTikalMessage": {
+    "TEXT": [
+      "针鼹缇卡儿：选择最多 1 张攻击牌 消耗。",
+      "针鼹缇卡儿：选择最多",
+      "张攻击牌 消耗。"
+    ]
+  },
+  "${modID}:BlueTornadoMessage": {
+    "TEXT": [
+      "蓝色龙卷风：在本回合内，反转一张牌的耗能。"
+    ]
+  },
+  "${modID}:ChaosSodaPotionMessage": {
+    "TEXT": [
+      "混沌苏打：选择最多 1 张牌 消耗。"
+    ]
+  },
+  "${modID}:CheckpointMessage": {
+    "TEXT": [
+      "只有在手牌中有 #y金环 时才能打出。"
+    ]
+  },
+  "${modID}:ClawsUnleashedMessage": {
+    "TEXT": [
+      "只有在拥有已生成的 #y黑暗充能球 时才能打出。"
+    ]
+  },
+  "${modID}:IQ200Message": {
+    "TEXT": [
+      "IQ200 Attack: Retain a card."
+    ]
+  },
+  "${modID}:IQ400Message": {
+    "TEXT": [
+      "IQ400 Attack: Choose a card. Transform a random card in your hand into that card."
+    ]
+  },
+  "${modID}:MagicHandsMessage": {
+    "TEXT": [
+      "魔法之手：使其获得 #y保留 。如果该 #y保留 的卡牌被 #y消耗 ，进入 #y愤怒 姿态。",
+      "魔法之手+：使其获得 #y保留 。如果该 #y保留 的卡牌被 #y消耗 ，进入 #y愤怒 姿态。"
+    ]
+  },
+  "${modID}:PipingMessage": {
+    "TEXT": [
+      "管道： #y消耗 并将一张复制品放入你的手牌。"
+    ]
+  },
+  "${modID}:SecretRouteMessage": {
+    "TEXT": [
+      "秘密路线：在本回合内，降低其耗能。"
+    ]
+  },
+  "${modID}:ShortcutMessage": {
+    "TEXT": [
+      "捷径：在本回合内，降低其耗能。"
+    ]
+  },
+  "${modID}:WindmillMessage": {
+    "TEXT": [
+      "风车：随机变换其在本回合内的能耗。"
+    ]
+  },
+  "${modID}:modifierGainEnergy": {
+    "TEXT": [
+      "风车：在本回合内，随机化其耗能。"
+    ]
+  },
+  "${modID}:modifierMagicHands": {
+    "TEXT": [
+      "${modID}:宝贝 。",
+      "${modID}:宝贝 。 NL ",
+      "我的宝贝 {X}！！"
+    ]
+  },
+  "${modID}:modifierRetain": {
+    "TEXT": [
+      "保留。",
+      "保留。 NL "
+    ]
+  },
+  "${modID}:modifierSpinUp": {
+    "TEXT": [
+      "${modID}:旋转蓄力 。 ",
+      "${modID}:旋转蓄力 。 NL "
+    ]
+  },
+  "${modID}:MyModConfig": {
+    "TEXT_DICT": {
+      "enableBoss1Music": "启用第一幕首领音乐（仅限索尼克）",
+      "enableBoss2Music": "启用第二幕首领音乐（仅限索尼克）",
+      "enableBoss3Music": "启用第三幕首领音乐（仅限索尼克）",
+      "enableBossSpearShieldMusic": "启用第四幕精英音乐（仅限索尼克）",
+      "enableBossHeartMusic": "启用第四幕首领音乐（仅限索尼克）",
+      "enableStatusCardArt": "启用状态牌原画（仅限索尼克）",
+      "enableClassicMode": "启用经典模式（受到 2点或以上伤害时，失去 所有 金环）。",
+      "enableEventsForAllCharacters": "为所有角色启用自定义事件（将覆盖下一选项）",
+      "enableEventsForOnlySonic": "仅为索尼克启用自定义事件",
+      "enableTextPopUps": "启用“AMAZING”与“2号玩家”遗物的文本弹窗。",
+      "enableThreeOrbs": "启用“三只查欧”遗物（使索尼克拥有 3个 充能球栏位，而非 1个）",
+      "enableSkinCaptain": "启用船长皮肤（仅在击败进阶 10 后可用）",
+      "enableSound": "启用音效",
+      "enableVoice": "启用语音",
+      "voiceFrequency": "语音频率 (10 = 总是播放语音)",
+      "optionStarterRelic": "切换初始遗物 (1 = 燃烧之血)",
+      "enableCrossModIntegrations" : "启用跨模组联动效果 (默认：开启)",
+      "enableSonicStylePack": "启用索尼克风格包 (已废弃的想法)",
+      "enableCrestOfFire": "启用烈焰纹章卡牌 (已废弃的想法)",
+      "enableStanceSwitching": "启用姿态切换卡牌 (已废弃的想法)",
+      "limiterRing": "添加限流环 (每当你打出 招式 时，少获得 1层 爆发)。",
+      "unlockEverything": "解锁全部内容 (需重启游戏)"
+    }
+  },
+  "${modID}:EvolveChaoOptions": {
+    "TEXT": [
+      "进化查欧",
+      "需要一只查欧。",
+      "（免费动作）你的查欧大大咧咧。进化你的查欧。",
+      "（免费动作）你的查欧很安静。进化你的查欧。",
+      "（免费动作）你的查欧精力充沛。进化你的查欧。",
+      "（免费动作）你的查欧充满好奇。进化你的查欧。"
+    ]
+  },
+  "${modID}:ModExhaustAction": {
+    "TEXT": [
+      "消耗"
+    ]
+  },
+  "${modID}:PeelOutAction": {
+    "TEXT": [
+      "消耗"
+    ]
+  },
+  "${modID}:DeathScreenSonic": {
+    "TEXT": [
+      "这不可能发生。",
+      "E级评价。看来今天不是你的幸运日。",
+      "祝你下次好运。",
+      "*撞车* 暂停。重试。*又撞车* ——逃离城市 (City Escape)",
+      "你能听到极其剧烈的内心鼓动。",
+      "你确定不需要我帮忙吗？看起来你挺需要的。——艾咪",
+      "别放弃，索尼克！——艾咪",
+      "有人谋杀了我的亲爱的索尼克！——艾咪",
+      "索尼克会怎么做？……不，他才不会那样。我再试一次。——巴里",
+      "想去钓鱼吗？——比谷",
+      "你不只是输了。你输得简直“史诗感”十足！——混沌索尼克",
+      "噢！我敢打赌我能行。让我试试！让我试试！——查米",
+      "索尼克，你一定要活下去。——奇普",
+      "你不属于这里！——邪教徒",
+      "集中精神！——艾斯皮欧",
+      "永别了！刺猬索尼克！——艾格曼",
+      "好吧，总会有下一季的。——艾格曼（《索尼克音爆》第二季）",
+      "菜是原罪。——地精大块头",
+      "这只是个意外，非常态。——纳克鲁斯",
+      "你毫无技术。缺乏锻炼。不配做对手！——纳克鲁斯",
+      "噢不。——纳克鲁斯",
+      "哼！所以你就是那个所谓的“世上最快生物”？——杰特",
+      "泥土跟你简直是绝配！——杰特",
+      "谢啦，这钱我收下了，嘿嘿。——强盗",
+      "我想他终究也不过是一只普通的刺猬。——夏特",
+      "你甚至不配做我的冒牌货。——夏特",
+      "你的冒险生涯到此为止了。——夏特",
+      "没用的！——希尔弗",
+      "像你这样的家伙，怎么可能导致我们世界的毁灭？——希尔弗",
+      "索尼克！！！——塔尔斯"
+    ]
+  },
+  "${modID}:DeathScreenTails": {
+    "TEXT": [
+      "E级评价。下次我必须表现得更好。",
+      "当我独自坐在椅子上，我只会陷入幻想。",
+      "我想变得坚强。",
+      "我想飞向高空。",
+      "必须继续前进。",
+      "有人在等着我，所以我必须飞得更高。",
+      "我会相信自己。这是我唯一的起点。",
+      "事情永远不像看起来那么困难。",
+      "塔尔斯带我们高高飞起，远离麻烦。",
+      "有起必有落。然而我的双脚从未触地。",
+      "看着世界天旋地转。一场无声的剧烈撞击。",
+      "我从没想过竟然有人会带着这种破铜烂铁来参加比赛！——薇芙"
+    ]
+  },
+  "${modID}:DeathScreenKnuckles": {
+    "TEXT": [
+      "E级评价。我必须更加努力。",
+      "你又被艾格曼给耍了……又是这样！——索尼克 (出自《索尼克前进2》)",
+      "在下次开口之前，你最好三思。——索尼克 (出自《索尼克弹珠派对》)",
+      "竟然输给了一个区区学徒……我真是颜面扫地！",
+      "拜托！别吵了，索尼克、纳克鲁斯！——塔尔斯 (出自《索尼克战斗》)",
+      "他是个硬汉，但脑子不太灵光。——克琳姆 (出自《索尼克冲刺》)",
+      "喂，笨蛋！等一下！——艾咪 (出自《索尼克冲刺》)",
+      "你中我的计了，纳克鲁斯！——艾格曼 (出自《索尼克战斗》)",
+      "这是个秘密，但我的搭档又被艾格曼给骗了！——艾梅尔 (出自《索尼克战斗》)",
+      "别管那只红色杂种狗了。我们走，斯托姆！——薇芙 (出自《索尼克自由竞速》)",
+      "不像索尼克，我从不傻笑。",
+      "我宁愿展示我的肌肉。",
+      "是时候请你吃一记“纳克鲁斯三明治”了。",
+      "哟，发生什么了？我的翡翠不见了！",
+      "我不会让这事儿烦到我。我只会悄悄潜行。",
+      "漫步山谷，小巷里回荡着南瓜的哭泣。",
+      "这听起来或许很疯狂，疯狂，一种墓地理论。",
+      "死亡密室……死亡密室……死亡密室……",
+      "该死。",
+      "有纳克鲁斯在身边。旅途也变得安全了些。"
+    ]
+  },
+  "${modID}:DeathScreenShadow": {
+    "reminder:": "Base Game has 21-ish Death Messages",
+    "TEXT": [
+      "我向你保证……定会复仇。",
+      "抛弃这一切！",
+      "你将在无尽的生命中永存！",
+      "你必须一次又一次地面对它！",
+      "我们都曾在烈火中起舞。",
+      "被困在这台机器之中。",
+      "就在艾格曼的注视之下。",
+      "一段悲剧般的谜团。",
+      "我自身的影子。我究竟是谁？",
+      "步入我的谜团之中。",
+      "是将你捕获，还是给你自由。",
+      "你还记得我吗？",
+      "在混沌之中的某处，我们终将找回自我。",
+      "这场毁灭是我们口中唯一的传说。",
+      "白即是黑，黑即是白。",
+      "对即是错，错即是对。",
+      "进一退二。",
+      "就在这之间的某处。",
+      "好吧，我们离死不远了。",
+      "唯有历经试炼，方能获得所需的力量。",
+      "英雄终将再次崛起。",
+      "身负十万磅的重担。"
+    ]
+  },
+  "${modID}:DeathScreenAmy": {
+    "TEXT": [
+      "我怀念过去的好时光。——《索尼克大冒险》",
+      "但他现在已经不在了。而我们也无能为力。——《索尼克大冒险》",
+      "索尼克！",
+      "你不是索尼克！你到底是谁？——《索尼克大冒险2》",
+      "他一定是临阵脱逃了！——《索尼克战斗》",
+      "索尼克，我们去度蜜月吧～！——《索尼克英雄》",
+      "真不敢相信，他为了脱身竟然做出那种事。——克琳姆 (出自《索尼克英雄》)",
+      "我完全把你给认错成别人了！——《索尼克释放》"
+    ]
+  },
+  "${modID}:SingleCardReward": {
+    "TEXT": [
+      "idk what im doing"
+    ]
+  },
+  "${modID}:SonicStylePack": {
+    "TEXT": [
+      "索尼克风格 (Sonic Style)",
+      "啊耶！就是这种感觉！",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicDizzySpinPack": {
+    "TEXT": [
+      "索尼克眩晕冲刺 (Sonic Dizzy Spin)",
+      "有起必有落！然而我的双脚从未触地！",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicElementalPack": {
+    "TEXT": [
+      "Sonic Elemental",
+      "Sonic, why do you have Orbs??",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicStylePackHat": {
+    "TEXT": [
+      "快还要更快。",
+      "索尼克风格帽"
+    ]
+  },
+  "${modID}:SonicDizzySpinPackHat": {
+    "TEXT": [
+      "上上下下，团团转！",
+      "索尼克眩晕冲刺帽"
+    ]
+  },
+  "${modID}:SonicElementalPackHat": {
+    "TEXT": [
+      "按下 B 键，无所不能。",
+      "索尼克元素帽"
+    ]
+  },
+  "${modID}:SkinSystemUI": {
+    "TEXT": [
+      "皮肤"
+    ]
+  },
+  "${modID}:skinBase": {
+    "TEXT": [
+      "派对时间到！"
+    ]
+  },
+  "${modID}:skinBattleSonicRed": {
+    "TEXT": [
+      "樱桃"
+    ]
+  },
+  "${modID}:skinBattleSonicGreen": {
+    "TEXT": [
+      "糖球眼"
+    ]
+  },
+  "${modID}:skinBattleSonicBlue": {
+    "TEXT": [
+      "蓝莓蓝"
+    ]
+  },
+  "${modID}:skinCaptainSonic": {
+    "TEXT": [
+      "瞧，我就是那种‘先做后想’的人。"
+    ]
+  },
+  "${modID}:skinBattleTails": {
+    "TEXT": [
+      "好久不见！"
+    ]
+  },
+  "${modID}:skinBattleKnuckles": {
+    "TEXT": [
+      "你休想得到我的力量。"
+    ]
+  },
+  "${modID}:skinBattleShadow": {
+    "TEXT": [
+      "军方居然把我这种身份的人跟你混为一谈！"
+    ]
+  },
+  "${modID}:skinBattleAmy": {
+    "TEXT": [
+      "别、别动用锤子呀。"
+    ]
+  },
+  "${modID}:PackMainMenuUI": {
+    "TEXT": [
+      "自定义轮抽模式",
+      "开启此项以自定义卡池包的分配方式。",
+      "随机",
+      "选项数量：",
+      "卡池过滤菜单",
+      "皮肤菜单",
+      "",
+      "无"
+    ]
+  },
+  "${modID}:RewardAssistMessage": {
+    "TEXT": [
+      "失去 ",
+      "。 获得 ",
+      "。",
+      "锁定协助。"
+    ]
+  },
+  "${modID}:RewardMissionMessage": {
+    "TEXT": [
+      "获得 ",
+      " 金币。"
+    ]
+  }
+}

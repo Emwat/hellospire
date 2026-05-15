@@ -139,8 +139,8 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
         // return new StrikeRare().makeCopy();
         if (input.isEmpty()) {
             ArrayList<AbstractCard> poweredUpCards = new ArrayList<>();
-            poweredUpCards.add(new BackSpinKickRare());
             poweredUpCards.add(new BoostRare());
+            poweredUpCards.add(new ChaosControl());
             poweredUpCards.add(new FalconPunchRare());
             poweredUpCards.add(new InstaShieldRare());
             poweredUpCards.add(new ScissorKickRare());
@@ -160,9 +160,8 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
 
     private ArrayList<AbstractCard> GetPoweredUpCards() {
         ArrayList<AbstractCard> poweredUpCards = new ArrayList<>();
-        poweredUpCards.add(new StrikeRare());
-        poweredUpCards.add(new BackSpinKickRare());
         poweredUpCards.add(new BoostRare());
+        poweredUpCards.add(new ChaosControl());
         poweredUpCards.add(new FalconPunchRare());
         poweredUpCards.add(new InstaShieldRare());
         poweredUpCards.add(new ScissorKickRare());
@@ -224,7 +223,7 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
     }
 
     private static Integer cardToInt(AbstractCard card) {
-        if (card instanceof BackSpinKickRare) return 0;
+        if (card instanceof ChaosControl) return 0;
         else if (card instanceof BoostRare) return 1;
         else if (card instanceof FalconPunchRare) return 2;
         else if (card instanceof InstaShieldRare) return 3;

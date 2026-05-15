@@ -20,6 +20,9 @@ public class ModLocalizedStrings {
         long startTime = System.currentTimeMillis();
         Gson gson = new Gson();
         String lang = "eng";
+        if (Settings.language == Settings.GameLanguage.ZHS) {
+            lang = "zhs";
+        }
 
         sonicChaoGardens = gson.fromJson(
                 loadJson(SonicMod.localizationPath(lang, "SonicChaoGardenStrings.json")),

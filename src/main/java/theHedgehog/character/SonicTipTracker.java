@@ -11,6 +11,7 @@ public class SonicTipTracker {
     public static final String Pg01_intro = makeID("Pg01_intro");
     public static final String Version092 = makeID("Version092");
     public static final String Version098 = makeID("Version098");
+    public static final String Version103 = makeID("Version103");
     public static final String HasUnlockedCaptainSonic = makeID("HasUnlockedCaptainSonic");
 
     public static HashMap<String, Boolean> tips = new HashMap<>();
@@ -19,6 +20,7 @@ public class SonicTipTracker {
         tips.put(Pg01_intro, SonicMod.sonicmodConfig.getBool(Pg01_intro));
         tips.put(Version092, SonicMod.sonicmodConfig.getBool(Version092));
         tips.put(Version098, SonicMod.sonicmodConfig.getBool(Version098));
+        tips.put(Version103, SonicMod.sonicmodConfig.getBool(Version103));
         tips.put(HasUnlockedCaptainSonic, SonicMod.sonicmodConfig.getBool(HasUnlockedCaptainSonic));
     }
 

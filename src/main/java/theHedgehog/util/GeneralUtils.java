@@ -34,9 +34,17 @@ public class GeneralUtils {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < splitStr.length; i++) {
             if (i == 0) {
-                output.append(prepend).append(splitStr[i]);
+                if (splitStr[i].equals("NL")) {
+                    output.append(splitStr[i]);
+                } else {
+                    output.append(prepend).append(splitStr[i]);
+                }
             } else {
-                output.append(" ").append(prepend).append(splitStr[i]);
+                if (splitStr[i].equals("NL")) {
+                    output.append(" ").append(splitStr[i]);
+                } else {
+                    output.append(" ").append(prepend).append(splitStr[i]);
+                }
             }
         }
         return output.toString();

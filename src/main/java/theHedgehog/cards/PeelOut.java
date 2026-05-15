@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theHedgehog.SonicTags;
+import theHedgehog.actions.PeelOutAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 
@@ -35,8 +36,9 @@ public class PeelOut extends BaseCard {
     /// Gain !B! Block. NL Exhaust up to !M! cards in your hand.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ExhaustAction(1, false, false, false));
-        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new PeelOutAction(magicNumber));
+        // addToBot(new ExhaustAction(1, false, false, false));
+        // addToBot(new DrawCardAction(magicNumber));
     }
 
     @Override
@@ -49,7 +51,7 @@ public class PeelOut extends BaseCard {
     }
 
     @Override
-    public AbstractCard makeCopy() { //Optional
+    public AbstractCard makeCopy() { // Optional
         return new PeelOut();
     }
 }

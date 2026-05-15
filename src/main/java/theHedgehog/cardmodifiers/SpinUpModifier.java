@@ -16,6 +16,7 @@ import static theHedgehog.SonicMod.makeID;
 public class SpinUpModifier extends AbstractCardModifier {
 
     private final static String spinUpKeyword = CardCrawlGame.languagePack.getUIString(makeID("modifierSpinUp")).TEXT[0];
+    private final static String spinUpKeywordNL = CardCrawlGame.languagePack.getUIString(makeID("modifierSpinUp")).TEXT[1];
 
     public SpinUpModifier() {
 
@@ -38,9 +39,8 @@ public class SpinUpModifier extends AbstractCardModifier {
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
-        return spinUpKeyword + "NL " + rawDescription;
+        return spinUpKeywordNL + rawDescription;
     }
-
 
     @Override
     public AbstractCardModifier makeCopy() {

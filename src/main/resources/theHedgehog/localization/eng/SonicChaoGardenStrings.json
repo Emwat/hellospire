@@ -8,14 +8,14 @@
     "DRINK": "The Ironclad prefers ~The~ ~BLOOD~ ~of~ ~HIS~ ~ENEMIES~, but this is a kid-friendly zone.",
     "DRINKCOLOR": "#r",
     "DRINKSOUND": "ATTACK_IRON_1",
-    "TALK": "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1."
+    "TALK": "This guy looks like trouble. Better watch your step around him."
   },
   "${modID}:the Ironclad": {
     "OPTIONCOLOR": "#r",
     "DRINK": "Something is... off about this character. You catch a glimpse of blood under his mask when he takes the drink.",
     "DRINKCOLOR": "#r",
     "DRINKSOUND": "ATTACK_IRON_1",
-    "TALK": "This guy looks like trouble. Better watch your step around him."
+    "TALK": "If you upgrade Ironclad's Blood for Blood mid-combat, you will reduce its cost by 1."
   },
   "the Silent": {
     "OPTIONCOLOR": "#g",
@@ -149,13 +149,21 @@
     "DRINK": "Very well, I accept. Let this cup remind you that the Fog watches, and my rituals never sleep.",
     "TALK": "\"Run along, little hedgehog.\""
   },
+  "the Buxom": {
+    "DRINK": "You smile as you hand over the drink, but you can't seem to raise your head to eye level.",
+    "TALK": "Nice."
+  },
+  "${modID}:the Buxom": {
+    "DRINK": "Bounce.",
+    "TALK": "Censoring you is a crime."
+  },
   "the Champ": {
     "DRINK": "The champ is not here. You hold your drink high. The gang looks at you. \"Tonight, I am taking the Champ's belt!\"",
     "TALK": "Your memories blur. You are holding the belt in the coliseum. The crowd cheers thunderously all around you. And you still continued to climb the Spire. NL NL That's right. The Spire awaits."
   },
   "${modID}:the Champ": {
     "DRINK": "The Black Knight's image burns through your head. \"It seems your impersonation of a knight has improved somewhat.\"",
-    "TALK": "Question all that's known. NL Legends blurred and torn. NL NL You have a Spire to climb."
+    "TALK": "Question all that's known. NL Legends blurred and torn."
   },
   "the Collector": {
     "DRINK": "\"How... quaint. A mortal offering.\"",

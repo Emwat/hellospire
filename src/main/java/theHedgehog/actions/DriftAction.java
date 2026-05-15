@@ -14,7 +14,7 @@ import theHedgehog.MyModConfig;
 
 public class DriftAction extends AbstractGameAction {
     private AbstractPlayer p;
-    private int magicNumber;
+    private int multiplier;
     private int energyOnUse;
     private boolean freeToPlayOnce;
     private final float x;
@@ -22,9 +22,9 @@ public class DriftAction extends AbstractGameAction {
     private final Color color;
     private int msgsPlayed = 0;
 
-    public DriftAction(AbstractPlayer p, int magicNumber, boolean freeToPlayOnce, int energyOnUse) {
+    public DriftAction(AbstractPlayer p, int multiplier, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
-        this.magicNumber = magicNumber;
+        this.multiplier = multiplier;
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.energyOnUse = energyOnUse;
@@ -51,7 +51,7 @@ public class DriftAction extends AbstractGameAction {
             this.p.getRelic(ChemicalX.ID).flash();
         }
 
-        effect = effect * magicNumber;
+        effect = effect * multiplier;
 
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {

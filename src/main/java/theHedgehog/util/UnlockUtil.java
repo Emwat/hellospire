@@ -2,10 +2,13 @@ package theHedgehog.util;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomUnlockBundle;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.unlock.AbstractUnlock;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.MyModConfig;
+
+import static theHedgehog.SonicMod.makeID;
 
 public class UnlockUtil {
 
@@ -52,6 +55,14 @@ public class UnlockUtil {
             UnlockTracker.markRelicAsSeen(relic1);
             UnlockTracker.markRelicAsSeen(relic2);
             UnlockTracker.markRelicAsSeen(relic3);
+        }
+    }
+
+    public static void unlockModAchievement(String achievement) {
+        if (Loader.isModLoaded("ModAchievement")){
+            if (!UnlockTracker.isAchievementUnlocked(makeID(achievement))) {
+                UnlockTracker.unlockAchievement(makeID(achievement));
+            }
         }
     }
 

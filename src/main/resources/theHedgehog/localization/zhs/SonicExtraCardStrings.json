@@ -1,0 +1,45 @@
+{
+  "${modID}:BouncePad": {
+    "NAMES": [
+      "连续弹跳垫"
+    ]
+  },
+  "${modID}:HomingAttack": {
+    "NAMES": [
+      "连续追踪攻击"
+    ]
+  },
+  "${modID}:HotRod": {
+    "NAMES": [
+      "改装赛车零件 (1/3)",
+      "改装赛车零件 (2/3)",
+      "改装赛车零件 (3/3)",
+      "改装赛车：过载"
+    ]
+  },
+  "${modID}:HotRodRare": {
+    "NAMES": [
+      "改装赛车零件 (1/3)",
+      "改装赛车零件 (2/3)",
+      "改装赛车零件 (3/3)",
+      "改装赛车：过载"
+    ]
+  },
+  "${modID}:PunchRush": {
+    "NAMES": [
+      "Super Rush",
+      "Rush Spin"
+    ]
+  },
+  "${modID}:SmoothLanding": {
+    "NAMES": [
+      "着陆失误",
+      "平稳着陆"
+    ]
+  },
+  "${modID}:Shortcut": {
+    "NAMES": [
+      "第一"
+    ]
+  }
+}

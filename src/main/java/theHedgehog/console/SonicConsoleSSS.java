@@ -5,14 +5,9 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCar
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
-import com.megacrit.cardcrawl.actions.unique.SetupAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Blind;
 import com.megacrit.cardcrawl.cards.colorless.MasterOfStrategy;
 import com.megacrit.cardcrawl.cards.colorless.Trip;
-import com.megacrit.cardcrawl.cards.green.Setup;
-import com.megacrit.cardcrawl.cards.purple.CarveReality;
-import com.megacrit.cardcrawl.cards.red.Warcry;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -28,19 +23,19 @@ import theHedgehog.cardsTails.IQ400Attack;
 import theHedgehog.cardsTails.MagicHook;
 import theHedgehog.relics.CDFutureRelic;
 import theHedgehog.relics.PowerBrakeRelic;
-import theHedgehog.relics.StampRelic;
 
 import java.util.ArrayList;
 
 // valid commands:
 // sss
+// named sss as a really quick alias for custom dev
 
 // https://github.com/daviscook477/BaseMod/wiki/Console#adding-your-own-commands
-public class SonicConsoleDevCustom extends ConsoleCommand {
-    public SonicConsoleDevCustom() {
+public class SonicConsoleSSS extends ConsoleCommand {
+    public SonicConsoleSSS() {
         maxExtraTokens = 1; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
         minExtraTokens = 0; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
-        requiresPlayer = false; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
+        requiresPlayer = true; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
         simpleCheck = true;
     }
 
@@ -52,30 +47,50 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
 
             if (firstToken.equals("exhausthand")) {
                 atbExhaustEntireHand();
-            }
-        } else {
-            atb(new LoseEnergyAction(9));
-            atb(new GainEnergyAction(5));
 
-            for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-                if (!mo.isDeadOrEscaped()) {
-                    atb(new HealAction(mo, AbstractDungeon.player, 9999));
-                }
-            }
+            } else if (firstToken.equals("prep")) {
+                atbGainEnergyAndHeal();
 
-            DoesAssistAmyWork();
-            // DoesPipingCarryRocketAccel();
-            // SneckoEyeChaosEmerald();
-            // ChaosEmeraldCards();
-            // DebuffCards();
-            // RandomCostCards();
-            // TailsTest();
-            // HomingAttackBranchTest();
-            // LoopDeLoopTest();
-            // LightSpeedAttackTest();
-            // TopKickTest();
-            // DizzyTest();
-            // FireTest();
+            } else if (firstToken.equals("amy")) {
+                AssistAmyWork();
+
+            } else if (firstToken.equals("emerl")) {
+                ChaosEmeraldCards();
+
+            } else if (firstToken.equals("confusedemerl")) {
+                SneckoEyeChaosEmerald();
+
+            } else if (firstToken.equals("debuff")) {
+                DebuffCards();
+
+            } else if (firstToken.equals("dizzy")) {
+                DizzyTest();
+
+            } else if (firstToken.equals("fire")) {
+                FireTest();
+
+            } else if (firstToken.equals("homing")) {
+                HomingAttackBranchTest();
+
+            } else if (firstToken.equals("piping")) {
+                DoesPipingCarryRocketAccel();
+
+            } else if (firstToken.equals("loopdeloop")) {
+                LoopDeLoopTest();
+
+            } else if (firstToken.equals("lightspeed")) {
+                LightSpeedAttackTest();
+
+            } else if (firstToken.equals("random")) {
+                RandomCostCards();
+
+            } else if (firstToken.equals("tails")) {
+                TailsTest();
+
+            } else if (firstToken.equals("topkick")) {
+                TopKickTest();
+
+            }
         }
     }
 
@@ -83,12 +98,37 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         ArrayList<String> result = new ArrayList<>();
 
         result.add("exhausthand");
+        result.add("prep");
+
+        result.add("amy");
+        result.add("confusedemerl");
+        result.add("emerl");
+        result.add("debuff");
+        result.add("dizzy");
+        result.add("fire");
+        result.add("homing");
+        result.add("piping");
+        result.add("loopdeloop");
+        result.add("lightspeed");
+        result.add("random");
+        result.add("tails");
+        result.add("topkick");
 
         return result;
     }
 
+    private void atbGainEnergyAndHeal() {
+        atb(new LoseEnergyAction(9));
+        atb(new GainEnergyAction(5));
 
-    private void DoesAssistAmyWork() {
+        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+            if (!mo.isDeadOrEscaped()) {
+                atb(new HealAction(mo, AbstractDungeon.player, 9999));
+            }
+        }
+    }
+
+    private void AssistAmyWork() {
         atbExhaustEntireHand();
         atb(new MakeTempCardInHandAction(new AssistAmy(), 1));
         atb(new ModXFastAction(() -> {
@@ -129,7 +169,7 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         atb(new MakeTempCardInDrawPileAction(new ChaosEmeraldAttack(), 1, false, true));
     }
 
-    private void DebuffCards(){
+    private void DebuffCards() {
         ArrayList<AbstractCard> cards = new ArrayList<>();
         // cards.add(new Blind().makeStatEquivalentCopy());
         cards.add(new Trip().makeStatEquivalentCopy());
@@ -143,8 +183,10 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         ArrayList<AbstractCard> cards = new ArrayList<>();
         // cards.add(new ChaosEmeraldAttack().makeStatEquivalentCopy());
 
-        cards.add(new BackSpinKickRare());
+        // cards.add(new BackSpinKickRare());
+        // cards.add(new BackSpinKickRare());
         cards.add(new BoostRare());
+        cards.add(new ChaosControl());
         // cards.add(new CyanLaserRare());
         // cards.add(new DoubleAirKickRare());
         cards.add(new FalconPunchRare());
@@ -155,11 +197,13 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         cards.add(new InstaShieldRare());
         // cards.add(new MeteorKickRare());
         // cards.add(new RicochetRare());
+        cards.add(new ScissorKickRare());
         cards.add(new SonicEagleRare());
         // cards.add(new SonicWaveRare());
         // cards.add(new SpinDashRare());
         // cards.add(new SpinningNeedleAttackRare());
-        cards.add(new StrikeRare());
+        // cards.add(new StrikeRare());
+        cards.add(new TeaserRare());
         // cards.add(new TopKickRare());
         // cards.add(new TripleKickRare());
         // cards.add(new UpDraftRare());
@@ -291,17 +335,17 @@ public class SonicConsoleDevCustom extends ConsoleCommand {
         atb(new MakeTempCardInHandAction(new VolcanoSlider().makeStatEquivalentCopy(), 1));
     }
 
-    private void atbMakeTempCardInDrawPileAction(AbstractCard c){
+    private void atbMakeTempCardInDrawPileAction(AbstractCard c) {
         atb(new MakeTempCardInDrawPileAction(c, 1, false, true));
     }
 
-    private void atbExhaustEntireHand(){
+    private void atbExhaustEntireHand() {
         for (AbstractCard card : AbstractDungeon.player.hand.group) {
             atb(new ExhaustSpecificCardAction(card, AbstractDungeon.player.hand, true));
         }
     }
-    
-    private void atb(AbstractGameAction action){
+
+    private void atb(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToBottom(action);
     }
 }

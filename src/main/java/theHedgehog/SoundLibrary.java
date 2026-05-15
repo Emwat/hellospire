@@ -30,6 +30,7 @@ public class SoundLibrary {
     static public final String SmallYes = makeID("ogg_SmallYes");
     static public final String Hehe = makeID("ogg_Hehe");
     static public final String ThatsIt = makeID("ogg_ThatsIt");
+    static public final String ChaosControl = makeID("ogg_ChaosControl");
     static public final String BlastAway = makeID("ogg_BlastAway");
 
     static public final String Bingo = makeID("ogg_Bingo");

@@ -1,27 +1,10 @@
 package theHedgehog.console;
 
+import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.MasterOfStrategy;
-import com.megacrit.cardcrawl.cards.colorless.Trip;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ConfusionPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.cards.*;
-import theHedgehog.cardsTails.IQ200Attack;
-import theHedgehog.cardsTails.IQ300Attack;
-import theHedgehog.cardsTails.IQ400Attack;
-import theHedgehog.cardsTails.MagicHook;
-import theHedgehog.relics.CDFutureRelic;
-import theHedgehog.relics.PowerBrakeRelic;
 
 import java.util.ArrayList;
 
@@ -29,8 +12,8 @@ import java.util.ArrayList;
 // sonicseeall
 
 // https://github.com/daviscook477/BaseMod/wiki/Console#adding-your-own-commands
-public class SonicConsoleMarkAllSeen extends ConsoleCommand {
-    public SonicConsoleMarkAllSeen() {
+public class SonicConsoleSeeAll extends ConsoleCommand {
+    public SonicConsoleSeeAll() {
         maxExtraTokens = 0; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
         minExtraTokens = 0; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
         requiresPlayer = false; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
@@ -42,13 +25,15 @@ public class SonicConsoleMarkAllSeen extends ConsoleCommand {
         for (AbstractCard card : GetEverything()) {
             UnlockTracker.markCardAsSeen(card.cardID);
         }
+        DevConsole.log("5/15/2026 Dev Note: I have no idea why the last card unlock bundle is giving me so much trouble.");
     }
 
     private ArrayList<AbstractCard> GetEverything() {
         ArrayList<AbstractCard> everyCard = new ArrayList<>();
-        everyCard.add(new BackSpinKickRare());
+        // everyCard.add(new BackSpinKickRare());
         everyCard.add(new BoostRare());
         everyCard.add(new FalconPunchRare());
+        everyCard.add(new FalconPunchRare2());
         everyCard.add(new InstaShieldRare());
         everyCard.add(new ScissorKickRare());
         everyCard.add(new SonicEagleRare());
@@ -82,7 +67,8 @@ public class SonicConsoleMarkAllSeen extends ConsoleCommand {
         everyCard.add(new AssistSticks());
         everyCard.add(new AssistTails());
         everyCard.add(new AssistTikal());
-        everyCard.add(new Athleticism());
+
+        // everyCard.add(new Athleticism());
         everyCard.add(new BackSpinKick());
         // everyCard.add(new Bait());
         // everyCard.add(new BecauseScience());
@@ -93,6 +79,7 @@ public class SonicConsoleMarkAllSeen extends ConsoleCommand {
         everyCard.add(new Boost());
         everyCard.add(new BouncePad());
         everyCard.add(new Bumper());
+        everyCard.add(new ChaosControl());
         everyCard.add(new Checkpoint());
         everyCard.add(new ClawsUnleashed());
         // everyCard.add(new CloseShave());
@@ -118,6 +105,10 @@ public class SonicConsoleMarkAllSeen extends ConsoleCommand {
         everyCard.add(new HomingAttack());
         everyCard.add(new HorseKick());
         everyCard.add(new HotRod());
+        everyCard.add(new HotRod1());
+        everyCard.add(new HotRod2());
+        everyCard.add(new HotRod3());
+        everyCard.add(new HotRodOverloaded());
         everyCard.add(new InstaShield());
         everyCard.add(new LevelUp());
         everyCard.add(new LightSpeedAttack());
@@ -143,6 +134,8 @@ public class SonicConsoleMarkAllSeen extends ConsoleCommand {
         // everyCard.add(new SkyRing());
         everyCard.add(new Slide());
         everyCard.add(new SlotMachineGame());
+        everyCard.add(new SlotMachinePull());
+        everyCard.add(new SlotMachineStatus());
         everyCard.add(new SmoothLanding());
         everyCard.add(new SonicBoom());
         everyCard.add(new SonicEagle());
@@ -167,7 +160,7 @@ public class SonicConsoleMarkAllSeen extends ConsoleCommand {
         everyCard.add(new WallJump());
         everyCard.add(new Whirlwind());
         everyCard.add(new Windmill());
-        everyCard.add(new WindUpPunch());
+        // everyCard.add(new WindUpPunch());
         return everyCard;
     }
 

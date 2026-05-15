@@ -40,15 +40,15 @@ public class DizzyPower extends BasePower {
 
     // @Override
     // public void atStartOfTurn() {
-    //     addToBot(new ModXFastAction(() -> { calculateHighestCost(false);}));
+    //     AbstractDungeon.actionManager.addToTurnStart(new ModXFastAction(() -> { calculateHighestCost(false);}));
     // }
 
     // @Override
     // public void atStartOfTurnPostDraw() {
     //     super.atStartOfTurnPostDraw();
     //     // atbSetCostAndNameAndClearIfZero();
-    //     addToTop(new ModXFastAction(() -> {
-    //         SonicMod.logger.info("atStartOfTurnPostDraw owner" + owner.name);
+    //     AbstractDungeon.actionManager.addToTurnStart(new ModXFastAction(() -> {
+    //         // SonicMod.logger.info("atStartOfTurnPostDraw owner" + owner.name);
     //         calculateHighestCost(false);
     //         // ForceMonsterApplyPowers();
     //     }));
@@ -129,12 +129,6 @@ public class DizzyPower extends BasePower {
         }
     }
 
-    static {
-        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-        NAME = powerStrings.NAME;
-        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    }
-
     public void calculateHighestCost(AbstractCard playedCard) {
         int oldCost = highestCost;
         if (playedCard.cost == -1) {
@@ -167,7 +161,7 @@ public class DizzyPower extends BasePower {
                     energy += 2;
                 }
                 if (energy > highestCost) {
-                    setCostAndName(highestCost, card.name);
+                    setCostAndName(energy, card.name);
                 }
             } else if (card.costForTurn > highestCost) {
                 setCostAndName(card.costForTurn, card.name);
@@ -197,4 +191,9 @@ public class DizzyPower extends BasePower {
         highestCostCardName = newName;
     }
 
+    static {
+        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        NAME = powerStrings.NAME;
+        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    }
 }

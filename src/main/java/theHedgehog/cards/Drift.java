@@ -23,24 +23,23 @@ public class Drift extends BaseCard {
             -1
     );
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 0;
+    private static final int UPG_MAGIC = 1;
+    private static final int MULTIPLIER = 2;
+    private static final String MULTIPLIER_KEYWORD = "CustomVar_MULTIPLIER"; // Yultiplier for ZHS
 
     public Drift() {
         super(ID, info);
 
-        setMagic(MAGIC);
-
+        setMagic(MAGIC, UPG_MAGIC);
+        setCustomVar(MULTIPLIER_KEYWORD, MULTIPLIER);
         tags.add(SonicTags.LIKE_DEFECT);
         RefundVariable.setBaseValue(this, 1);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            addToBot(new DriftAction(p, magicNumber, this.freeToPlayOnce, this.energyOnUse + 1));
-        } else {
-            addToBot(new DriftAction(p, magicNumber, this.freeToPlayOnce, this.energyOnUse));
-        }
+        addToBot(new DriftAction(p, customVar(MULTIPLIER_KEYWORD), this.freeToPlayOnce, this.energyOnUse + magicNumber));
         // addToBot(new GainEnergyAction(ENERGY_GAIN));
     }
 
@@ -64,7 +63,7 @@ public class Drift extends BaseCard {
             if (thisCard.upgraded) {
                 energy += 1;
             }
-            energy = energy * magicNumber;
+            energy = energy * customVar(MULTIPLIER_KEYWORD);
 
             thisCard.rawDescription = String.format("%s%s%s", cardStrings.EXTENDED_DESCRIPTION[0], energy, cardStrings.EXTENDED_DESCRIPTION[1]);
             initializeDescription();

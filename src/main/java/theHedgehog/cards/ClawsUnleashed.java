@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.vfx.combat.ClawEffect;
 import theHedgehog.SonicMod;
 import theHedgehog.SonicTags;
@@ -67,7 +68,7 @@ public class ClawsUnleashed extends BaseCard implements BranchingUpgradesCard {
         }
 
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
-            if (Objects.equals(orb.name, "Dark")) {
+            if (orb instanceof Dark) {
                 return canUse;
             }
         }

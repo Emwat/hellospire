@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <modID>BlueHedgehog</modID>
+        <modID>lanseciwei</modID>
         <author>SpireWolf25</author>
 
         <!-- Change the path for your system to match your Steam installation. -->
@@ -23,20 +23,28 @@
     </properties>
 
     <!-- This information will be displayed in ModTheSpire, the modded launcher. -->
-    <name>The Hedgehog, Sonic</name>
-    <version>1.0.2</version>
+    <name>刺猬 · 索尼克 (Sonic)</name>
+    <version>1.0.3.zhs</version>
     <description>
-        Brings Sonic the Hedgehog to Slay the Spire.
+        Brings the Hedgehog, Sonic to Slay the Spire.
 
-        \r\nGameplay
-        - Collect Rings to build your Dexterity
-        - Perform Tricks to gain Vigor
+        我使用了 AI 将此模组翻译为中文。
 
-        \r\nFeatures
-        - BLAST PROCESSING
-        - 75+ cards
-        - Voice Clips (can be disabled in config)
-        - Music (can be disabled in config. Will not play for other characters)
+        \r\n玩法
+
+        收集金环来提升你的敏捷
+
+        进行特技表演来获得活力
+
+        \r\n特性
+
+        爆裂处理 (BLAST PROCESSING)
+
+        75 张以上的卡牌
+
+        角色语音 (可在配置中禁用)
+
+        背景音乐 (可在配置中禁用，且不会在使用其他角色时播放)
     </description>
 
     <!--You shouldn't need to change anything below this point, but feel free to look at it.-->

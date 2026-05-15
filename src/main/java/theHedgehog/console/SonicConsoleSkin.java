@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class SonicConsoleSkin extends ConsoleCommand {
     public SonicConsoleSkin() {
         maxExtraTokens = 0; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
-        minExtraTokens = 1; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
+        minExtraTokens = 0; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
         requiresPlayer = false; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
         simpleCheck = false;
         /**
@@ -36,6 +36,9 @@ public class SonicConsoleSkin extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
+        if (tokens.length == 1) {
+            DevConsole.log("This command requires a parameter");
+        }
         String firstToken = tokens[1];
 
         if (!(AbstractDungeon.player instanceof Sonic)) {

@@ -1,0 +1,37 @@
+{
+  "${modID}:GooglyEyes": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "模组上的模组",
+    "DESCRIPTION": "在使用 Googly Eyes (大眼睛) 模组时开启协助模式。",
+    "IMAGE": "theHedgehog/images/achievement/GooglyEyes.png",
+    "HIDDEN": false
+  },
+  "${modID}:KingOfRings": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "金环之王",
+    "DESCRIPTION": "拥有“往昔”遗物或在经典模式下通关。",
+    "IMAGE": "theHedgehog/images/achievement/KingOfRings.png",
+    "HIDDEN": false
+  },
+  "${modID}:SonicAllStars": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "索尼克全明星",
+    "DESCRIPTION": "使用 Packmaster (卡包主宰) 中的任意索尼克卡包通关。",
+    "IMAGE": "theHedgehog/images/achievement/SonicAllStars.png",
+    "HIDDEN": false
+  },
+  "${modID}:SuperSonic": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "愿望永恒",
+    "DESCRIPTION": "在对阵心脏时打出“超级索尼克”。",
+    "IMAGE": "theHedgehog/images/achievement/SuperSonic.png",
+    "HIDDEN": false
+  },
+  "${modID}:VigorAbuse": {
+    "CARD_COLOR": "HEDGEHOG_BLUE25",
+    "TITLE": "突破极限",
+    "DESCRIPTION": "造成 100 点及以上的伤害。",
+    "IMAGE": "theHedgehog/images/achievement/Limit.png",
+    "HIDDEN": false
+  }
+}

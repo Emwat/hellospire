@@ -1,0 +1,171 @@
+{
+  "${modID}:EventID": {
+    "NAME": "Event Name",
+    "DESCRIPTIONS": [
+      "This is event text, generally used to describe what's happening.",
+      "#g~This~ #g~text~ #g~is~ #g~green~ #g~and~ #g~wavy.~",
+      "#r@RED@ #r@AND@ #r@VIBRATING@ #r@TEXT.@",
+      "#rRed #gGreen #yYellow #bBlue #pPurple. ~Wavy~ @vibrating.@",
+      "You can also use [#ffffff]white[] hex color codes like this to color text. It does not work in event option buttons though, so I added this feature in FontHelper.renderSmartText",
+      "Hex color codes also work in card text! But not on keywords without some workarounds.",
+      "IMPORTANT: names for custom events don't show up without a patch like ",
+      "https://github.com/erasels/PackmasterCharacter/blob/main/src/main/java/thePackmaster/patches/GetEventNamePatch.java"
+    ],
+    "OPTIONS": [
+      "[Leave]",
+      "You can use [REMOVE_SPACE] to help with color separation in the event options.",
+      "[Action Description] What you actually get.",
+      "[Denial] #rLose #r1 #rMax #rHP. Bad stuff is red.",
+      "[Acceptance] #gGain #gApotheosis. Good stuff is green.",
+      "Select card to remove. (You can also stick extra text like this in here.)"
+    ]
+  },
+  "${modID}:ChaoGardenEvent": {
+    "NAME": "Chao Garden",
+    "DESCRIPTIONS": [
+      "#b~欢~ #b~迎~ #b~来~ #b~到~ #b~巧~ #b~欧~ #b~花~ #b~园！~ NL NL 你偶遇了一群大大小小的、毛茸茸的小生物。",
+      "",
+      "#b~感~ #b~谢~ #b~光~ #b~临！~ NL NL 虽然你还想留在这里和朋友们多聊一会儿，但你还有高塔要攀爬。",
+      "你坐在朋友们中间。",
+      "你还有 #b",
+      " #b次行动机会。",
+      " #b次行动机会。",
+      "你来到了吧台前。",
+      "真是划算的交易！只需 ",
+      " 金币就能买到这些混沌苏打。",
+      "“这顿我请客！”大家为你慷慨的举动欢呼雀跃，派对的气氛变得更加热烈了。",
+      "将一张卡牌加入你的牌组。",
+      "你和伙伴们天南地北地聊着天。",
+      "你望向舞台。感觉就像在看自己的孩子在玩耍和表演。只不过没那么容易摔跤，也不会漫无目的地乱跑。",
+      "你置身于一片色彩斑斓的海洋中。",
+      "你和你的巧欧一起拥抱了那只巨大的巧欧。你的巧欧正在改变颜色。为了确保你不会在巧欧群中弄丢它，你赶紧抓起最近的一样东西，好让你的巧欧脱颖而出。",
+      "你张开双臂抱住一只巧欧并 ~使劲~ 挤了挤。它真是太 ~可爱~ 了。你开始抱着它往出口走去。 NL NL #r@砰@ NL 你被工作人员扑倒了。",
+      "你为刚才差点“绑架”巧欧的行为道歉。不幸的是，长期处于战斗状态的身体本能让你有些冲动。 NL NL 一位自称帕姆教授（Professor Palm）的男人走了过来。他知道你肩负重任，并提议让他的巧欧助你一臂之力。 NL NL “祝你好运，旅行者。你会需要这些帮助的。”",
+      "真是位和蔼的教授。"
+    ],
+    "OPTIONS": [
+      "[离开]",
+      "[进入巧欧花园]",
+      "[已锁定] 行动次数已耗尽。",
+      "[坐下]",
+      "[环视四周]",
+      "[前往吧台]",
+      "[已锁定] 金币不足。",
+      "[买饮料] #y支付 #y",
+      " #y金币。 #g用 #g混沌苏打 #g填满 #g你的 #g药水栏位。",
+      "[买一托盘] #y支付 #y",
+      " #y金币。 为对话列表洗入 #g",
+      " 个各颜色的选项。",
+      "[已锁定] 你需要一瓶混沌苏打。 ",
+      " 正坐在那儿。",
+      "[ [REMOVE_SPACE]#r将 #r混沌苏打 #r交给 ",
+      " [REMOVE_SPACE]] 将 ",
+      "个选项",
+      " 加入对话列表。",
+      "[看表演] #b消耗行动点： #g回复 #g",
+      " #g点HP。 #g(",
+      "% #g最大 #gHP)",
+      "[参与讨论",
+      "] #bAction: #g从 #g",
+      " #g张卡牌中 #g选择 #g1 #g张 #g加入 #g你的 #g牌组。",
+      "[已锁定] 话题已经转移了。",
+      "[拥抱巨大的巧欧店员]",
+      "[拥抱那只巧欧] #b消耗行动点：你的巧欧将生成 1 个电球。",
+      "[拥抱那只巧欧] #b消耗行动点：你的巧欧将生成 1 个冰球。",
+      "[拥抱那只巧欧] #b消耗行动点：你的巧欧将生成 1 个暗球。",
+      "[已锁定] 你需要一只巧欧才能执行此行动。",
+      "[带走一只巧欧] #b消耗行动点： #r失去 #r",
+      " #r点HP。 (100% 成功获得一只巧欧)",
+      "[已锁定] 你已经拥有一只巧欧了。",
+      "[道歉]",
+      "[道谢并回到主区域] #g获得 #g一只 #g巧欧。"
+    ]
+  },
+  "${modID}:GravitySwitchEvent": {
+    "NAME": "Gravity Switch",
+    "DESCRIPTIONS": [
+      "你看到一个巨大的开关连接着一个动态显示屏。屏幕上滚动显示着向上的箭头。开关后面是一个深不见底的悬崖。",
+      "你拉动了开关。你的身体腾空而起。当你被某种重力拉扯上升时，你猛地扭转身体，双脚稳稳地落在了天花板上。 NL NL 你感到身体非常轻盈，反应也变得敏捷了。",
+      "#r疯狂。你自顾自地大笑起来。 NL NL #r@哈哈哈哈！@ 塔吞噬了一切……",
+      "你跳进了下方的深渊，在角落里发现了一个装满金环的道具胶囊。 NL NL 你拿走了金环。然而，当你继续前进时，你发现自己走进了一个死胡同，天花板上只有一条刚好够挤过去的小缝隙。你不得不折返回去，这一番经历让你感到有些沮丧。",
+      "你走到了一个随机模型和墙壁之间。通过某种邪恶、黑暗的魔法巫术，你消失在了墙里，并开始以不可思议的速度飞行。你可以看到物体的内部和外部，它们竟然都是空心的。 NL NL 你到达了目的地。这段穿越时空的旅程可能让你折损了几年的寿命，但看看你节省下来的时间！"    ],
+    "OPTIONS": [
+      "[离开]",
+      "[拉动开关] #b",
+      " 张随机卡牌 #g耗能减 #g1， #r获得 #r加速旋转。 #r失去 #r",
+      " #r点HP。",
+      "[拥抱疯狂] #g获得 #g2张疯狂。 #r失去 #r",
+      " #r点HP。",
+      "[跳下去] 获得 #r诅咒 - #r纠缠。 #g回复 #g",
+      " #g点HP。",
+      "[使用速通技巧] #r失去 #r",
+      " #r最大 #rHP。"
+    ]
+  },
+  "${modID}:MissionEvent": {
+    "NAME": "Mission",
+    "DESCRIPTIONS": [
+      "你面前出现了三扇门，每扇门上都刻有关于挑战内容的神秘信息。选择一个任务。 NL NL S级奖励： #y",
+      " #y金币。 NL A级奖励： #y",
+      " #y金币。 NL B级奖励： #y",
+      " #y金币。 NL C级奖励： #y",
+      " #y金币。"
+    ],
+    "OPTIONS": [
+      "[离开]",
+      "[金环赛车] #r对战 #r青铜形体。 尽可能快地消耗 ", " 张卡牌。",
+      "[得分挑战] #r对战 #r瞬息者。 尽可能造成最高伤害。",
+      "[限时挑战] #r对战 #r3只 #r沉睡的 #r拉加维林。 以最快速度击败所有敌人。"
+    ]
+  },
+  "${modID}:RougeEvent": {
+    "NAME": "Talk to Rouge",
+    "DESCRIPTIONS": [
+      "You spot a beautiful woman sitting atop a streetlamp. She glides down to your level. NL NL \"Well, hello there! If you give me ~that~, I'll use my connections to help you find your friends. What do you say?\"",
+      "You spot a beautiful woman sitting atop a streetlamp. She glides down to your level. NL NL \"You look like you could use some help. We can't have our hero unable to give the doctor a good fight.\"",
+      "\"I'll see you around, Big Blue.\" She flies off into the city.",
+      "\"I guess I'll have to find my own. Flying solo is our style anyway.\" NL She flies off into the city. NL NL When you check your belongings, you instinctively hold a tight grip on ",
+      " and your wallet seems lighter. #r~THIEF!~",
+      "\"Oh, it's in a bottle? Is it cursed? I guess I can't trade for it. Maybe another time then.\" With that, she disappears into the city. NL NL The bottle shines ever so brightly.",
+      "\"I'll see you around, Big Blue. Don't be a stranger.\"",
+      "\"Hmph. See how far you get without ~MY~ help.\"",
+      "#bHello #bthere! #bI'm #bOmochao! NL NL Assist is a Cost #b0 card that adds a random Friend #ySkill to your hand. It #yexhausts. At the end of combat, you can choose to keep the Skill. NL NL #rPRECIOUS Cards will retain, but if you exhaust it, you will enter #rWrath!"
+    ],
+    "OPTIONS": [
+      "[Leave]",
+      "[Accept trade] #rLose ",
+      ". #gGain ",
+      "[Decline trade] #yPay #y",
+      "#yGold. ",
+      " gains #rPRECIOUS.",
+      "[Discuss] ",
+      "[Accept offer] #gHeal #g",
+      " #gHP. #rLose #r",
+      "#rMax #rHP.",
+      "[Decline offer] Leave.",
+      "[Talk to Omochao] #b(Free #bAction)"
+    ]
+  },
+  "${modID}:TimeStoneEvent": {
+    "NAME": "Time Stone",
+    "DESCRIPTIONS": [
+      "You come across some signposts. When you approach them, you find yourself almost recollecting some strange memories. You don't know why you know this information. NL NL Past. Present. Future.",
+      "The Past: Rings are more valuable. NL NL If you take {0} damage, #ryou #rlose #rALL #rthe #yRings #rin #ryour #rhand. NL NL If you have #y{1} Gold and you die, you spend the #y{2} #yGold to #grestore #g{3} #gHP. NL NL #rLose {4}. #gGain {5}.",
+      "The Present: The explosion of media. Every act sets a precedence. NL NL Get #g2 #grandom #gupgrades and #rlose #r{0} #rHP.",
+      "The Future: Inflation. Kid-friendly. Gambling is rampant. NL NL At the start of combat, you #rlose #r1 #rLevel #rUp #rSpeed. NL NL When you gain a #yRing, #rrandomize #rits #rcost. NL NL #gYour #gmax #ghand #gsize #gincreases #gby #g3. NL NL #gGain #ga #gHoming #gAttack.",
+      "You fly off into the distance. Your body starts to shimmer. Before you know it, the scenery flashes into a green enveloping light. NL NL NL ...Once upon a time.",
+      "No time like the present! When the warm light hits you, you refuse to follow it. Instead, you carve out your own path, embracing a different kind of fate.",
+      "It is inevitable. History repeats itself. But you know the truth. You know that it doesn't matter what happens or where you are, there are always opportunities."
+    ],
+    "OPTIONS": [
+      "[Go]",
+      "[Peek at the Past] #b(Free #baction)",
+      "[Peek at the Present] #b(Free #baction)",
+      "[Peek at the Future] #b(Free #baction)",
+      "[Return to Pivot] #b(Free #baction)",
+      "[Commit to Past] Accept these conditions.",
+      "[Commit to Present] Accept these conditions.",
+      "[Commit to Future] Accept these conditions."
+    ]
+  }
+}

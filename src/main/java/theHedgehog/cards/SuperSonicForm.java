@@ -3,6 +3,7 @@ package theHedgehog.cards;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.stances.CalmStance;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
@@ -23,8 +25,12 @@ import theHedgehog.SoundLibrary;
 import theHedgehog.actions.ModFastAction;
 import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
+import theHedgehog.modachievements.achievements;
 import theHedgehog.powers.SuperSonicPower;
 import theHedgehog.util.CardStats;
+
+import static theHedgehog.SonicMod.makeID;
+import static theHedgehog.util.UnlockUtil.unlockModAchievement;
 
 public class SuperSonicForm extends BaseCard {
     public static final String ID = makeID("SuperSonicForm");
@@ -67,8 +73,10 @@ public class SuperSonicForm extends BaseCard {
             addToBot(new ModXFastAction(() -> {
                 CardCrawlGame.music.justFadeOutTempBGM();
                 CardCrawlGame.music.playTempBgmInstantly("LIVE_AND_LEARN", true);
+                unlockModAchievement(achievements.Achievement.SuperSonic.name());
             }));
         }
+
     }
 
     @Override

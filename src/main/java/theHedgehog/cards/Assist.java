@@ -6,16 +6,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import theHedgehog.MyModConfig;
 import theHedgehog.SonicTags;
 import theHedgehog.character.Sonic;
-import theHedgehog.relics.CDFutureRelic;
-import theHedgehog.relics.CDPastRelic;
+import theHedgehog.modachievements.achievements;
 import theHedgehog.rewards.AssistReward;
 import theHedgehog.util.CardStats;
 
 import java.util.ArrayList;
+
+import static theHedgehog.util.UnlockUtil.unlockModAchievement;
 
 public class Assist extends BaseCard {
     public static final String ID = makeID("Assist");
@@ -60,10 +59,8 @@ public class Assist extends BaseCard {
         int randomNumber = AbstractDungeon.cardRandomRng.random(0, characterCards.size() - 1);
         AbstractCard randomCard = characterCards.get(randomNumber).makeCopy();
         AbstractCard randomCard2 = characterCards.get(randomNumber).makeCopy();
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement") && Loader.isModLoaded("GooglyMod")){
-            if (!UnlockTracker.isAchievementUnlocked(makeID("GooglyEyes"))) {
-                unlockGooglyEyesAchievement();
-            }
+        if (Loader.isModLoaded("GooglyMod")){
+            unlockModAchievement(achievements.Achievement.GooglyEyes.name());
         }
 
         if (this.upgraded) {
@@ -83,13 +80,5 @@ public class Assist extends BaseCard {
     @Override
     public AbstractCard makeCopy() { //Optional
         return new Assist();
-    }
-
-    private void unlockGooglyEyesAchievement(){
-        if (AbstractDungeon.player == null) {
-            return;
-        }
-
-        UnlockTracker.unlockAchievement(makeID("GooglyEyes"));
     }
 }

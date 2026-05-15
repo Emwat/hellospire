@@ -9,6 +9,7 @@ import basemod.eventUtil.EventUtils;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,6 +32,7 @@ import theHedgehog.cardsTails.IQ200Attack;
 import theHedgehog.cardsTails.IQ300Attack;
 import theHedgehog.cardsTails.IQ400Attack;
 import theHedgehog.cardsTails.MagicHook;
+import theHedgehog.modachievements.achievements;
 import theHedgehog.relics.*;
 import theHedgehog.rewards.MissionReward;
 import theHedgehog.skins.ModSkinDictionary;
@@ -64,16 +66,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 import thePackmaster.SpireAnniversary5Mod;
-import thePackmaster.ThePackmaster;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static basemod.BaseMod.addMonster;
-import static com.megacrit.cardcrawl.screens.GameOverScreen.isVictory;
 import static theHedgehog.skins.ModSkinDictionary.CONFIG_CURRENT_SKIN;
-import static theHedgehog.util.UnlockUtil.registerUnlockCardBundle;
-import static theHedgehog.util.UnlockUtil.registerUnlockRelicBundle;
+import static theHedgehog.util.UnlockUtil.*;
 
 
 @SpireInitializer
@@ -187,16 +186,17 @@ public class SonicMod implements
         loadConfig();
         ModSkinDictionary.initializeModSkins();
 
-        ConsoleCommand.addCommand("sonicach0", SonicConsoleAch0.class);
-        ConsoleCommand.addCommand("sonicach1", SonicConsoleAch1.class);
+        ConsoleCommand.addCommand("sonicachlock", SonicConsoleAchLock.class);
+        ConsoleCommand.addCommand("sonicachunlock", SonicConsoleAchUnlock.class);
         ConsoleCommand.addCommand("sonicunlock", SonicConsoleUnlock.class);
         ConsoleCommand.addCommand("sonictip", SonicConsoleTip.class);
         ConsoleCommand.addCommand("sonicdeck", SonicConsoleDeck.class);
         ConsoleCommand.addCommand("sonicskin", SonicConsoleSkin.class);
-        ConsoleCommand.addCommand("sss", SonicConsoleDevCustom.class);
+        ConsoleCommand.addCommand("sss", SonicConsoleSSS.class);
         ConsoleCommand.addCommand("chaog", SonicConsoleDebugString.class);
         ConsoleCommand.addCommand("chaossoda", SonicConsoleChaosSoda.class);
-        ConsoleCommand.addCommand("sonicseeall", SonicConsoleMarkAllSeen.class);
+        ConsoleCommand.addCommand("sonicseeall", SonicConsoleSeeAll.class);
+        ConsoleCommand.addCommand("sonicenemy", SonicConsoleSonicEnemy.class);
     }
 
     // //Due to reward scrolling's orthographic camera and render order of rewards, the card needs to be rendered outside of the render method
@@ -312,6 +312,13 @@ public class SonicMod implements
                         new ModLagavulin(true, -465.0F, -20.0F),
                         new ModLagavulin(true, -130.0F, 15.0F),
                         new ModLagavulin(true, 200.0F, -5.0F)
+                })
+        );
+
+        addMonster("SonicEnemy", () -> new MonsterGroup(new AbstractMonster[]{
+                        new EnemyBossSonic(),
+                        new EnemyBossSonicProp(-285.0F, MathUtils.random(-5.0F, 25.0F)),
+                        new EnemyBossSonicProp(-485.0F, MathUtils.random(-5.0F, 25.0F))
                 })
         );
     }
@@ -583,34 +590,33 @@ public class SonicMod implements
         BaseMod.removeCard(TeaserRareAttack3.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(TopKick.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(Momentum.ID, Sonic.Meta.CARD_COLOR);
+        BaseMod.removeCard(WindUpPunch.ID, Sonic.Meta.CARD_COLOR);
 
         BaseMod.removeCard(IQ200Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(IQ300Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(IQ400Attack.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(MagicHook.ID, Sonic.Meta.CARD_COLOR);
-        //
-        // BaseMod.removeCard(BackSpinKickRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(BoostRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(FalconPunchRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(InstaShieldRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(ScissorKickRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(StrikeRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(SonicEagleRare.ID, Sonic.Meta.CARD_COLOR);
-        // BaseMod.removeCard(TeaserRare.ID, Sonic.Meta.CARD_COLOR);
 
+        BaseMod.removeCard(BackSpinKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(BoostRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(CyanLaserRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(DoubleAirKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(FalconPunchRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(FireSomersaultRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(FootSweepRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(HotRodRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(HorseKickRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(InstaShieldRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(MeteorKickRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(RicochetRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(ScissorKickRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SonicFlareRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(SonicEagleRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SonicWaveRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SpinDashRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(SpinningNeedleAttackRare.ID, Sonic.Meta.CARD_COLOR);
         BaseMod.removeCard(StrikeRare.ID, Sonic.Meta.CARD_COLOR);
+        // BaseMod.removeCard(TeaserRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(TopKickRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(TripleKickRare.ID, Sonic.Meta.CARD_COLOR);
         // BaseMod.removeCard(UpDraftRare.ID, Sonic.Meta.CARD_COLOR);
@@ -687,6 +693,7 @@ public class SonicMod implements
         BaseMod.addAudio(SoundLibrary.SmallAllRightLetsGo, audioEngPath("sh_AllRight_LetsGo.ogg"));
         BaseMod.addAudio(SoundLibrary.Hehe, audioEngPath("sh_Hehe.ogg"));
         BaseMod.addAudio(SoundLibrary.ThatsIt, audioEngPath("sh_Thats_It.ogg"));
+        BaseMod.addAudio(SoundLibrary.ChaosControl, audioEngPath("sa2_chaos_control.ogg"));
         BaseMod.addAudio(SoundLibrary.BlastAway, audioEngPath("sh_Blast_Away.ogg"));
         BaseMod.addAudio(SoundLibrary.NeverUnderestimate, audioEngPath("sh_Never_Underestimate_Sonic_Speed.ogg"));
         BaseMod.addAudio(SoundLibrary.Bingo, audioEngPath("sh_bingo.ogg"));
@@ -778,6 +785,7 @@ public class SonicMod implements
 
     }
 
+    public static boolean hasTurnStartedYet = false;
     public static int attackCardsPlayedThisTurn = 0;
     public static int cardsDrawnThisTurn = 0;
     public static int cardsExhaustedThisTurn = 0;
@@ -803,6 +811,7 @@ public class SonicMod implements
 
     @Override
     public void receiveOnPlayerTurnStart() {
+        hasTurnStartedYet = false;
         attackCardsPlayedThisTurn = 0;
         cardsExhaustedThisTurn = 0;
         Trick.TricksPlayed = 0;
@@ -810,6 +819,7 @@ public class SonicMod implements
         SlotMachineStatus.hasAppliedDebuff = false;
         AbstractDungeon.actionManager.addToTurnStart(new ModXFastAction(() -> {
             cardsDrawnThisTurn = 0;
+            hasTurnStartedYet = true;
         }));
     }
 
@@ -839,6 +849,9 @@ public class SonicMod implements
                         (abstractCard.cardID.equals(Whirlwind.ID) && abstractCard.damage * 3 >= 100) ||
                         (abstractCard.cardID.equals(DoubleAirKick.ID) && abstractCard.damage * 2 >= 100))
         ) {
+            if (Loader.isModLoaded("ModAchievement")) {
+                unlockModAchievement(achievements.Achievement.VigorAbuse.name());
+            }
             SonicMod.logger.info("Sonic Super Finisher: " + abstractCard.name + " (" + abstractCard.damage + ")");
             final float MINDBLAST_H = 146.0F;
             final float TOPBAR_H = Settings.HEIGHT - (Settings.isMobile ? 164.0F * Settings.scale : 128.0F * Settings.scale) + (MINDBLAST_H / 2);
@@ -896,8 +909,13 @@ public class SonicMod implements
 
     @Override
     public void receivePostDeath() {
+        boolean stillAlive = AbstractDungeon.player.currentHealth > 0;
         if (AbstractDungeon.player instanceof Sonic) {
-            if (!isVictory) {
+            if (stillAlive) {
+                if (AbstractDungeon.player.hasRelic(CDPastRelic.ID) || AbstractDungeon.player.hasRelic(ClassicModeRelic.ID)) {
+                    unlockModAchievement(achievements.Achievement.KingOfRings.name());
+                }
+            } else {
                 if (MyModConfig.enableVoice && SoundLibrary.isRandomlyTrue()) {
                     CardCrawlGame.sound.play(SoundLibrary.GetRandomVoice(new ArrayList<>(Arrays.asList(
                             SoundLibrary.Nooo,
@@ -929,21 +947,6 @@ public class SonicMod implements
 
     @Override
     public void receiveSetUnlocks() {
-        // UnlockTracker.markCardAsSeen(AssistAmy.ID);
-        // UnlockTracker.markCardAsSeen(AssistBarry.ID);
-        // UnlockTracker.markCardAsSeen(AssistBig.ID);
-        // UnlockTracker.markCardAsSeen(AssistBlaze.ID);
-        // UnlockTracker.markCardAsSeen(AssistChip.ID);
-        // UnlockTracker.markCardAsSeen(AssistCream.ID);
-        // UnlockTracker.markCardAsSeen(AssistKnuckles.ID);
-        // UnlockTracker.markCardAsSeen(AssistRosy.ID);
-        // UnlockTracker.markCardAsSeen(AssistRouge.ID);
-        // UnlockTracker.markCardAsSeen(AssistShadow.ID);
-        // UnlockTracker.markCardAsSeen(AssistSticks.ID);
-        // UnlockTracker.markCardAsSeen(AssistTails.ID);
-        // UnlockTracker.markCardAsSeen(AssistTikal.ID);
-
-
         registerUnlockCardBundle(Sonic.Meta.THE_HEDGEHOG, 0, SonicWave.ID, SmoothLanding.ID, Drift.ID);
         registerUnlockRelicBundle(Sonic.Meta.THE_HEDGEHOG, 1, CrystalRingRelic.ID, BlueQuillPlusRelic.ID, RingEnergyBonusRelic.ID);
         registerUnlockCardBundle(Sonic.Meta.THE_HEDGEHOG, 2, FireTackle.ID, FireSomersault.ID, VolcanoSlider.ID);

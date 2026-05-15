@@ -1,0 +1,14 @@
+{
+  "${modID}:FireStance": {
+    "NAME": "Fire Stance",
+    "DESCRIPTION": [
+      "Whenever you play a card, gain #b{0} ${modID}:Flame_Barrier."
+    ]
+  },
+  "${modID}:IceStance": {
+    "NAME": "Ice Stance",
+    "DESCRIPTION": [
+      "Whenever you play a card, gain #b{0} Block."
+    ]
+  }
+}

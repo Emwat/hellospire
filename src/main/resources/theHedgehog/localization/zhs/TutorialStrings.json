@@ -1,0 +1,43 @@
+{
+  "${modID}:Pg01_Intro": {
+    "TEXT": [
+      "#bThe #bSpire #bcalls #bout #bto #bme...",
+      "#bI #bmust #bgo #bon..."
+    ],
+    "LABEL": [
+      "This is a label"
+    ]
+  },
+  "${modID}:UtilityTutorial": {
+    "LABEL": [
+      "下一页",
+      "我准备好了！",
+      "(第 {0} 页，共 {1} 页)"
+    ],
+    "TEXT": []
+  },
+  "${modID}:Version092": {
+    "LABEL": [
+      "The Hedgehog v0.9.2 -- October 11, 2025"
+    ],
+    "TEXT": [
+      "I've come to make an announcement! NL NL If you see a card randomly glowing #ygold for no reason, that's not the game telling you that it's important. That's a #rbug. --SpireWolf25"
+    ]
+  },
+  "${modID}:Version098": {
+    "LABEL": [
+      "刺猬索尼克 v0.9.8 —— 2026年2月2日"
+    ],
+    "TEXT": [
+      "Together In Spire 联动功能：如果你将一张【防御+】拖动到队友的姓名牌上，即可为他们提供护甲！极少数模组支持此功能。 NL NL （注意：此操作不支持多次点击，你必须通过“拖拽并释放”卡牌来生效。）"
+    ]
+  },
+  "${modID}:Version103": {
+    "LABEL": [
+      "刺猬索尼克 v1.0.3 —— 2026年5月14日"
+    ],
+    "TEXT": [
+      "大家好！我犯了个低级错误，在代码的特定位置使用了大写字母，导致中文版的显示效果不太理想。 NL NL 所以我将中文版作为一个独立的模组发布在了 Steam 创意工坊。搜索“刺猬”即可找到该版本。"
+    ]
+  }
+}

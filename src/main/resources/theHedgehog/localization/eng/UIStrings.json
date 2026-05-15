@@ -109,7 +109,8 @@
   },
   "${modID}:modifierSpinUp": {
     "TEXT": [
-      "${modID}:Spin_Up. "
+      "${modID}:Spin_Up. ",
+      "${modID}:Spin_Up. NL "
     ]
   },
   "${modID}:MyModConfig": {
@@ -136,7 +137,7 @@
       "enableCrestOfFire": "Enable Crest of Fire cards (if unlocked)",
       "enableStanceSwitching": "Enable Stance Switching cards (if unlocked)",
       "limiterRing": "Add Limiter Ring (When you play a Trick, gain 1 less Vigor).",
-      "unlockEverything": "Unlock Everything"
+      "unlockEverything": "Unlock Everything (requires restart)"
     }
   },
   "${modID}:EvolveChaoOptions": {
@@ -152,6 +153,11 @@
   "${modID}:ModExhaustAction": {
     "TEXT": [
       "Exhaust"
+    ]
+  },
+  "${modID}:PeelOutAction": {
+    "TEXT": [
+      "PeelOut Exhaust"
     ]
   },
   "${modID}:DeathScreenSonic": {
@@ -314,6 +320,51 @@
   "${modID}:SkinSystemUI": {
     "TEXT": [
       "Skins"
+    ]
+  },
+  "${modID}:skinBase": {
+    "TEXT": [
+      "Time to party!"
+    ]
+  },
+  "${modID}:skinBattleSonicRed": {
+    "TEXT": [
+      "Cherry"
+    ]
+  },
+  "${modID}:skinBattleSonicGreen": {
+    "TEXT": [
+      "Gumball Eyes"
+    ]
+  },
+  "${modID}:skinBattleSonicBlue": {
+    "TEXT": [
+      "Blue Raspberry"
+    ]
+  },
+  "${modID}:skinCaptainSonic": {
+    "TEXT": [
+      "See, I'm one of those 'leap before you think' kinda guys."
+    ]
+  },
+  "${modID}:skinBattleTails": {
+    "TEXT": [
+      "Long time no see!"
+    ]
+  },
+  "${modID}:skinBattleKnuckles": {
+    "TEXT": [
+      "You can't have my power."
+    ]
+  },
+  "${modID}:skinBattleShadow": {
+    "TEXT": [
+      "The military has mistaken me for the likes of you!"
+    ]
+  },
+  "${modID}:skinBattleAmy": {
+    "TEXT": [
+      "L, Let's not use the hammer."
     ]
   },
   "${modID}:PackMainMenuUI": {

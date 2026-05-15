@@ -84,11 +84,13 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
         }
     }
 
+    // "Deal !D! damage. NL Add 2 [#efc851]Tricks[] to your hand.",
     public void baseUpgrade() {
         this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
 
+    // Deal !D! damage. NL Add a [#efc851]Trick[] to your hand. This stays in your hand for 1 more use.
     public void branchUpgrade() {
         name = NAMES[0];
         loadCardImage(SonicMod.imagePath("cards/attack/HomingAttackSerial.png"));
@@ -136,8 +138,12 @@ public class HomingAttack extends BaseCard implements BranchingUpgradesCard {
     }
 
     private boolean isBranchMaxedHandSize() {
+        int tricksToAdd = 2;
+        if (plays == 1) {
+            tricksToAdd--;
+        }
         return this.upgraded && this.isBranchUpgrade() &&
-                AbstractDungeon.player.hand.size() + 2 > BaseMod.MAX_HAND_SIZE + 1;
+                AbstractDungeon.player.hand.size() + tricksToAdd > BaseMod.MAX_HAND_SIZE + 1;
     }
 
     @Override

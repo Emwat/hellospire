@@ -55,12 +55,6 @@ public class CrystalRing extends BaseCard {
         setSelfRetain(true);
         tags.add(CardTags.HEALING);
         tags.add(SonicTags.RING);
-
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")) {
-            if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
-                unlockRingmasterAchievement();
-            }
-        }
     }
 
     @Override
@@ -117,29 +111,5 @@ public class CrystalRing extends BaseCard {
                 }
             }));
         }
-    }
-
-    private void unlockRingmasterAchievement() {
-        if (AbstractDungeon.player == null) {
-            return;
-        }
-        int total = 0;
-        total += countRings(AbstractDungeon.player.drawPile.group);
-        total += countRings(AbstractDungeon.player.exhaustPile.group);
-        total += countRings(AbstractDungeon.player.discardPile.group);
-        total += countRings(AbstractDungeon.player.hand.group);
-        if (total > 20) {
-            UnlockTracker.unlockAchievement(makeID("Ringmaster"));
-        }
-    }
-
-    private int countRings(ArrayList<AbstractCard> group) {
-        int count = 0;
-        for (AbstractCard c : group) {
-            if (c.cardID.equals(this.cardID)) {
-                count++;
-            }
-        }
-        return count;
     }
 }

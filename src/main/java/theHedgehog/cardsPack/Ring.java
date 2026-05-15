@@ -44,12 +44,6 @@ public class Ring extends BaseCard {
         setExhaust(true);
         tags.add(CardTags.HEALING);
         tags.add(SonicTags.RING);
-
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")) {
-            if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
-                unlockRingmasterAchievement();
-            }
-        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -83,20 +77,6 @@ public class Ring extends BaseCard {
     @Override
     public AbstractCard makeCopy() { // Optional
         return new Ring();
-    }
-
-    private void unlockRingmasterAchievement() {
-        if (AbstractDungeon.player == null) {
-            return;
-        }
-        int total = 0;
-        total += countRings(AbstractDungeon.player.drawPile.group);
-        total += countRings(AbstractDungeon.player.exhaustPile.group);
-        total += countRings(AbstractDungeon.player.discardPile.group);
-        total += countRings(AbstractDungeon.player.hand.group);
-        if (total > 20) {
-            UnlockTracker.unlockAchievement(makeID("Ringmaster"));
-        }
     }
 
     private int countRings(ArrayList<AbstractCard> group) {

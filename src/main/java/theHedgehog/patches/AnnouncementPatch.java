@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theHedgehog.SonicMod;
 import theHedgehog.character.Sonic;
@@ -17,6 +18,7 @@ import theHedgehog.util.TextureLoader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static theHedgehog.SonicMod.modID;
 
 @SpirePatch(clz = EmptyDeckShuffleAction.class, method = SpirePatch.CONSTRUCTOR)
 public class AnnouncementPatch {
@@ -27,14 +29,19 @@ public class AnnouncementPatch {
         }
 
         ArrayList<String> announcements = new ArrayList<>();
-        if (!(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version092)) {
-            announcements.add(SonicTipTracker.Version092);
-            SonicTipTracker.neverShowAgain(SonicTipTracker.Version092);
-        }
+        // if (!(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version092)) {
+        //     announcements.add(SonicTipTracker.Version092);
+        //     SonicTipTracker.neverShowAgain(SonicTipTracker.Version092);
+        // }
 
         if (Loader.isModLoaded("spireTogether") && !(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version098)) {
             announcements.add(SonicTipTracker.Version098);
             SonicTipTracker.neverShowAgain(SonicTipTracker.Version098);
+        }
+
+        if (Settings.language == Settings.GameLanguage.ZHS && modID.equals("BlueHedgehog") && !(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version103)) {
+            announcements.add(SonicTipTracker.Version103);
+            SonicTipTracker.neverShowAgain(SonicTipTracker.Version103);
         }
 
         if (!announcements.isEmpty()) {

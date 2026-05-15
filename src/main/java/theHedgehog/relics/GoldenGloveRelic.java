@@ -26,9 +26,6 @@ public class GoldenGloveRelic extends BaseRelic {
         super.onPlayCard(c, m);
 
         if (c.hasTag(SonicTags.RING)) {
-            if (!AbstractDungeon.player.hasPower(LSDPower.POWER_ID)) {
-                this.flash();
-            }
             addToBot(new AddTemporaryHPAction(AbstractDungeon.player, AbstractDungeon.player, HPamt));
         }
     }

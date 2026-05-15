@@ -1,0 +1,206 @@
+[
+  {
+    "PROPER_NAME": "This is displayed in the tooltip.",
+    "NAMES": [
+      "these",
+      "are",
+      "detected",
+      "in",
+      "the",
+      "text"
+    ],
+    "DESCRIPTION": "This is displayed in the tooltip. Spaces should not be used be avoided in NAMES, with the exception of multi-word keywords (see next entry)."
+  },
+  {
+    "PROPER_NAME": "Multiword Keyword",
+    "NAMES": [
+      "multiword keyword",
+      "multiword_keyword",
+      "multiword_keywords"
+    ],
+    "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+  },
+  {
+    "PROPER_NAME": "More tips",
+    "NAMES": [
+      "blah blah"
+    ],
+    "DESCRIPTION": "names strings should be all lowercase. Use case goes like this: ${modID}:Trick "
+  },
+  {
+    "ID": "wordCenter",
+    "PROPER_NAME": "若居中",
+    "NAMES": [
+      "若居中",
+      "居中",
+      "if center",
+      "if_center"
+    ],
+    "DESCRIPTION": "如果此牌处于你手牌的 #y正中间 ，触发额外效果。判断此条件时忽略 #y光环 。"
+  },
+  {
+    "ID": "wordCrestOfFire",
+    "PROPER_NAME": "火焰纹章",
+    "NAMES": [
+      "火焰纹章",
+      "烈焰纹章",
+      "crest of fire",
+      "crest_of_fire"
+    ],
+    "DESCRIPTION": "如果触发 #y致命 ，永久升级你卡组中所有的 #r火焰纹章 卡牌。 #r火焰纹章 卡牌可以被升级任意次数。 NL NL 升级次数超过 #b7 次后，每额外升级一次，打出时使你受到 #r1 点伤害。例如： #y烈焰撞击+10 会使你受到 #r3 点伤害。",
+    "COLOR": "ff6563"
+  },
+  {
+    "ID": "wordDizzy",
+    "PROPER_NAME": "头晕",
+    "NAMES": [
+      "头晕",
+      "dizzy"
+    ],
+    "DESCRIPTION": "目标造成的伤害将减少，减少量等同于你手牌中耗能最高的卡牌的数值。"
+  },
+  {
+    "ID": "wordFlameBarrier",
+    "PROPER_NAME": "火焰屏障",
+    "NAMES": [
+      "火焰屏障",
+      "flame_barrier"
+    ],
+    "DESCRIPTION": "在本回合内，每当你受到攻击时，对攻击者造成 #bX 点伤害。"
+  },
+  {
+    "ID": "wordFlip",
+    "PROPER_NAME": "翻转",
+    "NAMES": [
+      "翻转"
+    ],
+    "DESCRIPTION": "能耗 3+ -> 能耗 0 NL 能耗 2 -> 能耗 1 NL 能耗 1 -> 能耗 2 NL 能耗 0 -> 能耗 3"
+  },
+  {
+    "ID": "wordFriend",
+    "PROPER_NAME": "伙伴",
+    "NAMES": [
+      "伙伴"
+    ],
+    "DESCRIPTION": "战斗结束时，你可以选择保留“援助”或保留新生成的卡牌。"
+  },
+  {
+    "ID": "wordHotRod",
+    "PROPER_NAME": "HotRod",
+    "NAMES": [
+      "hot rod",
+      "hot_rod"
+    ],
+    "DESCRIPTION": "If you haven't played any cards, gain 5(6) Block. NL If you have played #b1 card, gain 7(8) Block. NL If you have played #b2 cards, gain #b10(12) Block AND deal #b6(8) damage. NL If you have played #b2+ cards, gain #b3(4) Block."
+  },
+  {
+    "ID": "wordMagicHandsKW",
+    "PROPER_NAME": "宝贝",
+    "NAMES": [
+      "宝贝"
+    ],
+    "DESCRIPTION": "保留 。如果此牌被 消耗 ，进入 愤怒 姿态。",
+    "COLOR": "EF67F6"
+  },
+  {
+    "ID": "wordNotMostLeft",
+    "PROPER_NAME": "非最左侧",
+    "NAMES": [
+      "非最左侧",
+      "非手牌最左",
+      "if_not_most_left"
+    ],
+    "DESCRIPTION": "如果此牌 **不处于** 手牌的最左侧，则触发额外效果。判断此条件时忽略 #y金环 。"
+  },
+  {
+    "ID": "wordMostLeft",
+    "PROPER_NAME": "最左侧",
+    "NAMES": [
+      "最左侧",
+      "手牌最左",
+      "if_leftmost",
+      "if_most_left"
+    ],
+    "DESCRIPTION": "如果此牌处于手牌的 **最左侧** ，则触发额外效果。判断此条件时忽略 #y金环 。"
+  },
+  {
+    "ID": "wordMostLeftOrRight",
+    "PROPER_NAME": "最左或最右",
+    "NAMES": [
+      "最左或最右",
+      "边缘",
+      "if_most_left_or_right",
+      "if_leftmost_or_rightmost"
+    ],
+    "DESCRIPTION": "如果此牌处于手牌的 **最左侧** 或 **最右侧** ，则触发额外效果。判断此条件时忽略 #y金环 。"
+  },
+  {
+    "ID": "wordMostRight",
+    "PROPER_NAME": "最右侧",
+    "NAMES": [
+      "最右侧",
+      "手牌最右",
+      "if_most_right",
+      "if_rightmost",
+      "if_up_close"
+    ],
+    "DESCRIPTION": "如果此牌处于手牌的 **最右侧** ，则触发额外效果。判断此条件时忽略 #y金环 。"
+  },
+  {
+    "ID": "wordLevelUp",
+    "PROPER_NAME": "升级",
+    "NAMES": [
+      "升级",
+      "level_up"
+    ],
+    "DESCRIPTION": "如果你本回合尚未打出过牌，或上一张打出的牌是 #y技能牌 ，你手牌中的每张 #y金环 都会使你的 #y护甲 增加 #b1 点。 NL 如果上一张打出的牌是 #y攻击牌 ，你手牌中的每张 #y金环 都会使你的 伤害 增加 #b1 点。 NL 如果上一张打出的牌是 #y能力牌 ，你手牌中的每张 #y金环 都会使你的 #y集中力 增加 #b1 点。"
+  },
+  {
+    "ID": "wordLightSpeedDashSmallPrint",
+    "PROPER_NAME": "LSD",
+    "NAMES": [
+      "lsd"
+    ],
+    "DESCRIPTION": "This turn, #yRings #gheal #g1 #gHP instead of giving you Temporary HP. If #yRings were already in your hand, they #gheal #g3 #gHP."
+  },
+  {
+    "ID": "wordRev",
+    "PROPER_NAME": "运转",
+    "NAMES": [
+      "运转",
+      "加速",
+      "rev"
+    ],
+    "DESCRIPTION": "“触发充能球被动效果”的别称。未明确指明时，通常指代最右侧（首位）的充能球槽位。"
+  },
+  {
+    "ID": "wordRing",
+    "PROPER_NAME": "金环",
+    "NAMES": [
+      "金环",
+      "ring",
+      "rings"
+    ],
+    "DESCRIPTION": "当此牌处于你的手牌中时，你从卡牌中获得的 #y护甲 增加 #b1 点。"
+  },
+  {
+    "ID": "wordSpinUp",
+    "PROPER_NAME": "旋转蓄力",
+    "NAMES": [
+      "旋转蓄力",
+      "spin_up"
+    ],
+    "DESCRIPTION": "当你打出此牌时，其 #r耗能 #r增加 #r1 #r点 。所有耗能修正将在本次战斗中 #b持续存在 。如果此牌的耗能被随机化，则将其 #g随机后的耗能 #g降低 #g1 #g点 。",
+    "COLOR": "ff6563"
+  },
+  {
+    "ID": "wordTrick",
+    "PROPER_NAME": "特技",
+    "NAMES": [
+      "特技",
+      "trick",
+      "tricks"
+    ],
+    "DESCRIPTION": "你不该看见这条信息。"
+  }
+]

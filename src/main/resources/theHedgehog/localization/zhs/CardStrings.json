@@ -1,0 +1,1005 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description. NL Second line.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "This card shouldn't be encountered in a run. NL If you're reading this, you've probably encountered a bug. NL Please report this to a mod dev.",
+      "stslib:Persist !stslib:persist! -> stslib:长驻 !stslib:persist!",
+      "Beware Capital letters: B D M. CustomVars seem fine. See AssistTikal and Drift"
+    ],
+    "FLAVOR": "I don't know Chinese. I have tried translating as best as I can w/ the tools that I have."
+  },
+  "${modID}:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "${modID}:StrikeRare": {
+    "NAME": "S Strike",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "${modID}:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点护甲。"
+  },
+  "${modID}:Acceleration": {
+    "NAME": "加速",
+    "DESCRIPTION": "获得 !M! 点 集中力。"
+  },
+  "${modID}:AMAZING": {
+    "NAME": "惊人",
+    "DESCRIPTION": "在同一回合内每打出 3 张 攻击牌 ，对所有敌人造成 !M! 点伤害。"
+  },
+  "${modID}:Assist": {
+    "NAME": "援护",
+    "DESCRIPTION": "将一张随机 ${modID}:伙伴 技能牌放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将一张随机 ${modID}:伙伴 技能牌放入你的手牌。该牌在本回合内耗能为 0 。 NL 消耗"
+  },
+  "${modID}:AssistAmy": {
+    "NAME": "俏佳人",
+    "DESCRIPTION": "你抽牌堆最顶端的 !M! 张牌在本回合被打出前耗能为 0 。 NL 消耗。",
+    "FLAVOR": "别害怕！艾咪·罗斯在此！",
+    "EXTENDED_DESCRIPTION": [
+      "欧莫查 说：",
+      "[#ffeda7]预见[]、 [#ffeda7]部署[] 以及这张卡 [#ff6563]不[] [#ff6563]兼容[] 蛇眼。"
+    ]
+  },
+  "${modID}:AssistBarry": {
+    "NAME": "短尾矮袋鼠巴里",
+    "DESCRIPTION": "{@@}从你的弃牌堆将 !M! 张牌放入你的手牌。 NL 消耗性 !stslib:ex! 。",
+    "FLAVOR": "垃圾堆里总藏着些宝贝，咱们去找找看。"
+  },
+  "${modID}:AssistBig": {
+    "NAME": "巨猫比谷",
+    "DESCRIPTION": "{@@}预见 !M! 。 NL 抽 !${modID}:CustomVar_DRAW! 张牌。",
+    "FLAVOR": "等等我，青蛙君，我这就来！"
+  },
+  "${modID}:AssistBlaze": {
+    "NAME": "火焰猫布蕾兹",
+    "DESCRIPTION": "虚无。 NL 每一个敌人使你获得 !B! 点护甲和 !M! 层烈焰屏障。",
+    "FLAVOR": "别惹我发火！"
+  },
+  "${modID}:AssistCharmy": {
+    "NAME": "蜜蜂查米",
+    "DESCRIPTION": "给予 !${modID}:CustomVar_DIZZY! 层 ${modID}:头晕 。 NL 生成 !M! 个 闪电 充能球。",
+    "FLAVOR": "耶！是时候大闹一场了！"
+  },
+  "${modID}:AssistChip": {
+    "NAME": "奇普",
+    "DESCRIPTION": "保留 。 NL 获得 !B! 点护甲。 NL 进入 宁静 。 NL 消耗 。",
+    "FLAVOR": "别吃我！我很难吃的！"
+  },
+  "${modID}:AssistCream": {
+    "NAME": "兔子克莉姆",
+    "DESCRIPTION": "回复 !M! 点生命值。 NL 获得 1 个 充能球栏位 。 消耗 。",
+    "FLAVOR": "快来，芝士！我们必须去帮索尼克先生！"
+  },
+  "${modID}:AssistEspio": {
+    "NAME": "变色龙艾斯皮欧",
+    "DESCRIPTION": "{@@}获得 !B! 点护甲。 NL 将 !M! 张 [#efc851]小刀[] 放入你的手牌。 NL 如果你本回合尚未打出 攻击牌 ，则额外放入 1 张。",
+    "FLAVOR": "看好了！这就是忍者的力量！"
+  },
+  "${modID}:AssistJet": {
+    "NAME": "鹰族杰特",
+    "DESCRIPTION": "虚无 。 NL 生成 !M! 个 冰霜 充能球。 NL 随机化你手牌中一张牌在本回合的耗能。",
+    "FLAVOR": "刺猬索尼克，可别让我失望啊！",
+    "EXTENDED_DESCRIPTION": [
+      "虚无 。 NL 生成 !M! 个 冰霜 充能球。 NL 将一张牌在本回合的耗能改为 ",
+      "。"
+    ]
+  },
+  "${modID}:AssistKnuckles": {
+    "NAME": "战斗搭档",
+    "DESCRIPTION": "获得 !${modID}:CustomVar_STR! 层 临时力量 。 NL 在本回合内，每当你打出一张 攻击牌 ，获得 !M! 点护甲。",
+    "FLAVOR": "你觉得我看起来像需要“你”的力量吗？"
+  },
+  "${modID}:AssistLilac": {
+    "NAME": "萨希·莱拉克",
+    "DESCRIPTION": "{@@}获得 !B! 点护甲。 NL 抽 !M! 张牌。 NL 下回合额外抽 !M! 张牌。",
+    "FLAVOR": "我不在乎这有多危险！想要让一条龙慢下来，光靠机器人和外星人可远远不够！"
+  },
+  "${modID}:AssistRosy": {
+    "NAME": "相信自己",
+    "DESCRIPTION": "如果你的手牌中没有 攻击牌 ，抽 !M! 张牌。",
+    "FLAVOR": "在你的脑海中，你将看到～ NL 宇宙的永恒～"
+  },
+  "${modID}:AssistRouge": {
+    "NAME": "蝙蝠露姬",
+    "DESCRIPTION": "{@@}获得 !${modID}:CustomVar_DEX! 层 临时敏捷 。 NL 丢弃 !M! 张牌。 NL 获得 [E] 。",
+    "FLAVOR": "永远不要低估一名特工，否则你会引火烧身。"
+  },
+  "${modID}:AssistShadow": {
+    "NAME": "夏特",
+    "DESCRIPTION": "在此回合结束后额外进行一个回合。 NL 结束你的回合。 NL 消耗。",
+    "FLAVOR": "见证终极力量。"
+  },
+  "${modID}:AssistSilver": {
+    "NAME": "希尔弗",
+    "DESCRIPTION": "预见 !${modID}:CustomVar_SCRY! 。 NL 所有敌人在下回合失去 !M! 点 力量 ，持续 1 回合。 NL 消耗 。",
+    "FLAVOR": "你竟敢背对着我！"
+  },
+  "${modID}:AssistSticks": {
+    "NAME": "獾子斯迪克斯",
+    "DESCRIPTION": "所有初始 打击 和 防御 获得 ${modID}:加速 并在打出时获得 [E] 。",
+    "FLAVOR": "“爆发处理”技术？那些不过是用来愚弄头脑简单的人的陈词滥调罢了！"
+  },
+  "${modID}:AssistTails": {
+    "NAME": "坚不可摧的羁绊",
+    "DESCRIPTION": "{@@}获得 !M! 个 充能球栏位 。 NL 生成 1 个 闪电 充能球。 NL 生成 1 个 等离子 充能球。 NL 消耗 。",
+    "FLAVOR": "它具有相同的波长和属性，但力量比货真价实的要弱一些。"
+  },
+  "${modID}:AssistTikal": {
+    "NAME": "针鼹缇卡尔",
+    "DESCRIPTION": "{@@}消耗 抽牌堆中最多 !M! 张 攻击牌 。 NL 获得 !${modID}:CustomVar_ORB! 个 充能球栏位 。 NL 若敌人意图攻击，此牌将发光。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "{@@}固有 。 NL 消耗 抽牌堆中最多 !M! 张 攻击牌 。 NL 获得 !${modID}:CustomVar_ORB! 个 充能球栏位 。 NL 若敌人意图攻击，此牌将发光。 NL 消耗 。",
+    "FLAVOR": "七尊混沌即为仆，混沌即为力，由心而生的力量。"
+  },
+  "${modID}:AssistVector": {
+    "NAME": "鳄鱼维克多",
+    "DESCRIPTION": "获得 !B! 点护甲。 NL 所有耗能为 2 或更高的 攻击牌 获得 ${modID}:珍贵 。",
+    "FLAVOR": "身为优秀侦探的职责所在。"
+  },
+  "${modID}:Athleticism": {
+    "NAME": "运动天赋",
+    "DESCRIPTION": "消耗 最多 2 张牌。 NL 你的 负面状态 层数减少 !M! 。 NL 消耗 。"
+  },
+  "${modID}:BackSpinKick": {
+    "NAME": "后旋踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合每打出一张 攻击牌 ，此牌耗能便减少 1 。"
+  },
+  "${modID}:BackSpinKickRare": {
+    "NAME": "S 后旋踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合每打出一张 攻击牌 ，此牌耗能便减少 1 。"
+  },
+  "${modID}:Bait": {
+    "NAME": "诱饵",
+    "DESCRIPTION": "一名随机敌人将攻击此目标及你。在该敌人的回合，获得等同于其 意图 伤害数值 75% 的 护甲 。"
+  },
+  "${modID}:BecauseScience": {
+    "NAME": "科学之力",
+    "DESCRIPTION": "在你的回合开始时，进入一种姿态：每打出一张牌获得 1 点 护甲 ，或每打出一张牌获得 1 层 ${modID}:烈焰屏障 。"
+  },
+  "${modID}:BecauseSciencePick1": {
+    "NAME": "烈焰",
+    "DESCRIPTION": "每当你打出一张牌，获得 1 层 ${modID}:烈焰屏障 。"
+  },
+  "${modID}:BecauseSciencePick2": {
+    "NAME": "寒冰",
+    "DESCRIPTION": "每当你打出一张牌，获得 1 点 护甲 。"
+  },
+  "${modID}:BlastProcessing": {
+    "NAME": "爆发处理",
+    "DESCRIPTION": "每回合中，你前 !M! 张 生成 的牌耗能减少 1 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每回合中，你前 !M! 张 生成 的牌耗能减少 1 [E] 。"
+  },
+    "${modID}:BlastOff": {
+      "NAME": "发射升空",
+      "DESCRIPTION": "${modID}:加速 。 NL 获得 [E] 。 NL ${modID}:若距离较远 ，额外获得 1 点。",
+      "UPGRADE_DESCRIPTION": "${modID}:加速 。 NL 获得 [E] [E] 。 NL ${modID}:若距离较远 ，额外获得 1 点。"
+    },
+  "${modID}:BlueBlur": {
+    "NAME": "蓝色幻影",
+    "DESCRIPTION": "获得 !B! 点护甲。 NL 下回合获得 临时 ${modID}:回响形态 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点护甲。 NL 下回合获得 临时 ${modID}:回响形态 。"
+  },
+  "${modID}:BlueBomber": {
+    "NAME": "蓝色轰炸机",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 敏捷与 金环 数量会强化此牌伤害 !M! 次。"
+  },
+  "${modID}:BlueTornado": {
+    "NAME": "蓝色旋风",
+    "DESCRIPTION": "给予 !M! 层 ${modID}:头晕 。 NL 给予 !M! 层 易伤 。 NL 在本回合内， ${modID}:翻转 一张手牌的耗能。",
+    "DESCRIPTION_IDEA_2": "给予 !M! 层 ${modID}:头晕 。 NL 给予 !M! 层 易伤 。 NL 在本回合内， ${modID}:翻转 所有手牌的耗能。",
+    "EXTENDED_DESCRIPTION": [
+      "给予 !M! 层 易伤 。 NL 给予 !${modID}:CustomVar_DIZZY! 层 ${modID}:头晕 。",
+      "给予 !M! 层 易伤 。 NL 将一张 [#efc851]戏法[] 放入你的手牌。",
+      "蓝色旋风故障保险"
+    ]
+  },
+  "${modID}:Boost": {
+    "NAME": "冲刺",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每当你打出一张 金环 ，将此牌从弃牌堆放入你的手牌。"
+  },
+  "${modID}:BoostRare": {
+    "NAME": "超速冲刺",
+    "DESCRIPTION": "{@@}对所有敌人造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 每当你打出一张 [#efc851]金环[] ，将此牌从弃牌堆放入你的手牌。"
+  },
+  "${modID}:BouncePad": {
+    "NAME": "弹跳装置",
+    "DESCRIPTION": "{@@}获得 !B! 点护甲。 NL 将 !M! 张 [#efc851]金环[] 放入你的手牌。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !B! 点护甲。 NL 将 2 张 [#efc851]金环[] 放入你的手牌。",
+      "获得 !B! 点护甲。 NL 将一张 [#efc851ff]金环[] 放入你的手牌。此牌会在手牌中额外保留一次使用机会。",
+      "获得 !B! 点护甲。 NL 将一张 [#efc851ff]金环[] 放入你的手牌。"
+    ]
+  },
+  "${modID}:BouncePadPick1": {
+    "NAME": "获取金环",
+    "DESCRIPTION": "{@@}将 !M! 张 [#efc851]金环[] 放入你的手牌。"
+  },
+  "${modID}:BouncePadPick2": {
+    "NAME": "获取戏法",
+    "DESCRIPTION": "{@@}将 !M! 张 [#efc851]戏法[] 放入你的手牌。"
+  },
+  "${modID}:Bumper": {
+    "NAME": "弹力器",
+    "DESCRIPTION": "保留。 NL 获得 !B! 点 格挡 。"
+  },
+  "${modID}:ChaosControl": {
+    "NAME": "混沌控制",
+    "DESCRIPTION": "在本回合，你的下一张 #y攻击牌 将被打出 X 次。",
+    "UPGRADE_DESCRIPTION": "在本回合，你的下一张 #y攻击牌 将被打出 X+!M! 次。"
+  },
+  "${modID}:ChaosEmeraldAttack": {
+    "NAME": "混沌翡翠",
+    "DESCRIPTION": "抽到此牌时， 消耗 此牌并将预览的卡牌放入你的手牌。"
+  },
+  "${modID}:Checkpoint": {
+    "NAME": "存盘点",
+    "DESCRIPTION": "只有在手牌中有 金环 时才能打出。 NL 将 超级索尼克形态 洗入你的抽牌堆。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "只有在手牌中有 [#efc851]金环[] 时才能打出。 NL 将 [#efc851]超级[] [#efc851]索尼克[] [#efc851]形态+[] 洗入你的抽牌堆。 NL 消耗。"
+  },
+  "${modID}:ChuChuBomb": {
+    "NAME": "啾啾炸弹",
+    "DESCRIPTION": "每当你打出一张牌，此牌的目标都会改变。 NL 造成 !D! 点伤害。"
+  },
+  "${modID}:ColorlessBandageUp": {
+    "NAME": "辣味热狗",
+    "DESCRIPTION": "这张牌不应在局戏中出现。 NL 如果你看到了这段文字，说明你可能遇到了一个Bug。 NL 请向模组开发者报告此问题。"
+  },
+  "${modID}:ColorlessShiv": {
+    "NAME": "苦无",
+    "DESCRIPTION": "这张牌不应在局戏中出现。 NL 如果你看到了这段文字，说明你可能遇到了一个Bug。 NL 请向模组开发者报告此问题。"
+  },
+  "${modID}:ClawsUnleashed": {
+    "NAME": "利爪出鞘",
+    "DESCRIPTION": "只有在拥有已生成的 黑暗充能球 时才能打出。 NL 造成 !D! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "只有在拥有已生成的 黑暗充能球 时才能打出。 NL 造成 !D! 点伤害。",
+      "造成 !D! 点伤害。"
+    ]
+  },
+  "${modID}:CloseShave": {
+    "NAME": "擦身而过",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果你的手牌数为 !M! 或更少，再次获得 !B! 点 格挡 。",
+    "DESCRIPTION_IDEA_2": "获得 !B! 点 格挡 。 NL 如果你没有任何 [#efc851]金环[] ，再次获得 !B! 点 格挡 。"
+  },
+  "${modID}:Crouch": {
+    "NAME": "跳跃",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗 !M! 张牌。"
+  },
+  "${modID}:CrystalRing": {
+    "NAME": "水晶金环",
+    "DESCRIPTION": "保留。 NL ${modID}:金环 。 NL 抽到此牌时，再抽一张牌。 NL 获得 !M! 点 活力 。"
+  },
+  "${modID}:CyanLaser": {
+    "NAME": "青色激光",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每击中一名敌人，抽一张牌。"
+  },
+  "${modID}:CyanLaserRare": {
+    "NAME": "超·青色激光",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 抽 !M! 张牌。"
+  },
+  "${modID}:DashPanel": {
+    "NAME": "冲刺面板",
+    "DESCRIPTION": "打出此牌右侧的 !M! 张牌。"
+  },
+  "${modID}:DebugMode": {
+    "NAME": "调试模式",
+    "DESCRIPTION": "选择手牌中的一张牌。 NL 将它的一张 复制品 放入你的手牌。 NL 消耗。"
+  },
+  "${modID}:DirectJump": {
+    "NAME": "直接跳跃",
+    "DESCRIPTION": "本回合内，每当你打出一张 技能牌 ，将一张 [#efc851]金环[] 放入你的手牌。 NL 消耗。",
+    "EXTENDED_DESCRIPTION": [
+      "本回合内，每当你打出一张 技能牌 ，将一张 [#efc851]金环[] 放入你的手牌。"
+    ]
+  },
+  "${modID}:DizzySpin": {
+    "NAME": "眩晕回旋",
+    "DESCRIPTION": "本回合内，随机改变手牌中所有牌的耗能。 NL 对所有敌人给予 3 层 ${modID}:头晕 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。本回合内，随机改变手牌中所有牌的耗能。 NL 对所有敌人给予 3 层 ${modID}:头晕 。"
+  },
+  "${modID}:DoubleAirKick": {
+    "NAME": "双重空踢",
+    "DESCRIPTION": "造成 !D! 点伤害 2 次。"
+  },
+  "${modID}:DoubleAirKickRare": {
+    "NAME": "超·双重空踢",
+    "DESCRIPTION": "造成 !D! 点伤害 2 次。"
+  },
+  "${modID}:Dreamweaver": {
+    "NAME": "Dreamweaver",
+    "DESCRIPTION": "This card shouldn't be encountered in a run. NL If you're reading this, you've probably encountered a bug. NL Please report this to a mod dev."
+  },
+  "${modID}:Drift": {
+    "NAME": "漂移",
+    "DESCRIPTION": "${modID}:运转 所有充能球 !${modID}:CustomVar_MULTIPLIER! X 次。 NL 回馈 1。",
+    "UPGRADE_DESCRIPTION": "${modID}:运转 所有充能球 !${modID}:CustomVar_MULTIPLIER! (X + !M!) 次。 NL 回馈 1。",
+    "EXTENDED_DESCRIPTION": [
+      "${modID}:运转 所有充能球 [#7fff00]",
+      "[] 次。 NL 回馈 1。"
+    ]
+  },
+  "${modID}:DropDash": {
+    "NAME": "落地点火",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果你本回合抽过牌，获得 [E] [E] 。"
+  },
+  "${modID}:EndlessBoost": {
+    "NAME": "无尽冲刺",
+    "DESCRIPTION": "失去 !M! 点 敏捷 。 ${modID}:最右侧 ，少失去 1 点。 NL 在你的回合开始时，获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点 敏捷 。 ${modID}:最右侧 ，少失去 1 点。 NL 在你的回合开始时，获得 [E] 。"
+  },
+  "${modID}:Enerbeam": {
+    "NAME": "能量射线",
+    "DESCRIPTION": "敌人在本回合内失去 !M! 点 力量 。"
+  },
+  "${modID}:Extender": {
+    "NAME": "空中特技动作",
+    "DESCRIPTION": "如果在你的回合开始时拥有 活力 ，选择一项： NL 获得 2 个 充能球栏位 、 NL 抽 2 张牌 、 NL 或获得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "固有。 NL 如果在你的回合开始时拥有 活力 ，选择一项： NL 获得 2 个 充能球栏位 、 NL 抽 2 张牌 、 NL 或获得 [E] [E] 。"
+  },
+  "${modID}:Extender1": {
+    "NAME": "小跳跳",
+    "DESCRIPTION": "获得 2 个 充能球栏位 。"
+  },
+  "${modID}:Extender2": {
+    "NAME": "陀螺旋转",
+    "DESCRIPTION": "抽 2 张牌。"
+  },
+  "${modID}:Extender3": {
+    "NAME": "下砸",
+    "DESCRIPTION": "获得 2 [E] 。"
+  },
+  "${modID}:FalconPunch": {
+    "NAME": "猎鹰拳",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 1 张牌。 NL 消耗 1 张牌。"
+  },
+  "${modID}:FalconPunchRare": {
+    "NAME": "超·猎鹰拳：准备",
+    "DESCRIPTION": "消耗 !M! 张牌。 NL 下回合开始时，多抽 !M! 张牌并将一张 [#efc851]超·[] [#efc851]猎鹰拳[] 放入你的手牌。"
+  },
+  "${modID}:FalconPunchRare2": {
+    "NAME": "超·猎鹰拳",
+    "DESCRIPTION": "虚无。 NL 造成 !D! 点伤害。 NL 此牌造成双倍伤害。 NL 消耗。"
+  },
+  "${modID}:FireSomersault": {
+    "NAME": "火焰翻滚",
+    "DESCRIPTION": "${modID}:火焰纹章 。 NL 造成 !D! 点伤害。 NL 如果被 消耗 ，将一张额外增加 !M! 点伤害的 [#efc851]火焰翻滚[] 放入你的手牌。"
+  },
+  "${modID}:FireSomersaultRare": {
+    "NAME": "超·火焰翻滚",
+    "DESCRIPTION": "${modID}:火焰纹章 。 NL 造成 !D! 点伤害。 NL 如果被 消耗 ，将一张额外增加 !M! 点伤害的 [#efc851]火焰翻滚[] 放入你的手牌。"
+  },
+  "${modID}:FireTackle": {
+    "NAME": "火焰冲刺",
+    "DESCRIPTION": "${modID}:火焰纹章 。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 ${modID}:火焰屏障 。"
+  },
+  "${modID}:FireTackleRare": {
+    "NAME": "超·火焰冲刺",
+    "DESCRIPTION": "${modID}:火焰纹章 。 NL 造成 !D! 点伤害。 NL 获得 !M! 层 ${modID}:火焰屏障 。"
+  },
+  "${modID}:FlagPole": {
+    "NAME": "空中俯冲",
+    "DESCRIPTION": "本回合内，你手牌中所有的 [#efc851]金环[] 耗能变为 0 ，且在打出时 生成 一个 冰霜 充能球。",
+    "UPGRADE_DESCRIPTION": "将一张 [#efc851]金环[] 放入你的手牌。 NL 本回合内，你手牌中所有的 [#efc851]金环[] 耗能变为 0 ，且在打出时 生成 一个 冰霜 充能球。"
+  },
+  "${modID}:FootSweep": {
+    "NAME": "扫堂腿",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL ${modID}:若居中 ，目标变为所有敌人。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL ${modID}:若居中 ，目标变为所有敌人。"
+  },
+  "${modID}:FootSweepRare": {
+    "NAME": "超·扫堂腿",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL ${modID}:若居中 ，目标变为所有敌人。"
+  },
+  "${modID}:GrindRail": {
+    "NAME": "磨轨",
+    "DESCRIPTION": "本回合内，降低相邻卡牌 !M! 点耗能。"
+  },
+  "${modID}:Hailstorm": {
+    "NAME": "冰雹风暴",
+    "DESCRIPTION": "造成 !D! 点伤害 0 次。你每抽到一次此牌，额外造成一次伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害",
+      " 次。你每抽到一次此牌，额外造成一次伤害。",
+      " 次。你每抽到一次此牌，额外造成一次伤害。"
+    ]
+  },
+  "${modID}:HailstormRare": {
+    "NAME": "超·冰雹风暴",
+    "DESCRIPTION": "造成 !D! 点伤害 0 次。你每抽到一次此牌，额外造成一次伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害 ",
+      " 次。你每抽到一次此牌，额外造成一次伤害。",
+      " 次。你每抽到一次此牌，额外造成一次伤害。"
+    ]
+  },
+  "${modID}:HeavyBounceSlam": {
+    "NAME": "重力弹跳下砸",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将此牌的伤害翻倍。 NL ${modID}:最左侧 ，此牌在打出后保留在手牌中。"
+  },
+  "${modID}:HeavyBounceSlamRare": {
+    "NAME": "超·重力弹跳下砸",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将此牌的伤害翻倍。 NL ${modID}:最左侧 ，此牌在打出后保留在手牌中。"
+  },
+  "${modID}:HomingAttack": {
+    "NAME": "追踪攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将一张 [#efc851]特技[] 放入你的手牌。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL 将 2 张 [#efc851]特技[] 放入你的手牌。",
+      "造成 !D! 点伤害。 NL 将一张 [#efc851]特技[] 放入你的手牌。此牌可额外使用 1 次。",
+      "造成 !D! 点伤害。 NL 将一张 [#efc851]特技[] 放入你的手牌。"
+    ]
+  },
+  "${modID}:HorseKick": {
+    "NAME": "后踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL ${modID}:最右侧 ，造成双倍伤害。"
+  },
+  "${modID}:HorseKickRare": {
+    "NAME": "超·后踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL ${modID}:最右侧 ，造成三倍伤害。"
+  },
+  "${modID}:HotRod": {
+    "NAME": "改装赛车",
+    "DESCRIPTION": "抽到此牌后，其效果将根据你本回合内已打出的牌数而改变。",
+    "EXTENDED_DESCRIPTION": [
+      "预热中。 NL 获得 !B! 点 格挡 。",
+      "[#efc851]标准状态。[] NL 获得 !B! 点 格挡 。",
+      "[#ff6563]暴击！[] NL 获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。",
+      "[#808080]过载。[] NL 获得 !B! 点 格挡 。"
+    ]
+  },
+  "${modID}:HotRod1": {
+    "NAME": "改装赛车 第1部分 (共3)",
+    "DESCRIPTION": "预热中。 NL 获得 !B! 点 格挡 。"
+  },
+  "${modID}:HotRod2": {
+    "NAME": "改装赛车 第2部分 (共3)",
+    "DESCRIPTION": "[#efc851]标准状态[]。 NL 获得 !B! 点 格挡 。"
+  },
+  "${modID}:HotRod3": {
+    "NAME": "改装赛车 第3部分 (共3)",
+    "DESCRIPTION": "[#ff6563]暴击！[] NL 获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。"
+  },
+  "${modID}:HotRodOverloaded": {
+    "NAME": "改装赛车：过载",
+    "DESCRIPTION": "[#808080]过载。[] NL 获得 !B! 点 格挡 。"
+  },
+  "${modID}:HotRodRare": {
+    "NAME": "超·改装赛车",
+    "DESCRIPTION": "抽到此牌后，其效果将根据你本回合内已打出的牌数而改变。",
+    "EXTENDED_DESCRIPTION": [
+      "预热中。 NL 获得 !B! 点 格挡 。",
+      "标准状态。 NL 获得 !B! 点 格挡 。",
+      "暴击！ NL 获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。",
+      "过载。 NL 获得 !B! 点 格挡 。"
+    ]
+  },
+  "${modID}:InstaShield": {
+    "NAME": "瞬时护盾",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${modID}:运转 。"
+  },
+  "${modID}:InstaShieldRare": {
+    "NAME": "超·瞬时护盾",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${modID}:运转 。 NL 此牌可额外使用 !${modID}:CustomVar_PERSIST! 次。",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL ${modID}:运转 。",
+      " NL 此牌可额外使用 {X} 次。",
+      " NL 此牌可额外使用 {X} 次。"
+    ]
+  },
+  "${modID}:IQ200Attack": {
+    "NAME": "IQ200 Attack",
+    "DESCRIPTION": "Deal !D! damage. NL At the end of your turn, Retain 1 card."
+  },
+  "${modID}:IQ300Attack": {
+    "NAME": "IQ300 Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Put the next card you play into your hand."
+  },
+  "${modID}:IQ400Attack": {
+    "NAME": "IQ400 Attack",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Choose a card. Transform a random card in your hand into that card."
+  },
+  "${modID}:LevelUp": {
+    "NAME": "等级提升",
+    "DESCRIPTION": "此牌的效果基于你本次战斗最后打出的卡牌类型而改变。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 [#efc851]金环[] 放入你的手牌。 NL 此牌的效果基于你本次战斗最后打出的卡牌类型而改变。",
+    "EXTENDED_DESCRIPTION": [
+      "将 !M! 张 [#efc851]金环[] 放入你的手牌。 NL ",
+      "你手牌中每有一张 [#efc851]金环[] ，卡牌造成的伤害就增加 1 点。",
+      "你手牌中每有一张 [#efc851]金环[] ，卡牌获得的 格挡 就增加 1 点。",
+      "你手牌中每有一张 [#efc851]金环[] ， 集中力 就增加 1 点。",
+      "等级提升：速度",
+      "等级提升：飞行",
+      "等级提升：力量"
+    ]
+  },
+  "${modID}:LevelUp1": {
+    "NAME": "技能/其他",
+    "DESCRIPTION": "你手牌中每有一张 [#efc851]金环[] ，卡牌获得的 格挡 就增加 1 点。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 [#efc851]金环[] 放入你的手牌。 NL 你手牌中每有一张 [#efc851]金环[] ，卡牌获得的 格挡 就增加 1 点。"
+  },
+  "${modID}:LevelUp2": {
+    "NAME": "能力",
+    "DESCRIPTION": "你手牌中每有一张 [#efc851]金环[] ， 集中力 就增加 1 点。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 [#efc851]金环[] 放入你的手牌。 NL 你手牌中每有一张 [#efc851]金环[] ， 集中力 就增加 1 点。"
+  },
+  "${modID}:LevelUp3": {
+    "NAME": "攻击",
+    "DESCRIPTION": "你手牌中每有一张 [#efc851]金环[] ，卡牌造成的伤害就增加 1 点。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 [#efc851]金环[] 放入你的手牌。 NL 你手牌中每有一张 [#efc851]金环[] ，卡牌造成的伤害就增加 1 点。"
+  },
+  "${modID}:LevelUpSpeed": {
+    "NAME": "等级提升：速度",
+    "EXTENDED_DESCRIPTION": [
+      "你手牌中每有一张 [#efc851]金环[] ，卡牌获得的 格挡 就增加 ",
+      " 点。"
+    ]
+  },
+  "${modID}:LevelUpFlight": {
+    "NAME": "等级提升：飞行",
+    "EXTENDED_DESCRIPTION": [
+      "你手牌中每有一张 [#efc851]金环[] ， 集中力 就增加 ",
+      " 点。"
+    ]
+  },
+  "${modID}:LevelUpPower": {
+    "NAME": "等级提升：力量",
+    "EXTENDED_DESCRIPTION": [
+      "你手牌中每有一张 [#efc851]金环[] ，卡牌造成的伤害就增加",
+      "点。"
+    ]
+  },
+  "${modID}:LevelUpSpeedPick": {
+    "NAME": "等级提升：速度",
+    "DESCRIPTION": "你手牌中每有一张 [#efc851]金环[] ，卡牌获得的 格挡 就增加 1 点。"
+  },
+  "${modID}:LevelUpFlightPick": {
+    "NAME": "等级提升：飞行",
+    "DESCRIPTION": "你手牌中每有一张 [#efc851]金环[] ， 集中力 就增加 1 点。"
+  },
+  "${modID}:LevelUpPowerPick": {
+    "NAME": "等级提升：力量",
+    "DESCRIPTION": "你手牌中每有一张 [#efc851]金环[] ，卡牌造成的伤害就增加 1 点。"
+  },
+  "${modID}:LightSpeedAttack": {
+    "NAME": "光速攻击",
+    "DESCRIPTION": "本场战斗中每生成过一张 金环 ，就对随机敌人造成 !D! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成",
+      "次伤害）"
+    ]
+  },
+  "${modID}:LightSpeedDash": {
+    "NAME": "光速冲刺",
+    "DESCRIPTION": "消耗 手牌中所有的 [#efc851]金环[] 。 NL 回复 !M! 点生命值。 NL 消耗 。"
+  },
+  "${modID}:LoopDeLoop": {
+    "NAME": "回环翻滚",
+    "DESCRIPTION": "从你的弃牌堆顶部抽 !M! 张牌。这些牌在本回合内耗能变为 0 。 NL 消耗性 !stslib:ex! 。",
+    "UPGRADE_DESCRIPTION": "从你的弃牌堆顶部抽 !M! 张牌。这些牌在本回合内耗能变为 0 。 NL 消耗性 !stslib:ex! 。",
+    "EXTENDED_DESCRIPTION": [
+      "抽取 ",
+      " 和 ",
+      " 。其在本回合内耗能变为 0 。 NL 消耗性 !stslib:ex! 。",
+      " 。这些牌在本回合内耗能变为 0 。 NL 消耗性 !stslib:ex! 。",
+      " 。 [#ff6563]你[] [#ff6563]陷入了[] [#ff6563]混乱[] 。 NL 消耗性 !stslib:ex! 。",
+      "奥摩查欧说：",
+      "蛇眼会 [#ff6563]随机化[] 这些卡牌的耗能。"
+    ]
+  },
+  "${modID}:MagicHands": {
+    "NAME": "神之手",
+    "DESCRIPTION": "选择手牌中一张 [#efc851]非金环[] 的卡牌。使其获得 保留 。该牌 消耗 时，进入 愤怒 姿态。",
+    "UPGRADE_DESCRIPTION": "选择手牌中一张卡牌。使其获得 保留 。该牌 消耗 时，进入 愤怒 姿态。"
+  },
+  "${modID}:MagicHook": {
+    "NAME": "魔术钩爪",
+    "DESCRIPTION": "从抽牌堆抽一张耗能为 2 或更高的攻击牌。该牌在本回合内耗能减少 1 点。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从抽牌堆抽一张耗能为 2 或更高的攻击牌。该牌在本回合内耗能减少 1 点。"
+  },
+  "${modID}:MeteorKick": {
+    "NAME": "流星踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你的手牌中有耗能为 3 或更高的卡牌，额外造成 !M! 点伤害。",
+    "PERFECTED_STRIKE": "造成 6 点伤害。你所有名字中带有“打击”的卡牌都会使其额外造成 2 点伤害。"
+  },
+  "${modID}:MeteorKickRare": {
+    "NAME": "超·流星踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果你的手牌中有耗能为 3 或更高的卡牌，额外造成 !M! 点伤害。",
+    "PERFECTED_STRIKE": "造成 6 点伤害。你所有名字中带有“打击”的卡牌都会使其额外造成 2 点伤害。"
+  },
+  "${modID}:Momentum": {
+    "NAME": "惯性",
+    "DESCRIPTION": "每当你打出一张 NL 耗能为 2 或更高的卡牌，抽 1 张牌。"
+  },
+  "${modID}:NiceSmile": {
+    "NAME": "完美评分",
+    "DESCRIPTION": "每当你获得 爆发 时，额外获得 !M! 层。"
+  },
+  "${modID}:PackBoost": {
+    "NAME": "爆发冲刺",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每当你回复生命或获得 临时生命 时，将此牌从弃牌堆返回你的手牌。"
+  },
+  "${modID}:PackBouncePad": {
+    "NAME": "弹跳垫",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 !M! 张 [#efc851]金环[] 放入你的手牌。"
+  },
+  "${modID}:PackBlastProcessing": {
+    "NAME": "加速处理",
+    "DESCRIPTION": "每回合中，你前 !M! 张 生成 的卡牌耗能减少 1 点 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有。 NL 每回合中，你前 !M! 张 生成 的卡牌耗能减少 1 点 [E] 。"
+  },
+  "${modID}:PackDropDash": {
+    "NAME": "落地冲刺",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果你本回合 消耗 过卡牌，获得 [E] [E] 。"
+  },
+  "${modID}:PackHomingAttack": {
+    "NAME": "追踪攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将一张 [#efc851]花招[] 放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 将一张 [#efc851]花招+[] 放入你的手牌。",
+    "IGNORE_ME": "stslib:长驻 !stslib:persist!"
+  },
+  "${modID}:PackLevelUp": {
+    "NAME": "Simple Curiosity",
+    "DESCRIPTION": "Add !M! Rings to your hand. NL Gain Level Up Speed, Flight, and Power."
+  },
+  "${modID}:PackRing": {
+    "NAME": "金环",
+    "DESCRIPTION": "留牌。 NL 金环 。 NL 当你受到未被格挡的伤害时， 消耗 此牌。 NL 获得 !M! 点临时生命。 NL 消耗。"
+  },
+  "${modID}:PackTrick": {
+    "NAME": "特技",
+    "DESCRIPTION": "虚无。 NL 获得 !M! 层 元气 。 NL 获得 [E] 。 NL 消耗。"
+  },
+  "${modID}:PeelOut": {
+    "NAME": "原地蓄力",
+    "DESCRIPTION": "消耗 1 张牌。 NL 抽 !M! 张牌。 NL 如果你 消耗 了一张 #y技能牌 ，再抽 1 张牌。"
+  },
+  "${modID}:Piping": {
+    "NAME": "管道传送",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 消耗 1 张牌，并将它的一张复制品放入你的手牌。"
+  },
+  "${modID}:PowerRing": {
+    "NAME": "能量金环",
+    "DESCRIPTION": "每当你 生成 一张卡牌，额外 生成 1 张。"
+  },
+  "${modID}:PunchRush": {
+    "NAME": "百烈拳",
+    "DESCRIPTION": "造成 !D! 点伤害 4 次。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害 4 次。 NL 额外造成 !D! + !M! 点伤害。",
+      "造成 !D! 点伤害 4 次。 NL 打出你抽牌堆顶部的卡牌。"
+    ]
+  },
+  "${modID}:Relax": {
+    "NAME": "放松",
+    "DESCRIPTION": "进入 平静 姿态。 NL 将一张 [#efc851]放松[] 洗入你的抽牌堆。 NL 你可以选择进入 愤怒 姿态。"
+  },
+  "${modID}:RelaxPick1": {
+    "NAME": "放松",
+    "DESCRIPTION": "保持 平静 。"
+  },
+  "${modID}:RelaxPick2": {
+    "NAME": "爆发",
+    "DESCRIPTION": "进入 愤怒 姿态。"
+  },
+  "${modID}:Ricochet": {
+    "NAME": "弹跳攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每当你触发 爆发 时，将此牌从弃牌堆返回你的手牌。"
+  },
+  "${modID}:RicochetRare": {
+    "NAME": "超·弹跳攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每当你触发 爆发 时，将此牌从弃牌堆返回你的手牌。"
+  },
+  "${modID}:Ring": {
+    "NAME": "金环",
+    "DESCRIPTION": "保留 。 NL ${modID}:金环 。 NL 获得 !M! 点 临时生命 。 NL 消耗 。"
+  },
+  "${modID}:RocketAccel": {
+    "NAME": "火箭加速",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你的下 2 次攻击额外造成 !M! 点伤害（在本场战斗中持续生效）。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL 你和你的盟友下一次攻击额外造成 !M! 点伤害（在本场战斗中持续生效）。"
+    ]
+  },
+  "${modID}:QuickAir": {
+    "NAME": "空中冲刺",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 ${modID}:最左侧 ，对你最左侧的 充能球 执行 ${modID}:运转 。 NL 将一张 [#efc851]侧身闪避[] 放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 ${modID}:最左侧 ，对你最左侧的 充能球 执行 ${modID}:运转 。 NL 将一张 [#efc851]侧身闪避+[] 放入你的手牌。 NL 消耗 。"
+  },
+  "${modID}:QuickStep": {
+    "NAME": "侧身闪避",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 ${modID}:最右侧 ，执行 ${modID}:运转 。 NL 将一张 [#efc851]空中冲刺[] 放入你的弃牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 ${modID}:最右侧 ，执行 ${modID}:运转 。 NL 将一张 [#efc851]空中冲刺+[] 放入你的弃牌堆。 NL 消耗 。"
+  },
+  "${modID}:RampJump": {
+    "NAME": "斜坡跳跃",
+    "DESCRIPTION": "将 !M! 张 [#efc851]特技[] 放入你的手牌。",
+    "EXTENDED_DESCRIPTION": [
+      " NL ${modID}:若居中 ，你的盟友也将一张 [#efc851]特技[] 放入他们的手牌。"
+    ]
+  },
+  "${modID}:ScissorKick": {
+    "NAME": "剪刀脚",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你手牌中每有一张牌，额外造成 !M! 点伤害。"
+  },
+  "${modID}:ScissorKickRare": {
+    "NAME": "超·剪刀脚",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你手牌中每有一张牌，额外造成 !M! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 你手牌中每有一张牌，额外造成 !M! 点伤害。"
+  },
+  "${modID}:SecretRoute": {
+    "NAME": "秘密路线",
+    "DESCRIPTION": "抽 !${modID}:CustomVar_DRAW! 张牌。 NL 使你手牌中 !M! 张牌在本回合内的耗能减少 1 点。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 !${modID}:CustomVar_DRAW! 张牌。 NL 使你手牌中 !M! 张牌在本回合内的耗能减少 1 点。 NL 消耗 。"
+  },
+  "${modID}:SkyRing": {
+    "NAME": "空中金环",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 !M! 张 [#efc851]特技[] 放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 将 !M! 张 [#efc851]特技[] 放入你的手牌。"
+  },
+  "${modID}:Shield": {
+    "NAME": "护盾",
+    "DESCRIPTION": "防止下一次失去生命。"
+  },
+  "${modID}:Shortcut": {
+    "NAME": "捷径",
+    "DESCRIPTION": "保留 。 NL 使你手牌中 !M! 张牌在本回合内的耗能减少 1 点。 NL 消耗 。"
+  },
+  "${modID}:Slide": {
+    "NAME": "滑铲",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将一张卡牌从弃牌堆置于抽牌堆顶部。"
+  },
+  "${modID}:SlotMachineStatus": {
+    "NAME": "老虎机：蛋头博士",
+    "DESCRIPTION": "如果你的手牌中有 2 张此牌，立即进入 愤怒 姿态。"
+  },
+  "${modID}:SlotMachineGame": {
+    "NAME": "老虎机游戏",
+    "DESCRIPTION": "将一张 [#efc851]老虎机摇杆[] 放入你的手牌。 NL 将 !M! 张 [#efc851]老虎机：蛋头博士[] 洗入你的抽牌堆。 NL 消耗 。"
+  },
+  "${modID}:SlotMachinePull": {
+    "NAME": "老虎机摇杆",
+    "DESCRIPTION": "抽 1 张牌。 NL 此牌将留在你的手牌中。如果你打出其他卡牌或手牌已满，则 消耗 此牌。",
+    "UPGRADE_DESCRIPTION": "抽 1 张牌。 NL 此牌将留在你的手牌中。如果你打出其他卡牌或手牌已满，则 丢弃 此牌。"
+  },
+  "${modID}:SmoothLanding": {
+    "NAME": "落地失误",
+    "DESCRIPTION": "生成 1 个 冰霜 充能球。 NL 如果你有 爆发 ，下回合额外抽 !M! 张牌。否则立即抽 !M! 张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "生成 1 个 冰霜 充能球。 NL 如果你有 爆发 ，",
+      "下回合额外抽 !M! 张牌。",
+      " NL ",
+      "否则立即抽 !M! 张牌。"
+    ]
+  },
+  "${modID}:SonicBoom": {
+    "NAME": "音爆",
+    "DESCRIPTION": "虚无 。 NL 在你的回合结束时，对所有敌人造成等同于你的 格挡 值与伤害修正值的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "虚无 。 NL 获得 !B! 点 格挡 。 NL 在你的回合结束时，对所有敌人造成等同于你的 格挡 值与伤害修正值的伤害。",
+      "虚无 。 NL 获得 !M! 层 爆发 。 NL 在你的回合结束时，对所有敌人造成等同于你的 格挡 值与伤害修正值的伤害。"
+    ]
+  },
+  "${modID}:SonicBoomRare": {
+    "NAME": "超·音爆",
+    "DESCRIPTION": "虚无 。 NL 在你的回合结束时，对所有敌人造成等同于你的 格挡 值与伤害修正值的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "虚无 。 NL 获得 !B! 点 格挡 。 NL 在你的回合结束时，对所有敌人造成等同于你的 格挡 值与伤害修正值的伤害。",
+      "虚无 。 NL 获得 !M! 层 爆发 。 NL 在你的回合结束时，对所有敌人造成等同于你的 格挡 值与伤害修正值的伤害。"
+    ]
+  },
+  "${modID}:SonicEagle": {
+    "NAME": "音速之鹰",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人意图进行攻击，额外造成 !M! 点伤害。"
+  },
+  "${modID}:SonicEagleRare": {
+    "NAME": "超·音速之鹰",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果敌人意图进行攻击，获得 [E] 并抽 1 张牌。"
+  },
+  "${modID}:SonicFlare": {
+    "NAME": "音速闪光",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得等同于未被格挡伤害一半的 爆发 。"
+  },
+  "${modID}:SonicFlareRare": {
+    "NAME": "超·音速闪光",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得等同于未被格挡伤害的 爆发 。"
+  },
+  "${modID}:SonicWave": {
+    "NAME": "音速冲击波",
+    "DESCRIPTION": "如果你有任何空余的 充能球栏位 ， 生成 !M! 个 闪电 充能球。否则 激发 所有 充能球 2 次并 消耗 。",
+    "UPGRADE_DESCRIPTION": "如果你有任何空余的 充能球栏位 ， 生成 !M! 个 闪电 充能球。否则 激发 所有 充能球 2 次。",
+    "EXTENDED_DESCRIPTION": [
+      "如果你有任何空余的 充能球栏位 ， NL 生成 !M! 个 闪电 充能球。",
+      " NL ",
+      " 否则 激发所有充能球 2 次。 NL 消耗 。",
+      " 否则 激发 所有 充能球 2 次。"
+    ]
+  },
+  "${modID}:SonicWaveRare": {
+    "NAME": "超·音速冲击波",
+    "DESCRIPTION": "如果你有任何空余的 充能球栏位 ， 生成 !M! 个 闪电 充能球。否则 激发 所有 充能球 2 次并 消耗 。",
+    "UPGRADE_DESCRIPTION": "如果你有任何空余的 充能球栏位 ， 生成 !M! 个 闪电 充能球。否则 激发 所有 充能球 2 次。"
+  },
+  "${modID}:SpeedBreak": {
+    "NAME": "极速冲刺",
+    "DESCRIPTION": "受到 !M! 点伤害。 NL 本回合将你手牌中所有卡牌的耗能降为 0 。"
+  },
+  "${modID}:SpinDash": {
+    "NAME": "旋转冲刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你打出的下一张攻击牌耗能为 0 。"
+  },
+  "${modID}:SpinDashRare": {
+    "NAME": "超·旋转冲刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你打出的下一张攻击牌耗能为 0 。"
+  },
+  "${modID}:SpinningNeedleAttack": {
+    "NAME": "回旋针刺攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 1 张牌并随机化其在本回合内的耗能。 NL 此牌额外造成等同于随机化后耗能值的伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽 1 张牌并随机化其在本回合内的耗能。 NL 此牌额外造成等同于随机化后耗能值 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL 抽 1 张牌并将本回合内的耗能改为 ",
+      " 。"
+    ]
+  },
+  "${modID}:SpinningNeedleAttackRare": {
+    "NAME": "超·回旋针刺攻击",
+    "DESCRIPTION": "抽 1 张牌并随机化其在本回合内的耗能。造成 !D! 点伤害。 NL 此牌额外造成等同于随机化后耗能值的伤害。",
+    "UPGRADE_DESCRIPTION": "抽 1 张牌并随机化其在本回合内的耗能。造成 !D! 点伤害。 NL 此牌额外造成等同于随机化后耗能值 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。抽 1 张牌并将本回合内的耗能改为 ",
+      " 。"
+    ]
+  },
+  "${modID}:SuperSonicForm": {
+    "NAME": "超级索尼克形态",
+    "DESCRIPTION": "获得 !M! 点 力量 和 敏捷 。 NL 在你的回合开始时，失去 1 点 敏捷 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 、 敏捷 和 集中力 。 NL 在你的回合开始时，失去 1 点 敏捷 和 集中力 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !M! 点 力量 。 NL 获得 !M! 点 集中力 。你必须打出 [#efc851]金环[] 来获得 虚体 。每回合都会 死亡 。"
+    ]
+  },
+  "${modID}:Taunt": {
+    "NAME": "嘲讽",
+    "DESCRIPTION": "获得 !M! 点 临时敏捷 。 NL 给予 !M! 层 易伤 。 NL 本回合中你每打出一张攻击牌，此牌耗能减少 1 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !M! 点 临时敏捷 。 NL 给予 !M! 层 易伤 。 NL 本回合中你每打出一张攻击牌，此牌耗能减少 1 。",
+      "退出 姿态 。 NL 获得 !M! 点 临时敏捷 。 NL 给予 !M! 层 易伤 。 NL 本回合中你每打出一张攻击牌，此牌耗能减少 1 。"
+    ]
+  },
+  "${modID}:Teaser": {
+    "NAME": "预兆",
+    "DESCRIPTION": "生成 !M! 个 黑暗 充能球。 NL 将 [#efc851]爪牙[] [#efc851]释放[] 放入你的抽牌堆。",
+    "UPGRADE_DESCRIPTION": "生成 !M! 个 黑暗 充能球。 NL 将 [#efc851]爪牙[] [#efc851]释放+[] 放入你的抽牌堆。",
+    "EXTENDED_DESCRIPTION": [
+      "生成 !M! 个 黑暗 充能球。 NL 将 [#efc851]爪牙[] [#efc851]释放+[] 放入你的抽牌堆。",
+      "生成 !M! 个 黑暗 充能球。 NL 将 [#efc851]爪牙[] [#efc851]释放*[] 放入你的抽牌堆。"
+    ]
+  },
+  "${modID}:TeaserRare": {
+    "NAME": "超·预兆",
+    "DESCRIPTION": "生成 !${modID}:CustomVar_DARK! 个 黑暗 充能球。 NL 消耗 你抽到的下 !M! 张 普通攻击牌 ，并将一张 狼人形态攻击牌 放入你的手牌。"
+  },
+  "${modID}:TeaserRareAttack1": {
+    "NAME": "狼王升龙拳",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 锁定 。 NL 给予 !M! 层 虚弱 。"
+  },
+  "${modID}:TeaserRareAttack1Multi": {
+    "NAME": "狂野旋风",
+    "DESCRIPTION": "对随机敌人造成 !D! 点伤害 !M! 次。"
+  },
+  "${modID}:TeaserRareAttack2": {
+    "NAME": "狼人战锤",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 额外造成等同于你最右侧 黑暗 充能球激发伤害值的伤害。"
+  },
+  "${modID}:TeaserRareAttack3": {
+    "NAME": "释放狂野连击",
+    "DESCRIPTION": "这张卡不应该在正常游玩中被遇到。 NL 如果你看到了这段文字，你可能遇到了一个Bug。 NL 请向Mod开发者反馈此问题。"
+  },
+  "${modID}:TiSRainbowRing": {
+    "NAME": "彩虹环",
+    "DESCRIPTION": "获得 [E] 。 NL 你和你的队友将一张 [#efc851]特技[] 放入手牌。"
+  },
+  "${modID}:TiSRocketAccel": {
+    "NAME": "火箭加速",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你和你的队友打出的下一张 攻击牌 额外造成 !M! 点伤害（本场战斗持续有效）。"
+  },
+  "${modID}:TopKick": {
+    "NAME": "踢顶",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 爆发 。 NL 本回合每打出一张攻击牌，额外获得 !M! 层 爆发 。"
+  },
+  "${modID}:TopKickRare": {
+    "NAME": "超·踢顶",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 爆发 。 NL 本回合每打出一张攻击牌，额外获得 !M! 层 爆发 。"
+  },
+  "${modID}:ThunderShield": {
+    "NAME": "雷电护盾",
+    "DESCRIPTION": "生成 !M! 个 闪电 充能球。 NL 在回合结束时，将 1 张 [#efc851]金环[] 放入你的手牌。你手牌中每有一张 [#efc851]金环[] ， 闪电 充能球就会额外 ${modID}:激发 1 次。"
+  },
+  "${modID}:Trick": {
+    "NAME": "特技",
+    "DESCRIPTION": "虚无。 NL 获得 !M! 层 爆发 。 NL 获得 [E] 。 NL 消耗。"
+  },
+  "${modID}:TrickFinisher": {
+    "NAME": "特技终结技",
+    "DESCRIPTION": "保留 。 NL 使你的 爆发 层数翻倍。 NL 获得 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 使你的 爆发 层数翻倍。 NL 获得 [E] 。"
+  },
+  "${modID}:Trickster": {
+    "NAME": "特技高手",
+    "DESCRIPTION": "在你的回合开始时，将一张 [#efc851]特技[] 放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 在你的回合开始时，将一张 [#efc851]特技[] 放入你的手牌。"
+  },
+  "${modID}:TripleKick": {
+    "NAME": "三连踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 将 [#efc851]第二段[] 放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 将 [#efc851]第二段+[] 放入你的手牌。"
+  },
+  "${modID}:TripleKick2": {
+    "NAME": "三连踢 第二段",
+    "DESCRIPTION": "虚无。 NL 造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 将 [#efc851]第三段[] 放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "虚无。 NL 造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 将 [#efc851]第三段+[] 放入你的手牌。 NL 消耗 。"
+  },
+  "${modID}:TripleKick3": {
+    "NAME": "三连踢 第三段",
+    "DESCRIPTION": "虚无。 NL 造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "虚无。 NL 造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 消耗 。"
+  },
+  "${modID}:TripleKickRare": {
+    "NAME": "超·三连踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 将 [#efc851]第二段[] 放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点 临时力量 。 NL 将 [#efc851]第二段+[] 放入你的手牌。"
+  },
+  "${modID}:Turbulence": {
+    "NAME": "乱流",
+    "DESCRIPTION": "失去 !M! 点 集中力 。 NL ${modID}:最左侧 ：将一张 [#efc851]特技[] 放入你的手牌。每当你 消耗 一张卡牌时， 生成 1 个 冰霜 充能球。",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点 集中力 。 NL ${modID}:最左侧 ：将一张 [#efc851]特技[] 放入你的手牌。每当你 消耗 一张卡牌时， 生成 1 个 冰霜 充能球。"
+  },
+  "${modID}:UpDraft": {
+    "NAME": "上升气流",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 将一张 [#efc851]金环[] 放入你的手牌。"
+  },
+  "${modID}:UpDraftRare": {
+    "NAME": "超·上升气流",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 将一张 [#efc851]金环[] 放入你的手牌。 NL 生成 1 个 冰霜 充能球。"
+  },
+  "${modID}:VolcanoSlider": {
+    "NAME": "火山滑铲",
+    "DESCRIPTION": "${modID}:烈焰纹章 。 NL 造成 !D! 点伤害。 NL 消耗 手牌中其左侧的 所有 卡牌。每 消耗 一张卡牌，此牌额外造成 !M! 点伤害。"
+  },
+  "${modID}:WallJump": {
+    "NAME": "三角跳",
+    "DESCRIPTION": "获得 !B! 点 护甲 X 次。 NL 将 X 张 [#efc851]金环[] 放入你的手牌。"
+  },
+  "${modID}:Whirlwind": {
+    "NAME": "旋风攻击",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 !M! 次。"
+  },
+  "${modID}:WindUpPunch": {
+    "NAME": "蓄力重拳",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 将一张 [#efc851]特技[] 放入你的手牌。",
+    "DESCRIPTION_IDEA_2": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 如果你拥有 爆发 ，此牌额外造成 !${modID}:CustomVar_DAMAGE! 点伤害。"
+  },
+  "${modID}:WindUpPunchRare": {
+    "NAME": "超·蓄力重拳",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL 将一张 [#efc851]特技[] 放入你的手牌。"
+  },
+  "${modID}:Windmill": {
+    "NAME": "大风车攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 随机化手牌中一张牌在本回合内的耗能。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL 将手牌中一张牌在本回合内的耗能改为 ",
+      " 。"
+    ]
+  },
+  "${modID}:WindmillRare": {
+    "NAME": "超·大风车攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 随机化手牌中一张牌在本回合内的耗能。 NL 此牌将留在手牌中，可额外使用 !M! 次。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL 将手牌中一张牌在本回合内的耗能改为 ",
+      " 。",
+      " NL 此牌将留在手牌中，可额外使用 !M! 次。"
+    ]
+  }
+}

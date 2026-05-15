@@ -21,6 +21,14 @@
       " created cards cost one less [E] . Zero cost created cards are excluded."
     ]
   },
+  "${modID}:ChaosControlPower": {
+    "NAME": "Chaos Control",
+    "DESCRIPTIONS": [
+      "This turn, your next Attack plays ",
+      " more time.",
+      " more times."
+    ]
+  },
   "${modID}:DevBandaidPower": {
     "NAME": "Dev Bandaid Power",
     "DESCRIPTIONS": [
@@ -31,6 +39,12 @@
     "NAME": "Direct Jump",
     "DESCRIPTIONS": [
       "When you play a skill this turn, add a Ring to your hand."
+    ]
+  },
+  "${modID}:DizzyPlayerPower": {
+    "NAME": "Dizzy",
+    "DESCRIPTIONS": [
+      "At the start of your turn, randomize the cost of ALL cards in your hand for this turn."
     ]
   },
   "${modID}:DizzyPower": {
@@ -163,7 +177,7 @@
     ]
   },
   "${modID}:OneUpPower": {
-    "NAME": "Perfect Score",
+    "NAME": "1-Up",
     "DESCRIPTIONS": [
       "Whenever you die, gain #g",
       " HP and #rlose #r100 #rGold."

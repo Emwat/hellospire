@@ -28,10 +28,7 @@ import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theHedgehog.*;
-import theHedgehog.cards.BouncePad;
-import theHedgehog.cards.Defend;
-import theHedgehog.cards.HomingAttack;
-import theHedgehog.cards.Strike;
+import theHedgehog.cards.*;
 import theHedgehog.effects.VictoryGlow;
 import theHedgehog.effects.VictoryStarEffect;
 import theHedgehog.relics.BlueQuillRelic;
@@ -41,6 +38,7 @@ import theHedgehog.relics.LimiterRingRelic;
 import theHedgehog.skins.ModSkinDictionary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static theHedgehog.SonicMod.*;
@@ -190,7 +188,7 @@ public class Sonic extends CustomPlayer {
                 20.0F, -20.0F, 200.0F, 250.0F, // Character hitbox. x y position, then width and height.
                 new EnergyManager(ENERGY_PER_TURN));
 
-        if (sonicmodConfig != null){
+        if (sonicmodConfig != null) {
             setSkin(sonicmodConfig.getString(CONFIG_CURRENT_SKIN));
         }
 
@@ -218,7 +216,7 @@ public class Sonic extends CustomPlayer {
         if (currentModSkin == null) {
             this.animation = new CustomSpriterAnimation(ModSkinDictionary.defaultAnimationPath);
         } else {
-            if (Gdx.files.internal(currentModSkin.getAnimationPath()).exists()){
+            if (Gdx.files.internal(currentModSkin.getAnimationPath()).exists()) {
                 this.animation = new CustomSpriterAnimation(currentModSkin.getAnimationPath());
             } else {
                 this.animation = new CustomSpriterAnimation(ModSkinDictionary.getBaseSkin().getAnimationPath());
@@ -308,6 +306,7 @@ public class Sonic extends CustomPlayer {
             }
         }
 
+
         return retVal;
     }
 
@@ -327,6 +326,32 @@ public class Sonic extends CustomPlayer {
         } else {
             return SneckoEye.ID;
         }
+    }
+
+    private AbstractCard GetRandomCommonAttack() {
+        ArrayList<AbstractCard> commonAttacks = new ArrayList<>(Arrays.asList(
+                new Boost(),
+                new DoubleAirKick(),
+                new FootSweep(),
+                new InstaShield(),
+                new UpDraft(),
+                new Windmill()
+        ));
+        int randomNumber = MathUtils.random(commonAttacks.size() - 1);
+        return commonAttacks.get(randomNumber);
+    }
+
+    private AbstractCard GetRandomCommonSkill() {
+        ArrayList<AbstractCard> commonSkills = new ArrayList<>(Arrays.asList(
+                new Bumper(),
+                new DirectJump(),
+                new DizzySpin(),
+                new RampJump(),
+                new SmoothLanding(),
+                new Slide()
+        ));
+        int randomNumber = MathUtils.random(commonSkills.size() - 1);
+        return commonSkills.get(randomNumber);
     }
 
     @Override
@@ -460,7 +485,7 @@ public class Sonic extends CustomPlayer {
             panels.add(new CutscenePanel(endingPath("ending1.png"), SoundLibrary.Boost));
             panels.add(new CutscenePanel(endingPath("ending2.png")));
             panels.add(new CutscenePanel(endingPath("ending3.png")));
-        } else if (isKnuckles()){
+        } else if (isKnuckles()) {
             panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending1.png"));
             panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending2.png"));
             panels.add(new CutscenePanel(currentModSkin.getCharacterPath() + "/ending/ending3.png"));

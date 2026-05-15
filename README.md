@@ -8,13 +8,10 @@ Requires subscription to
 [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases)
 
 # Gameplay Features
-- Creating cards
-- Manipulating cards' energy costs
 - Voice clips, Music Patches
 - 10+ patches
   - Chao Evolve at rest site
   - Dialogue against the Champ
-- Relics
 - 1 Event w/ combat reward
 - Easy Config
 
@@ -43,15 +40,17 @@ Requires subscription to
 # Good modding tools - HUGE THANKS TO ALL OF YOU.
 - Slay the Spire Discord - #modding-technical - Thank you guys so much again for helping me out.
 - [StSModdingToolCardImagesCreator] (https://github.com/JohnnyBazooka89/StSModdingToolCardImagesCreator) - crops and masks card images.
-- [Loadout Mod] (https://steamcommunity.com/sharedfiles/filedetails/?id=2814267979) - there's a tab on the left side of the screen which lets you spawn any card, any relic, and any enemy. I ended up preferring the dev console to test cards.
-- [Run Resumer] (https://steamcommunity.com/sharedfiles/filedetails/?id=3127212809) - to test against the Heart after balancing cards. Also easy campfire access.
-- [Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use. It helps when I need to look at which addToBot/addToTop Action is playing or if I need to look at draw coordinates.
-- [Modded Spire Exporter] (https://steamcommunity.com/sharedfiles/filedetails/?id=2069872611&searchtext=exporter) - Export every card of a mod to an html file! Now I can Ctrl + F for specific descriptions in Packmaster
-- [Googly Eyes steam] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Adds Replay value 
-- [Googly Eyes github] (https://github.com/twanvl/sts-googly-mod/) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
-- [Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
-- [Mega Transparent The Spire 2.0] https://steamcommunity.com/sharedfiles/filedetails/?id=3309442660 - you can see the debug log while you play.
-- [Packmaster Wiz] (https://github.com/erasels/PackmasterCharacter/blob/main/src/main/java/thePackmaster/util/Wiz.java) - Utility Library with short function abbreviations for things like atb for addToBottom.
+- [Steam Workshop - Loadout] (https://steamcommunity.com/sharedfiles/filedetails/?id=2814267979) - there's a tab on the left side of the screen which lets you spawn any card, any relic, and any enemy. I ended up preferring the dev console to test cards.
+- [Steam Workshop - Run Resumer] (https://steamcommunity.com/sharedfiles/filedetails/?id=3127212809) - to test against the Heart after balancing cards. Also easy campfire access.
+- [Steam Workshop - Better Debug] (https://steamcommunity.com/sharedfiles/filedetails/?id=2351301825) - type "debug" in the dev console to use. It helps when I need to look at which addToBot/addToTop Action is playing or if I need to look at draw coordinates.
+- [Steam Workshop - Modded Spire Exporter] (https://steamcommunity.com/sharedfiles/filedetails/?id=2069872611) - Export every card of a mod to an html file! Now I can Ctrl + F for specific descriptions in Packmaster
+- [Steam Workshop - Googly Eyes] (https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126) - Adds Replay value
+- [Github - Googly Eyes] (https://github.com/twanvl/sts-googly-mod/) - Be warned: Every time you open the game, the googly-eye-locations.json DOES NOT append new entries to the existing file. It overwrites the file! I learned that lesson the hard way.
+- [Steam Workshop - EUI] (https://steamcommunity.com/sharedfiles/filedetails/?id=2788071529) - Compendium filters w/ a SEARCH feature. Also, features getting rid of that slow fade transition.
+- [Steam Workshop - Mega Transparent The Spire 2.0] https://steamcommunity.com/sharedfiles/filedetails/?id=3309442660 - you can see the debug log while you play.
+- [YouTube - Spriter] (https://www.youtube.com/watch?v=hNyEVGeMf-o) - this is the tool used for animating in this mod.
+- [Github - Packmaster] (https://github.com/erasels/PackmasterCharacter/blob/main/src/main/java/thePackmaster/util/Wiz.java) - Utility Library with short function abbreviations for things like atb for addToBottom.
+
 - Github.com - You need to log in to search the search bar. Sometimes I'll search the whole website with very specific code to find what I'm looking for.
 - Steam > Settings > Game Recording > Record in Background. Play game. Steam > Library > Slay the Spire > video is underneath POST-GAME SUMMARY. Amazing debugging tool.
 - YouTube - You can double right-click a video and take snapshot.
@@ -59,7 +58,7 @@ Requires subscription to
 - You can edit `AppData\Local\ModTheSpire\mod_lists.json` to re-organize MTS profiles
 
 # General Coding Tips for beginners
-- Learn some basics. You don't need a full course. What is a method? What is method overloading?
+- Learn some basics. You don't need a full course. What is a breakpoint? What is method overloading?
 - Test your code as soon as you code it. People have short-term memory and it's a lot harder to find bugs when you're recalling what you coded 2 hours ago.
 - When you test your code, use the bare minimum amount of mods for faster loading. I keep it strictly to BaseMod, StSLib, Run Resumer, Loadout, and my mod. This also isolates your code so you don't end up chasing a mod conflict bug. 
 - There's a buttload of testing. I hate testing. I abhor it. But the definition of quality assurance is testing.
@@ -67,7 +66,7 @@ Requires subscription to
 - I use `SonicMod.logger.info("here's some info: " + myVariableName")` in the why-isnt-this-working?? scenarios a lot.
 
 # StS Modding Gotchas
-- If an attack targets ALL enemies, you need this `this.isMultiDamage = true;`.
+- If an attack targets ALL enemies, you need this `this.isMultiDamage = true;` .
 - `this.retain = true;` only retains for one turn. See `setSelfRetain(true);` for retaining a card every turn.
 - `modifyCostForCombat(amt)` is a counter-intuitive name for a function. Amt is not the new cost. Amt increments it.
 - Overriding the `upgrade` function in BasicMod can lose functionality. If you're going to do so, you can include the `super()` at the end of the upgrade function.
@@ -97,6 +96,8 @@ Requires subscription to
 ```
 - Unlocking cards is a pain, b/c I can't accurately reflect the player's environment. I ended up taking a bit of Downfall's code. [Downfall Unlock Code] (https://github.com/mikemayhemdev/DownfallSTS/blob/f744942e2a63b4f2cb73f9f8c4d9175141a09ce3/src/main/java/downfall/downfallMod.java#L2010)
 - If you choose to Retain an Ethereal card, it typically does Retain, which is counter-intuitive to base game logic.
+- If a card says deal double damage, be sure to test it with Strength, Vigor, and Vulnerable-like debuffs. See Sonic's Horse Kick for my workaround.
+- `addToBot(new TransformCardInHandAction)` is bugged. If a player uses Gambling Chip and discards the transformed target, it breaks the game.
 - I'm sure there's more! But idr rn.
 
 # IntelliJ shortcuts
@@ -122,15 +123,19 @@ The Loadout mod is great. I've used it a ton in the beginning, but now I mostly 
         return panels;
     }
 ```
-- Change out Bash for the Gremlin match and keep in the `getStartCardForEvent()`
+- Change out Bash for the Gremlin Match and Keep Event in the `getStartCardForEvent()`
 - Update the version number
 
 # Base Game things
 - [Red for attack, blue for block] (https://www.reddit.com/r/slaythespire/comments/1rtdpxv/blocks_cards_look_like_attack_cards_card_visual/)
 - Silent has two extra starter cards so that you need exactly two turns for a complete shuffle
 - Defect has Lightning in its starter relic and its starter deck. So if you have a secondary resource, do consider having it in your starter relic and starter deck.
-- Every character has their three character unique potions and relics.
+- Buffs that do nothing until a certain number (like Watcher's Mantra) typically need really good payoffs
+- Ironclad can double block/strength. Silent can double/triple Poison. Defect has Double Energy. Watcher has Wrath and Divinity. The idea is that everyone has multipliers that can break the game.
+- Every character has their character unique forms, 3 potions, relics, shop relic, 5 unlockables, and unique text in the `com.megacrit.cardcrawl.events.beyond.SensoryStone` event.
 - Card Texts split up NLs appropriately. I was a bit hesitant on having NLs on cards w/ too much text but it does make a lot of things easier to read.
+- Statuses are temporary. Curses persist between combats. Typically, your cards should be creating statuses, not curses.
+- When Neow does her boss swap, she replaces the first relic.
 
 # Steam Workshop Link
 - https://steamcommunity.com/sharedfiles/filedetails/?id=3489847473
@@ -158,4 +163,4 @@ The Loadout mod is great. I've used it a ton in the beginning, but now I mostly 
 - Run Resumer & DownFall
 - Run Resumer & Act Like It
 
-
+# Thank you for reading me!

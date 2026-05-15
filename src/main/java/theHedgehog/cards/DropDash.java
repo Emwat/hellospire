@@ -46,7 +46,7 @@ public class DropDash extends BaseCard {
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (SonicMod.cardsDrawnThisTurn > 0) {
+        if (SonicMod.hasTurnStartedYet && SonicMod.cardsDrawnThisTurn > 0) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

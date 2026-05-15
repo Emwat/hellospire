@@ -46,27 +46,28 @@ public class ModLagavulin extends AbstractMonster {
     private boolean isOutTriggered = false;
     private int idleCount = 0;
     private int debuffTurnCount = 0;
+    private int numberOfSleeps = 6; // originally sleeps for 3
 
     public ModLagavulin(boolean setAsleep, float x, float y) {
-        super(NAME, "ModLagavulin", 111, 0.0F, -25.0F, 320.0F, 220.0F, (String)null, x, y);
+        super(NAME, "ModLagavulin", HP_MAX, 0.0F, -25.0F, 320.0F, 220.0F, (String)null, x, y);
         this.type = EnemyType.ELITE;
         this.dialogX = -100.0F * Settings.scale;
         if (AbstractDungeon.ascensionLevel >= 8) {
-            this.setHp(112, 115);
+            this.setHp(A_2_HP_MIN, A_2_HP_MAX);
         } else {
-            this.setHp(109, 111);
+            this.setHp(HP_MIN, HP_MAX);
         }
 
         if (AbstractDungeon.ascensionLevel >= 3) {
-            this.attackDmg = 20;
+            this.attackDmg = A_2_STRONG_ATK_DMG;
         } else {
-            this.attackDmg = 18;
+            this.attackDmg = STRONG_ATK_DMG;
         }
 
         if (AbstractDungeon.ascensionLevel >= 18) {
-            this.debuff = -2;
+            this.debuff = A_18_DEBUFF_AMT;
         } else {
-            this.debuff = -1;
+            this.debuff = DEBUFF_AMT;
         }
 
         this.damage.add(new DamageInfo(this, this.attackDmg));
@@ -127,7 +128,7 @@ public class ModLagavulin extends AbstractMonster {
                 break;
             case 5:
                 ++this.idleCount;
-                if (this.idleCount >= 3) {
+                if (this.idleCount >= numberOfSleeps) {
                     this.isOutTriggered = true;
                     AbstractDungeon.actionManager.addToBottom(new ChangeStateAction(this, "OPEN"));
                     AbstractDungeon.actionManager.addToBottom(new SetMoveAction(this, (byte)3, Intent.ATTACK, ((DamageInfo)this.damage.get(0)).base));

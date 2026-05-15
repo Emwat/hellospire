@@ -1036,13 +1036,30 @@ public abstract class BaseCard extends CustomCard {
 
     public void removeAssistCard(boolean isAssistUpgraded) {
         ArrayList<AbstractCard> masterDeck = AbstractDungeon.player.masterDeck.group;
+        boolean hasRemovedCard = false;
 
         for (int i = masterDeck.size() - 1; i >= 0; --i) {
             AbstractCard card = masterDeck.get(i);
             if (card instanceof Assist && card.upgraded == isAssistUpgraded) {
                 AbstractDungeon.player.masterDeck.removeCard(card);
+                hasRemovedCard = true;
                 break;
             }
+        }
+
+        if (!hasRemovedCard) {
+            for (int i = masterDeck.size() - 1; i >= 0; --i) {
+                AbstractCard card = masterDeck.get(i);
+                if (card instanceof Assist) {
+                    AbstractDungeon.player.masterDeck.removeCard(card);
+                    hasRemovedCard = true;
+                    break;
+                }
+            }
+        }
+
+        if (!hasRemovedCard) {
+            SonicMod.logger.info(this.name + " Failed to remove Assist upon pickup.");
         }
     }
 

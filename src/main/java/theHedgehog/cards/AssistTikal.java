@@ -30,7 +30,7 @@ public class AssistTikal extends BaseCard implements OnObtainCard {
     private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 1;
     private static final int ORB_AMT = 1;
-    private static final String KEYWORD_ORB = "CustomVar_ORB";
+    private static final String KEYWORD_ORB = "CustomVar_ORB"; // not CustomVar_ORB b/c ZHS pain
     private static final Color FLAVOR_BOX_COLOR = CardHelper.getColor(255, 218, 128);
     private static final Color FLAVOR_TEXT_COLOR = CardHelper.getColor(7, 193, 20);
 

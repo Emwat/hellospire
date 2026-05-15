@@ -2,7 +2,7 @@
   "${modID}:3 Sentries": {
     "DIALOG": [
       "Let's rock!",
-      "Time to party!"
+      "These guys never learn."
     ]
   },
   "${modID}:Awakened One": {
@@ -21,10 +21,25 @@
       "The Exordium is the @OTHER@ way."
     ]
   },
+  "${modID}:EnemyBossSonic": {
+    "DIALOG": [
+      "What can I say? I die hard.",
+      "You're gonna be sorry you asked."
+    ],
+    "DIALOG_0": [
+      "You just never learn, do you?",
+      "Think you can keep up?"
+    ]
+  },
   "${modID}:Slime Boss": {
     "DIALOG": [
       "Aw yeah! This could be fun!",
       "Chaos! Could this be the same beast?"
+    ]
+  },
+  "${modID}:Silent": {
+    "DIALOG": [
+      "Nobody's faster than me!"
     ]
   },
   "${modID}:Time Eater": {

@@ -245,6 +245,11 @@
     "NAME": "Bumper",
     "DESCRIPTION": "Retain. NL Gain !B! Block."
   },
+  "${modID}:ChaosControl": {
+    "NAME": "Chaos Control",
+    "DESCRIPTION": "This turn, your next Attack is played X times.",
+    "UPGRADE_DESCRIPTION": "This turn, your next Attack is played X+!M! times."
+  },
   "${modID}:ChaosEmeraldAttack": {
     "NAME": "Chaos Emerald",
     "DESCRIPTION": "On draw, Exhaust this and add the previewed card into your hand."
@@ -330,8 +335,8 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "${modID}:Rev ALL Orbs !M!X times. NL stslib:Refund !stslib:refund!.",
-    "UPGRADE_DESCRIPTION": "${modID}:Rev ALL Orbs !M!(X + 1) times. NL stslib:Refund !stslib:refund!.",
+    "DESCRIPTION": "${modID}:Rev ALL Orbs !${modID}:CustomVar_MULTIPLIER!X times. NL stslib:Refund !stslib:refund!.",
+    "UPGRADE_DESCRIPTION": "${modID}:Rev ALL Orbs !${modID}:CustomVar_MULTIPLIER!(X + 1) times. NL stslib:Refund !stslib:refund!.",
     "EXTENDED_DESCRIPTION": [
       "${modID}:Rev ALL Orbs [#7fff00]",
       "[] times. NL stslib:Refund !stslib:refund!."
@@ -723,7 +728,7 @@
   },
   "${modID}:PeelOut": {
     "NAME": "Peel Out",
-    "DESCRIPTION": "Exhaust 1 card. NL Draw !M! cards."
+    "DESCRIPTION": "Exhaust 1 card. NL Draw !M! cards. NL If you Exhausted a Skill, draw 1 more."
   },
   "${modID}:Piping": {
     "NAME": "Piping",
@@ -774,8 +779,8 @@
   },
   "${modID}:QuickAir": {
     "NAME": "Quick Air",
-    "DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, ${modID}:rev your leftmost Orb. NL Add [#efc851]Quick[] [#efc851]Step[] to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, ${modID}:rev your leftmost Orb. NL Add [#efc851]Quick[] [#efc851]Step+[] to your hand. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, ${modID}:Rev your leftmost Orb. NL Add [#efc851]Quick[] [#efc851]Step[] to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. ${modID}:If_leftmost, ${modID}:Rev your leftmost Orb. NL Add [#efc851]Quick[] [#efc851]Step+[] to your hand. NL Exhaust."
   },
   "${modID}:QuickStep": {
     "NAME": "Quick Step",
@@ -992,7 +997,7 @@
   },
   "${modID}:ThunderShield": {
     "NAME": "Thunder Shield",
-    "DESCRIPTION": "Channel !M! Lightning. NL At end of turn, add 1 [#efc851]Ring[] to your hand. NL Lightning Orbs ${modID}:rev an additional time for each [#efc851]Ring[] in your hand."
+    "DESCRIPTION": "Channel !M! Lightning. NL At end of turn, add 1 [#efc851]Ring[] to your hand and Lightning Orbs ${modID}:Rev an additional time for each [#efc851]Ring[] in your hand."
   },
   "${modID}:Trick": {
     "NAME": "Trick",

@@ -1,6 +1,7 @@
 package theHedgehog.powers;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,6 +32,14 @@ public class MomentumPower extends BasePower {
                 .replace("{0}", String.valueOf(this.amount))
                 .replace("{1}", this.amount == 1 ? "" : "s");
     }
+
+    // Necronomicon uses onUseCard()
+    // I believe onUseCard/onPlayCard work in this order:
+    // 1. onPlayCard
+    // 2. The card's use()
+    // 3. onUseCard
+    // 4. Any actions the card's use() queued
+    // 5. onAfterUseCard
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {

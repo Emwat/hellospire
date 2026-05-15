@@ -41,7 +41,7 @@
     "NAME": "Time Warp - Past",
     "FLAVOR": "Golden Era.",
     "DESCRIPTIONS": [
-      "If you take #b{0} damage, Exhaust ALL #yRings in your hand."
+      "When you would die, spend 100 Gold to #b{0} of your Max HP. If you take #b{1} damage, Exhaust ALL #yRings in your hand."
     ]
   },
   "${modID}:ChaoDefectRelic": {
@@ -121,7 +121,7 @@
     "NAME": "Fire Soul",
     "FLAVOR": "WOW! The wisdom of Sinbad of the Seven Seas! The adventurer of adventurers!",
     "DESCRIPTIONS": [
-      "When you use a #yCrest #yof #yFire or a #yStrike card, first gain #b",
+      "When you use a #yCrest #yof #yFire or a #yStrike, first gain #b",
       " Block. This amount permanently increases when you enter a Rest Site."
     ]
   },

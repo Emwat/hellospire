@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class SonicConsoleDeck extends ConsoleCommand {
     public SonicConsoleDeck() {
         maxExtraTokens = 1; // How many additional words can come after this one. If unspecified, maxExtraTokens = 1.
-        minExtraTokens = 1; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
+        minExtraTokens = 0; // How many additional words have to come after this one. If unspecified, minExtraTokens = 0.
         requiresPlayer = false; // if true, means the command can only be executed if during a run. If unspecified, requiresplayer = false.
         simpleCheck = true;
     }
@@ -31,7 +31,9 @@ public class SonicConsoleDeck extends ConsoleCommand {
     @Override
     protected void execute(String[] tokens, int depth) {
 
-        if (tokens.length > 1) {
+        if (!(tokens.length > 1)) {
+            DevConsole.log("need more parameters");
+        } else {
             String firstToken = tokens[1];
 
             if (firstToken.equals("casino")) {

@@ -32,13 +32,15 @@ public class CDPastRelic extends BaseRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0].replace("{0}", Integer.toString(toleranceToPain));
+        return DESCRIPTIONS[0]
+                .replace("{0}", Integer.toString(reviveCost))
+                .replace("{1}", Integer.toString(toleranceToPain));
     }
 
     @Override
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
-        addToTop(new ApplyPowerAction(p, p, new OneUpPower(p, (int)(p.gold / 100))));
+        addToTop(new ApplyPowerAction(p, p, new OneUpPower(p, (int)(p.gold / reviveCost))));
     }
 
     @Override

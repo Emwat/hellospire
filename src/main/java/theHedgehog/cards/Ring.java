@@ -62,12 +62,6 @@ public class Ring extends BaseCard {
             }
             loadCardImage(SonicMod.imagePath("cards/skill/Ring_b.png"));
         }
-
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("ModAchievement")) {
-            if (!UnlockTracker.isAchievementUnlocked(makeID("Ringmaster"))) {
-                unlockRingmasterAchievement();
-            }
-        }
     }
 
     @Override
@@ -122,20 +116,6 @@ public class Ring extends BaseCard {
                         orb.applyFocus();
                 }
             }));
-        }
-    }
-
-    private void unlockRingmasterAchievement() {
-        if (AbstractDungeon.player == null) {
-            return;
-        }
-        int total = 0;
-        total += countRings(AbstractDungeon.player.drawPile.group);
-        total += countRings(AbstractDungeon.player.exhaustPile.group);
-        total += countRings(AbstractDungeon.player.discardPile.group);
-        total += countRings(AbstractDungeon.player.hand.group);
-        if (total > 20) {
-            UnlockTracker.unlockAchievement(makeID("Ringmaster"));
         }
     }
 
