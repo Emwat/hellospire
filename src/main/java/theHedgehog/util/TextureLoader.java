@@ -7,12 +7,18 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Locale;
 
 import static theHedgehog.SonicMod.*;
 
 public class TextureLoader {
     private static final HashMap<String, Texture> textures = new HashMap<>();
+    // Paths that failed to load. Without this, every getTexture() of a missing file hit the
+    // filesystem again and logged the same stack trace every time.
+    private static final HashSet<String> failedPaths = new HashSet<>();
+    // Result of the "does this card have its own art?" filesystem check, per card.
+    private static final HashMap<String, String> cardTexturePaths = new HashMap<>();
 
     /**
      * @param filePath - String path to the texture you want to load relative to resources,
@@ -31,10 +37,15 @@ public class TextureLoader {
      */
     public static Texture getTexture(final String filePath, boolean linear) {
         if (textures.get(filePath) == null) {
-            try {
-                loadTexture(filePath, linear);
-            } catch (GdxRuntimeException e) {
-                logger.info("Failed to find texture " + filePath, e);
+            if (!failedPaths.contains(filePath)) {
+                try {
+                    loadTexture(filePath, linear);
+                } catch (GdxRuntimeException e) {
+                    logger.info("Failed to find texture " + filePath, e);
+                    failedPaths.add(filePath);
+                }
+            }
+            if (failedPaths.contains(filePath)) {
                 Texture missing = getTextureNull(imagePath("missing.png"), false);
                 if (missing == null) {
                     logger.info("missing.png is missing, should be at " + imagePath("missing.png"));
@@ -83,6 +94,12 @@ public class TextureLoader {
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType)
     {
+        String cacheKey = cardType.name() + "/" + cardName;
+        String cached = cardTexturePaths.get(cacheKey);
+        if (cached != null) {
+            return cached;
+        }
+
         String textureString = imagePath("cards/" + cardType.name().toLowerCase(Locale.ROOT) + "/" + cardName + ".png");
 
         FileHandle h = Gdx.files.internal(textureString);
@@ -101,6 +118,7 @@ public class TextureLoader {
             }
         }
 
+        cardTexturePaths.put(cacheKey, textureString);
         return textureString;
     }
 

@@ -12,6 +12,7 @@ import theHedgehog.cards.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.Supplier;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
@@ -25,9 +26,10 @@ public class DiscoveryAssistAction extends AbstractGameAction {
     }
 
     public void update() {
-        ArrayList<AbstractCard> generatedCards = this.generateCardChoices();
-
         if (this.duration == Settings.ACTION_DUR_FAST) {
+            // Only generate once. This used to run on every frame of the action, building
+            // and discarding cards (and spending cardRandomRng) each time.
+            ArrayList<AbstractCard> generatedCards = this.generateCardChoices();
             AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, "idk1", true);
             this.tickDuration();
         } else {
@@ -74,42 +76,24 @@ public class DiscoveryAssistAction extends AbstractGameAction {
     }
 
     private ArrayList<AbstractCard> generateCardChoices() {
-        ArrayList<AbstractCard> derp = new ArrayList<>();
-
-        while(derp.size() != 3) {
-            boolean dupe = false;
-            AbstractCard tmp = returnRandomAssist();
-
-            for(AbstractCard c : derp) {
-                if (c.cardID.equals(tmp.cardID)) {
-                    dupe = true;
-                    break;
-                }
-            }
-
-            if (!dupe) {
-                derp.add(tmp.makeCopy());
-            }
-        }
-
-        return derp;
-    }
-
-    private AbstractCard returnRandomAssist(){
-
-        ArrayList<AbstractCard> list = new ArrayList<>(Arrays.asList(
-                new AssistAmy(),
-                new AssistBarry(),
-                new AssistBig(),
-                new AssistBlaze(),
-                new AssistCream(),
-                new AssistKnuckles(),
-                new AssistRosy(),
-                new AssistTails()
+        // Pick 3 distinct assists without replacement, constructing only the 3 that are chosen
+        // (the old code built all 8 for every pick).
+        ArrayList<Supplier<AbstractCard>> pool = new ArrayList<>(Arrays.asList(
+                AssistAmy::new,
+                AssistBarry::new,
+                AssistBig::new,
+                AssistBlaze::new,
+                AssistCream::new,
+                AssistKnuckles::new,
+                AssistRosy::new,
+                AssistTails::new
         ));
 
+        ArrayList<AbstractCard> choices = new ArrayList<>();
+        while (choices.size() < 3 && !pool.isEmpty()) {
+            choices.add(pool.remove(cardRandomRng.random(pool.size() - 1)).get());
+        }
 
-
-        return (AbstractCard)list.get(cardRandomRng.random(list.size() - 1));
+        return choices;
     }
 }

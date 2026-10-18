@@ -24,6 +24,7 @@ import theHedgehog.util.CardStats;
 import theHedgehog.util.GeneralUtils;
 
 import java.util.ArrayList;
+import java.util.function.Supplier;
 
 public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Integer> {
     public static final String ID = makeID("ChaosEmeraldAttack");
@@ -100,10 +101,17 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
         }
     }
 
-    /** Picks uniformly from every candidate (including the first one). */
+    /** Picks uniformly from every candidate (including the first one). Builds only the chosen card. */
     private static AbstractCard RollRareAttack() {
-        ArrayList<AbstractCard> poweredUpCards = GetPoweredUpCards();
-        return poweredUpCards.get(generateRandomNumber(poweredUpCards.size()));
+        ArrayList<Supplier<AbstractCard>> candidates = new ArrayList<>();
+        candidates.add(BoostRare::new);
+        candidates.add(ChaosControl::new);
+        candidates.add(FalconPunchRare::new);
+        candidates.add(InstaShieldRare::new);
+        candidates.add(ScissorKickRare::new);
+        candidates.add(SonicEagleRare::new);
+        candidates.add(TeaserRare::new);
+        return candidates.get(generateRandomNumber(candidates.size())).get();
     }
 
     private static int generateRandomNumber(int cap) {
