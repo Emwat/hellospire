@@ -1,0 +1,8 @@
+{
+  "${modID}:ClassicMode": {
+    "NAME": "Modo Clássico",
+    "DESCRIPTIONS": [
+      "10 pontos por nível de Ascensão com o Modo Clássico."
+    ]
+  }
+}

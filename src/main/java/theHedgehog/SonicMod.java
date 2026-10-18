@@ -357,8 +357,21 @@ public class SonicMod implements
     /*----------Localization----------*/
 
     // This is used to load the appropriate localization files based on language.
-    private static String getLangString() {
+    public static String getLangString() {
         return Settings.language.name().toLowerCase();
+    }
+
+    /** Languages this mod ships a full translation for (everything else shows English). */
+    public static boolean hasFullLocalization() {
+        switch (Settings.language) {
+            case ENG:
+            case RUS:
+            case PTB:
+            case POL:
+                return true;
+            default:
+                return false;
+        }
     }
 
     private static final String defaultLanguage = "eng";

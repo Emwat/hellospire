@@ -1,0 +1,43 @@
+{
+  "${modID}:Pg01_Intro": {
+    "TEXT": [
+      "#bIglica #bwzywa #bmnie...",
+      "#bMuszę #bruszać #bdalej..."
+    ],
+    "LABEL": [
+      "To jest etykieta"
+    ]
+  },
+  "${modID}:UtilityTutorial": {
+    "LABEL": [
+      "Dalej",
+      "Jestem gotowy!",
+      "(Strona {0} z {1})"
+    ],
+    "TEXT": []
+  },
+  "${modID}:Version092": {
+    "LABEL": [
+      "The Hedgehog v0.9.2 -- 11 października 2025"
+    ],
+    "TEXT": [
+      "Mam ogłoszenie! NL NL Jeśli zobaczysz kartę, która bez powodu świeci się na #ysłoto, to nie gra mówi ci, że jest ważna. To #rbłąd. --SpireWolf25"
+    ]
+  },
+  "${modID}:Version098": {
+    "LABEL": [
+      "The Hedgehog v0.9.8 -- 2 lutego 2026"
+    ],
+    "TEXT": [
+      "Funkcja Together In Spire: jeśli przeciągniesz Obronę+ na tabliczkę z imieniem współgracza, możesz dać mu Blok! Bardzo niewiele modów obsługuje tę funkcję. NL NL (Nie wystarczy kliknąć i kliknąć. Aby zastosować kartę, trzeba ją przeciągnąć i upuścić.)"
+    ]
+  },
+  "${modID}:Version103": {
+    "LABEL": [
+      "The Hedgehog v1.0.3 -- 14 maja 2026"
+    ],
+    "TEXT": [
+      "Cześć! Popełniłem głupi błąd i użyłem wielkich liter w pewnym miejscu moda, przez co nie działa dobrze po chińsku. NL NL Dlatego wydałem chińską wersję moda jako osobny mod w Warsztacie Steam. Wyszukaj \"刺猬\"."
+    ]
+  }
+}

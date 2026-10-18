@@ -1,0 +1,14 @@
+{
+  "${modID}:FireStance": {
+    "NAME": "Postawa Ognia",
+    "DESCRIPTION": [
+      "Za każdym razem, gdy zagrasz kartę, zyskaj #b{0} ${modID}:Ognistej_osłony."
+    ]
+  },
+  "${modID}:IceStance": {
+    "NAME": "Postawa Lodu",
+    "DESCRIPTION": [
+      "Za każdym razem, gdy zagrasz kartę, zyskaj #b{0} pkt. Bloku."
+    ]
+  }
+}

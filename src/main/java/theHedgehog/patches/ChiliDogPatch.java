@@ -168,7 +168,7 @@ public class ChiliDogPatch {
                 return;
             }
 
-            if (entry.nameId != null && Settings.language == Settings.GameLanguage.ENG) {
+            if (entry.nameId != null && SonicMod.hasFullLocalization()) {
                 String cardName = CardCrawlGame.languagePack.getCardStrings(makeID(entry.nameId)).NAME;
                 __instance.name = cardName;
                 __instance.originalName = cardName;

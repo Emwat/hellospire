@@ -1,0 +1,221 @@
+[
+  {
+    "ID": "wordALL",
+    "PROPER_NAME": "WSZYSTKIE",
+    "NAMES": [
+      "wszystkie",
+      "wszystkim",
+      "wszystkich",
+      "wszystkimi"
+    ],
+    "DESCRIPTION": "#yWSZYSTKIE oznacza tutaj stos rozgrywający, stos kart odrzuconych, rękę i stos wykluczonych. NL NL #yPerfekcyjne #yuderzenie i #yGrudge Pustelnika NIE uwzględniają stosu wykluczonych."
+  },
+  {
+    "ID": "wordCenter",
+    "PROPER_NAME": "Jeśli pośrodku",
+    "NAMES": [
+      "jeśli pośrodku",
+      "jeśli_pośrodku"
+    ],
+    "DESCRIPTION": "Jeśli ta karta znajduje się #ypośrodku twojej ręki, aktywuj dodatkowy efekt. #yPierścienie są ignorowane przy tym warunku."
+  },
+  {
+    "ID": "wordCrestOfFire",
+    "PROPER_NAME": "Znak Ognia",
+    "NAMES": [
+      "znak ognia",
+      "znak_ognia",
+      "znaku_ognia",
+      "znaki_ognia",
+      "znaków_ognia"
+    ],
+    "DESCRIPTION": "Po #yUśmierceniu na stałe ulepsz WSZYSTKIE karty #rZnaku #rOgnia w swojej talii. Karty #rZnaku #rOgnia można ulepszać dowolną liczbę razy. NL NL Po ulepszeniu więcej niż #b7 razy otrzymujesz #r1 pkt. obrażeń za każde ulepszenie. Na przykład #yNatarcie #yognia+10 zada ci #r3 pkt. obrażeń.",
+    "COLOR": "ff6563"
+  },
+  {
+    "ID": "wordDizzy",
+    "PROPER_NAME": "Zawroty",
+    "NAMES": [
+      "zawroty",
+      "zawrotów",
+      "zawrotom",
+      "zawrotami"
+    ],
+    "DESCRIPTION": "Cel zadaje obrażenia pomniejszone o koszt najdroższej karty w twojej ręce."
+  },
+  {
+    "ID": "wordEchoForm",
+    "PROPER_NAME": "Echo",
+    "NAMES": [
+      "echo",
+      "postać_echa"
+    ],
+    "DESCRIPTION": "Pierwsza karta zagrana w każdej turze jest zagrywana dwukrotnie."
+  },
+  {
+    "ID": "wordFlameBarrier",
+    "PROPER_NAME": "Ognista osłona",
+    "NAMES": [
+      "ognista osłona",
+      "ognista_osłona",
+      "ognistej_osłony",
+      "ognistą_osłonę",
+      "ognistych_osłon"
+    ],
+    "DESCRIPTION": "Gdy w tej turze zostaniesz zaatakowany, zadaj atakującemu #bX pkt. obrażeń."
+  },
+  {
+    "ID": "wordFlip",
+    "PROPER_NAME": "Odwróć",
+    "NAMES": [
+      "odwróć",
+      "odwraca",
+      "odwrócenie",
+      "odwrócony"
+    ],
+    "DESCRIPTION": "Koszt 3+ -> Koszt 0 NL Koszt 2 -> Koszt 1 NL Koszt 1 -> Koszt 2 NL Koszt 0 -> Koszt 3"
+  },
+  {
+    "ID": "wordFriend",
+    "PROPER_NAME": "Przyjaciel",
+    "NAMES": [
+      "przyjaciel",
+      "przyjaciela",
+      "przyjaciele",
+      "przyjaciół",
+      "przyjaciółka"
+    ],
+    "DESCRIPTION": "Po walce możesz zdecydować, czy zachować Asystę, czy nowo wygenerowaną kartę."
+  },
+  {
+    "ID": "wordHotRod",
+    "PROPER_NAME": "Hot Rod",
+    "NAMES": [
+      "hot rod",
+      "hot_rod"
+    ],
+    "DESCRIPTION": "Jeśli nie zagrałeś żadnej karty, zyskaj 5(6) pkt. Bloku. NL Jeśli zagrałeś #b1 kartę, zyskaj 7(8) pkt. Bloku. NL Jeśli zagrałeś #b2 karty, zyskaj #b10(12) pkt. Bloku ORAZ zadaj #b6(8) pkt. obrażeń. NL Jeśli zagrałeś więcej niż #b2 karty, zyskaj #b3(4) pkt. Bloku."
+  },
+  {
+    "ID": "wordMagicHandsKW",
+    "PROPER_NAME": "Skarb",
+    "NAMES": [
+      "nie wyrzucać",
+      "nie_wyrzucać",
+      "skarb",
+      "skarbu",
+      "skarby",
+      "skarbów"
+    ],
+    "DESCRIPTION": "Zachowanie. Jeśli zostanie Wykluczona, przyjmij postawę Gniewu.",
+    "COLOR": "EF67F6"
+  },
+  {
+    "ID": "wordNotMostLeft",
+    "PROPER_NAME": "Jeśli nie skrajnie z lewej",
+    "NAMES": [
+      "jeśli nie skrajnie z lewej",
+      "jeśli_nie_skrajnie_z_lewej"
+    ],
+    "DESCRIPTION": "Jeśli ta karta NIE znajduje się na samym lewym końcu twojej ręki, aktywuj dodatkowy efekt. #yPierścienie są ignorowane przy tym warunku."
+  },
+  {
+    "ID": "wordMostLeft",
+    "PROPER_NAME": "Jeśli skrajnie z lewej",
+    "NAMES": [
+      "jeśli skrajnie z lewej",
+      "jeśli_skrajnie_z_lewej",
+      "jeśli_daleko"
+    ],
+    "DESCRIPTION": "Jeśli ta karta znajduje się na samym lewym końcu twojej ręki, aktywuj dodatkowy efekt. #yPierścienie są ignorowane przy tym warunku."
+  },
+  {
+    "ID": "wordMostLeftOrRight",
+    "PROPER_NAME": "Jeśli skrajnie z lewej lub prawej",
+    "NAMES": [
+      "jeśli skrajnie z lewej lub prawej",
+      "jeśli_skrajnie_z_lewej_lub_prawej"
+    ],
+    "DESCRIPTION": "Jeśli ta karta znajduje się na samym lewym lub prawym końcu twojej ręki, aktywuj dodatkowy efekt. #yPierścienie są ignorowane przy tym warunku."
+  },
+  {
+    "ID": "wordMostRight",
+    "PROPER_NAME": "Jeśli skrajnie z prawej",
+    "NAMES": [
+      "jeśli skrajnie z prawej",
+      "jeśli_skrajnie_z_prawej",
+      "jeśli_blisko"
+    ],
+    "DESCRIPTION": "Jeśli ta karta znajduje się na samym prawym końcu twojej ręki, aktywuj dodatkowy efekt. #yPierścienie są ignorowane przy tym warunku."
+  },
+  {
+    "ID": "wordLevelUp",
+    "PROPER_NAME": "Awans",
+    "NAMES": [
+      "awans",
+      "awansu",
+      "awansem"
+    ],
+    "DESCRIPTION": "Jeśli nie zagrałeś jeszcze niczego lub ostatnio zagrana karta to #yUmiejętność, #yPierścienie w twojej ręce zwiększają twój Blok o #b1. NL Jeśli ostatnio zagrana karta to #yAtak, #yPierścienie w twojej ręce zwiększają twoje obrażenia o #b1. NL Jeśli ostatnio zagrana karta to #yMoc, #yPierścienie w twojej ręce zwiększają twoje #ySkupienie o #b1."
+  },
+  {
+    "ID": "wordLightSpeedDashSmallPrint",
+    "PROPER_NAME": "LSD",
+    "NAMES": [
+      "lsd"
+    ],
+    "DESCRIPTION": "W tej turze #yPierścienie #gprzywracają #g1 #gPŻ zamiast dawać Tymczasowe PŻ. Jeśli #yPierścienie były już w twojej ręce, #gprzywracają #g3 #gPŻ."
+  },
+  {
+    "ID": "wordRev",
+    "PROPER_NAME": "Podkręć",
+    "NAMES": [
+      "podkręć",
+      "podkręca",
+      "podkręcić",
+      "podkręcają",
+      "podkręcone"
+    ],
+    "DESCRIPTION": "Skrót od \"uruchom pasywny efekt Sfery\". O ile nie zaznaczono inaczej, dotyczy Sfery z prawej strony."
+  },
+  {
+    "ID": "wordSpinUp",
+    "PROPER_NAME": "Rozpęd",
+    "NAMES": [
+      "rozpęd",
+      "rozpędu",
+      "rozpędem"
+    ],
+    "DESCRIPTION": "Gdy zagrasz tę kartę, #rzwiększ #rjej #rkoszt #ro #r1. Wszelkie zmiany kosztu #bsą #btrwałe do końca walki. Jeśli koszt był losowy, #gzmniejsz #gwylosowany #gkoszt #go #g1.",
+    "COLOR": "ff6563"
+  },
+  {
+    "ID": "wordRing",
+    "PROPER_NAME": "Pierścień",
+    "NAMES": [
+      "pierścień",
+      "pierścienie",
+      "pierścieni",
+      "pierścienia",
+      "pierścieniowi",
+      "pierścieniem",
+      "pierścieniach",
+      "pierścieniom",
+      "pierścieniami"
+    ],
+    "DESCRIPTION": "Dopóki ta karta jest w twojej ręce, Blok zyskiwany z kart zwiększa się o #b1."
+  },
+  {
+    "ID": "wordTrick",
+    "PROPER_NAME": "Sztuczka",
+    "NAMES": [
+      "sztuczka",
+      "sztuczki",
+      "sztuczek",
+      "sztuczkę",
+      "sztuczce",
+      "sztuczką"
+    ],
+    "DESCRIPTION": "Nie powinieneś widzieć tej wiadomości."
+  }
+]

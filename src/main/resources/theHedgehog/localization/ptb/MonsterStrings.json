@@ -1,0 +1,66 @@
+{
+  "Champ": {
+    "MOVES": [
+      "Postura Defensiva",
+      "Execução",
+      "Tapa na Cara"
+    ],
+    "NAME": "O Campeão",
+    "DIALOG": [
+      "Isso aí é uma arma?",
+      "Venha me pegar!",
+      "Faça o seu pior! NL @HAHAHA!@",
+      "Tome um golpe de graça! NL Fracote inútil!",
+      "~Agora~ ~você~ ~fez~ ~besteira...~",
+      "@DERROTA??@ NL @IMPOSSÍVEL!!@",
+      "~MORRA~ ~.~ ~.~ ~.~",
+      "Encare a minha fúria!",
+      "@ESSE@ NL @É@ @O@ @MEU@ @CINTURÃO!!@,,"
+    ]
+  },
+  "Eggman": {
+    "MOVES": [
+      "Jogada de QI 300"
+    ],
+    "NAME": "Dr. Eggman",
+    "DIALOG": [
+      "Olha só isto!",
+      "Prepare-se para a lição!",
+      "Tome isto!",
+      "~Você~ ~vai~ ~se~ ~arrepender...~"
+    ]
+  },
+  "TalksPatchTimeEater": {
+    "NAME": "Devorador do Tempo",
+    "DIALOG": [
+      "~Ah...~ NL ~..companhia...~",
+      "~Tolo..~ NL @TOOOLO!@",
+      "~Nunca....~ NL ~...gostei..~ NL ~..de~ ~você...~",
+      "Você mexeu com o tempo... NL @POR@ @TEMPO@ @DEMAIS!@",
+      "~O~ ~Palco...~ NL ~está~ ~pronto...~"
+    ]
+  },
+  "${modID}:EnemyBossSonic": {
+    "MOVES": [
+      "Provocar",
+      "Homing Attack",
+      "Spin Dash",
+      "Redemoinho"
+    ],
+    "NAME": "O Ouriço Azul",
+    "DIALOG": [
+      "não usado. Veja SonicTalkStrings."
+    ]
+  },
+  "${modID}:EnemyBossSonicProp": {
+    "MOVES": [
+      "Mola",
+      "Salto de Rampa",
+      "Painel de Aceleração"
+    ],
+    "NAME": "Objeto",
+    "DIALOG": [
+      "não usado. Veja SonicTalkStrings."
+    ]
+  }
+}

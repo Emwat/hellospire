@@ -1,0 +1,30 @@
+{
+  "${modID}:AssistPotion": {
+    "NAME": "Poção de Assistência",
+    "DESCRIPTIONS": [
+      "Escolha 1 de 3 cartas de Assistência aleatórias para adicionar à sua mão. Ela custa 0 neste turno.",
+      "Escolha 1 de 3 cartas de Assistência aleatórias para adicionar 2 cópias à sua mão. Elas custam 0 neste turno."
+    ]
+  },
+  "${modID}:ChaosSodaPotion": {
+    "NAME": "Refrigerante do Caos",
+    "DESCRIPTIONS": [
+      "Exaura até #b1 carta. Adicione #b1 #yTruque+ de custo #b0 à sua mão. Ganhe #b1 slot de Orbe. Entre em #yCalma.",
+      "Exaura até #b2 cartas. Adicione #b2 #yTruques+ de custo #b0 à sua mão. Ganhe #b2 slots de Orbe. Entre em #yCalma."
+    ]
+  },
+  "${modID}:PowerCorePotion": {
+    "NAME": "Núcleo de Energia",
+    "DESCRIPTIONS": [
+      "Adicione um #yAnel de custo 0 à sua mão e escolha entre #ySubir #yde #yNível: #yVelocidade, #yVoo e #yPoder.",
+      "Adicione um #yAnel de custo 0 à sua mão e escolha entre #ySubir #yde #yNível: #yVelocidade, #yVoo e #yPoder. Repita."
+    ]
+  },
+  "${modID}:SlowPotion": {
+    "NAME": "Canhão de Gelo",
+    "DESCRIPTIONS": [
+      "Aplique #yLentidão a TODOS os inimigos.",
+      "Aplique #yLentidão a TODOS os inimigos duas vezes."
+    ]
+  }
+}

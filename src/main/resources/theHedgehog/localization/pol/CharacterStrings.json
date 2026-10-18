@@ -1,0 +1,21 @@
+{
+  "${modID}:TheHedgehog": {
+    "NAMES": [
+      "Jeż",
+      "jeż"
+    ],
+    "TEXT": [
+      "Wolny duch w postaci jeża, który nienawidzi zła. NL (Częstotliwość głosu możesz zmienić w konfiguracji modów)",
+      "Ładujesz swój spin dash.",
+      "Idąc nieoświetloną ulicą, natrafiasz na kilka zakapturzonych postaci pośrodku mrocznego rytuału. Gdy się zbliżasz, w upiornym unisono zwracają się ku tobie. Najwyższa z nich obnaża kły i wyciąga w twoją stronę długą, bladą dłoń. NL ~\"Dołącz~ ~do~ ~nas,~ ~kolczasty,~ ~i~ ~poczuj~ ~ciepło~ ~Iglicy.\"~",
+      "~Złap~ ~mnie,~ ~jeśli~ ~potrafisz!~",
+      "No dalej! Podkręć tempo!",
+      "@JESTEŚ@ @ZA@ @WOLNY!@",
+      "Jestem jeżem! ~JEŻ!~ ~JEŻ!~",
+      "Domyślam się, że nie pozwolisz mi przejść.",
+      "Nie każę ci czekać. Ruszajmy!",
+      "Czas się rozkręcić!",
+      "@KRA!@ NL @KRAAA@"
+    ]
+  }
+}

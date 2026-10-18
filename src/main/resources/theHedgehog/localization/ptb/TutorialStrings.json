@@ -1,0 +1,43 @@
+{
+  "${modID}:Pg01_Intro": {
+    "TEXT": [
+      "#bO #bPináculo #bme #bchama...",
+      "#bEu #bpreciso #bseguir #bem #bfrente..."
+    ],
+    "LABEL": [
+      "Esta é uma legenda"
+    ]
+  },
+  "${modID}:UtilityTutorial": {
+    "LABEL": [
+      "Próximo",
+      "Estou pronto!",
+      "(Página {0} de {1})"
+    ],
+    "TEXT": []
+  },
+  "${modID}:Version092": {
+    "LABEL": [
+      "The Hedgehog v0.9.2 -- 11 de outubro de 2025"
+    ],
+    "TEXT": [
+      "Vim fazer um anúncio! NL NL Se você vir uma carta brilhando em #ydourado sem motivo, não é o jogo dizendo que ela é importante. É um #rbug. --SpireWolf25"
+    ]
+  },
+  "${modID}:Version098": {
+    "LABEL": [
+      "The Hedgehog v0.9.8 -- 2 de fevereiro de 2026"
+    ],
+    "TEXT": [
+      "Recurso do Together In Spire: se você arrastar uma Defender+ até a placa de nome de um colega, pode dar Proteção a ele! Pouquíssimos mods suportam esse recurso. NL NL (Não dá para clicar e clicar. É preciso arrastar e soltar a carta para aplicar.)"
+    ]
+  },
+  "${modID}:Version103": {
+    "LABEL": [
+      "The Hedgehog v1.0.3 -- 14 de maio de 2026"
+    ],
+    "TEXT": [
+      "Olá! Cometi um erro bobo e usei letras maiúsculas em um certo ponto do mod, então ele não funciona bem quando jogado em chinês. NL NL Por isso, lancei a versão chinesa do mod como um mod separado na Oficina Steam. Procure por \"刺猬\"."
+    ]
+  }
+}

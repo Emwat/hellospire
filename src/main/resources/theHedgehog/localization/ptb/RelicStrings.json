@@ -1,0 +1,213 @@
+{
+  "${modID}:AirBoostShoesRelic": {
+    "NAME": "Tênis de Impulso Aéreo",
+    "FLAVOR": "Sapatos leves como uma pluma. Permitem acelerar até no ar.",
+    "DESCRIPTIONS": [
+      "Os efeitos de #ySe #yestiver #yà #yesquerda e #ySe #yestiver #yà #ydireita sempre serão ativados."
+    ]
+  },
+  "${modID}:BlueQuillRelic": {
+    "NAME": "Pena Azul",
+    "FLAVOR": "Isso! Vai ser demais!",
+    "DESCRIPTIONS": [
+      "No começo do combate, adicione #b",
+      " #yAtalho à sua mão."
+    ]
+  },
+  "${modID}:BlueQuillPlusRelic": {
+    "NAME": "Pena Azul+",
+    "FLAVOR": "Isso que é voo de baixo orçamento!",
+    "DESCRIPTIONS": [
+      "Substitui a #bPena #bAzul. No começo do combate, adicione #b",
+      " #yAtalhos à sua mão."
+    ]
+  },
+  "${modID}:CDFutureRelic": {
+    "NAME": "Dobra Temporal - Futuro",
+    "FLAVOR": "Inflação.",
+    "DESCRIPTIONS": [
+      "No começo do combate, perca #r1 de #ySubir #yde #yNível: #yVelocidade. Aumente em #b3 o tamanho máximo da sua mão. Quando você criar um #yAnel, torne o custo dele aleatório."
+    ]
+  },
+  "${modID}:CDPastRelic": {
+    "NAME": "Dobra Temporal - Passado",
+    "FLAVOR": "Era de Ouro.",
+    "DESCRIPTIONS": [
+      "Quando você fosse morrer, gaste 100 de Ouro para #b{0} dos seus PV máximos. Se você sofrer #b{1} de dano, Exaura TODOS os #yAnéis da sua mão."
+    ]
+  },
+  "${modID}:ChaoDefectRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Devo estar ficando mais forte!",
+    "DESCRIPTIONS": [
+      "Comece cada combate com #b1 slot de Orbe adicional e #yCanalize #b1 #yPlasma."
+    ]
+  },
+  "${modID}:ChaoIroncladRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Punhos de pedra!",
+    "DESCRIPTIONS": [
+      "Comece cada combate com #b1 slot de Orbe adicional e #yCanalize #b1 #yRelâmpago."
+    ]
+  },
+  "${modID}:ChaoRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Não pode ser...! Seu Chao está muito saudável, por favor cuide bem dele.",
+    "DESCRIPTIONS": [
+      "Comece cada combate com #b1 slot de Orbe adicional."
+    ]
+  },
+  "${modID}:ChaoSilentRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Que legal!",
+    "DESCRIPTIONS": [
+      "Comece cada combate com #b1 slot de Orbe adicional e #yCanalize #b1 #yGelo."
+    ]
+  },
+  "${modID}:ChaoThreeRelic": {
+    "NAME": "Três Chao",
+    "FLAVOR": "Não se preocupe, amiguinho.",
+    "DESCRIPTIONS": [
+      "Comece cada combate com #b2 slots de Orbe adicionais."
+    ]
+  },
+  "${modID}:ChaoWatcherRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Nem suou!",
+    "DESCRIPTIONS": [
+      "Comece cada combate com #b1 slot de Orbe adicional e #yCanalize #b1 #yTrevas."
+    ]
+  },
+  "${modID}:ClassicModeRelic": {
+    "NAME": "Modo Clássico",
+    "FLAVOR": "Isso! Vai ser demais!",
+    "DESCRIPTIONS": [
+      "Se você sofrer #b",
+      "+ de dano, Exaura TODOS os seus #yAnéis."
+    ]
+  },
+  "${modID}:CrystalRingRelic": {
+    "NAME": "Anel de Cristal",
+    "FLAVOR": "O TREM PARA AS RUÍNAS MÍSTICAS PARTIRÁ EM BREVE.",
+    "DESCRIPTIONS": [
+      "No começo do combate, embaralhe um #yAnel #yde #yCristal na sua pilha de compra."
+    ]
+  },
+  "${modID}:EmblemRelic": {
+    "NAME": "Emblema",
+    "FLAVOR": "Hora de abrir o Eggman ao meio. Isso, vamos agitar!",
+    "DESCRIPTIONS": [
+      "No começo do combate, ganhe #b",
+      " de #ySubir #yde #yNível: #yPoder."
+    ]
+  },
+  "${modID}:EmblemPlusRelic": {
+    "NAME": "Emblema+",
+    "FLAVOR": "Hora de abrir o Eggman ao meio. Isso, vamos agitar!",
+    "DESCRIPTIONS": [
+      "Substitui o #bEmblema. No começo do combate, ganhe #b",
+      " de #ySubir #yde #yNível: #yVoo e #yPoder."
+    ]
+  },
+  "${modID}:FireSoulRelic": {
+    "NAME": "Alma de Fogo",
+    "FLAVOR": "UAU! A sabedoria de Simbad, o Marujo! O aventureiro dos aventureiros!",
+    "DESCRIPTIONS": [
+      "Quando você usar um #yBrasão #yde #yFogo ou um #yGolpe, primeiro ganhe #b",
+      " de Proteção. Esse valor aumenta permanentemente quando você entra em uma Fogueira."
+    ]
+  },
+  "${modID}:GoldenGloveRelic": {
+    "NAME": "Luva Dourada",
+    "FLAVOR": "Parte de um conjunto Black Tie.",
+    "DESCRIPTIONS": [
+      "Quando você jogar um #yAnel, ganhe #b",
+      " de PV Temporário."
+    ]
+  },
+  "${modID}:ModBottledTornado": {
+    "NAME": "Tornado Engarrafado",
+    "FLAVOR": "Tails: Neste modo não há trem de pouso.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModIceCreamRelic": {
+    "NAME": "Picolé do Sonic",
+    "FLAVOR": "Olhos de Chiclete! Framboesa Azul e Cereja",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModLanternRelic": {
+    "NAME": "Blast Off",
+    "FLAVOR": "Blast Off: Aperte X/Quadrado quando aparecer \"GO!\" para ganhar um Impulso grátis.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModTailsDoll": {
+    "NAME": "Boneco do Tails",
+    "FLAVOR": "Assustador.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:Player2Relic": {
+    "NAME": "Jogador 2",
+    "FLAVOR": "UAAAU, MINHA CABEÇA ESTÁ GIRANDO!!",
+    "DESCRIPTIONS": [
+      "Nos dois primeiros turnos do combate, quando você jogar sua segunda carta, adicione uma cópia dela à sua mão.",
+      "JOGADOR 2 ESTÁ PRONTO.",
+      " (TURNO 1)",
+      " (TURNO 2)",
+      " DADOS COPIADOS COM SUCESSO."
+    ]
+  },
+  "${modID}:PowerBrakeRelic": {
+    "NAME": "Freio Motor",
+    "FLAVOR": "Tuc, tuc, Guerreiro Sonic",
+    "DESCRIPTIONS": [
+      "Quando você tiver #bX de energia no fim do seu turno, aplique #bX de #yTontura a TODOS os inimigos."
+    ]
+  },
+  "${modID}:RingEnergyBonusRelic": {
+    "NAME": "Bônus de Energia dos Anéis",
+    "FLAVOR": "Uau, onde é que alguém guarda tantos anéis de ouro?",
+    "DESCRIPTIONS": [
+      "A cada #b",
+      " #yAnéis na sua mão no começo do seu turno, ganhe 1 [E] ."
+    ]
+  },
+  "${modID}:RingKeeperRelic": {
+    "NAME": "Guardião de Anéis",
+    "FLAVOR": "Isso! Vai ser demais!",
+    "DESCRIPTIONS": [
+      "Seus #yAnéis persistem entre os combates. Se você sofrer #b3+ de dano, Exaura TODOS os seus #yAnéis."
+    ]
+  },
+  "${modID}:LimiterRingRelic": {
+    "NAME": "Anel Limitador",
+    "FLAVOR": "Relaxa! Aliás, nenhuma aventura tem graça se for fácil demais, né?",
+    "DESCRIPTIONS": [
+      "Quando você jogar um #yTruque, #rganhe #r1 #ra #rmenos #rde #yVigor."
+    ]
+  },
+  "${modID}:StampRelic": {
+    "NAME": "Carimbo",
+    "FLAVOR": "Meme! Aprovado.",
+    "DESCRIPTIONS": [
+      "Você pode #yclicar #ycom #yo #ybotão #ydireito neste relíquia para #rremover a carta de outra classe do evento Jardim Chao.",
+      "Você pode #yclicar #ycom #yo #ybotão #ydireito neste relíquia para #rremover ",
+      " do seu baralho.",
+      "A carta engarrafada foi #rremovida do seu baralho; o relíquia não funciona mais."
+    ]
+  },
+  "${modID}:TailsToyRelic": {
+    "NAME": "Brinquedo do Tails",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  }
+}

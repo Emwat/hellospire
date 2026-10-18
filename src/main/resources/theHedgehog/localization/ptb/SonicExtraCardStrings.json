@@ -1,0 +1,45 @@
+{
+  "${modID}:BouncePad": {
+    "NAMES": [
+      "Mola em Série"
+    ]
+  },
+  "${modID}:HomingAttack": {
+    "NAMES": [
+      "Homing Attack em Série"
+    ]
+  },
+  "${modID}:HotRod": {
+    "NAMES": [
+      "Hot Rod Parte 1 de 3",
+      "Hot Rod Parte 2 de 3",
+      "Hot Rod Parte 3 de 3",
+      "Hot Rod Sobrecarregado"
+    ]
+  },
+  "${modID}:HotRodRare": {
+    "NAMES": [
+      "Hot Rod S Parte 1 de 3",
+      "Hot Rod S Parte 2 de 3",
+      "Hot Rod S Parte 3 de 3",
+      "Hot Rod S Sobrecarregado"
+    ]
+  },
+  "${modID}:PunchRush": {
+    "NAMES": [
+      "Super Rush",
+      "Rush Giratório"
+    ]
+  },
+  "${modID}:SmoothLanding": {
+    "NAMES": [
+      "Pouso Incorreto",
+      "Pouso Suave"
+    ]
+  },
+  "${modID}:Shortcut": {
+    "NAMES": [
+      "Um"
+    ]
+  }
+}

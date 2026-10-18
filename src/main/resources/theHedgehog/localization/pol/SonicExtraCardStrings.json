@@ -1,0 +1,45 @@
+{
+  "${modID}:BouncePad": {
+    "NAMES": [
+      "Seryjna trampolina"
+    ]
+  },
+  "${modID}:HomingAttack": {
+    "NAMES": [
+      "Seryjny Homing Attack"
+    ]
+  },
+  "${modID}:HotRod": {
+    "NAMES": [
+      "Hot Rod, część 1 z 3",
+      "Hot Rod, część 2 z 3",
+      "Hot Rod, część 3 z 3",
+      "Hot Rod, przeciążenie"
+    ]
+  },
+  "${modID}:HotRodRare": {
+    "NAMES": [
+      "Hot Rod S, część 1 z 3",
+      "Hot Rod S, część 2 z 3",
+      "Hot Rod S, część 3 z 3",
+      "Hot Rod S, przeciążenie"
+    ]
+  },
+  "${modID}:PunchRush": {
+    "NAMES": [
+      "Super Rush",
+      "Wirujący Rush"
+    ]
+  },
+  "${modID}:SmoothLanding": {
+    "NAMES": [
+      "Nieudane lądowanie",
+      "Płynne lądowanie"
+    ]
+  },
+  "${modID}:Shortcut": {
+    "NAMES": [
+      "Jeden"
+    ]
+  }
+}

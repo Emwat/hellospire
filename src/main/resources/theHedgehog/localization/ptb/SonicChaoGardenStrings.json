@@ -1,0 +1,364 @@
+{
+  "${modID}:Default": {
+    "DRINK": "O personagem pega o refrigerante e lhe entrega um bilhete. \"Obrigado.\" É a sua letra. O que está acontecendo?",
+    "TALK": "O personagem parece satisfeito."
+  },
+  "the Ironclad": {
+    "OPTIONCOLOR": "#r",
+    "DRINK": "O Rígido prefere ~O~ ~SANGUE~ ~DOS~ ~SEUS~ ~INIMIGOS~, mas esta é uma zona infantil.",
+    "DRINKCOLOR": "#r",
+    "DRINKSOUND": "ATTACK_IRON_1",
+    "TALK": "Esse cara parece encrenca. Melhor tomar cuidado perto dele."
+  },
+  "${modID}:the Ironclad": {
+    "OPTIONCOLOR": "#r",
+    "DRINK": "Tem algo... estranho neste personagem. Você vê de relance sangue sob a máscara dele quando ele pega a bebida.",
+    "DRINKCOLOR": "#r",
+    "DRINKSOUND": "ATTACK_IRON_1",
+    "TALK": "Se você aprimorar Sangue por Sangue do Rígido no meio do combate, o custo dela cai em 1."
+  },
+  "the Silent": {
+    "OPTIONCOLOR": "#g",
+    "DRINK": "\"...\" A Sorrateira tira um saquinho de pó e joga um pouco no refrigerante. Ele borbulha e muda de cor.",
+    "DRINKCOLOR": "#g",
+    "DRINKSOUND": "POWER_POISON",
+    "TALK": "Alquimizar pode gerar Regeneração e Poção de Sangue. Não pode gerar Suco de Fruta. Talvez seja por isso que a Sorrateira tem tão pouco PV máximo."
+  },
+  "${modID}:the Silent": {
+    "OPTIONCOLOR": "#g",
+    "DRINK": "\"...\" A Sorrateira tira um saquinho de pó e joga um pouco no refrigerante. Ele borbulha e muda de cor.",
+    "DRINKCOLOR": "#g",
+    "DRINKSOUND": "POWER_POISON",
+    "TALK": "Sonic e a Sorrateira têm temas ligados a Técnicas. Na verdade, Dança das Lâminas inspirou a primeira carta do Sonic: Salto de Rampa (adicione 3 Truques à sua mão). "
+  },
+  "the Defect": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "...O Defeituoso olha para você e sinaliza que não tem boca. Talvez ainda assim aprecie o gesto?",
+    "DRINKCOLOR": "#b",
+    "DRINKSOUND": "ATTACK_DEFECT_BEAM",
+    "TALK": "Se você tem Forma Ecoante e o ataque ecoado é fatal (em tudo, exceto Escurecidos), você mantém a habilidade de eco para outra carta."
+  },
+  "${modID}:the Defect": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "...The Defect looks at you and signals that it has no mouth. Maybe it still appreciates the gesture?",
+    "DRINKCOLOR": "#b",
+    "DRINKSOUND": "ATTACK_DEFECT_BEAM",
+    "TALK": "Os chao daqui gostam muito do Defeituoso."
+  },
+  "the Watcher": {
+    "DRINK": "Ela já tinha separado um chá, mas aceita a bebida e agradece mesmo assim.",
+    "TALK": "Meditar + Estabelecimento = cartas grátis.",
+    "DRINKSOUND": "SELECT_WATCHER"
+  },
+  "${modID}:the Watcher": {
+    "DRINK": "Ela já tinha separado um chá, mas aceita a bebida e agradece mesmo assim.",
+    "DRINKSOUND": "SELECT_WATCHER",
+    "TALK": "Tem aventureiros demais usando Vigor."
+  },
+  "the Hedgehog": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "\"Quanto tempo!\" O ouriço azul abre um sorriso para você antes de tomar um gole do Refrigerante do Caos.",
+    "DRINKCOLOR": "[#2377B7]",
+    "DRINKSOUND": "${modID}:ogg_YES",
+    "TALK": "\"Cuidado? Onde está a graça nisso?\""
+  },
+  "${modID}:the Hedgehog": {
+    "OPTIONCOLOR": "#b",
+    "DRINK": "\"Valeu!\" Vocês dois brindam e bebem de forma estranhamente sincronizada.",
+    "DRINKCOLOR": "[#2377B7]",
+    "DRINKSOUND": "${modID}:ogg_YES",
+    "TALK": "Got ourselves a situation, stuck in a new location, NL Without any explanation, no time for relaxation!"
+  },
+  "${modID}:Tails": {
+    "OPTIONCOLOR": "#y",
+    "DRINK": "Tails: \"Valeu, Sonic! É bom desacelerar de vez em quando.\"",
+    "DRINKCOLOR": "[#F0B400]",
+    "TALK": "O Tails tem um Mega Buster."
+  },
+  "${modID}:Knuckles": {
+    "OPTIONCOLOR": "#r",
+    "DRINK": "Knuckles: \"Sabor uva. Do jeito que eu gosto!\"",
+    "DRINKCOLOR": "[#FF1400]",
+    "TALK": "Na sua estreia, Knuckles deu um soco tão traiçoeiro no Super Sonic que o Sonic perdeu a forma Super e as Esmeraldas do Caos."
+  },
+  "${modID}:Amy": {
+    "OPTIONCOLOR": "[#f3acd2]",
+    "DRINK": "Amy: \"Valeu, Sonic! Saúde!!\"",
+    "DRINKCOLOR": "[#FF96C8]",
+    "TALK": "A Amy se infiltrou na Prison Island para tirar o Sonic da cadeia."
+  },
+  "${modID}:Rouge": {
+    "OPTIONCOLOR": "[#f3acd2]",
+    "DRINK": "Rouge: \"Valeu, gato. Agora, vamos falar de negócios.\"",
+    "DRINKCOLOR": "[#DF98C0]",
+    "TALK": "A Rouge tem um cassino só dela."
+  },
+  "the Abyssal": {
+    "DRINK": "Arrr, aceito esse grogue, alma generosa! Que suas velas fiquem sempre cheias e sua caneca nunca seque!",
+    "TALK": "Aaah, isso caiu bem! Que bela dose — você tem jeito de verdadeiro companheiro de navio!"
+  },
+  "${modID}:the Abyssal": {
+    "DRINK": "Yarr, não vou recusar bebida tão fina — despeje aqui, camarada, e que as marés sejam favoráveis a você!",
+    "TALK": "Pelos sete mares, que gole! Eu daria duas voltas ao mundo por outro desses! NL NL Você tem 100% de certeza de que o Refrigerante do Caos não tem álcool."
+  },
+  "The Animator": {
+    "DRINK": "Tudo segundo o Keikaku. (Nota do tradutor: Keikaku significa plano.)",
+    "TALK": "Lelouch vi Britannia ordena! Viva!"
+  },
+  "${modID}:The Animator": {
+    "DRINK": "Truck-kun?",
+    "TALK": "Ele não morre nem se você o matar!"
+  },
+  "the Astrologer": {
+    "DRINK": "\"Quero o que as cartas previram para mim esta noite.\"",
+    "TALK": "No clarão do dia, o destino é tecido. NL No silêncio da lua, o oculto é desfeito."
+  },
+  "${modID}:the Astrologer": {
+    "DRINK": "(Uma bebida de um ouriço azul? Bem, tudo bem.) \"Obrigada.\"",
+    "TALK": "A última carta diz que você tem um encontro com o diabo. Pise com cuidado."
+  },
+  "the Automaton": {
+    "DRINK": "Você oferece uma bebida, mas não há resposta. Os braços cruzados e a falta de cabeça são bem perturbadores.",
+    "TALK": "Espera aí. Se o Autômato não tem cabeça... de onde vem aquele hiperraio?"
+  },
+  "${modID}:the Automaton": {
+    "DRINK": "Uma Sentinela de bronze tomou o refrigerante. Claramente, o valor da bebida fala por si.",
+    "TALK": "Mal dá para reconhecer o Guardião Esférico na arte do Derretedor do Defeituoso."
+  },
+  "the Awakened One": {
+    "DRINK": "\"CÓÓ CÓ CÓÓÓÓÓÓ!!\" Você também entoa. Por que não?",
+    "TALK": "\"CÓÓ CÓ CÓÓÓÓÓÓ!!\" O lugar inteiro está entoando! Que loucura."
+  },
+  "${modID}:the Awakened One": {
+    "DRINK": "Isso é lixo. A Poção do Cultista é melhor! É perfeita em tudo!",
+    "TALK": "Você abre a boca para falar, mas o Despertado continua te atordoando com elogios ao Pináculo. É exaustivo."
+  },
+  "the Blackbeard": {
+    "DRINK": "Ora, ora... um presente, é? Ou você é corajoso... ou tolo. Pouco importa — eu aceito. Às marés escuras e às fortunas mais sombrias!",
+    "TALK": "Barba Negra está aqui porque o vento levou aos meus ouvidos sussurros de rum e pilhagem, e eu sigo uma conversa doce dessas até o fim do mundo. Diga meu nome alto o bastante e verá que nunca estou longe — só esperando no escuro entre as ondas."
+  },
+  "${modID}:the Blackbeard": {
+    "DRINK": "Coragem você tem, isso eu admito. Muito bem — eu bebo. Mas fique de olho aberto, amigo... Já brindei com um homem num instante e o roubei no seguinte.",
+    "TALK": "Barba Negra está aqui porque a maré do destino me arrastou a estas praias, e eu nunca viro as costas para uma chance de ouro ou grogue. Chame meu nome ao vento e eu respondo — esteja você pronto... ou não."
+  },
+  "the Bogwarden": {
+    "DRINK": "Você desliza o Refrigerante do Caos pela mesa. Ele fica ali, bem parado, por um momento e então desaparece.",
+    "TALK": "Cuidado com o Pináculo. Há armadilhas em cada esquina."
+  },
+  "${modID}:the Bogwarden": {
+    "DRINK": "Muito bem, aceito. Que este copo lembre você de que a Névoa observa e meus rituais nunca dormem.",
+    "TALK": "\"Corra, pequeno ouriço.\""
+  },
+  "the Buxom": {
+    "DRINK": "Você sorri ao entregar a bebida, mas parece não conseguir levantar a cabeça até a altura dos olhos.",
+    "TALK": "Legal."
+  },
+  "${modID}:the Buxom": {
+    "DRINK": "Boing.",
+    "TALK": "Censurar você é crime."
+  },
+  "the Champ": {
+    "DRINK": "O campeão não está aqui. Você ergue a bebida. A turma olha para você. \"Hoje à noite, eu vou levar o cinturão do Campeão!\"",
+    "TALK": "Suas lembranças ficam turvas. Você está segurando o cinturão no coliseu. A multidão ao redor aplaude de forma ensurdecedora. E você ainda continuou a escalar o Pináculo. NL NL Isso mesmo. O Pináculo espera."
+  },
+  "${modID}:the Champ": {
+    "DRINK": "A imagem do Cavaleiro Negro queima na sua cabeça. \"Parece que a sua imitação de cavaleiro melhorou um pouco.\"",
+    "TALK": "Question all that's known. NL Legends blurred and torn."
+  },
+  "the Collector": {
+    "DRINK": "\"Que... pitoresco. Uma oferenda mortal.\"",
+    "TALK": "Você olha para um dos cabeças-de-tocha atrás do Colecionador. Parece familiar. NL NL Não é o ladrão com quem você esbarrou antes... é?"
+  },
+  "${modID}:the Collector": {
+    "DRINK": "\"Sua alma continua sua... por enquanto.\"",
+    "TALK": "O Gremlin Líder e o Colecionador são mulheres."
+  },
+  "the Conducto": {
+    "DRINK": "\"Muito grato, caro amigo. É preciso manter as caldeiras aquecidas, mesmo quando se é feito de neve!\" Toma um gole, engrenagens girando.",
+    "TALK": "Apertar o parafuso com a chave inglesa vicia muito."
+  },
+  "${modID}:the Conducto": {
+    "DRINK": "\"Sua bondade não passará em branco nas minhas crônicas encadernadas em latão. Aceito — com grande entusiasmo e mínimo vazamento!\"",
+    "TALK": "\"FIVE GOLDEN RINGS~!\" Você e o Maquinista brindam. Que noite agradável."
+  },
+  "the Diva": {
+    "DRINK": "\"Hã? Para mim? Muito obrigada!\" Ela toma um gole. \"Mmm~ está muito bom! Me dá energia para continuar cantando!\"",
+    "TALK": "O aniversário da Miku é 31 de agosto de 2007. Mas ela tem 16 anos pelo cânone."
+  },
+  "${modID}:the Diva": {
+    "DRINK": "Obrigada, Sonikku! Hoje também vou me esforçar!",
+    "TALK": "O piano irrompe com um clima intenso. Repete as notas sem parar e soa muito reprimido. A música é Rolling Girl!"
+  },
+  "the Gatherer": {
+    "DRINK": "Meus agradecimentos — poucos pensam em oferecer bebida a quem cheira a musgo e argamassa.",
+    "TALK": "Cada folha, um remédio; cada raiz, um segredo à espera de infusão."
+  },
+  "${modID}:the Gatherer": {
+    "DRINK": "Ah, então o vento ~pode~ trazer presentes. Meus agradecimentos. Espere aqui, vou trocar algo útil com você.",
+    "TALK": "Ela lembra um pica-pau verdinho que tem uma queda por bombas."
+  },
+  "the Guardian": {
+    "DRINK": "A guarda dele está baixa por enquanto. Vamos beber!",
+    "TALK": "Missão... Proteger... NL NL O Pináculo guarda muitos segredos."
+  },
+  "${modID}:the Guardian": {
+    "DRINK": "\"Quem convidou essa bola espinhosa de casco duro?\" Todos olham na direção do Guardião e do Sonic.",
+    "TALK": "Redemoinho do Rígido. Redemoinho do Guardião. Redemoinho do Sonic. Quem tem o melhor Redemoinho?"
+  },
+  "the Hermit": {
+    "DRINK": "\"Mantenha a arma limpa e a mira ainda mais limpa.\"",
+    "TALK": "\"Eu não começo confusão. Só termino.\""
+  },
+  "${modID}:the Hermit": {
+    "DRINK": "\"Muito grato. Não se vê isso todo dia.\"",
+    "TALK": "\"O saque decide mais do que palavras jamais poderiam.\""
+  },
+  "the Hexaghost": {
+    "DRINK": "Seis selos selarão o seu destino. Do ódio nada restará.",
+    "TALK": "Chamas ardem forte e logo se apagam. NL A própria vida, sombra passageira. NL NL Cinzas vagam onde as brasas morrem. NL Momentos queimam e logo se vão."
+  },
+  "The Hierophant": {
+    "DRINK": "Uma oferta generosa. Aceito, não por sede, mas pelo que ela pode se tornar. Até o caminho mais puro é pavimentado de escolhas — então bebamos e vejamos se você anda em graça... ou cede ao desejo.",
+    "TALK": "Caminhe com ousadia; os outros seguirão."
+  },
+  "${modID}:The Hierophant": {
+    "DRINK": "Ah, uma bebida de alguém tão veloz. Aceito, e que esta união de pressa e benevolência nos fortaleça a ambos.",
+    "TALK": "\"Até o herói mais veloz precisa parar, pois a bondade molda um coração mais rápido que quaisquer pés.\""
+  },
+  "the Hog": {
+    "DRINK": "\"Quero com gelo... @E@ @no@ @cepo@ @de@ @açougue!\"@",
+    "TALK": "Lama, caos e cutelos de açougueiro!"
+  },
+  "${modID}:the Hog": {
+    "DRINK": "\"Sirva... @antes@ @que@ @eu@ @mesmo@ @o@ @trinche!\"@",
+    "TALK": "Os porcos têm fome... @de@ @caos!@"
+  },
+  "the Nine-Tailed": {
+    "DRINK": "A nunca desistir! Preciso manter a energia lá em cima se quero virar Hokage!",
+    "TALK": "Time Sete... Avançar!"
+  },
+  "${modID}:the Nine-Tailed": {
+    "DRINK": "Saúde! Acredite — vou beber isto e estar pronto para a próxima missão num instante!",
+    "TALK": "Quando eu era pequeno, as pessoas achavam que eu corria igual ao Naruto. Eu estava correndo como o Sonic, haha. -Censurado"
+  },
+  "The Ordinary Magician": {
+    "DRINK": "Heh... isso é o que eu chamo de combustível mágico! Vamos iluminar Gensokyo!",
+    "TALK": "Marisa gira a vassoura e ri. \"Heh, gosto de quem sabe manejar uma espada assim — acha que aguenta um pouco de magia?\""
+  },
+  "${modID}:The Ordinary Magician": {
+    "DRINK": "Doce e forte... igualzinho à minha magia! Hora de causar um pouco de confusão.",
+    "TALK": "\"Então você realmente corre pelo mundo tão rápido assim? Me mostra um truque ou dois!\""
+  },
+  "the Packmaster": {
+    "DRINK": "O Mestre dos Pacotes sorri e está ansioso para falar sobre sua coleção.",
+    "DRINKCOLOR": "[#C1A584]",
+    "DRINKSOUND": "VO_MERCHANT_2A",
+    "TALK": "Revirar... ou não revirar? Eis a questão."
+  },
+  "${modID}:the Packmaster": {
+    "DRINK": "O Mestre dos Pacotes sorri e está ansioso para falar sobre sua coleção.",
+    "DRINKCOLOR": "[#C1A584]",
+    "DRINKSOUND": "VO_MERCHANT_2A",
+    "TALK": "Eu tenho um chapéu do Sonic! Dê uma olhada!"
+  },
+  "the Pilot": {
+    "DRINK": "Processando anomalia: uma gentileza em movimento. Aceita.",
+    "TALK": "A iteração nunca dorme."
+  },
+  "${modID}:the Pilot": {
+    "DRINK": "Dados: bebida entregue com sucesso. Gratidão registrada.",
+    "TALK": "Peças se substituem, o propósito persiste."
+  },
+  "the Prismatic": {
+    "DRINK": "O líquido dança como luz através de cristal.",
+    "TALK": "O todo é maior que a soma das suas partes."
+  },
+  "${modID}:the Prismatic": {
+    "DRINK": "Seu calor se refrata bem dentro de mim.",
+    "TALK": "O mundo é a sua ostra."
+  },
+  "the Professor": {
+    "DRINK": "Ah, uma excelente solução — exatamente o que eu precisava para levantar o ânimo. Vou fazer uma análise de sabor completa!",
+    "TALK": "Todo erro é uma nota de rodapé."
+  },
+  "${modID}:the Professor": {
+    "DRINK": "Fascinante! A composição química desta poção é... deliciosa. Preciso documentá-la para fins de pesquisa.",
+    "TALK": "A curiosidade é o melhor parceiro de laboratório."
+  },
+  "${modID}:the Rainbow": {
+    "DRINK": "#rÉ #btão #glindo...",
+    "TALK": "Se você clicar com o botão direito no Arco-Íris durante o combate, ele trocará de avatar."
+  },
+  "the Runner": {
+    "DRINK": "Melhoria temporária, suponho.",
+    "TALK": "Os fios zumbem mais alto que as almas aqui."
+  },
+  "${modID}:the Runner": {
+    "DRINK": "Você se move como uma falha no sistema. Aceito — talvez me lembre de que sou mais que circuitos e sucata.",
+    "TALK": "Arranha-céus vazam neon como lágrimas."
+  },
+  "the Senshi": {
+    "DRINK": "\"Hehe, valeu! Vou beber com cuidado... não quero derramar!\"",
+    "TALK": "Fighting evil by moonlight! NL Winning love by daylight!"
+  },
+  "${modID}:the Senshi": {
+    "DRINK": "\"Uau! Obrigada! Vou beber isto e continuar lutando contra o mal com todo o meu coração!\"",
+    "TALK": "Ao enfrentar o chefe, você precisa dizer: \"Em nome da Lua, eu vou castigar você!\""
+  },
+  "the Shadow Siren": {
+    "DRINK": "Ah! Hã... você não precisava... mas eu agradeço muito.",
+    "TALK": "Ela pode se esconder nas sombras, mas a coragem dela rouba os holofotes."
+  },
+  "${modID}:the Shadow Siren": {
+    "DRINK": "Hehe... isso é bem legal... obrigada, Sonic.",
+    "TALK": "\"Ele é só... muito gentil. Sempre acredita em mim, mesmo quando eu não...\" NL NL \"É, ele manja da coisa de herói. Tem um coração enorme.\""
+  },
+  "The Shaman": {
+    "DRINK": "Sua generosidade não passará despercebida. Que os espíritos guiem o seu caminho.",
+    "TALK": "Invoque os ancestrais e eles responderão."
+  },
+  "${modID}:The Shaman": {
+    "DRINK": "Os espíritos sussurram sobre a sua rapidez e a sua generosidade. Aceito esta oferenda com gratidão, amigo.",
+    "TALK": "Que os espíritos guiem o seu caminho."
+  },
+  "the Slime Boss": {
+    "DRINK": "Pequenas bolhas chiam dentro da substância verde.",
+    "TALK": "A gosma manda nesta cidade."
+  },
+  "${modID}:the Slime Boss": {
+    "DRINK": "Dá para ver a lata flutuando dentro da gosma.",
+    "TALK": "Não escorregue na minha cidade."
+  },
+  "the Snecko": {
+    "DRINK": "Faça valer.",
+    "TALK": "Você tirou #g{x}."
+  },
+  "${modID}:the Snecko": {
+    "DRINK": "Um é tudo.",
+    "TALK": "Meio-termo não existe."
+  },
+  "the Tactician": {
+    "DRINK": "Obrigado. Mesmo na estrada, pequenos confortos fazem toda a diferença.",
+    "TALK": "As armas mais fortes são forjadas na confiança."
+  },
+  "${modID}:the Tactician": {
+    "DRINK": "Sua rapidez é impressionante, mas sua consideração também. Muito bem, eu bebo.",
+    "TALK": "O destino é uma lâmina que nós mesmos empunhamos."
+  },
+  "the Unchained": {
+    "DRINK": "Uma aura amaldiçoada emana de baixo da máscara.",
+    "TALK": "As correntes da vida são lições disfarçadas."
+  },
+  "${modID}:the Unchained": {
+    "DRINK": "Dá para ouvir as correntes tilintando enquanto o príncipe pega o refrigerante.",
+    "TALK": "Preso em aço, livre em poder."
+  },
+  "the Vacant": {
+    "DRINK": "Mas o cálice continua vazio.",
+    "TALK": "Cartas se espalham da sua pilha de compra. Uma delas ricocheteia até a sua mão. Nela está escrito #b\"Para sempre.\""
+  },
+  "${modID}:the Vacant": {
+    "DRINK": "Você encara o vazio. O vazio encara de volta.",
+    "TALK": "Cartas se espalham da sua pilha de compra. Uma delas ricocheteia até a sua mão. Nela está escrito #b\"De graça.\""
+  }
+}

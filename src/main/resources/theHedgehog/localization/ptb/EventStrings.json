@@ -1,0 +1,158 @@
+{
+  "${modID}:ChaoGardenEvent": {
+    "NAME": "Jardim Chao",
+    "DESCRIPTIONS": [
+      "#b~BEM-VINDO~ #b~ao~ #b~Jardim~ #b~Chao!~ NL NL Você chega a um lugar com criaturas estranhas, gigantes e minúsculas.",
+      "",
+      "#b~Obrigado~ #b~pela~ #b~visita!~ NL NL Você queria ficar mais um pouco e conversar com os amigos, mas tem um Pináculo para escalar.",
+      "Você se senta entre os seus amigos.",
+      "Você tem #b",
+      " #bação restante.",
+      " #bações restantes.",
+      "Você chega ao bar.",
+      "Que ótimo negócio! ",
+      " de ouro por todo este Refrigerante do Caos.",
+      "\"Esta rodada é por minha conta!\" Todos aplaudem a sua generosidade e a festa fica muito mais animada.",
+      "Adicione uma carta ao seu baralho.",
+      "Você e a turma conversam sobre diversos assuntos.",
+      "Você olha para o palco. É quase como ver seus filhos brincando e atuando. Só que com menos tropeços e perambulação sem rumo. ",
+      "Você está num mar de coisas coloridas.",
+      "Você e o seu chao abraçam o chao gigante. O seu chao está mudando de cor. Para não perdê-lo de vista na multidão de chao, você agarra rapidamente a primeira coisa que encontra para fazê-lo se destacar.",
+      "Você abraça um chao e o ~aperta~ com força. É ~fofo~ demais. Você começa a levá-lo para a saída. NL NL #r@PAF!@ NL A equipe derruba você.",
+      "Você pede desculpas por quase ter sequestrado o chao. Infelizmente, todos aqueles reflexos de batalha o condicionaram a agir por impulso. NL NL Um homem se aproxima e se apresenta como Professor Palm. Ele reconhece que você tem uma responsabilidade importante e oferece o chao dele para ajudar. NL NL \"Boa sorte, viajante. Você vai precisar de toda a ajuda possível.\"",
+      "Que professor simpático."
+    ],
+    "OPTIONS": [
+      "[Sair]",
+      "[Entrar no Jardim Chao]",
+      "[Bloqueado] Você está sem ações.",
+      "[Sentar]",
+      "[Olhar ao redor]",
+      "[Ir ao bar]",
+      "[Bloqueado] Você não tem ouro suficiente.",
+      "[Pegar bebidas] #yPague #y",
+      " #yde #yOuro. #gEncha #gseus #gslots #gde #gpoção #gcom #gRefrigerante #gdo #gCaos.",
+      "[Pegar uma bandeja] #yPague #y",
+      " #yde #yOuro. Embaralhe #g",
+      " opções para cada cor na Conversa.",
+      "[Bloqueado] Você precisa de um Refrigerante do Caos. ",
+      " está sentado aqui.",
+      "[ [REMOVE_SPACE]#rDar #rRefrigerante #rdo #rCaos #rpara ",
+      " [REMOVE_SPACE]] Adicione ",
+      "opções",
+      " à Conversa.",
+      "[Assistir ao show] #bAção: #gCure #g",
+      " #gPV. #g(",
+      "% #gdos #gPV #gmáximos)",
+      "[Conversar",
+      "] #bAção: #gEscolha #g1 #gde #g",
+      " #gcartas #gpara #gadicionar #gao #gseu #gbaralho.",
+      "[Bloqueado] A conversa já seguiu em frente.",
+      "[Abraçar um chao gigante da equipe]",
+      "[Abraçar aquele chao] #bAção: o seu chao Canalizará um Orbe de Relâmpago.",
+      "[Abraçar aquele chao] #bAção: o seu chao Canalizará um Orbe de Gelo.",
+      "[Abraçar aquele chao] #bAção: o seu chao Canalizará um Orbe de Trevas.",
+      "[Bloqueado] Você precisa de um chao para esta ação.",
+      "[Levar um chao] #bAção: #rPerca #r",
+      " #rPV. (100% de chance de conseguir um chao)",
+      "[Bloqueado] Você já tem um chao.",
+      "[Pedir desculpas]",
+      "[Agradecer e voltar à área principal] #gGanhe #gum #gchao.",
+      " e ",
+      "e ",
+      "Tails",
+      "Knuckles",
+      "Amy",
+      "Rouge"
+    ]
+  },
+  "${modID}:GravitySwitchEvent": {
+    "NAME": "Interruptor de Gravidade",
+    "DESCRIPTIONS": [
+      "Você encontra um interruptor enorme ligado a um monitor animado. O monitor exibe setas para cima sem parar. Atrás do interruptor há uma queda profunda, da qual não se vê o fim.",
+      "Você puxa o interruptor. Seu corpo é erguido no ar. Enquanto sobe por alguma força gravitacional, você gira o tronco para pousar de pé no teto. NL NL Você se sente muito leve e flexível.",
+      "#rLoucura. Você ri sozinho. NL NL #r@HAHAHA!@ O Pináculo consome tudo...",
+      "Você cai nas profundezas e encontra uma cápsula de itens cheia de anéis escondida num canto. NL NL Você pega os anéis. Mas, ao seguir em frente, dá de cara com um beco sem saída e uma pequena fresta no teto, grande o bastante para se espremer. Você volta pelo mesmo caminho, um pouco frustrado com toda a experiência.",
+      "Você passa entre um objeto qualquer e a parede. Por alguma bruxaria sombria e profana, você desaparece na parede e começa a voar numa velocidade inexplicável. Você vê o interior e o exterior dos objetos, e eles são ocos. NL NL Você chega ao destino. Essa viagem pelo tempo e espaço provavelmente tirou alguns anos da sua vida, mas veja só o tempo que você economizou!"
+    ],
+    "OPTIONS": [
+      "[Sair]",
+      "[Puxar o interruptor] #b",
+      " cartas aleatórias #gcustam #g1 #ga #gmenos e #rganham #rGiro #rCrescente. #rPerca #r",
+      " #rPV.",
+      "[Abraçar a Loucura] #gReceba #g2 Loucuras. #rPerca #r",
+      " #rPV.",
+      "[Pular] Torne-se #rAmaldiçoado - #rTorção. #gCure #g",
+      " #gPV.",
+      "[Usar a estratégia Speed Run] #rPerca #r",
+      " #rPV #rmáximos."
+    ]
+  },
+  "${modID}:MissionEvent": {
+    "NAME": "Missão",
+    "DESCRIPTIONS": [
+      "Você encontra três portas, cada uma com uma mensagem mística do que está por vir. Escolha uma missão. NL NL Recompensa do Rank S: #y",
+      " #yde #yOuro. NL Recompensa do Rank A: #y",
+      " #yde #yOuro. NL Recompensa do Rank B: #y",
+      " #yde #yOuro. NL Recompensa do Rank C: #y",
+      " #yde #yOuro."
+    ],
+    "OPTIONS": [
+      "[Sair]",
+      "[Corrida de Anéis] #rLute #rcontra #ro #rAutômato #rde #rBronze. Exaura ",
+      " cartas o mais rápido possível.",
+      "[Ataque de Pontos] #rLute #rcontra #ro #rTransitório. Cause o máximo de dano possível.",
+      "[Contra o Tempo] #rLute #rcontra #r3 #rLagavulins #radormecidos. Derrote TODOS os inimigos o mais rápido possível."
+    ]
+  },
+  "${modID}:RougeEvent": {
+    "NAME": "Conversa com Rouge",
+    "DESCRIPTIONS": [
+      "Você avista uma mulher linda sentada num poste de luz. Ela desce planando até você. NL NL \"Olá, bonitão! Se me der ~isso,~ uso meus contatos para ajudar a encontrar seus amigos. O que me diz?\"",
+      "Você avista uma mulher linda sentada num poste de luz. Ela desce planando até você. NL NL \"Você parece precisar de uma ajudinha. Não podemos deixar nosso herói sem condições de dar uma boa luta ao doutor.\"",
+      "\"A gente se vê, Azulzinho.\" Ela voa para a cidade.",
+      "\"Acho que vou ter que achar o meu sozinha. Trabalhar solo é o nosso estilo, afinal.\" NL Ela voa para a cidade. NL NL Ao conferir seus pertences, você segura firme, por instinto, ",
+      " e a sua carteira parece mais leve. #r~LADRA!~",
+      "\"Ah, está num frasco? É amaldiçoado? Acho que não dá para trocar. Fica para outra vez.\" Dito isso, ela desaparece na cidade. NL NL O frasco brilha intensamente.",
+      "\"A gente se vê, Azulzinho. Não suma.\"",
+      "\"Hmpf. Vamos ver até onde você chega sem a ~MINHA~ ajuda.\"",
+      "#bOlá! #bEu #bsou #bo #bOmochao! NL NL Assistência é uma carta de custo #b0 que adiciona uma #yTécnica de #yAmigo aleatória à sua mão. Ela #yexaure. No fim do combate, você pode escolher manter a Técnica. NL NL Cartas #rPRECIOSAS ficam na mão, mas, se você a exaurir, vai entrar em #rFúria!"
+    ],
+    "OPTIONS": [
+      "[Sair]",
+      "[Aceitar troca] #rPerca ",
+      ". #gGanhe: ",
+      "[Recusar troca] #yPague #y",
+      "#yde #yOuro. ",
+      " ganha #rPRECIOSO.",
+      "[Discutir] ",
+      "[Aceitar oferta] #gCure #g",
+      " #gPV. #rPerca #r",
+      " #rPV #rmáximos.",
+      "[Recusar oferta] Sair.",
+      "[Falar com o Omochao] #b(Ação #bgrátis)"
+    ]
+  },
+  "${modID}:TimeStoneEvent": {
+    "NAME": "Pedra do Tempo",
+    "DESCRIPTIONS": [
+      "Você encontra algumas placas de sinalização. Ao se aproximar delas, quase se lembra de memórias estranhas. Você não sabe por que sabe dessas informações. NL NL Passado. Presente. Futuro.",
+      "O Passado: Anéis valem mais. NL NL Se você sofrer {0} de dano, #rvocê #rperde #rTODOS #ros #yAnéis #rda #rsua #rmão. NL NL Se você tiver #y{1} de Ouro e morrer, gasta #y{2} #yde #yOuro para #grecuperar #g{3} #gde #gPV. NL NL #rPerca: {4}. #gGanhe: {5}.",
+      "O Presente: A explosão da mídia. Cada ato abre um precedente. NL NL Receba #g2 #gaprimoramentos #galeatórios e #rperca #r{0} #rPV.",
+      "O Futuro: Inflação. Para toda a família. Jogos de azar por toda parte. NL NL No começo do combate, você #rperde #r1 #rde #ySubir #yde #yNível: #yVelocidade. NL NL Quando você ganhar um #yAnel, #rtorne #raleatório #ro #rcusto #rdele. NL NL #gO #gtamanho #gmáximo #gda #gsua #gmão #gaumenta #gem #g3. NL NL #gGanhe #gum #gHoming #gAttack.",
+      "Você voa para longe. Seu corpo começa a cintilar. Antes que perceba, a paisagem explode em uma luz verde envolvente. NL NL NL ...Era uma vez.",
+      "Nada como o presente! Quando a luz calorosa te alcança, você se recusa a segui-la. Em vez disso, traça o seu próprio caminho, abraçando outro tipo de destino.",
+      "É inevitável. A história se repete. Mas você sabe a verdade. Sabe que não importa o que aconteça ou onde esteja, sempre há oportunidades."
+    ],
+    "OPTIONS": [
+      "[Ir]",
+      "[Espiar o Passado] #b(Ação #bgrátis)",
+      "[Espiar o Presente] #b(Ação #bgrátis)",
+      "[Espiar o Futuro] #b(Ação #bgrátis)",
+      "[Voltar ao ponto de partida] #b(Ação #bgrátis)",
+      "[Escolher o Passado] Aceitar estas condições.",
+      "[Escolher o Presente] Aceitar estas condições.",
+      "[Escolher o Futuro] Aceitar estas condições."
+    ]
+  }
+}

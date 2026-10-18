@@ -1,0 +1,280 @@
+{
+  "${modID}:AMAZINGPower": {
+    "NAME": "NIESAMOWITE",
+    "DESCRIPTIONS": [
+      "Za każdym razem, gdy zagrasz ",
+      " kart(y) Ataku w jednej turze, zadaj #b",
+      " kart(y) Ataku w jednej turze, zadaj #b",
+      " pkt. obrażeń WSZYSTKIM przeciwnikom."
+    ]
+  },
+  "${modID}:BlastProcessingPower": {
+    "NAME": "Blast Processing",
+    "DESCRIPTIONS": [
+      "W każdej turze koszt twoich pierwszych ",
+      " stworzonych kart jest niższy o 1 [E] . Stworzone karty o koszcie zero są pomijane."
+    ]
+  },
+  "${modID}:ChaosControlPower": {
+    "NAME": "Chaos Control",
+    "DESCRIPTIONS": [
+      "W tej turze twój następny Atak zostanie zagrany dodatkowo ",
+      " raz.",
+      " razy."
+    ]
+  },
+  "${modID}:DevBandaidPower": {
+    "NAME": "Plaster twórcy",
+    "DESCRIPTIONS": [
+      "Nie powinieneś tego widzieć. W wydarzeniach rozpoczynających walkę stos rozgrywający czasem z jakiegoś powodu nie zawiera kart. NL NL Jeśli stos rozgrywający i stos kart odrzuconych są puste, spróbuj zainicjować stos rozgrywający od nowa."
+    ]
+  },
+  "${modID}:DirectJumpPower": {
+    "NAME": "Skok bezpośredni",
+    "DESCRIPTIONS": [
+      "Gdy w tej turze zagrasz Umiejętność, dodaj do ręki Pierścień."
+    ]
+  },
+  "${modID}:DizzyPlayerPower": {
+    "NAME": "Zawroty",
+    "DESCRIPTIONS": [
+      "Na początku tury wylosuj koszt WSZYSTKICH kart w ręce na czas tej tury."
+    ]
+  },
+  "${modID}:DizzyPower": {
+    "NAME": "Zawroty",
+    "DESCRIPTIONS": [
+      "Cel zadaje obrażenia pomniejszone o koszt najdroższej karty w twojej ręce.",
+      "Karta: koszt {0} {1}",
+      "(brak karty)"
+    ]
+  },
+  "${modID}:ExtenderPower": {
+    "NAME": "Akcje Sztuczek w powietrzu",
+    "DESCRIPTIONS": [
+      "Jeśli na początku tury masz #yWigor, wybierz: zyskaj 2 miejsca na Sferę, dobierz 2 dodatkowe karty albo zyskaj [E] [E] . Powtórz dla każdego ładunku tej mocy."
+    ]
+  },
+  "${modID}:FalconPunchRarePower": {
+    "NAME": "S Falcon Punch: przygotowanie",
+    "DESCRIPTIONS": [
+      "W następnej turze dodaj do ręki #yS #yFalcon #yPunch."
+    ]
+  },
+  "${modID}:FlagPolePower": {
+    "NAME": "Skok spadochronowy",
+    "DESCRIPTIONS": [
+      "W tej turze zagranie #yPierścienia przywołuje 1 Sferę Mrozu."
+    ]
+  },
+  "${modID}:LevelUpFlightPower": {
+    "NAME": "Awans: Lot",
+    "DESCRIPTIONS": [
+      "Za każdy #yPierścień w ręce zwiększ #ySkupienie o #b",
+      "."
+    ]
+  },
+  "${modID}:LevelUpSpeedPower": {
+    "NAME": "Awans: Szybkość",
+    "DESCRIPTIONS": [
+      "Za każdy #yPierścień w ręce zwiększ Blok zyskiwany z kart o #b",
+      "."
+    ]
+  },
+  "${modID}:LevelUpPowerPower": {
+    "NAME": "Awans: Moc",
+    "DESCRIPTIONS": [
+      "Za każdy #yPierścień w ręce zwiększ obrażenia zadawane kartami o #b",
+      "."
+    ]
+  },
+  "${modID}:LSDPower": {
+    "NAME": "LSD",
+    "DESCRIPTIONS": [
+      "#yPierścienie nie dają już Tymczasowych PŻ po zagraniu w tej turze. Za każdym razem, gdy w tej turze zagrasz #yPierścień, #gprzywróć #g",
+      " #gPŻ."
+    ]
+  },
+  "${modID}:LoseEchoPower": {
+    "NAME": "Niebieska smuga (zanika)",
+    "DESCRIPTIONS": [
+      "Na koniec tury utrać Echo."
+    ]
+  },
+  "${modID}:LoseFocusPower": {
+    "NAME": "Utrata Skupienia",
+    "DESCRIPTIONS": [
+      "Na koniec tury utrać #b",
+      " pkt. Skupienia."
+    ]
+  },
+  "${modID}:MissionRingRacePower": {
+    "NAME": "Misja: Wyścig po pierścienie",
+    "DESCRIPTIONS": [
+      "#yWyklucz #b",
+      " #ykart #yjak #ynajszybciej! Spowoduje to natychmiastowe zakończenie walki. NL ",
+      "Ranga S: ",
+      " tur NL Ranga A: ",
+      " tur NL Ranga B: ",
+      " tur"
+    ]
+  },
+  "${modID}:MissionScoreAttackPower": {
+    "NAME": "Misja: Atak na punkty",
+    "DESCRIPTIONS": [
+      "#yZadaj #yjak #ynajwięcej #yobrażeń! NL ",
+      "Ranga S: ",
+      "+ obrażeń NL Ranga A: ",
+      "+ obrażeń NL Ranga B: ",
+      "+ obrażeń"
+    ]
+  },
+  "${modID}:MissionTimeAttackPower": {
+    "NAME": "Misja: Wyścig z czasem",
+    "DESCRIPTIONS": [
+      "#yWygraj #ywalkę #yjak #ynajszybciej! NL ",
+      "Ranga S: ",
+      " tur NL Ranga A: ",
+      " tur NL Ranga B: ",
+      " tur"
+    ]
+  },
+  "${modID}:ModDrawReductionPower": {
+    "NAME": "Zmniejszone dobieranie",
+    "DESCRIPTIONS": [
+      "Dobierz o #b1 kartę mniej w następnej turze.",
+      "Dobierz o #b1 kartę mniej przez kolejne #b",
+      " tur(y)."
+    ]
+  },
+  "${modID}:ModPersistPower": {
+    "NAME": "Persist",
+    "DESCRIPTIONS": [
+      "Umieść następną zagraną kartę w ręce."
+    ]
+  },
+  "${modID}:MomentumPower": {
+    "NAME": "Pęd",
+    "DESCRIPTIONS": [
+      "Za każdym razem, gdy zagrasz kartę o koszcie 2+, dobierz {0} kart(y)."
+    ]
+  },
+  "${modID}:NextTurnEchoPower": {
+    "NAME": "Niebieska smuga",
+    "DESCRIPTIONS": [
+      "W następnej turze twój pierwszy ruch zostanie zagrany dwukrotnie."
+    ]
+  },
+  "${modID}:NiceSmilePower": {
+    "NAME": "Maksymalna ocena",
+    "DESCRIPTIONS": [
+      "Za każdym razem, gdy zyskasz #yWigor, zyskaj #b",
+      " więcej."
+    ]
+  },
+  "${modID}:OneUpPower": {
+    "NAME": "1-Up",
+    "DESCRIPTIONS": [
+      "Gdy zginiesz, przywróć #g",
+      " PŻ i #rutrać #r100 #rszt. #rzłota."
+    ]
+  },
+  "${modID}:RelaxPower": {
+    "NAME": "Relaks",
+    "DESCRIPTIONS": [
+      "Na koniec tury przyjmij postawę Spokoju i zmniejsz liczbę ładunków tej mocy o #b1."
+    ]
+  },
+  "${modID}:RicochetPower": {
+    "NAME": "Rykoszet",
+    "DESCRIPTIONS": [
+      "Gdy użyjesz #yWigoru, przenieś WSZYSTKIE #yRykoszety ze stosu kart odrzuconych do ręki. NL Liczba #yRykoszetów w stosie kart odrzuconych: #b",
+      "."
+    ]
+  },
+  "${modID}:RingPower": {
+    "NAME": "Pierścień",
+    "DESCRIPTIONS": [
+      "Zwiększ Blok zyskiwany z kart o #b",
+      "."
+    ]
+  },
+  "${modID}:RocketAccelPower": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTIONS": [
+      "Następne Ataki (#b",
+      " szt.) zadają #b",
+      " szt.) zadają #b",
+      " pkt. obrażeń teraz i do końca walki."
+    ]
+  },
+  "${modID}:SilverPower": {
+    "NAME": "Telekineza",
+    "DESCRIPTIONS": [
+      "Na początku następnej tury WSZYSCY przeciwnicy tracą ",
+      " pkt. Siły na jedną turę."
+    ]
+  },
+  "${modID}:SonicBoomPower": {
+    "NAME": "Sonic Boom",
+    "DESCRIPTIONS": [
+      "Na koniec tury zadaj obrażenia równe twojemu Blokowi ORAZ modyfikatorom obrażeń."
+    ]
+  },
+  "${modID}:SpeedHurtPower": {
+    "NAME": "Strzała Sądu",
+    "DESCRIPTIONS": [
+      "Na koniec tury zadaj obrażenia równe twojemu Blokowi."
+    ]
+  },
+  "${modID}:SuperSonicPower": {
+    "NAME": "Super Sonic",
+    "DESCRIPTIONS": [
+      "Oto moc Szmaragdów Chaosu!",
+      "MUSISZ zagrywać swoje Pierścienie, by zyskać Nieuchwytność. UMIERASZ CO TURĘ."
+    ]
+  },
+  "${modID}:TeaserRarePower": {
+    "NAME": "Księżycowy medal",
+    "DESCRIPTIONS": [
+      "Następne dobrane Pospolite Ataki (",
+      " szt.",
+      " szt.",
+      ") zmienią się w losowy Atak Werehoga."
+    ]
+  },
+  "${modID}:ThunderShieldPower": {
+    "NAME": "Tarcza gromu",
+    "DESCRIPTIONS": [
+      "Gdy twoje Sfery uruchomią pasywne efekty na koniec tury, dodaj do ręki #b",
+      " #yPierścień",
+      " #yPierścienie",
+      ". Każdy #yPierścień uruchomi wtedy pasywny efekt Sfery Gromu #b",
+      " raz.",
+      " razy."
+    ]
+  },
+  "${modID}:TrickPower": {
+    "NAME": "Sztuczka",
+    "DESCRIPTIONS": [
+      "Na koniec tury zagraj Finisz skalujący się z liczbą Sztuczek: ",
+      "."
+    ]
+  },
+  "${modID}:TricksterPower": {
+    "NAME": "Sztukmistrz",
+    "DESCRIPTIONS": [
+      "Na początku tury dodaj do ręki #b",
+      " Sztuczkę.",
+      " Sztuczki."
+    ]
+  },
+  "${modID}:TurbulencePower": {
+    "NAME": "Turbulencje",
+    "DESCRIPTIONS": [
+      "Gdy Wykluczysz kartę, przywołaj #b",
+      " Sferę Mrozu.",
+      " Sfery Mrozu."
+    ]
+  }
+}

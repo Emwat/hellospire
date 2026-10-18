@@ -1,0 +1,30 @@
+{
+  "${modID}:AssistPotion": {
+    "NAME": "Mikstura asysty",
+    "DESCRIPTIONS": [
+      "Wybierz 1 z 3 losowych kart Asysty i dodaj ją do ręki. W tej turze kosztuje 0.",
+      "Wybierz 1 z 3 losowych kart Asysty i dodaj 2 jej kopie do ręki. W tej turze kosztują 0."
+    ]
+  },
+  "${modID}:ChaosSodaPotion": {
+    "NAME": "Napój Chaosu",
+    "DESCRIPTIONS": [
+      "Wyklucz do #b1 karty. Dodaj do ręki #b1 #ySztuczkę+ o koszcie #b0. Zyskaj #b1 miejsce na Sferę. Przyjmij postawę #ySpokoju.",
+      "Wyklucz do #b2 kart. Dodaj do ręki #b2 #ySztuczki+ o koszcie #b0. Zyskaj #b2 miejsca na Sferę. Przyjmij postawę #ySpokoju."
+    ]
+  },
+  "${modID}:PowerCorePotion": {
+    "NAME": "Rdzeń mocy",
+    "DESCRIPTIONS": [
+      "Dodaj do ręki #yPierścień o koszcie 0 i wybierz: #yAwans: #ySzybkość, #yLot lub #yMoc.",
+      "Dodaj do ręki #yPierścień o koszcie 0 i wybierz: #yAwans: #ySzybkość, #yLot lub #yMoc. Powtórz."
+    ]
+  },
+  "${modID}:SlowPotion": {
+    "NAME": "Lodowe działo",
+    "DESCRIPTIONS": [
+      "Nałóż #yŚlamazarność na WSZYSTKICH przeciwników.",
+      "Nałóż #yŚlamazarność na WSZYSTKICH przeciwników dwukrotnie."
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "${modID}:ClassicMode": {
+    "NAME": "Tryb klasyczny",
+    "DESCRIPTIONS": [
+      "10 punktów za każdy poziom Wzniesienia w Trybie klasycznym."
+    ]
+  }
+}

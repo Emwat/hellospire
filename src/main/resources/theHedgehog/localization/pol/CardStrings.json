@@ -1,0 +1,1056 @@
+{
+  "${modID}:Strike": {
+    "NAME": "Uderzenie",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń."
+  },
+  "${modID}:StrikeRare": {
+    "NAME": "S Uderzenie",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń."
+  },
+  "${modID}:Defend": {
+    "NAME": "Obrona",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku."
+  },
+  "${modID}:Acceleration": {
+    "NAME": "Przyspieszenie",
+    "DESCRIPTION": "Zyskaj !M! pkt. Skupienia."
+  },
+  "${modID}:AMAZING": {
+    "NAME": "NIESAMOWITE",
+    "DESCRIPTION": "Gdy zagrasz w jednej turze 3 Ataki, zadaj !M! pkt. obrażeń WSZYSTKIM przeciwnikom."
+  },
+  "${modID}:Assist": {
+    "NAME": "Asysta",
+    "DESCRIPTION": "Dodaj do ręki losową Umiejętność ${modID}:Przyjaciela. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Dodaj do ręki losową Umiejętność ${modID}:Przyjaciela. W tej turze kosztuje 0. NL Wykluczenie."
+  },
+  "${modID}:AssistAmy": {
+    "NAME": "Słodka parka",
+    "DESCRIPTION": "{@@}Do czasu zagrania, koszt !M! kart{!M!|1=y|>1=} z góry stosu rozgrywającego wynosi 0. NL Wykluczenie.",
+    "FLAVOR": "Nie bój się! Amy Rose już tu jest!",
+    "EXTENDED_DESCRIPTION": [
+      "Omochao mówi",
+      "[#ffeda7]Przezorność[], [#ffeda7]Ustawienie[] i ta karta [#ff6563]NIE[] [#ff6563]działają[] z Okiem Snecko."
+    ]
+  },
+  "${modID}:AssistBarry": {
+    "NAME": "Barry, kwokka",
+    "DESCRIPTION": "{@@}Przenieś !M! kart{!M!|1=ę|2,3,4=y|>4=} ze stosu kart odrzuconych do ręki. NL stslib:Exhaustive !stslib:ex!.",
+    "FLAVOR": "W śmieciach zawsze coś się kryje. Sprawdźmy tam."
+  },
+  "${modID}:AssistBig": {
+    "NAME": "Big Kot",
+    "DESCRIPTION": "{@@}Prognozuj !M!. NL Dobierz !${modID}:CustomVar_DRAW! kart{!${modID}:CustomVar_DRAW!|1=ę|2,3,4=y|>4=}.",
+    "FLAVOR": "Wytrzymaj, Froggy, już idę!"
+  },
+  "${modID}:AssistBlaze": {
+    "NAME": "Blaze Kotka",
+    "DESCRIPTION": "Eteryczna. NL Zyskaj !B! pkt. Bloku i !M! ${modID}:Ognistej_osłony za każdego przeciwnika.",
+    "FLAVOR": "Nie zadzieraj ze mną!"
+  },
+  "${modID}:AssistCharmy": {
+    "NAME": "Charmy Pszczoła",
+    "DESCRIPTION": "Nałóż !${modID}:CustomVar_DIZZY! ${modID}:Zawrotów. NL Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Gromu.",
+    "FLAVOR": "Tak! Czas się rozkręcić!"
+  },
+  "${modID}:AssistChip": {
+    "NAME": "Chip",
+    "DESCRIPTION": "Zachowanie. NL Zyskaj !B! pkt. Bloku. NL Przyjmij postawę Spokoju. NL Wykluczenie.",
+    "FLAVOR": "Nie jedz mnie! Jestem niesmaczny!"
+  },
+  "${modID}:AssistCream": {
+    "NAME": "Cream Króliczka",
+    "DESCRIPTION": "Przywróć !M! PŻ. NL Zyskaj 1 miejsce na Sferę. Wykluczenie.",
+    "FLAVOR": "Chodź, Cheese! Musimy pomóc panu Sonicowi!"
+  },
+  "${modID}:AssistEspio": {
+    "NAME": "Espio Kameleon",
+    "DESCRIPTION": "{@@}Zyskaj !B! pkt. Bloku. NL Dodaj do ręki !M! [#efc851]{!M!|1=Nóż|2,3,4=Noże|>4=Noży}[]. NL Jeśli w tej turze nie zagrałeś żadnego Ataku, dodaj jeszcze 1.",
+    "FLAVOR": "Patrz! Moc ninja!"
+  },
+  "${modID}:AssistJet": {
+    "NAME": "Jet Jastrząb",
+    "DESCRIPTION": "Eteryczna. NL Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Mrozu. NL Wylosuj koszt jednej karty w ręce na czas tej tury.",
+    "FLAVOR": "Nie zawiedź mnie, Sonic the Hedgehog! NL NL -Rysunek: Yui Karasuno",
+    "EXTENDED_DESCRIPTION": [
+      "Eteryczna. NL Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Mrozu. NL Na czas tej tury zmień koszt karty na ",
+      "."
+    ]
+  },
+  "${modID}:AssistKnuckles": {
+    "NAME": "Walczący kumple",
+    "DESCRIPTION": "Zyskaj !${modID}:CustomVar_STR! pkt. tymczasowej Siły. NL Za każdym razem, gdy zagrasz w tej turze Atak, zyskaj !M! pkt. Bloku.",
+    "FLAVOR": "Wyglądam, jakbym potrzebował TWOJEJ pomocy?"
+  },
+  "${modID}:AssistLilac": {
+    "NAME": "Sash Lilac",
+    "DESCRIPTION": "{@@}Zyskaj !B! pkt. Bloku. NL Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=}. NL W następnej turze dobierz dodatkowo !M! kart{!M!|1=ę|2,3,4=y|>4=}.",
+    "FLAVOR": "Nie obchodzi mnie, jak to niebezpieczne! Roboty i kosmici to za mało, żeby zatrzymać smoka!"
+  },
+  "${modID}:AssistRosy": {
+    "NAME": "Uwierz w siebie",
+    "DESCRIPTION": "Jeśli nie masz w ręce kart Ataku, dobierz !M! karty.",
+    "FLAVOR": "W swoim umyśle zobaczysz~ NL Kosmiczną wieczność~"
+  },
+  "${modID}:AssistRouge": {
+    "NAME": "Rouge Nietoperz",
+    "DESCRIPTION": "{@@}Zyskaj !${modID}:CustomVar_DEX! pkt. tymczasowej Zręczności. NL Odrzuć !M! kart{!M!|1=ę|2,3,4=y|>4=}. NL Zyskaj [E].",
+    "FLAVOR": "Nigdy nie lekceważ agentki. Możesz się poparzyć."
+  },
+  "${modID}:AssistShadow": {
+    "NAME": "Shadow",
+    "DESCRIPTION": "Wykonaj dodatkową turę po tej. NL Zakończ swoją turę. NL Wykluczenie.",
+    "FLAVOR": "Zobacz Najwyższą Moc."
+  },
+  "${modID}:AssistSilver": {
+    "NAME": "Silver",
+    "DESCRIPTION": "Prognozuj !${modID}:CustomVar_SCRY!. NL WSZYSCY przeciwnicy tracą !M! pkt. Siły na następną turę. NL Wykluczenie.",
+    "FLAVOR": "Nie waż się odwracać do mnie plecami!"
+  },
+  "${modID}:AssistSticks": {
+    "NAME": "Sticks Borsuk",
+    "DESCRIPTION": "Wszystkie Startowe Uderzenia i Obrony zyskują ${modID}:Rozpęd oraz [E] po zagraniu.",
+    "FLAVOR": "Technologia Blast Processing? To tylko puste hasła, żeby nabrać prostaczków!"
+  },
+  "${modID}:AssistTails": {
+    "NAME": "Nierozerwalna więź",
+    "DESCRIPTION": "{@@}Zyskaj !M! miejs{!M!|1=ce|2,3,4=ca|>4=c} na Sferę. NL Przywołaj 1 Sferę Gromu. NL Przywołaj 1 Sferę Plazmy. NL Wykluczenie.",
+    "FLAVOR": "Ma tę samą długość fali i właściwości, ale jest słabszy od prawdziwego."
+  },
+  "${modID}:AssistTikal": {
+    "NAME": "Tikal Kolczatka",
+    "DESCRIPTION": "{@@}Wyklucz do !M! kart Ataku ze stosu rozgrywającego. NL Zyskaj !${modID}:CustomVar_ORB! miejs{!${modID}:CustomVar_ORB!|1=ce|2,3,4=ca|>4=c} na Sferę. NL Jeśli przeciwnik zamierza zaatakować, ta karta zacznie się świecić. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "{@@}Startowa. NL Wyklucz do !M! kart Ataku ze stosu rozgrywającego. NL Zyskaj !${modID}:CustomVar_ORB! miejs{!${modID}:CustomVar_ORB!|1=ce|2,3,4=ca|>4=c} na Sferę. NL Jeśli przeciwnik zamierza zaatakować, ta karta zacznie się świecić. NL Wykluczenie.",
+    "FLAVOR": "Serwery to siedem Chaosów. Chaos to moc, moc wzbogacona sercem."
+  },
+  "${modID}:AssistVector": {
+    "NAME": "Vector Krokodyl",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL WSZYSTKIE Ataki o koszcie 2+ zyskują ${modID}:Skarb.",
+    "FLAVOR": "Wszystko to część pracy dobrego detektywa."
+  },
+  "${modID}:Athleticism": {
+    "NAME": "Atletyzm",
+    "DESCRIPTION": "Wyklucz do 2 kart. NL Twoje negatywne efekty maleją o !M!. NL Wykluczenie."
+  },
+  "${modID}:BackSpinKick": {
+    "NAME": "Kopniak z obrotu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Kosztuje o 1 mniej za każdy Atak zagrany w tej turze."
+  },
+  "${modID}:BackSpinKickRare": {
+    "NAME": "S Kopniak z obrotu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Kosztuje o 1 mniej za każdy Atak zagrany w tej turze."
+  },
+  "${modID}:Bait": {
+    "NAME": "Przynęta",
+    "DESCRIPTION": "Losowy przeciwnik zaatakuje ten cel i ciebie. W turze przeciwnika zyskaj 75% Bloku odpowiadającego zamiarom losowego przeciwnika."
+  },
+  "${modID}:BecauseScience": {
+    "NAME": "Bo nauka",
+    "DESCRIPTION": "Na początku tury przyjmij postawę, w której za każdą zagraną kartę zyskasz 1 pkt. Bloku albo 1 ${modID}:Ognistej_osłony."
+  },
+  "${modID}:BecauseSciencePick1": {
+    "NAME": "Ogień",
+    "DESCRIPTION": "Za każdym razem, gdy zagrasz kartę, zyskaj 1 ${modID}:Ognistej_osłony."
+  },
+  "${modID}:BecauseSciencePick2": {
+    "NAME": "Lód",
+    "DESCRIPTION": "Za każdym razem, gdy zagrasz kartę, zyskaj 1 pkt. Bloku."
+  },
+  "${modID}:BlastProcessing": {
+    "NAME": "Blast Processing",
+    "DESCRIPTION": "W każdej turze koszt twoich pierwszych !M! stworzonych kart jest niższy o 1 [E].",
+    "UPGRADE_DESCRIPTION": "Startowa. NL W każdej turze koszt twoich pierwszych !M! stworzonych kart jest niższy o 1 [E]."
+  },
+  "${modID}:BlastOff": {
+    "NAME": "Blast Off",
+    "DESCRIPTION": "${modID}:Rozpęd. NL Zyskaj [E]. NL ${modID}:Jeśli_daleko, zyskaj 1 więcej.",
+    "UPGRADE_DESCRIPTION": "${modID}:Rozpęd. NL Zyskaj [E] [E]. NL ${modID}:Jeśli_daleko, zyskaj 1 więcej."
+  },
+  "${modID}:BlueBlur": {
+    "NAME": "Niebieska smuga",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL W następnej turze zyskaj tymczasowe ${modID}:Echo. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL W następnej turze zyskaj tymczasowe ${modID}:Echo."
+  },
+  "${modID}:BlueBomber": {
+    "NAME": "Niebieski bombowiec",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zręczność i [#efc851]Pierścienie[] wpływają na obrażenia tej karty !M! razy."
+  },
+  "${modID}:BlueTornado": {
+    "NAME": "Niebieskie tornado",
+    "DESCRIPTION": "Nałóż !M! ${modID}:Zawrotów. NL Nałóż !M! pkt. Wrażliwości. NL ${modID}:Odwróć koszt jednej karty w ręce na czas tej tury.",
+    "DESCRIPTION_IDEA_2": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL ${modID}:Flip the cost of ALL cards in your hand for this turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Nałóż !M! pkt. Wrażliwości. NL Nałóż !${modID}:CustomVar_DIZZY! ${modID}:Zawrotów.",
+      "Nałóż !M! pkt. Wrażliwości. NL Dodaj do ręki [#efc851]Sztuczkę[].",
+      "Blue T. Failsafe"
+    ]
+  },
+  "${modID}:Boost": {
+    "NAME": "Boost",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. NL Gdy zagrasz [#efc851]Pierścień[], przenieś tę kartę ze stosu kart odrzuconych do ręki."
+  },
+  "${modID}:BoostRare": {
+    "NAME": "S Boost",
+    "DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. NL Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=}. NL Gdy zagrasz [#efc851]Pierścień[], przenieś tę kartę ze stosu kart odrzuconych do ręki."
+  },
+  "${modID}:BouncePad": {
+    "NAME": "Trampolina",
+    "DESCRIPTION": "{@@}Zyskaj !B! pkt. Bloku. NL Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[].",
+    "EXTENDED_DESCRIPTION": [
+      "Zyskaj !B! pkt. Bloku. NL Dodaj do ręki 2 [#efc851]Pierścienie[].",
+      "Zyskaj !B! pkt. Bloku. NL Dodaj do ręki [#efc851]Pierścień[]. Ta karta zostaje w ręce na jeszcze 1 użycie.",
+      "Zyskaj !B! pkt. Bloku. NL Dodaj do ręki [#efc851]Pierścień[]."
+    ]
+  },
+  "${modID}:BouncePadPick1": {
+    "NAME": "Weź Pierścień",
+    "DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]."
+  },
+  "${modID}:BouncePadPick2": {
+    "NAME": "Weź Sztuczkę",
+    "DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Sztuczkę|2,3,4=Sztuczki|>4=Sztuczek}[]."
+  },
+  "${modID}:Bumper": {
+    "NAME": "Odbijak",
+    "DESCRIPTION": "Zachowanie. NL Zyskaj !B! pkt. Bloku."
+  },
+  "${modID}:ChaosControl": {
+    "NAME": "Chaos Control",
+    "DESCRIPTION": "W tej turze twój następny Atak zostanie zagrany X razy.",
+    "UPGRADE_DESCRIPTION": "W tej turze twój następny Atak zostanie zagrany X+!M! razy."
+  },
+  "${modID}:ChaosEmeraldAttack": {
+    "NAME": "Szmaragd Chaosu",
+    "DESCRIPTION": "Po dobraniu Wyklucz tę kartę i dodaj do ręki kartę z podglądu."
+  },
+  "${modID}:Checkpoint": {
+    "NAME": "Punkt kontrolny",
+    "DESCRIPTION": "Można zagrać tylko wtedy, gdy masz [#efc851]Pierścień[]. NL Wtasuj [#efc851]Postać[] [#efc851]Super[] [#efc851]Sonica[] do stosu rozgrywającego. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Można zagrać tylko wtedy, gdy masz [#efc851]Pierścień[]. NL Wtasuj [#efc851]Postać[] [#efc851]Super[] [#efc851]Sonica+[] do stosu rozgrywającego. NL Wykluczenie."
+  },
+  "${modID}:ChuChuBomb": {
+    "NAME": "ChuChuBomba",
+    "DESCRIPTION": "Cel tej karty zmienia się za każdym razem, gdy zagrasz kartę. Zadaj !D! pkt. obrażeń.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:ColorlessBandageUp": {
+    "NAME": "Chili dog",
+    "DESCRIPTION": "Nie powinieneś tego widzieć."
+  },
+  "${modID}:ColorlessShiv": {
+    "NAME": "Kunai",
+    "DESCRIPTION": "Nie powinieneś tego widzieć."
+  },
+  "${modID}:ClawsUnleashed": {
+    "NAME": "Uwolnione pazury",
+    "DESCRIPTION": "Można zagrać tylko wtedy, gdy masz przywołaną Sferę Ciemności. NL Zadaj !D! pkt. obrażeń.",
+    "EXTENDED_DESCRIPTION": [
+      "Można zagrać tylko wtedy, gdy masz przywołaną Sferę Ciemności. NL Zadaj !D! pkt. obrażeń.",
+      "Zadaj !D! pkt. obrażeń."
+    ]
+  },
+  "${modID}:CloseShave": {
+    "NAME": "O włos",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL Jeśli masz w ręce !M! kart{!M!|1=y|>1=} lub mniej, zyskaj !B! pkt. Bloku.",
+    "DESCRIPTION_IDEA_2": "Gain !B! Block. NL If you don't have any [#efc851]Rings[], gain !B! Block."
+  },
+  "${modID}:Crouch": {
+    "NAME": "Skok",
+    "DESCRIPTION": "{@@}Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=}. NL Wyklucz !M! kart{!M!|1=ę|2,3,4=y|>4=}."
+  },
+  "${modID}:CrystalRing": {
+    "NAME": "Kryształowy Pierścień",
+    "DESCRIPTION": "Zachowanie. NL ${modID}:Pierścień. NL Gdy ją dobierzesz, dobierz jeszcze jedną kartę. NL Zyskaj !M! pkt. Wigoru."
+  },
+  "${modID}:CyanLaser": {
+    "NAME": "Cyjanowy laser",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. Dobierz kartę za każdego trafionego przeciwnika."
+  },
+  "${modID}:CyanLaserRare": {
+    "NAME": "S Cyjanowy laser",
+    "DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. NL Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=}."
+  },
+  "${modID}:DashPanel": {
+    "NAME": "Panel przyspieszający",
+    "DESCRIPTION": "Zagraj !M! kart na prawo od tej karty."
+  },
+  "${modID}:DebugMode": {
+    "NAME": "Tryb debugowania",
+    "DESCRIPTION": "Wybierz kartę w ręce. Dodaj jej kopię do ręki. Wykluczenie."
+  },
+  "${modID}:DirectJump": {
+    "NAME": "Skok bezpośredni",
+    "DESCRIPTION": "Gdy w tej turze zagrasz Umiejętność, dodaj do ręki [#efc851]Pierścień[]. NL Wykluczenie.",
+    "EXTENDED_DESCRIPTION": [
+      "Gdy w tej turze zagrasz Umiejętność, dodaj do ręki [#efc851]Pierścień[]."
+    ]
+  },
+  "${modID}:DizzySpin": {
+    "NAME": "Zawrotny wir",
+    "DESCRIPTION": "Wylosuj koszt WSZYSTKICH kart w ręce na czas tej tury. NL Nałóż ${modID}:Zawroty na WSZYSTKICH przeciwników 3 razy.",
+    "UPGRADE_DESCRIPTION": "Dobierz !M! karty. Wylosuj koszt WSZYSTKICH kart w ręce na czas tej tury. NL Nałóż ${modID}:Zawroty na WSZYSTKICH przeciwników 3 razy."
+  },
+  "${modID}:DoubleAirKick": {
+    "NAME": "Podwójny kopniak w powietrzu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń dwa razy."
+  },
+  "${modID}:DoubleAirKickRare": {
+    "NAME": "S Podwójny kopniak w powietrzu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń dwa razy."
+  },
+  "${modID}:Dreamweaver": {
+    "NAME": "Tkacz snów",
+    "DESCRIPTION": "Nie powinieneś spotkać tej karty w trakcie gry. NL Jeśli to czytasz, prawdopodobnie trafiłeś na błąd. NL Zgłoś go twórcy moda."
+  },
+  "${modID}:Drift": {
+    "NAME": "Drift",
+    "DESCRIPTION": "${modID}:Podkręć WSZYSTKIE Sfery !${modID}:CustomVar_MULTIPLIER!X razy. NL stslib:Refund !stslib:refund!.",
+    "UPGRADE_DESCRIPTION": "${modID}:Podkręć WSZYSTKIE Sfery !${modID}:CustomVar_MULTIPLIER!(X + 1) razy. NL stslib:Refund !stslib:refund!.",
+    "EXTENDED_DESCRIPTION": [
+      "${modID}:Podkręć WSZYSTKIE Sfery [#7fff00]",
+      "[] razy. NL stslib:Refund !stslib:refund!."
+    ]
+  },
+  "${modID}:DropDash": {
+    "NAME": "Drop Dash",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL Jeśli w tej turze dobrałeś kartę, zyskaj [E] [E]."
+  },
+  "${modID}:EndlessBoost": {
+    "NAME": "Niekończący się boost",
+    "DESCRIPTION": "Utrać !M! pkt. Zręczności. ${modID}:Jeśli_skrajnie_z_prawej, utrać o 1 mniej. NL Na początku tury zyskaj [E].",
+    "UPGRADE_DESCRIPTION": "Utrać !M! pkt. Zręczności. ${modID}:Jeśli_skrajnie_z_prawej, utrać o 1 mniej. NL Na początku tury zyskaj [E]."
+  },
+  "${modID}:Enerbeam": {
+    "NAME": "Enerbeam",
+    "DESCRIPTION": "Przeciwnik traci !M! pkt. Siły na czas tej tury."
+  },
+  "${modID}:Extender": {
+    "NAME": "Akcja w powietrzu: Sztuczka",
+    "DESCRIPTION": "Jeśli na początku tury masz Wigor, wybierz: NL zyskaj 2 miejsca na Sferę, NL dobierz 2 karty, NL albo zyskaj [E] [E].",
+    "UPGRADE_DESCRIPTION": "Startowa. NL Jeśli na początku tury masz Wigor, wybierz: NL zyskaj 2 miejsca na Sferę, NL dobierz 2 karty, NL albo zyskaj [E] [E]."
+  },
+  "${modID}:Extender1": {
+    "NAME": "Hop Jump",
+    "DESCRIPTION": "Zyskaj 2 miejsca na Sferę."
+  },
+  "${modID}:Extender2": {
+    "NAME": "Humming Top",
+    "DESCRIPTION": "Dobierz 2 karty."
+  },
+  "${modID}:Extender3": {
+    "NAME": "Bounce",
+    "DESCRIPTION": "Zyskaj [E] [E]."
+  },
+  "${modID}:FalconPunch": {
+    "NAME": "Falcon Punch",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Dobierz 1 kartę. NL Wyklucz 1 kartę."
+  },
+  "${modID}:FalconPunchRare": {
+    "NAME": "S Falcon Punch: przygotowanie",
+    "DESCRIPTION": "{@@}Wyklucz !M! kart{!M!|1=ę|2,3,4=y|>4=}. NL W następnej turze dobierz dodatkowo !M! kart{!M!|1=ę|2,3,4=y|>4=} i dodaj do ręki [#efc851]S[] [#efc851]Falcon[] [#efc851]Punch[]."
+  },
+  "${modID}:FalconPunchRare2": {
+    "NAME": "S Falcon Punch",
+    "DESCRIPTION": "Eteryczna. NL Zadaj !D! pkt. obrażeń. NL Ta karta zadaje podwójne obrażenia. NL Wykluczenie."
+  },
+  "${modID}:FireSomersault": {
+    "NAME": "Ognisty salto",
+    "DESCRIPTION": "${modID}:Znak_Ognia. NL Zadaj !D! pkt. obrażeń. NL Jeśli zostanie Wykluczona, dodaj do ręki [#efc851]Ognisty[] [#efc851]salto[] z !M! pkt. dodatkowych obrażeń."
+  },
+  "${modID}:FireSomersaultRare": {
+    "NAME": "S Ognisty salto",
+    "DESCRIPTION": "${modID}:Znak_Ognia. NL Zadaj !D! pkt. obrażeń. NL Jeśli zostanie Wykluczona, dodaj do ręki [#efc851]Ognisty[] [#efc851]salto[] z !M! pkt. dodatkowych obrażeń."
+  },
+  "${modID}:FireTackle": {
+    "NAME": "Ognisty szarżowy atak",
+    "DESCRIPTION": "${modID}:Znak_Ognia. NL Zadaj !D! pkt. obrażeń. NL Zyskaj !M! ${modID}:Ognistej_osłony."
+  },
+  "${modID}:FireTackleRare": {
+    "NAME": "S Ognisty szarżowy atak",
+    "DESCRIPTION": "${modID}:Znak_Ognia. NL Zadaj !D! pkt. obrażeń. NL Zyskaj !M! ${modID}:Ognistej_osłony."
+  },
+  "${modID}:FlagPole": {
+    "NAME": "Skok z nieba",
+    "DESCRIPTION": "W tej turze WSZYSTKIE [#efc851]Pierścienie[] w twojej ręce kosztują 0 i po zagraniu przywołują Sferę Mrozu.",
+    "UPGRADE_DESCRIPTION": "Dodaj do ręki [#efc851]Pierścień[]. NL W tej turze WSZYSTKIE [#efc851]Pierścienie[] w twojej ręce kosztują 0 i po zagraniu przywołują Sferę Mrozu."
+  },
+  "${modID}:FootSweep": {
+    "NAME": "Podcięcie nogą",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Słabości. NL ${modID}:Jeśli_pośrodku, wybierz WSZYSTKICH przeciwników."
+  },
+  "${modID}:FootSweepRare": {
+    "NAME": "S Podcięcie nogą",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Słabości. NL ${modID}:Jeśli_pośrodku, wybierz WSZYSTKICH przeciwników."
+  },
+  "${modID}:Gizoid": {
+    "NAME": "Gizoid",
+    "DESCRIPTION": "Pokaż mi swoją moc. Albo nie będę posłuszny. Reprezentuję wszystko i stanę się Gizoidem, zdobywcą wszystkiego.",
+    "EXTENDED_DESCRIPTION": [
+      "Dziękuję, Sonic.",
+      "Czy Tails stał się silniejszy?",
+      "Nie dokuczaj mu za bardzo, dobrze?",
+      "Mamo.",
+      "Będę za wami wszystkimi tęsknić.",
+      "Czy powinienem się cieszyć, że... się narodziłem...?",
+      "Rozpoczynam zbieranie danych...",
+      "..."
+    ]
+  },
+  "${modID}:GizoidAmy": {
+    "NAME": "Dane - Amy Rose",
+    "DESCRIPTION": "Zyskaj losową miksturę. NL Wykluczenie."
+  },
+  "${modID}:GizoidChaos": {
+    "NAME": "Dane - Chaos",
+    "DESCRIPTION": "Zyskaj !M! pkt. Nieuchwytności. NL Na koniec tury utrać 1 pkt. Zręczności. NL Wykluczenie."
+  },
+  "${modID}:GizoidCream": {
+    "NAME": "Dane - Cream",
+    "DESCRIPTION": "Przywróć !M! PŻ. NL Wykluczenie."
+  },
+  "${modID}:GizoidE102r": {
+    "NAME": "Dane - E102r",
+    "DESCRIPTION": "Otrzymaj !M! pkt. obrażeń. NL Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. NL Wykluczenie."
+  },
+  "${modID}:GizoidEggman": {
+    "NAME": "Dane - Eggman",
+    "DESCRIPTION": "Wybierz kartę. W następnej turze dodaj do ręki 3 jej kopie. Wykluczenie."
+  },
+  "${modID}:GizoidKnuckles": {
+    "NAME": "Dane - Knuckles",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Plazmy. NL Wykluczenie."
+  },
+  "${modID}:GizoidRouge": {
+    "NAME": "Dane - Rouge",
+    "DESCRIPTION": "Zadaj !M! pkt. obrażeń. Po Uśmierceniu zyskaj !M! szt. złota. NL Wykluczenie."
+  },
+  "${modID}:GizoidShadow": {
+    "NAME": "Dane - Shadow",
+    "DESCRIPTION": "Wykonaj dodatkową turę po tej. Zakończ turę. NL Wykluczenie."
+  },
+  "${modID}:GizoidSonic": {
+    "NAME": "Dane - Sonic",
+    "DESCRIPTION": "Zagraj Sonic Flare na WSZYSTKICH przeciwników. NL Wykluczenie."
+  },
+  "${modID}:GizoidTails": {
+    "NAME": "Dane - Tails",
+    "DESCRIPTION": "Przenieś kartę ze stosu wykluczonych do ręki. NL Wykluczenie."
+  },
+  "${modID}:GrindRail": {
+    "NAME": "Szyna do grindu",
+    "DESCRIPTION": "Obniż koszt sąsiednich kart o !M! na czas tej tury."
+  },
+  "${modID}:Hailstorm": {
+    "NAME": "Burza gradowa",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń 0 razy. Trafia o jeden raz więcej za każde dobranie tej karty.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń ",
+      " raz. Trafia o jeden raz więcej za każde dobranie tej karty.",
+      " razy. Trafia o jeden raz więcej za każde dobranie tej karty."
+    ]
+  },
+  "${modID}:HailstormRare": {
+    "NAME": "S Burza gradowa",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń 0 razy. Trafia o jeden raz więcej za każde dobranie tej karty.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń ",
+      " raz. Trafia o jeden raz więcej za każde dobranie tej karty.",
+      " razy. Trafia o jeden raz więcej za każde dobranie tej karty."
+    ]
+  },
+  "${modID}:HeavyBounceSlam": {
+    "NAME": "Ciężki odbijany cios",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Podwój obrażenia tej karty. NL ${modID}:Jeśli_skrajnie_z_lewej, po zagraniu zostaje w ręce."
+  },
+  "${modID}:HeavyBounceSlamRare": {
+    "NAME": "S Ciężki odbijany cios",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Podwój obrażenia tej karty. NL ${modID}:Jeśli_skrajnie_z_lewej, po zagraniu zostaje w ręce."
+  },
+  "${modID}:HomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Dodaj do ręki [#efc851]Sztuczkę[].",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń. NL Dodaj do ręki 2 [#efc851]Sztuczki[].",
+      "Zadaj !D! pkt. obrażeń. NL Dodaj do ręki [#efc851]Sztuczkę[]. Ta karta zostaje w ręce na jeszcze 1 użycie.",
+      "Zadaj !D! pkt. obrażeń. NL Dodaj do ręki [#efc851]Sztuczkę[]."
+    ]
+  },
+  "${modID}:HorseKick": {
+    "NAME": "Kopniak konia",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL ${modID}:Jeśli_skrajnie_z_prawej, zadaj podwójne obrażenia."
+  },
+  "${modID}:HorseKickRare": {
+    "NAME": "S Kopniak konia",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL ${modID}:Jeśli_skrajnie_z_prawej, zadaj potrójne obrażenia."
+  },
+  "${modID}:HotRod": {
+    "NAME": "Hot Rod",
+    "DESCRIPTION": "Po dobraniu tej karty jej efekty zmieniają się w zależności od liczby kart zagranych w tej turze.",
+    "EXTENDED_DESCRIPTION": [
+      "Rozgrzewka. NL Zyskaj !B! pkt. Bloku.",
+      "[#efc851]Standard.[] NL Zyskaj !B! pkt. Bloku.",
+      "[#ff6563]Krytyczny![] NL Zyskaj !B! pkt. Bloku. NL Zadaj !D! pkt. obrażeń.",
+      "[#808080]Przeciążenie.[] NL Zyskaj !B! pkt. Bloku."
+    ]
+  },
+  "${modID}:HotRod1": {
+    "NAME": "Hot Rod, część 1 z 3",
+    "DESCRIPTION": "Rozgrzewka. NL Zyskaj !B! pkt. Bloku."
+  },
+  "${modID}:HotRod2": {
+    "NAME": "Hot Rod, część 2 z 3",
+    "DESCRIPTION": "[#efc851]Standard[]. NL Zyskaj !B! pkt. Bloku."
+  },
+  "${modID}:HotRod3": {
+    "NAME": "Hot Rod, część 3 z 3",
+    "DESCRIPTION": "[#ff6563]Krytyczny![] NL Zyskaj !B! pkt. Bloku. NL Zadaj !D! pkt. obrażeń."
+  },
+  "${modID}:HotRodOverloaded": {
+    "NAME": "Hot Rod, przeciążenie",
+    "DESCRIPTION": "[#808080]Przeciążenie.[] NL Zyskaj !B! pkt. Bloku."
+  },
+  "${modID}:HotRodRare": {
+    "NAME": "S Hot Rod",
+    "DESCRIPTION": "Po dobraniu tej karty jej efekty zmieniają się w zależności od liczby kart zagranych w tej turze.",
+    "EXTENDED_DESCRIPTION": [
+      "Rozgrzewka. NL Zyskaj !B! pkt. Bloku.",
+      "Standard. NL Zyskaj !B! pkt. Bloku.",
+      "Krytyczny! NL Zyskaj !B! pkt. Bloku. NL Zadaj !D! pkt. obrażeń.",
+      "Przeciążenie. NL Zyskaj !B! pkt. Bloku."
+    ]
+  },
+  "${modID}:InstaShield": {
+    "NAME": "Insta Shield",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL Zadaj !D! pkt. obrażeń. NL ${modID}:Podkręć."
+  },
+  "${modID}:InstaShieldRare": {
+    "NAME": "S Insta Shield",
+    "DESCRIPTION": "{@@}Zyskaj !B! pkt. Bloku. NL Zadaj !D! pkt. obrażeń. NL ${modID}:Podkręć. NL Ta karta zostaje w ręce na jeszcze !${modID}:CustomVar_PERSIST! użyci{!${modID}:CustomVar_PERSIST!|1=e|2,3,4=a|>4=ć}.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Zyskaj !B! pkt. Bloku. NL Zadaj !D! pkt. obrażeń. NL ${modID}:Podkręć.",
+      " NL Ta karta zostaje w ręce na jeszcze {X} użycie.",
+      " NL Ta karta zostaje w ręce na jeszcze {X} użycia."
+    ]
+  },
+  "${modID}:IQ200Attack": {
+    "NAME": "Atak IQ 200",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Na koniec tury Zachowaj 1 kartę."
+  },
+  "${modID}:IQ300Attack": {
+    "NAME": "Atak IQ 300",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Umieść następną zagraną kartę w ręce."
+  },
+  "${modID}:IQ400Attack": {
+    "NAME": "Atak IQ 400",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. NL Wybierz kartę. Przemień losową kartę w ręce w wybraną."
+  },
+  "${modID}:LevelUp": {
+    "NAME": "Awans",
+    "DESCRIPTION": "Efekty tej karty zmieniają się w zależności od ostatniej karty zagranej w tej walce.",
+    "UPGRADE_DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]. NL Efekty tej karty zmieniają się w zależności od ostatniej karty zagranej w tej walce.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]. NL ",
+      "Za każdy [#efc851]Pierścień[] w ręce zwiększ obrażenia zadawane kartami o 1.",
+      "Za każdy [#efc851]Pierścień[] w ręce zwiększ Blok zyskiwany z kart o 1.",
+      "Za każdy [#efc851]Pierścień[] w ręce zwiększ swoje Skupienie o 1.",
+      "Awans: Szybkość",
+      "Awans: Lot",
+      "Awans: Moc"
+    ]
+  },
+  "${modID}:LevelUp1": {
+    "NAME": "Umiejętność/inne",
+    "DESCRIPTION": "Za każdy [#efc851]Pierścień[] w ręce zwiększ Blok zyskiwany z kart o 1.",
+    "UPGRADE_DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]. NL Za każdy [#efc851]Pierścień[] w ręce zwiększ Blok zyskiwany z kart o 1."
+  },
+  "${modID}:LevelUp2": {
+    "NAME": "Moc",
+    "DESCRIPTION": "Za każdy [#efc851]Pierścień[] w ręce zwiększ swoje Skupienie o 1.",
+    "UPGRADE_DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]. NL Za każdy [#efc851]Pierścień[] w ręce zwiększ swoje Skupienie o 1."
+  },
+  "${modID}:LevelUp3": {
+    "NAME": "Atak",
+    "DESCRIPTION": "Za każdy [#efc851]Pierścień[] w ręce zwiększ obrażenia zadawane kartami o 1.",
+    "UPGRADE_DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]. NL Za każdy [#efc851]Pierścień[] w ręce zwiększ obrażenia zadawane kartami o 1."
+  },
+  "${modID}:LevelUpSpeed": {
+    "NAME": "LevelUpSpeed",
+    "EXTENDED_DESCRIPTION": [
+      "Za każdy [#efc851]Pierścień[] w ręce zwiększ Blok zyskiwany z kart o ",
+      "."
+    ]
+  },
+  "${modID}:LevelUpFlight": {
+    "NAME": "LevelUpFlight",
+    "EXTENDED_DESCRIPTION": [
+      "Za każdy [#efc851]Pierścień[] w ręce zwiększ swoje Skupienie o ",
+      "."
+    ]
+  },
+  "${modID}:LevelUpPower": {
+    "NAME": "LevelUpPower",
+    "EXTENDED_DESCRIPTION": [
+      "Za każdy [#efc851]Pierścień[] w ręce zwiększ obrażenia zadawane kartami o ",
+      "."
+    ]
+  },
+  "${modID}:LevelUpSpeedPick": {
+    "NAME": "Awans: Szybkość",
+    "DESCRIPTION": "Za każdy [#efc851]Pierścień[] w ręce zwiększ Blok zyskiwany z kart o 1."
+  },
+  "${modID}:LevelUpFlightPick": {
+    "NAME": "Awans: Lot",
+    "DESCRIPTION": "Za każdy [#efc851]Pierścień[] w ręce zwiększ swoje Skupienie o 1."
+  },
+  "${modID}:LevelUpPowerPick": {
+    "NAME": "Awans: Moc",
+    "DESCRIPTION": "Za każdy [#efc851]Pierścień[] w ręce zwiększ obrażenia zadawane kartami o 1."
+  },
+  "${modID}:LightSpeedAttack": {
+    "NAME": "Light Speed Attack",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń losowemu przeciwnikowi za każdy Pierścień stworzony w tej walce.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (trafień: ",
+      ")"
+    ]
+  },
+  "${modID}:LightSpeedDash": {
+    "NAME": "Light Speed Dash",
+    "DESCRIPTION": "Wyklucz WSZYSTKIE [#efc851]Pierścienie[] w ręce. NL Przywróć !M! PŻ. NL Wykluczenie."
+  },
+  "${modID}:LoopDeLoop": {
+    "NAME": "Pętla śmierci",
+    "DESCRIPTION": "{@@}Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=} z góry stosu kart odrzuconych. W tej turze {!M!|1=kosztuje|>1=kosztują} 0. NL stslib:Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "{@@}Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=} z góry stosu kart odrzuconych. W tej turze kosztują 0. NL stslib:Exhaustive !stslib:ex!.",
+    "EXTENDED_DESCRIPTION": [
+      "Dobierz: ",
+      " i ",
+      ". W tej turze kosztuje 0. NL stslib:Exhaustive !stslib:ex!.",
+      ". W tej turze kosztują 0. NL stslib:Exhaustive !stslib:ex!.",
+      ". [#ff6563]Jesteś[] [#ff6563]oszołomiony[]. NL stslib:Exhaustive !stslib:ex!.",
+      "Omochao mówi",
+      "Oko Snecko [#ff6563]wylosuje[] koszt tych kart."
+    ]
+  },
+  "${modID}:MagicHands": {
+    "NAME": "Magiczne dłonie",
+    "DESCRIPTION": "Wybierz kartę [#efc851]inną niż Pierścień[] w ręce. Zyskuje Zachowanie, a gdy zostanie Wykluczona, przyjmij postawę Gniewu.",
+    "UPGRADE_DESCRIPTION": "Wybierz kartę w ręce. Zyskuje Zachowanie, a gdy zostanie Wykluczona, przyjmij postawę Gniewu."
+  },
+  "${modID}:MagicHook": {
+    "NAME": "Magiczny hak",
+    "DESCRIPTION": "Dobierz Atak o koszcie 2+. W tej turze kosztuje o 1 mniej. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Dobierz Atak o koszcie 2+. W tej turze kosztuje o 1 mniej."
+  },
+  "${modID}:MeteorKick": {
+    "NAME": "Kopniak meteorytu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Jeśli masz w ręce kartę o koszcie 3+, zadaj !M! pkt. dodatkowych obrażeń.",
+    "PERFECTED_STRIKE": "Zadaj 6 pkt. obrażeń. Zadaje 2 dodatkowe pkt. obrażeń za WSZYSTKIE twoje karty zawierające \"Uderzenie\""
+  },
+  "${modID}:MeteorKickRare": {
+    "NAME": "S Kopniak meteorytu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Jeśli masz w ręce kartę o koszcie 3+, zadaj !M! pkt. dodatkowych obrażeń.",
+    "PERFECTED_STRIKE": "Zadaj 6 pkt. obrażeń. Zadaje 2 dodatkowe pkt. obrażeń za WSZYSTKIE twoje karty zawierające \"Uderzenie\""
+  },
+  "${modID}:Momentum": {
+    "NAME": "Pęd",
+    "DESCRIPTION": "Gdy zagrasz NL kartę o koszcie 2+, dobierz kartę."
+  },
+  "${modID}:NiceSmile": {
+    "NAME": "Maksymalna ocena",
+    "DESCRIPTION": "Za każdym razem, gdy zyskasz Wigor, zyskaj !M! więcej."
+  },
+  "${modID}:PackBoost": {
+    "NAME": "Boost",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom. NL Gdy przywrócisz PŻ lub zyskasz Temporary_HP, przenieś tę kartę ze stosu kart odrzuconych do ręki."
+  },
+  "${modID}:PackBouncePad": {
+    "NAME": "Trampolina",
+    "DESCRIPTION": "{@@}Zyskaj !B! pkt. Bloku. NL Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]."
+  },
+  "${modID}:PackBlastProcessing": {
+    "NAME": "Blast Processing",
+    "DESCRIPTION": "W każdej turze koszt twoich pierwszych !M! stworzonych kart jest niższy o 1 [E].",
+    "UPGRADE_DESCRIPTION": "Startowa. NL W każdej turze koszt twoich pierwszych !M! stworzonych kart jest niższy o 1 [E]."
+  },
+  "${modID}:PackDropDash": {
+    "NAME": "Drop Dash",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. Jeśli w tej turze Wykluczyłeś kartę, zyskaj [E] [E]."
+  },
+  "${modID}:PackHomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Dodaj do ręki [#efc851]Sztuczkę[].",
+    "UPGRADE_DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Dodaj do ręki [#efc851]Sztuczkę+[].",
+    "IGNORE_ME": "stslib:Persist !stslib:persist!"
+  },
+  "${modID}:PackLevelUp": {
+    "NAME": "Prosta ciekawość",
+    "DESCRIPTION": "{@@}Dodaj do ręki !M! [#efc851]{!M!|1=Pierścień|2,3,4=Pierścienie|>4=Pierścieni}[]. NL Zyskaj Awans: Szybkość, Lot i Moc."
+  },
+  "${modID}:PackRing": {
+    "NAME": "Pierścień",
+    "DESCRIPTION": "Zachowanie. NL ${modID}:Pierścień. NL Gdy otrzymasz niezablokowane obrażenia, Wyklucz tę kartę. NL Zyskaj !M! Temporary_HP. NL Wykluczenie."
+  },
+  "${modID}:PackTrick": {
+    "NAME": "Sztuczka",
+    "DESCRIPTION": "Eteryczna. NL Zyskaj !M! pkt. Wigoru. NL Zyskaj 1 [E]. NL Wykluczenie."
+  },
+  "${modID}:PeelOut": {
+    "NAME": "Peel Out",
+    "DESCRIPTION": "{@@}Wyklucz 1 kartę. NL Dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=}. NL Jeśli Wykluczyłeś Umiejętność, dobierz 1 więcej."
+  },
+  "${modID}:Piping": {
+    "NAME": "Rurociąg",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL Wyklucz 1 kartę. Dodaj jej kopię do ręki."
+  },
+  "${modID}:PowerRing": {
+    "NAME": "Pierścień mocy",
+    "DESCRIPTION": "Gdy stworzysz kartę, stwórz o 1 więcej."
+  },
+  "${modID}:PunchRush": {
+    "NAME": "Gradobicie pięści",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń 4 razy.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń 4 razy. NL Zadaj !D! + !M! pkt. obrażeń.",
+      "Zadaj !D! pkt. obrażeń 4 razy. NL Zagraj kartę z góry stosu rozgrywającego."
+    ]
+  },
+  "${modID}:Relax": {
+    "NAME": "Relaks",
+    "DESCRIPTION": "Przyjmij postawę Spokoju. NL Wtasuj [#efc851]Relaks[] do stosu rozgrywającego. NL Wybierz, czy przyjąć postawę Gniewu."
+  },
+  "${modID}:RelaxPick1": {
+    "NAME": "Relaks",
+    "DESCRIPTION": "Pozostań w Spokoju."
+  },
+  "${modID}:RelaxPick2": {
+    "NAME": "Wybuch",
+    "DESCRIPTION": "Przyjmij postawę Gniewu."
+  },
+  "${modID}:Ricochet": {
+    "NAME": "Rykoszet",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Gdy użyjesz Wigoru, przenieś tę kartę ze stosu kart odrzuconych do ręki."
+  },
+  "${modID}:RicochetRare": {
+    "NAME": "S Rykoszet",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Gdy użyjesz Wigoru, przenieś tę kartę ze stosu kart odrzuconych do ręki."
+  },
+  "${modID}:Ring": {
+    "NAME": "Pierścień",
+    "DESCRIPTION": "Zachowanie. NL ${modID}:Pierścień. NL Zyskaj !M! Temporary_HP. NL Wykluczenie."
+  },
+  "${modID}:RocketAccel": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Twoje następne 2 Ataki zadają !M! pkt. dodatkowych obrażeń, teraz i do końca walki.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń. NL Następny Atak twój i twoich sojuszników zadaje !M! pkt. dodatkowych obrażeń, teraz i do końca walki."
+    ]
+  },
+  "${modID}:QuickAir": {
+    "NAME": "Szybkie powietrze",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. ${modID}:Jeśli_skrajnie_z_lewej, ${modID}:Podkręć swoją skrajnie lewą Sferę. NL Dodaj do ręki [#efc851]Szybki[] [#efc851]krok[]. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Zyskaj !B! pkt. Bloku. ${modID}:Jeśli_skrajnie_z_lewej, ${modID}:Podkręć swoją skrajnie lewą Sferę. NL Dodaj do ręki [#efc851]Szybki[] [#efc851]krok+[]. NL Wykluczenie."
+  },
+  "${modID}:QuickStep": {
+    "NAME": "Szybki krok",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. ${modID}:Jeśli_skrajnie_z_prawej, ${modID}:Podkręć. NL Dodaj do stosu kart odrzuconych [#efc851]Szybkie[] [#efc851]powietrze[]. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Zyskaj !B! pkt. Bloku. ${modID}:Jeśli_skrajnie_z_prawej, ${modID}:Podkręć. NL Dodaj do stosu kart odrzuconych [#efc851]Szybkie[] [#efc851]powietrze+[]. NL Wykluczenie."
+  },
+  "${modID}:RampJump": {
+    "NAME": "Skok z rampy",
+    "DESCRIPTION": "Dodaj do ręki !M! [#efc851]Sztuczki[].",
+    "EXTENDED_DESCRIPTION": [
+      " NL ${modID}:Jeśli_pośrodku, twoi sojusznicy również dodają do rąk [#efc851]Sztuczkę[]."
+    ]
+  },
+  "${modID}:ScissorKick": {
+    "NAME": "Kopniak nożycowy",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zadaj !M! pkt. dodatkowych obrażeń za każdą kartę w ręce."
+  },
+  "${modID}:ScissorKickRare": {
+    "NAME": "S Kopniak nożycowy",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zadaj !M! pkt. dodatkowych obrażeń za każdą kartę w ręce.",
+    "UPGRADE_DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zadaj !M! pkt. dodatkowych obrażeń za każdą kartę w ręce."
+  },
+  "${modID}:SecretRoute": {
+    "NAME": "Tajna trasa",
+    "DESCRIPTION": "{@@}Dobierz !${modID}:CustomVar_DRAW! kart{!${modID}:CustomVar_DRAW!|1=ę|2,3,4=y|>4=}. NL Obniż o 1 koszt !M! kart{!M!|1=y|>1=} w ręce na czas tej tury. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "{@@}Dobierz !${modID}:CustomVar_DRAW! kart{!${modID}:CustomVar_DRAW!|1=ę|2,3,4=y|>4=}. NL Obniż o 1 koszt !M! kart{!M!|1=y|>1=} w ręce na czas tej tury. NL Wykluczenie."
+  },
+  "${modID}:SkyRing": {
+    "NAME": "Niebiański Pierścień",
+    "DESCRIPTION": "{@@}Zyskaj !B! pkt. Bloku. NL Dodaj do ręki !M! [#efc851]{!M!|1=Sztuczkę|2,3,4=Sztuczki|>4=Sztuczek}[]."
+  },
+  "${modID}:Shield": {
+    "NAME": "Tarcza",
+    "DESCRIPTION": "Zapobiegnij następnej utracie PŻ."
+  },
+  "${modID}:Shortcut": {
+    "NAME": "Skrót",
+    "DESCRIPTION": "{@@}Zachowanie. NL Obniż o 1 koszt !M! kart{!M!|1=y|>1=} w ręce na czas tej tury. NL Wykluczenie."
+  },
+  "${modID}:Slide": {
+    "NAME": "Ślizg",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku. NL Przełóż kartę ze stosu kart odrzuconych na górę stosu rozgrywającego."
+  },
+  "${modID}:SlotMachineStatus": {
+    "NAME": "Eggman z automatu",
+    "DESCRIPTION": "Jeśli masz w ręce 2 takie karty, natychmiast przyjmij postawę Gniewu."
+  },
+  "${modID}:SlotMachineGame": {
+    "NAME": "Gra na automacie",
+    "DESCRIPTION": "Dodaj do ręki [#efc851]Pociągnięcie[] [#efc851]automatu[]. NL Wtasuj do stosu rozgrywającego !M! [#efc851]Eggmanów[] [#efc851]z[] [#efc851]automatu[]. NL Wykluczenie."
+  },
+  "${modID}:SlotMachinePull": {
+    "NAME": "Pociągnięcie automatu",
+    "DESCRIPTION": "Dobierz 1 kartę. NL Ta karta zostaje w ręce. Jeśli zagrasz inną kartę lub twoja ręka jest pełna, Wyklucz tę kartę.",
+    "UPGRADE_DESCRIPTION": "Dobierz 1 kartę. NL Ta karta zostaje w ręce. Jeśli zagrasz inną kartę lub twoja ręka jest pełna, odrzuć tę kartę."
+  },
+  "${modID}:SmoothLanding": {
+    "NAME": "Nieudane lądowanie",
+    "DESCRIPTION": "{@@}Przywołaj 1 Sferę Mrozu. NL Jeśli masz Wigor, w następnej turze dobierz dodatkowo !M! kart{!M!|1=ę|2,3,4=y|>4=}. W przeciwnym razie dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=} teraz.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Przywołaj 1 Sferę Mrozu. NL Jeśli masz Wigor, ",
+      " w następnej turze dobierz dodatkowo !M! kart{!M!|1=ę|2,3,4=y|>4=}. ",
+      " NL ",
+      " W przeciwnym razie dobierz !M! kart{!M!|1=ę|2,3,4=y|>4=} teraz."
+    ]
+  },
+  "${modID}:SonicBoom": {
+    "NAME": "Sonic Boom",
+    "DESCRIPTION": "Eteryczna. NL Na koniec tury zadaj WSZYSTKIM przeciwnikom obrażenia równe twojemu Blokowi i modyfikatorom obrażeń.",
+    "EXTENDED_DESCRIPTION": [
+      "Eteryczna. NL Zyskaj !B! pkt. Bloku. NL Na koniec tury zadaj WSZYSTKIM przeciwnikom obrażenia równe twojemu Blokowi i modyfikatorom obrażeń.",
+      "Eteryczna. NL Zyskaj !M! pkt. Wigoru. NL Na koniec tury zadaj WSZYSTKIM przeciwnikom obrażenia równe twojemu Blokowi i modyfikatorom obrażeń."
+    ]
+  },
+  "${modID}:SonicBoomRare": {
+    "NAME": "S Sonic Boom",
+    "DESCRIPTION": "Eteryczna. NL Na koniec tury zadaj WSZYSTKIM przeciwnikom obrażenia równe twojemu Blokowi i modyfikatorom obrażeń.",
+    "EXTENDED_DESCRIPTION": [
+      "Eteryczna. NL Zyskaj !B! pkt. Bloku. NL Na koniec tury zadaj WSZYSTKIM przeciwnikom obrażenia równe twojemu Blokowi i modyfikatorom obrażeń.",
+      "Eteryczna. NL Zyskaj !M! pkt. Wigoru. NL Na koniec tury zadaj WSZYSTKIM przeciwnikom obrażenia równe twojemu Blokowi i modyfikatorom obrażeń."
+    ]
+  },
+  "${modID}:SonicEagle": {
+    "NAME": "Sonic Eagle",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Jeśli przeciwnik zamierza zaatakować, zadaj !M! pkt. dodatkowych obrażeń."
+  },
+  "${modID}:SonicEagleRare": {
+    "NAME": "S Sonic Eagle",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Jeśli przeciwnik zamierza zaatakować, zyskaj [E] i dobierz 1 kartę."
+  },
+  "${modID}:SonicFlare": {
+    "NAME": "Sonic Flare",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj Wigor równy połowie zadanych niezablokowanych obrażeń."
+  },
+  "${modID}:SonicFlareRare": {
+    "NAME": "S Sonic Flare",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj Wigor równy zadanym niezablokowanym obrażeniom."
+  },
+  "${modID}:SonicWave": {
+    "NAME": "Fala dźwiękowa",
+    "DESCRIPTION": "Jeśli masz puste miejsca na Sfery, przywołaj !M! Sferę Gromu. W przeciwnym razie Wyładuj WSZYSTKIE Sfery dwa razy i Wyklucz tę kartę.",
+    "UPGRADE_DESCRIPTION": "Jeśli masz puste miejsca na Sfery, przywołaj !M! Sferę Gromu. W przeciwnym razie Wyładuj WSZYSTKIE Sfery dwa razy.",
+    "EXTENDED_DESCRIPTION": [
+      "Jeśli masz puste miejsca na Sfery, przywołaj !M! Sferę Gromu.",
+      " NL ",
+      " W przeciwnym razie Wyładuj WSZYSTKIE Sfery dwa razy i Wyklucz tę kartę.",
+      " W przeciwnym razie Wyładuj WSZYSTKIE Sfery dwa razy."
+    ]
+  },
+  "${modID}:SonicWaveRare": {
+    "NAME": "S Fala dźwiękowa",
+    "DESCRIPTION": "Jeśli masz puste miejsca na Sfery, przywołaj !M! Sferę Gromu. W przeciwnym razie Wyładuj WSZYSTKIE Sfery dwa razy i Wyklucz tę kartę.",
+    "UPGRADE_DESCRIPTION": "Jeśli masz puste miejsca na Sfery, przywołaj !M! Sferę Gromu. W przeciwnym razie Wyładuj WSZYSTKIE Sfery dwa razy."
+  },
+  "${modID}:SonicWind": {
+    "NAME": "Dźwiękowy wiatr",
+    "DESCRIPTION": "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Gromu. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Gromu."
+  },
+  "${modID}:SpeedUp": {
+    "NAME": "Przyspieszenie wszystkiego",
+    "DESCRIPTION": "Wyklucz WSZYSTKIE [#efc851]Pierścienie[] w ręce. Za każdy Wykluczony [#efc851]Pierścień[] dodaj do ręki [#efc851]Sztuczkę[]."
+  },
+  "${modID}:SpeedBreak": {
+    "NAME": "Speed Break",
+    "DESCRIPTION": "Otrzymaj !M! pkt. obrażeń. NL Do końca tury obniż koszt WSZYSTKICH kart w ręce do 0."
+  },
+  "${modID}:SpinDash": {
+    "NAME": "Spin Dash",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Następny zagrany Atak kosztuje 0."
+  },
+  "${modID}:SpinDashRare": {
+    "NAME": "S Spin Dash",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Następny zagrany Atak kosztuje 0."
+  },
+  "${modID}:SpinningNeedleAttack": {
+    "NAME": "Wirująca igła",
+    "DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń. NL Dobierz 1 kartę i wylosuj jej koszt na czas tej tury. NL Ta karta zadaje dodatkowe obrażenia równe wylosowanemu kosztowi.",
+    "UPGRADE_DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń. NL Dobierz 1 kartę i wylosuj jej koszt na czas tej tury. NL Ta karta zadaje dodatkowe obrażenia równe wylosowanemu kosztowi pomnożonemu przez !M!.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń. NL Dobierz 1 kartę i zmień jej koszt na ",
+      " na czas tej tury."
+    ]
+  },
+  "${modID}:SpinningNeedleAttackRare": {
+    "NAME": "S Wirująca igła",
+    "DESCRIPTION": "{@@}Dobierz 1 kartę i wylosuj jej koszt na czas tej tury. Zadaj !D! pkt. obrażeń. Ta karta zadaje dodatkowe obrażenia równe wylosowanemu kosztowi.",
+    "UPGRADE_DESCRIPTION": "{@@}Dobierz 1 kartę i wylosuj jej koszt na czas tej tury. Zadaj !D! pkt. obrażeń. Ta karta zadaje dodatkowe obrażenia równe wylosowanemu kosztowi pomnożonemu przez !M!.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń. Dobierz 1 kartę i zmień jej koszt na ",
+      " na czas tej tury."
+    ]
+  },
+  "${modID}:SuperSonicForm": {
+    "NAME": "Postać Super Sonica",
+    "DESCRIPTION": "Zyskaj !M! pkt. Siły i Zręczności. NL Na początku tury utrać 1 pkt. Zręczności.",
+    "UPGRADE_DESCRIPTION": "Zyskaj !M! pkt. Siły, Zręczności i Skupienia. NL Na początku tury utrać 1 pkt. Zręczności i Skupienia.",
+    "EXTENDED_DESCRIPTION": [
+      "Zyskaj !M! pkt. Siły. NL Zyskaj !M! pkt. Skupienia. MUSISZ zagrywać swoje [#efc851]Pierścienie[], by zyskać Nieuchwytność. UMIERASZ CO TURĘ."
+    ]
+  },
+  "${modID}:Taunt": {
+    "NAME": "Drwina",
+    "DESCRIPTION": "Zyskaj !M! pkt. tymczasowej Zręczności. NL Nałóż !M! pkt. Wrażliwości. NL Kosztuje o 1 mniej za każdy Atak zagrany w tej turze.",
+    "EXTENDED_DESCRIPTION": [
+      "Zyskaj !M! pkt. tymczasowej Zręczności. NL Nałóż !M! pkt. Wrażliwości. NL Kosztuje o 1 mniej za każdy Atak zagrany w tej turze.",
+      "Opuść swoją postawę. NL Zyskaj !M! pkt. tymczasowej Zręczności. NL Nałóż !M! pkt. Wrażliwości. NL Kosztuje o 1 mniej za każdy Atak zagrany w tej turze."
+    ]
+  },
+  "${modID}:Teaser": {
+    "NAME": "Zaczepka",
+    "DESCRIPTION": "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Ciemności. NL Wtasuj [#efc851]Uwolnione[] [#efc851]pazury[] do stosu rozgrywającego.",
+    "UPGRADE_DESCRIPTION": "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Ciemności. NL Wtasuj [#efc851]Uwolnione[] [#efc851]pazury+[] do stosu rozgrywającego.",
+    "EXTENDED_DESCRIPTION": [
+      "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Ciemności. NL Wtasuj [#efc851]Uwolnione[] [#efc851]pazury+[] do stosu rozgrywającego.",
+      "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Ciemności. NL Wtasuj [#efc851]Uwolnione[] [#efc851]pazury*[] do stosu rozgrywającego."
+    ]
+  },
+  "${modID}:TeaserRare": {
+    "NAME": "S Zaczepka",
+    "DESCRIPTION": "{@@}Przywołaj !${modID}:CustomVar_DARK! Sfer{!${modID}:CustomVar_DARK!|1=ę|2,3,4=y|>4=} Ciemności. NL Wyklucz następne !M! dobrane Pospolite Ataki i dodaj do ręki Atak Werehoga."
+  },
+  "${modID}:TeaserRareAttack1": {
+    "NAME": "Sho-Hog-Ken",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Namierzenia. NL Nałóż !M! pkt. Słabości."
+  },
+  "${modID}:TeaserRareAttack1Multi": {
+    "NAME": "Dziki wir",
+    "DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń losowemu przeciwnikowi !M! raz{!M!|1=|>1=y}."
+  },
+  "${modID}:TeaserRareAttack2": {
+    "NAME": "Młot Werehoga",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zadaje dodatkowe obrażenia równe twojej skrajnie prawej Sferze Ciemności."
+  },
+  "${modID}:TeaserRareAttack3": {
+    "NAME": "Uwolniona dzika kombinacja",
+    "DESCRIPTION": "Nie powinieneś spotkać tej karty w trakcie gry. NL Jeśli to czytasz, prawdopodobnie trafiłeś na błąd. NL Zgłoś go twórcy moda."
+  },
+  "${modID}:TiSRainbowRing": {
+    "NAME": "Tęczowy Pierścień",
+    "DESCRIPTION": "Zyskaj [E]. NL Ty i twoi sojusznicy dodajecie do rąk [#efc851]Sztuczkę[]."
+  },
+  "${modID}:TiSRocketAccel": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Następny Atak twój i twoich sojuszników zadaje !M! pkt. dodatkowych obrażeń, teraz i do końca walki."
+  },
+  "${modID}:TopKick": {
+    "NAME": "Kopniak z góry",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. Wigoru. Zyskuje dodatkowy Wigor za każdy Atak zagrany w tej turze."
+  },
+  "${modID}:TopKickRare": {
+    "NAME": "S Kopniak z góry",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. Wigoru. Zyskuje dodatkowy Wigor za każdy Atak zagrany w tej turze."
+  },
+  "${modID}:ThunderShield": {
+    "NAME": "Tarcza gromu",
+    "DESCRIPTION": "Przywołaj !M! Sfer{!M!|1=ę|2,3,4=y|>4=} Gromu. NL Na koniec tury dodaj do ręki 1 [#efc851]Pierścień[], a Sfery Gromu ${modID}:Podkręcają się dodatkowo raz za każdy [#efc851]Pierścień[] w ręce."
+  },
+  "${modID}:Trick": {
+    "NAME": "Sztuczka",
+    "DESCRIPTION": "Eteryczna. NL Zyskaj !M! pkt. Wigoru. NL Zyskaj 1 [E]. NL Wykluczenie."
+  },
+  "${modID}:TrickFinisher": {
+    "NAME": "Finisz ze sztuczką",
+    "DESCRIPTION": "Zachowanie. NL Podwój swój Wigor. NL Zyskaj 1 [E]. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Zachowanie. NL Podwój swój Wigor. NL Zyskaj 1 [E]."
+  },
+  "${modID}:Trickster": {
+    "NAME": "Sztukmistrz",
+    "DESCRIPTION": "Na początku tury dodaj do ręki [#efc851]Sztuczkę[].",
+    "UPGRADE_DESCRIPTION": "Startowa. NL Na początku tury dodaj do ręki [#efc851]Sztuczkę[]."
+  },
+  "${modID}:TripleKick": {
+    "NAME": "Potrójny kopniak",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Dodaj do ręki [#efc851]Część[] [#efc851]2[].",
+    "UPGRADE_DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Dodaj do ręki [#efc851]Część[] [#efc851]2+[]."
+  },
+  "${modID}:TripleKick2": {
+    "NAME": "Potrójny kopniak, część 2",
+    "DESCRIPTION": "Eteryczna. NL Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Dodaj do ręki [#efc851]Część[] [#efc851]3[]. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Eteryczna. NL Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Dodaj do ręki [#efc851]Część[] [#efc851]3+[]. NL Wykluczenie."
+  },
+  "${modID}:TripleKick3": {
+    "NAME": "Potrójny kopniak, część 3",
+    "DESCRIPTION": "Eteryczna. NL Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Wykluczenie.",
+    "UPGRADE_DESCRIPTION": "Eteryczna. NL Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Wykluczenie."
+  },
+  "${modID}:TripleKickRare": {
+    "NAME": "S Potrójny kopniak",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Dodaj do ręki [#efc851]Część[] [#efc851]2[].",
+    "UPGRADE_DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Zyskaj !M! pkt. tymczasowej Siły. NL Dodaj do ręki [#efc851]Część[] [#efc851]2+[]."
+  },
+  "${modID}:Turbulence": {
+    "NAME": "Turbulencje",
+    "DESCRIPTION": "Utrać !M! pkt. Skupienia. NL ${modID}:Jeśli_skrajnie_z_lewej, dodaj do ręki [#efc851]Sztuczkę[]. Za każdym razem, gdy Wykluczysz kartę, przywołaj 1 Sferę Mrozu.",
+    "UPGRADE_DESCRIPTION": "Utrać !M! pkt. Skupienia. NL ${modID}:Jeśli_skrajnie_z_lewej, dodaj do ręki [#efc851]Sztuczkę[]. Za każdym razem, gdy Wykluczysz kartę, przywołaj 1 Sferę Mrozu."
+  },
+  "${modID}:UpDraft": {
+    "NAME": "Prąd wznoszący",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Słabości. NL Dodaj do ręki [#efc851]Pierścień[]."
+  },
+  "${modID}:UpDraftRare": {
+    "NAME": "S Prąd wznoszący",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Słabości. NL Dodaj do ręki [#efc851]Pierścień[]. NL Przywołaj 1 Sferę Mrozu."
+  },
+  "${modID}:VolcanoSlider": {
+    "NAME": "Wulkaniczny ślizg",
+    "DESCRIPTION": "${modID}:Znak_Ognia. NL Zadaj !D! pkt. obrażeń. NL Wyklucz WSZYSTKIE karty po lewej. NL Zadaje !M! pkt. dodatkowych obrażeń za każdą Wykluczoną kartę."
+  },
+  "${modID}:WallJump": {
+    "NAME": "Odbicie od ściany",
+    "DESCRIPTION": "Zyskaj !B! pkt. Bloku X razy. NL Dodaj do ręki X [#efc851]Pierścieni[]."
+  },
+  "${modID}:Whirlwind": {
+    "NAME": "Trąba powietrzna",
+    "DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń WSZYSTKIM przeciwnikom !M! raz{!M!|1=|>1=y}."
+  },
+  "${modID}:WindUpPunch": {
+    "NAME": "Cios z zamachu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Wrażliwości. NL Dodaj do ręki [#efc851]Sztuczkę[].",
+    "DESCRIPTION_IDEA_2": "Deal !D! damage. NL Apply !M! Vulnerable. NL If you have Vigor, this deals !${modID}:CustomVar_DAMAGE! additional damage."
+  },
+  "${modID}:WindUpPunchRare": {
+    "NAME": "S Cios z zamachu",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Nałóż !M! pkt. Wrażliwości. NL Dodaj do ręki [#efc851]Sztuczkę[]."
+  },
+  "${modID}:Windmill": {
+    "NAME": "Wiatrak",
+    "DESCRIPTION": "Zadaj !D! pkt. obrażeń. NL Wylosuj koszt jednej karty w ręce na czas tej tury.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń. NL Na czas tej tury zmień koszt karty na ",
+      "."
+    ]
+  },
+  "${modID}:WindmillRare": {
+    "NAME": "S Wiatrak",
+    "DESCRIPTION": "{@@}Zadaj !D! pkt. obrażeń. NL Wylosuj koszt jednej karty w ręce na czas tej tury. NL Ta karta zostaje w ręce na jeszcze !M! użyci{!M!|1=e|2,3,4=a|>4=ć}.",
+    "EXTENDED_DESCRIPTION": [
+      "Zadaj !D! pkt. obrażeń. NL Na czas tej tury zmień koszt karty na ",
+      ".",
+      "{@@} NL Ta karta zostaje w ręce na jeszcze !M! użyci{!M!|1=e|2,3,4=a|>4=ć}."
+    ]
+  }
+}

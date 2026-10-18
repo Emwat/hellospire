@@ -1,0 +1,127 @@
+{
+  "${modID}:3 Sentries": {
+    "DIALOG": [
+      "Vamos nessa!",
+      "Esses caras nunca aprendem."
+    ]
+  },
+  "${modID}:Awakened One": {
+    "DIALOG": [
+      "Você não parece tão durão.",
+      "Você achou mesmo que podia me derrotar se transformando em monstro?"
+    ]
+  },
+  "${modID}:Champ": {
+    "DIALOG": [
+      "Eu sou um ouriço! ~OU~ ~RI~ ~ÇO!~",
+      "Imagino que você não vai me deixar passar."
+    ],
+    "DIALOG_0": [
+      "O que um @PIOLHO@ está fazendo aqui?",
+      "O Exordium é por @OUTRO@ caminho."
+    ]
+  },
+  "${modID}:EnemyBossSonic": {
+    "DIALOG": [
+      "O que posso dizer? Eu sou durão de matar.",
+      "Você vai se arrepender de ter perguntado."
+    ],
+    "DIALOG_0": [
+      "Você nunca aprende, não é?",
+      "Acha que consegue me acompanhar?"
+    ]
+  },
+  "${modID}:Slime Boss": {
+    "DIALOG": [
+      "Isso! Pode ser divertido!",
+      "Caos! Será que é a mesma fera?"
+    ]
+  },
+  "${modID}:Silent": {
+    "DIALOG": [
+      "Ninguém é mais rápido que eu!"
+    ]
+  },
+  "${modID}:Time Eater": {
+    "DIALOG": [
+      "Vamos acabar com isso.",
+      "Você é o segundo Devorador do Tempo que eu enfrento.",
+      "Você é amigo da Cabeça Gigante?"
+    ],
+    "DIALOG_0": [
+      "Volte ao pó...",
+      "O Palco... NL ~está~ ~pronto...~",
+      "Sim..."
+    ]
+  },
+  "${modID}:Gremlin Nob": {
+    "DIALOG": [
+      "Você não é páreo para mim!",
+      "Ha! Você é a cara de um cabeça-dura que eu conheço.",
+      "Ei, você. Saia da minha frente!"
+    ]
+  },
+  "${modID}:Gremlin Leader": {
+    "DIALOG": [
+      "Pode vir!",
+      "Moleza!",
+      "Não se contenha!"
+    ]
+  },
+  "${modID}:Lagavulin": {
+    "DIALOG": [
+      "Isso é um ovo gigante?",
+      "Desculpe, mas você tem que ir embora!"
+    ]
+  },
+  "${modID}:TauntAmy": {
+    "DIALOG": [
+      "Seu lixo imundo! O que você pensa que está fazendo?",
+      "Se for sobre um encontro, vai ter que esperar!",
+      "Você vem me buscar, Sonic?"
+    ]
+  },
+  "${modID}:TauntDefault": {
+    "DIALOG": [
+      "CÓ-CÓ!!"
+    ]
+  },
+  "${modID}:TauntKnuckles": {
+    "DIALOG": [
+      "Vamos resolver isso numa luta justa.",
+      "Fique longe da MINHA Esmeralda!",
+      "Eu encaro você!"
+    ]
+  },
+  "${modID}:TauntShadow": {
+    "DIALOG": [
+      "Você nem tem chance.",
+      "Patético.",
+      "Não há tempo para joguinhos."
+    ]
+  },
+  "${modID}:TauntSonic": {
+    "DIALOG": [
+      "~Me~ ~pegue~ ~se~ ~for~ ~capaz!~",
+      "Vamos! Acelera aí!",
+      "@VOCÊ@ @É@ @LENTO@ @DEMAIS!@"
+    ]
+  },
+  "${modID}:TauntTails": {
+    "DIALOG": [
+      "Pronto para mim?",
+      "Quer mais?",
+      "Tudo está bem quando termina bem!"
+    ]
+  },
+  "${modID}:TiSRainbowRingFlavor": {
+    "DIALOG": [
+      "Quando jogarem o Truque, vocês devem dizer algo como \"Muito bem!\", \"Nada mal!\" ou \"Beleza!\" todos juntos!"
+    ]
+  },
+  "${modID}:TiSRocketAccel": {
+    "DIALOG": [
+      "[#2377B7]V [#2377B7]A [#2377B7]I [#2377B7]!"
+    ]
+  }
+}

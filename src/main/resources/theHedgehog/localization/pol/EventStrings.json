@@ -1,0 +1,158 @@
+{
+  "${modID}:ChaoGardenEvent": {
+    "NAME": "Ogród Chao",
+    "DESCRIPTIONS": [
+      "#b~WITAJ~ #b~w~ #b~Ogrodzie~ #b~Chao!~ NL NL Trafiasz na scenę pełną olbrzymich i malutkich dziwacznych stworzeń.",
+      "",
+      "#b~Dziękujemy~ #b~za~ #b~wizytę!~ NL NL Chciałbyś zostać dłużej i pogawędzić z przyjaciółmi, ale czeka cię wspinaczka na Iglicę.",
+      "Siadasz wśród swoich przyjaciół.",
+      "Pozostało ci #b",
+      " #bdziałanie.",
+      " #bdziałań.",
+      "Podchodzisz do baru.",
+      "Co za okazja! ",
+      " szt. złota za cały ten Napój Chaosu.",
+      "\"Pierwsza kolejka na mój koszt!\" Wszyscy wiwatują na cześć twojej hojności, a impreza rozkręca się na dobre.",
+      "Dodaj kartę do swojej talii.",
+      "Ty i cała paczka rozmawiacie o różnych sprawach.",
+      "Spoglądasz na scenę. To jak patrzenie na zabawę i występy własnych dzieci. Tyle że z mniejszą liczbą potknięć i bezcelowego błądzenia. ",
+      "Jesteś w morzu kolorowych stworzeń.",
+      "Ty i twoje chao przytulacie olbrzymie chao. Twoje chao zmienia kolor. Żeby nie zgubić go w tłumie chao, szybko chwytasz pierwszą rzecz pod ręką, by się wyróżniało.",
+      "Obejmujesz chao i ~ściskasz~ je. Jest zbyt ~słodkie.~ Zaczynasz nieść chao w stronę wyjścia. NL NL #r@PAC!@ NL Obsługa cię powala.",
+      "Przepraszasz za prawie porwanie chao. Niestety, wszystkie te bojowe odruchy sprawiły, że działasz pod wpływem impulsu. NL NL Podchodzi do ciebie mężczyzna i przedstawia się jako Profesor Palm. Przyznaje, że spoczywa na tobie ważna odpowiedzialność, i oferuje ci swoje chao do pomocy. NL NL \"Powodzenia, wędrowcze. Przyda ci się cała pomoc, jaką możesz dostać.\"",
+      "Cóż za miły profesor."
+    ],
+    "OPTIONS": [
+      "[Odejdź]",
+      "[Wejdź do Ogrodu Chao]",
+      "[Zablokowane] Skończyły ci się działania.",
+      "[Usiądź]",
+      "[Rozejrzyj się]",
+      "[Idź do baru]",
+      "[Zablokowane] Nie masz dość złota.",
+      "[Kup drinki] #yZapłać #y",
+      " #yszt. #yzłota. #gWypełnij #gswoje #gsloty #gmikstur #gNapojem #gChaosu.",
+      "[Weź tacę] #yZapłać #y",
+      " #yszt. #yzłota. Wtasuj #g",
+      " opcji dla każdego koloru do Rozmowy.",
+      "[Zablokowane] Potrzebujesz Napoju Chaosu. Obecni: ",
+      ".",
+      "[ [REMOVE_SPACE]#rDaj #rNapój #rChaosu: ",
+      " [REMOVE_SPACE]] Dodaj ",
+      "opcji",
+      " do Rozmowy.",
+      "[Obejrzyj przedstawienie] #bDziałanie: #gPrzywróć #g",
+      " #gPŻ. #g(",
+      "% #gmaks. #gPŻ)",
+      "[Porozmawiaj",
+      "] #bDziałanie: #gWybierz #g1 #gz #g",
+      " #gkart, #gby #gdodać #gją #gdo #gswojej #gtalii.",
+      "[Zablokowane] Rozmowa potoczyła się już dalej.",
+      "[Przytul olbrzymie chao z obsługi]",
+      "[Przytul to chao] #bDziałanie: Twoje chao przywoła Sferę Gromu.",
+      "[Przytul to chao] #bDziałanie: Twoje chao przywoła Sferę Mrozu.",
+      "[Przytul to chao] #bDziałanie: Twoje chao przywoła Sferę Ciemności.",
+      "[Zablokowane] Potrzebujesz chao, by wykonać to działanie.",
+      "[Zabierz chao] #bDziałanie: #rUtrać #r",
+      " #rPŻ. (100% szans na zdobycie chao)",
+      "[Zablokowane] Masz już chao.",
+      "[Przeproś]",
+      "[Podziękuj mu i wróć na główny plac] #gZdobądź #gchao.",
+      " i ",
+      "i ",
+      "Tails",
+      "Knuckles",
+      "Amy",
+      "Rouge"
+    ]
+  },
+  "${modID}:GravitySwitchEvent": {
+    "NAME": "Przełącznik grawitacji",
+    "DESCRIPTIONS": [
+      "Natrafiasz na bardzo duży przełącznik podłączony do animowanego monitora. Na monitorze przewijają się strzałki w górę. Za przełącznikiem ziewa głęboka przepaść, której dna nie widać.",
+      "Pociągasz za przełącznik. Twoje ciało unosi się w powietrze. Wznosząc się pod wpływem jakiejś siły grawitacyjnej, obracasz tułów, by wylądować na suficie stopami do dołu. NL NL Czujesz się bardzo lekko i giętko.",
+      "#rSzaleństwo. Śmiejesz się do siebie. NL NL #r@HA HA HA!@ Iglica pochłania wszystko...",
+      "Zeskakujesz w głębiny i znajdujesz w kącie kapsułę z przedmiotami pełną pierścieni. NL NL Zgarniasz pierścienie. Gdy jednak ruszasz dalej, trafiasz w ślepy zaułek, a w suficie dostrzegasz małą szczelinę, akurat tak dużą, by się przez nią przecisnąć. Wracasz tą samą drogą, nieco sfrustrowany całym tym doświadczeniem.",
+      "Przechodzisz między losowym rekwizytem a ścianą. Dzięki jakiejś nieświętej, czarnej magii znikasz w ścianie i zaczynasz lecieć z niewytłumaczalną prędkością. Widzisz wnętrza i zewnętrza przedmiotów — są puste. NL NL Docierasz do celu. Ta mała podróż przez czas i przestrzeń pewnie odebrała ci kilka lat życia, ale spójrz, ile czasu zaoszczędziłeś!"
+    ],
+    "OPTIONS": [
+      "[Odejdź]",
+      "[Pociągnij za przełącznik] #b",
+      " #glosowe #gkarty #gkosztują #go #g1 #gmniej #gi #rzyskują #rRozpęd. #rUtrać #r",
+      " #rPŻ.",
+      "[Przyjmij Szaleństwo] #gOtrzymaj #g2 #gkarty #gSzaleństwa. #rUtrać #r",
+      " #rPŻ.",
+      "[Skocz w dół] Zostań #rprzeklęty - #rCierpienie. #gPrzywróć #g",
+      " #gPŻ.",
+      "[Użyj strategii speedrunu] #rUtrać #r",
+      " #rmaks. #rPŻ."
+    ]
+  },
+  "${modID}:MissionEvent": {
+    "NAME": "Misja",
+    "DESCRIPTIONS": [
+      "Natrafiasz na troje drzwi, a na każdych widnieje mistyczna wiadomość o tym, co cię czeka. Wybierz misję. NL NL Nagroda za rangę S: #y",
+      " #yszt. #yzłota. NL Nagroda za rangę A: #y",
+      " #yszt. #yzłota. NL Nagroda za rangę B: #y",
+      " #yszt. #yzłota. NL Nagroda za rangę C: #y",
+      " #yszt. #yzłota."
+    ],
+    "OPTIONS": [
+      "[Odejdź]",
+      "[Wyścig po pierścienie] #rWalcz #rz #rAutomatonem #rz #rBrązu. Wyklucz ",
+      " kart najszybciej, jak się da.",
+      "[Atak na punkty] #rWalcz #rz #rPrzemijaczem. Zadaj jak najwięcej obrażeń.",
+      "[Wyścig z czasem] #rWalcz #rz #r3 #rśpiącymi #rLagavulinami. Pokonaj WSZYSTKICH przeciwników najszybciej, jak potrafisz."
+    ]
+  },
+  "${modID}:RougeEvent": {
+    "NAME": "Rozmowa z Rouge",
+    "DESCRIPTIONS": [
+      "Dostrzegasz piękną kobietę siedzącą na latarni. Zsuwa się lotem ślizgowym na twój poziom. NL NL \"No proszę, cześć! Jeśli oddasz mi ~to,~ wykorzystam swoje kontakty, żeby pomóc ci znaleźć przyjaciół. Co ty na to?\"",
+      "Dostrzegasz piękną kobietę siedzącą na latarni. Zsuwa się lotem ślizgowym na twój poziom. NL NL \"Wyglądasz, jakbyś potrzebował pomocy. Nie możemy pozwolić, by nasz bohater nie mógł stoczyć porządnej walki z doktorem.\"",
+      "\"Jeszcze się zobaczymy, Niebieski.\" Odlatuje w stronę miasta.",
+      "\"Chyba będę musiała znaleźć swój własny. Latanie solo to nasz styl.\" NL Odlatuje w stronę miasta. NL NL Gdy sprawdzasz swój dobytek, odruchowo mocno zaciskasz dłoń na ",
+      " , a twój portfel jest jakby lżejszy. #r~ZŁODZIEJKA!~",
+      "\"A, jest w butelce? Jest przeklęty? Chyba nie mogę go wymienić. Może innym razem.\" Po tych słowach znika w mieście. NL NL Butelka lśni jaśniej niż kiedykolwiek.",
+      "\"Jeszcze się zobaczymy, Niebieski. Nie bądź obcy.\"",
+      "\"Hmpf. Zobaczymy, jak daleko zajdziesz bez ~MOJEJ~ pomocy.\"",
+      "#bCześć! #bJestem #bOmochao! NL NL Asysta to karta o koszcie #b0, która dodaje do ręki losową #yUmiejętność #yPrzyjaciela. #yWyklucza się. Po walce możesz zdecydować, czy zachować Umiejętność. NL NL Karty #rSKARBU zostają w ręce, ale jeśli je Wykluczysz, przyjmiesz postawę #rGniewu!"
+    ],
+    "OPTIONS": [
+      "[Odejdź]",
+      "[Przyjmij wymianę] #rUtrać ",
+      ". #gZyskaj: ",
+      "[Odrzuć wymianę] #yZapłać #y",
+      " #yszt. #yzłota. ",
+      " zyskuje #rSKARB.",
+      "[Omów] ",
+      "[Przyjmij ofertę] #gPrzywróć #g",
+      " #gPŻ. #rUtrać #r",
+      " #rmaks. #rPŻ.",
+      "[Odrzuć ofertę] Odejdź.",
+      "[Porozmawiaj z Omochao] #b(Darmowe #bdziałanie)"
+    ]
+  },
+  "${modID}:TimeStoneEvent": {
+    "NAME": "Kamień Czasu",
+    "DESCRIPTIONS": [
+      "Natrafiasz na kilka drogowskazów. Gdy się do nich zbliżasz, niemal przypominasz sobie dziwne wspomnienia. Nie wiesz, skąd znasz te informacje. NL NL Przeszłość. Teraźniejszość. Przyszłość.",
+      "Przeszłość: Pierścienie są cenniejsze. NL NL Jeśli otrzymasz {0} pkt. obrażeń, #rtracisz #rWSZYSTKIE #yPierścienie #rz #rrąk. NL NL Jeśli masz #y{1} szt. złota i umrzesz, wydasz #y{2} #yszt. #yzłota, by #gprzywrócić #g{3} #gPŻ. NL NL #rUtrać: {4}. #gZyskaj: {5}.",
+      "Teraźniejszość: Eksplozja mediów. Każdy czyn tworzy precedens. NL NL Otrzymaj #g2 #glosowe #gulepszenia i #rutrać #r{0} #rPŻ.",
+      "Przyszłość: Inflacja. Przyjazna dzieciom. Hazard na każdym kroku. NL NL Na początku walki #rutracisz #r1 #rpkt. #rAwansu: #rSzybkość. NL NL Gdy zyskasz #yPierścień, #rwylosuj #rjego #rkoszt. NL NL #gTwój #gmaksymalny #grozmiar #gręki #gzwiększa #gsię #go #g3. NL NL #gZdobądź #gHoming #gAttack.",
+      "Odlatujesz w dal. Twoje ciało zaczyna migotać. Zanim się obejrzysz, otoczenie rozbłyska zielonym, otulającym światłem. NL NL NL ...Dawno, dawno temu.",
+      "Nie ma to jak teraźniejszość! Gdy ciepłe światło cię dosięga, odmawiasz pójścia za nim. Zamiast tego wytyczasz własną ścieżkę, przyjmując inny rodzaj losu.",
+      "To nieuniknione. Historia się powtarza. Ale ty znasz prawdę. Wiesz, że bez względu na to, co się dzieje i gdzie jesteś, zawsze istnieją okazje."
+    ],
+    "OPTIONS": [
+      "[Ruszaj]",
+      "[Zerknij w Przeszłość] #b(Darmowe #bdziałanie)",
+      "[Zerknij w Teraźniejszość] #b(Darmowe #bdziałanie)",
+      "[Zerknij w Przyszłość] #b(Darmowe #bdziałanie)",
+      "[Wróć do punktu wyjścia] #b(Darmowe #bdziałanie)",
+      "[Wybierz Przeszłość] Zaakceptuj te warunki.",
+      "[Wybierz Teraźniejszość] Zaakceptuj te warunki.",
+      "[Wybierz Przyszłość] Zaakceptuj te warunki."
+    ]
+  }
+}

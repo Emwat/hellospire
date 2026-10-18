@@ -1,0 +1,213 @@
+{
+  "${modID}:AirBoostShoesRelic": {
+    "NAME": "Buty Air Boost",
+    "FLAVOR": "Buty lekkie jak piórko. Pozwalają przyspieszać nawet w powietrzu.",
+    "DESCRIPTIONS": [
+      "Efekty #yskrajnie z lewej i #yskrajnie z prawej zawsze się aktywują."
+    ]
+  },
+  "${modID}:BlueQuillRelic": {
+    "NAME": "Błękitne Pióro",
+    "FLAVOR": "O tak! Zaczyna się!",
+    "DESCRIPTIONS": [
+      "Na początku walki dodaj do ręki #b",
+      " #ySkrót."
+    ]
+  },
+  "${modID}:BlueQuillPlusRelic": {
+    "NAME": "Błękitne Pióro+",
+    "FLAVOR": "To się nazywa tani lot!",
+    "DESCRIPTIONS": [
+      "Zastępuje #bBłękitne #bPióro. Na początku walki dodaj do ręki #b",
+      " #ySkrótów."
+    ]
+  },
+  "${modID}:CDFutureRelic": {
+    "NAME": "Pętla czasowa - Przyszłość",
+    "FLAVOR": "Inflacja.",
+    "DESCRIPTIONS": [
+      "Na początku walki utrać #r1 pkt. #yAwansu: #ySzybkość. Zwiększ maksymalny rozmiar ręki o #b3. Gdy stworzysz #yPierścień, wylosuj jego koszt."
+    ]
+  },
+  "${modID}:CDPastRelic": {
+    "NAME": "Pętla czasowa - Przeszłość",
+    "FLAVOR": "Złota era.",
+    "DESCRIPTIONS": [
+      "Gdy miałbyś umrzeć, wydaj 100 szt. złota, by #b{0} swoich maks. PŻ. Jeśli otrzymasz #b{1} pkt. obrażeń, Wyklucz WSZYSTKIE #yPierścienie z ręki."
+    ]
+  },
+  "${modID}:ChaoDefectRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Chyba robię się silniejszy!",
+    "DESCRIPTIONS": [
+      "Zaczynaj każdą walkę z #b1 dodatkowym miejscem na Sferę i #yPrzywołaj #b1 #ySferę #yPlazmy."
+    ]
+  },
+  "${modID}:ChaoIroncladRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Kamienne pięści!",
+    "DESCRIPTIONS": [
+      "Zaczynaj każdą walkę z #b1 dodatkowym miejscem na Sferę i #yPrzywołaj #b1 #ySferę #yGromu."
+    ]
+  },
+  "${modID}:ChaoRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Nie ma mowy! To niemożliwe...! Twoje Chao jest bardzo zdrowe, proszę, dbaj o nie dobrze.",
+    "DESCRIPTIONS": [
+      "Zaczynaj każdą walkę z #b1 dodatkowym miejscem na Sferę."
+    ]
+  },
+  "${modID}:ChaoSilentRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Super!",
+    "DESCRIPTIONS": [
+      "Zaczynaj każdą walkę z #b1 dodatkowym miejscem na Sferę i #yPrzywołaj #b1 #ySferę #yMrozu."
+    ]
+  },
+  "${modID}:ChaoThreeRelic": {
+    "NAME": "Trzy Chao",
+    "FLAVOR": "Nie martw się, mały kumplu.",
+    "DESCRIPTIONS": [
+      "Zaczynaj każdą walkę z #b2 dodatkowymi miejscami na Sfery."
+    ]
+  },
+  "${modID}:ChaoWatcherRelic": {
+    "NAME": "Chao",
+    "FLAVOR": "Nawet się nie spociłem!",
+    "DESCRIPTIONS": [
+      "Zaczynaj każdą walkę z #b1 dodatkowym miejscem na Sferę i #yPrzywołaj #b1 #ySferę #yCiemności."
+    ]
+  },
+  "${modID}:ClassicModeRelic": {
+    "NAME": "Tryb klasyczny",
+    "FLAVOR": "O tak! Zaczyna się!",
+    "DESCRIPTIONS": [
+      "Jeśli otrzymasz #b",
+      "+ pkt. obrażeń, Wyklucz WSZYSTKIE swoje #yPierścienie."
+    ]
+  },
+  "${modID}:CrystalRingRelic": {
+    "NAME": "Kryształowy Pierścień",
+    "FLAVOR": "POCIĄG DO MISTYCZNYCH RUIN WKRÓTCE ODJEDZIE.",
+    "DESCRIPTIONS": [
+      "Na początku walki wtasuj #yKryształowy #yPierścień do stosu rozgrywającego."
+    ]
+  },
+  "${modID}:EmblemRelic": {
+    "NAME": "Emblemat",
+    "FLAVOR": "Czas rozłupać tego Eggmana. Tak, zabawmy się!",
+    "DESCRIPTIONS": [
+      "Na początku walki zyskaj #b",
+      " pkt. #yAwansu: #yMoc."
+    ]
+  },
+  "${modID}:EmblemPlusRelic": {
+    "NAME": "Emblemat+",
+    "FLAVOR": "Czas rozłupać tego Eggmana. Tak, zabawmy się!",
+    "DESCRIPTIONS": [
+      "Zastępuje #bEmblemat. Na początku walki zyskaj #b",
+      " pkt. #yAwansu: #yLot i #yMoc."
+    ]
+  },
+  "${modID}:FireSoulRelic": {
+    "NAME": "Dusza Ognia",
+    "FLAVOR": "WOW! Mądrość Sindbada Żeglarza! Poszukiwacz przygód nad poszukiwaczami przygód!",
+    "DESCRIPTIONS": [
+      "Gdy użyjesz #yZnaku #yOgnia lub #yUderzenia, najpierw zyskaj #b",
+      " pkt. Bloku. Ta wartość trwale rośnie, gdy odwiedzisz Obozowisko."
+    ]
+  },
+  "${modID}:GoldenGloveRelic": {
+    "NAME": "Złota Rękawica",
+    "FLAVOR": "Część kompletu Black Tie.",
+    "DESCRIPTIONS": [
+      "Gdy zagrasz #yPierścień, zyskaj #b",
+      " Tymczasowych PŻ."
+    ]
+  },
+  "${modID}:ModBottledTornado": {
+    "NAME": "Tornado w butelce",
+    "FLAVOR": "Tails: W tym trybie nie ma podwozia.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModIceCreamRelic": {
+    "NAME": "Lody Sonica",
+    "FLAVOR": "Oczy z gumy balonowej! Niebieska malina i wiśnia",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModLanternRelic": {
+    "NAME": "Blast Off",
+    "FLAVOR": "Blast Off: wciśnij X/Kwadrat, gdy pojawi się \"GO!\", by dostać darmowy Boost.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:ModTailsDoll": {
+    "NAME": "Lalka Tailsa",
+    "FLAVOR": "Niepokojąca.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${modID}:Player2Relic": {
+    "NAME": "Gracz 2",
+    "FLAVOR": "WHOAA KRĘCI MI SIĘ W GŁOWIE!!",
+    "DESCRIPTIONS": [
+      "W pierwszych dwóch turach walki, gdy zagrasz drugą kartę, dodaj jej kopię do ręki.",
+      "GRACZ 2 JEST GOTOWY.",
+      " (TURA 1)",
+      " (TURA 2)",
+      " DANE SKOPIOWANO POMYŚLNIE."
+    ]
+  },
+  "${modID}:PowerBrakeRelic": {
+    "NAME": "Hamulec mocy",
+    "FLAVOR": "Tut, tut, Sonic Warrior",
+    "DESCRIPTIONS": [
+      "Gdy na koniec tury masz #bX energii, nałóż #bX #yZawrotów na WSZYSTKICH przeciwników."
+    ]
+  },
+  "${modID}:RingEnergyBonusRelic": {
+    "NAME": "Bonus energii z Pierścieni",
+    "FLAVOR": "Wow, gdzie ktoś trzyma tyle złotych pierścieni?",
+    "DESCRIPTIONS": [
+      "Za każde #b",
+      " #yPierścieni w ręce na początku tury zyskaj 1 [E] ."
+    ]
+  },
+  "${modID}:RingKeeperRelic": {
+    "NAME": "Strażnik Pierścieni",
+    "FLAVOR": "O tak! Zaczyna się!",
+    "DESCRIPTIONS": [
+      "Twoje #yPierścienie zachowują się między walkami. Jeśli otrzymasz #b3+ pkt. obrażeń, Wyklucz WSZYSTKIE swoje #yPierścienie."
+    ]
+  },
+  "${modID}:LimiterRingRelic": {
+    "NAME": "Pierścień Ograniczający",
+    "FLAVOR": "Spokojnie! Zresztą żadna przygoda nie jest zabawna, jeśli jest zbyt łatwa, prawda?",
+    "DESCRIPTIONS": [
+      "Gdy zagrasz #ySztuczkę, #rzyskaj #ro #r1 #rmniej #yWigoru."
+    ]
+  },
+  "${modID}:StampRelic": {
+    "NAME": "Pieczątka",
+    "FLAVOR": "Mem! Zatwierdzony.",
+    "DESCRIPTIONS": [
+      "Możesz kliknąć ten relikt prawym przyciskiem myszy, aby #rusunąć kartę spoza swojej klasy z wydarzenia Ogród Chao.",
+      "Możesz kliknąć ten relikt prawym przyciskiem myszy, aby #rusunąć ",
+      " ze swojej talii.",
+      "Karta z butelki została #rusunięta z twojej talii, relikt już nie działa."
+    ]
+  },
+  "${modID}:TailsToyRelic": {
+    "NAME": "Zabawka Tailsa",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  }
+}

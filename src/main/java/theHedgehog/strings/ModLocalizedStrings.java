@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import org.apache.logging.log4j.Logger;
 import theHedgehog.SonicMod;
 
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ModLocalizedStrings {
@@ -19,26 +21,39 @@ public class ModLocalizedStrings {
     public ModLocalizedStrings() {
         long startTime = System.currentTimeMillis();
         Gson gson = new Gson();
-        String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
-            lang = "zhs";
-        }
+        String lang = SonicMod.getLangString();
 
-        sonicChaoGardens = gson.fromJson(
-                loadJson(SonicMod.localizationPath(lang, "SonicChaoGardenStrings.json")),
-                (new TypeToken<Map<String, SonicChaoGardenStrings>>() {}).getType()
-        );
-
-        sonicExtraCards = gson.fromJson(
-                loadJson(SonicMod.localizationPath(lang, "SonicExtraCardStrings.json")),
-                (new TypeToken<Map<String, SonicExtraCardStrings>>() {}).getType()
-        );
-
-        sonicTalks = gson.fromJson(
-                loadJson(SonicMod.localizationPath(lang, "SonicTalkStrings.json")),
+        // English is always loaded first; the active language then overrides it key by key,
+        // so a language that is missing an entry (or a whole file) falls back to English.
+        sonicChaoGardens = loadWithFallback(gson, lang, "SonicChaoGardenStrings.json",
+                (new TypeToken<Map<String, SonicChaoGardenStrings>>() {}).getType());
+        sonicExtraCards = loadWithFallback(gson, lang, "SonicExtraCardStrings.json",
+                (new TypeToken<Map<String, SonicExtraCardStrings>>() {}).getType());
+        sonicTalks = loadWithFallback(gson, lang, "SonicTalkStrings.json",
                 (new TypeToken<Map<String, SonicTalkStrings>>() {}).getType());
 
         logger.info("Loc Sonic Strings load time: " + (System.currentTimeMillis() - startTime) + "ms");
+    }
+
+    private static <T> Map<String, T> loadWithFallback(Gson gson, String lang, String file, Type type) {
+        Map<String, T> result = gson.fromJson(loadJson(SonicMod.localizationPath("eng", file)), type);
+        if (result == null) {
+            result = new HashMap<>();
+        }
+        if (!"eng".equals(lang)) {
+            String path = SonicMod.localizationPath(lang, file);
+            try {
+                if (Gdx.files.internal(path).exists()) {
+                    Map<String, T> translated = gson.fromJson(loadJson(path), type);
+                    if (translated != null) {
+                        result.putAll(translated);
+                    }
+                }
+            } catch (Exception e) {
+                logger.warn("Could not load " + path + ", using English.", e);
+            }
+        }
+        return result;
     }
 
     public SonicChaoGardenStrings getChaoGardenString(String name) {

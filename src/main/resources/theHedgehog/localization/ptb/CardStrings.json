@@ -1,0 +1,1056 @@
+{
+  "${modID}:Strike": {
+    "NAME": "Golpe",
+    "DESCRIPTION": "Cause !D! de dano."
+  },
+  "${modID}:StrikeRare": {
+    "NAME": "S Golpe",
+    "DESCRIPTION": "Cause !D! de dano."
+  },
+  "${modID}:Defend": {
+    "NAME": "Defender",
+    "DESCRIPTION": "Ganhe !B! de Proteção."
+  },
+  "${modID}:Acceleration": {
+    "NAME": "Aceleração",
+    "DESCRIPTION": "Ganhe !M! de Foco."
+  },
+  "${modID}:AMAZING": {
+    "NAME": "INCRÍVEL",
+    "DESCRIPTION": "Ao jogar 3 Ataques em um único turno, cause !M! de dano a TODOS os inimigos."
+  },
+  "${modID}:Assist": {
+    "NAME": "Assistência",
+    "DESCRIPTION": "Adicione uma Técnica aleatória de ${modID}:Amigo à sua mão. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Adicione uma Técnica aleatória de ${modID}:Amigo à sua mão. Ela custa 0 neste turno. NL Exaurir."
+  },
+  "${modID}:AssistAmy": {
+    "NAME": "Casal Fofo",
+    "DESCRIPTION": "{@@}Reduza a 0 o custo de !M! carta{!M!|>1=s} do topo da sua pilha de compra, até jogá-la{!M!|1=|>1=s}. NL Exaurir.",
+    "FLAVOR": "Não tema! Amy Rose chegou!",
+    "EXTENDED_DESCRIPTION": [
+      "Omochao diz",
+      "[#ffeda7]Premeditação[], [#ffeda7]Preparar[] e esta carta [#ff6563]NÃO[] [#ff6563]funcionam[] com o Olho de Cortixa."
+    ]
+  },
+  "${modID}:AssistBarry": {
+    "NAME": "Barry, o Quokka",
+    "DESCRIPTION": "{@@}Coloque !M! carta{!M!|>1=s} da sua pilha de descarte na sua mão. NL stslib:Exhaustive !stslib:ex!.",
+    "FLAVOR": "Sempre tem algo escondido no lixo. Vamos olhar ali."
+  },
+  "${modID}:AssistBig": {
+    "NAME": "Big, o Gato",
+    "DESCRIPTION": "{@@}Vidência !M!. NL Compre !${modID}:CustomVar_DRAW! carta{!${modID}:CustomVar_DRAW!|>1=s}.",
+    "FLAVOR": "Aguenta aí, Froggy, eu já vou!"
+  },
+  "${modID}:AssistBlaze": {
+    "NAME": "Blaze, a Gata",
+    "DESCRIPTION": "Etéreo. NL Ganhe !B! de Proteção e !M! ${modID}:Barreira_de_Chamas para cada inimigo.",
+    "FLAVOR": "Não se meta comigo!"
+  },
+  "${modID}:AssistCharmy": {
+    "NAME": "Charmy, a Abelha",
+    "DESCRIPTION": "Aplique !${modID}:CustomVar_DIZZY! de ${modID}:Tontura. NL Canalize !M! Relâmpago.",
+    "FLAVOR": "Isso! Hora de agitar!"
+  },
+  "${modID}:AssistChip": {
+    "NAME": "Chip",
+    "DESCRIPTION": "Reter. NL Ganhe !B! de Proteção. NL Entre em Calma. NL Exaurir.",
+    "FLAVOR": "Não me coma! Eu tenho gosto ruim!"
+  },
+  "${modID}:AssistCream": {
+    "NAME": "Cream, a Coelha",
+    "DESCRIPTION": "Cure !M! PV. NL Ganhe 1 slot de Orbe. Exaurir.",
+    "FLAVOR": "Vamos, Cheese! Temos que ajudar o Sr. Sonic!"
+  },
+  "${modID}:AssistEspio": {
+    "NAME": "Espio, o Camaleão",
+    "DESCRIPTION": "{@@}Ganhe !B! de Proteção. NL Adicione !M! [#efc851]Estoque{!M!|>1=s}[] à sua mão. NL Se você não jogou nenhum Ataque neste turno, adicione mais 1.",
+    "FLAVOR": "Contemple! O poder ninja!"
+  },
+  "${modID}:AssistJet": {
+    "NAME": "Jet, o Falcão",
+    "DESCRIPTION": "Etéreo. NL Ganhe !M! Gelo. NL Torne aleatório o custo de uma carta na sua mão neste turno.",
+    "FLAVOR": "Não me decepcione, Sonic the Hedgehog! NL NL -Arte por Yui Karasuno",
+    "EXTENDED_DESCRIPTION": [
+      "Etéreo. NL Ganhe !M! Gelo. NL Mude o custo de uma carta para ",
+      " neste turno."
+    ]
+  },
+  "${modID}:AssistKnuckles": {
+    "NAME": "Parceiros de Luta",
+    "DESCRIPTION": "Ganhe !${modID}:CustomVar_STR! de Força Temporária. NL Sempre que você jogar um Ataque neste turno, ganhe !M! de Proteção.",
+    "FLAVOR": "Eu pareço precisar do SEU poder?"
+  },
+  "${modID}:AssistLilac": {
+    "NAME": "Sash Lilac",
+    "DESCRIPTION": "{@@}Ganhe !B! de Proteção. NL Compre !M! carta{!M!|>1=s}. NL Compre !M! carta{!M!|>1=s} {!M!|1=adicional|>1=adicionais} no próximo turno.",
+    "FLAVOR": "Não me importo com o perigo! Vai ser preciso muito mais que robôs e alienígenas para parar uma dragoa!"
+  },
+  "${modID}:AssistRosy": {
+    "NAME": "Acredite em Você",
+    "DESCRIPTION": "Se você não tiver Ataques na sua mão, compre !M! cartas.",
+    "FLAVOR": "Inside your mind, you will see~ NL Cosmic eternity~"
+  },
+  "${modID}:AssistRouge": {
+    "NAME": "Rouge, a Morcega",
+    "DESCRIPTION": "{@@}Ganhe !${modID}:CustomVar_DEX! de Destreza Temporária. NL Descarte !M! carta{!M!|>1=s}. NL Ganhe [E].",
+    "FLAVOR": "Nunca subestime uma agente. Você vai se queimar."
+  },
+  "${modID}:AssistShadow": {
+    "NAME": "Shadow",
+    "DESCRIPTION": "Jogue um turno extra depois deste. NL Termine seu turno. NL Exaurir.",
+    "FLAVOR": "Testemunhe o Poder Supremo."
+  },
+  "${modID}:AssistSilver": {
+    "NAME": "Silver",
+    "DESCRIPTION": "Vidência !${modID}:CustomVar_SCRY!. NL TODOS os inimigos perdem !M! de Força no próximo turno, por 1 turno. NL Exaurir.",
+    "FLAVOR": "Não OUSE virar as costas para mim!"
+  },
+  "${modID}:AssistSticks": {
+    "NAME": "Sticks, a Texugo",
+    "DESCRIPTION": "Todos os Golpes e Defesas iniciais ganham ${modID}:Giro_Crescente e dão [E] quando jogados.",
+    "FLAVOR": "Tecnologia Blast Processing? Isso é só enrolação para enganar os simplórios!"
+  },
+  "${modID}:AssistTails": {
+    "NAME": "Laço Inquebrável",
+    "DESCRIPTION": "{@@}Ganhe !M! slot{!M!|>1=s} de Orbe. NL Canalize 1 Relâmpago. NL Canalize 1 Plasma. NL Exaurir.",
+    "FLAVOR": "Tem o mesmo comprimento de onda e as mesmas propriedades, mas é menos poderosa que a verdadeira."
+  },
+  "${modID}:AssistTikal": {
+    "NAME": "Tikal, a Equidna",
+    "DESCRIPTION": "{@@}Exaura até !M! Ataque{!M!|>1=s} na sua pilha de compra. NL Ganhe !${modID}:CustomVar_ORB! slot{!${modID}:CustomVar_ORB!|>1=s} de Orbe. NL Se um inimigo pretende atacar, esta carta brilha. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "{@@}Inata. NL Exaura até !M! Ataque{!M!|>1=s} na sua pilha de compra. NL Ganhe !${modID}:CustomVar_ORB! slot{!${modID}:CustomVar_ORB!|>1=s} de Orbe. NL Se um inimigo pretende atacar, esta carta brilha. NL Exaurir.",
+    "FLAVOR": "Os servidores são os sete caos. O caos é poder, poder enriquecido pelo coração."
+  },
+  "${modID}:AssistVector": {
+    "NAME": "Vector, o Crocodilo",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL TODOS os Ataques de custo 2+ ganham ${modID}:Precioso.",
+    "FLAVOR": "Tudo faz parte de ser um bom detetive."
+  },
+  "${modID}:Athleticism": {
+    "NAME": "Atletismo",
+    "DESCRIPTION": "Exaura até 2 cartas. NL Seus debuffs diminuem em !M!. NL Exaurir."
+  },
+  "${modID}:BackSpinKick": {
+    "NAME": "Chute Giratório Reverso",
+    "DESCRIPTION": "Cause !D! de dano. NL Esta carta custa 1 a menos para cada Ataque jogado neste turno."
+  },
+  "${modID}:BackSpinKickRare": {
+    "NAME": "S Chute Giratório Reverso",
+    "DESCRIPTION": "Cause !D! de dano. NL Esta carta custa 1 a menos para cada Ataque jogado neste turno."
+  },
+  "${modID}:Bait": {
+    "NAME": "Isca",
+    "DESCRIPTION": "Um inimigo aleatório atacará este alvo e você. No turno do inimigo, ganhe 75% de Proteção, de acordo com a intenção do inimigo aleatório."
+  },
+  "${modID}:BecauseScience": {
+    "NAME": "Por Causa da Ciência",
+    "DESCRIPTION": "No começo do seu turno, entre em uma postura que lhe dá 1 de Proteção por carta jogada ou 1 ${modID}:Barreira_de_Chamas por carta jogada."
+  },
+  "${modID}:BecauseSciencePick1": {
+    "NAME": "Fogo",
+    "DESCRIPTION": "Sempre que você jogar uma carta, ganhe 1 ${modID}:Barreira_de_Chamas."
+  },
+  "${modID}:BecauseSciencePick2": {
+    "NAME": "Gelo",
+    "DESCRIPTION": "Sempre que você jogar uma carta, ganhe 1 de Proteção."
+  },
+  "${modID}:BlastProcessing": {
+    "NAME": "Blast Processing",
+    "DESCRIPTION": "A cada turno, suas primeiras !M! cartas criadas custam 1 [E] a menos.",
+    "UPGRADE_DESCRIPTION": "Inata. NL A cada turno, suas primeiras !M! cartas criadas custam 1 [E] a menos."
+  },
+  "${modID}:BlastOff": {
+    "NAME": "Lançamento",
+    "DESCRIPTION": "${modID}:Giro_Crescente. NL Ganhe [E]. NL ${modID}:Se_estiver_longe, ganhe 1 a mais.",
+    "UPGRADE_DESCRIPTION": "${modID}:Giro_Crescente. NL Ganhe [E] [E]. NL ${modID}:Se_estiver_longe, ganhe 1 a mais."
+  },
+  "${modID}:BlueBlur": {
+    "NAME": "Borrão Azul",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL No próximo turno, ganhe ${modID}:Forma_Ecoante Temporária. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Ganhe !B! de Proteção. NL No próximo turno, ganhe ${modID}:Forma_Ecoante Temporária."
+  },
+  "${modID}:BlueBomber": {
+    "NAME": "Bombardeiro Azul",
+    "DESCRIPTION": "Cause !D! de dano. NL Destreza e [#efc851]Anéis[] afetam o dano desta carta !M! vezes."
+  },
+  "${modID}:BlueTornado": {
+    "NAME": "Tornado Azul",
+    "DESCRIPTION": "Aplique !M! de ${modID}:Tontura. NL Aplique !M! de Vulnerabilidade. NL ${modID}:Inverter o custo de uma carta na sua mão neste turno.",
+    "DESCRIPTION_IDEA_2": "Apply !M! ${modID}:Dizzy. NL Apply !M! Vulnerable. NL ${modID}:Flip the cost of ALL cards in your hand for this turn.",
+    "EXTENDED_DESCRIPTION": [
+      "Aplique !M! de Vulnerabilidade. NL Aplique !${modID}:CustomVar_DIZZY! de ${modID}:Tontura.",
+      "Aplique !M! de Vulnerabilidade. NL Adicione um [#efc851]Truque[] à sua mão.",
+      "Blue T. Failsafe"
+    ]
+  },
+  "${modID}:Boost": {
+    "NAME": "Impulso",
+    "DESCRIPTION": "Cause !D! de dano a TODOS os inimigos. NL Ao jogar um [#efc851]Anel[], devolva esta carta da pilha de descarte para a sua mão."
+  },
+  "${modID}:BoostRare": {
+    "NAME": "S Impulso",
+    "DESCRIPTION": "{@@}Cause !D! de dano a TODOS os inimigos. NL Compre !M! carta{!M!|>1=s}. NL Ao jogar um [#efc851]Anel[], devolva esta carta da pilha de descarte para a sua mão."
+  },
+  "${modID}:BouncePad": {
+    "NAME": "Mola",
+    "DESCRIPTION": "{@@}Ganhe !B! de Proteção. NL Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão.",
+    "EXTENDED_DESCRIPTION": [
+      "Ganhe !B! de Proteção. NL Adicione 2 [#efc851]Anéis[] à sua mão.",
+      "Ganhe !B! de Proteção. NL Adicione um [#efc851ff]Anel[] à sua mão. Esta carta fica na sua mão por mais 1 uso.",
+      "Ganhe !B! de Proteção. NL Adicione um [#efc851ff]Anel[] à sua mão."
+    ]
+  },
+  "${modID}:BouncePadPick1": {
+    "NAME": "Pegar Anel",
+    "DESCRIPTION": "{@@}Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão."
+  },
+  "${modID}:BouncePadPick2": {
+    "NAME": "Pegar Truque",
+    "DESCRIPTION": "{@@}Adicione !M! [#efc851]Truque{!M!|>1=s}[] à sua mão."
+  },
+  "${modID}:Bumper": {
+    "NAME": "Bumper",
+    "DESCRIPTION": "Reter. NL Ganhe !B! de Proteção."
+  },
+  "${modID}:ChaosControl": {
+    "NAME": "Chaos Control",
+    "DESCRIPTION": "Neste turno, seu próximo Ataque é jogado X vezes.",
+    "UPGRADE_DESCRIPTION": "Neste turno, seu próximo Ataque é jogado X+!M! vezes."
+  },
+  "${modID}:ChaosEmeraldAttack": {
+    "NAME": "Esmeralda do Caos",
+    "DESCRIPTION": "Ao ser comprada, exaura esta carta e adicione a carta exibida à sua mão."
+  },
+  "${modID}:Checkpoint": {
+    "NAME": "Ponto de Controle",
+    "DESCRIPTION": "Só pode ser jogada se você tiver um [#efc851]Anel[]. NL Embaralhe [#efc851]Forma[] [#efc851]Super[] [#efc851]Sonic[] na sua pilha de compra. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Só pode ser jogada se você tiver um [#efc851]Anel[]. NL Embaralhe [#efc851]Forma[] [#efc851]Super[] [#efc851]Sonic+[] na sua pilha de compra. NL Exaurir."
+  },
+  "${modID}:ChuChuBomb": {
+    "NAME": "Bomba ChuChu",
+    "DESCRIPTION": "O alvo desta carta muda toda vez que você joga uma carta. Cause !D! de dano.",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "${modID}:ColorlessBandageUp": {
+    "NAME": "Chili Dog",
+    "DESCRIPTION": "Você não deveria ver isto."
+  },
+  "${modID}:ColorlessShiv": {
+    "NAME": "Kunai",
+    "DESCRIPTION": "Você não deveria ver isto."
+  },
+  "${modID}:ClawsUnleashed": {
+    "NAME": "Garras Liberadas",
+    "DESCRIPTION": "Só pode ser jogada se você tiver um Orbe de Trevas canalizado. NL Cause !D! de dano.",
+    "EXTENDED_DESCRIPTION": [
+      "Só pode ser jogada se você tiver um Orbe de Trevas canalizado. NL Cause !D! de dano.",
+      "Cause !D! de dano."
+    ]
+  },
+  "${modID}:CloseShave": {
+    "NAME": "Por um Fio",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL Se você tiver !M! cartas ou menos na sua mão, ganhe !B! de Proteção.",
+    "DESCRIPTION_IDEA_2": "Gain !B! Block. NL If you don't have any [#efc851]Rings[], gain !B! Block."
+  },
+  "${modID}:Crouch": {
+    "NAME": "Pulo",
+    "DESCRIPTION": "{@@}Compre !M! carta{!M!|>1=s}. NL Exaura !M! carta{!M!|>1=s}."
+  },
+  "${modID}:CrystalRing": {
+    "NAME": "Anel de Cristal",
+    "DESCRIPTION": "Reter. NL ${modID}:Anel. NL Quando você comprar esta carta, compre outra carta. NL Ganhe !M! de Vigor."
+  },
+  "${modID}:CyanLaser": {
+    "NAME": "Laser Ciano",
+    "DESCRIPTION": "Cause !D! de dano a TODOS os inimigos. Compre uma carta para cada inimigo atingido."
+  },
+  "${modID}:CyanLaserRare": {
+    "NAME": "S Laser Ciano",
+    "DESCRIPTION": "{@@}Cause !D! de dano a TODOS os inimigos. NL Compre !M! carta{!M!|>1=s}."
+  },
+  "${modID}:DashPanel": {
+    "NAME": "Painel de Aceleração",
+    "DESCRIPTION": "Jogue as !M! cartas à direita desta carta."
+  },
+  "${modID}:DebugMode": {
+    "NAME": "Modo Debug",
+    "DESCRIPTION": "Escolha uma carta da sua mão. Adicione uma cópia dela à sua mão. Exaurir."
+  },
+  "${modID}:DirectJump": {
+    "NAME": "Salto Direto",
+    "DESCRIPTION": "Ao jogar uma Técnica neste turno, adicione um [#efc851]Anel[] à sua mão. NL Exaurir.",
+    "EXTENDED_DESCRIPTION": [
+      "Ao jogar uma Técnica neste turno, adicione um [#efc851]Anel[] à sua mão."
+    ]
+  },
+  "${modID}:DizzySpin": {
+    "NAME": "Giro Tonto",
+    "DESCRIPTION": "Torne aleatório o custo de TODAS as cartas da sua mão neste turno. NL Aplique ${modID}:Tontura a TODOS os inimigos 3 vezes.",
+    "UPGRADE_DESCRIPTION": "Compre !M! cartas. Torne aleatório o custo de TODAS as cartas da sua mão neste turno. NL Aplique ${modID}:Tontura a TODOS os inimigos 3 vezes."
+  },
+  "${modID}:DoubleAirKick": {
+    "NAME": "Chute Aéreo Duplo",
+    "DESCRIPTION": "Cause !D! de dano duas vezes."
+  },
+  "${modID}:DoubleAirKickRare": {
+    "NAME": "S Chute Aéreo Duplo",
+    "DESCRIPTION": "Cause !D! de dano duas vezes."
+  },
+  "${modID}:Dreamweaver": {
+    "NAME": "Dreamweaver",
+    "DESCRIPTION": "Esta carta não deveria aparecer em uma partida. NL Se você está lendo isto, provavelmente encontrou um bug. NL Avise um desenvolvedor do mod."
+  },
+  "${modID}:Drift": {
+    "NAME": "Drift",
+    "DESCRIPTION": "${modID}:Acelerar TODOS os Orbes !${modID}:CustomVar_MULTIPLIER!X vezes. NL stslib:Refund !stslib:refund!.",
+    "UPGRADE_DESCRIPTION": "${modID}:Acelerar TODOS os Orbes !${modID}:CustomVar_MULTIPLIER!(X + 1) vezes. NL stslib:Refund !stslib:refund!.",
+    "EXTENDED_DESCRIPTION": [
+      "${modID}:Acelerar TODOS os Orbes [#7fff00]",
+      "[] vezes. NL stslib:Refund !stslib:refund!."
+    ]
+  },
+  "${modID}:DropDash": {
+    "NAME": "Drop Dash",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL Se você comprou uma carta neste turno, ganhe [E] [E]."
+  },
+  "${modID}:EndlessBoost": {
+    "NAME": "Impulso Infinito",
+    "DESCRIPTION": "Perca !M! de Destreza. ${modID}:Se_estiver_à_direita, perca 1 a menos. NL No começo do seu turno, ganhe [E].",
+    "UPGRADE_DESCRIPTION": "Perca !M! de Destreza. ${modID}:Se_estiver_à_direita, perca 1 a menos. NL No começo do seu turno, ganhe [E]."
+  },
+  "${modID}:Enerbeam": {
+    "NAME": "Enerbeam",
+    "DESCRIPTION": "O inimigo perde !M! de Força neste turno."
+  },
+  "${modID}:Extender": {
+    "NAME": "Ação de Truque no Ar",
+    "DESCRIPTION": "Se você tiver Vigor no começo do seu turno, escolha: NL ganhar 2 slots de Orbe, NL comprar 2 cartas, NL ou ganhar [E] [E].",
+    "UPGRADE_DESCRIPTION": "Inata. NL Se você tiver Vigor no começo do seu turno, escolha: NL ganhar 2 slots de Orbe, NL comprar 2 cartas, NL ou ganhar [E] [E]."
+  },
+  "${modID}:Extender1": {
+    "NAME": "Salto Duplo",
+    "DESCRIPTION": "Ganhe 2 slots de Orbe."
+  },
+  "${modID}:Extender2": {
+    "NAME": "Pião Zumbidor",
+    "DESCRIPTION": "Compre 2 cartas."
+  },
+  "${modID}:Extender3": {
+    "NAME": "Quique",
+    "DESCRIPTION": "Ganhe 2 [E]."
+  },
+  "${modID}:FalconPunch": {
+    "NAME": "Falcon Punch",
+    "DESCRIPTION": "Cause !D! de dano. NL Compre 1 carta. NL Exaura 1 carta."
+  },
+  "${modID}:FalconPunchRare": {
+    "NAME": "S Preparação do Falcon Punch",
+    "DESCRIPTION": "{@@}Exaura !M! carta{!M!|>1=s}. NL No próximo turno, compre !M! carta{!M!|>1=s} adicional{!M!|1=|>1=is} e adicione [#efc851]S[] [#efc851]Falcon[] [#efc851]Punch[] à sua mão."
+  },
+  "${modID}:FalconPunchRare2": {
+    "NAME": "S Falcon Punch",
+    "DESCRIPTION": "Etéreo. NL Cause !D! de dano. NL Este ataque causa o dobro de dano. NL Exaurir."
+  },
+  "${modID}:FireSomersault": {
+    "NAME": "Salto Mortal de Fogo",
+    "DESCRIPTION": "${modID}:Brasão_de_Fogo. NL Cause !D! de dano. NL Se for Exaurida, adicione [#efc851]Salto[] [#efc851]Mortal[] [#efc851]de[] [#efc851]Fogo[] à sua mão com !M! de dano adicional."
+  },
+  "${modID}:FireSomersaultRare": {
+    "NAME": "S Salto Mortal de Fogo",
+    "DESCRIPTION": "${modID}:Brasão_de_Fogo. NL Cause !D! de dano. NL Se for Exaurida, adicione [#efc851]Salto[] [#efc851]Mortal[] [#efc851]de[] [#efc851]Fogo[] à sua mão com !M! de dano adicional."
+  },
+  "${modID}:FireTackle": {
+    "NAME": "Investida de Fogo",
+    "DESCRIPTION": "${modID}:Brasão_de_Fogo. NL Cause !D! de dano. NL Ganhe !M! ${modID}:Barreira_de_Chamas."
+  },
+  "${modID}:FireTackleRare": {
+    "NAME": "S Investida de Fogo",
+    "DESCRIPTION": "${modID}:Brasão_de_Fogo. NL Cause !D! de dano. NL Ganhe !M! ${modID}:Barreira_de_Chamas."
+  },
+  "${modID}:FlagPole": {
+    "NAME": "Mergulho Celeste",
+    "DESCRIPTION": "Neste turno, TODOS os [#efc851]Anéis[] na sua mão custam 0 e Canalizam um Gelo quando jogados.",
+    "UPGRADE_DESCRIPTION": "Adicione um [#efc851]Anel[] à sua mão. NL Neste turno, TODOS os [#efc851]Anéis[] na sua mão custam 0 e Canalizam um Gelo quando jogados."
+  },
+  "${modID}:FootSweep": {
+    "NAME": "Rasteira",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Fraqueza. NL ${modID}:Se_estiver_no_centro, atinja TODOS os inimigos."
+  },
+  "${modID}:FootSweepRare": {
+    "NAME": "S Rasteira",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Fraqueza. NL ${modID}:Se_estiver_no_centro, atinja TODOS os inimigos."
+  },
+  "${modID}:Gizoid": {
+    "NAME": "Gizoid",
+    "DESCRIPTION": "Mostre-me o seu poder. Ou não obedecerei. Eu represento todas as coisas e me tornarei Gizoid, o conquistador de tudo.",
+    "EXTENDED_DESCRIPTION": [
+      "Obrigado, Sonic.",
+      "O Tails ficou mais forte?",
+      "Não implique muito com ele, tá?",
+      "Mãe.",
+      "Vou sentir saudade de todos vocês.",
+      "Eu deveria estar feliz por... ter nascido...?",
+      "Iniciando coleta de dados...",
+      "..."
+    ]
+  },
+  "${modID}:GizoidAmy": {
+    "NAME": "Dados - Amy Rose",
+    "DESCRIPTION": "Ganhe uma poção aleatória. NL Exaurir."
+  },
+  "${modID}:GizoidChaos": {
+    "NAME": "Dados - Chaos",
+    "DESCRIPTION": "Ganhe !M! de Intangível. NL No fim do seu turno, perca 1 de Destreza. NL Exaurir."
+  },
+  "${modID}:GizoidCream": {
+    "NAME": "Dados - Cream",
+    "DESCRIPTION": "Cure !M! PV. NL Exaurir."
+  },
+  "${modID}:GizoidE102r": {
+    "NAME": "Dados - E102r",
+    "DESCRIPTION": "Sofra !M! de dano. NL Cause !D! de dano a TODOS os inimigos. NL Exaurir."
+  },
+  "${modID}:GizoidEggman": {
+    "NAME": "Dados - Eggman",
+    "DESCRIPTION": "Escolha uma carta. No próximo turno, adicione 3 cópias dela à sua mão. Exaurir."
+  },
+  "${modID}:GizoidKnuckles": {
+    "NAME": "Dados - Knuckles",
+    "DESCRIPTION": "Cause !D! de dano. NL Canalize !M! Plasma. NL Exaurir."
+  },
+  "${modID}:GizoidRouge": {
+    "NAME": "Dados - Rouge",
+    "DESCRIPTION": "Cause !M! de dano. Se for Fatal, ganhe !M! de Ouro. NL Exaurir."
+  },
+  "${modID}:GizoidShadow": {
+    "NAME": "Dados - Shadow",
+    "DESCRIPTION": "Jogue um turno extra depois deste. Termine seu turno. NL Exaurir."
+  },
+  "${modID}:GizoidSonic": {
+    "NAME": "Dados - Sonic",
+    "DESCRIPTION": "Use Sonic Flare em TODOS os inimigos. NL Exaurir."
+  },
+  "${modID}:GizoidTails": {
+    "NAME": "Dados - Tails",
+    "DESCRIPTION": "Coloque uma carta da sua pilha de exaustão na sua mão. NL Exaurir."
+  },
+  "${modID}:GrindRail": {
+    "NAME": "Trilho de Grind",
+    "DESCRIPTION": "Reduza em !M! o custo das cartas adjacentes neste turno."
+  },
+  "${modID}:Hailstorm": {
+    "NAME": "Chuva de Granizo",
+    "DESCRIPTION": "Cause !D! de dano 0 vezes. Acerta mais uma vez para cada vez que você comprou esta carta.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano ",
+      " vez. Acerta mais uma vez para cada vez que você comprou esta carta.",
+      " vezes. Acerta mais uma vez para cada vez que você comprou esta carta."
+    ]
+  },
+  "${modID}:HailstormRare": {
+    "NAME": "S Chuva de Granizo",
+    "DESCRIPTION": "Cause !D! de dano 0 vezes. Acerta mais uma vez para cada vez que você comprou esta carta.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano ",
+      " vez. Acerta mais uma vez para cada vez que você comprou esta carta.",
+      " vezes. Acerta mais uma vez para cada vez que você comprou esta carta."
+    ]
+  },
+  "${modID}:HeavyBounceSlam": {
+    "NAME": "Pancada Quicante",
+    "DESCRIPTION": "Cause !D! de dano. NL Dobre o dano desta carta. NL ${modID}:Se_estiver_à_esquerda, ela fica na sua mão depois de jogada."
+  },
+  "${modID}:HeavyBounceSlamRare": {
+    "NAME": "S Pancada Quicante",
+    "DESCRIPTION": "Cause !D! de dano. NL Dobre o dano desta carta. NL ${modID}:Se_estiver_à_esquerda, ela fica na sua mão depois de jogada."
+  },
+  "${modID}:HomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Cause !D! de dano. NL Adicione um [#efc851]Truque[] à sua mão.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano. NL Adicione 2 [#efc851]Truques[] à sua mão.",
+      "Cause !D! de dano. NL Adicione um [#efc851]Truque[] à sua mão. Esta carta fica na sua mão por mais 1 uso.",
+      "Cause !D! de dano. NL Adicione um [#efc851]Truque[] à sua mão."
+    ]
+  },
+  "${modID}:HorseKick": {
+    "NAME": "Coice",
+    "DESCRIPTION": "Cause !D! de dano. NL ${modID}:Se_estiver_à_direita, cause o dobro de dano."
+  },
+  "${modID}:HorseKickRare": {
+    "NAME": "S Coice",
+    "DESCRIPTION": "Cause !D! de dano. NL ${modID}:Se_estiver_à_direita, cause o triplo de dano."
+  },
+  "${modID}:HotRod": {
+    "NAME": "Hot Rod",
+    "DESCRIPTION": "Depois que esta carta for comprada, seus efeitos mudam conforme o número de cartas jogadas neste turno.",
+    "EXTENDED_DESCRIPTION": [
+      "Aquecendo. NL Ganhe !B! de Proteção.",
+      "[#efc851]Padrão.[] NL Ganhe !B! de Proteção.",
+      "[#ff6563]Crítico![] NL Ganhe !B! de Proteção. NL Cause !D! de dano.",
+      "[#808080]Sobrecarga.[] NL Ganhe !B! de Proteção."
+    ]
+  },
+  "${modID}:HotRod1": {
+    "NAME": "Hot Rod Parte 1 de 3",
+    "DESCRIPTION": "Aquecendo. NL Ganhe !B! de Proteção."
+  },
+  "${modID}:HotRod2": {
+    "NAME": "Hot Rod Parte 2 de 3",
+    "DESCRIPTION": "[#efc851]Padrão[]. NL Ganhe !B! de Proteção."
+  },
+  "${modID}:HotRod3": {
+    "NAME": "Hot Rod Parte 3 de 3",
+    "DESCRIPTION": "[#ff6563]Crítico![] NL Ganhe !B! de Proteção. NL Cause !D! de dano."
+  },
+  "${modID}:HotRodOverloaded": {
+    "NAME": "Hot Rod Sobrecarregado",
+    "DESCRIPTION": "[#808080]Sobrecarga.[] NL Ganhe !B! de Proteção."
+  },
+  "${modID}:HotRodRare": {
+    "NAME": "S Hot Rod",
+    "DESCRIPTION": "Depois que esta carta for comprada, seus efeitos mudam conforme o número de cartas jogadas neste turno.",
+    "EXTENDED_DESCRIPTION": [
+      "Aquecendo. NL Ganhe !B! de Proteção.",
+      "Padrão. NL Ganhe !B! de Proteção.",
+      "Crítico! NL Ganhe !B! de Proteção. NL Cause !D! de dano.",
+      "Sobrecarga. NL Ganhe !B! de Proteção."
+    ]
+  },
+  "${modID}:InstaShield": {
+    "NAME": "Insta Shield",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL Cause !D! de dano. NL ${modID}:Acelerar."
+  },
+  "${modID}:InstaShieldRare": {
+    "NAME": "S Insta Shield",
+    "DESCRIPTION": "{@@}Ganhe !B! de Proteção. NL Cause !D! de dano. NL ${modID}:Acelerar. NL Esta carta fica na sua mão por mais !${modID}:CustomVar_PERSIST! uso{!${modID}:CustomVar_PERSIST!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Ganhe !B! de Proteção. NL Cause !D! de dano. NL ${modID}:Acelerar.",
+      " NL Esta carta fica na sua mão por mais {X} uso.",
+      " NL Esta carta fica na sua mão por mais {X} usos."
+    ]
+  },
+  "${modID}:IQ200Attack": {
+    "NAME": "Ataque QI 200",
+    "DESCRIPTION": "Cause !D! de dano. NL No fim do seu turno, retenha 1 carta."
+  },
+  "${modID}:IQ300Attack": {
+    "NAME": "Ataque QI 300",
+    "DESCRIPTION": "Cause !D! de dano. NL Coloque na sua mão a próxima carta que você jogar."
+  },
+  "${modID}:IQ400Attack": {
+    "NAME": "Ataque QI 400",
+    "DESCRIPTION": "Cause !D! de dano a TODOS os inimigos. NL Escolha uma carta. Transforme uma carta aleatória da sua mão nela."
+  },
+  "${modID}:LevelUp": {
+    "NAME": "Subir de Nível",
+    "DESCRIPTION": "Os efeitos desta carta mudam conforme a última carta que você jogou neste combate.",
+    "UPGRADE_DESCRIPTION": "{@@}Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão. NL Os efeitos desta carta mudam conforme a última carta que você jogou neste combate.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão. NL ",
+      "Para cada [#efc851]Anel[] na sua mão, aumente em 1 o dano causado por cartas.",
+      "Para cada [#efc851]Anel[] na sua mão, aumente em 1 a Proteção ganha com cartas.",
+      "Para cada [#efc851]Anel[] na sua mão, aumente seu Foco em 1.",
+      "Subir de Nível: Velocidade",
+      "Subir de Nível: Voo",
+      "Subir de Nível: Poder"
+    ]
+  },
+  "${modID}:LevelUp1": {
+    "NAME": "Técnica/Outro",
+    "DESCRIPTION": "Para cada [#efc851]Anel na sua mão, aumente em 1 a Proteção ganha com cartas.",
+    "UPGRADE_DESCRIPTION": "{@@}Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão. NL Para cada [#efc851]Anel na sua mão, aumente em 1 a Proteção ganha com cartas."
+  },
+  "${modID}:LevelUp2": {
+    "NAME": "Poder",
+    "DESCRIPTION": "Para cada [#efc851]Anel na sua mão, aumente seu Foco em 1.",
+    "UPGRADE_DESCRIPTION": "{@@}Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão. NL Para cada [#efc851]Anel na sua mão, aumente seu Foco em 1."
+  },
+  "${modID}:LevelUp3": {
+    "NAME": "Ataque",
+    "DESCRIPTION": "Para cada [#efc851]Anel na sua mão, aumente em 1 o dano causado por cartas.",
+    "UPGRADE_DESCRIPTION": "{@@}Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão. NL Para cada [#efc851]Anel na sua mão, aumente em 1 o dano causado por cartas."
+  },
+  "${modID}:LevelUpSpeed": {
+    "NAME": "LevelUpSpeed",
+    "EXTENDED_DESCRIPTION": [
+      "Para cada [#efc851]Anel na sua mão, aumente a Proteção ganha com cartas em ",
+      "."
+    ]
+  },
+  "${modID}:LevelUpFlight": {
+    "NAME": "LevelUpFlight",
+    "EXTENDED_DESCRIPTION": [
+      "Para cada [#efc851]Anel[] na sua mão, aumente seu Foco em ",
+      "."
+    ]
+  },
+  "${modID}:LevelUpPower": {
+    "NAME": "LevelUpPower",
+    "EXTENDED_DESCRIPTION": [
+      "Para cada [#efc851]Anel[] na sua mão, aumente o dano causado por cartas em ",
+      "."
+    ]
+  },
+  "${modID}:LevelUpSpeedPick": {
+    "NAME": "Subir de Nível: Velocidade",
+    "DESCRIPTION": "Para cada [#efc851]Anel[] na sua mão, aumente em 1 a Proteção ganha com cartas."
+  },
+  "${modID}:LevelUpFlightPick": {
+    "NAME": "Subir de Nível: Voo",
+    "DESCRIPTION": "Para cada [#efc851]Anel[] na sua mão, aumente seu Foco em 1."
+  },
+  "${modID}:LevelUpPowerPick": {
+    "NAME": "Subir de Nível: Poder",
+    "DESCRIPTION": "Para cada [#efc851]Anel[] na sua mão, aumente em 1 o dano causado por cartas."
+  },
+  "${modID}:LightSpeedAttack": {
+    "NAME": "Light Speed Attack",
+    "DESCRIPTION": "Cause !D! de dano a um inimigo aleatório para cada Anel criado neste combate.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " golpes)"
+    ]
+  },
+  "${modID}:LightSpeedDash": {
+    "NAME": "Light Speed Dash",
+    "DESCRIPTION": "Exaura TODOS os [#efc851]Anéis[] da sua mão. NL Cure !M! PV. NL Exaurir."
+  },
+  "${modID}:LoopDeLoop": {
+    "NAME": "Looping",
+    "DESCRIPTION": "{@@}Compre !M! carta{!M!|>1=s} do topo da sua pilha de descarte. {!M!|1=Ela custa|>1=Elas custam} 0 neste turno. NL stslib:Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "{@@}Compre !M! carta{!M!|>1=s} do topo da sua pilha de descarte. Elas custam 0 neste turno. NL stslib:Exhaustive !stslib:ex!.",
+    "EXTENDED_DESCRIPTION": [
+      "Compre ",
+      " e ",
+      ". Ela custa 0 neste turno. NL stslib:Exhaustive !stslib:ex!.",
+      ". Elas custam 0 neste turno. NL stslib:Exhaustive !stslib:ex!.",
+      ". [#ff6563]Você[] [#ff6563]está[] [#ff6563]confuso[]. NL stslib:Exhaustive !stslib:ex!.",
+      "Omochao diz",
+      "O Olho de Cortixa vai [#ff6563]aleatorizar[] o custo dessas cartas."
+    ]
+  },
+  "${modID}:MagicHands": {
+    "NAME": "Mãos Mágicas",
+    "DESCRIPTION": "Escolha uma carta [#efc851]que não seja Anel[] na sua mão. Ela ganha Reter e, quando for Exaurida, você entra em Fúria.",
+    "UPGRADE_DESCRIPTION": "Escolha uma carta na sua mão. Ela ganha Reter e, quando for Exaurida, você entra em Fúria."
+  },
+  "${modID}:MagicHook": {
+    "NAME": "Gancho Mágico",
+    "DESCRIPTION": "Compre um Ataque de custo 2+. Ele custa 1 a menos neste turno. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Compre um Ataque de custo 2+. Ele custa 1 a menos neste turno."
+  },
+  "${modID}:MeteorKick": {
+    "NAME": "Chute Meteoro",
+    "DESCRIPTION": "Cause !D! de dano. NL Se você tiver uma carta de custo 3+ na sua mão, cause !M! de dano adicional.",
+    "PERFECTED_STRIKE": "Deal 6 damage. Deals 2 additional damage for ALL your cards containing \"Strike\""
+  },
+  "${modID}:MeteorKickRare": {
+    "NAME": "S Chute Meteoro",
+    "DESCRIPTION": "Cause !D! de dano. NL Se você tiver uma carta de custo 3+ na sua mão, cause !M! de dano adicional.",
+    "PERFECTED_STRIKE": "Deal 6 damage. Deals 2 additional damage for ALL your cards containing \"Strike\""
+  },
+  "${modID}:Momentum": {
+    "NAME": "Embalo",
+    "DESCRIPTION": "Quando você jogar uma NL carta de custo 2+, compre uma carta."
+  },
+  "${modID}:NiceSmile": {
+    "NAME": "Nota Máxima",
+    "DESCRIPTION": "Sempre que você ganhar Vigor, ganhe !M! a mais."
+  },
+  "${modID}:PackBoost": {
+    "NAME": "Impulso",
+    "DESCRIPTION": "Cause !D! de dano a TODOS os inimigos. NL Quando você se curar ou ganhar Temporary_HP, devolva esta carta da pilha de descarte para a sua mão."
+  },
+  "${modID}:PackBouncePad": {
+    "NAME": "Mola",
+    "DESCRIPTION": "{@@}Ganhe !B! de Proteção. NL Adicione !M! [#efc851]{!M!|1=Anel|>1=Anéis}[] à sua mão."
+  },
+  "${modID}:PackBlastProcessing": {
+    "NAME": "Blast Processing",
+    "DESCRIPTION": "A cada turno, suas primeiras !M! cartas criadas custam 1 [E] a menos.",
+    "UPGRADE_DESCRIPTION": "Inata. NL A cada turno, suas primeiras !M! cartas criadas custam 1 [E] a menos."
+  },
+  "${modID}:PackDropDash": {
+    "NAME": "Drop Dash",
+    "DESCRIPTION": "Ganhe !B! de Proteção. Se você Exaurir uma carta neste turno, ganhe [E] [E]."
+  },
+  "${modID}:PackHomingAttack": {
+    "NAME": "Homing Attack",
+    "DESCRIPTION": "Cause !D! de dano. NL Adicione um [#efc851]Truque[] à sua mão.",
+    "UPGRADE_DESCRIPTION": "Cause !D! de dano. NL Adicione um [#efc851]Truque+[] à sua mão.",
+    "IGNORE_ME": "stslib:Persist !stslib:persist!"
+  },
+  "${modID}:PackLevelUp": {
+    "NAME": "Curiosidade Simples",
+    "DESCRIPTION": "Adicione !M! Anéis à sua mão. NL Ganhe Subir de Nível: Velocidade, Voo e Poder."
+  },
+  "${modID}:PackRing": {
+    "NAME": "Anel",
+    "DESCRIPTION": "Reter. NL ${modID}:Anel. NL Quando você sofrer dano não bloqueado, Exaura esta carta. NL Ganhe !M! Temporary_HP. NL Exaurir."
+  },
+  "${modID}:PackTrick": {
+    "NAME": "Truque",
+    "DESCRIPTION": "Etéreo. NL Ganhe !M! de Vigor. NL Ganhe 1 [E]. NL Exaurir."
+  },
+  "${modID}:PeelOut": {
+    "NAME": "Peel Out",
+    "DESCRIPTION": "Exaura 1 carta. NL Compre !M! cartas. NL Se você Exaurir uma Técnica, compre 1 a mais."
+  },
+  "${modID}:Piping": {
+    "NAME": "Encanamento",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL Exaura 1 carta. Adicione uma cópia dela à sua mão."
+  },
+  "${modID}:PowerRing": {
+    "NAME": "Anel de Poder",
+    "DESCRIPTION": "Quando você criar uma carta, crie mais 1."
+  },
+  "${modID}:PunchRush": {
+    "NAME": "Rajada de Socos",
+    "DESCRIPTION": "Cause !D! de dano 4 vezes.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano 4 vezes. NL Cause !D! + !M! de dano.",
+      "Cause !D! de dano 4 vezes. NL Jogue a carta do topo da sua pilha de compra."
+    ]
+  },
+  "${modID}:Relax": {
+    "NAME": "Relaxar",
+    "DESCRIPTION": "Entre em Calma. NL Embaralhe [#efc851]Relaxar[] na sua pilha de compra. NL Escolha entrar em Fúria."
+  },
+  "${modID}:RelaxPick1": {
+    "NAME": "Relaxar",
+    "DESCRIPTION": "Continue em Calma."
+  },
+  "${modID}:RelaxPick2": {
+    "NAME": "Perder a Cabeça",
+    "DESCRIPTION": "Entre em Fúria."
+  },
+  "${modID}:Ricochet": {
+    "NAME": "Ricochete",
+    "DESCRIPTION": "Cause !D! de dano. NL Quando você usar Vigor, devolva esta carta da pilha de descarte para a sua mão."
+  },
+  "${modID}:RicochetRare": {
+    "NAME": "S Ricochete",
+    "DESCRIPTION": "Cause !D! de dano. NL Quando você usar Vigor, devolva esta carta da pilha de descarte para a sua mão."
+  },
+  "${modID}:Ring": {
+    "NAME": "Anel",
+    "DESCRIPTION": "Reter. NL ${modID}:Anel. NL Ganhe !M! Temporary_HP. NL Exaurir."
+  },
+  "${modID}:RocketAccel": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTION": "Cause !D! de dano. NL Seus próximos 2 Ataques causam !M! de dano adicional agora e pelo resto do combate.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano. NL Os próximos Ataques seus e dos seus aliados causam !M! de dano adicional agora e pelo resto do combate."
+    ]
+  },
+  "${modID}:QuickAir": {
+    "NAME": "Ar Rápido",
+    "DESCRIPTION": "Ganhe !B! de Proteção. ${modID}:Se_estiver_à_esquerda, ${modID}:Acelerar o seu Orbe mais à esquerda. NL Adicione [#efc851]Passo[] [#efc851]Rápido[] à sua mão. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Ganhe !B! de Proteção. ${modID}:Se_estiver_à_esquerda, ${modID}:Acelerar o seu Orbe mais à esquerda. NL Adicione [#efc851]Passo[] [#efc851]Rápido+[] à sua mão. NL Exaurir."
+  },
+  "${modID}:QuickStep": {
+    "NAME": "Passo Rápido",
+    "DESCRIPTION": "Ganhe !B! de Proteção. ${modID}:Se_estiver_à_direita, ${modID}:Acelerar. NL Adicione [#efc851]Ar[] [#efc851]Rápido[] à pilha de descarte. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Ganhe !B! de Proteção. ${modID}:Se_estiver_à_direita, ${modID}:Acelerar. NL Adicione [#efc851]Ar[] [#efc851]Rápido+[] à pilha de descarte. NL Exaurir."
+  },
+  "${modID}:RampJump": {
+    "NAME": "Salto de Rampa",
+    "DESCRIPTION": "Adicione !M! [#efc851]Truques[] à sua mão.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ${modID}:Se_estiver_no_centro, seus aliados também adicionam um [#efc851]Truque[] às suas mãos."
+    ]
+  },
+  "${modID}:ScissorKick": {
+    "NAME": "Chute Tesoura",
+    "DESCRIPTION": "Cause !D! de dano. NL Cause !M! de dano adicional para cada carta na sua mão."
+  },
+  "${modID}:ScissorKickRare": {
+    "NAME": "S Chute Tesoura",
+    "DESCRIPTION": "Cause !D! de dano. NL Cause !M! de dano adicional para cada carta na sua mão.",
+    "UPGRADE_DESCRIPTION": "Cause !D! de dano. NL Cause !M! de dano adicional para cada carta na sua mão."
+  },
+  "${modID}:SecretRoute": {
+    "NAME": "Rota Secreta",
+    "DESCRIPTION": "{@@}Compre !${modID}:CustomVar_DRAW! carta{!${modID}:CustomVar_DRAW!|>1=s}. NL Reduza em 1 o custo de !M! carta{!M!|>1=s} na sua mão neste turno. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "{@@}Compre !${modID}:CustomVar_DRAW! carta{!${modID}:CustomVar_DRAW!|>1=s}. NL Reduza em 1 o custo de !M! carta{!M!|>1=s} na sua mão neste turno. NL Exaurir."
+  },
+  "${modID}:SkyRing": {
+    "NAME": "Anel Celeste",
+    "DESCRIPTION": "{@@}Ganhe !B! de Proteção. NL Adicione !M! [#efc851]Truque{!M!|>1=s}[] à sua mão."
+  },
+  "${modID}:Shield": {
+    "NAME": "Escudo",
+    "DESCRIPTION": "Impede a próxima vez que você perderia PV."
+  },
+  "${modID}:Shortcut": {
+    "NAME": "Atalho",
+    "DESCRIPTION": "{@@}Reter. NL Reduza em 1 o custo de !M! carta{!M!|>1=s} na sua mão neste turno. NL Exaurir."
+  },
+  "${modID}:Slide": {
+    "NAME": "Deslizar",
+    "DESCRIPTION": "Ganhe !B! de Proteção. NL Coloque uma carta da pilha de descarte no topo da pilha de compra."
+  },
+  "${modID}:SlotMachineStatus": {
+    "NAME": "Eggman Caça-Níquel",
+    "DESCRIPTION": "Se você tiver 2 destas cartas na sua mão, entre em Fúria imediatamente."
+  },
+  "${modID}:SlotMachineGame": {
+    "NAME": "Jogo do Caça-Níquel",
+    "DESCRIPTION": "Adicione [#efc851]Puxar[] [#efc851]Alavanca[] à sua mão. NL Embaralhe !M! [#efc851]Eggman[] [#efc851]Caça-Níquel[] na pilha de compra. NL Exaurir."
+  },
+  "${modID}:SlotMachinePull": {
+    "NAME": "Puxar Alavanca",
+    "DESCRIPTION": "Compre 1 carta. NL Esta carta permanece na sua mão. Se você jogar outra carta ou sua mão estiver cheia, Exaura esta carta.",
+    "UPGRADE_DESCRIPTION": "Compre 1 carta. NL Esta carta permanece na sua mão. Se você jogar outra carta ou sua mão estiver cheia, descarte esta carta."
+  },
+  "${modID}:SmoothLanding": {
+    "NAME": "Pouso Incorreto",
+    "DESCRIPTION": "{@@}Canalize 1 Gelo. NL Se você tiver Vigor, compre !M! carta{!M!|>1=s} adicional{!M!|1=|>1=is} no próximo turno. Caso contrário, compre !M! carta{!M!|>1=s} agora.",
+    "EXTENDED_DESCRIPTION": [
+      "{@@}Canalize 1 Gelo. NL Se você tiver Vigor, ",
+      " compre !M! carta{!M!|>1=s} adicional{!M!|1=|>1=is} no próximo turno. ",
+      " NL ",
+      " Caso contrário, compre !M! carta{!M!|>1=s} agora."
+    ]
+  },
+  "${modID}:SonicBoom": {
+    "NAME": "Sonic Boom",
+    "DESCRIPTION": "Etéreo. NL No fim do seu turno, cause dano a TODOS os inimigos igual à sua Proteção e aos modificadores de dano.",
+    "EXTENDED_DESCRIPTION": [
+      "Etéreo. NL Ganhe !B! de Proteção. NL No fim do seu turno, cause dano a TODOS os inimigos igual à sua Proteção e aos modificadores de dano.",
+      "Etéreo. NL Ganhe !M! de Vigor. NL No fim do seu turno, cause dano a TODOS os inimigos igual à sua Proteção e aos modificadores de dano."
+    ]
+  },
+  "${modID}:SonicBoomRare": {
+    "NAME": "S Sonic Boom",
+    "DESCRIPTION": "Etéreo. NL No fim do seu turno, cause dano a TODOS os inimigos igual à sua Proteção e aos modificadores de dano.",
+    "EXTENDED_DESCRIPTION": [
+      "Etéreo. NL Ganhe !B! de Proteção. NL No fim do seu turno, cause dano a TODOS os inimigos igual à sua Proteção e aos modificadores de dano.",
+      "Etéreo. NL Ganhe !M! de Vigor. NL No fim do seu turno, cause dano a TODOS os inimigos igual à sua Proteção e aos modificadores de dano."
+    ]
+  },
+  "${modID}:SonicEagle": {
+    "NAME": "Sonic Eagle",
+    "DESCRIPTION": "Cause !D! de dano. NL Se o inimigo pretende atacar, cause !M! de dano adicional."
+  },
+  "${modID}:SonicEagleRare": {
+    "NAME": "S Sonic Eagle",
+    "DESCRIPTION": "Cause !D! de dano. NL Se o inimigo pretende atacar, ganhe [E] e compre 1 carta."
+  },
+  "${modID}:SonicFlare": {
+    "NAME": "Sonic Flare",
+    "DESCRIPTION": "Cause !D! de dano. NL Ganhe Vigor igual à metade do dano não bloqueado causado."
+  },
+  "${modID}:SonicFlareRare": {
+    "NAME": "S Sonic Flare",
+    "DESCRIPTION": "Cause !D! de dano. NL Ganhe Vigor igual ao dano não bloqueado causado."
+  },
+  "${modID}:SonicWave": {
+    "NAME": "Onda Sônica",
+    "DESCRIPTION": "Se você tiver slots de Orbe vazios, canalize !M! Relâmpago. Caso contrário, Evoque TODOS os Orbes duas vezes e Exaura.",
+    "UPGRADE_DESCRIPTION": "Se você tiver slots de Orbe vazios, canalize !M! Relâmpago. Caso contrário, Evoque TODOS os Orbes duas vezes.",
+    "EXTENDED_DESCRIPTION": [
+      "Se você tiver slots de Orbe vazios, canalize !M! Relâmpago.",
+      " NL ",
+      " Caso contrário, Evoque TODOS os Orbes duas vezes e Exaura.",
+      " Caso contrário, Evoque TODOS os Orbes duas vezes."
+    ]
+  },
+  "${modID}:SonicWaveRare": {
+    "NAME": "S Onda Sônica",
+    "DESCRIPTION": "Se você tiver slots de Orbe vazios, canalize !M! Relâmpago. Caso contrário, Evoque TODOS os Orbes duas vezes e Exaura.",
+    "UPGRADE_DESCRIPTION": "Se você tiver slots de Orbe vazios, canalize !M! Relâmpago. Caso contrário, Evoque TODOS os Orbes duas vezes."
+  },
+  "${modID}:SonicWind": {
+    "NAME": "Vento Sônico",
+    "DESCRIPTION": "Canalize !M! Relâmpago. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Canalize !M! Relâmpago."
+  },
+  "${modID}:SpeedUp": {
+    "NAME": "Acelerar Tudo",
+    "DESCRIPTION": "Exaura TODOS os [#efc851]Anéis[] da sua mão. Para cada [#efc851]Anel[] Exaurido, adicione um [#efc851]Truque[] à sua mão."
+  },
+  "${modID}:SpeedBreak": {
+    "NAME": "Quebra de Velocidade",
+    "DESCRIPTION": "Sofra !M! de dano. NL Reduza a 0 o custo de TODAS as cartas da sua mão neste turno."
+  },
+  "${modID}:SpinDash": {
+    "NAME": "Spin Dash",
+    "DESCRIPTION": "Cause !D! de dano. NL O próximo Ataque que você jogar custa 0."
+  },
+  "${modID}:SpinDashRare": {
+    "NAME": "S Spin Dash",
+    "DESCRIPTION": "Cause !D! de dano. NL O próximo Ataque que você jogar custa 0."
+  },
+  "${modID}:SpinningNeedleAttack": {
+    "NAME": "Agulha Giratória",
+    "DESCRIPTION": "{@@}Cause !D! de dano. NL Compre 1 carta e torne aleatório o custo dela neste turno. NL Esta carta causa dano adicional igual ao custo aleatório.",
+    "UPGRADE_DESCRIPTION": "{@@}Cause !D! de dano. NL Compre 1 carta e torne aleatório o custo dela neste turno. NL Esta carta causa dano adicional igual ao custo aleatório vezes !M!.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano. NL Compre 1 carta e mude o custo dela para ",
+      " neste turno."
+    ]
+  },
+  "${modID}:SpinningNeedleAttackRare": {
+    "NAME": "S Agulha Giratória",
+    "DESCRIPTION": "{@@}Compre 1 carta e torne aleatório o custo dela neste turno. Cause !D! de dano. Esta carta causa dano adicional igual ao custo aleatório.",
+    "UPGRADE_DESCRIPTION": "{@@}Compre 1 carta e torne aleatório o custo dela neste turno. Cause !D! de dano. Esta carta causa dano adicional igual ao custo aleatório, !M! vez{!M!|>1=es}.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano. Compre 1 carta e mude o custo dela para ",
+      " neste turno."
+    ]
+  },
+  "${modID}:SuperSonicForm": {
+    "NAME": "Forma Super Sonic",
+    "DESCRIPTION": "Ganhe !M! de Força e Destreza. NL No começo do turno, perca 1 de Destreza.",
+    "UPGRADE_DESCRIPTION": "Ganhe !M! de Força, Destreza e Foco. NL No começo do turno, perca 1 de Destreza e Foco.",
+    "EXTENDED_DESCRIPTION": [
+      "Ganhe !M! de Força. NL Ganhe !M! de Foco. Você DEVE jogar seus [#efc851]Anéis[] para ganhar Intangível. MORRA A CADA TURNO."
+    ]
+  },
+  "${modID}:Taunt": {
+    "NAME": "Provocar",
+    "DESCRIPTION": "Ganhe !M! de Destreza Temporária. NL Aplique !M! de Vulnerabilidade. NL Esta carta custa 1 a menos para cada Ataque jogado neste turno.",
+    "EXTENDED_DESCRIPTION": [
+      "Ganhe !M! de Destreza Temporária. NL Aplique !M! de Vulnerabilidade. NL Esta carta custa 1 a menos para cada Ataque jogado neste turno.",
+      "Saia da sua postura. NL Ganhe !M! de Destreza Temporária. NL Aplique !M! de Vulnerabilidade. NL Esta carta custa 1 a menos para cada Ataque jogado neste turno."
+    ]
+  },
+  "${modID}:Teaser": {
+    "NAME": "Provocação",
+    "DESCRIPTION": "Canalize !M! Trevas. NL Embaralhe [#efc851]Garras[] [#efc851]Liberadas[] na sua pilha de compra.",
+    "UPGRADE_DESCRIPTION": "Canalize !M! Trevas. NL Embaralhe [#efc851]Garras[] [#efc851]Liberadas+[] na sua pilha de compra.",
+    "EXTENDED_DESCRIPTION": [
+      "Canalize !M! Trevas. NL Embaralhe [#efc851]Garras[] [#efc851]Liberadas+[] na sua pilha de compra.",
+      "Canalize !M! Trevas. NL Embaralhe [#efc851]Garras[] [#efc851]Liberadas*[] na sua pilha de compra."
+    ]
+  },
+  "${modID}:TeaserRare": {
+    "NAME": "S Provocação",
+    "DESCRIPTION": "{@@}Canalize !${modID}:CustomVar_DARK! Trevas. NL Exaura os próximos Ataques Comuns que você comprar (qtd.: !M!) e adicione um Ataque de Werehog à sua mão."
+  },
+  "${modID}:TeaserRareAttack1": {
+    "NAME": "Sho-Hog-Ken",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Na Mira. NL Aplique !M! de Fraqueza."
+  },
+  "${modID}:TeaserRareAttack1Multi": {
+    "NAME": "Giro Selvagem",
+    "DESCRIPTION": "{@@}Cause !D! de dano a um inimigo aleatório !M! vez{!M!|>1=es}."
+  },
+  "${modID}:TeaserRareAttack2": {
+    "NAME": "Werehammer",
+    "DESCRIPTION": "Cause !D! de dano. NL Causa dano adicional igual ao seu Orbe de Trevas mais à direita."
+  },
+  "${modID}:TeaserRareAttack3": {
+    "NAME": "Combo Selvagem Liberado",
+    "DESCRIPTION": "Esta carta não deveria aparecer em uma partida. NL Se você está lendo isto, provavelmente encontrou um bug. NL Avise um desenvolvedor do mod."
+  },
+  "${modID}:TiSRainbowRing": {
+    "NAME": "Anel Arco-Íris",
+    "DESCRIPTION": "Ganhe [E]. NL Você e seus aliados adicionam um [#efc851]Truque[] às suas mãos."
+  },
+  "${modID}:TiSRocketAccel": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTION": "Cause !D! de dano. NL O próximo Ataque seu e dos seus aliados causa !M! de dano adicional agora e pelo resto do combate."
+  },
+  "${modID}:TopKick": {
+    "NAME": "Chute Superior",
+    "DESCRIPTION": "Cause !D! de dano. NL Ganhe !M! de Vigor. Esta carta ganha Vigor adicional para cada Ataque jogado neste turno."
+  },
+  "${modID}:TopKickRare": {
+    "NAME": "S Chute Superior",
+    "DESCRIPTION": "Cause !D! de dano. NL Ganhe !M! de Vigor. Esta carta ganha Vigor adicional para cada Ataque jogado neste turno."
+  },
+  "${modID}:ThunderShield": {
+    "NAME": "Escudo de Trovão",
+    "DESCRIPTION": "Canalize !M! Relâmpago. NL No fim do turno, adicione 1 [#efc851]Anel[] à sua mão, e os Orbes de Relâmpago ${modID}:Aceleram mais uma vez para cada [#efc851]Anel[] na sua mão."
+  },
+  "${modID}:Trick": {
+    "NAME": "Truque",
+    "DESCRIPTION": "Etéreo. NL Ganhe !M! de Vigor. NL Ganhe 1 [E]. NL Exaurir."
+  },
+  "${modID}:TrickFinisher": {
+    "NAME": "Finalização de Truque",
+    "DESCRIPTION": "Reter. NL Dobre seu Vigor. NL Ganhe 1 [E]. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Reter. NL Dobre seu Vigor. NL Ganhe 1 [E]."
+  },
+  "${modID}:Trickster": {
+    "NAME": "Trapaceiro",
+    "DESCRIPTION": "No começo do seu turno, adicione um [#efc851]Truque[] à sua mão.",
+    "UPGRADE_DESCRIPTION": "Inata. NL No começo do seu turno, adicione um [#efc851]Truque[] à sua mão."
+  },
+  "${modID}:TripleKick": {
+    "NAME": "Chute Triplo",
+    "DESCRIPTION": "Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Adicione [#efc851]Parte[] [#efc851]2[] à sua mão.",
+    "UPGRADE_DESCRIPTION": "Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Adicione [#efc851]Parte[] [#efc851]2+[] à sua mão."
+  },
+  "${modID}:TripleKick2": {
+    "NAME": "Chute Triplo Parte 2",
+    "DESCRIPTION": "Etéreo. NL Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Adicione [#efc851]Parte[] [#efc851]3[] à sua mão. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Etéreo. NL Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Adicione [#efc851]Parte[] [#efc851]3+[] à sua mão. NL Exaurir."
+  },
+  "${modID}:TripleKick3": {
+    "NAME": "Chute Triplo Parte 3",
+    "DESCRIPTION": "Etéreo. NL Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Exaurir.",
+    "UPGRADE_DESCRIPTION": "Etéreo. NL Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Exaurir."
+  },
+  "${modID}:TripleKickRare": {
+    "NAME": "S Chute Triplo",
+    "DESCRIPTION": "Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Adicione [#efc851]Parte[] [#efc851]2[] à sua mão.",
+    "UPGRADE_DESCRIPTION": "Cause !D! de dano. NL Ganhe !M! de Força Temporária. NL Adicione [#efc851]Parte[] [#efc851]2+[] à sua mão."
+  },
+  "${modID}:Turbulence": {
+    "NAME": "Turbulência",
+    "DESCRIPTION": "Perca !M! de Foco. NL ${modID}:Se_estiver_à_esquerda, adicione um [#efc851]Truque[] à sua mão. Sempre que você Exaurir uma carta, Canalize 1 Gelo.",
+    "UPGRADE_DESCRIPTION": "Perca !M! de Foco. NL ${modID}:Se_estiver_à_esquerda, adicione um [#efc851]Truque[] à sua mão. Sempre que você Exaurir uma carta, Canalize 1 Gelo."
+  },
+  "${modID}:UpDraft": {
+    "NAME": "Corrente Ascendente",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Fraqueza. NL Adicione um [#efc851]Anel[] à sua mão."
+  },
+  "${modID}:UpDraftRare": {
+    "NAME": "S Corrente Ascendente",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Fraqueza. NL Adicione um [#efc851]Anel[] à sua mão. NL Canalize 1 Gelo."
+  },
+  "${modID}:VolcanoSlider": {
+    "NAME": "Deslizador Vulcânico",
+    "DESCRIPTION": "${modID}:Brasão_de_Fogo. NL Cause !D! de dano. NL Exaura TODAS as cartas à esquerda. NL Causa !M! de dano adicional por carta Exaurida."
+  },
+  "${modID}:WallJump": {
+    "NAME": "Salto na Parede",
+    "DESCRIPTION": "Ganhe !B! de Proteção X vezes. NL Adicione X [#efc851]Anéis[] à sua mão."
+  },
+  "${modID}:Whirlwind": {
+    "NAME": "Redemoinho",
+    "DESCRIPTION": "{@@}Cause !D! de dano a TODOS os inimigos !M! vez{!M!|>1=es}."
+  },
+  "${modID}:WindUpPunch": {
+    "NAME": "Soco Carregado",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Vulnerabilidade. NL Adicione um [#efc851]Truque[] à sua mão.",
+    "DESCRIPTION_IDEA_2": "Deal !D! damage. NL Apply !M! Vulnerable. NL If you have Vigor, this deals !${modID}:CustomVar_DAMAGE! additional damage."
+  },
+  "${modID}:WindUpPunchRare": {
+    "NAME": "S Soco Carregado",
+    "DESCRIPTION": "Cause !D! de dano. NL Aplique !M! de Vulnerabilidade. NL Adicione um [#efc851]Truque[] à sua mão."
+  },
+  "${modID}:Windmill": {
+    "NAME": "Moinho",
+    "DESCRIPTION": "Cause !D! de dano. NL Torne aleatório o custo de uma carta da sua mão neste turno.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano. NL Mude o custo de uma carta para ",
+      " neste turno."
+    ]
+  },
+  "${modID}:WindmillRare": {
+    "NAME": "S Moinho",
+    "DESCRIPTION": "{@@}Cause !D! de dano. NL Torne aleatório o custo de uma carta da sua mão neste turno. NL Esta carta fica na sua mão por mais !M! uso{!M!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "Cause !D! de dano. NL Mude o custo de uma carta para ",
+      " neste turno.",
+      "{@@} NL Esta carta fica na sua mão por mais !M! uso{!M!|>1=s}."
+    ]
+  }
+}

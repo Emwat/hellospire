@@ -1,0 +1,122 @@
+{
+  "${modID}:3 Sentries": {
+    "DIALOG": [
+      "Zaczynamy!",
+      "Ci goście nigdy się nie uczą."
+    ]
+  },
+  "${modID}:Awakened One": {
+    "DIALOG": [
+      "Nie wyglądasz na twardziela.",
+      "Naprawdę myślałeś, że pokonasz mnie, przemieniając się w potwora?"
+    ]
+  },
+  "${modID}:Champ": {
+    "DIALOG": [
+      "Jestem jeżem! ~JEŻ!~ ~JEŻ!~",
+      "Domyślam się, że nie pozwolisz mi przejść."
+    ],
+    "DIALOG_0": [
+      "Co tu robi @WESZ@?",
+      "Egzordium to @INNA@ droga."
+    ]
+  },
+  "${modID}:EnemyBossSonic": {
+    "DIALOG": [
+      "Co mogę powiedzieć? Trudno mnie zabić.",
+      "Pożałujesz, że zapytałeś."
+    ],
+    "DIALOG_0": [
+      "Ty naprawdę nigdy się nie uczysz, co?",
+      "Myślisz, że dotrzymasz mi kroku?"
+    ]
+  },
+  "${modID}:Slime Boss": {
+    "DIALOG": [
+      "O tak! To może być zabawne!",
+      "Chaos! Czy to może być ta sama bestia?"
+    ]
+  },
+  "${modID}:Silent": {
+    "DIALOG": [
+      "Nikt nie jest szybszy ode mnie!"
+    ]
+  },
+  "${modID}:Time Eater": {
+    "DIALOG": [
+      "Skończmy to.",
+      "Jesteś właściwie drugim Pożeraczem Czasu, z którym muszę walczyć.",
+      "Czy przyjaźnisz się z Gigantyczną Głową?"
+    ],
+    "DIALOG_0": [
+      "Wróć do prochu...",
+      "Scena... NL ~jest~ ~gotowa...~",
+      "Tak..."
+    ]
+  },
+  "${modID}:Gremlin Nob": {
+    "DIALOG": [
+      "Nie dorastasz mi do pięt!",
+      "Ha! Wyglądasz zupełnie jak pewien głuptas, którego znam.",
+      "Hej, ty. Zejdź mi z drogi!"
+    ]
+  },
+  "${modID}:Gremlin Leader": {
+    "DIALOG": [
+      "No dawaj!",
+      "Bez wysiłku!",
+      "Nie żałuj sił!"
+    ]
+  },
+  "${modID}:Lagavulin": {
+    "DIALOG": [
+      "Czy to gigantyczne jajo?",
+      "Przykro mi, ale musisz odejść!"
+    ]
+  },
+  "${modID}:TauntAmy": {
+    "DIALOG": [
+      "Ty brudny śmieciu! Co ty sobie wyobrażasz?",
+      "Jeśli chodzi o randkę, to musi poczekać!",
+      "Przyjdziesz po mnie, Sonic?"
+    ]
+  },
+  "${modID}:TauntDefault": {
+    "DIALOG": [
+      "KRA-KRA!!"
+    ]
+  },
+  "${modID}:TauntKnuckles": {
+    "DIALOG": [
+      "Załatwimy to w uczciwej walce.",
+      "Precz od MOJEGO Szmaragdu!",
+      "Zmierzę się z tobą!"
+    ]
+  },
+  "${modID}:TauntShadow": {
+    "DIALOG": [
+      "Nie masz nawet szans.",
+      "Żałosne.",
+      "Nie ma czasu na gierki."
+    ]
+  },
+  "${modID}:TauntSonic": {
+    "DIALOG": [
+      "~Złap~ ~mnie,~ ~jeśli~ ~potrafisz!~",
+      "No dalej! Podkręć tempo!",
+      "@JESTEŚ@ @ZA@ @WOLNY!@"
+    ]
+  },
+  "${modID}:TauntTails": {
+    "DIALOG": [
+      "Gotowy na mnie?",
+      "Chcesz więcej?",
+      "Wszystko dobre, co się dobrze kończy!"
+    ]
+  },
+  "${modID}:TiSRainbowRingFlavor": {
+    "DIALOG": [
+      "Gdy zagrasz Sztuczkę, powinniście wszyscy razem powiedzieć coś w stylu \"Dobra!\", \"Nieźle!\" albo \"Okej!\""
+    ]
+  }
+}

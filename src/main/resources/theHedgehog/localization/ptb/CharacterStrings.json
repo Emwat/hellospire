@@ -1,0 +1,21 @@
+{
+  "${modID}:TheHedgehog": {
+    "NAMES": [
+      "O Ouriço",
+      "o Ouriço"
+    ],
+    "TEXT": [
+      "Um ouriço de espírito livre que odeia o mal. NL (Você pode mudar a frequência das vozes na Configuração de Mods)",
+      "Você carrega o seu spin dash.",
+      "Ao caminhar por uma rua sem iluminação, você se depara com várias figuras encapuzadas no meio de um ritual sombrio. Quando você se aproxima, elas se viram para você em um uníssono sinistro. A mais alta exibe os dentes pontiagudos e estende uma mão longa e pálida na sua direção. NL ~\"Junte-se~ ~a~ ~nós,~ ~espinhudo,~ ~e~ ~sinta~ ~o~ ~calor~ ~do~ ~Pináculo.\"~",
+      "~Me~ ~pegue~ ~se~ ~for~ ~capaz!~",
+      "Vamos! Acelera aí!",
+      "@VOCÊ@ @É@ @LENTO@ @DEMAIS!@",
+      "Eu sou um ouriço! ~OU~ ~RI~ ~ÇO!~",
+      "Imagino que você não vai me deixar passar.",
+      "Não vou te fazer esperar. Vamos lá!",
+      "Hora de agitar!",
+      "@CÓ!@ NL @CÓÓÓ@"
+    ]
+  }
+}

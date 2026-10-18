@@ -1,0 +1,14 @@
+{
+  "${modID}:FireStance": {
+    "NAME": "Postura de Fogo",
+    "DESCRIPTION": [
+      "Sempre que você jogar uma carta, ganhe #b{0} ${modID}:Barreira_de_Chamas."
+    ]
+  },
+  "${modID}:IceStance": {
+    "NAME": "Postura de Gelo",
+    "DESCRIPTION": [
+      "Sempre que você jogar uma carta, ganhe #b{0} de Proteção."
+    ]
+  }
+}

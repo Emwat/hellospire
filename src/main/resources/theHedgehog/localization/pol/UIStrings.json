@@ -1,0 +1,381 @@
+{
+  "${modID}:BranchUpgradeController": {
+    "TEXT": [
+      "Przełącz",
+      "Wybierz",
+      "Wybierz ulepszenie"
+    ]
+  },
+  "${modID}:AssistAmyMessage": {
+    "TEXT": [
+      "Słodka parka: koszt 0 do końca walki."
+    ]
+  },
+  "${modID}:AssistJetMessage": {
+    "TEXT": [
+      "Jet Jastrząb: wylosuj jej koszt na czas tej tury."
+    ]
+  },
+  "${modID}:AssistTikalMessage": {
+    "TEXT": [
+      "Tikal Kolczatka: wybierz do 1 Ataku do Wykluczenia.",
+      "Tikal Kolczatka: wybierz Ataki do Wykluczenia (maks. ",
+      ")."
+    ]
+  },
+  "${modID}:BlueTornadoMessage": {
+    "TEXT": [
+      "Niebieskie tornado: odwróć koszt karty na czas tej tury."
+    ]
+  },
+  "${modID}:ChaosSodaPotionMessage": {
+    "TEXT": [
+      "Napój Chaosu: wyklucz do 1 karty."
+    ]
+  },
+  "${modID}:CheckpointMessage": {
+    "TEXT": [
+      "Mogę to zagrać tylko wtedy, gdy mam w ręce Pierścień."
+    ]
+  },
+  "${modID}:ClawsUnleashedMessage": {
+    "TEXT": [
+      "Mogę to zagrać tylko wtedy, gdy mam przywołaną Sferę Ciemności."
+    ]
+  },
+  "${modID}:IQ200Message": {
+    "TEXT": [
+      "Atak IQ 200: Zachowaj kartę."
+    ]
+  },
+  "${modID}:IQ400Message": {
+    "TEXT": [
+      "Atak IQ 400: wybierz kartę. Przemień losową kartę w ręce w wybraną."
+    ]
+  },
+  "${modID}:MagicHandsMessage": {
+    "TEXT": [
+      "Magiczne dłonie: karta zyskuje Zachowanie, a jeśli zachowana karta zostanie Wykluczona, przyjmij postawę Gniewu.",
+      "Magiczne dłonie+: karta zyskuje Zachowanie, a jeśli zachowana karta zostanie Wykluczona, przyjmij postawę Gniewu."
+    ]
+  },
+  "${modID}:PipingMessage": {
+    "TEXT": [
+      "Rurociąg: Wyklucz i dodaj kopię do ręki."
+    ]
+  },
+  "${modID}:SecretRouteMessage": {
+    "TEXT": [
+      "Tajna trasa: obniż jej koszt na czas tej tury."
+    ]
+  },
+  "${modID}:ShortcutMessage": {
+    "TEXT": [
+      "Skrót: obniż jej koszt na czas tej tury."
+    ]
+  },
+  "${modID}:WindmillMessage": {
+    "TEXT": [
+      "Wiatrak: wylosuj jej koszt na czas tej tury."
+    ]
+  },
+  "${modID}:modifierGainEnergy": {
+    "TEXT": [
+      " NL Zyskaj {X}."
+    ]
+  },
+  "${modID}:modifierMagicHands": {
+    "TEXT": [
+      "${modID}:Skarb. ",
+      "${modID}:Skarb. NL ",
+      "MÓJ SKARB {X}!!"
+    ]
+  },
+  "${modID}:modifierRetain": {
+    "TEXT": [
+      "Zachowanie. ",
+      "Zachowanie. NL "
+    ]
+  },
+  "${modID}:modifierSpinUp": {
+    "TEXT": [
+      "${modID}:Rozpęd. ",
+      "${modID}:Rozpęd. NL "
+    ]
+  },
+  "${modID}:MyModConfig": {
+    "TEXT_DICT": {
+      "enableBoss1Music": "Włącz muzykę bossa z Aktu I (tylko Sonic)",
+      "enableBoss2Music": "Włącz muzykę bossa z Aktu II (tylko Sonic)",
+      "enableBoss3Music": "Włącz muzykę bossa z Aktu III (tylko Sonic)",
+      "enableBossSpearShieldMusic": "Włącz muzykę Aktu IV (tylko Sonic)",
+      "enableBossHeartMusic": "Włącz muzykę bossa z Aktu IV (tylko Sonic)",
+      "enableStatusCardArt": "Włącz grafiki kart Stanu (tylko Sonic)",
+      "enableClassicMode": "Włącz Tryb klasyczny (gdy otrzymasz 2+ pkt. obrażeń, utracisz WSZYSTKIE swoje Pierścienie).",
+      "enableEventsForAllCharacters": "Włącz własne wydarzenia dla wszystkich postaci (nadpisuje następną opcję)",
+      "enableEventsForOnlySonic": "Włącz własne wydarzenia tylko dla Sonica",
+      "enableTextPopUps": "Włącz wyskakujące teksty dla NIESAMOWITE i reliktu Gracz 2.",
+      "enableThreeOrbs": "Włącz relikt Trzy Chao (daje Sonicowi 3 miejsca na Sfery zamiast 1)",
+      "enableSkinCaptain": "Włącz skórkę Kapitana (dostępna po ukończeniu Wzniesienia 10)",
+      "enableSound": "Włącz dźwięki",
+      "enableVoice": "Włącz głosy",
+      "enableKicksForStrikeDummy": "Pozwól, by Kopniaki liczyły się jako Uderzenia dla Manekina do Uderzeń",
+      "voiceFrequency": "Częstotliwość głosów (10 = głosy zawsze odtwarzane)",
+      "optionStarterRelic": "Zmień startowy relikt (1 = Płonąca krew)",
+      "enableCrossModIntegrations": "Włącz efekty między modami (domyślnie: tak)",
+      "enableSonicStylePack": "Włącz pakiet Sonic Style (porzucony pomysł)",
+      "enableCrestOfFire": "Włącz karty Znaku Ognia (jeśli odblokowane)",
+      "enableStanceSwitching": "Włącz karty zmiany postawy (jeśli odblokowane)",
+      "limiterRing": "Dodaj Pierścień Ograniczający (gdy zagrasz Sztuczkę, zyskaj o 1 pkt. Wigoru mniej).",
+      "unlockEverything": "Odblokuj wszystko (wymaga restartu)"
+    }
+  },
+  "${modID}:EvolveChaoOptions": {
+    "TEXT": [
+      "Ewoluuj chao",
+      "Wymaga chao.",
+      "(Darmowe działanie) Twoje chao jest nieostrożne. Ewoluuj swoje chao.",
+      "(Darmowe działanie) Twoje chao jest ciche. Ewoluuj swoje chao.",
+      "(Darmowe działanie) Twoje chao jest pełne energii. Ewoluuj swoje chao.",
+      "(Darmowe działanie) Twoje chao jest ciekawskie. Ewoluuj swoje chao."
+    ]
+  },
+  "${modID}:ModExhaustAction": {
+    "TEXT": [
+      "Wykluczenie"
+    ]
+  },
+  "${modID}:PeelOutAction": {
+    "TEXT": [
+      "Wykluczenie (Peel Out)"
+    ]
+  },
+  "${modID}:DeathScreenSonic": {
+    "TEXT": [
+      "To się nie dzieje.",
+      "Ranga E. To nie twój dzień.",
+      "Powodzenia następnym razem.",
+      "*Uderza w samochód* Pauza. Restart. *Uderza w samochód ponownie* -City Escape",
+      "Słychać bardzo głośne bicie serca.",
+      "Na pewno nie potrzebujesz mojej pomocy? Wygląda na to, że by ci się przydała. -Amy",
+      "Nie poddawaj się, Sonic! -Amy",
+      "Ktoś zamordował mojego ukochanego Sonica! -Amy",
+      "Co zrobiłby Sonic? ...Nie, tego by nie zrobił. Spróbuję jeszcze raz. -Barry",
+      "Idziemy na ryby? -Big",
+      "Ty nie po prostu przegrywasz. Ty przegrywasz epicko! -Chaos Sonic",
+      "Ooo! Założę się, że dałbym radę. Pozwólcie mi spróbować! Pozwólcie mi! -Charmy",
+      "Sonic, musisz żyć. -Chip",
+      "Nie należysz do tego miejsca! -Kultysta",
+      "Skup swojego ducha! -Espio",
+      "Żegnaj! Sonic the Hedgehog! -Eggman",
+      "Cóż, zawsze jest następny sezon. -Eggman (Sonic Boom, sezon 2)",
+      "Brak umiejętności. -Gremlin Nob",
+      "To wyjątek, a nie reguła. -Knuckles",
+      "Brak ci umiejętności. Wyszkolenia. GODNOŚCI! -Knuckles",
+      "O nie. -Knuckles",
+      "Hmpf! Więc TO TY masz być najszybszym stworzeniem na świecie? -Jet",
+      "Brud tak do ciebie pasuje! -Jet",
+      "Dzięki za kasę, hehe. -Złodziej",
+      "Chyba był jednak zwykłym jeżem. -Shadow",
+      "Nie jesteś nawet dość dobry, by być moją podróbką. -Shadow",
+      "Twoje dni przygód dobiegają końca. -Shadow",
+      "To na nic! -Silver",
+      "Jak ktoś taki jak TY mógł doprowadzić do zagłady naszego świata? -Silver",
+      "Sonic!!! -Tails"
+    ]
+  },
+  "${modID}:DeathScreenTails": {
+    "TEXT": [
+      "Ranga E. Następnym razem muszę być lepszy.",
+      "When all alone in my chair, I just go about wishing.",
+      "I wanna be strong.",
+      "I wanna fly high.",
+      "Gotta keep going.",
+      "Somebody will be waiting for me so I've got to fly higher.",
+      "I will believe in myself. This is the only start for me.",
+      "It's never as hard as it seems.",
+      "Tails keeps us flying high to stay above trouble.",
+      "What goes up must come down. Yet my feet don't touch the ground.",
+      "Seeing the world spinning upside down. A mighty crash without a sound.",
+      "Nigdy bym nie pomyślała, że ktoś stanie do wyścigu z takim złomem! -Wave"
+    ]
+  },
+  "${modID}:DeathScreenKnuckles": {
+    "TEXT": [
+      "Ranga E. Muszę się bardziej postarać.",
+      "Znowu dałeś się nabrać Eggmanowi... Po raz kolejny! -Sonic w Sonic Advance 2",
+      "Zastanów się dwa razy, zanim znowu otworzysz usta. -Sonic w Sonic Pinball Party",
+      "Przegrać z zwykłym uczniem... Okryłem się hańbą!",
+      "No weźcie! Przestańcie, Sonic, Knuckles! -Tails w Sonic Battle",
+      "Twardziel z niego, ale niezbyt bystry. -Cream w Sonic Rush",
+      "Hej, głupku! Zaczekaj chwilę! -Amy w Sonic Rush",
+      "Wpadłeś prosto w moją pułapkę, Knuckles! -Eggman w Sonic Battle",
+      "To tajemnica, ale mój partner znów dał się nabrać Eggmanowi! -Emerl w Sonic Battle",
+      "Zapomnij o tym czerwonym kundlu. Jedziemy, Storm! -Wave w Sonic Riders",
+      "Unlike Sonic, I don't chuckle.",
+      "I'd rather flex my muscles.",
+      "Time for a Knuckles sandwich.",
+      "Yo, what happened? My Emeralds' gone!",
+      "I ain't gonna let it get to me. I'm just gonna creep.",
+      "I'm walking through valleys, crying pumpkin in the alley.",
+      "It probably seems crazy, crazy, a graveyard theory.",
+      "Death Chamber... Death Chamber... Death Chamberrr...",
+      "Rats.",
+      "And Knuckles by our side. Makes things a safer ride."
+    ]
+  },
+  "${modID}:DeathScreenShadow": {
+    "reminder:": "Base Game has 21-ish Death Messages",
+    "TEXT": [
+      "I promise you... REVENGE.",
+      "Throw it all away!",
+      "You live an endless life forever!",
+      "You have to face it again and again!",
+      "We all danced in fire.",
+      "Trapped in this machine.",
+      "As the Eggman watches.",
+      "A tragic mystery.",
+      "A shadow of myself. Just who am I?",
+      "Walk into my mystery.",
+      "Capture you or set you free.",
+      "Do you remember me?",
+      "Somewhere in chaos we'll all find ourselves.",
+      "This destruction is the only tale we tell.",
+      "White is black and black is white.",
+      "Right is wrong and wrong is right.",
+      "One step forward, two steps back.",
+      "Somewhere in between.",
+      "Well we're almost dead.",
+      "Only through trial do we find the strength we need.",
+      "Heroes rise again.",
+      "Got a hundred thousand pounds sitting on my back."
+    ]
+  },
+  "${modID}:DeathScreenAmy": {
+    "TEXT": [
+      "Tęsknię za dawnymi, dobrymi czasami. -Sonic Adventure",
+      "Ale teraz go nie ma. I nie zostało nic do zrobienia. -Sonic Adventure",
+      "Sonic!",
+      "Nie jesteś Sonikiem! Kim jesteś? -Sonic Adventure 2",
+      "Chyba stracił odwagę! -Sonic Battle",
+      "SONIC, JEDŹMY W NASZĄ PODRÓŻ POŚLUBNĄĄĄ~! -Sonic Heroes",
+      "Nie mogę uwierzyć, że zrobił to tylko po to, żeby uciec. -Cream w Sonic Heroes",
+      "Zupełnie wzięłam cię za kogoś innego! -Sonic Unleashed"
+    ]
+  },
+  "${modID}:SonicStylePack": {
+    "TEXT": [
+      "Sonic Style",
+      "O tak! Zaczyna się!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicDizzySpinPack": {
+    "TEXT": [
+      "Sonic Dizzy Spin",
+      "Co się wzniesie, musi opaść! Lecz moje stopy nie dotykają ziemi!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicElementalPack": {
+    "TEXT": [
+      "Sonic Elemental",
+      "Sonic, dlaczego masz Sfery??",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicStylePackHat": {
+    "TEXT": [
+      "Muszę pędzić.",
+      "Kapelusz Sonica"
+    ]
+  },
+  "${modID}:SonicDizzySpinPackHat": {
+    "TEXT": [
+      "Góra, dół i dookoła!",
+      "Kapelusz Sonic Dizzy Spin"
+    ]
+  },
+  "${modID}:SonicElementalPackHat": {
+    "TEXT": [
+      "Wciśnij przycisk B, by zrobić wszystko",
+      "Kapelusz Sonic Elemental"
+    ]
+  },
+  "${modID}:SkinSystemUI": {
+    "TEXT": [
+      "Skórki"
+    ]
+  },
+  "${modID}:skinBase": {
+    "TEXT": [
+      "Czas na imprezę!"
+    ]
+  },
+  "${modID}:skinBattleSonicRed": {
+    "TEXT": [
+      "Wiśnia"
+    ]
+  },
+  "${modID}:skinBattleSonicGreen": {
+    "TEXT": [
+      "Oczy z gumy balonowej"
+    ]
+  },
+  "${modID}:skinBattleSonicBlue": {
+    "TEXT": [
+      "Niebieska malina"
+    ]
+  },
+  "${modID}:skinCaptainSonic": {
+    "TEXT": [
+      "Widzisz, jestem typem, co \"najpierw skacze, potem myśli\"."
+    ]
+  },
+  "${modID}:skinBattleTails": {
+    "TEXT": [
+      "Dawno się nie widzieliśmy!"
+    ]
+  },
+  "${modID}:skinBattleKnuckles": {
+    "TEXT": [
+      "Nie dostaniesz mojej mocy."
+    ]
+  },
+  "${modID}:skinBattleShadow": {
+    "TEXT": [
+      "Wojsko wzięło mnie za kogoś takiego jak ty!"
+    ]
+  },
+  "${modID}:skinBattleAmy": {
+    "TEXT": [
+      "N-nie używajmy młotka."
+    ]
+  },
+  "${modID}:PackMainMenuUI": {
+    "TEXT": [
+      "Własny tryb draftu",
+      "Włącz, by wybrać, jak ustalane są twoje Pakiety.",
+      "Losowo",
+      "Do wyboru: ",
+      "Menu filtrowania pakietów",
+      "Menu skórek",
+      "",
+      "Brak"
+    ]
+  },
+  "${modID}:RewardAssistMessage": {
+    "TEXT": [
+      "Utrać ",
+      ". Zdobądź ",
+      ".",
+      "Zatwierdź Asystę."
+    ]
+  },
+  "${modID}:RewardMissionMessage": {
+    "TEXT": [
+      "Zdobądź ",
+      " szt. złota."
+    ]
+  }
+}

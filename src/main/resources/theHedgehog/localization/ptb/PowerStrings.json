@@ -1,0 +1,280 @@
+{
+  "${modID}:AMAZINGPower": {
+    "NAME": "INCRÍVEL",
+    "DESCRIPTIONS": [
+      "Toda vez que você jogar ",
+      " carta de Ataque em um único turno, cause #b",
+      " cartas de Ataque em um único turno, cause #b",
+      " de dano a TODOS os inimigos."
+    ]
+  },
+  "${modID}:BlastProcessingPower": {
+    "NAME": "Blast Processing",
+    "DESCRIPTIONS": [
+      "A cada turno, suas primeiras ",
+      " cartas criadas custam 1 [E] a menos. Cartas criadas com custo zero são ignoradas."
+    ]
+  },
+  "${modID}:ChaosControlPower": {
+    "NAME": "Chaos Control",
+    "DESCRIPTIONS": [
+      "Neste turno, seu próximo Ataque é jogado mais ",
+      " vez.",
+      " vezes."
+    ]
+  },
+  "${modID}:DevBandaidPower": {
+    "NAME": "Poder Band-Aid do Dev",
+    "DESCRIPTIONS": [
+      "Você não deveria ver isto. Em eventos que iniciam combates, às vezes a pilha de compra fica sem cartas por algum motivo. NL NL Se a pilha de compra e a pilha de descarte estiverem vazias, tenta reinicializar a pilha de compra."
+    ]
+  },
+  "${modID}:DirectJumpPower": {
+    "NAME": "Salto Direto",
+    "DESCRIPTIONS": [
+      "Quando você jogar uma Técnica neste turno, adicione um Anel à sua mão."
+    ]
+  },
+  "${modID}:DizzyPlayerPower": {
+    "NAME": "Tontura",
+    "DESCRIPTIONS": [
+      "No começo do seu turno, torne aleatório o custo de TODAS as cartas da sua mão neste turno."
+    ]
+  },
+  "${modID}:DizzyPower": {
+    "NAME": "Tontura",
+    "DESCRIPTIONS": [
+      "O alvo causa dano reduzido pelo custo da carta mais cara da sua mão.",
+      "Carta: custo {0} {1}",
+      "(nenhuma carta)"
+    ]
+  },
+  "${modID}:ExtenderPower": {
+    "NAME": "Ações de Truque no Ar",
+    "DESCRIPTIONS": [
+      "Se você tiver #yVigor no começo do seu turno, escolha: ganhar 2 slots de Orbe, 2 cartas adicionais ou [E] [E] . Repita para cada acúmulo deste poder."
+    ]
+  },
+  "${modID}:FalconPunchRarePower": {
+    "NAME": "S Preparação do Falcon Punch",
+    "DESCRIPTIONS": [
+      "No próximo turno, adicione #yS #yFalcon #yPunch à sua mão."
+    ]
+  },
+  "${modID}:FlagPolePower": {
+    "NAME": "Paraquedismo",
+    "DESCRIPTIONS": [
+      "Neste turno, jogar #yAnéis Canaliza 1 Gelo."
+    ]
+  },
+  "${modID}:LevelUpFlightPower": {
+    "NAME": "Subir de Nível: Voo",
+    "DESCRIPTIONS": [
+      "Para cada #yAnel na sua mão, aumente o #yFoco em #b",
+      "."
+    ]
+  },
+  "${modID}:LevelUpSpeedPower": {
+    "NAME": "Subir de Nível: Velocidade",
+    "DESCRIPTIONS": [
+      "Para cada #yAnel na sua mão, aumente a Proteção ganha com cartas em #b",
+      "."
+    ]
+  },
+  "${modID}:LevelUpPowerPower": {
+    "NAME": "Subir de Nível: Poder",
+    "DESCRIPTIONS": [
+      "Para cada #yAnel na sua mão, aumente o dano causado por cartas em #b",
+      "."
+    ]
+  },
+  "${modID}:LSDPower": {
+    "NAME": "LSD",
+    "DESCRIPTIONS": [
+      "#yAnéis não dão mais PV Temporário quando jogados neste turno. Sempre que você jogar um #yAnel neste turno, #gcure #g",
+      " #gPV."
+    ]
+  },
+  "${modID}:LoseEchoPower": {
+    "NAME": "Borrão Azul (se dissipando)",
+    "DESCRIPTIONS": [
+      "No fim do seu turno, perca a Forma Ecoante."
+    ]
+  },
+  "${modID}:LoseFocusPower": {
+    "NAME": "Perda de Foco",
+    "DESCRIPTIONS": [
+      "No fim do seu turno, perca #b",
+      " de Foco."
+    ]
+  },
+  "${modID}:MissionRingRacePower": {
+    "NAME": "Missão: Corrida de Anéis",
+    "DESCRIPTIONS": [
+      "#yExaura #b",
+      " #ycartas #yo #ymais #yrápido #ypossível! Isso encerrará o combate imediatamente. NL ",
+      "Rank S: ",
+      " turnos NL Rank A: ",
+      " turnos NL Rank B: ",
+      " turnos"
+    ]
+  },
+  "${modID}:MissionScoreAttackPower": {
+    "NAME": "Missão: Ataque de Pontos",
+    "DESCRIPTIONS": [
+      "#yCause #yo #ymáximo #yde #ydano #yque #ypuder! NL ",
+      "Rank S: ",
+      "+ de dano NL Rank A: ",
+      "+ de dano NL Rank B: ",
+      "+ de dano"
+    ]
+  },
+  "${modID}:MissionTimeAttackPower": {
+    "NAME": "Missão: Contra o Tempo",
+    "DESCRIPTIONS": [
+      "#yVença #yo #ycombate #yo #ymais #yrápido #ypossível! NL ",
+      "Rank S: ",
+      " turnos NL Rank A: ",
+      " turnos NL Rank B: ",
+      " turnos"
+    ]
+  },
+  "${modID}:ModDrawReductionPower": {
+    "NAME": "Compra Reduzida",
+    "DESCRIPTIONS": [
+      "Compre #b1 carta a menos no próximo turno.",
+      "Compre #b1 carta a menos pelos próximos #b",
+      " turnos."
+    ]
+  },
+  "${modID}:ModPersistPower": {
+    "NAME": "Persistir",
+    "DESCRIPTIONS": [
+      "Coloque na sua mão a próxima carta que você jogar."
+    ]
+  },
+  "${modID}:MomentumPower": {
+    "NAME": "Embalo",
+    "DESCRIPTIONS": [
+      "Sempre que você jogar uma carta de custo 2+, compre {0} carta{1}"
+    ]
+  },
+  "${modID}:NextTurnEchoPower": {
+    "NAME": "Borrão Azul",
+    "DESCRIPTIONS": [
+      "No próximo turno, seu primeiro movimento será jogado duas vezes."
+    ]
+  },
+  "${modID}:NiceSmilePower": {
+    "NAME": "Nota Máxima",
+    "DESCRIPTIONS": [
+      "Sempre que você ganhar #yVigor, ganhe #b",
+      " a mais."
+    ]
+  },
+  "${modID}:OneUpPower": {
+    "NAME": "1-Up",
+    "DESCRIPTIONS": [
+      "Sempre que você morrer, ganhe #g",
+      " PV e #rperca #r100 #rde #rOuro."
+    ]
+  },
+  "${modID}:RelaxPower": {
+    "NAME": "Relaxar",
+    "DESCRIPTIONS": [
+      "No fim do seu turno, entre em Calma e reduza em #b1 o acúmulo deste poder."
+    ]
+  },
+  "${modID}:RicochetPower": {
+    "NAME": "Ricochete",
+    "DESCRIPTIONS": [
+      "Quando você usar #yVigor, devolva TODOS os #yRicochetes da pilha de descarte para a sua mão. NL Você tem #b",
+      " #yRicochetes na pilha de descarte."
+    ]
+  },
+  "${modID}:RingPower": {
+    "NAME": "Anel",
+    "DESCRIPTIONS": [
+      "Aumente em #b",
+      " a Proteção ganha com cartas."
+    ]
+  },
+  "${modID}:RocketAccelPower": {
+    "NAME": "Rocket Accel",
+    "DESCRIPTIONS": [
+      "Próximos #b",
+      " Ataque causa #b",
+      " Ataques causam #b",
+      " de dano agora e pelo resto do combate."
+    ]
+  },
+  "${modID}:SilverPower": {
+    "NAME": "Telecinese",
+    "DESCRIPTIONS": [
+      "No começo do seu próximo turno, TODOS os inimigos perdem ",
+      " de Força por um turno."
+    ]
+  },
+  "${modID}:SonicBoomPower": {
+    "NAME": "Sonic Boom",
+    "DESCRIPTIONS": [
+      "No fim do seu turno, cause dano igual à sua Proteção E aos modificadores de dano."
+    ]
+  },
+  "${modID}:SpeedHurtPower": {
+    "NAME": "Flecha do Julgamento",
+    "DESCRIPTIONS": [
+      "No fim do seu turno, cause dano igual à sua Proteção."
+    ]
+  },
+  "${modID}:SuperSonicPower": {
+    "NAME": "Super Sonic",
+    "DESCRIPTIONS": [
+      "Contemple o poder das Esmeraldas do Caos!",
+      "Você DEVE jogar seus Anéis para ganhar Intangível. MORRA A CADA TURNO."
+    ]
+  },
+  "${modID}:TeaserRarePower": {
+    "NAME": "Medalha da Lua",
+    "DESCRIPTIONS": [
+      "Próximos ",
+      " Ataque Comum que você comprar se transforma em",
+      " Ataques Comuns que você comprar se transformam em",
+      " outro Ataque de Werehog aleatório."
+    ]
+  },
+  "${modID}:ThunderShieldPower": {
+    "NAME": "Escudo de Trovão",
+    "DESCRIPTIONS": [
+      "Depois que seus orbes ativarem os efeitos passivos de fim de turno, adicione #b",
+      " #yAnel",
+      " #yAnéis",
+      " à sua mão. Cada #yAnel ativará Relâmpago #b",
+      " vez.",
+      " vezes."
+    ]
+  },
+  "${modID}:TrickPower": {
+    "NAME": "Truque",
+    "DESCRIPTIONS": [
+      "No fim do seu turno, execute um Golpe Final que escala com ",
+      " Truque(s)."
+    ]
+  },
+  "${modID}:TricksterPower": {
+    "NAME": "Trapaceiro",
+    "DESCRIPTIONS": [
+      "No começo do seu turno, adicione #b",
+      " Truque à sua mão.",
+      " Truques à sua mão."
+    ]
+  },
+  "${modID}:TurbulencePower": {
+    "NAME": "Turbulência",
+    "DESCRIPTIONS": [
+      "Quando você exaurir uma carta, canalize #b",
+      " Gelo.",
+      " Gelos."
+    ]
+  }
+}

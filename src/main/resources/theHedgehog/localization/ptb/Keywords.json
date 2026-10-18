@@ -1,0 +1,197 @@
+[
+  {
+    "ID": "wordALL",
+    "PROPER_NAME": "TODOS",
+    "NAMES": [
+      "todos",
+      "todas"
+    ],
+    "DESCRIPTION": "#yTODOS, neste caso, se refere às pilhas de compra, descarte e exaustão e à mão. NL NL #yGolpe #yAperfeiçoado e o #yGrudge do Eremita NÃO consideram a pilha de exaustão."
+  },
+  {
+    "ID": "wordCenter",
+    "PROPER_NAME": "Se Estiver no Centro",
+    "NAMES": [
+      "se estiver no centro",
+      "se_estiver_no_centro"
+    ],
+    "DESCRIPTION": "Se esta carta estiver no #ycentro da sua mão, ative o efeito extra. #yAnéis são ignorados nesta condição."
+  },
+  {
+    "ID": "wordCrestOfFire",
+    "PROPER_NAME": "Brasão de Fogo",
+    "NAMES": [
+      "brasão de fogo",
+      "brasão_de_fogo",
+      "brasões_de_fogo"
+    ],
+    "DESCRIPTION": "Se for #yFatal, aprimore TODAS as cartas de #rBrasão #rde #rFogo do seu baralho permanentemente. Cartas de #rBrasão #rde #rFogo podem ser aprimoradas qualquer número de vezes. NL NL Depois de mais de #b7 aprimoramentos, você sofre #r1 de dano por aprimoramento. Por exemplo, #yInvestida #yde #yFogo+10 causará #r3 de dano a você.",
+    "COLOR": "ff6563"
+  },
+  {
+    "ID": "wordDizzy",
+    "PROPER_NAME": "Tontura",
+    "NAMES": [
+      "tontura",
+      "tontos"
+    ],
+    "DESCRIPTION": "O alvo causa dano reduzido pelo custo da carta mais cara da sua mão."
+  },
+  {
+    "ID": "wordEchoForm",
+    "PROPER_NAME": "Forma Ecoante",
+    "NAMES": [
+      "forma ecoante",
+      "forma_ecoante"
+    ],
+    "DESCRIPTION": "A primeira carta que você jogar em cada turno será jogada duas vezes."
+  },
+  {
+    "ID": "wordFlameBarrier",
+    "PROPER_NAME": "Barreira de Chamas",
+    "NAMES": [
+      "barreira de chamas",
+      "barreira_de_chamas"
+    ],
+    "DESCRIPTION": "Quando você for atacado neste turno, cause #bX de dano ao atacante."
+  },
+  {
+    "ID": "wordFlip",
+    "PROPER_NAME": "Inverter",
+    "NAMES": [
+      "inverter",
+      "inverta",
+      "inverte",
+      "invertido"
+    ],
+    "DESCRIPTION": "Custo 3+ -> Custo 0 NL Custo 2 -> Custo 1 NL Custo 1 -> Custo 2 NL Custo 0 -> Custo 3"
+  },
+  {
+    "ID": "wordFriend",
+    "PROPER_NAME": "Amigo",
+    "NAMES": [
+      "amigo",
+      "amiga",
+      "amigos"
+    ],
+    "DESCRIPTION": "No fim do combate, você pode escolher entre manter a Assistência ou a nova carta gerada."
+  },
+  {
+    "ID": "wordHotRod",
+    "PROPER_NAME": "Hot Rod",
+    "NAMES": [
+      "hot rod",
+      "hot_rod"
+    ],
+    "DESCRIPTION": "Se você não jogou nenhuma carta, ganhe 5(6) de Proteção. NL Se jogou #b1 carta, ganhe 7(8) de Proteção. NL Se jogou #b2 cartas, ganhe #b10(12) de Proteção E cause #b6(8) de dano. NL Se jogou mais de #b2 cartas, ganhe #b3(4) de Proteção."
+  },
+  {
+    "ID": "wordMagicHandsKW",
+    "PROPER_NAME": "Precioso",
+    "NAMES": [
+      "não jogue fora",
+      "não_jogue_fora",
+      "precioso",
+      "preciosa",
+      "preciosas",
+      "preciosos"
+    ],
+    "DESCRIPTION": "Reter. Se for Exaurida, entre em Fúria.",
+    "COLOR": "EF67F6"
+  },
+  {
+    "ID": "wordNotMostLeft",
+    "PROPER_NAME": "Se Não Estiver à Esquerda",
+    "NAMES": [
+      "se não estiver à esquerda",
+      "se_não_estiver_à_esquerda"
+    ],
+    "DESCRIPTION": "Se esta carta NÃO estiver na ponta esquerda da sua mão, ative o efeito extra. #yAnéis são ignorados nesta condição."
+  },
+  {
+    "ID": "wordMostLeft",
+    "PROPER_NAME": "Se Estiver à Esquerda",
+    "NAMES": [
+      "se estiver à esquerda",
+      "se_estiver_à_esquerda",
+      "se_estiver_longe"
+    ],
+    "DESCRIPTION": "Se esta carta estiver na ponta esquerda da sua mão, ative o efeito extra. #yAnéis são ignorados nesta condição."
+  },
+  {
+    "ID": "wordMostLeftOrRight",
+    "PROPER_NAME": "Se Estiver em uma Ponta",
+    "NAMES": [
+      "se estiver em uma ponta",
+      "se_estiver_em_uma_ponta"
+    ],
+    "DESCRIPTION": "Se esta carta estiver na ponta esquerda ou direita da sua mão, ative o efeito extra. #yAnéis são ignorados nesta condição."
+  },
+  {
+    "ID": "wordMostRight",
+    "PROPER_NAME": "Se Estiver à Direita",
+    "NAMES": [
+      "se estiver à direita",
+      "se_estiver_à_direita",
+      "se_estiver_perto"
+    ],
+    "DESCRIPTION": "Se esta carta estiver na ponta direita da sua mão, ative o efeito extra. #yAnéis são ignorados nesta condição."
+  },
+  {
+    "ID": "wordLevelUp",
+    "PROPER_NAME": "Subir de Nível",
+    "NAMES": [
+      "subir de nível",
+      "subir_de_nível"
+    ],
+    "DESCRIPTION": "Se você ainda não jogou nada ou a última carta jogada foi uma #yTécnica, os #yAnéis na sua mão aumentam sua Proteção em #b1. NL Se a última carta jogada foi um #yAtaque, os #yAnéis na sua mão aumentam seu dano em #b1. NL Se a última carta jogada foi um #yPoder, os #yAnéis na sua mão aumentam seu #yFoco em #b1."
+  },
+  {
+    "ID": "wordLightSpeedDashSmallPrint",
+    "PROPER_NAME": "LSD",
+    "NAMES": [
+      "lsd"
+    ],
+    "DESCRIPTION": "Neste turno, os #yAnéis #gcuram #g1 #gPV em vez de dar PV Temporário. Se os #yAnéis já estavam na sua mão, eles #gcuram #g3 #gPV."
+  },
+  {
+    "ID": "wordRev",
+    "PROPER_NAME": "Acelerar",
+    "NAMES": [
+      "acelerar",
+      "acelera",
+      "acelere",
+      "aceleram",
+      "acelerado"
+    ],
+    "DESCRIPTION": "Apelido para \"ativar o efeito passivo de um orbe\". Salvo indicação em contrário, se refere ao Orbe mais à direita."
+  },
+  {
+    "ID": "wordSpinUp",
+    "PROPER_NAME": "Giro Crescente",
+    "NAMES": [
+      "giro crescente",
+      "giro_crescente"
+    ],
+    "DESCRIPTION": "Ao jogar esta carta, #raumente #rseu #rcusto #rem #r1. Qualquer modificação de custo #bpersiste pelo resto do combate. Se o custo foi aleatório, #greduza #go #gcusto #galeatório #gem #g1.",
+    "COLOR": "ff6563"
+  },
+  {
+    "ID": "wordRing",
+    "PROPER_NAME": "Anel",
+    "NAMES": [
+      "anel",
+      "anéis"
+    ],
+    "DESCRIPTION": "Enquanto esta carta estiver na sua mão, a Proteção ganha com cartas aumenta em #b1."
+  },
+  {
+    "ID": "wordTrick",
+    "PROPER_NAME": "Truque",
+    "NAMES": [
+      "truque",
+      "truques"
+    ],
+    "DESCRIPTION": "Você não deveria ver esta mensagem."
+  }
+]

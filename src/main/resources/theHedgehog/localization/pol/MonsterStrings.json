@@ -1,0 +1,66 @@
+{
+  "Champ": {
+    "MOVES": [
+      "Postawa obronna",
+      "Egzekucja",
+      "Z liścia"
+    ],
+    "NAME": "Czempion",
+    "DIALOG": [
+      "Nazywasz to bronią?",
+      "No dawaj!",
+      "Pokaż, na co cię stać! NL @HA@ @HA@ @HA!@",
+      "Masz darmowy cios! NL Żałosny słabeuszu!",
+      "~Teraz~ ~to~ ~już~ ~przegiąłeś...~",
+      "@PORAŻKA??@ NL @NIEMOŻLIWE!!@",
+      "~GIŃ~ ~.~ ~.~ ~.~",
+      "Poczuj mój gniew!",
+      "@TO@ NL @MÓJ@ @PAS!!@,,"
+    ]
+  },
+  "Eggman": {
+    "MOVES": [
+      "Ruch na 300 IQ"
+    ],
+    "NAME": "Dr Eggman",
+    "DIALOG": [
+      "Patrz na to!",
+      "Szykuj się na lekcję!",
+      "Masz!",
+      "~Pożałujesz~ ~tego...~"
+    ]
+  },
+  "TalksPatchTimeEater": {
+    "NAME": "Pożeracz Czasu",
+    "DIALOG": [
+      "~Ach...~ NL ~..towarzystwo...~",
+      "~Głupcze..~ NL @GŁUUUPCZE!@",
+      "~Nigdy....~ NL ~...cię~ ~nie..~ NL ~..lubiłem...~",
+      "Zadarłeś z czasem... NL @ZBYT@ @DŁUGO!@",
+      "~Scena...~ NL ~jest~ ~gotowa...~"
+    ]
+  },
+  "${modID}:EnemyBossSonic": {
+    "MOVES": [
+      "Drwina",
+      "Homing Attack",
+      "Spin Dash",
+      "Trąba powietrzna"
+    ],
+    "NAME": "Niebieski Jeż",
+    "DIALOG": [
+      "nieużywane. Zobacz SonicTalkStrings."
+    ]
+  },
+  "${modID}:EnemyBossSonicProp": {
+    "MOVES": [
+      "Trampolina",
+      "Skok z rampy",
+      "Panel przyspieszający"
+    ],
+    "NAME": "Rekwizyt",
+    "DIALOG": [
+      "nieużywane. Zobacz SonicTalkStrings."
+    ]
+  }
+}
