@@ -97,22 +97,22 @@ public class GravitySwitchEvent extends PhasedEvent {
     private void Option1_PullSwitch(Integer i) {
         CardGroup masterDeck = AbstractDungeon.player.masterDeck;
 
-        int maxPossibleSize = Math.min(numberOfModifiers, masterDeck.size());
+        // Only cards that can actually get cheaper are candidates. Picking from this list
+        // without replacement guarantees the loop ends (a deck of only 0-cost/unplayable
+        // cards used to spin forever) and that the same card is never picked twice.
+        ArrayList<AbstractCard> candidates = new ArrayList<>();
+        for (AbstractCard c : masterDeck.group) {
+            if (c.cost > 0) {
+                candidates.add(c);
+            }
+        }
+
+        int maxPossibleSize = Math.min(numberOfModifiers, candidates.size());
         int j = 0;
-        int tries = 0;
-        int maxTries = 99;
         ArrayList<String> loggedCards = new ArrayList<>();
         while (j < maxPossibleSize) {
-            int randomNumber = AbstractDungeon.eventRng.random(0, masterDeck.size() - 1);
-            AbstractCard randomCard = masterDeck.group.get(randomNumber);
-            if (randomCard.cost <= 0) {
-                tries++;
-                continue;
-            }
-            if (tries >= maxTries) {
-                break;
-            }
-
+            int randomNumber = AbstractDungeon.eventRng.random(0, candidates.size() - 1);
+            AbstractCard randomCard = candidates.remove(randomNumber);
 
             ApplyLowerCost(randomCard);
             if (!randomCard.hasTag(SonicTags.SPIN_UP)) {

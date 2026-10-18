@@ -2,6 +2,7 @@ package theHedgehog;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theHedgehog.character.Sonic;
 
@@ -192,7 +193,7 @@ public class SoundLibrary {
     }
 
     private static String GetRandomClip(ArrayList<String> sounds) {
-        int generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
+        int generatedRandomNumber = MathUtils.random(0, sounds.size() - 1);
 
         if (sounds.size() < 2) {
             randomNumber = generatedRandomNumber;
@@ -204,7 +205,7 @@ public class SoundLibrary {
                 if (tries >= maxTries) {
                     break;
                 }
-                generatedRandomNumber = AbstractDungeon.miscRng.random(0, sounds.size() - 1);
+                generatedRandomNumber = MathUtils.random(0, sounds.size() - 1);
             }
             randomNumber = generatedRandomNumber;
         }
@@ -216,12 +217,16 @@ public class SoundLibrary {
         return new SFXAction(key);
     }
 
+    /**
+     * Cosmetic roll for voice lines. This deliberately does NOT use AbstractDungeon.miscRng:
+     * miscRng is part of the seeded run state, so spending it on voice lines changed the
+     * outcome of seeded runs (including for other characters while this mod is installed).
+     */
     public static boolean isRandomlyTrue() {
-        try {
-            return AbstractDungeon.miscRng.random(0, 10) - MyModConfig.voiceFrequency <= 0;
-        } catch (NullPointerException nullPointerException) {
-            return (int) (Math.random() * 11) - MyModConfig.voiceFrequency <= 0;
+        if (MyModConfig.voiceFrequency <= 0) {
+            return false; // 0 used to still fire about 1 time in 11
         }
+        return MathUtils.random(0, 10) - MyModConfig.voiceFrequency <= 0;
     }
 }
 

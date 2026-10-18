@@ -22,15 +22,14 @@ public class DizzyPlayerPower extends BasePower {
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
-    public int highestCost = 0;
-    public String highestCostCardName = "(no card)";
 
     public DizzyPlayerPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
     public void updateDescription() {
-        this.description = String.format("%s NL NL Card: Cost %s %s", DESCRIPTIONS[0], highestCost, highestCostCardName);
+        // The old tooltip appended hard-coded English "Card: Cost 0 (no card)" copied from DizzyPower.
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override

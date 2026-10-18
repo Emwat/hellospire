@@ -44,14 +44,9 @@ public class RingPower extends BasePower {
     // 7) Play Crystal Ring.
 
     public void updateDescription() {
-        int amountSpeed = ModGetPowerAmount(LevelUpSpeedPower.POWER_ID);
-        String amountSpeedText = String.valueOf(this.amount + (amountSpeed * this.amount));
-
-        if (amount == 1) {
-            this.description = String.format("%s%s%s", DESCRIPTIONS[0], this.amount, DESCRIPTIONS[1]);
-        } else {
-            this.description = String.format("%s%s%s", DESCRIPTIONS[0], this.amount, DESCRIPTIONS[1]);
-        }
+        // Both branches of the old amount == 1 check were identical, and the computed
+        // Speed-adjusted text was never used.
+        this.description = String.format("%s%s%s", DESCRIPTIONS[0], this.amount, DESCRIPTIONS[1]);
     }
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
@@ -70,6 +65,13 @@ public class RingPower extends BasePower {
             outputBlock = 0.0F;
         }
         return outputBlock;
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        // isPlayingBoost is static and was only reset by the next card play, so it could stay
+        // true from the end of a previous combat.
+        isPlayingBoost = false;
     }
 
     @Override

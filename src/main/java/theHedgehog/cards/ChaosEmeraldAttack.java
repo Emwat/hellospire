@@ -13,21 +13,17 @@ import com.megacrit.cardcrawl.cards.colorless.Panache;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.cards.purple.Ragnarok;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theHedgehog.MyModConfig;
 import theHedgehog.SonicMod;
 import theHedgehog.actions.ModTransformWorkaroundAction;
-import theHedgehog.actions.ModXFastAction;
 import theHedgehog.character.Sonic;
 import theHedgehog.util.CardStats;
 import theHedgehog.util.GeneralUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Integer> {
     public static final String ID = makeID("ChaosEmeraldAttack");
@@ -46,14 +42,13 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
     public ChaosEmeraldAttack(AbstractCard transformation) {
         super(ID, info);
 
-        if (chosenSaved == null) {
-            chosenSaved = transformation == null ? GetRareAttackViaMisc() : transformation;
-        }
+        // A transformation is copied so copies of this card never share one card instance.
+        chosenSaved = transformation == null ? RollRareAttack() : transformation.makeCopy();
         chosenSavedUpgraded = chosenSaved.makeCopy();
         chosenSavedUpgraded.upgrade();
         handleMultiCardPreview();
         this.tags.add(CardTags.HEALING);
-        if (GeneralUtils.isIndeedWithoutADoubtInCombat()) {
+        if (!allCardsMarkedAsSeen && GeneralUtils.isIndeedWithoutADoubtInCombat()) {
             MarkAllCardsAsSeen();
         }
     }
@@ -80,85 +75,11 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
         return !this.upgraded ? chosenSaved : chosenSavedUpgraded;
     }
 
-    /// it didn't work with gambling chip
-    private void OldTransform(){
-        addToBot(new ModXFastAction(() -> {
-            int index = 0;
-            for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
-                AbstractCard thisCard = AbstractDungeon.player.hand.group.get(i);
-                if (thisCard.equals(this)) {
-                    index = i;
-                    break;
-                }
-                index++;
-            }
-
-            addToTop(new TransformCardInHandAction(index, !this.upgraded ? chosenSaved : chosenSavedUpgraded));
-        }));
-    }
-
-    private void OverwriteEverything() {
-
-        // this = chosenSaved.makeCopy();
-
-        // super(chosen.cardID, chosen.cost, chosen.type, chosen.target, CardRarity.RARE, Sonic.Meta.CARD_COLOR, "");
-        cardStrings = CardCrawlGame.languagePack.getCardStrings(chosenSaved.cardID);
-        name = cardStrings.NAME;
-        originalName = cardStrings.NAME;
-        rawDescription = cardStrings.DESCRIPTION;
-
-        String[] multiDamageAttacks = {
-                "BoostRare",
-                "CyanLaserRare",
-                "FootSweepRare"
-        };
-        if (Arrays.asList(multiDamageAttacks).contains(name)) {
-            this.isMultiDamage = true;
-            this.target = CardTarget.ALL_ENEMY;
-        }
-
-        if (chosenSaved.type == CardType.ATTACK) {
-            this.type = CardType.ATTACK;
-            loadCardImage(SonicMod.imagePath("cards/attack/" + CleanName() + ".png"));
-            setDamage(chosenSaved.baseDamage, 5);
-        } else if (chosenSaved.type == CardType.SKILL) {
-            this.type = CardType.SKILL;
-            loadCardImage(SonicMod.imagePath("cards/skill/" + CleanName() + ".png"));
-        }
-        setMagic(chosenSaved.baseMagicNumber);
-
-        initializeTitle();
-        initializeDescription();
-    }
-
-    private String CleanName() {
-        return chosenSaved.cardID.replace("Rare", "").replace(makeID(""), "");
-    }
-
-    static private AbstractCard GetRareAttack(String input) {
-        // return new StrikeRare().makeCopy();
-        if (input.isEmpty()) {
-            ArrayList<AbstractCard> poweredUpCards = new ArrayList<>();
-            poweredUpCards.add(new BoostRare());
-            poweredUpCards.add(new ChaosControl());
-            poweredUpCards.add(new FalconPunchRare());
-            poweredUpCards.add(new InstaShieldRare());
-            poweredUpCards.add(new ScissorKickRare());
-            poweredUpCards.add(new SonicEagleRare());
-            poweredUpCards.add(new TeaserRare());
-            int generatedRandomNumber = 0;
-            try {
-                generatedRandomNumber = AbstractDungeon.miscRng.random(0, poweredUpCards.size() - 1);
-            } catch (NullPointerException nullPointerException) {
-                generatedRandomNumber = (int) (Math.random() * poweredUpCards.size());
-            }
-            return poweredUpCards.get(generatedRandomNumber);
-        }
-
-        return CardLibrary.getCopy(input, 0, 0);
-    }
-
-    private ArrayList<AbstractCard> GetPoweredUpCards() {
+    /**
+     * The single source of truth for which attacks Chaos Emerald can become.
+     * The order here is NOT the save order; see {@link #cardToInt(AbstractCard)}.
+     */
+    private static ArrayList<AbstractCard> GetPoweredUpCards() {
         ArrayList<AbstractCard> poweredUpCards = new ArrayList<>();
         poweredUpCards.add(new BoostRare());
         poweredUpCards.add(new ChaosControl());
@@ -170,32 +91,28 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
         return poweredUpCards;
     }
 
+    private static boolean allCardsMarkedAsSeen = false;
+
     private void MarkAllCardsAsSeen() {
-        ArrayList<AbstractCard> poweredUpCards = GetPoweredUpCards();
-        for (AbstractCard card : poweredUpCards) {
+        allCardsMarkedAsSeen = true; // UnlockTracker persists this, so once per session is enough.
+        for (AbstractCard card : GetPoweredUpCards()) {
             UnlockTracker.markCardAsSeen(card.cardID);
         }
     }
 
-    private AbstractCard GetRareAttackViaMisc() {
-        // return new StrikeRare().makeCopy();
+    /** Picks uniformly from every candidate (including the first one). */
+    private static AbstractCard RollRareAttack() {
         ArrayList<AbstractCard> poweredUpCards = GetPoweredUpCards();
-        while (this.misc == 0) {
-            this.misc = generateRandomNumber(poweredUpCards.size());
-        }
-
-        return poweredUpCards.get(this.misc);
+        return poweredUpCards.get(generateRandomNumber(poweredUpCards.size()));
     }
 
-    private int generateRandomNumber(int cap) {
-        int generatedRandomNumber = 0;
+    private static int generateRandomNumber(int cap) {
         try {
-            generatedRandomNumber = AbstractDungeon.miscRng.random(0, cap - 1);
+            return AbstractDungeon.miscRng.random(0, cap - 1);
         } catch (NullPointerException nullPointerException) {
-            generatedRandomNumber = (int) (Math.random() * cap);
+            // No run in progress (card library, main menu): cosmetic roll only.
+            return (int) (Math.random() * cap);
         }
-
-        return generatedRandomNumber;
     }
 
     @Override
@@ -210,7 +127,9 @@ public class ChaosEmeraldAttack extends BaseCard implements CustomSavable<Intege
     }
 
     private static AbstractCard intToCard(int n) {
-        if (n == 0) return new BackSpinKickRare();
+        // Must mirror cardToInt. Previously 0 mapped to BackSpinKickRare, so a saved
+        // ChaosControl reloaded as the wrong attack.
+        if (n == 0) return new ChaosControl();
         else if (n == 1) return new BoostRare();
         else if (n == 2) return new FalconPunchRare();
         else if (n == 3) return new InstaShieldRare();

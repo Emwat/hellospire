@@ -2,7 +2,6 @@ package theHedgehog.patches;
 
 import com.badlogic.gdx.audio.Music;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.audio.MainMusic;
@@ -15,6 +14,8 @@ import theHedgehog.character.Sonic;
 @SpirePatch(clz = TempMusic.class, method = "getSong")
 public class AudioBossMusicPatch {
 
+    // A prefix returning SpireReturn (instead of a postfix replacing __result) means the vanilla
+    // Music object is never created, so it can't be leaked without dispose().
     @SpirePrefixPatch
     public static SpireReturn<Music> Prefix(TempMusic __instance, String key) {
         if ("CHAO_GARDEN".equals(key)) {
@@ -25,11 +26,6 @@ public class AudioBossMusicPatch {
             return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/LiveAndLearn.ogg")));
         }
 
-        return SpireReturn.Continue();
-    }
-
-    @SpirePostfixPatch
-    public static Music Postfix(Music __result, TempMusic __instance, String key) {
         // case "SHOP":
         // case "SHRINE":
         // case "MINDBLOOM":
@@ -41,30 +37,30 @@ public class AudioBossMusicPatch {
         // case "CREDITS":
         // mp3 is fine here, but since I'm editing the sound files anyway for a better loop, I will work with ogg
 
-        if (!(AbstractDungeon.player instanceof Sonic)){
-            return __result;
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return SpireReturn.Continue();
         }
 
         if (MyModConfig.enableSound && "STS_BossVictoryStinger_3_v3_MUSIC.ogg".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/ActClear.mp3"));
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/ActClear.mp3")));
         }
 
         if (MyModConfig.enableBoss1Music && "BOSS_BOTTOM".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/Egg_Hawk.ogg"));
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/Egg_Hawk.ogg")));
         }
 
         if (MyModConfig.enableBoss2Music && "BOSS_CITY".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/Egg_Emperor.ogg"));
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/Egg_Emperor.ogg")));
         }
 
         if (MyModConfig.enableBoss3Music && "BOSS_BEYOND".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/Egg_Dragoon.ogg"));
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/Egg_Dragoon.ogg")));
         }
 
         if (MyModConfig.enableBossHeartMusic && "BOSS_ENDING".equals(key)) {
-            return MainMusic.newMusic(SonicMod.audioPath("music/Big_Arms.ogg"));
+            return SpireReturn.Return(MainMusic.newMusic(SonicMod.audioPath("music/Big_Arms.ogg")));
         }
 
-        return __result;
+        return SpireReturn.Continue();
     }
 }

@@ -1,6 +1,7 @@
 package theHedgehog.strings;
 
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import theHedgehog.SonicMod;
@@ -35,7 +36,7 @@ public class SonicTalkEncounters {
     }
 
     private static void say(String[] texts) {
-        String text = texts[AbstractDungeon.miscRng.random(0, texts.length - 1)];
+        String text = texts[MathUtils.random(0, texts.length - 1)];
 
         AbstractDungeon.actionManager.addToBottom(new TalkAction(true, text, duration, bubbleDuration));
     }

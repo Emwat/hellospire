@@ -27,6 +27,10 @@ public class AnnouncementPatch {
         if (!(AbstractDungeon.player instanceof Sonic)){
             return;
         }
+        // neverShowAgain() writes to the config, which is null if it failed to load.
+        if (SonicMod.sonicmodConfig == null) {
+            return;
+        }
 
         ArrayList<String> announcements = new ArrayList<>();
         // if (!(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version092)) {
@@ -34,12 +38,14 @@ public class AnnouncementPatch {
         //     SonicTipTracker.neverShowAgain(SonicTipTracker.Version092);
         // }
 
-        if (Loader.isModLoaded("spireTogether") && !(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version098)) {
+        if (Loader.isModLoaded("spireTogether") && !SonicTipTracker.hasShown(SonicTipTracker.Version098)) {
             announcements.add(SonicTipTracker.Version098);
             SonicTipTracker.neverShowAgain(SonicTipTracker.Version098);
         }
 
-        if (Settings.language == Settings.GameLanguage.ZHS && modID.equals("BlueHedgehog") && !(Boolean) SonicTipTracker.tips.get(SonicTipTracker.Version103)) {
+        // Intentionally only for the original-ID build ("BlueHedgehog"): it tells Chinese players
+        // the ZHS release moved to its own workshop mod (this fork builds as a different modID).
+        if (Settings.language == Settings.GameLanguage.ZHS && modID.equals("BlueHedgehog") && !SonicTipTracker.hasShown(SonicTipTracker.Version103)) {
             announcements.add(SonicTipTracker.Version103);
             SonicTipTracker.neverShowAgain(SonicTipTracker.Version103);
         }

@@ -41,11 +41,13 @@ public class ModTransformWorkaroundAction extends AbstractGameAction {
                 }
             }
 
+            // makeCopy() would drop the replacement's upgrades (every card's makeCopy returns a
+            // fresh, un-upgraded card), so the upgraded Chaos Emerald attack came out un-upgraded.
             if (index != -1) {
-                addToTop(new MakeTempCardInHandAction(replacement.makeCopy()));
+                addToTop(new MakeTempCardInHandAction(replacement.makeStatEquivalentCopy()));
                 addToTop(new ExhaustSpecificCardAction(target, AbstractDungeon.player.hand));
             } else {
-                addToTop(new MakeTempCardInHandAction(replacement.makeCopy()));
+                addToTop(new MakeTempCardInHandAction(replacement.makeStatEquivalentCopy()));
                 addToTop(new ExhaustSpecificCardAction(target, AbstractDungeon.player.discardPile));
             }
         }

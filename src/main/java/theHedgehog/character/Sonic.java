@@ -504,9 +504,18 @@ public class Sonic extends CustomPlayer {
 
     static boolean glow_fade = false;
     static float update_timer = 0;
+    // Each VictoryScreen owns a fresh effects list, so a different list means a new victory.
+    // Without this reset the glow only ever appeared on the first victory of a game session.
+    private static ArrayList<AbstractGameEffect> lastVictoryEffects = null;
 
     @Override
     public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
+        if (effects != lastVictoryEffects) {
+            lastVictoryEffects = effects;
+            glow_fade = false;
+            update_timer = 0;
+        }
+
         if (!glow_fade) {
             effects.add(new VictoryGlow());
             glow_fade = true;

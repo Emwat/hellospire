@@ -123,12 +123,29 @@ public class SonicMod implements
         BaseMod.subscribe(this); // This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
 
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("anniv5")) {
+        // MyModConfig's static fields are only filled in once `new MyModConfig()` runs in
+        // receivePostInitialize, which is after this constructor. Read the saved value directly,
+        // otherwise the player's setting is ignored here and the default (true) always wins.
+        boolean crossModIntegrations = readSavedCrossModSetting();
+        if (crossModIntegrations && Loader.isModLoaded("anniv5")) {
             SpireAnniversary5Mod.subscribe(new PackLoader());
         }
-        if (MyModConfig.enableCrossModIntegrations && Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether")) {
+        if (crossModIntegrations && (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether"))) {
             Skindexer.register();
         }
+    }
+
+    private static boolean readSavedCrossModSetting() {
+        try {
+            // Same file and key that EasyConfigPanel (MyModConfig) uses.
+            SpireConfig saved = new SpireConfig(modID, makeID("MyModConfig"));
+            if (saved.has("enableCrossModIntegrations")) {
+                return saved.getBool("enableCrossModIntegrations");
+            }
+        } catch (Exception e) {
+            logger.catching(e);
+        }
+        return MyModConfig.enableCrossModIntegrations;
     }
 
     @Override
@@ -970,6 +987,9 @@ public class SonicMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if (!(AbstractDungeon.player instanceof Sonic)) {
+            return;
+        }
         if (SoundLibrary.isRandomlyTrue()) {
             SonicTalkEncounters.Chat(abstractRoom);
         }
