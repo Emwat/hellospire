@@ -78,7 +78,13 @@
       " #rHP. (100% chance on getting a chao)",
       "[LOCKED] You already have a chao.",
       "[Apologize]",
-      "[Thank him and go back to the main area] #gGain #ga #gchao."
+      "[Thank him and go back to the main area] #gGain #ga #gchao.",
+      " and ",
+      "and ",
+      "Tails",
+      "Knuckles",
+      "Amy",
+      "Rouge"
     ]
   },
   "${modID}:GravitySwitchEvent": {

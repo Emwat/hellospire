@@ -26,14 +26,16 @@ public class DizzyPower extends BasePower {
     public static final String NAME;
     public static final String[] DESCRIPTIONS;
     public int highestCost = 0;
-    public String highestCostCardName = "(no card)";
+    public String highestCostCardName = null; // null = no card; shown with DESCRIPTIONS[2]
 
     public DizzyPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
     public void updateDescription() {
-        this.description = String.format("%s NL NL Card: Cost %s %s", DESCRIPTIONS[0], highestCost, highestCostCardName);
+        String cardName = highestCostCardName != null ? highestCostCardName : DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + " NL NL "
+                + DESCRIPTIONS[1].replace("{0}", String.valueOf(highestCost)).replace("{1}", cardName);
     }
 
     // The enemies are SUPPOSED to calculate Player's Post Draw cards, but it just never happens.
@@ -61,7 +63,7 @@ public class DizzyPower extends BasePower {
 
     private void atbSetCostAndNameAndClearIfZero(){
         addToBot(new ModXFastAction(() -> {
-            setCostAndName(0, "(no card)");
+            setCostAndName(0, null);
         }));
         if (justApplied) {
             justApplied = false;

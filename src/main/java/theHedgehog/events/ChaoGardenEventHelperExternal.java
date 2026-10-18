@@ -95,7 +95,7 @@ public class ChaoGardenEventHelperExternal {
         }).getType();
 
         try {
-            String file = jarURL + "!/" + getModdedLocalizationFilePath(ChaoGardenStringsJSON, Settings.language);
+            String file = jarURL + "!/" + getModdedLocalizationFilePath(ChaoGardenStringsJSON, lang);
             // Log.logger.info("location = {}", file);
             URL eyeLocations = new URL("jar", "", file);
             try (InputStream in = eyeLocations.openStream()) {

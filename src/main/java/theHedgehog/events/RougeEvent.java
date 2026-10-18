@@ -66,7 +66,7 @@ public class RougeEvent extends PhasedEvent {
         registerPhase("start0R", GenerateTextPhaseWithActionAndImage(DESCRIPTIONS[8], IMG_W_OMOCHAO)
                 .addOption(new TextPhase
                         .OptionInfo(String.format("%s%s%s#g%s #g%s.",
-                        OPTIONS[1], ColorWord("#r", wantedCard.name), OPTIONS[2], amountOfAssists, theAssist.name + (amountOfAssists == 1 ? "" : "s")))
+                        OPTIONS[1], ColorWord("#r", wantedCard.name), OPTIONS[2], amountOfAssists, theAssist.name + (amountOfAssists == 1 || Settings.language != Settings.GameLanguage.ENG ? "" : "s")))
                         .setOptionResult(this::Option00_TradeForAssist))
                 .addOption(new TextPhase
                         .OptionInfo(String.format("%s%s %s%s%s",

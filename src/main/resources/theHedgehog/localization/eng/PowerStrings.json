@@ -50,7 +50,9 @@
   "${modID}:DizzyPower": {
     "NAME": "Dizzy",
     "DESCRIPTIONS": [
-      "Target deals damage reduced by the cost of the highest card in your hand."
+      "Target deals damage reduced by the cost of the highest card in your hand.",
+      "Card: Cost {0} {1}",
+      "(no card)"
     ]
   },
   "${modID}:ExtenderPower": {

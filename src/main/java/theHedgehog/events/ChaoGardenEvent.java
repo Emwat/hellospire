@@ -38,6 +38,7 @@ import static theHedgehog.util.GeneralUtils.*;
 public class ChaoGardenEvent extends PhasedEvent {
     private class DrinkingBuddy {
         public String Name;
+        public String Display; // localized, for showing to the player
         public int NumberOfDrinks = 0;
         public String OptionColor;
         public AbstractCard.CardColor Color;
@@ -49,6 +50,7 @@ public class ChaoGardenEvent extends PhasedEvent {
 
         private DrinkingBuddy(String buddy, AbstractCard.CardColor color, CardLibrary.LibraryType cardLibrary, String characterName) {
             this.Name = buddy;
+            this.Display = DisplayNameFor(buddy);
             this.Color = color;
             this.CardLibrary = cardLibrary;
             this.Character = characterName;
@@ -98,7 +100,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                     "Tails", "Knuckles", "Amy", "Rouge"
             };
             if (Arrays.stream(friends).anyMatch(s -> s.equals(this.Name))) {
-                String capitalizedName = CapitalizeFirstLetter(this.Name);
+                String capitalizedName = CapitalizeFirstLetter(this.Display);
 
                 return String.format("%s%s%s%s %s %s%s",
                         OptPartnerA,
@@ -110,10 +112,10 @@ public class ChaoGardenEvent extends PhasedEvent {
                         OptPartnerD);
             }
 
-            String formattedName = this.Name;
+            String formattedName = this.Display;
 
-            if (!this.Name.startsWith("the ")) {
-                formattedName = this.Name.substring(0, 1).toUpperCase() + this.Name.substring(1);
+            if (!this.Display.startsWith("the ")) {
+                formattedName = this.Display.substring(0, 1).toUpperCase() + this.Display.substring(1);
             }
             formattedName = ColorWord(this.OptionColor, formattedName);
             ;
@@ -192,6 +194,9 @@ public class ChaoGardenEvent extends PhasedEvent {
     private static final String OptChao5B = OPTIONS[31];
     private static final String OptYouAlrHaveChao = OPTIONS[32];
     private static final String OptChao5C = OPTIONS[33];
+    // Optional trailing entries (older/other-language files may be shorter): " and ", "and ", then Tails, Knuckles, Amy, Rouge.
+    private static final String OptAnd = optionalOption(35, " and ");
+    private static final String OptAndLast = optionalOption(36, "and ");
     private static final String OptThankYouForChao = OPTIONS[34];
     // endregion
 
@@ -400,7 +405,7 @@ public class ChaoGardenEvent extends PhasedEvent {
 
     private String OptNeedDrink(int buddyIndex) {
 
-        String capitalizedName = DrinkBuddies.get(buddyIndex).Name.substring(0, 1).toUpperCase() + DrinkBuddies.get(buddyIndex).Name.substring(1);
+        String capitalizedName = CapitalizeFirstLetter(DrinkBuddies.get(buddyIndex).Display);
 
         return OptYouNeedDrinkA + capitalizedName + OptYouNeedDrinkB;
     }
@@ -759,6 +764,35 @@ public class ChaoGardenEvent extends PhasedEvent {
         return output;
     }
 
+    private static String optionalOption(int index, String fallback) {
+        return OPTIONS.length > index ? OPTIONS[index] : fallback;
+    }
+
+    /** The name shown to the player. Lookup keys (Name) stay English. */
+    private static String DisplayNameFor(String name) {
+        switch (name) {
+            case "Tails": return optionalOption(37, name);
+            case "Knuckles": return optionalOption(38, name);
+            case "Amy": return optionalOption(39, name);
+            case "Rouge": return optionalOption(40, name);
+            default: break;
+        }
+        if (Settings.language != Settings.GameLanguage.ENG) {
+            String id = null;
+            switch (name) {
+                case "the Ironclad": id = "Ironclad"; break;
+                case "the Silent": id = "Silent"; break;
+                case "the Defect": id = "Defect"; break;
+                case "the Watcher": id = "Watcher"; break;
+                default: break;
+            }
+            if (id != null) {
+                return CardCrawlGame.languagePack.getCharacterString(id).NAMES[0];
+            }
+        }
+        return name;
+    }
+
     private String ListBuddies() {
         List<DrinkingBuddy> buddies = DrinkBuddies.stream().filter(d -> d.NumberOfDrinks > 0).collect(Collectors.toList());
 
@@ -766,15 +800,15 @@ public class ChaoGardenEvent extends PhasedEvent {
             case 0:
                 return "";
             case 1:
-                return buddies.get(0).Name;
+                return buddies.get(0).Display;
             case 2:
-                return String.format("%s and %s", buddies.get(0).Name, buddies.get(1).Name);
+                return buddies.get(0).Display + OptAnd + buddies.get(1).Display;
             default:
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < buddies.size() - 1; i++) {
-                    sb.append(buddies.get(i)).append(", ");
+                    sb.append(buddies.get(i).Display).append(", ");
                 }
-                return sb.append("and ").append(buddies.get(buddies.size() - 1)).toString();
+                return sb.append(OptAndLast).append(buddies.get(buddies.size() - 1).Display).toString();
         }
     }
 
@@ -816,7 +850,7 @@ public class ChaoGardenEvent extends PhasedEvent {
                     break;
                 }
                 CardLibrary.LibraryType libraryType = null;
-                String name = character.title;
+                String name = LookupName(character);
 
                 for (CardLibrary.LibraryType library : CardLibrary.LibraryType.values()) {
                     if (library.toString().equals(character.getCardColor().toString())) {
@@ -838,6 +872,20 @@ public class ChaoGardenEvent extends PhasedEvent {
             } catch (Exception ex) {
                 SonicMod.logger.info("Could not make " + character.name + " into a drinking buddy.");
             }
+        }
+    }
+
+    /**
+     * Chao Garden strings are keyed by the English character title ("the Ironclad").
+     * character.title is localized, so vanilla characters are mapped by class instead.
+     */
+    private static String LookupName(AbstractPlayer character) {
+        switch (character.chosenClass) {
+            case IRONCLAD: return "the Ironclad";
+            case THE_SILENT: return "the Silent";
+            case DEFECT: return "the Defect";
+            case WATCHER: return "the Watcher";
+            default: return character.title;
         }
     }
 

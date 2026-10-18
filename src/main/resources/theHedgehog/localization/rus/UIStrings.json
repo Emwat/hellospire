@@ -1,0 +1,381 @@
+{
+  "${modID}:BranchUpgradeController": {
+    "TEXT": [
+      "Переключить",
+      "Выбрать",
+      "Выберите улучшение"
+    ]
+  },
+  "${modID}:AssistAmyMessage": {
+    "TEXT": [
+      "Милая парочка: стоимость 0 до конца боя."
+    ]
+  },
+  "${modID}:AssistJetMessage": {
+    "TEXT": [
+      "Джет Ястреб: случайная стоимость на этот ход."
+    ]
+  },
+  "${modID}:AssistTikalMessage": {
+    "TEXT": [
+      "Тикал Ехидна: выберите до 1 Атаки для сжигания.",
+      "Тикал Ехидна: выберите Атаки для сжигания (до ",
+      ")."
+    ]
+  },
+  "${modID}:BlueTornadoMessage": {
+    "TEXT": [
+      "Синий торнадо: переверните стоимость карты на этот ход."
+    ]
+  },
+  "${modID}:ChaosSodaPotionMessage": {
+    "TEXT": [
+      "Содовая Хаоса: сожгите до 1 карты."
+    ]
+  },
+  "${modID}:CheckpointMessage": {
+    "TEXT": [
+      "Эту карту можно разыграть, только если в руке есть Кольцо."
+    ]
+  },
+  "${modID}:ClawsUnleashedMessage": {
+    "TEXT": [
+      "Эту карту можно разыграть, только если есть вызванная Тёмная Сфера."
+    ]
+  },
+  "${modID}:IQ200Message": {
+    "TEXT": [
+      "Атака IQ200: оставьте карту."
+    ]
+  },
+  "${modID}:IQ400Message": {
+    "TEXT": [
+      "Атака IQ400: выберите карту. Случайная карта в руке превратится в выбранную."
+    ]
+  },
+  "${modID}:MagicHandsMessage": {
+    "TEXT": [
+      "Волшебные руки: карта получает «Оставляется»; если оставленную карту сжечь, вы входите в Гнев.",
+      "Волшебные руки+: карта получает «Оставляется»; если оставленную карту сжечь, вы входите в Гнев."
+    ]
+  },
+  "${modID}:PipingMessage": {
+    "TEXT": [
+      "Трубы: сожгите и добавьте копию в руку."
+    ]
+  },
+  "${modID}:SecretRouteMessage": {
+    "TEXT": [
+      "Тайный маршрут: снизьте стоимость карты на этот ход."
+    ]
+  },
+  "${modID}:ShortcutMessage": {
+    "TEXT": [
+      "Короткий путь: снизьте стоимость карты на этот ход."
+    ]
+  },
+  "${modID}:WindmillMessage": {
+    "TEXT": [
+      "Мельница: случайная стоимость карты на этот ход."
+    ]
+  },
+  "${modID}:modifierGainEnergy": {
+    "TEXT": [
+      " NL Получите {X}."
+    ]
+  },
+  "${modID}:modifierMagicHands": {
+    "TEXT": [
+      "${modID}:Драгоценность. ",
+      "${modID}:Драгоценность. NL ",
+      "МОЁ СОКРОВИЩЕ {X}!!"
+    ]
+  },
+  "${modID}:modifierRetain": {
+    "TEXT": [
+      "Оставляется. ",
+      "Оставляется. NL "
+    ]
+  },
+  "${modID}:modifierSpinUp": {
+    "TEXT": [
+      "${modID}:Раскрутка. ",
+      "${modID}:Раскрутка. NL "
+    ]
+  },
+  "${modID}:MyModConfig": {
+    "TEXT_DICT": {
+      "enableBoss1Music": "Музыка босса 1-го акта (только Соник)",
+      "enableBoss2Music": "Музыка босса 2-го акта (только Соник)",
+      "enableBoss3Music": "Музыка босса 3-го акта (только Соник)",
+      "enableBossSpearShieldMusic": "Музыка 4-го акта (только Соник)",
+      "enableBossHeartMusic": "Музыка босса 4-го акта (только Соник)",
+      "enableStatusCardArt": "Рисунки на картах-статусах (только Соник)",
+      "enableClassicMode": "Классический режим (при получении 2+ урона вы теряете ВСЕ Кольца).",
+      "enableEventsForAllCharacters": "Особые события для всех персонажей (перекрывает следующую настройку)",
+      "enableEventsForOnlySonic": "Особые события только для Соника",
+      "enableTextPopUps": "Всплывающий текст для ВОСХИТИТЕЛЬНО и реликвии «Игрок 2».",
+      "enableThreeOrbs": "Реликвия «Три чао» (Соник получает 3 слота сфер вместо 1)",
+      "enableSkinCaptain": "Скин «Капитан» (доступен после победы на Восхождении 10)",
+      "enableSound": "Звуки",
+      "enableVoice": "Озвучка",
+      "enableKicksForStrikeDummy": "Считать Удары ногой Ударами для «Манекена для ударов»",
+      "voiceFrequency": "Частота озвучки (10 = всегда)",
+      "optionStarterRelic": "Сменить начальную реликвию (1 = Горящая кровь)",
+      "enableCrossModIntegrations": "Эффекты с другими модами (по умолчанию: вкл.)",
+      "enableSonicStylePack": "Набор «Стиль Соника» (неудачная идея)",
+      "enableCrestOfFire": "Карты «Герба огня» (если открыты)",
+      "enableStanceSwitching": "Карты смены стоек (если открыты)",
+      "limiterRing": "Кольцо-ограничитель (когда вы разыгрываете Трюк, получайте на 1 меньше Бодрости).",
+      "unlockEverything": "Открыть всё (нужен перезапуск)"
+    }
+  },
+  "${modID}:EvolveChaoOptions": {
+    "TEXT": [
+      "Эволюция чао",
+      "Нужен чао.",
+      "(Бесплатное действие) Ваш чао беспечен. Эволюция чао.",
+      "(Бесплатное действие) Ваш чао тих. Эволюция чао.",
+      "(Бесплатное действие) Ваш чао энергичен. Эволюция чао.",
+      "(Бесплатное действие) Ваш чао любопытен. Эволюция чао."
+    ]
+  },
+  "${modID}:ModExhaustAction": {
+    "TEXT": [
+      "Сжечь"
+    ]
+  },
+  "${modID}:PeelOutAction": {
+    "TEXT": [
+      "Сжечь (Рывок)"
+    ]
+  },
+  "${modID}:DeathScreenSonic": {
+    "TEXT": [
+      "Этого не может быть.",
+      "Ранг E. Не твой день.",
+      "В следующий раз повезёт.",
+      "*Врезается в машину* Пауза. Заново. *Врезается снова* — City Escape",
+      "Вы слышите, как очень громко бьётся сердце.",
+      "Ты уверен, что тебе не нужна моя помощь? Похоже, не помешала бы. — Эми",
+      "Не сдавайся, Соник! — Эми",
+      "Кто-то убил моего дорогого Соника! — Эми",
+      "А что сделал бы Соник? ...Нет, так он бы не поступил. Попробую ещё раз. — Барри",
+      "Хочешь порыбачить? — Биг",
+      "Ты не просто проигрываешь. Ты проигрываешь эпично! — Хаос Соник",
+      "Ого! Бьюсь об заклад, у меня получится. Дайте мне попробовать! Дайте попробовать! — Чарми",
+      "Соник, ты должен жить. — Чип",
+      "Тебе здесь не место! — Культист",
+      "Соберись духом! — Эспио",
+      "Прощай! Соник-ёж! — Эггман",
+      "Что ж, всегда есть следующий сезон. — Эггман (Sonic Boom, 2-й сезон)",
+      "Не хватает скилла. — Гремлин-верзила",
+      "Это исключение, а не правило. — Наклз",
+      "Ты слаб. Неумел. НЕДОСТОИН! — Наклз",
+      "О нет. — Наклз",
+      "Хмпф! Так ЭТО и есть самый быстрый в мире? — Джет",
+      "Грязь тебе так к лицу! — Джет",
+      "Спасибо за денежки, хе-хе. — Мародёр",
+      "Выходит, он был самым обычным ёжиком. — Шэдоу",
+      "Ты даже на мою подделку не тянешь. — Шэдоу",
+      "Твоим приключениям приходит конец. — Шэдоу",
+      "Всё бесполезно! — Сильвер",
+      "Как кто-то вроде ТЕБЯ мог погубить наш мир? — Сильвер",
+      "Соник!!! — Тейлз"
+    ]
+  },
+  "${modID}:DeathScreenTails": {
+    "TEXT": [
+      "Ранг E. В следующий раз я должен справиться лучше.",
+      "When all alone in my chair, I just go about wishing.",
+      "I wanna be strong.",
+      "I wanna fly high.",
+      "Gotta keep going.",
+      "Somebody will be waiting for me so I've got to fly higher.",
+      "I will believe in myself. This is the only start for me.",
+      "It's never as hard as it seems.",
+      "Tails keeps us flying high to stay above trouble.",
+      "What goes up must come down. Yet my feet don't touch the ground.",
+      "Seeing the world spinning upside down. A mighty crash without a sound.",
+      "Я и представить не мог, что кто-то выйдет на гонку с такой рухлядью! — Уэйв"
+    ]
+  },
+  "${modID}:DeathScreenKnuckles": {
+    "TEXT": [
+      "Ранг E. Нужно стараться сильнее.",
+      "Ты опять позволил Эггману себя одурачить... Снова! — Соник из Sonic Advance 2",
+      "Подумай дважды, прежде чем снова открывать рот. — Соник из Sonic Pinball Party",
+      "Проиграть простому ученику... Какой позор!",
+      "Эй! Хватит, Соник, Наклз! — Тейлз из Sonic Battle",
+      "Он крепкий парень, но не слишком сообразительный. — Крим из Sonic Rush",
+      "Эй, тупица! Погоди минутку! — Эми из Sonic Rush",
+      "Ты попался прямо в мою ловушку, Наклз! — Эггман из Sonic Battle",
+      "Это секрет, но моего напарника опять провёл Эггман! — Эмерл из Sonic Battle",
+      "Забудь про красную дворнягу. Погнали, Шторм! — Уэйв из Sonic Riders",
+      "Unlike Sonic, I don't chuckle.",
+      "I'd rather flex my muscles.",
+      "Time for a Knuckles sandwich.",
+      "Yo, what happened? My Emeralds' gone!",
+      "I ain't gonna let it get to me. I'm just gonna creep.",
+      "I'm walking through valleys, crying pumpkin in the alley.",
+      "It probably seems crazy, crazy, a graveyard theory.",
+      "Death Chamber... Death Chamber... Death Chamberrr...",
+      "Rats.",
+      "And Knuckles by our side. Makes things a safer ride."
+    ]
+  },
+  "${modID}:DeathScreenShadow": {
+    "reminder:": "Base Game has 21-ish Death Messages",
+    "TEXT": [
+      "I promise you... REVENGE.",
+      "Throw it all away!",
+      "You live an endless life forever!",
+      "You have to face it again and again!",
+      "We all danced in fire.",
+      "Trapped in this machine.",
+      "As the Eggman watches.",
+      "A tragic mystery.",
+      "A shadow of myself. Just who am I?",
+      "Walk into my mystery.",
+      "Capture you or set you free.",
+      "Do you remember me?",
+      "Somewhere in chaos we'll all find ourselves.",
+      "This destruction is the only tale we tell.",
+      "White is black and black is white.",
+      "Right is wrong and wrong is right.",
+      "One step forward, two steps back.",
+      "Somewhere in between.",
+      "Well we're almost dead.",
+      "Only through trial do we find the strength we need.",
+      "Heroes rise again.",
+      "Got a hundred thousand pounds sitting on my back."
+    ]
+  },
+  "${modID}:DeathScreenAmy": {
+    "TEXT": [
+      "Скучаю по старым добрым дням. — Sonic Adventure",
+      "Но теперь его нет. И делать больше нечего. — Sonic Adventure",
+      "Соник!",
+      "Ты не Соник! Кто ты? — Sonic Adventure 2",
+      "Видимо, он струсил! — Sonic Battle",
+      "СОНИК, ДАВАЙ ОТПРАВИМСЯ В СВАДЕБНОЕ ПУТЕШЕСТВИЕ~! — Sonic Heroes",
+      "Не верится, что он сделал это лишь ради того, чтобы сбежать. — Крим из Sonic Heroes",
+      "Я просто совершенно приняла тебя за кого-то другого! — Sonic Unleashed"
+    ]
+  },
+  "${modID}:SonicStylePack": {
+    "TEXT": [
+      "Стиль Соника",
+      "О да! Это происходит!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicDizzySpinPack": {
+    "TEXT": [
+      "Головокружительное вращение Соника",
+      "Что вверх уходит, то вниз вернётся! Но ноги мои не касаются земли!",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicElementalPack": {
+    "TEXT": [
+      "Стихии Соника",
+      "Соник, откуда у тебя Сферы??",
+      "SpireWolf25"
+    ]
+  },
+  "${modID}:SonicStylePackHat": {
+    "TEXT": [
+      "Нужно мчаться быстрее.",
+      "Шляпа Соника"
+    ]
+  },
+  "${modID}:SonicDizzySpinPackHat": {
+    "TEXT": [
+      "Вверх и вниз, и по кругу!",
+      "Шляпа головокружительного вращения"
+    ]
+  },
+  "${modID}:SonicElementalPackHat": {
+    "TEXT": [
+      "Нажми кнопку B, чтобы сделать всё",
+      "Шляпа стихий"
+    ]
+  },
+  "${modID}:SkinSystemUI": {
+    "TEXT": [
+      "Скины"
+    ]
+  },
+  "${modID}:skinBase": {
+    "TEXT": [
+      "Время веселиться!"
+    ]
+  },
+  "${modID}:skinBattleSonicRed": {
+    "TEXT": [
+      "Вишня"
+    ]
+  },
+  "${modID}:skinBattleSonicGreen": {
+    "TEXT": [
+      "Глаза-драже"
+    ]
+  },
+  "${modID}:skinBattleSonicBlue": {
+    "TEXT": [
+      "Голубая малина"
+    ]
+  },
+  "${modID}:skinCaptainSonic": {
+    "TEXT": [
+      "Знаешь, я из тех, кто сначала прыгает, а потом думает."
+    ]
+  },
+  "${modID}:skinBattleTails": {
+    "TEXT": [
+      "Давно не виделись!"
+    ]
+  },
+  "${modID}:skinBattleKnuckles": {
+    "TEXT": [
+      "Мою силу тебе не получить."
+    ]
+  },
+  "${modID}:skinBattleShadow": {
+    "TEXT": [
+      "Военные приняли меня за кого-то вроде тебя!"
+    ]
+  },
+  "${modID}:skinBattleAmy": {
+    "TEXT": [
+      "М-может, обойдёмся без молота."
+    ]
+  },
+  "${modID}:PackMainMenuUI": {
+    "TEXT": [
+      "Свой режим драфта",
+      "Включите, чтобы выбрать, как определяются ваши наборы.",
+      "Случайно",
+      "На выбор: ",
+      "Меню фильтра наборов",
+      "Меню скинов",
+      "",
+      "Нет"
+    ]
+  },
+  "${modID}:RewardAssistMessage": {
+    "TEXT": [
+      "Потеряйте: ",
+      ". Получите: ",
+      ".",
+      "Закрепить Помощь."
+    ]
+  },
+  "${modID}:RewardMissionMessage": {
+    "TEXT": [
+      "Получите ",
+      " золота."
+    ]
+  }
+}
