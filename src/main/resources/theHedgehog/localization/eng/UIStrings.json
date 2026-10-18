@@ -1,4 +1,11 @@
 {
+  "${modID}:BranchUpgradeController": {
+    "TEXT": [
+      "Switch",
+      "Choose",
+      "Choose an upgrade"
+    ]
+  },
   "${modID}:Example": {
     "TEXT": [
       "This is",

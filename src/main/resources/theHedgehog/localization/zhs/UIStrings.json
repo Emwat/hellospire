@@ -1,4 +1,11 @@
 {
+  "${modID}:BranchUpgradeController": {
+    "TEXT": [
+      "切换",
+      "选择",
+      "选择升级路线"
+    ]
+  },
   "${modID}:Example": {
     "TEXT": [
       "This is",
